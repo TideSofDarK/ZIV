@@ -1,2 +1,4 @@
-# ZiV
-Let's try to recreate Zombies In Village from wc3
+# Zombies In Village
+
+## Core developers
+ - [@TideSofDarK](https://github.com/TideSofDarK)
