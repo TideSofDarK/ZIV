@@ -1,0 +1,165 @@
+"ziv_huntress_trap"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"       
+    "particle"      "particles/units/heroes/hero_meepo/meepo_earthbind_projectile_fx.vpcf"
+    "particle"      "particles/units/heroes/hero_meepo/meepo_earthbind.vpcf"   
+  }
+
+  "AbilityCastRange"        "1000"
+  "AbilityCastPoint"        "0.0"
+  "AbilityCooldown"       "10.0"
+  "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+
+  "AbilityManaCost"       "75"
+
+  "MaxLevel"  "7"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "snare_unit_duration"    "70.0 75.0 80.0 85.0"
+    }
+    "02"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "snare_duration"    "3.5 4.0 4.5 5.0"
+    }
+    "03"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "trap_radius"    "300"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/ziv_huntress_trap.lua"
+      "Function"    "CreateTrap"
+      "Target"    "POINT"
+    }
+
+    "FireSound"
+    {
+      "EffectName"            "Hero_NagaSiren.Ensnare.Cast"
+      "Target"                "CASTER"
+    }
+  }
+
+  "OnProjectileHitUnit"
+  {
+    "DeleteOnHit"   "1"
+
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/ziv_huntress_trap.lua"
+      "Function"    "CreateTrapUnit"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_trap_unit"
+    {
+      "Duration"      "%snare_unit_duration"
+
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+  
+      "EffectName"            "particles/units/heroes/hero_meepo/meepo_earthbind.vpcf"
+      "EffectAttachType"      "follow_origin"
+
+      "ThinkInterval"  "0.3"
+      "OnIntervalThink"
+      {
+        "ActOnTargets"
+        {
+          "Target"
+          {
+            "Center"    "TARGET"
+            "Radius"   "%trap_radius"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Types"   "DOTA_UNIT_TARGET_BASIC"
+          }
+        
+          "Action"    
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "abilities/heroes/ziv_huntress_trap.lua"
+              "Function"    "RemoveTrapUnit"
+            }
+          }
+        }
+      }
+    }
+    "modifier_trap_delay"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "OnCreated"
+      {
+        "DelayedAction"
+        {
+          "Delay"     "2.0"
+          "Action"    
+          {
+            "ActOnTargets"
+            {
+              "Target"
+              {
+                "Center"    "TARGET"
+                "Radius"   "%trap_radius"
+                "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"   "DOTA_UNIT_TARGET_BASIC"
+              }
+            
+              "Action"    
+              {
+                "ApplyModifier"
+                {
+                  "ModifierName"  "modifier_ensnared"
+                  "Target"     "TARGET"
+                  "Duration"    "%snare_duration"
+                }
+              }
+            }
+            "Damage"
+            {
+              "Target"    "CASTER"
+              "Type"      "DAMAGE_TYPE_PURE"
+              "Damage"    "1"
+            }
+          }
+        }
+      }
+    }
+    "modifier_ensnared"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+    
+      "States"
+      {
+        "MODIFIER_STATE_ROOTED"     "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_SILENCED"     "MODIFIER_STATE_VALUE_ENABLED"
+      }
+
+      "EffectName"            "particles/units/heroes/hero_meepo/meepo_earthbind.vpcf"
+      "EffectAttachType"      "follow_origin"
+    }
+  }
+}

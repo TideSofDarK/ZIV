@@ -1,0 +1,55 @@
+"npc_dota_hero_windrunner_ziv"
+  {
+    "AbilityLayout"     "6"
+    "override_hero"     "npc_dota_hero_windrunner"
+    "SoundSet"          "0" 
+    "Ability1"        "ziv_huntress_trap" 
+    "Ability2"        "ziv_huntress_passive_snare" 
+    "Ability3"        "ziv_empty3" 
+    "Ability4"        "ziv_empty4"
+    "Ability5"        "ziv_empty5"
+    "Ability6"        "ziv_empty6"
+    "Ability7"        ""
+    "Ability8"        ""
+    "Ability9"        ""
+    "Ability10"       ""
+    "Ability11"       ""
+    "Ability12"       ""
+    "Ability13"       ""
+    "Ability14"       ""
+    "Ability15"       ""
+    "Ability16"       ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackDamageMin"     "10"
+    "AttackDamageMax"     "15"
+
+    //"AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
+    "AttributeBaseStrength"   "0"
+    "AttributeStrengthGain"   "0"
+    "AttributeBaseIntelligence" "0"
+    "AttributeIntelligenceGain" "0"
+    "AttributeBaseAgility"    "0"
+    "AttributeAgilityGain"    "0"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    //"BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+    //"RingRadius"        "70"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "360"
+    "MovementTurnRate"      "1.0"
+
+    "StatusHealth"        "500"
+    "StatusHealthRegen"     "0.1"
+    "StatusMana"        "200"
+    "StatusManaRegen"     "100.0"
+
+    "VisionDaytimeRange"    "1800"
+    "VisionNighttimeRange"    "1800"
+  }

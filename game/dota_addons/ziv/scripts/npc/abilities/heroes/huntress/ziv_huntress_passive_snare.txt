@@ -1,0 +1,98 @@
+"ziv_huntress_passive_snare"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"       
+    "particle"      "particles/units/heroes/hero_meepo/meepo_earthbind_projectile_fx.vpcf"
+    "particle"      "particles/units/heroes/hero_meepo/meepo_earthbind.vpcf"   
+  }
+
+  "AbilityCooldown"       "1.0"
+
+  "MaxLevel"  "7"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "snare_chance"    "7.0 8.0 9.0 10.0"
+    }
+    "02"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "snare_duration"    "3.5 4.0 4.5 5.0"
+    }
+  }
+
+  "OnProjectileHitUnit"
+  {
+    "DeleteOnHit"   "1"
+
+    "ApplyModifier"
+    {
+      "ModifierName"  "modifier_ensnared"
+      "Target"     "TARGET"
+      "Duration"    "%snare_duration"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_passive_snare"
+    {
+      "Passive"      "1"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "OnAttackStart"
+      {
+        "Random"
+        {
+          "Chance"      "%snare_chance"
+          "OnSuccess"
+          {
+            "TrackingProjectile"
+            {
+              "Target"                "TARGET"
+              "EffectName"            "particles/units/heroes/hero_meepo/meepo_earthbind_projectile_fx.vpcf"
+              "Dodgeable"             "0"
+              "ProvidesVision"        "1"
+              "VisionRadius"          "0"
+              "MoveSpeed"             "800"
+              "SourceAttachment"      "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+            }
+            "FireSound"
+            {
+              "EffectName"            "Hero_NagaSiren.Ensnare.Cast"
+              "Target"                "CASTER"
+            }
+          }
+          "OnFailure"
+          {
+
+          }
+        }
+      }
+    }
+    "modifier_ensnared"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+    
+      "States"
+      {
+        "MODIFIER_STATE_ROOTED"     "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_SILENCED"     "MODIFIER_STATE_VALUE_ENABLED"
+      }
+
+      "EffectName"            "particles/units/heroes/hero_meepo/meepo_earthbind.vpcf"
+      "EffectAttachType"      "follow_origin"
+    }
+  }
+}
