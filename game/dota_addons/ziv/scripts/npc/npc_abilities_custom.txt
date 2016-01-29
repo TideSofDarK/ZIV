@@ -460,7 +460,7 @@
 	  {
 	    "RunScript"
 	    {
-	      "ScriptFile"  "abilities/heroes/ziv_huntress_trap.lua"
+	      "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_trap.lua"
 	      "Function"    "CreateTrap"
 	      "Target"    "POINT"
 	    }
@@ -478,7 +478,7 @@
 	
 	    "RunScript"
 	    {
-	      "ScriptFile"  "abilities/heroes/ziv_huntress_trap.lua"
+	      "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_trap.lua"
 	      "Function"    "CreateTrapUnit"
 	    }
 	  }
@@ -513,7 +513,7 @@
 	          {
 	            "RunScript"
 	            {
-	              "ScriptFile"  "abilities/heroes/ziv_huntress_trap.lua"
+	              "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_trap.lua"
 	              "Function"    "RemoveTrapUnit"
 	            }
 	          }
@@ -579,5 +579,82 @@
 	      "EffectAttachType"      "follow_origin"
 	    }
 	  }
+	}
+	"ziv_huntress_volly"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+	  "AbilityTextureName"            "rubick_empty1"
+	  
+	  "AbilityCastAnimation"      "ACT_DOTA_ATTACK"
+	  
+	  "AbilityCastRange"        "1100"
+	  "AbilityManaCost"         "60"
+	  "AbilityCastPoint"        "0.25"
+	  "AbilityChannelTime"      "1.0"
+	  "AbilityCooldown"         "25 23 21 19 17 15 13"
+	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+	
+	  "AbilityManaCost"       "120"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"           "particles/windrunner_spell_powershot.vpcf"
+	    "soundfile"         "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_damage"            "70 100 130 160 190 220 250"
+	    }
+	  }
+	  
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"        "abilities/heroes/huntress/ziv_huntress_volly.lua"
+	      "Function"          "Volly"
+	      "Target"            "POINT"
+	      "FixedDistance"                                     "1200"
+	      "EffectName"                    "particles/windrunner_spell_powershot.vpcf"
+	      "MoveSpeed"                             "2200"
+	      "StartRadius"                   "20"
+	      "EndRadius"                             "20"
+	      "TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	      "TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+	      "HasFrontalCone"                "1"
+	      "ProvidesVision"                "1"
+	      "VisionRadius"                  "400"
+	    }      
+	    "FireSound"
+	    {
+	      "EffectName"                    "Hero_Silencer.GlaivesOfWisdom"
+	    }
+	  }
+	  
+	  "OnProjectileHitUnit"
+	  {
+	    "DeleteOnHit"   "0"
+	
+	    "FireSound"
+	    {
+	      "EffectName"                    "Hero_Silencer.GlaivesOfWisdom.Damage"
+	    }
+	    
+	    "RunScript"
+	    {
+	      "ScriptFile"        "abilities/heroes/huntress/ziv_huntress_volly.lua"
+	      "Function"          "VollyHit"
+	      "Target"            "TARGET"
+	      "Type"        "DAMAGE_TYPE_PHYSICAL"
+	      "BonusDamage"   "%bonus_damage"
+	    }
+	  } 
 	}
 }

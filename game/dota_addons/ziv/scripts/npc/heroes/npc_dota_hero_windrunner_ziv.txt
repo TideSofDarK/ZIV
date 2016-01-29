@@ -5,7 +5,7 @@
     "SoundSet"          "0" 
     "Ability1"        "ziv_huntress_trap" 
     "Ability2"        "ziv_huntress_passive_snare" 
-    "Ability3"        "ziv_empty3" 
+    "Ability3"        "ziv_huntress_volly" 
     "Ability4"        "ziv_empty4"
     "Ability5"        "ziv_empty5"
     "Ability6"        "ziv_empty6"

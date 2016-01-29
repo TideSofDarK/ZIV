@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"OnAtt",
+				"OnAttackStart	Animation started"
+			],
+			[
+				"GetSpecialLe",
+				"GetLevelSpecialValueFor"
+			],
+			[
 				"npc_petri_",
 				"npc_petri_mega_peasant"
 			],
@@ -62,10 +70,6 @@
 			[
 				"marg",
 				"margin-bottom"
-			],
-			[
-				"OnAtt",
-				"OnAttackStart	Animation started"
 			],
 			[
 				"OnAt",
@@ -304,18 +308,10 @@
 	"buffers":
 	[
 		{
-			"file": "README.md",
+			"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/huntress/ziv_huntress_trap.txt",
 			"settings":
 			{
-				"buffer_size": 90,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": ".gitignore",
-			"settings":
-			{
-				"buffer_size": 518,
+				"buffer_size": 3768,
 				"line_ending": "Windows"
 			}
 		}
@@ -356,10 +352,40 @@
 	},
 	"expanded_folders":
 	[
-		"/E/workspace/ZiV"
+		"/E/workspace/ZiV",
+		"/E/workspace/ZiV/game",
+		"/E/workspace/ZiV/game/dota_addons",
+		"/E/workspace/ZiV/game/dota_addons/ziv",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/huntress",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units/heroes",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/huntress",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/examples",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal"
 	],
 	"file_history":
 	[
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/ziv_huntress_passive_snare.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/ziv_huntress_trap.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_dummy_unit.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_windrunner_ziv.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/ziv_huntress_trap.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/util.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/herolist.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/huntress/npc_dummy_unit.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/dummy_unit.txt",
+		"/E/workspace/ZiV/README.md",
+		"/E/workspace/ZiV/.gitignore",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/buildings/queue.lua",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/events.lua",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/gamemode.lua",
@@ -476,18 +502,7 @@
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/items/item_petri_jedi.txt",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/units/gold_tower.lua",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/items/item_petri_trap.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/units/earth_wall.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/units/npc_petri_gold_tower.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/kv/walls.kv",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/units/npc_petri_tower_basic.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/units/wall.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/abilities/petri_upgrade_to_earth_wall.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/items/candy.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/items/gold_coin.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/items/pile_of_wood.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/abilities/petri_upgrade_tent.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/portraits.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/portraits.txt"
+		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/units/earth_wall.lua"
 	],
 	"find":
 	{
@@ -571,6 +586,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"1",
 			"numberOfMegaWorkers",
 			"numberOfUnits",
 			"peasa",
@@ -697,8 +713,7 @@
 			"lastSpentFood",
 			"RegisterConvar",
 			"lumber = ",
-			"lumber",
-			"#"
+			"lumber"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -706,6 +721,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"0",
 			"dnota_reborn",
 			"dnota_radiant",
 			"dnota",
@@ -751,57 +767,31 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "README.md",
-					"semi_transient": false,
+					"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/huntress/ziv_huntress_trap.txt",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 90,
+						"buffer_size": 3768,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20,
-								20
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": ".gitignore",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 518,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								466,
-								466
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -852,7 +842,7 @@
 	"project": "ziv.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":

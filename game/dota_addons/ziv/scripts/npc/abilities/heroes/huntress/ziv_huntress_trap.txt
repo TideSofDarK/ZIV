@@ -43,7 +43,7 @@
   {
     "RunScript"
     {
-      "ScriptFile"  "abilities/heroes/ziv_huntress_trap.lua"
+      "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_trap.lua"
       "Function"    "CreateTrap"
       "Target"    "POINT"
     }
@@ -61,7 +61,7 @@
 
     "RunScript"
     {
-      "ScriptFile"  "abilities/heroes/ziv_huntress_trap.lua"
+      "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_trap.lua"
       "Function"    "CreateTrapUnit"
     }
   }
@@ -96,7 +96,7 @@
           {
             "RunScript"
             {
-              "ScriptFile"  "abilities/heroes/ziv_huntress_trap.lua"
+              "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_trap.lua"
               "Function"    "RemoveTrapUnit"
             }
           }
