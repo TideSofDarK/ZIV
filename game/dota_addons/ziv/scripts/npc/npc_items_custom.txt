@@ -131,4 +131,97 @@
 	      }
 	    }
 	  }
+	"item_basic_shotgun"
+	{
+	  "ID"              "1000"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_quarterstaff"
+	
+	  "Slot"  "weapon"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	  
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "items/equipment.lua"
+	      "Function"    "Equip"
+	    }
+	    "ApplyModifier"
+	    {
+	      "ModifierName"  "modifier_basic_shotgun_equipped_weapon"
+	      "Target"     "CASTER"
+	    }
+	  }
+	  
+	  "Modifiers"
+	  {
+	    "modifier_basic_shotgun_equipped_weapon"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsBuff"      "1"
+	    
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"  "50"
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-50"
+	      }
+	    }
+	  }
+	}
+	"item_basic_smg"
+	{
+	  "ID"              "1001"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_pers"
+	
+	  "Slot"  "weapon"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	  
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "items/equipment.lua"
+	      "Function"    "Equip"
+	    }
+	    "ApplyModifier"
+	    {
+	      "ModifierName"  "modifier_basic_smg_equipped_weapon"
+	      "Target"     "CASTER"
+	    }
+	  }
+	  
+	  "Modifiers"
+	  {
+	    "modifier_basic_smg_equipped_weapon"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsBuff"      "1"
+	    
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
+	      }
+	    }
+	  }
+	}
 }

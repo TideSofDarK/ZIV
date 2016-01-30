@@ -33,6 +33,10 @@ require('settings')
 -- events.lua is where you can specify the actions to be taken when any event occurs and is one of the core ziv files.
 require('events')
 
+require('filters')
+
+require('items/equipment')
+
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 
@@ -128,6 +132,10 @@ function ZIV:InitZIV()
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   Convars:RegisterCommand( "command_example", Dynamic_Wrap(ZIV, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
+
+  GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( ZIV, "FilterExecuteOrder" ), self )
+
+  ZIV.ItemKVs = LoadKeyValues("scripts/npc/npc_items_custom.txt")
 
   DebugPrint('[ZIV] Done loading ZIV ziv!\n\n')
 end

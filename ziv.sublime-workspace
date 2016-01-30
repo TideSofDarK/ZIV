@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"SPend",
+				"SpendCharge	item modf owner event"
+			],
+			[
 				"OnAtt",
 				"OnAttackStart	Animation started"
 			],
@@ -308,10 +312,66 @@
 	"buffers":
 	[
 		{
-			"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/huntress/ziv_huntress_trap.txt",
+			"file": "game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_windrunner_ziv.txt",
 			"settings":
 			{
-				"buffer_size": 3768,
+				"buffer_size": 1531,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_sniper_ziv.txt",
+			"settings":
+			{
+				"buffer_size": 1495,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "game/dota_addons/ziv/scripts/npc/herolist.txt",
+			"settings":
+			{
+				"buffer_size": 3665,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "game/dota_addons/ziv/scripts/npc/items/weapons/guns/item_basic_shotgun.txt",
+			"settings":
+			{
+				"buffer_size": 858,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "game/dota_addons/ziv/scripts/npc/items/weapons/guns/item_basic_smg.txt",
+			"settings":
+			{
+				"buffer_size": 781,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example/panorama/layout/custom_game/buff_list.xml",
+			"settings":
+			{
+				"buffer_size": 348,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example/panorama/layout/custom_game/buff_list_buff.xml",
+			"settings":
+			{
+				"buffer_size": 1254,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example/panorama/layout/custom_game/custom_ui_manifest.xml",
+			"settings":
+			{
+				"buffer_size": 329,
 				"line_ending": "Windows"
 			}
 		}
@@ -363,6 +423,8 @@
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/huntress",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/weapons",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/weapons/guns",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units/heroes",
@@ -370,15 +432,22 @@
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/huntress",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/examples",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal"
 	],
 	"file_history":
 	[
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/item_example_item.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/huntress/ziv_huntress_volly.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/huntress/ziv_huntress_volly.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/huntress/ziv_huntress_trap.txt",
+		"/C/Users/TideSofDarK/Downloads/AsheScripts/scripts/npc/npc_abilities_custom.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_windrunner_ziv.txt",
+		"/C/Users/TideSofDarK/Downloads/AsheScripts/scripts/vscripts/wip.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/ziv_huntress_passive_snare.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/ziv_huntress_trap.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_dummy_unit.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_windrunner_ziv.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/ziv_huntress_trap.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/util.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/herolist.txt",
@@ -496,13 +565,7 @@
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/heroes/npc_petri_elena.txt",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/heroes/npc_petri_mini_actor.txt",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/items/item_petri_vip_greenkzn.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/libraries/attachments.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/units/npc_petri_earth_wall.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/items/item_petri_vip_frostbite.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/items/item_petri_jedi.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/units/gold_tower.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/items/item_petri_trap.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/units/earth_wall.lua"
+		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/libraries/attachments.lua"
 	],
 	"find":
 	{
@@ -513,6 +576,7 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"E:\\workspace\\ZiV\\game\\dota_addons\\ziv\\scripts\\npc\\abilities\\heroes\\huntress",
 			"E:\\workspace\\PetriReborn\\game\\dota_addons\\petri_reborn\\scripts\\vscripts",
 			"E:\\workspace\\PetriReborn\\game\\dota_addons\\petri_reborn\\scripts\\npc\\items",
 			"E:\\workspace\\PetriReborn\\game\\dota_addons\\petri_reborn\\scripts\\vscripts",
@@ -586,6 +650,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"abilities/heroes/ziv_huntress_trap.lua",
 			"1",
 			"numberOfMegaWorkers",
 			"numberOfUnits",
@@ -712,8 +777,7 @@
 			"SpendFood",
 			"lastSpentFood",
 			"RegisterConvar",
-			"lumber = ",
-			"lumber"
+			"lumber = "
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -721,6 +785,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"abilities/heroes/huntress/ziv_huntress_trap.lua",
 			"0",
 			"dnota_reborn",
 			"dnota_radiant",
@@ -767,16 +832,166 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 7,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/huntress/ziv_huntress_trap.txt",
-					"semi_transient": true,
+					"file": "game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_windrunner_ziv.txt",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3768,
+						"buffer_size": 1531,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1301,
+								1301
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_sniper_ziv.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1495,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								168,
+								168
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "game/dota_addons/ziv/scripts/npc/herolist.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3665,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2,
+								2
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "game/dota_addons/ziv/scripts/npc/items/weapons/guns/item_basic_shotgun.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 858,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								543,
+								543
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "game/dota_addons/ziv/scripts/npc/items/weapons/guns/item_basic_smg.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 781,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								527,
+								527
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example/panorama/layout/custom_game/buff_list.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 348,
 						"regions":
 						{
 						},
@@ -789,9 +1004,65 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example/panorama/layout/custom_game/buff_list_buff.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example/panorama/layout/custom_game/custom_ui_manifest.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

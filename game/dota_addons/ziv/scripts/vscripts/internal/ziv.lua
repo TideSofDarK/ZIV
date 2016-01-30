@@ -90,6 +90,8 @@ function ZIV:_InitZIV()
   ListenToGameEvent("dota_npc_goal_reached", Dynamic_Wrap(ZIV, 'OnNPCGoalReached'), self)
 
   ListenToGameEvent("player_chat", Dynamic_Wrap(ZIV, 'OnPlayerChat'), self)
+
+  CustomGameEventManager:RegisterListener( "player_buff_clicked", Dynamic_Wrap(ZIV, 'OnBuffClicked'))
   
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(ZIV, 'OnShopToggled'), self)
 

@@ -78,7 +78,7 @@ ENABLED_RUNES[DOTA_RUNE_REGENERATION] = true -- Regen runes are currently not sp
 ENABLED_RUNES[DOTA_RUNE_BOUNTY] = true
 
 
-MAX_NUMBER_OF_TEAMS = 10                -- How many potential teams can be in this game mode?
+MAX_NUMBER_OF_TEAMS = 2                -- How many potential teams can be in this game mode?
 USE_CUSTOM_TEAM_COLORS = true          -- Should we use custom team colors?
 USE_CUSTOM_TEAM_COLORS_FOR_PLAYERS = true          -- Should we use custom team colors to color the players/minimap?
 
@@ -95,11 +95,11 @@ TEAM_COLORS[DOTA_TEAM_CUSTOM_7] = { 199, 228, 13 }  --    Olive
 TEAM_COLORS[DOTA_TEAM_CUSTOM_8] = { 140, 42, 244 }  --    Purple
 
 
-USE_AUTOMATIC_PLAYERS_PER_TEAM = true   -- Should we set the number of players to 10 / MAX_NUMBER_OF_TEAMS?
+USE_AUTOMATIC_PLAYERS_PER_TEAM = false   -- Should we set the number of players to 10 / MAX_NUMBER_OF_TEAMS?
 
 CUSTOM_TEAM_PLAYER_COUNT = {}           -- If we're not automatically setting the number of players per team, use this table
-CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 1
-CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 1
+CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 4
+CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 4
 CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_1] = 1
 CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_2] = 1
 CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_3] = 1
