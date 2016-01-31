@@ -1,0 +1,100 @@
+"ziv_sniper_smg_special"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AbilityCastRange"        "1100"
+  "AbilityManaCost"         "60"
+  "AbilityCastPoint"        "0.25"
+  "AbilityChannelTime"      "1.2"
+  "AbilityCooldown"         "21 19 17 15 13 11 9"
+  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+
+  "AbilityManaCost"       "120"
+  
+  "MaxLevel"          "7"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"    
+    "particle"           "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_base_attack.vpcf"
+  }
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_damage"            "70 100 130 160 190 220 250"
+    }
+    "02"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bash_chance"            "10"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"        "abilities/heroes/sniper/ziv_sniper_volley.lua"
+      "Function"          "Volley"
+      "Target"            "POINT"
+      "FixedDistance"                                     "1200"
+      "EffectName"                    "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_base_attack.vpcf"
+      "MoveSpeed"                             "2300"
+      "StartRadius"                   "16"
+      "EndRadius"                             "16"
+      "TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+      "TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+      "HasFrontalCone"                "1"
+      "ProvidesVision"                "1"
+      "VisionRadius"                  "400"
+    }
+  }
+
+  "OnProjectileHitUnit"
+  {
+    "DeleteOnHit"   "1"
+
+    "Damage"
+    {
+      "Target"    "TARGET"
+      "Type"      "DAMAGE_TYPE_PHYSICAL"
+      "Damage"    "%bonus_damage"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_passive_smg_stuns"
+    {
+      "Passive"      "1"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "OnAttackStart"
+      {
+        "Random"
+        {
+          "Chance"      "%bash_chance"
+          "OnSuccess"
+          {
+            "ApplyModifier"
+            {
+              "ModifierName"  "modifier_stunned"
+              "Target"     "TARGET"
+              "Duration"    "0.30"
+            }
+          }
+          "OnFailure"
+          {
+
+          }
+        }
+      }
+    }
+  }
+}

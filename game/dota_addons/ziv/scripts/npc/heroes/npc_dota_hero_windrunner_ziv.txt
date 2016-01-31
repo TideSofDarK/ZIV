@@ -2,7 +2,7 @@
   {
     "AbilityLayout"     "6"
     "override_hero"     "npc_dota_hero_windrunner"
-    "SoundSet"          "0" 
+
     "Ability1"        "ziv_huntress_trap" 
     "Ability2"        "ziv_huntress_passive_snare" 
     "Ability3"        "ziv_huntress_volly" 

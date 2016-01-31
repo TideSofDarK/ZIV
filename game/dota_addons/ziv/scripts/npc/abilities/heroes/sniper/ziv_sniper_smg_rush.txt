@@ -1,0 +1,109 @@
+"ziv_sniper_smg_rush"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AbilityCastPoint"        "0.25"
+  "AbilityCooldown"         "21 19 17 15 13 11 9"
+
+  "AbilityManaCost"       "75"
+  
+  "MaxLevel"          "7"
+
+  "precache"
+  {
+    "particle"  "particles/items2_fx/mask_of_madness.vpcf"
+    "particle"  "particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
+  }
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "attack_speed"            "70 80 90 100 110 120 130"
+    }
+    "02"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "duration"            "10"
+    }
+    "03"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "da_chance"            "20"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "ApplyModifier"
+    {
+      "ModifierName"  "modifier_smg_rush_active"
+      "Target"     "CASTER"
+      "Duration"    "%duration"
+    }
+    "FireSound"
+    {
+        "EffectName"        "DOTA_Item.MaskOfMadness.Activate"
+        "Target"            "CASTER"
+    }
+  }
+
+  "OnProjectileHitUnit"
+  {
+    "DeleteOnHit"   "1"
+      
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/sniper/ziv_sniper_rush.lua"
+      "Function"    "DoubleAttackDamage"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_smg_rush_active"
+    {
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsBuff"      "1"
+    
+      "EffectName"            "particles/items2_fx/mask_of_madness.vpcf"
+      "EffectAttachType"      "follow_origin"
+    
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
+      }
+    }
+    "modifier_smg_rush_passive"
+    {
+      "Passive"      "1"
+      "IsHidden"      "1"
+      "IsBuff"      "1"
+    
+      "OnAttackStart"
+      {
+        "Random"
+        {
+          "Chance"      "%da_chance"
+          "OnSuccess"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "abilities/heroes/sniper/ziv_sniper_rush.lua"
+              "Function"    "DoubleAttack"
+              "Target"  "TARGET"
+              "base_attack_particle" "particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
+            }
+          }
+          "OnFailure"
+          {
+          }
+        }
+      }
+    }
+  }
+}

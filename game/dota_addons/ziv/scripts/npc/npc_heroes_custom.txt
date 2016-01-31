@@ -4,10 +4,10 @@
 	  {
 	    "AbilityLayout"     "6"
 	    "override_hero"     "npc_dota_hero_sniper"
-	    "SoundSet"          "0" 
-	    "Ability1"        "ziv_empty1" 
-	    "Ability2"        "ziv_empty2" 
-	    "Ability3"        "ziv_empty3" 
+	
+	    "Ability1"        "ziv_sniper_smg_special" 
+	    "Ability2"        "ziv_sniper_smg_rush" 
+	    "Ability3"        "ziv_sniper_shotgun_special" 
 	    "Ability4"        "ziv_empty4"
 	    "Ability5"        "ziv_empty5"
 	    "Ability6"        "ziv_empty6"
@@ -59,7 +59,7 @@
 	  {
 	    "AbilityLayout"     "6"
 	    "override_hero"     "npc_dota_hero_windrunner"
-	    "SoundSet"          "0" 
+	
 	    "Ability1"        "ziv_huntress_trap" 
 	    "Ability2"        "ziv_huntress_passive_snare" 
 	    "Ability3"        "ziv_huntress_volly" 
