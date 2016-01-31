@@ -131,6 +131,57 @@
 	      }
 	    }
 	  }
+	"item_basic_coat"
+	{
+	  "ID"              "1100"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_chainmail"
+	
+	  "Slot"  "torso"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	  
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "items/equipment.lua"
+	      "Function"    "Equip"
+	    }
+	    "ApplyModifier"
+	    {
+	      "ModifierName"  "modifier_basic_coat_equipped_torso"
+	      "Target"     "CASTER"
+	    }
+	    "FireSound"
+	    {
+	      "EffectName"  "ui.inv_equip_leather"
+	      "Target"     "CASTER"
+	    }
+	  }
+	  
+	  "Modifiers"
+	  {
+	    "modifier_basic_coat_equipped_torso"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsBuff"      "1"
+	    
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "5"
+	      }
+	    }
+	  }
+	}
 	"item_basic_shotgun"
 	{
 	  "ID"              "1000"
@@ -158,6 +209,11 @@
 	    "ApplyModifier"
 	    {
 	      "ModifierName"  "modifier_basic_shotgun_equipped_weapon"
+	      "Target"     "CASTER"
+	    }
+	    "FireSound"
+	    {
+	      "EffectName"  "ui.inv_equip_gun"
 	      "Target"     "CASTER"
 	    }
 	  }
@@ -205,6 +261,11 @@
 	    "ApplyModifier"
 	    {
 	      "ModifierName"  "modifier_basic_smg_equipped_weapon"
+	      "Target"     "CASTER"
+	    }
+	    "FireSound"
+	    {
+	      "EffectName"  "ui.inv_equip_gun"
 	      "Target"     "CASTER"
 	    }
 	  }

@@ -27,6 +27,11 @@
       "ModifierName"  "modifier_basic_shotgun_equipped_weapon"
       "Target"     "CASTER"
     }
+    "FireSound"
+    {
+      "EffectName"  "ui.inv_equip_gun"
+      "Target"     "CASTER"
+    }
   }
   
   "Modifiers"

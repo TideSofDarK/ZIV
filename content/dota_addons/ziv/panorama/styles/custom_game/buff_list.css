@@ -15,7 +15,8 @@
 
 .BuffRoot
 {
-	margin: 5px;
+
+	margin: 0px;
 	border-radius: 3px;
 }
 
@@ -26,6 +27,7 @@
 
 #BuffFrame
 {
+	margin: 5px;
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #52ae21 ), to( #2c6e08 ) );
 	padding: 1px;
 }
@@ -102,7 +104,7 @@
 	horizontal-align: center;
 	border: 1px solid black;
     background-color: #c4a529;
-	width: 114px;
+	width: 124px;
 	height: 28px;
 	margin-bottom: 6px;
 }

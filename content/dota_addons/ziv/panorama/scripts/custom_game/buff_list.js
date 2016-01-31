@@ -66,11 +66,19 @@ function UpdateBuffs()
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	
 	var nBuffs = Entities.GetNumBuffs( queryUnit );
+
+	for (var x = 0; x < m_BuffPanels.length; x++) {
+		if (Buffs.GetName(m_BuffPanels[x].m_QueryUnit, m_BuffPanels[x].m_BuffSerial) == "") {
+			m_BuffPanels[x].RemoveAndDeleteChildren();
+			m_BuffPanels.splice(x, 1);
+			x--;
+		}
+	}
 	
 	// update all the panels
-	var nUsedPanels = 0;
 	for ( var i = 0; i < nBuffs; ++i )
 	{
+
 		var buffSerial = Entities.GetBuff( queryUnit, i );
 
 		var buffName = Buffs.GetName(queryUnit, buffSerial);
@@ -80,28 +88,29 @@ function UpdateBuffs()
 
 		if ( buffSerial == -1 )
 			continue;
+
+		var present = false;
+		for (var x = 0; x < m_BuffPanels.length; x++) {
+			if (m_BuffPanels[x].m_BuffSerial == buffSerial) {
+				present = true;
+
+				UpdateBuff( m_BuffPanels[x], queryUnit, buffSerial );
+				break;
+			}
+		}
 		
-		if ( nUsedPanels >= m_BuffPanels.length )
+		if ( present == false )
 		{
 			// create a new panel
 			var buffPanel = $.CreatePanel( "Panel", buffsListPanel, "" );
 			buffPanel.BLoadLayout( "file://{resources}/layout/custom_game/buff_list_buff.xml", false, false );
 			m_BuffPanels.push( buffPanel );
+
+			UpdateBuff( buffPanel, queryUnit, buffSerial );
 		}
-
-		// update the panel for the current unit / buff
-		var buffPanel = m_BuffPanels[ nUsedPanels ];
-		UpdateBuff( buffPanel, queryUnit, buffSerial );
-		
-		nUsedPanels++;
 	}
 
-	// clear any remaining panels
-	for ( var i = nUsedPanels; i < m_BuffPanels.length; ++i )
-	{
-		var buffPanel = m_BuffPanels[ i ];
-		UpdateBuff( buffPanel, -1, -1 );
-	}
+	
 }
 
 function AutoUpdateBuffs()
