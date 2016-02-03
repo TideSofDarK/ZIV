@@ -30,7 +30,21 @@ function Equip( keys )
 
 	CheckSlot( caster, ZIV.ItemKVs[itemName]["Slot"] )
 
-	Timers:CreateTimer(0.06, function (  )
+	for i=1,2 do
+		local custom_skill = ZIV.ItemKVs[itemName]["CustomSkill"..tostring(i)]
+		if custom_skill then
+
+			caster.ability_levels = caster.ability_levels or {}
+			caster.ability_levels[i] = caster:GetAbilityByIndex(i-1):GetLevel()
+			
+			caster:RemoveAbility(caster:GetAbilityByIndex(i-1):GetName())
+			caster:AddAbility(custom_skill)
+
+			caster:FindAbilityByName(custom_skill):SetLevel(caster.ability_levels[i])
+		end
+	end
+
+	Timers:CreateTimer(0.03, function (  )
       	UTIL_Remove(ability)
     end)
 end

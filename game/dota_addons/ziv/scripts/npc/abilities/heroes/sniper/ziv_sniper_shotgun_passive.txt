@@ -1,0 +1,59 @@
+"ziv_sniper_shotgun_passive"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AbilityCastRange"        "600"
+  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+  
+  "MaxLevel"          "7"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"    
+    "particle"      "particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
+  }
+  
+  "AbilityCastPoint"              "0.7"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {   
+      "var_type"                  "FIELD_INTEGER"
+      "bullet_count"               "5"
+    }
+    "02"
+    {
+      "var_type"              "FIELD_INTEGER"
+      "projectile_speed"      "3000"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_passive_shotgun_split"
+    {
+      "Passive"      "1"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "OnAttackStart"
+      {
+        "RunScript"
+        {
+          "ScriptFile"                    "abilities/heroes/sniper/ziv_sniper_shotgun_passive.lua"
+          "Function"                      "ShotgunShot"
+          "EffectName"                    "particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
+          "MoveSpeed"                             "%projectile_speed"
+          "TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+          "TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+          "HasFrontalCone"                "1"
+          "ProvidesVision"                "1"
+          "VisionRadius"                  "400"
+        }
+      }
+    }
+  }
+}

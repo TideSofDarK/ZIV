@@ -1,3 +1,9 @@
+function GetRandomSign()
+  local seed = math.random(0, 1)
+  if seed > 0 then return 1
+  elseif seed < 1 then return -1 end
+end
+
 function InitAbilities( hero )
   for i=0, hero:GetAbilityCount()-1 do
     local abil = hero:GetAbilityByIndex(i)

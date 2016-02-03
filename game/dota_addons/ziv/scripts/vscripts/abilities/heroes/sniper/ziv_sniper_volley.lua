@@ -1,5 +1,3 @@
-ProjectileHolder = {} 
-
 function Volley(args)
 	local caster = args.caster
 	local ability = args.ability

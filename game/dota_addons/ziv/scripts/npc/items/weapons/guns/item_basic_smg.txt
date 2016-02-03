@@ -6,6 +6,8 @@
   "AbilityTextureName"      "item_pers"
 
   "Slot"  "weapon"
+  "CustomSkill1"  "ziv_sniper_smg_special"
+  "CustomSkill2"  "ziv_sniper_smg_rush"
 
   "ItemStackable" "0"
   "ItemPermanent" "0"
