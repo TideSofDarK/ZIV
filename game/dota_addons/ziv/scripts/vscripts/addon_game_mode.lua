@@ -25,7 +25,7 @@ function Precache( context )
   -- PrecacheModel should generally used over PrecacheResource for individual models
   PrecacheResource("model_folder", "particles/heroes/antimage", context)
   PrecacheResource("model", "particles/heroes/viper/viper.vmdl", context)
-  PrecacheModel("models/heroes/viper/viper.vmdl", context)
+  PrecacheModel("models/units/ironman/ironman.vmdl", context)
 
   -- Sounds can precached here like anything else
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts", context)
@@ -39,6 +39,8 @@ function Precache( context )
   -- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way
   PrecacheUnitByNameSync("npc_dota_hero_ancient_apparition", context)
   PrecacheUnitByNameSync("npc_dota_hero_enigma", context)
+
+
 end
 
 -- Create the game mode when we activate

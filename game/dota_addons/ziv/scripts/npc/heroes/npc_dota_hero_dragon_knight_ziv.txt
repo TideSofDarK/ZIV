@@ -1,12 +1,12 @@
-"npc_dota_hero_sniper_ziv"
+"npc_dota_hero_dragon_knight_ziv"
   {
     "AbilityLayout"     "6"
-    "override_hero"     "npc_dota_hero_sniper"
+    "override_hero"     "npc_dota_hero_dragon_knight"
 
-    "Ability1"        "ziv_sniper_empty1" 
-    "Ability2"        "ziv_sniper_empty2" 
-    "Ability3"        "ziv_sniper_trueshot_aura" 
-    "Ability4"        "ziv_empty4"
+    "Ability1"        "ziv_knight_dash" 
+    "Ability2"        "ziv_knight_parry" 
+    "Ability3"        "ziv_knight_stone_form" 
+    "Ability4"        "ziv_knight_taunt"
     "Ability5"        "ziv_empty5"
     "Ability6"        "ziv_empty6"
     "Ability7"        ""

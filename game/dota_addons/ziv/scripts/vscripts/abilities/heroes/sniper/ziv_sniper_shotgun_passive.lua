@@ -3,6 +3,8 @@ function ShotgunShot(args)
     local ability = args.ability
     local target = args.target
 
+    if not ability then return end
+
     local bullet_count = ability:GetLevelSpecialValueFor("bullet_count", ability:GetLevel())
 
     local bullet = 1
@@ -42,7 +44,7 @@ function ShotgunShot(args)
                 bFlyingVision = false,
                 fVisionTickTime = .1,
                 fVisionLingerDuration = 1,
-                draw = true,
+                draw = false,
                 UnitTest = function(self, unit) return unit:GetUnitName() ~= "npc_dummy_unit" and unit:GetTeamNumber() ~= caster:GetTeamNumber() end,
                 OnUnitHit = function(self, unit) 
                     local damageTable = {

@@ -1,0 +1,96 @@
+"ziv_knight_dash"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AbilityCastRange"        "600"
+  "AbilityCastPoint"        "0"
+  "AbilityCooldown"         "13"
+  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+
+  "AbilityManaCost"       "120"
+  
+  "MaxLevel"          "7"
+
+  "precache"
+  {
+    "particle"  "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge.vpcf"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
+  }
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_damage"            "70 100 130 160 190 220 250"
+    }
+    "02"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "dash_speed"            "20"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "FireSound"
+    {
+      "EffectName"  "Hero_Spirit_Breaker.ChargeOfDarkness"
+      "Target"     "CASTER"
+    }
+    "RunScript"
+    {
+      "ScriptFile"        "abilities/heroes/knight/ziv_knight_dash.lua"
+      "Function"          "Dash"
+      "Target"            "POINT"
+    }
+    "ApplyMotionController"
+    {
+      "Target"    "CASTER"
+      "ScriptFile"    "abilities/heroes/knight/ziv_knight_dash.lua"
+      "HorizontalControlFunction" "DashHorizontal"        
+    }
+    "ApplyModifier"
+    {
+      "ModifierName"  "modifier_dash_running"
+      "Target"     "CASTER"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_dash_running"
+    {
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "Duration"  "1.0"
+
+      "ThinkInterval"  "0.03"
+      "OnIntervalThink"
+      {
+        "ActOnTargets"
+        {
+          "Target"
+          {
+            "Center"    "CASTER"
+            "Radius"   "175"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Types"   "DOTA_UNIT_TARGET_BASIC"
+          }
+        
+          "Action"    
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "abilities/heroes/knight/ziv_knight_dash.lua"
+              "Function"    "Knockback"
+            }
+          }
+        }
+      }
+    }
+  }
+}

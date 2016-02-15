@@ -657,6 +657,450 @@
 	    }
 	  } 
 	}
+	"ziv_knight_dash"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastRange"        "600"
+	  "AbilityCastPoint"        "0"
+	  "AbilityCooldown"         "13"
+	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+	
+	  "AbilityManaCost"       "120"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_damage"            "70 100 130 160 190 220 250"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "dash_speed"            "20"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_Spirit_Breaker.ChargeOfDarkness"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"        "abilities/heroes/knight/ziv_knight_dash.lua"
+	      "Function"          "Dash"
+	      "Target"            "POINT"
+	    }
+	    "ApplyMotionController"
+	    {
+	      "Target"    "CASTER"
+	      "ScriptFile"    "abilities/heroes/knight/ziv_knight_dash.lua"
+	      "HorizontalControlFunction" "DashHorizontal"        
+	    }
+	    "ApplyModifier"
+	    {
+	      "ModifierName"  "modifier_dash_running"
+	      "Target"     "CASTER"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_dash_running"
+	    {
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "Duration"  "1.0"
+	
+	      "ThinkInterval"  "0.03"
+	      "OnIntervalThink"
+	      {
+	        "ActOnTargets"
+	        {
+	          "Target"
+	          {
+	            "Center"    "CASTER"
+	            "Radius"   "175"
+	            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            "Types"   "DOTA_UNIT_TARGET_BASIC"
+	          }
+	        
+	          "Action"    
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "abilities/heroes/knight/ziv_knight_dash.lua"
+	              "Function"    "Knockback"
+	            }
+	          }
+	        }
+	      }
+	    }
+	  }
+	}
+	"ziv_knight_parry"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCooldown"         "3"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "parry_chance"        "10 15 20 25 30 35 40"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_armor"        "5 6 7 8 9 10 11"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_knight_parry_passive"
+	    {
+	      "Passive" "1"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
+	      }
+	
+	      "OnAttacked"
+	      {
+	        "Random"
+	        {
+	          "Chance"      "%parry_chance"
+	          "OnSuccess"
+	          {
+	            "FireSound"
+	            {
+	              "EffectName"  "Hero_DragonKnight.DragonTail.Target"
+	              "Target"     "CASTER"
+	            }
+	            "RunScript"
+	            {
+	              "ScriptFile"  "abilities/heroes/knight/ziv_knight_parry.lua"
+	              "Function"    "Parry"
+	            }
+	          }
+	          "OnFailure"
+	          {
+	
+	          }
+	        }
+	      }
+	    }
+	  }
+	}
+	"ziv_knight_stone_form"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastRange"        "0"
+	  "AbilityCastPoint"        "0.1"
+	  "AbilityCooldown"         "20"
+	  "AbilityChannelTime"      "7"
+	
+	  "AbilityManaCost"       "120"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_armor"            "5 10 15 20 25 30 35"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_regen"            "10 20 30 40 50 60 70"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_resist"            "10 20 30 40 50 60 70"
+	    }
+	    "04"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_damage"            "20 30 40 50 60 70 80"
+	    }
+	    "05"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_attackspeed"            "30 40 50 60 70 80 90"
+	    }
+	    "06"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_movespeed"            "50"
+	    }
+	    "07"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "duration"            "7"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
+	      "Function"    "StoneForm"
+	    }
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_Medusa.StoneGaze.Target"
+	      "Target"     "CASTER"
+	    }
+	    "ApplyModifier"
+	    {
+	      "ModifierName"  "modifier_stone_form"
+	      "Target"     "CASTER"
+	      "Duration"    "%duration"
+	    }
+	  }
+	
+	  "OnChannelInterrupted"
+	  {
+	    "RemoveModifier"
+	    {
+	      "ModifierName"  "modifier_stone_form"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
+	      "Function"    "RollbackModelScale"
+	    }
+	  }
+	
+	  "OnChannelSucceeded"
+	  {
+	    "RemoveModifier"
+	    {
+	      "ModifierName"  "modifier_stone_form"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
+	      "Function"    "RollbackModelScale"
+	    }
+	    "ApplyModifier"
+	    {
+	      "ModifierName"  "modifier_knight_fury"
+	      "Target"     "CASTER"
+	      "Duration"    "%duration"
+	    }
+	    "FireSound"
+	    {
+	        "EffectName"        "DOTA_Item.MaskOfMadness.Activate"
+	        "Target"            "CASTER"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_stone_form"
+	    {
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
+	      "StatusEffectPriority"  "10"
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_ROOTED"        "MODIFIER_STATE_VALUE_ENABLED"
+	        //"MODIFIER_STATE_DISABLED"         "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"            "%bonus_resist"
+	        "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%bonus_regen"
+	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
+	      }
+	    }
+	
+	    "modifier_knight_fury"
+	    {
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "EffectName"            "particles/items2_fx/mask_of_madness.vpcf"
+	      "EffectAttachType"      "follow_origin"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%bonus_damage"
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movespeed"
+	      }
+	    }
+	  }
+	}
+	"ziv_knight_taunt"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
+	
+	  "AbilityCastRange"        "0"
+	  "AbilityCastPoint"        "0.1"
+	  "AbilityCooldown"         "20"
+	
+	  "AbilityManaCost"       "90"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "duration"            "7"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_movespeed"     "40"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_attackspeed"   "40"
+	    }
+	    "04"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "taunt_radius"   "400"
+	    }
+	    "05"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_duration"   "8"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_Axe.BerserkersCall.Item.Shoutmask"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_taunt.lua"
+	      "Function"    "TauntEffect"
+	    }
+	    "ActOnTargets"
+	    {
+	      "Target"
+	      {
+	        "Center"    "CASTER"
+	        "Radius"   "%taunt_radius"
+	        "Teams"   "DOTA_UNIT_TARGET_TEAM_FRIEDNLY"
+	        "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	      }
+	    
+	      "Action"    
+	      {
+	        "ApplyModifier"
+	        {
+	          "ModifierName"  "modifier_taunt_bonus"
+	          "Target"     "TARGET"
+	        }
+	      }
+	    }
+	    "ActOnTargets"
+	    {
+	      "Target"
+	      {
+	        "Center"    "CASTER"
+	        "Radius"   "%taunt_radius"
+	        "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	        "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	      }
+	    
+	      "Action"    
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/knight/ziv_knight_taunt.lua"
+	          "Function"    "Taunt"
+	        }
+	      }
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_taunt_bonus"
+	    {
+	      "Duration"  "%bonus_duration"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movespeed"
+	      }
+	    }
+	  }
+	}
 	"ziv_sniper_empty1"
 	{
 		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1031,6 +1475,27 @@
 	          }
 	        }
 	      }
+	    }
+	  }
+	}
+	"ziv_sniper_trueshot_aura"
+	{
+	  "BaseClass"           "ability_lua"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastRange"        "1000"
+	
+	  "MaxLevel"          "7"
+	
+	  "ScriptFile"                  "abilities/heroes/sniper/ziv_sniper_trueshot_aura.lua"
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "damage_bonus"            "10 20 30 40 50 60 70"
 	    }
 	  }
 	}

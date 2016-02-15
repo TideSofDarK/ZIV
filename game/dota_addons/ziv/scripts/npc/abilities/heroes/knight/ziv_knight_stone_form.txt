@@ -1,0 +1,160 @@
+"ziv_knight_stone_form"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AbilityCastRange"        "0"
+  "AbilityCastPoint"        "0.1"
+  "AbilityCooldown"         "20"
+  "AbilityChannelTime"      "7"
+
+  "AbilityManaCost"       "120"
+  
+  "MaxLevel"          "7"
+
+  "precache"
+  {
+    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+  }
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_armor"            "5 10 15 20 25 30 35"
+    }
+    "02"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_regen"            "10 20 30 40 50 60 70"
+    }
+    "03"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_resist"            "10 20 30 40 50 60 70"
+    }
+    "04"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_damage"            "20 30 40 50 60 70 80"
+    }
+    "05"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_attackspeed"            "30 40 50 60 70 80 90"
+    }
+    "06"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_movespeed"            "50"
+    }
+    "07"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "duration"            "7"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
+      "Function"    "StoneForm"
+    }
+    "FireSound"
+    {
+      "EffectName"  "Hero_Medusa.StoneGaze.Target"
+      "Target"     "CASTER"
+    }
+    "ApplyModifier"
+    {
+      "ModifierName"  "modifier_stone_form"
+      "Target"     "CASTER"
+      "Duration"    "%duration"
+    }
+  }
+
+  "OnChannelInterrupted"
+  {
+    "RemoveModifier"
+    {
+      "ModifierName"  "modifier_stone_form"
+      "Target"     "CASTER"
+    }
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
+      "Function"    "RollbackModelScale"
+    }
+  }
+
+  "OnChannelSucceeded"
+  {
+    "RemoveModifier"
+    {
+      "ModifierName"  "modifier_stone_form"
+      "Target"     "CASTER"
+    }
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
+      "Function"    "RollbackModelScale"
+    }
+    "ApplyModifier"
+    {
+      "ModifierName"  "modifier_knight_fury"
+      "Target"     "CASTER"
+      "Duration"    "%duration"
+    }
+    "FireSound"
+    {
+        "EffectName"        "DOTA_Item.MaskOfMadness.Activate"
+        "Target"            "CASTER"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_stone_form"
+    {
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
+      "StatusEffectPriority"  "10"
+
+      "States"
+      {
+        "MODIFIER_STATE_ROOTED"        "MODIFIER_STATE_VALUE_ENABLED"
+        //"MODIFIER_STATE_DISABLED"         "MODIFIER_STATE_VALUE_ENABLED"
+      }
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"            "%bonus_resist"
+        "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%bonus_regen"
+        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
+      }
+    }
+
+    "modifier_knight_fury"
+    {
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "EffectName"            "particles/items2_fx/mask_of_madness.vpcf"
+      "EffectAttachType"      "follow_origin"
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%bonus_damage"
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movespeed"
+      }
+    }
+  }
+}

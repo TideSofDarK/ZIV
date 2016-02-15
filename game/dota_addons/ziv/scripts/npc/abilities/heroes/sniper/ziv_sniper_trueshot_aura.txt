@@ -1,0 +1,21 @@
+"ziv_sniper_trueshot_aura"
+{
+  "BaseClass"           "ability_lua"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AbilityCastRange"        "1000"
+
+  "MaxLevel"          "7"
+
+  "ScriptFile"                  "abilities/heroes/sniper/ziv_sniper_trueshot_aura.lua"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "damage_bonus"            "10 20 30 40 50 60 70"
+    }
+  }
+}

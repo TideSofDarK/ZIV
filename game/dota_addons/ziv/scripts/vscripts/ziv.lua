@@ -137,6 +137,8 @@ function ZIV:InitZIV()
 
   ZIV.ItemKVs = LoadKeyValues("scripts/npc/npc_items_custom.txt")
 
+  SendToServerConsole("dota_combine_models 0")
+
   DebugPrint('[ZIV] Done loading ZIV ziv!\n\n')
 end
 

@@ -1,0 +1,69 @@
+"ziv_knight_parry"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AbilityCooldown"         "3"
+  
+  "MaxLevel"          "7"
+
+  "precache"
+  {
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+  }
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "parry_chance"        "10 15 20 25 30 35 40"
+    }
+    "02"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_armor"        "5 6 7 8 9 10 11"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_knight_parry_passive"
+    {
+      "Passive" "1"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
+      }
+
+      "OnAttacked"
+      {
+        "Random"
+        {
+          "Chance"      "%parry_chance"
+          "OnSuccess"
+          {
+            "FireSound"
+            {
+              "EffectName"  "Hero_DragonKnight.DragonTail.Target"
+              "Target"     "CASTER"
+            }
+            "RunScript"
+            {
+              "ScriptFile"  "abilities/heroes/knight/ziv_knight_parry.lua"
+              "Function"    "Parry"
+            }
+          }
+          "OnFailure"
+          {
+
+          }
+        }
+      }
+    }
+  }
+}
