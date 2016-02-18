@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"for",
+				"forp	for k,v in pairs()"
+			],
+			[
+				"bun",
+				"burn_duration"
+			],
+			[
+				"explo",
+				"explosion_damage"
+			],
+			[
+				"GetSpecial",
+				"GetSpecialValueFor"
+			],
+			[
+				"ra",
+				"random"
+			],
+			[
+				"GetSPecial",
+				"GetSpecialValueFor"
+			],
+			[
 				"MoveTO",
 				"MoveToTargetToAttack"
 			],
@@ -18,10 +42,6 @@
 			[
 				"OnChanne",
 				"OnChannelInterrupted	Prematurely"
-			],
-			[
-				"GetSPecial",
-				"GetLevelSpecialValueFor"
 			],
 			[
 				"ability",
@@ -50,10 +70,6 @@
 			[
 				"GetTrue",
 				"GetAverageTrueAttackDamage"
-			],
-			[
-				"for",
-				"for	for (…) {…}"
 			],
 			[
 				"GetModifierB",
@@ -364,26 +380,10 @@
 	"buffers":
 	[
 		{
-			"file": "game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_taunt.lua",
+			"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_frenzy.txt",
 			"settings":
 			{
-				"buffer_size": 493,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_taunt.txt",
-			"settings":
-			{
-				"buffer_size": 2521,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_stone_form.txt",
-			"settings":
-			{
-				"buffer_size": 3771,
+				"buffer_size": 1949,
 				"line_ending": "Windows"
 			}
 		},
@@ -391,7 +391,15 @@
 			"file": "game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_dragon_knight_ziv.txt",
 			"settings":
 			{
-				"buffer_size": 1509,
+				"buffer_size": 1518,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_flee.lua",
+			"settings":
+			{
+				"buffer_size": 760,
 				"line_ending": "Windows"
 			}
 		}
@@ -477,16 +485,24 @@
 	],
 	"file_history":
 	[
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_dragon_knight_ziv.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_ult.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_ult.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/util.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_knight_ult_dragon.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/libraries/animations.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/dummy_unit.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_dummy_unit.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_taunt.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_taunt.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_stone_form.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_dash.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_parry.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_parry.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_dragon_knight_ziv.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_stone_form.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_stone_form.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/huntress/ziv_huntress_volly.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_dash.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/ziv.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/libraries/animations.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_sniper_ziv.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/herolist.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/addon_game_mode.lua",
@@ -504,7 +520,6 @@
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/weapons/guns/item_basic_shotgun.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/weapons/guns/item_basic_smg.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/sniper/ziv_sniper_shotgun_passive.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/util.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/sniper/ziv_sniper_forceshot.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/sniper/ziv_sniper_volley.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/sniper/ziv_sniper_rush.lua",
@@ -537,10 +552,8 @@
 		"/C/Users/TideSofDarK/Downloads/AsheScripts/scripts/npc/npc_abilities_custom.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/ziv_huntress_passive_snare.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/ziv_huntress_trap.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_dummy_unit.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/ziv_huntress_trap.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/huntress/npc_dummy_unit.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/dummy_unit.txt",
 		"/E/workspace/ZiV/README.md",
 		"/E/workspace/ZiV/.gitignore",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/buildings/queue.lua",
@@ -599,12 +612,7 @@
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/libraries/buildinghelper.lua",
 		"/E/workspace/PetriReborn/content/dota_addons/petri_reborn/panorama/scripts/custom_game/abilities/ability.js",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/units/npc_dummy_blank.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/units/exploration_tree.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/abilities/petri_invisibility.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/units/npc_petri_exploration_tree.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/abilities/petri_petrosyan_explore.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/libraries/GameSetup.lua",
-		"/E/workspace/PetriReborn/content/dota_addons/petri_reborn/panorama/scripts/custom_game/game_setup/game_setup_votes.js"
+		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/units/exploration_tree.lua"
 	],
 	"find":
 	{
@@ -872,52 +880,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_taunt.lua",
+					"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_frenzy.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 493,
+						"buffer_size": 1949,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								269,
-								269
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_taunt.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2521,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1510,
-								1510
+								1,
+								16
 							]
 						],
 						"settings":
@@ -927,57 +907,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1083.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_stone_form.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3771,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3759,
-								3759
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1520.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
+					"buffer": 1,
 					"file": "game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_dragon_knight_ziv.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1509,
+						"buffer_size": 1518,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								290,
-								290
+								330,
+								330
 							]
 						],
 						"settings":
@@ -990,7 +940,35 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_flee.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 760,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4,
+								5
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1073,7 +1051,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 345.0,
+	"side_bar_width": 341.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

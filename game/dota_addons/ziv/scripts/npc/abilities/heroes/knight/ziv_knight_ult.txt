@@ -1,0 +1,91 @@
+"ziv_knight_ult"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AbilityCastRange"        "600"
+  "AbilityCastPoint"        "0"
+  "AbilityCooldown"         "13"
+  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+
+  "AbilityManaCost"       "120"
+  
+  "MaxLevel"          "7"
+
+  "precache"
+  {
+    "model" "models/items/dragon_knight/fireborn_dragon/fireborn_dragon.vmdl"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+    "soundfile" "soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts"
+    "particle"  "particles/phoenix_supernova_reborn.vpcf"
+    "particle"  "particles/units/heroes/hero_jakiro/jakiro_macropyre.vpcf"
+  }
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "explosion_damage"            "100"
+    }
+    "02"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "burn_duration"            "3"
+    }
+    "03"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "burn_damage"            "75"
+    }
+    "04"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "dragon_height"            "1000"
+    }
+    "05"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "spawn_radius"            "1500"
+    }
+    "06"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "explosion_radius"            "400"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "FireSound"
+    {
+      "EffectName"  "Hero_DragonKnight.Pick"
+      "Target"     "CASTER"
+    }
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/knight/ziv_knight_ult.lua"
+      "Function"    "DragonComes"
+      "Target"    "POINT"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_dragon"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+    
+      "States"
+      {
+        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_DISARMED"  "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"  "MODIFIER_STATE_VALUE_ENABLED"
+      }
+    }
+  }
+}

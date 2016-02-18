@@ -753,6 +753,90 @@
 	    }
 	  }
 	}
+	"ziv_knight_flee"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	  "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	  "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastRange"        "0"
+	  "AbilityCastPoint"        "0.1"
+	  "AbilityCooldown"         "10"
+	
+	  "AbilityManaCost"       "70"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"          "particles/units/heroes/hero_morphling/morphling_morph_str.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "duration"            "7"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "base_regen"            "40 50 60 70 80 90 100"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "minus_armor"            "-1 -2 -3 -4 -5 -6 -7"
+	    }
+	    "04"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_resist"            "5 10 15 20 25 30 35"
+	    }
+	    "05"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_movespeed"            "30"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_flee.lua"
+	      "Function"    "Flee"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_frenzy_tooltip"
+	    {
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	    }
+	    "modifier_frenzy"
+	    {
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "EffectName"            "particles/units/heroes/hero_morphling/morphling_morph_str.vpcf"
+	      "EffectAttachType"      "follow_origin"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.1"
+	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"  "%minus_armor"
+	        "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%bonus_resist"
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"  "%bonus_movespeed"
+	      }
+	    }
+	  }
+	}
 	"ziv_knight_parry"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -1051,7 +1135,7 @@
 	      {
 	        "Center"    "CASTER"
 	        "Radius"   "%taunt_radius"
-	        "Teams"   "DOTA_UNIT_TARGET_TEAM_FRIEDNLY"
+	        "Teams"   "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	        "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	      }
 	    
@@ -1097,6 +1181,97 @@
 	      {
 	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
 	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movespeed"
+	      }
+	    }
+	  }
+	}
+	"ziv_knight_ult"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastRange"        "600"
+	  "AbilityCastPoint"        "0"
+	  "AbilityCooldown"         "13"
+	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+	
+	  "AbilityManaCost"       "120"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "model" "models/items/dragon_knight/fireborn_dragon/fireborn_dragon.vmdl"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+	    "soundfile" "soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts"
+	    "particle"  "particles/phoenix_supernova_reborn.vpcf"
+	    "particle"  "particles/units/heroes/hero_jakiro/jakiro_macropyre.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "explosion_damage"            "100"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "burn_duration"            "3"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "burn_damage"            "75"
+	    }
+	    "04"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "dragon_height"            "1000"
+	    }
+	    "05"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "spawn_radius"            "1500"
+	    }
+	    "06"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "explosion_radius"            "400"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_DragonKnight.Pick"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_ult.lua"
+	      "Function"    "DragonComes"
+	      "Target"    "POINT"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_dragon"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	    
+	      "States"
+	      {
+	        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_DISARMED"  "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"  "MODIFIER_STATE_VALUE_ENABLED"
 	      }
 	    }
 	  }
