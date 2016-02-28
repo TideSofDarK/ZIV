@@ -19,4 +19,9 @@
 	"addonname"										"ZIV"
 
 	"equipment"										"Equipment"
+
+	"biography"										"Biography"
+	"abilities"										"Abilities"
+	"lockin"										"Lock-In"
+	"lockedin"										"Waiting for start"
 }

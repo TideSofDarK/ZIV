@@ -317,6 +317,270 @@
 	    "BaseClass"           "ability_datadriven"
 	    "AbilityTextureName"            "rubick_empty1"
 	  }
+	"ziv_beastmaster_bird"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET" //DOTA_ABILITY_BEHAVIOR_PASSIVE
+	  "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	  "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
+	
+	  "AbilityCastPoint"  "0.3"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/units/heroes/hero_pugna/pugna_life_drain_beam.vpcf"
+	  }
+	
+	  "MaxLevel"  "7"
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "duration"            "5 6 7 8 9 10 11"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "hp_per_sec"          "10 20 30 40 50 60 70"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "attack_damage"            "20 30 40 50 60 70 80"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_bird.lua"
+	      "Function"    "Bird"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_bird_heal"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    
+	      "ThinkInterval"  "1.0"
+	      "OnIntervalThink"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_bird.lua"
+	          "Function"    "BirdHeal"
+	        }
+	      }
+	    }
+	    "modifier_bird"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	    
+	      "States"
+	      {
+	        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_DISARMED"  "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	  }
+	}
+	"ziv_beastmaster_pet"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE" //DOTA_ABILITY_BEHAVIOR_PASSIVE
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
+	
+	  "AbilityCastPoint"  "0.3"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/units/heroes/hero_beastmaster/beastmaster_call_boar.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_beastmaster.vsndevts"
+	    "soundfile"         "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+	    "particle"          "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+	  }
+	
+	  "MaxLevel"  "7"
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "wolf_bonus_attack_speed"            "10 15 20 25 30 35 40"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "wolf_bonus_damage"            "10 20 30 40 50 60 70"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "wolf_crit_damage"            "250"
+	    }
+	    "04"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "wolf_crit_chance"            "0 0 5 10 15 20 35"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	      "Function"    "SpawnPet"
+	      "respawn_pet" "1"
+	    }
+	  }
+	
+	  "OnUpgrade"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	      "Function"    "KillPet"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	      "Function"    "SpawnPet"
+	    }
+	  }
+	
+	  "OnOwnerDied"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	      "Function"    "KillPet"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_beastmaster_pet_passive"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "OnCreated"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	          "Function"    "SpawnPet"
+	        }
+	      }
+	    }
+	    "modifier_beastmaster_pet"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	
+	      "ThinkInterval"  "0.2"
+	      "OnIntervalThink"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	          "Function"    "PetAI"
+	        }
+	      }
+	
+	      "OnAttackStart"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	          "Function"    "EndCrit"
+	        }
+	        "Random"
+	        {
+	          "Chance"        "%wolf_crit_chance"
+	          "PseudoRandom"  "DOTA_PSEUDO_RANDOM_PHANTOMASSASSIN_CRIT"
+	
+	          "OnSuccess"
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	              "Function"    "Crit"
+	            }
+	          }
+	        }
+	      }
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%wolf_bonus_attack_speed"
+	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"  "%wolf_bonus_damage"
+	      }
+	    
+	      "States"
+	      {
+	        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	
+	    "modifier_wolf_crit"
+	    {
+	      "IsHidden"  "1"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%wolf_crit_damage"
+	      }
+	
+	      "OnAttackLanded"
+	      { 
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	          "Function"    "EndCrit"
+	        }
+	        "FireEffect"
+	        {
+	          "EffectName"    "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+	          "EffectAttachType"  "start_at_customorigin"
+	          
+	          "ControlPointEntities"
+	          {
+	            "TARGET"    "follow_origin"
+	            "TARGET"    "follow_origin"
+	          }
+	        }
+	
+	        "FireSound"
+	        {
+	          "EffectName"    "Hero_PhantomAssassin.CoupDeGrace"
+	          "Target"        "TARGET"
+	        }
+	      }
+	    }
+	  }
+	}
 	"ziv_huntress_passive_snare"
 	{
 	  "BaseClass"           "ability_datadriven"

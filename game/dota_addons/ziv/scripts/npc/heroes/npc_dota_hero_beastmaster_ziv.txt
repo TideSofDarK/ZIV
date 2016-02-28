@@ -1,16 +1,16 @@
-"npc_dota_hero_dragon_knight_ziv"
-  {
+"npc_dota_hero_beastmaster_ziv"
+{
     "AbilityLayout"     "6"
-    "override_hero"     "npc_dota_hero_dragon_knight"
+    "override_hero"     "npc_dota_hero_beastmaster"
 
     "ChooseLayout"  "1122"
 
-    "Ability1"        "ziv_knight_dash" 
-    "Ability2"        "ziv_knight_parry" 
-    "Ability3"        "ziv_knight_stone_form" 
-    "Ability4"        "ziv_knight_taunt"
-    "Ability5"        "ziv_knight_flee"
-    "Ability6"        "ziv_knight_ult"
+    "Ability1"        "ziv_beastmaster_pet" 
+    "Ability2"        "ziv_empty2" 
+    "Ability3"        "ziv_beastmaster_bird" 
+    "Ability4"        "ziv_empty4"
+    "Ability5"        "ziv_empty5"
+    "Ability6"        "ziv_empty6"
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""
@@ -29,11 +29,11 @@
     "AttackDamageMax"     "15"
 
     "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"   "7"
+    "AttributeBaseStrength"   "8"
     "AttributeStrengthGain"   "0"
-    "AttributeBaseIntelligence" "2"
+    "AttributeBaseIntelligence" "3"
     "AttributeIntelligenceGain" "0"
-    "AttributeBaseAgility"    "3"
+    "AttributeBaseAgility"    "4"
     "AttributeAgilityGain"    "0"
 
     "BountyXP"          "0"
@@ -54,4 +54,4 @@
 
     "VisionDaytimeRange"    "1800"
     "VisionNighttimeRange"    "1800"
-  }
+}

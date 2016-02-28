@@ -1,9 +1,68 @@
 "DOTAHeroes"
 {
+	"npc_dota_hero_beastmaster_ziv"
+	{
+	    "AbilityLayout"     "6"
+	    "override_hero"     "npc_dota_hero_beastmaster"
+	
+	    "ChooseLayout"  "1122"
+	
+	    "Ability1"        "ziv_beastmaster_pet" 
+	    "Ability2"        "ziv_empty2" 
+	    "Ability3"        "ziv_beastmaster_bird" 
+	    "Ability4"        "ziv_empty4"
+	    "Ability5"        "ziv_empty5"
+	    "Ability6"        "ziv_empty6"
+	    "Ability7"        ""
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackDamageMin"     "10"
+	    "AttackDamageMax"     "15"
+	
+	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
+	    "AttributeBaseStrength"   "8"
+	    "AttributeStrengthGain"   "0"
+	    "AttributeBaseIntelligence" "3"
+	    "AttributeIntelligenceGain" "0"
+	    "AttributeBaseAgility"    "4"
+	    "AttributeAgilityGain"    "0"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    //"BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+	    //"RingRadius"        "70"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "360"
+	    "MovementTurnRate"      "1.0"
+	
+	    "StatusHealth"        "500"
+	    "StatusHealthRegen"     "0.1"
+	    "StatusMana"        "200"
+	    "StatusManaRegen"     "100.0"
+	
+	    "VisionDaytimeRange"    "1800"
+	    "VisionNighttimeRange"    "1800"
+	}
 	"npc_dota_hero_dragon_knight_ziv"
 	  {
 	    "AbilityLayout"     "6"
 	    "override_hero"     "npc_dota_hero_dragon_knight"
+	
+	    "ChooseLayout"  "1122"
 	
 	    "Ability1"        "ziv_knight_dash" 
 	    "Ability2"        "ziv_knight_parry" 
@@ -28,12 +87,12 @@
 	    "AttackDamageMin"     "10"
 	    "AttackDamageMax"     "15"
 	
-	    //"AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-	    "AttributeBaseStrength"   "0"
+	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
+	    "AttributeBaseStrength"   "7"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "0"
+	    "AttributeBaseIntelligence" "2"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "0"
+	    "AttributeBaseAgility"    "3"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -60,6 +119,8 @@
 	    "AbilityLayout"     "6"
 	    "override_hero"     "npc_dota_hero_sniper"
 	
+	    "ChooseLayout"  "1122"
+	
 	    "Ability1"        "ziv_sniper_empty1" 
 	    "Ability2"        "ziv_sniper_empty2" 
 	    "Ability3"        "ziv_sniper_trueshot_aura" 
@@ -83,12 +144,12 @@
 	    "AttackDamageMin"     "10"
 	    "AttackDamageMax"     "15"
 	
-	    //"AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-	    "AttributeBaseStrength"   "0"
+	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
+	    "AttributeBaseStrength"   "4"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "0"
+	    "AttributeBaseIntelligence" "3"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "0"
+	    "AttributeBaseAgility"    "7"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -115,6 +176,8 @@
 	    "AbilityLayout"     "6"
 	    "override_hero"     "npc_dota_hero_windrunner"
 	
+	    "ChooseLayout"  "1212"
+	
 	    "Ability1"        "ziv_huntress_trap" 
 	    "Ability2"        "ziv_huntress_passive_snare" 
 	    "Ability3"        "ziv_huntress_volly" 
@@ -139,11 +202,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-	    "AttributeBaseStrength"   "0"
+	    "AttributeBaseStrength"   "4"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "0"
+	    "AttributeBaseIntelligence" "4"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "0"
+	    "AttributeBaseAgility"    "7"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"

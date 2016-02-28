@@ -1,0 +1,29 @@
+.AbilityPanel
+{
+	vertical-align: center;
+
+	width: 70px;
+	height: 70px;
+
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.AbilityPanel.selected
+{
+	border-top: 4px solid #b5a33fff;
+	border-right: 4px solid #b5a33fff;
+	border-left: 4px solid #b5a33fff;
+	border-bottom: 4px solid #b5a33fff;
+
+	border-radius: 5px;
+}
+
+#AbilityButton
+{
+	width: 80px;
+	height: 80px;
+	border: 2px solid transparent;
+}

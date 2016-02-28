@@ -3,6 +3,8 @@
     "AbilityLayout"     "6"
     "override_hero"     "npc_dota_hero_sniper"
 
+    "ChooseLayout"  "1122"
+
     "Ability1"        "ziv_sniper_empty1" 
     "Ability2"        "ziv_sniper_empty2" 
     "Ability3"        "ziv_sniper_trueshot_aura" 
@@ -26,12 +28,12 @@
     "AttackDamageMin"     "10"
     "AttackDamageMax"     "15"
 
-    //"AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"   "0"
+    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
+    "AttributeBaseStrength"   "4"
     "AttributeStrengthGain"   "0"
-    "AttributeBaseIntelligence" "0"
+    "AttributeBaseIntelligence" "3"
     "AttributeIntelligenceGain" "0"
-    "AttributeBaseAgility"    "0"
+    "AttributeBaseAgility"    "7"
     "AttributeAgilityGain"    "0"
 
     "BountyXP"          "0"

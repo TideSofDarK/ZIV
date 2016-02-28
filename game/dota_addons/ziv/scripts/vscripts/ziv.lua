@@ -10,6 +10,8 @@ if ZIV == nil then
     _G.ZIV = class({})
 end
 
+ZIV.TRUE_TIME = 0
+
 -- This library allow for easily delayed/timed actions
 require('libraries/timers')
 -- This library can be used for advancted physics/motion/collision of units.  See PhysicsReadme.txt for more information.
@@ -22,6 +24,8 @@ require('libraries/notifications')
 require('libraries/animations')
 -- This library can be used for performing "Frankenstein" attachments on units
 require('libraries/attachments')
+-- Some jerky math stuff
+require('libraries/maths')
 
 
 -- These internal libraries set up ziv's events and processes.  Feel free to inspect them/change them if you need to.
@@ -75,6 +79,10 @@ end
 ]]
 function ZIV:OnAllPlayersLoaded()
   DebugPrint("[ZIV] All Players have loaded into the game")
+  Timers:CreateTimer(1.0, function ()
+    CustomGameEventManager:Send_ServerToAllClients( "ziv_set_heroes_kvs", ZIV.HeroesKVs )
+    CustomGameEventManager:Send_ServerToAllClients( "ziv_set_herolist", ZIV.HerolistKVs )
+  end)
 end
 
 --[[
@@ -94,6 +102,8 @@ function ZIV:OnHeroInGame(hero)
   local item = CreateItem("item_example_item", hero, hero)
   hero:AddItem(item)
 
+
+
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
     --with the "example_ability" ability
 
@@ -110,14 +120,18 @@ end
 function ZIV:OnGameInProgress()
   DebugPrint("[ZIV] The game has officially begun")
 
+  Timers:CreateTimer( -- Start this timer 30 game-time seconds later
+    function()
+      ZIV.TRUE_TIME = ZIV.TRUE_TIME + 0.03
+      return 0.03
+    end)
+
   Timers:CreateTimer(30, -- Start this timer 30 game-time seconds later
     function()
       DebugPrint("This function is called 30 seconds after the game begins, and every 30 seconds thereafter")
       return 30.0 -- Rerun this timer every 30 game-time seconds 
     end)
 end
-
-
 
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
@@ -131,15 +145,15 @@ function ZIV:InitZIV()
   ZIV:_InitZIV()
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
-  Convars:RegisterCommand( "command_example", Dynamic_Wrap(ZIV, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
+  -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(ZIV, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
 
   GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( ZIV, "FilterExecuteOrder" ), self )
 
   ZIV.ItemKVs = LoadKeyValues("scripts/npc/npc_items_custom.txt")
+  ZIV.HeroesKVs = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
+  ZIV.HerolistKVs = LoadKeyValues("scripts/npc/herolist.txt")
 
   SendToServerConsole("dota_combine_models 0")
-
-  DebugPrint('[ZIV] Done loading ZIV ziv!\n\n')
 end
 
 -- This is an example console command

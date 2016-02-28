@@ -4,8 +4,88 @@
 		"selected_items":
 		[
 			[
+				"Destr",
+				"DestroyParticle"
+			],
+			[
+				"GetPlayer",
+				"GetPlayerOwner"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"bac",
+				"background-size"
+			],
+			[
+				"paddin",
+				"padding-right"
+			],
+			[
+				"paddi",
+				"padding-left"
+			],
+			[
+				"backgr",
+				"background-image"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"lock",
+				"lockedInOffset"
+			],
+			[
+				"locke",
+				"lockedIn"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"mrg",
+				"margin-bottom"
+			],
+			[
 				"for",
-				"forp	for k,v in pairs()"
+				"for	for (…) {…}"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"align",
+				"vertical-align"
+			],
+			[
+				"pad",
+				"padding-bottom"
+			],
+			[
+				"backgro",
+				"background-color"
+			],
+			[
+				"margi",
+				"margin-right"
+			],
+			[
+				"size",
+				"font-size"
+			],
+			[
+				"OnAbil",
+				"OnAbilityPhaseStart	Pre CastPoint"
+			],
+			[
+				"OnAbility",
+				"OnAbilityStart	modifier event"
 			],
 			[
 				"bun",
@@ -80,10 +160,6 @@
 				"AddItemByName"
 			],
 			[
-				"paddi",
-				"padding-right"
-			],
-			[
 				"SPend",
 				"SpendCharge	item modf owner event"
 			],
@@ -142,10 +218,6 @@
 			[
 				"padd",
 				"padding-bottom"
-			],
-			[
-				"marg",
-				"margin-bottom"
 			],
 			[
 				"OnAt",
@@ -360,10 +432,6 @@
 				"SetHasInventory"
 			],
 			[
-				"backgr",
-				"background-color"
-			],
-			[
 				"ent",
 				"entindex"
 			],
@@ -380,26 +448,42 @@
 	"buffers":
 	[
 		{
-			"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_frenzy.txt",
+			"file": "game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/beastmaster/npc_beastmaster_bird.txt",
 			"settings":
 			{
-				"buffer_size": 1949,
+				"buffer_size": 1178,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_dragon_knight_ziv.txt",
+			"file": "game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/beastmaster/npc_beastmaster_pet_level1.txt",
 			"settings":
 			{
-				"buffer_size": 1518,
+				"buffer_size": 8432,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_flee.lua",
+			"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/beastmaster/ziv_beastmaster_bird.txt",
 			"settings":
 			{
-				"buffer_size": 760,
+				"buffer_size": 1909,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "game/dota_addons/ziv/scripts/vscripts/abilities/heroes/beastmaster/ziv_beastmaster_bird.lua",
+			"settings":
+			{
+				"buffer_size": 1916,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "game/dota_addons/ziv/scripts/vscripts/libraries/maths.lua",
+			"settings":
+			{
+				"buffer_size": 766,
 				"line_ending": "Windows"
 			}
 		}
@@ -412,7 +496,7 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "Package Control: ",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -420,7 +504,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 400.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -445,6 +529,9 @@
 		"/E/workspace/ZiV/content/dota_addons",
 		"/E/workspace/ZiV/content/dota_addons/ziv",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/images",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/images/custom_game",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/images/custom_game/heroes",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/scripts",
@@ -455,29 +542,32 @@
 		"/E/workspace/ZiV/game/dota_addons",
 		"/E/workspace/ZiV/game/dota_addons/ziv",
 		"/E/workspace/ZiV/game/dota_addons/ziv/panorama",
+		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/images",
+		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/images/custom_game",
+		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/images/custom_game/heroes",
+		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/images/custom_game/loading_screen",
 		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/localization",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/beastmaster",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/huntress",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/sniper",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/armor",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/armor/leather",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/weapons",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/weapons/guns",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units/heroes",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/beastmaster",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/huntress",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/beastmaster",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/huntress",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/sniper",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/examples",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/items",
@@ -485,26 +575,62 @@
 	],
 	"file_history":
 	[
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_beastmaster_ziv.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_beastmaster_bird.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_beastmaster_pet_level1.txt",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/scripts/custom_game/custom_character_selection_frame.js",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/scripts/custom_game/custom_character_selection.js",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/custom_character_selection_frame.xml",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/styles/custom_game/custom_character_selection.css",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_windrunner_ziv.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_sniper_ziv.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_dragon_knight_ziv.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_ult.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_ult.lua",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/styles/custom_game/custom_character_selection_ability.css",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/styles/custom_game/material_design.css",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/custom_character_selection.xml",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/scripts/custom_game/material_design.js",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/custom_loading_screen.xml",
+		"/E/workspace/PetriReborn/dummy_creator/dummy.xml",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/scripts/custom_game/custom_character_selection_ability.js",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/custom_character_selection_ability.xml",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/custom_ui_manifest.xml",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/styles/custom_game/custom_loading_screen.css",
+		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/localization/addon_russian.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/localization/addon_english.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/herolist.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/libraries/maths.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/util.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_knight_ult_dragon.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/libraries/animations.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/dummy_unit.txt",
+		"/C/Users/TideSofDarK/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/ziv.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/events.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/events.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/ziv.lua",
+		"/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example_playground/panorama/scripts/custom_game/action_bar.js",
+		"/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example_playground/panorama/scripts/custom_game/action_bar_ability.js",
+		"/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example_playground/panorama/styles/custom_game/action_bar.css",
+		"/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example_playground/panorama/layout/custom_game/action_bar_ability.xml",
+		"/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example_playground/panorama/layout/custom_game/action_bar.xml",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/buff_list.xml",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/beastmaster/ziv_beastmaster_pet.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/settings.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/beastmaster/ziv_beastmaster_pet.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_stone_form.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_dummy_unit.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_taunt.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_knight_ult_dragon.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_frenzy.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_flee.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_ult.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_ult.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/libraries/animations.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/dummy_unit.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_taunt.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_stone_form.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_dash.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_parry.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_parry.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_stone_form.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/huntress/ziv_huntress_volly.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_dash.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/ziv.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_sniper_ziv.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/herolist.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/addon_game_mode.lua",
 		"/C/Users/TideSofDarK/Downloads/DYS8TwXIa1pKrxw.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/sniper/ziv_sniper_shotgun_passive.lua",
@@ -525,24 +651,14 @@
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/sniper/ziv_sniper_rush.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/examples/projectile.lua",
 		"/C/Users/TideSofDarK/Downloads/AsheScripts/scripts/vscripts/wip.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_windrunner_ziv.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/sniper/ziv_sniper_smg_rush.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/sniper/ziv_sniper_smg_special.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/armor/leather/item_basic_smg.txt",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/styles/custom_game/buff_list.css",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/scripts/custom_game/buff_list.js",
-		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/buff_list.xml",
-		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/localization/addon_english.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/localization/addon_russian.txt",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/buff_list_buff.xml",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/events.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/filters.lua",
-		"/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example_playground/panorama/layout/custom_game/action_bar.xml",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/ziv.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/addoninfo.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/settings.lua",
-		"/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example_playground/panorama/styles/custom_game/action_bar.css",
-		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/custom_ui_manifest.xml",
 		"/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example/panorama/layout/custom_game/buff_list.xml",
 		"/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example/panorama/layout/custom_game/buff_list_buff.xml",
 		"/E/Program Files (x86)/Steam/SteamApps/common/dota 2 beta/content/dota_addons/ui_example/panorama/layout/custom_game/custom_ui_manifest.xml",
@@ -586,43 +702,20 @@
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/units/npc_petri_super_peasant.txt",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/units/npc_petri_mega_peasant.txt",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/items/item_train_petri_mega_peasant.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/abilities/train_petri_mega_peasant.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/addon_game_mode.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/abilities/petri_upgrade_sawmill.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/abilities/petri_upgrade_exchange.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/buildings/bh_abilities.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/internal/gamemode.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/kv/custom_skins.kv",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/addoninfo.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/items/item_petri_hearts.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/filters.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/items/item_petri_vip_terror.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/shops/petri_1_radiant_shops.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/shops/petri_2_dire_shops.txt",
-		"/E/workspace/PetriReborn/content/dota_addons/petri_reborn/panorama/layout/custom_game/game_setup/votes/vote_host_shuffle.xml",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/triggers/portal_trigger.lua",
-		"/E/workspace/PetriReborn/dummy_creator/dummy.xml",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/items/item_petri_vip_furion.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/items/vip.lua",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/kv/vip_items.kv",
-		"/E/workspace/PetriReborn/content/dota_addons/petri_reborn/panorama/scripts/custom_game/resources.js",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/settings.lua",
-		"/C/Users/TideSofDarK/Downloads/help.cfg",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/custom_net_tables.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/libraries/buildinghelper.lua",
-		"/E/workspace/PetriReborn/content/dota_addons/petri_reborn/panorama/scripts/custom_game/abilities/ability.js",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/units/npc_dummy_blank.txt",
-		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/units/exploration_tree.lua"
+		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/npc/abilities/train_petri_mega_peasant.txt"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
 		"height": 90.0,
 		"where_history":
 		[
+			"E:\\workspace\\ZiV\\content\\dota_addons\\ziv\\panorama\\scripts\\custom_game",
+			"E:\\workspace\\ZiV\\content\\dota_addons\\ziv\\panorama\\layout\\custom_game",
+			"E:\\workspace\\ZiV\\game\\dota_addons\\ziv\\scripts\\vscripts\\abilities\\heroes",
 			"E:\\workspace\\ZiV\\game\\dota_addons\\ziv\\scripts\\npc\\abilities\\heroes\\huntress",
 			"E:\\workspace\\PetriReborn\\game\\dota_addons\\petri_reborn\\scripts\\vscripts",
 			"E:\\workspace\\PetriReborn\\game\\dota_addons\\petri_reborn\\scripts\\npc\\items",
@@ -697,6 +790,26 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"models/creeps/neutral_creeps/n_creep_worg_large/n_creep_worg_large.vmdl",
+			"text-shadow",
+			"text-sh",
+			"msg",
+			"AbilityButton",
+			"msg",
+			"split",
+			"unsele",
+			"origin",
+			"horiz",
+			"1",
+			"dick",
+			"id",
+			"AbilitiesLabel",
+			"DOTAAbilityImage",
+			"AbilityImage",
+			"AbilityPanel",
+			"npc_dota_hero_dragon_knight",
+			"order",
+			"beast",
 			"hero",
 			"Volly",
 			"UpdateBuff",
@@ -804,27 +917,7 @@
 			"plusPart",
 			"asdsa",
 			"pluspart",
-			"modifier_ability_gather_lumber_no_col",
-			"root",
-			"moveto",
-			"plusp",
-			"petri_petrosyan_explore",
-			"reveal_radius",
-			"mdl",
-			"watch",
-			"merchant_debris_chest002",
-			"frost",
-			"regenerat",
-			"resource",
-			"bonus_attack",
-			"passive_pas",
-			"regen",
-			"currentResources",
-			"receive_resources_info",
-			"item mod",
-			"TargetPoint",
-			"upgrade_wa",
-			"GetModelNameForLevel"
+			"modifier_ability_gather_lumber_no_col"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -832,6 +925,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"models/items/beastmaster/boar/beast_deming/beast_deming.vmdl",
 			"Volley",
 			"abilities/heroes/huntress/ziv_huntress_trap.lua",
 			"0",
@@ -885,11 +979,11 @@
 			[
 				{
 					"buffer": 0,
-					"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/knight/ziv_knight_frenzy.txt",
+					"file": "game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/beastmaster/npc_beastmaster_bird.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1949,
+						"buffer_size": 1178,
 						"regions":
 						{
 						},
@@ -897,13 +991,13 @@
 						[
 							[
 								1,
-								16
+								21
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -915,19 +1009,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_dragon_knight_ziv.txt",
-					"semi_transient": false,
+					"file": "game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/beastmaster/npc_beastmaster_pet_level1.txt",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1518,
+						"buffer_size": 8432,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								330,
-								330
+								619,
+								619
 							]
 						],
 						"settings":
@@ -945,30 +1039,90 @@
 				},
 				{
 					"buffer": 2,
-					"file": "game/dota_addons/ziv/scripts/vscripts/abilities/heroes/knight/ziv_knight_flee.lua",
+					"file": "game/dota_addons/ziv/scripts/npc/abilities/heroes/beastmaster/ziv_beastmaster_bird.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 760,
+						"buffer_size": 1909,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4,
-								5
+								1113,
+								1093
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua/Lua.tmLanguage"
+							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 627.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "game/dota_addons/ziv/scripts/vscripts/abilities/heroes/beastmaster/ziv_beastmaster_bird.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1916,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1189,
+								1189
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 228.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "game/dota_addons/ziv/scripts/vscripts/libraries/maths.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 766,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								40,
+								40
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1013,7 +1167,7 @@
 	"project": "ziv.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 82.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1051,7 +1205,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 341.0,
+	"side_bar_width": 397.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

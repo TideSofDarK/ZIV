@@ -1,0 +1,189 @@
+@define Primary50: #E8EAF6;
+@define Primary100: #C5CAE9;
+@define Primary200: #9FA8DA;
+@define Primary300: #7986CB;
+@define Primary400: #5C6BC0;
+@define Primary500: #3F51B5;
+@define PrimaryR500: #b53f51;
+@define PrimaryG500: #3fb568;
+@define Primary600: #3949AB;
+@define Primary700: #303F9F;
+@define Primary800: #283593;
+@define Primary900: #1A237E;
+
+@define AccentsA100: #8C9EFF;
+@define AccentsA200: #536DFE;
+@define AccentsA400: #3D5AFE;
+@define AccentsA700: #0304FF;
+
+// Grey palette
+@define Grey50: #FAFAFA;
+@define Grey100: #F5F5F5;
+@define Grey200: #EEEEEE;
+@define Grey300: #E0E0E0;
+@define Grey400: #BDBDBD;
+@define Grey500: #9E9E9E;
+@define Grey600: #757575;
+@define Grey700: #616161;
+@define Grey800: #424242;
+@define Grey900: #021212;
+
+// Simple colors
+@define White: #FFFFFF;
+@define Black: #000000;
+
+@define BACKGROUND_COLOR_WHITE: #FFFFFF28;
+
+/* 					Light theme 						*/
+.LightTheme { }
+
+.LightTheme.Background
+{
+	background-color: Grey50;
+}
+
+.LightTheme.Cards
+{
+	background-color: White;
+}
+
+.LightTheme.AppBar
+{
+	background-color: Grey100;
+}
+
+.LightTheme.StatusBar
+{
+	background-color: Grey300;
+}
+
+.LightTheme.PrimaryText
+{
+	color: Black;
+	opacity: 0.87;
+}
+
+.LightTheme.SecondaryText
+{
+	color: Black;
+	opacity: 0.54;
+}
+
+.LightTheme.HintText
+{
+	color: Black;
+	opacity: 0.38;
+}
+
+
+/* 					Dark theme 							*/
+.DarkTheme { }
+
+.DarkTheme.Background
+{
+	background-color: #303030;
+}
+
+.DarkTheme.Cards
+{
+	background-color: Grey800;
+}
+
+.DarkTheme.AppBar
+{
+	background-color: Grey900;
+}
+
+.DarkTheme.StatusBar
+{
+	background-color: Black;
+}
+
+.DarkTheme.Primary500
+{
+	background-color: Primary500;
+}
+
+.DarkTheme.PrimaryText
+{
+	color: White;
+}
+
+.DarkTheme.SecondaryText
+{
+	color: White;
+	opacity: 0.7;
+}
+
+.DarkTheme.HintText
+{
+	color: White;
+	opacity: 0.3;
+}
+
+.DarkTheme.FlatButton
+{
+	background-color: transparent;
+}
+
+.DarkTheme.FlatButton:hover
+{
+	background-color: #CCCCCC25;
+}
+
+.DarkTheme.FlatButton:active
+{
+	background-color: #CCCCCC40;
+}
+
+.DarkTheme.Button
+{
+	margin: 2px;
+	min-height: 36px;
+	background-color: Primary500;
+}
+
+.DarkTheme.Button:hover
+{
+	background-color: Primary600;
+}
+
+.DarkTheme.Button:active
+{
+	background-color: Primary700;
+}
+
+.DarkTheme.Button:disabled
+{
+	background-color: #FFFFFF1E;
+}
+
+/* 						  Shapes 					  */
+.rounded
+{
+	border-radius: 2px;	
+}
+
+.circle
+{
+	border-radius: 50%;
+}
+
+/*                       Shadows                       */
+.z-index1
+{
+	box-shadow: fill #000000DD 0px 2px 6px 0px;
+	z-index: 1;
+}
+
+.z-index2
+{
+	box-shadow: fill #000000DD 0px 8px 12px 0px;
+	z-index: 2;
+}
+
+.z-index3
+{
+	box-shadow: fill #000000DD 0px 14px 18px 0px;
+	z-index: 3;
+}

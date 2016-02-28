@@ -1,0 +1,327 @@
+.SimpleText
+{
+	box-shadow: 0px 0px 0px 0px;
+
+	background-color: transparent;
+
+	line-height: 19px;
+
+	text-shadow: -1px -1px 0px 0.0 #ffffffff;
+	text-align: center;
+
+	box-shadow: #000000ff -1px -1px -1px;
+
+	font-weight: normal;
+	font-size: 20px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	color: White;
+}
+
+.Headline1 {
+	text-shadow: 1px 1px 1px black;
+	text-align: center;
+	text-transform: uppercase;
+	text-overflow: clip;
+
+	box-shadow: #000000ff 0px 0px 8px 0.3;
+
+	font-weight: bold;
+	font-size: 33px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color: White;
+}
+
+/*
+*/
+
+.SelectionRoot {
+	width: 1920px;
+	height: 1080px;
+
+	background-color: Grey900;
+}
+
+.HeroFrame {
+/*	x: 0px;
+	y: 0px;*/
+
+	/*margin-bottom: 100px;*/
+
+	box-shadow: #000000ff 0px 0px 10px 0px;
+
+	vertical-align: center;
+	horizontal-align: center;
+
+	width: 1200px;
+	height: 900px;
+
+	border-radius: 10px;
+	background-color: Grey700;
+
+	transition-property: transform, brightness, position;
+	transition-duration: .3s;
+	transition-timing-function: ease-in-out, linear;
+
+	z-index: 10;
+}
+
+.HeroFrame.unselected {
+	brightness: 0.6;
+	blur: gaussian( 11.9 );
+
+	transform: rotateZ( 0deg ) rotateX( 12deg );
+
+	z-index: 1;
+}
+
+.HeroFrame.Top {
+	height: 50%;
+
+	position: 0px -225px 0px;
+
+	box-shadow: #ffffff00 4px 4px 8px 0px;
+
+	border-radius: 0px;
+
+	background-repeat: no-repeat;
+	background-size: 1200px 675px;
+	background-position: center top;
+}
+
+.CharacterNameLabel {
+	padding-left: 55px;
+	margin-bottom: 20px;
+	margin-left: 40px;
+
+	vertical-align: bottom;
+	horizontal-align: left;	
+
+	font-size: 54px;
+	text-align: left;
+
+	background-color: transparent;
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex");
+	background-repeat: no-repeat; 
+	background-position: left 0px center -20px;
+
+	box-shadow: #00000000 -1px -1px 0px 0.0;
+	text-shadow: 0px 0px 20px 10.0 #000000ff;
+}
+
+.HeroFrame.Bot {
+	height: 50%;
+
+	position: 0px 225px 0px;
+
+	background-color: Grey800;
+
+	box-shadow: #000000ff 2px 2px 9px 5px;
+	/*border-top: 1px solid #68686866;*/
+
+	border-radius: 0px;
+
+	border-radius: 0px;
+}
+
+.HeroFrame.Bot.Left {
+	height: 100%;
+	width: 50%;
+
+	position: 0px 0px 0px;
+
+	vertical-align: bottom;
+	horizontal-align: left;
+}
+
+.HeroFrame.Bot.Right {
+	height: 100%;
+	width: 50%;
+
+	position: 0px 0px 0px;
+
+	vertical-align: top;
+	horizontal-align: right;
+}
+
+.CharacterInfo {
+	horizontal-align: center;
+	vertical-align: top;
+
+	
+
+	margin-right: 0px;
+	margin-top: 0px;
+}
+
+.CharacterInfo.Attribute {
+	padding-top: 2px;
+	padding-left: 20px;
+	margin-top: 110px;
+
+	horizontal-align: center;
+
+	width: 100px;
+	height: 50px;
+
+	font-size: 24px;
+
+	background-color: transparent;
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex");
+	background-repeat: no-repeat; 
+	background-position: left 2px center -25px;
+	background-size: 37px 37px;
+
+	box-shadow: #00000000 -1px -1px 0px 0.0;
+	text-shadow: 0px 0px 40px 110.0 #00000024;
+}
+
+.CharacterInfo.Attribute.Agi {
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex");
+	margin-left: 205px;
+}
+
+.CharacterInfo.Attribute.Int {
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex");
+	margin-right: 205px;
+}
+
+.CharacterInfo.CharacterBioLabel {
+	width: 410px;
+	/*height: 50px;*/
+
+	background-color: Primary500;
+
+	horizontal-align: left;
+	margin-left: 100px;
+	margin-top: 50px;
+}
+
+.CharacterInfo.CharacterDescrLabel {
+	horizontal-align: left;
+	margin-left: 110px;
+	margin-top: 165px;
+
+	width: 400px;
+}
+		
+.CharacterInfo.CharacterAbilitiesLabel {
+	width: 410px;
+
+	horizontal-align: right;
+	vertical-align: top;
+	margin-right: 100px;
+	margin-top: 50px;
+
+	background-color: PrimaryR500;
+}
+
+.Abilities {
+	vertical-align: bottom;
+	horizontal-align: right;
+
+	height: 220px;
+	width: 500px;
+
+	margin-right: 55px;
+	margin-bottom: 100px;
+
+	box-shadow: #000000ff 0px 0px 0px 0.0;
+
+	background-color: #292929;
+
+	border-radius: 20px;
+	border-top: 1px solid #00000088;
+	border-right: 1px solid #00000088;
+	border-left: 1px solid #00000088;
+	border-bottom: 1px solid #00000088;
+
+	/*flow-children: right;*/
+}
+
+.GenericButton {
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #5A615Ecc ), to( #879695cc ));
+	background-image: url("s2r://panorama/images/backgrounds/background_play_button_2x_png.vtex");
+	background-size: 328px 75px;   
+
+	box-shadow: -1px -1px -1px #000;
+	border-top: 1px solid #ffffff44;
+	border-right: 1px solid #00000088;
+	border-left: 1px solid #ffffff44;
+	border-bottom: 1px solid #00000088;
+
+	border-radius: 10px;
+
+	margin-bottom: 33px;
+	
+	transition-property: background-color;
+	transition-duration: .2s;
+}
+
+.GenericButton.deactivated
+{
+	brightness: 0.5;
+}
+
+.ChooseButton {
+	height: 75px;
+	width: 300px;
+
+	horizontal-align: center;
+	vertical-align: bottom;
+
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #5e842c ), to( #3fb568 ) );
+}
+
+.ChooseButton:hover {
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #9eb46c ), to( #60823d ) );
+}
+
+.ChooseButton.selected {
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #65a9db ), to( #2b4b75 ) );
+}
+
+.ChooseButtonLabel {
+	vertical-align: center;
+	horizontal-align: center;
+
+	box-shadow: -1px -1px -1px #000;
+	text-shadow: 1px 1px 1px black;
+
+	text-align: center;
+	color: #d5d7d7;
+
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 32px;
+}
+
+.DirButton {
+	height: 75px;
+	width: 75px;
+
+	horizontal-align: center;
+	vertical-align: bottom;
+
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	
+	wash-color: #ffffff;
+}
+
+.DirButton.Left {
+	margin-right: 405px;
+	background-image: url("s2r://panorama/images/control_icons/arrow_solid_left_png.vtex");
+}
+.DirButton.Right {
+	margin-left: 405px;
+	background-image: url("s2r://panorama/images/control_icons/arrow_solid_right_png.vtex");
+}
+
+.DirButton:hover {
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #5f6663 ), to( #b4c2c1 ));
+}
+
+.DirButton.disabled {
+	brightness: 0.5;
+}

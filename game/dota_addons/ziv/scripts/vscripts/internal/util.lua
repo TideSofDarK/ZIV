@@ -1,24 +1,3 @@
--- MATH HERE
-function lerp(a, b, t)
-  return a + (b - a) * t
-end
-
-function clamp(val, lower, upper)
-    return math.max(lower, math.min(upper, val))
-end
-
-function smoothstep(edge0, edge1, x)
-    x = clamp((x - edge0)/(edge1 - edge0), 0.0, 1.0)
-    return x*x*(3 - 2*x)
-end
-
-function GetRandomSign()
-  local seed = math.random(0, 1)
-  if seed > 0 then return 1
-  elseif seed < 1 then return -1 end
-end
--- MATH END
-
 function InitAbilities( hero )
   for i=0, hero:GetAbilityCount()-1 do
     local abil = hero:GetAbilityByIndex(i)

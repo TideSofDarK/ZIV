@@ -1,0 +1,25 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/material_design.css" />
+		<include src="file://{resources}/styles/custom_game/custom_character_selection.css" />	
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/material_design.js" />
+		<include src="file://{resources}/scripts/custom_game/custom_character_selection.js" />
+	</scripts>
+	<Panel hittest="false" class="SelectionRoot">
+		<Button class="GenericButton ChooseButton" id="ChooseButton" MaterialStyle="ChooseButton"
+							onactivate="LockIn()"
+							>
+			<Label class="ChooseButtonLabel Headline1" MaterialStyle="ChooseButton" id="LockInLabel" text="#lockin" />
+		</Button>
+		<Button class="GenericButton DirButton Left" id="DirButtonLeft"
+							onactivate="LeftButton()"
+							>
+		</Button>
+		<Button class="GenericButton DirButton Right" id="DirButtonRight"
+							onactivate="RightButton()"
+							>
+		</Button>
+	</Panel>
+</root>

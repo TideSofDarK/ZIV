@@ -2,6 +2,13 @@
 -- Do not remove the ZIV:_Function calls in these events as it will mess with the internal ziv systems.
 
 -- Cleanup a player when they leave
+function ZIV:OnPlayerSelectedHero( args )
+  local pID = tonumber(args.pID)
+  local hero_name = args.hero_name
+
+  CreateHeroForPlayer(hero_name, PlayerResource:GetPlayer(pID))
+end
+
 function ZIV:OnDisconnect(keys)
   DebugPrint('[ZIV] Player Disconnected ' .. tostring(keys.userid))
   DebugPrintTable(keys)
