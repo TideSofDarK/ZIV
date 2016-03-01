@@ -6,7 +6,7 @@ var heroesKVs;
 var currentCharacter = 2;
 var lockedIn = false;
 
-var marginX = 550;
+var marginX = 0;
 var marginY = -145;
 
 function GetVectorFromStylePosition(posString) {
@@ -84,29 +84,39 @@ function CreateFrames() {
 }
 
 function UpdateFrames() {
-	for (var i = heroFrames.length-1; i >= 0; i--) {
-		var positionVector = heroFrames[i].style.position;
-		if (positionVector != undefined) {
-			var lockedInOffset = 0;
-			var scrollOffset = 1;
-
-			if (lockedIn && currentCharacter != i) {
-				lockedInOffset = i < currentCharacter ? -3000 : 3000;
-				scrollOffset = 0.275;
-			}
-
-			heroFrames[i].style.x = lockedInOffset + (( (i - currentCharacter) * marginX ) ) + "px;";
-			heroFrames[i].style.y = (marginY/2) + ((Math.abs(currentCharacter - i) * marginY)) + "px;";
-
-			heroFrames[i].SetHasClass( "unselected", i != currentCharacter );
-		}
-		else
-		{
-			heroFrames[i].style.position = "0px 0px -1px;";
-		}
-	}
-
-	$.Schedule(0.01, UpdateFrames)
+    for (var i = heroFrames.length-1; i >= 0; i--) {
+        var positionVector = heroFrames[i].style.position;
+        if (positionVector != undefined) {
+            var lockedInOffset = 0;
+            var scrollOffset = 1;
+ 
+            if (lockedIn && currentCharacter != i) {
+                lockedInOffset = i < currentCharacter ? -3000 : 3000;
+                scrollOffset = 0.275;
+            }
+ 
+            var sign = i < currentCharacter
+                ? -1
+                : i > currentCharacter ? 1 : 0;
+            heroFrames[i].style.x = 1000 * sign + lockedInOffset + (( (i - currentCharacter) * marginX ) ) + "px;";
+            heroFrames[i].style.zIndex = i < currentCharacter
+                ? (heroFrames.length - currentCharacter)
+                : i > currentCharacter
+                    ? (heroFrames.length - i - currentCharacter)
+                    : 10;
+ 
+            //heroFrames[i].style.y = (marginY/2) + ((Math.abs(currentCharacter - i) * marginY)) + "px;";
+ 
+            heroFrames[i].SetHasClass( "unselectedLeft", i < currentCharacter );
+            heroFrames[i].SetHasClass( "unselectedRight", i > currentCharacter );
+        }
+        else
+        {
+            heroFrames[i].style.position = "0px 0px -1px;";
+        }
+    }
+ 
+    $.Schedule(0.01, UpdateFrames)
 }
 
 function SetHeroList(eventArgs) {

@@ -456,10 +456,10 @@
 			}
 		},
 		{
-			"file": "game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/beastmaster/npc_beastmaster_pet_level1.txt",
+			"file": "content/dota_addons/ziv/panorama/styles/custom_game/custom_character_selection.css",
 			"settings":
 			{
-				"buffer_size": 8432,
+				"buffer_size": 6314,
 				"line_ending": "Windows"
 			}
 		},
@@ -484,6 +484,22 @@
 			"settings":
 			{
 				"buffer_size": 766,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/dota_addons/ziv/panorama/scripts/custom_game/custom_character_selection.js",
+			"settings":
+			{
+				"buffer_size": 3965,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "game/dota_addons/ziv/scripts/vscripts/ziv.lua",
+			"settings":
+			{
+				"buffer_size": 7480,
 				"line_ending": "Windows"
 			}
 		}
@@ -575,6 +591,7 @@
 	],
 	"file_history":
 	[
+		"/E/workspace/ZiV/.gitignore",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_beastmaster_ziv.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_beastmaster_bird.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/npc_beastmaster_pet_level1.txt",
@@ -671,7 +688,6 @@
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/ziv_huntress_trap.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/huntress/npc_dummy_unit.txt",
 		"/E/workspace/ZiV/README.md",
-		"/E/workspace/ZiV/.gitignore",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/buildings/queue.lua",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/events.lua",
 		"/E/workspace/PetriReborn/game/dota_addons/petri_reborn/scripts/vscripts/gamemode.lua",
@@ -974,7 +990,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -990,12 +1006,13 @@
 						"selection":
 						[
 							[
-								1,
-								21
+								1178,
+								1178
 							]
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/Theme - Cyanide/Monocyanide - Contrasted.tmTheme",
 							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1004,37 +1021,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/beastmaster/npc_beastmaster_pet_level1.txt",
-					"semi_transient": true,
+					"file": "content/dota_addons/ziv/panorama/styles/custom_game/custom_character_selection.css",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8432,
+						"buffer_size": 6314,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								619,
-								619
+								1413,
+								1413
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"color_scheme": "Packages/Theme - Cyanide/Monocyanide - Contrasted.tmTheme",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 855.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1056,12 +1073,13 @@
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/Theme - Cyanide/Monocyanide - Contrasted.tmTheme",
 							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 627.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -1086,13 +1104,15 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax"
+							"color_scheme": "Packages/Theme - Cyanide/Monocyanide - Contrasted.tmTheme",
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 228.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1114,6 +1134,7 @@
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/Theme - Cyanide/Monocyanide - Contrasted.tmTheme",
 							"syntax": "Packages/Lua/Lua.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
@@ -1122,7 +1143,68 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "content/dota_addons/ziv/panorama/scripts/custom_game/custom_character_selection.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3965,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								116,
+								116
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/Theme - Cyanide/Monocyanide - Contrasted.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "game/dota_addons/ziv/scripts/vscripts/ziv.lua",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 7480,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/Theme - Cyanide/Monocyanide - Contrasted.tmTheme",
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
