@@ -5,7 +5,7 @@
   "AbilityTextureName"            "rubick_empty1"
 
   "AbilityCastRange"        "600"
-  "AbilityCastPoint"        "0"
+  "AbilityCastPoint"        "0.3"
   "AbilityCooldown"         "13"
   "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 

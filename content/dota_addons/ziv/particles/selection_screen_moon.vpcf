@@ -43,6 +43,7 @@
 			m_flBias = 0.250000
 			m_flEndScale = 10.000000
 			m_flStartScale = 7.000000
+			m_bEaseInAndOut = true
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
@@ -55,6 +56,7 @@
 			_class = "C_OP_RampScalarSplineSimple"
 			m_Rate = -1.750000
 			m_nField = 12
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_SetToCP"

@@ -1,0 +1,39 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/ingame_ui_ability.js" />
+	</scripts>
+	<Panel class="AbilityPanel">
+		<Panel id="ButtonAndLevel">
+			<Panel id="UpgradeBorder">
+				<Panel id="AbilityStatusBorder">
+					<Button id="AbilityButton"
+							onmouseover="AbilityShowTooltip()"
+							onmouseout="AbilityHideTooltip()"
+							onactivate="ActivateAbility()"
+							ondblclick="DoubleClickAbility()"
+							oncontextmenu="RightClickAbility()"
+							>
+						<DOTAAbilityImage id="AbilityImage" >
+							<Label id="ManaCost" />
+						</DOTAAbilityImage>
+						<Panel id="Cooldown">
+							<Label id="CooldownTimer" />
+							<Panel id="CooldownOverlay" />
+						</Panel>
+						<Panel id="ActiveAbility" />
+						
+					</Button>
+				</Panel>
+			</Panel>
+			<Panel hittest="false" id="AbilityLevelContainer" />
+		</Panel>
+		<Panel id="Hotkey">
+			<Label id="HotkeyText" />
+		</Panel>
+	</Panel>
+</root>

@@ -145,11 +145,11 @@ function SetHeroesKVs(eventArgs) {
 		}
 		else if ( eventName === "wheeled" )
 		{
-			if ( arg < 0 && currentCharacter > 0 )
+			if ( arg > 0 && currentCharacter > 0 )
 			{
 				currentCharacter--;
 			}
-			else if ( arg > 0 && currentCharacter < heroFrames.length-1 )
+			else if ( arg < 0 && currentCharacter < heroFrames.length-1 )
 			{
 				currentCharacter++;
 			}

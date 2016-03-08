@@ -1,6 +1,6 @@
 "npc_dota_hero_beastmaster_ziv"
 {
-    "AbilityLayout"     "6"
+    "AbilityLayout"     "4"
     "override_hero"     "npc_dota_hero_beastmaster"
 
     "ChooseLayout"  "1122"

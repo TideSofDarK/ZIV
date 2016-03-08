@@ -1,0 +1,40 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/ingame_ui.js" />
+	</scripts>
+	<Panel class="InGameUIRoot" hittest="false">
+		<Panel class="Bottom RightBottom" hittest="false">
+			<Panel hittest="false" id="BottomRoot">
+			</Panel>
+		</Panel>
+
+		<Panel class="Bottom LeftBottom" hittest="false">
+			<Panel hittest="false" id="MinimapBorder">
+			</Panel>
+		</Panel>
+
+		<Panel class="Bottom MidBottom" hittest="false">
+			<Panel class="HealthPoints">
+				<Panel class="Bar" id="hp_bar"/>
+				<Label text="100/100" class="ValueLabel" id="hp" />
+			</Panel>
+			<Panel class="ManaPoints">
+				<Panel class="Bar" id="mp_bar"/>
+				<Label text="100/100" class="ValueLabel" id="mp" />
+			</Panel>
+			<Panel class="AbilityOverlayRoot">
+<!-- 				<Button id="LevelUpButton" onactivate="OnLevelUpClicked()">
+					<Panel id="LevelUpButtonInset">
+						<Label text="#LevelUp" />
+					</Panel>
+				</Button> -->
+				<Panel id="ability_list" />
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

@@ -249,6 +249,10 @@ function ZIV:OnEntityKilled( keys )
 
   local damagebits = keys.damagebits -- This might always be 0 and therefore useless
 
+  if killedUnit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    PopupNumbers(killedUnit, "heal", Vector(215, 50, 248), 1.0, killedUnit:GetDeathXP(), nil, nil)
+  end
+
   -- Put code here to handle when an entity gets killed
 end
 

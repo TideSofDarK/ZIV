@@ -34,17 +34,21 @@
 /*
 */
 
+.Root {
+	z-index: 1;
+}
+
 .SelectionRoot {
 	width: 1920px;
 	height: 1080px;
 
-	
+
+	/*background-color: Grey900;*/
 }
 
 #Background {
 	width: 1920px;
 	height: 1080px;
-	position: 0px 0px -1px;
 
 	background-color: Grey900;
 }

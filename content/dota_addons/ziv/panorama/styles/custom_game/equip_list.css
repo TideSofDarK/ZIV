@@ -2,8 +2,8 @@
 {
 	horizontal-align: center;
 	vertical-align: bottom;
-	margin-bottom: 180px;
-	margin-left: 95px;
+	margin-bottom: 215px;
+	margin-left: 0px;
 	
 	flow-children: down;
 }
@@ -107,6 +107,11 @@
 	width: 124px;
 	height: 28px;
 	margin-bottom: 6px;
+}
+
+#EquipmentLabel
+{
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 }
 
 #EquipmentButton:hover

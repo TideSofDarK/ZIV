@@ -26,6 +26,8 @@ require('libraries/animations')
 require('libraries/attachments')
 -- Some jerky math stuff
 require('libraries/maths')
+-- Popup particles
+require('libraries/popups')
 
 
 -- These internal libraries set up ziv's events and processes.  Feel free to inspect them/change them if you need to.
@@ -80,6 +82,12 @@ end
 function ZIV:OnAllPlayersLoaded()
   DebugPrint("[ZIV] All Players have loaded into the game")
   Timers:CreateTimer(1.0, function ()
+    
+    for k,v in pairs(ZIV.HeroesKVs) do
+      CustomNetTables:SetTableValue("hero_kvs", k, v)
+      -- DeepPrintTable(CustomNetTables:GetTableValue("hero_kvs", k))
+    end
+
     CustomGameEventManager:Send_ServerToAllClients( "ziv_set_heroes_kvs", ZIV.HeroesKVs )
     CustomGameEventManager:Send_ServerToAllClients( "ziv_set_herolist", ZIV.HerolistKVs )
   end)
@@ -99,10 +107,15 @@ function ZIV:OnHeroInGame(hero)
   hero:SetGold(500, false)
 
   -- These lines will create an item and add it to the player, effectively ensuring they start with the item
-  local item = CreateItem("item_example_item", hero, hero)
-  hero:AddItem(item)
+  -- local item = CreateItem("item_example_item", hero, hero)
+  -- hero:AddItem(item)
 
+  local hero_name = hero:GetUnitName()
 
+  for i=0,(tonumber(CustomNetTables:GetTableValue("hero_kvs", hero_name.."_ziv")["AbilityLayout"]) - 1) do
+    local abil = hero:GetAbilityByIndex(i)
+    abil:UpgradeAbility(true)
+  end
 
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
     --with the "example_ability" ability

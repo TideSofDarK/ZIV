@@ -4,7 +4,7 @@ var m_BuffPanels = []; // created up to a high-water mark, but reused
 
 function OnEquipmentButtonClicked()
 {
-	 $( "#buffs_list" ).visible = $( "#buffs_list" ).visible == false;
+	 $( "#equip_list" ).visible = $( "#equip_list" ).visible == false;
 }
 
 function UpdateBuff( buffPanel, queryUnit, buffSerial )
@@ -59,7 +59,7 @@ function UpdateBuff( buffPanel, queryUnit, buffSerial )
 
 function UpdateBuffs()
 {
-	var buffsListPanel = $( "#buffs_list" );
+	var buffsListPanel = $( "#equip_list" );
 	if ( !buffsListPanel )
 		return;
 
@@ -103,7 +103,7 @@ function UpdateBuffs()
 		{
 			// create a new panel
 			var buffPanel = $.CreatePanel( "Panel", buffsListPanel, "" );
-			buffPanel.BLoadLayout( "file://{resources}/layout/custom_game/buff_list_buff.xml", false, false );
+			buffPanel.BLoadLayout( "file://{resources}/layout/custom_game/equip_list_buff.xml", false, false );
 			m_BuffPanels.push( buffPanel );
 
 			UpdateBuff( buffPanel, queryUnit, buffSerial );
