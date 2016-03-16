@@ -352,12 +352,3 @@ function ZIV:OnPlayerChat(keys)
 
   local text = keys.text
 end
-
--- Equipping
-function ZIV:OnBuffClicked(keys)
-  local playerID = keys.pID
-  local unit = EntIndexToHScript(keys.entityID)
-  local buffName = keys.buffName
-
-  UnEquip( unit, buffName )
-end

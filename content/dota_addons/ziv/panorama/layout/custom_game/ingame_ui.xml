@@ -1,14 +1,27 @@
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
 		<include src="file://{resources}/styles/custom_game/ingame_ui.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_inventory.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui.js" />
 	</scripts>
 	<Panel class="InGameUIRoot" hittest="false">
 		<Panel class="Bottom RightBottom" hittest="false">
+			<Panel class="InventoryOverlayRoot" hittest="false">
+				<Panel id="SideButtons" hittest="false">
+					<Button id="craft_button" class="BottomButton" onactivate="OpenFortifyWindow()" />
+					<!-- <ToggleButton checked="checked" id="help_button" class="BottomButton"/> -->
+				</Panel>
+
+				<Panel id="inventory_items">
+					<Panel id="inventory_row_1" />
+					<Panel id="inventory_row_2" />
+				</Panel>
+
+			</Panel>
 			<Panel hittest="false" id="BottomRoot">
 			</Panel>
 		</Panel>
@@ -19,6 +32,8 @@
 		</Panel>
 
 		<Panel class="Bottom MidBottom" hittest="false">
+
+
 			<Panel class="HealthPoints">
 				<Panel class="Bar" id="hp_bar"/>
 				<Label text="100/100" class="ValueLabel" id="hp" />

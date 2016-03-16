@@ -33,6 +33,16 @@ function DebugPrintTable(...)
   end
 end
 
+function GetTableLength( t )
+  local length = 0
+
+  for k,v in pairs(t) do
+    length = length + 1
+  end
+
+  return length
+end
+
 function PrintTable(t, indent, done)
   --print ( string.format ('PrintTable type %s', type(keys)) )
   if type(t) ~= "table" then return end

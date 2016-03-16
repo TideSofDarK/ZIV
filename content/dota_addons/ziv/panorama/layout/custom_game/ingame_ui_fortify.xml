@@ -1,0 +1,38 @@
+<root>
+	<styles>
+		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_fortify.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_inventory.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/ingame_ui_fortify.js" />
+	</scripts>
+	<Panel class="Window FortifyRoot" hittest="true">
+		<Panel class="Headline">
+			<Label id="FortifyLabel" class="WindowLabel" text="Fortify">
+				<Button onactivate="CloseButton()" class="CloseButton">
+				</Button>
+			</Label>
+		</Panel>
+
+		<Image class='FortifyHammer' src="file://{images}/custom_game/ingame_ui/hammer.png"/>
+
+		<Panel class="FortifyItem" id="FortifyItem">
+		</Panel>
+
+		<Panel class="FortifyItem" id="FortifyTool">
+		</Panel>
+
+<!-- 		<Panel class="TextBlock" id="FortifyTextBlock">
+		</Panel> -->
+
+		<Panel class="TextBlock" id="FortifyTextBlock">
+			<Label id="FortifyTextBlockLabel" class="TextBlockLabel" text="+1 to Dexterity\n+10 to Attack Speed"/>
+		</Panel>
+
+		<Button onactivate="OKButton()" class="OKButton" id="FortifyOKButton">
+			<Label id="FortifyOKButtonLabel" class="WindowLabel" text="Fortify"/>
+		</Button>
+	</Panel>
+</root>

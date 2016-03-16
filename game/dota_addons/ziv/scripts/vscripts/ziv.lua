@@ -88,8 +88,14 @@ function ZIV:OnAllPlayersLoaded()
       -- DeepPrintTable(CustomNetTables:GetTableValue("hero_kvs", k))
     end
 
+    for k,v in pairs(ZIV.ItemKVs) do
+      CustomNetTables:SetTableValue("item_kvs", k, v)
+    end
+
     CustomGameEventManager:Send_ServerToAllClients( "ziv_set_heroes_kvs", ZIV.HeroesKVs )
     CustomGameEventManager:Send_ServerToAllClients( "ziv_set_herolist", ZIV.HerolistKVs )
+
+    SendToServerConsole("dota_combine_models 0")
   end)
 end
 
@@ -116,6 +122,9 @@ function ZIV:OnHeroInGame(hero)
     local abil = hero:GetAbilityByIndex(i)
     abil:UpgradeAbility(true)
   end
+
+  hero:AddAbility("ziv_fortify_modifiers")
+  hero:FindAbilityByName("ziv_fortify_modifiers"):UpgradeAbility(true)
 
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
     --with the "example_ability" ability
@@ -158,28 +167,28 @@ function ZIV:InitZIV()
   ZIV:_InitZIV()
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
-  -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(ZIV, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
+  Convars:RegisterCommand( "print_hero_stats", Dynamic_Wrap(ZIV, 'PrintHeroStats'), "", FCVAR_CHEAT )
 
   GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( ZIV, "FilterExecuteOrder" ), self )
 
   ZIV.ItemKVs = LoadKeyValues("scripts/npc/npc_items_custom.txt")
   ZIV.HeroesKVs = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
   ZIV.HerolistKVs = LoadKeyValues("scripts/npc/herolist.txt")
-
-  SendToServerConsole("dota_combine_models 0")
 end
 
--- This is an example console command
-function ZIV:ExampleConsoleCommand()
-  print( '******* Example Console Command ***************' )
+function ZIV:PrintHeroStats()
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
     if playerID ~= nil and playerID ~= -1 then
-      -- Do something here for the player who called this command
-      PlayerResource:ReplaceHeroWith(playerID, "npc_dota_hero_viper", 1000, 1000)
+      local hero = cmdPlayer:GetAssignedHero()
+      print("STR: "..tostring(hero:GetStrength()))
+      print("AGI: "..tostring(hero:GetAgility()))
+      print("INT: "..tostring(hero:GetIntellect()))
+      print("AS: "..tostring(hero:GetAttackSpeed()))
+      for i=0,hero:GetModifierCount() do
+        print(hero:GetModifierNameByIndex(i), hero:GetModifierStackCount(hero:GetModifierNameByIndex(i), hero))
+      end
     end
   end
-
-  print( '*********************************************' )
 end

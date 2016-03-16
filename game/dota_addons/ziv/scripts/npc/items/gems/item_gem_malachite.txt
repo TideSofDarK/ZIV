@@ -1,0 +1,38 @@
+"item_gem_malachite"
+{
+  "ID"              "1950"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"           "item_datadriven"
+  "AbilityTextureName"      "item_gem"
+
+  "ItemStackable"         "1"
+  "ItemPermanent"         "0"
+
+  "MaxUpgradeLevel"       "1"
+  "ItemBaseLevel"         "1"
+
+  "FortifyModifiersCount" "1"
+  "FortifyModifiers"
+  {
+    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
+    {
+      "min" "15"
+      "max" "40"
+    }
+    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"
+    {
+      "min" "15"
+      "max" "30"
+    }
+    "MODIFIER_PROPERTY_EVASION_CONSTANT"
+    {
+      "min" "4"
+      "max" "12"
+    }
+    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
+    {
+      "min" "5"
+      "max" "15"
+    }
+  }
+}

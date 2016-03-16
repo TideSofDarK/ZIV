@@ -5,7 +5,7 @@
 	margin-bottom: 215px;
 	margin-left: 0px;
 	
-	flow-children: down;
+	flow-children: right;
 }
 
 #buffs_list
@@ -17,6 +17,7 @@
 {
 
 	margin: 0px;
+	margin-right: 10px;
 	border-radius: 3px;
 }
 

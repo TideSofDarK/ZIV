@@ -2,6 +2,57 @@
 
 var m_AbilityPanels = []; // created up to a high-water mark, but reused when selection changes
 
+var m_InventoryPanels = []
+
+var DOTA_ITEM_STASH_MIN = 6;
+var DOTA_ITEM_STASH_MAX = 12;
+
+function UpdateInventory()
+{
+	var queryUnit = Players.GetLocalPlayerPortraitUnit();
+	for ( var i = 0; i < DOTA_ITEM_STASH_MIN; ++i )
+	{
+		var inventoryPanel = m_InventoryPanels[i]
+		var item = Entities.GetItemInSlot( queryUnit, i );
+
+		inventoryPanel.SetItem( queryUnit, item );
+	}
+}
+
+function CreateInventoryPanels()
+{
+	var stashPanel = undefined; //$( "#stash_row" );
+	var firstRowPanel = $( "#inventory_row_1" );
+	var secondRowPanel = $( "#inventory_row_2" );
+	if ( !firstRowPanel || !secondRowPanel )
+		return;
+
+	// stashPanel.RemoveAndDeleteChildren();
+	firstRowPanel.RemoveAndDeleteChildren();
+	secondRowPanel.RemoveAndDeleteChildren();
+	m_InventoryPanels = []
+
+	for ( var i = 0; i < DOTA_ITEM_STASH_MIN; ++i )
+	{
+		var parentPanel = firstRowPanel;
+		if ( i >= DOTA_ITEM_STASH_MIN )
+		{
+			// parentPanel = stashPanel;
+		}
+		else if ( i > 2 )
+		{
+			parentPanel = secondRowPanel;
+		}
+
+		var inventoryPanel = $.CreatePanel( "Panel", parentPanel, "" );
+		inventoryPanel.BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_inventory_item.xml", false, false );
+		inventoryPanel.SetItemSlot( i );
+
+		m_InventoryPanels.push( inventoryPanel );
+		
+	}
+}
+
 function OnLevelUpClicked()
 {
 	if ( Game.IsInAbilityLearnMode() )
@@ -33,7 +84,11 @@ function UpdateAbilityList()
 	var bControlsUnit = Entities.IsControllableByPlayer( queryUnit, Game.GetLocalPlayerID() );
 	$.GetContextPanel().SetHasClass( "could_level_up", ( bControlsUnit && bPointsToSpend ) );
 
-	var abilityLayout = parseInt(CustomNetTables.GetTableValue( "hero_kvs", Entities.GetUnitName( queryUnit )+"_ziv" )["AbilityLayout"])
+	var heroKV = CustomNetTables.GetTableValue( "hero_kvs", Entities.GetUnitName( queryUnit )+"_ziv" );
+	var abilityLayout = 0
+	if (heroKV) {
+		var abilityLayout = parseInt(heroKV["AbilityLayout"])
+	}
 
 	// update all the panels
 	var nUsedPanels = 0;
@@ -96,8 +151,26 @@ function UpdateHPAndMP() {
 	$.Schedule( 0.1, UpdateHPAndMP );
 }
 
+function CreateSideButtons() {
+	$.CreatePanel( "Panel", $("#SideButtons"), "" ).BLoadLayout( "file://{resources}/layout/custom_game/equip_list.xml", false, false );
+}
+
+function OpenFortifyWindow() {
+	$.CreatePanel( "Panel", $.GetContextPanel(), "" ).BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_fortify.xml", false, false );
+}
+
 (function()
 {
+	CreateInventoryPanels();
+	UpdateInventory();
+
+	GameEvents.Subscribe( "dota_inventory_changed", UpdateInventory );
+	GameEvents.Subscribe( "dota_inventory_item_changed", UpdateInventory );
+	GameEvents.Subscribe( "m_event_dota_inventory_changed_query_unit", UpdateInventory );
+	GameEvents.Subscribe( "m_event_keybind_changed", UpdateInventory );
+	GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateInventory );
+	GameEvents.Subscribe( "dota_player_update_query_unit", UpdateInventory );
+
 	GameEvents.Subscribe( "dota_portrait_ability_layout_changed", UpdateAbilityList );
 	GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateAbilityList );
 	GameEvents.Subscribe( "dota_player_update_query_unit", UpdateAbilityList );
@@ -106,4 +179,6 @@ function UpdateHPAndMP() {
 	
 	UpdateAbilityList(); // initial update
 	UpdateHPAndMP();
+
+	CreateSideButtons();
 })();

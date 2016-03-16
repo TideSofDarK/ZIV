@@ -13,6 +13,7 @@
 
 .RightBottom {
 	horizontal-align: right;
+	flow-children: down;
 }
 
 .MidBottom {
@@ -22,7 +23,7 @@
 
 #BottomRoot {
 	width: 1630px;
-	height: 10px;
+	height: 15px;
 
 	background-color: #111111FF;
 }
@@ -31,7 +32,7 @@
 	width: 293px;
 	height: 340px;
 
-	border: 10px solid #111111FF;
+	border: 15px solid #111111FF;
 	border-top-right-radius: 6px;
 	border-bottom-width: 0px;
 	border-top-width: 60px;
@@ -99,4 +100,60 @@
 
 #mp_bar {
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #3F51B5ff ), to( #212a5eff ) );
+}
+
+#SideButtons {
+	horizontal-align: right;
+	flow-children: down;
+
+	margin-bottom: 300px;
+}
+
+.BottomButton {
+	/*opacity: 0.99;*/
+	vertical-align: bottom;
+	margin-bottom: 2px;
+	
+    width: 80px;
+    height: 80px;
+    overflow: squish;
+
+    transition-property: background-color;
+	transition-duration: .2s;
+	transition-timing-function: ease-in-out, linear;
+
+    background-color: gradient( radial, 50% 50%, 10% 0%, 70% 90%, from( #222222FF ), to( #111111FF ) );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 49% 49%;
+    opacity-mask: url('file://{images}/custom_game/ingame_ui/button_mask.png');
+}
+
+.ButtonLabel {
+	color: white;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	font-size: 20px;
+	text-overflow: clip;
+	text-align: left;
+}
+
+.BottomButton:hover {
+	background-size: 59% 59%;
+}
+.BottomButton:selected,
+.BottomButton:hover
+{
+    background-color: gradient( radial, 50% 50%, 0% 0%, 60% 60%, from( #3F51B5FF ), to( #222222FF ) );
+}
+
+#equipment_button {
+	background-image: url('file://{images}/custom_game/ingame_ui/equipment.png');
+}
+
+#craft_button {
+	background-image: url('file://{images}/custom_game/ingame_ui/craft.png');
+}
+
+#help_button {
+	background-image: url('file://{images}/custom_game/ingame_ui/help.png');
 }

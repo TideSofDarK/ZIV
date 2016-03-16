@@ -1,7 +1,11 @@
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
 		<include src="file://{resources}/styles/custom_game/equip_list.css" />
+		
+		<include src="file://{resources}/styles/custom_game/ingame_ui.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_inventory.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/equip_list.js" />
@@ -9,10 +13,6 @@
 	<Panel class="BuffListRoot" hittest="false">
 		<Panel id="equip_list" />
 
-		<Button id="EquipmentButton" onactivate="OnEquipmentButtonClicked()">
-			<Panel id="EquipmentButtonInset">
-				<Label text="#equipment" id="EquipmentLabel" />
-			</Panel>
-		</Button>
+		<ToggleButton checked="checked" id="equipment_button" class="BottomButton" onactivate="OnEquipmentButtonClicked()"/>
 	</Panel>
 </root>

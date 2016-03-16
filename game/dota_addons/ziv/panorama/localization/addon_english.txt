@@ -24,4 +24,6 @@
 	"abilities"										"Abilities"
 	"lockin"										"Lock-In"
 	"lockedin"										"Waiting for start"
+
+	"item_gem_malachite_fortify_string" "random modifier(s) form list (attack speed, move speed, evasion, bonus agility)"
 }

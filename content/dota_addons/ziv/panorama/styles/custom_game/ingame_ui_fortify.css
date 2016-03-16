@@ -1,0 +1,61 @@
+DOTAItemImage {
+	width: 100%;
+	height: 100%;
+	transform: scale3d( 1, 1, 0 );
+}
+
+.FortifyRoot {
+	horizontal-align: center;
+	vertical-align: center;
+
+	width: 525px;
+	height: 420px;
+}
+
+#FortifyOKButton {
+	horizontal-align: right;
+	vertical-align: bottom;
+
+	margin: 20px;
+}
+
+#FortifyTextBlock {
+	horizontal-align: center;
+	vertical-align: bottom;
+
+	margin-bottom: 85px;
+}
+
+.FortifyItem {
+	margin-top: 70px;
+	width: 138px;
+	height: 100px;
+
+	border-radius: 5px;
+	border: 1px solid #111111ff;
+
+	background-color: gradient( radial, 10% 10%, 0% 0%, 100% 100%, from( #222222FF ), to( #111111FF ) );
+}
+
+.FortifyHammer {
+	margin-top: 91px;
+
+	width: 150px;
+
+	wash-color: #bbbbbb;
+
+	vertical-align: top;
+	horizontal-align: center;
+}
+
+#FortifyItem {
+	margin-left: 60px;
+
+	horizontal-align: left;
+}
+
+#FortifyTool {
+	margin-right: 60px;
+
+	horizontal-align: right;
+}

@@ -1,0 +1,59 @@
+"ziv_fortify_modifiers"
+{
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+  "BaseClass"           "ability_datadriven"
+  "AbilityTextureName"      ""
+
+  "MaxLevel" "1"
+  
+  "Modifiers"
+  {
+    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+  
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+      }
+    }
+
+    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+  
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
+      }
+    }
+
+    "MODIFIER_PROPERTY_EVASION_CONSTANT"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+  
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_EVASION_CONSTANT" "1"
+      }
+    }
+
+    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+  
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
+      }
+    }
+  }
+}

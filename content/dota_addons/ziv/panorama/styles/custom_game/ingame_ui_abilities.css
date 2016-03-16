@@ -3,7 +3,7 @@
 	horizontal-align: center;
 	vertical-align: bottom;
 	margin-bottom: 8px;
-	flow-children: down;
+	flow-children: right;
 }
 
 #ability_list
