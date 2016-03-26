@@ -9,6 +9,7 @@
 
 .LeftBottom {
 	horizontal-align: left;
+	flow-children: right;
 }
 
 .RightBottom {
@@ -78,9 +79,9 @@
 
 .Bar {
 	height: 100%;
-	transition-property: width;
+/*	transition-property: width;
 	transition-duration: .3s;
-	transition-timing-function: ease-in-out, linear;
+	transition-timing-function: ease-in-out, linear;*/
 
 	box-shadow: inset #333333ff 0px 1px 4px 0px;
 }
@@ -156,4 +157,34 @@
 
 #help_button {
 	background-image: url('file://{images}/custom_game/ingame_ui/help.png');
+}
+
+#Portait {
+	width: 140px;
+	height: 220px;
+
+	vertical-align: bottom;
+
+	z-index: 0;
+
+	background-color: #111111FF;
+
+	border: 15px solid #111111FF;
+	border-top-right-radius: 6px;
+	border-left-width: 0px;
+	border-bottom-width: 20px;
+	border-top-width: 30px;
+
+	margin-right: 20px;
+	margin-bottom: 0px;
+
+	transform: translate3d( -2px, 0px, 0px );
+}
+
+#PortaitImage {
+	vertical-align: center;
+	vertical-align: center;
+
+	width: 100%;
+	height: 100%;
 }

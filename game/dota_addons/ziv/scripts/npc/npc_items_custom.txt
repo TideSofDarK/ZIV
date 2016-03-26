@@ -131,6 +131,45 @@
 	      }
 	    }
 	  }
+	"item_goldcoins"
+	{
+	  "BaseClass"               "item_datadriven"
+	  "ID"                      "1800"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "Model"                   "models/props_debris/goldcoins_01.vmdl" 
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "AbilityCastPoint"      "0"
+	  "AbilityCooldown"       "0"
+	  "AbilityManaCost"       "0"
+	  
+	  "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+	  "ItemShopTags"        "consumable"
+	  "ItemQuality"         "consumable"
+	  "ItemPermanent"         "0"
+	  "ItemSellable"          "0"
+	  "ItemKillable"          "1"
+	  "ItemPurchasable"       "0"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	  "ItemInitialCharges" "1"
+	  "ItemDisplayCharges" "1"
+	  "ItemRequiresCharges" "1"
+	  "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
+	  "ItemCastOnPickup"    "1"
+	
+	  "OnSpellStart"
+	  {    
+	    "SpendCharge" 
+	    {}
+	    "RunScript"
+	    {
+	      "ScriptFile"  "items/goldcoins.lua"
+	      "Function"    "Pickup"
+	    }
+	  }
+	}
 	"item_basic_coat"
 	{
 	  "ID"              "1100"
@@ -217,6 +256,49 @@
 	    {
 	      "min" "5"
 	      "max" "15"
+	    }
+	  }
+	}
+	"item_gem_topaz"
+	{
+	  "ID"              "1951"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_gem_topaz"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "MODIFIER_PROPERTY_STATS_ALL_BONUS"
+	    {
+	      "min" "4"
+	      "max" "11"
+	    }
+	    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"
+	    {
+	      "min" "5"
+	      "max" "15"
+	    }
+	    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
+	    {
+	      "min" "5"
+	      "max" "15"
+	    }
+	    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"
+	    {
+	      "min" "5"
+	      "max" "15"
+	    }
+	    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
+	    {
+	      "min" "8"
+	      "max" "20"
 	    }
 	  }
 	}

@@ -1,0 +1,49 @@
+"ziv_creep_normal_hpbar_behavior"
+{
+  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+  "BaseClass"           "ability_datadriven"
+  "AbilityTextureName"            "rubick_empty1"
+  "MaxLevel"                      "1"
+  
+  "Modifiers"
+  {
+    "ziv_creep_normal_hpbar_behavior_logic"
+    {
+      "Passive"                        "1"
+      "IsHidden"                        "1"    
+
+      "OnCreated"
+      {
+        "ApplyModifier"
+        {
+          "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
+          "Target"     "CASTER"
+        }
+      }
+
+      "OnTakeDamage"
+      {
+        "RemoveModifier"
+        {
+          "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
+          "Target"     "CASTER"
+        }
+      }
+
+      "States"
+      {
+        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+      }
+    }
+    
+    "ziv_creep_normal_hpbar_behavior_untouched"
+    {
+      "Passive"                        "0"
+      "IsHidden"                        "1"    
+      "States"
+      {
+        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+      }
+    }
+  }
+}

@@ -28,6 +28,9 @@ require('libraries/attachments')
 require('libraries/maths')
 -- Popup particles
 require('libraries/popups')
+-- Containers
+require('libraries/playertables')
+require('libraries/containers')
 
 
 -- These internal libraries set up ziv's events and processes.  Feel free to inspect them/change them if you need to.
@@ -42,6 +45,48 @@ require('events')
 require('filters')
 
 require('items/equipment')
+
+require('director')
+
+pidInventory = {}
+lootSpawns = nil
+itemDrops = nil
+privateBankEnt = nil
+sharedBankEnt = nil
+contShopRadEnt = nil
+contShopDireEnt = nil
+itemShopEnt = nil
+
+contShopRad = nil
+contShopDire = nil
+itemShop = nil
+sharedBank = nil
+privateBank = {}
+
+defaultInventory = {}
+
+function ZIV:OpenInventory(args)
+  local pid = args.PlayerID
+  pidInventory[pid]:Open(pid)
+end
+
+function ZIV:DefaultInventory(args)
+  local pid = args.PlayerID
+  local hero = PlayerResource:GetSelectedHeroEntity(pid)
+
+  local di = defaultInventory[pid]
+  local msg = "Default Inventory Set To Container Inventory"
+  if di then
+    Containers:SetDefaultInventory(hero, nil)
+    defaultInventory[pid] = false
+    msg = "Default Inventory Set To DOTA Inventory"
+  else
+    Containers:SetDefaultInventory(hero, pidInventory[pid])
+    defaultInventory[pid] = true
+  end
+
+  Notifications:Top(pid, {text=msg,duration=5})
+end
 
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
@@ -73,6 +118,12 @@ end
 ]]
 function ZIV:OnFirstPlayerLoaded()
   DebugPrint("[ZIV] First Player has loaded")
+
+  CustomGameEventManager:RegisterListener("OpenInventory", Dynamic_Wrap(ZIV, "OpenInventory"))
+  CustomGameEventManager:RegisterListener("DefaultInventory", Dynamic_Wrap(ZIV, "DefaultInventory"))
+
+  Containers:SetDisableItemLimit(true)
+  Containers:UsePanoramaInventory(false)
 end
 
 --[[
@@ -108,6 +159,39 @@ end
 ]]
 function ZIV:OnHeroInGame(hero)
   DebugPrint("[ZIV] Hero spawned in game for first time -- " .. hero:GetUnitName())
+
+  local pid = hero:GetPlayerID()
+
+  local c = Containers:CreateContainer({
+    layout =      {3,3,3},
+    skins =       {},
+    headerText =  "My Inventory",
+    pids =        {pid},
+    entity =      hero,
+    closeOnOrder = false,
+    position =    "1200px 600px 0px",
+    OnDragWorld = true,
+  })
+
+  pidInventory[pid] = c
+
+  local item = CreateItem("item_tango", hero, hero)
+  c:AddItem(item, 4)
+
+  item = CreateItem("item_tango", hero, hero)
+  c:AddItem(item, 6)
+
+  item = CreateItem("item_force_staff", hero, hero)
+  c:AddItem(item)
+
+  item = CreateItem("item_blade_mail", hero, hero)
+  c:AddItem(item)
+
+  item = CreateItem("item_veil_of_discord", hero, hero)
+  c:AddItem(item)
+
+  -- defaultInventory[pid] = true
+  Containers:SetDefaultInventory(hero, c)
 
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
   hero:SetGold(500, false)
@@ -148,6 +232,28 @@ function ZIV:OnGameInProgress()
       return 0.03
     end)
 
+  Timers:CreateTimer(1.0, -- Hero statuses for UI
+    function()
+      local players = {}
+      for playerID = 0, DOTA_MAX_PLAYERS do
+        if PlayerResource:IsValidPlayerID(playerID) then
+          if not PlayerResource:IsBroadcaster(playerID) then
+            local hero = PlayerResource:GetPlayer(playerID):GetAssignedHero()
+            if hero then
+              local status_table = {}
+              status_table["str"] = hero:GetStrength()
+              status_table["agi"] = hero:GetAgility()
+              status_table["int"] = hero:GetIntellect()
+              status_table["damage"] = hero:GetAverageTrueAttackDamage()
+              CustomNetTables:SetTableValue("hero_status", tostring(playerID), status_table)
+            end
+          end
+        end
+      end
+
+      return 0.5
+    end)
+
   Timers:CreateTimer(30, -- Start this timer 30 game-time seconds later
     function()
       DebugPrint("This function is called 30 seconds after the game begins, and every 30 seconds thereafter")
@@ -161,19 +267,21 @@ function ZIV:InitZIV()
   ZIV = self
   DebugPrint('[ZIV] Starting to load ZIV ziv...')
 
-  -- Call the internal function to set up the rules/behaviors specified in constants.lua
-  -- This also sets up event hooks for all event handlers in events.lua
-  -- Check out internals/ziv to see/modify the exact code
   ZIV:_InitZIV()
 
-  -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   Convars:RegisterCommand( "print_hero_stats", Dynamic_Wrap(ZIV, 'PrintHeroStats'), "", FCVAR_CHEAT )
+  Convars:RegisterCommand( "ai", Dynamic_Wrap(ZIV, 'AddItemToContainer'), "", FCVAR_CHEAT )
+  Convars:RegisterCommand( "sp", Dynamic_Wrap(ZIV, 'SpawnBasicPack'), "", FCVAR_CHEAT )
 
   GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( ZIV, "FilterExecuteOrder" ), self )
 
   ZIV.ItemKVs = LoadKeyValues("scripts/npc/npc_items_custom.txt")
+  ZIV.AbilityKVs = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
+  ZIV.UnitKVs = LoadKeyValues("scripts/npc/npc_units_custom.txt")
   ZIV.HeroesKVs = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
   ZIV.HerolistKVs = LoadKeyValues("scripts/npc/herolist.txt")
+
+  Director:Init()
 end
 
 function ZIV:PrintHeroStats()
@@ -189,6 +297,37 @@ function ZIV:PrintHeroStats()
       for i=0,hero:GetModifierCount() do
         print(hero:GetModifierNameByIndex(i), hero:GetModifierStackCount(hero:GetModifierNameByIndex(i), hero))
       end
+    end
+  end
+end
+
+function ZIV:AddItemToContainer(item, count)
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+      local hero = cmdPlayer:GetAssignedHero()
+      local item = CreateItem(item, hero, hero)
+      pidInventory[playerID]:AddItem(item, count or 1)
+    end
+  end
+end
+
+function ZIV:SpawnBasicPack(count)
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+      local hero = cmdPlayer:GetAssignedHero()
+      
+      Director:SpawnPack(
+        {
+          Level = 1,
+          SpawnBasic = true,
+          Count = count or 40,
+          Position = hero:GetAbsOrigin()
+        }
+      )
     end
   end
 end

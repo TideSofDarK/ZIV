@@ -1,0 +1,67 @@
+<root>
+	<styles>
+		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+		<include src="file://{resources}/styles/custom_game/material_design.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_status.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/ingame_ui_status.js" />
+	</scripts>
+	<Panel class="Window StatusRoot" hittest="true">
+		<Image src="" scaling="stretch-to-fit-y-preserve-aspect" id="hires">
+			<Button onactivate="CloseButton()" class="CloseButton">
+			</Button>
+
+			<Label id="HeroNameLabel" text="Name">
+			</Label>
+		</Image>
+
+		<Panel class="CBR" hittest="true">
+		</Panel>
+
+		<Label id="AttributesHeadline" class="Headline" text="#status_attr">
+		</Label>
+
+		<Panel class="CBR" hittest="true">
+		</Panel>
+
+		<Panel id="Attributes" hittest="true">
+			<Label class="Attribute" id="Str" text="40">
+			</Label>
+			<Label class="Attribute" id="Agi" text="40">
+			</Label>
+			<Label class="Attribute" id="Int" text="20">
+			</Label>
+		</Panel>
+
+		<Panel class="CBR" hittest="true">
+		</Panel>
+
+		<Label id="StatusHeadline" class="Headline" text="#status_status">
+		</Label>
+
+		<Panel class="CBR" hittest="true">
+		</Panel>
+
+		<Panel id="status_strings" hittest="true">
+			<Label class="StatusLabel" id="HP" text="500">
+			</Label>
+			<Label class="StatusLabel" id="MP" text="500">
+			</Label>
+			<Label class="StatusLabel" id="AD" text="500">
+			</Label>
+			<Label class="StatusLabel" id="ARMOR" text="500">
+			</Label>
+			<Label class="StatusLabel" id="EVASION" text="500">
+			</Label>
+			<Label class="StatusLabel" id="MDA" text="500">
+			</Label>
+			<Label class="StatusLabel" id="CTC" text="500">
+			</Label>
+		</Panel>
+
+		<Panel class="CBR" hittest="true">
+		</Panel>
+	</Panel>
+</root>

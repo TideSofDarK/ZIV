@@ -9,21 +9,27 @@ DOTAItemImage {
 	vertical-align: center;
 
 	width: 525px;
-	height: 420px;
+	height: 480px;
 }
 
 #FortifyOKButton {
 	horizontal-align: right;
 	vertical-align: bottom;
 
-	margin: 20px;
+	margin: 25px;
 }
 
 #FortifyTextBlock {
 	horizontal-align: center;
 	vertical-align: bottom;
 
-	margin-bottom: 85px;
+	height: 38%;
+
+	margin-bottom: 100px;
+}
+
+#FortifyTextBlockLabel {
+	width: 95%;
 }
 
 .FortifyItem {
@@ -58,4 +64,12 @@ DOTAItemImage {
 	margin-right: 60px;
 
 	horizontal-align: right;
+}
+
+.item_gem_topaz {
+	color: #b5a33f;
+}
+
+.item_gem_malachite {
+	color: #3fb568;
 }

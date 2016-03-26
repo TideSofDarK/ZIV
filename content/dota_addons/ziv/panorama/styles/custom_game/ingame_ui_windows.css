@@ -94,6 +94,11 @@
 	horizontal-align: right;
 }
 
+.OKButton:disabled 
+{
+	wash-color: #999999;
+}
+
 .OKButton:hover
 {
 	wash-color: #bbbbbb;

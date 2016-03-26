@@ -25,5 +25,28 @@
 	"lockin"										"Выбрать героя"
 	"lockedin"										"Ожидание начала игры"
 
+	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "к Скорости Атаки"
+	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "к Скорости Передвижения"
+	"MODIFIER_PROPERTY_EVASION_CONSTANT" "к Уклонению"
+	"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "к Ловкости"
+	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "к Интеллекту"
+	"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "к Силе"
+	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "к Броне"
+	"MODIFIER_PROPERTY_STATS_ALL_BONUS" "ко всем Статам"
+
+	"status_attr"	"Характеристики"
+	"status_status"	"Статус"
+	"status_hp"	"Здоворье: "
+	"status_mp"	"Мана: "
+	"status_ad"	"Урон с удара: "
+	"status_armor"	"Броня: "
+	"status_evasion"	"Шанс уклониться: "
+	"status_mda"	"Увеличение маг. урона: "
+	"status_ctc"	"Шанс крита: "
+
+	"dragfortify"				"Перетащите оружие или броню из инвентаря в это окно чтобы улучшить его"
+	"dragfortify_gem"			"Перетащите гем из инвентаря в это окно чтобы вставить его в шмотку"
+
 	"item_gem_malachite_fortify_string" "случайных модификаторов из списка (скорость атаки, скорость передвижения, уклоенение, бонус к ловкости)"
+	"item_gem_topaz_fortify_string" "случайных модификаторов из списка (бонус к одной из характеристик, бонус ко всем характеристикам, бонус к броне)"
 }

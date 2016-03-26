@@ -352,3 +352,17 @@ function ZIV:OnPlayerChat(keys)
 
   local text = keys.text
 end
+
+function ZIV:OnDragItemToWorld( keys )
+  local unit = EntIndexToHScript(keys.unit)
+  local item = EntIndexToHScript(keys.itemID)
+  local position = Vector(keys.position["0"], keys.position["1"], keys.position["2"])
+
+  PrintTable(keys)
+
+  unit:DropItemAtPosition(position, item)
+end
+
+function ZIV:OnGetHeroStatus( keys )
+  
+end

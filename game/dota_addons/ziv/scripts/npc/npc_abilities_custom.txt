@@ -257,6 +257,55 @@
 	      }
 	    }
 	  }
+	"ziv_creep_normal_hpbar_behavior"
+	{
+	  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityTextureName"            "rubick_empty1"
+	  "MaxLevel"                      "1"
+	  
+	  "Modifiers"
+	  {
+	    "ziv_creep_normal_hpbar_behavior_logic"
+	    {
+	      "Passive"                        "1"
+	      "IsHidden"                        "1"    
+	
+	      "OnCreated"
+	      {
+	        "ApplyModifier"
+	        {
+	          "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
+	          "Target"     "CASTER"
+	        }
+	      }
+	
+	      "OnTakeDamage"
+	      {
+	        "RemoveModifier"
+	        {
+	          "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
+	          "Target"     "CASTER"
+	        }
+	      }
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	    
+	    "ziv_creep_normal_hpbar_behavior_untouched"
+	    {
+	      "Passive"                        "0"
+	      "IsHidden"                        "1"    
+	      "States"
+	      {
+	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	  }
+	}
 	"ziv_empty1"
 	  {
 	    // General
@@ -371,6 +420,56 @@
 	  
 	      "Properties"
 	      {
+	        "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
+	      }
+	    }
+	
+	    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	  
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1"
+	      }
+	    }
+	
+	    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	  
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1"
+	      }
+	    }
+	
+	    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	  
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
+	      }
+	    }
+	
+	    "MODIFIER_PROPERTY_STATS_ALL_BONUS"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	  
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1"
+	        "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1"
 	        "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
 	      }
 	    }
@@ -2021,6 +2120,287 @@
 	    {
 	      "var_type"            "FIELD_INTEGER"
 	      "damage_bonus"            "10 20 30 40 50 60 70"
+	    }
+	  }
+	}
+	"ziv_creep_lord_modifier_degen_aura"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+	  "AbilityTextureName"            "rubick_empty1"
+	  
+	  "MaxLevel"          "1"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_movespeed" "-35"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "radius" "450"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_creep_degen_aura"
+	    {
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
+	      "StatusEffectPriority"  "10"
+	
+	      "Aura"        "modifier_creep_regen"
+	      "Aura_Radius" "%radius"
+	      "Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	      "Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+	      "Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	    }
+	
+	    "modifier_creep_degen"
+	    {
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movespeed"
+	      }
+	    }
+	  }
+	}
+	"ziv_creep_lord_modifier_regen_aura"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+	  "AbilityTextureName"            "rubick_empty1"
+	  
+	  "MaxLevel"          "1"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "hp_regen_percentage" "5"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "radius" "700"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_creep_regen_aura"
+	    {
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
+	      "StatusEffectPriority"  "10"
+	
+	      "Aura"        "modifier_creep_regen"
+	      "Aura_Radius" "%radius"
+	      "Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	      "Aura_Types"  "DOTA_UNIT_TARGET_BASIC"
+	      "Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	    }
+	
+	    "modifier_creep_regen"
+	    {
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
+	      "StatusEffectPriority"  "10"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%hp_regen_percentage"
+	      }
+	    }
+	  }
+	}
+	"ziv_creep_modifier_frenzy"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "AbilityTextureName"            "rubick_empty1"
+	  
+	  "MaxLevel"          "1"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_attackspeed" "100"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_movespeed" "100"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_FLOAT"
+	      "bonus_size" "1.5"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_creep_frenzy"
+	    {
+	      "Passive" "1"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
+	      "StatusEffectPriority"  "10"
+	
+	      "OnCreated"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/modifiers/frenzy.lua"
+	          "Function"    "SetScale"
+	        }
+	      }
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE" "50"
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movespeed" 
+	      }
+	    }
+	  }
+	}
+	"ziv_creep_modifier_tanky"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "AbilityTextureName"            "rubick_empty1"
+	  
+	  "MaxLevel"          "1"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_hp" "150"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_creep_frenzy"
+	    {
+	      "Passive" "1"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
+	      "StatusEffectPriority"  "10"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%bonus_hp"
+	      }
+	    }
+	  }
+	}
+	"ziv_creep_modifier_vampire"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "AbilityTextureName"            "rubick_empty1"
+	  
+	  "MaxLevel"          "1"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_attackspeed" "10"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "lifesteal" "35"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_creep_lifesteal"
+	    {
+	      "Passive"           "1"
+	      "IsHidden"          "1"
+	      "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+	      
+	      "Orb"
+	      {
+	        "Priority"      "DOTA_ORB_PRIORITY_ITEM"
+	      }
+	
+	      "OnOrbImpact"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"            "abilities/modifiers/frenzy.lua"
+	          "Function"              "Lifesteal"
+	        }
+	      }
+	    }
+	    "modifier_creep_lifesteal_effect"
+	    {
+	      "Passive"           "0"
+	      "IsHidden"          "1"
+	      
+	      "OnDealDamage"
+	      {
+	        "Lifesteal"
+	        {
+	          "Target"            "ATTACKER"
+	          "LifestealPercent"  "%lifesteal"
+	        }
+	      }
 	    }
 	  }
 	}

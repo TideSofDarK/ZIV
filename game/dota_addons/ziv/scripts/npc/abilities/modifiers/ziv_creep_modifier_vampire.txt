@@ -1,0 +1,65 @@
+"ziv_creep_modifier_vampire"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityTextureName"            "rubick_empty1"
+  
+  "MaxLevel"          "1"
+
+  "precache"
+  {
+    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+  }
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_attackspeed" "10"
+    }
+    "02"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "lifesteal" "35"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_creep_lifesteal"
+    {
+      "Passive"           "1"
+      "IsHidden"          "1"
+      "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+      
+      "Orb"
+      {
+        "Priority"      "DOTA_ORB_PRIORITY_ITEM"
+      }
+
+      "OnOrbImpact"
+      {
+        "RunScript"
+        {
+          "ScriptFile"            "abilities/modifiers/frenzy.lua"
+          "Function"              "Lifesteal"
+        }
+      }
+    }
+    "modifier_creep_lifesteal_effect"
+    {
+      "Passive"           "0"
+      "IsHidden"          "1"
+      
+      "OnDealDamage"
+      {
+        "Lifesteal"
+        {
+          "Target"            "ATTACKER"
+          "LifestealPercent"  "%lifesteal"
+        }
+      }
+    }
+  }
+}

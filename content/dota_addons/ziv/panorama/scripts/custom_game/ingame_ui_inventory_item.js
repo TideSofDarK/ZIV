@@ -219,7 +219,9 @@ function OnDragEnd( panelId, draggedPanel )
 	// if the drag didn't already complete, then try dropping in the world
 	if ( !draggedPanel.m_DragCompleted )
 	{
-		Game.DropItemAtCursor( m_QueryUnit, m_Item );
+		var position = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
+		GameEvents.SendCustomGameEventToServer( "ziv_drag_item_to_world", {unit:Players.GetLocalPlayerPortraitUnit(), itemID:m_Item, slot:m_ItemSlot, position:position} );
+		// Game.DropItemAtCursor( m_QueryUnit, m_Item );
 	}
 
 	// kill the display panel

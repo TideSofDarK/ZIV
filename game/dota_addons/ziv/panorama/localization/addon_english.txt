@@ -25,5 +25,28 @@
 	"lockin"										"Lock-In"
 	"lockedin"										"Waiting for start"
 
-	"item_gem_malachite_fortify_string" "random modifier(s) form list (attack speed, move speed, evasion, bonus agility)"
+	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "to Attack Speed"
+	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "to Move Speed"
+	"MODIFIER_PROPERTY_EVASION_CONSTANT" "to Evasion rating"
+	"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "to Agility"
+	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "to Intellect"
+	"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "to Strength"
+	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "to Armor"
+	"MODIFIER_PROPERTY_STATS_ALL_BONUS" "to All Stats"
+
+	"status_attr"	"Attributes"
+	"status_status"	"Status"
+	"status_hp"	"Health Points: "
+	"status_mp"	"Mana Points: "
+	"status_ad"	"Attack Damage: "
+	"status_armor"	"Armor: "
+	"status_evasion"	"Chance to Dodge: "
+	"status_mda"	"Spell Amplify: "
+	"status_ctc"	"Chance to crit: "
+
+	"dragfortify"				"Drag and drop weapon or armor from inventory to fortify"
+	"dragfortify_gem"			"Drag and drop gem from inventory to insert it"
+
+	"item_gem_malachite_fortify_string" "random modifier from list (attack speed, move speed, evasion, bonus agility)"
+	"item_gem_topaz_fortify_string" "random modifier from list (bonus to single stat, bonus to all stats, bonus armor)"
 }

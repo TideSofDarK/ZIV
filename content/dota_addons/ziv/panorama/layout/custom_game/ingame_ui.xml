@@ -13,12 +13,14 @@
 			<Panel class="InventoryOverlayRoot" hittest="false">
 				<Panel id="SideButtons" hittest="false">
 					<Button id="craft_button" class="BottomButton" onactivate="OpenFortifyWindow()" />
-					<!-- <ToggleButton checked="checked" id="help_button" class="BottomButton"/> -->
+					<Button id="help_button" class="BottomButton" onactivate="OpenStatusWindow()" />
 				</Panel>
 
 				<Panel id="inventory_items">
 					<Panel id="inventory_row_1" />
 					<Panel id="inventory_row_2" />
+					<Panel id="inventory_row_3" />
+					<Panel id="inventory_row_4" />
 				</Panel>
 
 			</Panel>
@@ -28,6 +30,9 @@
 
 		<Panel class="Bottom LeftBottom" hittest="false">
 			<Panel hittest="false" id="MinimapBorder">
+			</Panel>
+			<Panel hittest="false" id="Portait">
+				<DOTAHeroMovie id="PortaitImage" heroname="npc_dota_hero_dragon_knight" />
 			</Panel>
 		</Panel>
 

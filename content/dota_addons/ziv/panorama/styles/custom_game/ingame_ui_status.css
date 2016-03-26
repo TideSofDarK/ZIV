@@ -1,0 +1,142 @@
+.StatusRoot {
+	horizontal-align: center;
+	vertical-align: center;
+
+	box-shadow: #000000ff 0px 0px 10px 0px;
+
+	width: 475px;
+	height: 720px;
+
+	margin-bottom: 240px;
+
+	flow-children: down;
+}
+
+#hires {
+	border-bottom: 1px solid #333333;
+
+	flow-children: down;
+}
+
+#HeroNameLabel {
+	text-shadow: 1px 2px 1px black;
+	text-align: left;
+	text-transform: uppercase;
+	text-overflow: clip;
+
+	line-height: 39px;
+
+	box-shadow: #00000000 0px 0px 0px 0.0;
+
+	font-weight: bold;
+	font-size: 33px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color: White;
+
+	vertical-align: bottom;
+	margin: 10px;
+	margin-left: 15px;
+}
+
+.LevelAndLeague {
+	font-size: 16px;
+}
+
+.Headline {
+	text-align: center;
+	text-overflow: clip;
+
+	line-height: 32px;
+
+	box-shadow: #00000000 0px 0px 0px 0.0;
+	background-color: transparent;
+
+	font-size: 22px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color: White;
+
+	margin-top: 5px;
+
+	horizontal-align: center;
+}
+
+.CBR {
+	horizontal-align: center;
+	width: 80%;
+	height: 1px;
+
+	/*background-color: #333333;*/
+	border-top: 1px solid #333333;
+	margin-top: -1px;
+
+	flow-children: none;
+}
+
+.Attribute {
+	width: 75px;
+
+	text-align: center; 
+	line-height: 85px;
+
+	font-size: 28px;
+	font-family: Goudy Trajan Regular,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	font-weight: bold;
+	color: White;
+
+	background-color: transparent;
+	background-repeat: no-repeat; 
+	background-position: left 19px center -35px;
+	background-size: 37px 37px;
+
+	margin-left: 130px;
+	margin-right: 130px;
+	vertical-align: bottom;
+}
+
+#Attributes {
+	width: 100%;
+	/*height: 90px;*/
+	horizontal-align: center;
+
+}
+
+#Str {
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex");
+	horizontal-align: left;
+}
+
+#Agi {
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex");
+	horizontal-align: center;
+}
+
+#Int {
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex");
+	horizontal-align: right;
+}
+
+.StatusLabel {
+	text-align: left;
+
+	line-height: 22px;
+
+	box-shadow: #00000000 0px 0px 0px 0.0;
+	background-color: transparent;
+
+	font-size: 20px;
+	font-style: italic;
+
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	font-weight: normal;
+	color: White;
+
+	horizontal-align: left;
+
+	margin-left: 70px;
+}
+
+#status_strings {
+	flow-children: down;
+	margin-top: 20px;
+	padding-bottom: 25px;
+}

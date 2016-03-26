@@ -36,6 +36,18 @@
 	background-color: #222222;
 }
 
+#inventory_row_3
+{
+	flow-children: right;
+	background-color: #222222;
+}
+
+#inventory_row_4
+{
+	flow-children: right;
+	background-color: #222222;
+}
+
 .ItemPanel
 {
 	width: 88px;

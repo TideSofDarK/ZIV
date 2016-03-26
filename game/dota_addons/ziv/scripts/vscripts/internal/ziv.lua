@@ -96,6 +96,9 @@ function ZIV:_InitZIV()
   CustomGameEventManager:RegisterListener( "ziv_choose_hero", Dynamic_Wrap(ZIV, 'OnPlayerSelectedHero'))
 
   CustomGameEventManager:RegisterListener( "ziv_fortify_item", Dynamic_Wrap(ZIV, 'OnFortify'))
+  CustomGameEventManager:RegisterListener( "ziv_fortify_item_get_modifiers", Dynamic_Wrap(ZIV, 'OnFortifyGetModifiers'))
+
+  CustomGameEventManager:RegisterListener( "ziv_drag_item_to_world", Dynamic_Wrap(ZIV, 'OnDragItemToWorld'))
   
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(ZIV, 'OnShopToggled'), self)
 

@@ -1,6 +1,6 @@
 <root>
   <scripts>
-    <!--<include src="file://{resources}/scripts/custom_game/playertables/playertables_base.js" />-->
+    <include src="file://{resources}/scripts/custom_game/playertables/playertables_base.js" />
   </scripts>
   <script>
     // Uncomment any of the following lines in order to disable that portion of the default UI
@@ -53,6 +53,8 @@
     <!--<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_progress.xml" /> -->
 
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/equip_list.xml" /> -->
+
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/containers/container_base.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui.xml" />
 <!--     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_fortify.xml" /> -->

@@ -11,5 +11,7 @@ function ZIV:FilterExecuteOrder( filterTable )
       issuerUnit = EntIndexToHScript(units["0"])
     end
 
+    -- PrintTable(filterTable)
+
     return true
 end

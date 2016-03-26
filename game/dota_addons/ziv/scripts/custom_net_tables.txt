@@ -4,6 +4,7 @@
   [
     "containers_lua",
     "hero_kvs",
-    "item_kvs"
+    "item_kvs",
+    "hero_status"
   ]
 }

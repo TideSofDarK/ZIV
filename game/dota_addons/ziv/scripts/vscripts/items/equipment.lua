@@ -20,10 +20,12 @@ function UnEquip( unit, buffName )
 
     	local new_item = unit:AddItemByName(itemName)
 
-    	if unit.fortify_modifiers[itemName] and unit:HasAbility("ziv_fortify_modifiers") then
-			for k,v in pairs(unit.fortify_modifiers[itemName]) do
-				if unit:HasModifier(k) then
-					unit:SetModifierStackCount(k, unit, unit:GetModifierStackCount(k, unit) - v)
+    	if unit.fortify_modifiers and unit.fortify_modifiers[itemName] and unit:HasAbility("ziv_fortify_modifiers") then
+			for id,gem_table in pairs(unit.fortify_modifiers[itemName]) do
+				for k,v in pairs(gem_table) do
+					if unit:HasModifier(k) then
+						unit:SetModifierStackCount(k, unit, unit:GetModifierStackCount(k, unit) - v)
+					end
 				end
 			end
 
@@ -58,13 +60,16 @@ function Equip( keys )
 	if ability.fortify_modifiers and caster:HasAbility("ziv_fortify_modifiers") then
 		local fortify_modifiers_ability = caster:FindAbilityByName("ziv_fortify_modifiers")
 
-		for k,v in pairs(ability.fortify_modifiers) do
-
-			if caster:HasModifier(k) then
-				caster:SetModifierStackCount(k, caster, v + caster:GetModifierStackCount(k, caster))
-			else
-				fortify_modifiers_ability:ApplyDataDrivenModifier(caster, caster, k, {})
-				caster:SetModifierStackCount(k, caster, v)
+		for id,gem_table in pairs(ability.fortify_modifiers) do
+			for k,v in pairs(gem_table) do
+				if k ~= "gem" then
+					if caster:HasModifier(k) then
+						caster:SetModifierStackCount(k, caster, v + caster:GetModifierStackCount(k, caster))
+					else
+						fortify_modifiers_ability:ApplyDataDrivenModifier(caster, caster, k, {})
+						caster:SetModifierStackCount(k, caster, v)
+					end
+				end
 			end
 		end
 
@@ -93,9 +98,25 @@ function ZIV:OnFortify( keys )
   	local tool = EntIndexToHScript(keys.tool)
 
   	local toolKV = ZIV.ItemKVs[tool:GetName()]
-  	item.fortify_modifiers = GetRandomFortifyModifiers( toolKV["FortifyModifiers"], tonumber(toolKV["FortifyModifiersCount"]) )
+
+  	item.fortify_modifiers = item.fortify_modifiers or {}
+
+  	local new_modifiers = GetRandomFortifyModifiers( toolKV["FortifyModifiers"], tonumber(toolKV["FortifyModifiersCount"]) )
+  	new_modifiers["gem"] = tool:GetName()
+  	table.insert(item.fortify_modifiers, new_modifiers)
+
+  	PrintTable(item.fortify_modifiers)
+
+  	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ziv_fortify_item_result", { item = keys.item, modifiers = new_modifiers } )
 
   	UTIL_Remove(tool)
+end
+
+function ZIV:OnFortifyGetModifiers( keys )
+  	local playerID = keys.pID
+  	local item = EntIndexToHScript(keys.item)
+
+  	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ziv_fortify_get_modifiers", { item = keys.item, modifiers = (item.fortify_modifiers or {}) } )
 end
 
 function GetRandomFortifyModifiers( modifiers_kv, count )
