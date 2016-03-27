@@ -253,6 +253,12 @@ function ZIV:OnEntityKilled( keys )
     PopupNumbers(killedUnit, "heal", Vector(215, 50, 248), 1.0, killedUnit:GetDeathXP(), nil, nil)
   end
 
+  if killedUnit.particles then
+    for k,v in pairs(killedUnit.particles) do
+      ParticleManager:DestroyParticle(v, false)
+    end
+  end
+
   -- Put code here to handle when an entity gets killed
 end
 

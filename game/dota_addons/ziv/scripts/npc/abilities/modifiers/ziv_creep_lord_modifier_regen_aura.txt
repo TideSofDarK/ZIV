@@ -8,7 +8,8 @@
 
   "precache"
   {
-    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+    "particle"  "particles/ziv_creep_lord_modifier_regen_aura.vpcf"
+    "particle"  "particles/items_fx/healing_tango.vpcf"
   }
   
   "AbilitySpecial"
@@ -16,7 +17,7 @@
     "01"
     {
       "var_type"            "FIELD_INTEGER"
-      "hp_regen_percentage" "5"
+      "hp_regen_percentage" "15"
     }
     "02"
     {
@@ -29,11 +30,19 @@
   {
     "modifier_creep_regen_aura"
     {
+      "Passive" "1"
       "IsHidden"      "0"
       "IsDebuff"      "0"
 
-      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
-      "StatusEffectPriority"  "10"
+      "OnCreated"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/modifiers/generic_modifier.lua"
+          "Function"    "AttachParticle"
+          "particle"  "particles/ziv_creep_lord_modifier_regen_aura.vpcf"
+        }
+      }
 
       "Aura"        "modifier_creep_regen"
       "Aura_Radius" "%radius"
@@ -47,8 +56,8 @@
       "IsHidden"      "0"
       "IsDebuff"      "0"
 
-      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
-      "StatusEffectPriority"  "10"
+      "EffectName"    "particles/items_fx/healing_tango.vpcf"
+      "EffectAttachType"  "follow_origin"
 
       "Properties"
       {

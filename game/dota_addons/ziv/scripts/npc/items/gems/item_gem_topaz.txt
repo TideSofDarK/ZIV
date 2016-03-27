@@ -1,6 +1,6 @@
 "item_gem_topaz"
 {
-  "ID"              "1951"
+  "ID"		"1004"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_gem_topaz"

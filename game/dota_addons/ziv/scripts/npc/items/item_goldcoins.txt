@@ -1,7 +1,7 @@
 "item_goldcoins"
 {
   "BaseClass"               "item_datadriven"
-  "ID"                      "1800"
+  "ID"		"1001"
   "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
   "Model"                   "models/props_debris/goldcoins_01.vmdl" 
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"

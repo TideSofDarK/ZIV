@@ -3,8 +3,8 @@ if Director == nil then
 end
 
 Director.BASIC_PACK_COUNT = 12
-Director.BASIC_PACK_SPREAD = 600
-Director.BASIC_LORD_SPREAD = 125
+Director.BASIC_PACK_SPREAD = 820
+Director.BASIC_LORD_SPREAD = 135
 
 Director.creep_modifier_list = {}
 Director.lord_modifier_list = {}
@@ -137,7 +137,18 @@ function Director:SpawnCreeps( spawn_table )
 			local position = spawn_table["Position"] + RandomPointInsideCircle(spawn_table["BasicSpread"] or Director.BASIC_PACK_SPREAD)
 
 			local creep = CreateUnitByName(creep_name, position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+			
+			creep:AddAbility("ziv_creep_normal_hpbar_behavior")
+			creep:FindAbilityByName("ziv_creep_normal_hpbar_behavior"):UpgradeAbility(false)
 
+			if spawn_table["Lord"] then
+				creep:SetModelScale(creep:GetModelScale() * 1.45)
+			end
+			
+			if modifier then
+				creep:AddAbility(modifier)
+				creep:FindAbilityByName(modifier):UpgradeAbility(false)
+			end
 		end
 	end
 end

@@ -3,7 +3,7 @@
 	//Shield
 	  "item_example_item"
 	  {
-	    "ID"              "1836"
+	    "ID"		"1000"
 	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
@@ -134,7 +134,7 @@
 	"item_goldcoins"
 	{
 	  "BaseClass"               "item_datadriven"
-	  "ID"                      "1800"
+	  "ID"		"1001"
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	  "Model"                   "models/props_debris/goldcoins_01.vmdl" 
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
@@ -172,7 +172,7 @@
 	}
 	"item_basic_coat"
 	{
-	  "ID"              "1100"
+	  "ID"		"1002"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_chainmail"
@@ -223,7 +223,7 @@
 	}
 	"item_gem_malachite"
 	{
-	  "ID"              "1950"
+	  "ID"		"1003"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_gem"
@@ -261,7 +261,7 @@
 	}
 	"item_gem_topaz"
 	{
-	  "ID"              "1951"
+	  "ID"		"1004"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_gem_topaz"
@@ -304,7 +304,7 @@
 	}
 	"item_basic_shotgun"
 	{
-	  "ID"              "1000"
+	  "ID"		"1005"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_quarterstaff"
@@ -358,7 +358,7 @@
 	}
 	"item_basic_smg"
 	{
-	  "ID"              "1001"
+	  "ID"		"1006"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_pers"

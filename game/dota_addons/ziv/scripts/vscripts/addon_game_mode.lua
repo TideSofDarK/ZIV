@@ -18,7 +18,7 @@ function Precache( context )
 
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
-  PrecacheResource("particle", "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", context)
+  PrecacheResource("particle", "particles/ziv_creep_lord_modifier_regen_aura.vpcf", context)
   PrecacheResource("particle_folder", "particles/test_particle", context)
 
   -- Models can also be precached by folder or individually

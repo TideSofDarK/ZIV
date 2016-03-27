@@ -29,11 +29,6 @@
           "Target"     "CASTER"
         }
       }
-
-      "States"
-      {
-        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-      }
     }
     
     "ziv_creep_normal_hpbar_behavior_untouched"

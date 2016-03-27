@@ -520,58 +520,26 @@
 	"buffers":
 	[
 		{
-			"file": "game/dota_addons/ziv/scripts/npc/units/creeps/npc_creep_zombie.txt",
+			"file": "game/dota_addons/ziv/scripts/npc/items/armor/leather/item_basic_coat.txt",
 			"settings":
 			{
-				"buffer_size": 1208,
+				"buffer_size": 978,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Program Files (x86)/Grinding Gear Games/Path of Exile/logs/Client.txt",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 3703537,
+				"buffer_size": 533,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "content/dota_addons/ziv/panorama/scripts/custom_game/ingame_ui_status.js",
+			"file": "/C/Users/TideSofDarK/Desktop/generate ids.bat",
 			"settings":
 			{
-				"buffer_size": 1544,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "game/dota_addons/ziv/scripts/vscripts/director.lua",
-			"settings":
-			{
-				"buffer_size": 3324,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "game/dota_addons/ziv/scripts/vscripts/internal/util.lua",
-			"settings":
-			{
-				"buffer_size": 2958,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "game/dota_addons/ziv/scripts/vscripts/ziv.lua",
-			"settings":
-			{
-				"buffer_size": 11865,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "game/dota_addons/ziv/scripts/vscripts/internal/ziv.lua",
-			"settings":
-			{
-				"buffer_size": 9039,
+				"buffer_size": 75,
 				"line_ending": "Windows"
 			}
 		}
@@ -639,7 +607,17 @@
 		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/localization",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/knight",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/modifiers",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/armor",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/armor/leather",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/gems",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/weapons",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/weapons/guns",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units/heroes",
@@ -647,26 +625,37 @@
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/ability_units/heroes/knight",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/creeps",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/beastmaster",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/examples",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/items"
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/items",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/libraries"
 	],
 	"file_history":
 	[
-		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/ingame_ui_status.xml",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/director.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/units/creeps/npc_creep_zombie.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/modifiers/ziv_creep_lord_modifier_regen_aura.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/modifiers/ziv_creep_modifier_frenzy.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/modifiers/ziv_creep_modifier_vampire.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/modifiers/ziv_creep_modifier_tanky.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/modifiers/ziv_creep_lord_modifier_degen_aura.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/item_goldcoins.txt",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/items/goldcoins.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/modifiers/vampire.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/modifiers/frenzy.lua",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/scripts/custom_game/ingame_ui_status.js",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/util.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/ziv.lua",
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/ziv.lua",
+		"/C/Program Files (x86)/Grinding Gear Games/Path of Exile/logs/Client.txt",
+		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/ingame_ui_status.xml",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/heroes/npc_dota_hero_dragon_knight_ziv.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/localization/addon_english.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/panorama/localization/addon_russian.txt",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/styles/custom_game/ingame_ui_status.css",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/ziv.lua",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/styles/custom_game/custom_character_selection.css",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/custom_net_tables.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/events.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/ziv.lua",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/scripts/custom_game/ingame_ui_fortify.js",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/scripts/custom_game/ingame_ui.js",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/ingame_ui_fortify.xml",
@@ -692,7 +681,6 @@
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/gems/item_gem_topaz.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/ziv_fortify_modifiers.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/gems/item_gem_malachite.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/internal/util.lua",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/armor/leather/item_basic_coat.txt",
 		"/E/Program Files (x86)/Steam/steamapps/common/dota 2 beta/content/dota_addons/ziv/panorama/layout/custom_game/ingame_ui_inventory_item.xml",
 		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/ingame_ui_inventory_context_menu.xml",
@@ -771,19 +759,7 @@
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/sniper/ziv_sniper_empty2.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/sniper/ziv_sniper_shotgun_special.txt",
 		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/weapons/guns/item_basic_shotgun.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/weapons/guns/item_basic_smg.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/sniper/ziv_sniper_shotgun_passive.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/sniper/ziv_sniper_forceshot.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/sniper/ziv_sniper_volley.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/abilities/heroes/sniper/ziv_sniper_rush.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/vscripts/examples/projectile.lua",
-		"/C/Users/TideSofDarK/Downloads/AsheScripts/scripts/vscripts/wip.lua",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/sniper/ziv_sniper_smg_rush.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes/sniper/ziv_sniper_smg_special.txt",
-		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/armor/leather/item_basic_smg.txt",
-		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/styles/custom_game/buff_list.css",
-		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/scripts/custom_game/buff_list.js",
-		"/E/workspace/ZiV/content/dota_addons/ziv/panorama/layout/custom_game/buff_list_buff.xml"
+		"/E/workspace/ZiV/game/dota_addons/ziv/scripts/npc/items/weapons/guns/item_basic_smg.txt"
 	],
 	"find":
 	{
@@ -872,6 +848,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"modifier_list",
 			"tabl",
 			"hires",
 			"SetDefaultInventory",
@@ -998,8 +975,7 @@
 			"popuppart",
 			"petri_repair_rooted",
 			"sound",
-			"modifier_chopping_wood",
-			"GatherLumber"
+			"modifier_chopping_wood"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1007,6 +983,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"creep_modifier_list",
 			"",
 			"equip_list",
 			"",
@@ -1059,191 +1036,16 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "game/dota_addons/ziv/scripts/npc/units/creeps/npc_creep_zombie.txt",
+					"file": "game/dota_addons/ziv/scripts/npc/items/armor/leather/item_basic_coat.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1208,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								700,
-								700
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/Program Files (x86)/Grinding Gear Games/Path of Exile/logs/Client.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3703537,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3702674,
-								3702660
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Dota KV/dotaKV.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 739708.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "content/dota_addons/ziv/panorama/scripts/custom_game/ingame_ui_status.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1544,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1538,
-								1538
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "game/dota_addons/ziv/scripts/vscripts/director.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3324,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2905,
-								2832
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1710.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "game/dota_addons/ziv/scripts/vscripts/internal/util.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2958,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								611,
-								611
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "game/dota_addons/ziv/scripts/vscripts/ziv.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11865,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10420,
-								10420
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4489.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "game/dota_addons/ziv/scripts/vscripts/internal/ziv.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9039,
+						"buffer_size": 978,
 						"regions":
 						{
 						},
@@ -1256,7 +1058,7 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"syntax": "Packages/Dota KV/dotaKV.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -1264,7 +1066,63 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 533,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								531,
+								531
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/TideSofDarK/Desktop/generate ids.bat",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 75,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Batch File/Batch File.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1347,7 +1205,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 394.0,
+	"side_bar_width": 390.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

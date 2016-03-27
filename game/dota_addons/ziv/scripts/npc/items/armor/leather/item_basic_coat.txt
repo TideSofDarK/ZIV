@@ -1,6 +1,6 @@
 "item_basic_coat"
 {
-  "ID"              "1100"
+  "ID"		"1002"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_chainmail"

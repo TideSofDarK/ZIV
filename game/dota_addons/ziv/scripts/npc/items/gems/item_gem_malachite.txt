@@ -1,6 +1,6 @@
 "item_gem_malachite"
 {
-  "ID"              "1950"
+  "ID"		"1003"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_gem"
