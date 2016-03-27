@@ -92,7 +92,7 @@ function UpdateAbilityList()
 	if ( !abilityListPanel )
 		return;
 
-	var queryUnit = Players.GetLocalPlayerPortraitUnit();
+	var queryUnit = Players.GetQueryUnit(Players.GetLocalPlayer());
 
 	// see if we can level up
 	var nRemainingPoints = Entities.GetAbilityPoints( queryUnit );
