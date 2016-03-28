@@ -1,0 +1,49 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/crafting/item_mini.css" />
+	</styles>
+	<script>
+		$( "#ItemImage" ).AddClass("rarity-normal rarity-good rarity-best rarity-rare rarity-unique rarity-epic");
+
+		function SetRarity( rarity )
+		{
+			$( "#ItemImage" ).SetHasClass("rarity-normal rarity-good rarity-best rarity-rare rarity-unique rarity-epic", false);
+
+			var rarityClass = "rarity-normal";
+			switch( rarity )
+			{
+				case 1:
+					rarityClass = "rarity-good";
+					break;
+
+				case 2:
+					rarityClass = "rarity-best";
+					break;
+
+				case 3:
+					rarityClass = "rarity-rare";
+					break;
+
+				case 4:
+					rarityClass = "rarity-unique";
+					break;
+
+				case 5:
+					rarityClass = "rarity-epic";
+					break;
+			}
+
+			$( "#ItemImage" ).SetHasClass(rarityClass, true )
+		}
+
+		function Update( id )
+		{
+			SetRarity( 1 );
+		}
+
+		$.GetContextPanel().Update = Update;
+	</script>
+	<Panel hittest="false">
+		<DOTAItemImage hittest="false" id="ItemImage" /> 
+	</Panel>
+</root>

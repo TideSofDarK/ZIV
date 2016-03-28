@@ -62,6 +62,8 @@
     <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection.xml" />
 
     <!-- From Overthrow.
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/crafting/crafting.xml" />
+
 
         <CustomUIElement type="HudTopBar"           layoutfile="file://{resources}/layout/custom_game/multiteam_top_scoreboard.xml" />
         <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/overthrow_item_notification.xml" />

@@ -1,0 +1,52 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/crafting/crafting.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/crafting/crafting.js" />
+	</scripts>
+	<Panel class="CraftingRoot" hittest="false">
+		<Panel class="MainPanel z-index1" >
+			<Panel class="Window row">
+				<Panel class="Recipes" >
+					<TextEntry class="container row title" id="Search" multiline="false" textmode="normal" maxchars="100" text="Type here..." 
+						oninputsubmit="SearchRecipes()"
+			  			onmouseover="SearchHover()"
+			  			onmouseout="SearchStopHover()"
+			  			/>
+
+			  		<Panel class="divider" />
+
+			  		<Panel class="RecipesList container row" id="RecipesList" />
+				</Panel>
+
+				<Panel class="divider-vertical" />
+
+				<Panel class="CraftInfo" >
+					<Label class="container row title" id="ItemName" text="Item Name" />
+					<Panel class="divider" />
+					<Panel class="container row" id="ItemDescPanel" >
+						<Panel class="container row" id="ItemImage" />
+						<Panel class="container row" id="ItemDesc" >
+							<Label class="text" id="ItemDescLabel" text="Item description. A loooooooooooooo ooooooooooooooooooooooooo oooooooooooooooooooooooooooooooooooooooooooooo ooooooooooooooooooooooooooooooooooooooooooooot of teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeext oooooooooooooooooooooooooooooooooooooooooooooo oooooooooooooooooooooooooooooooooooooooooooooo oooooooooooooooooooooooooooooooooooooooooooooo oooooooooooooooooooooooooooooooooooooooooooooo" />
+						</Panel>
+					</Panel>
+					<Panel class="divider" />
+
+					<Panel class="RecipeParts container row" id="RecipeParts" >
+						<Panel class="RecipePartsRow container row" id="RecipeRow1" />
+						<Panel class="RecipePartsRow container row" id="RecipeRow2" />
+					</Panel>
+
+					<Panel class="divider" />
+
+					<Panel class="Buttons container row" >
+				  		<Button class="button z-index1" id="Create" onactivate="">
+				  			<Label class="btn-title" text="Create" /> 
+				  		</Button>						
+					</Panel>
+				</Panel>
+			</Panel>			
+		</Panel>
+	</Panel>
+</root>

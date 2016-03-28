@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/crafting/crafting.css" />
+	</styles>
+	<script>
+		function SetName( name )
+		{
+			$( "#RecipeTitle" ).text = name;
+		}
+
+		$.GetContextPanel().SetName = SetName;
+	</script>
+	<Panel class="recipe-title" hittest="true">
+		<Label class="text" id="RecipeTitle" />
+	</Panel>
+</root>
