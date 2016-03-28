@@ -1,0 +1,28 @@
+#ItemImage {
+	width: 150px;
+	height: 110px;
+}
+
+.rarity-normal {
+	box-shadow: inset #ffffff60 1px 1px 10px 2px;
+}
+
+.rarity-good {
+	box-shadow: inset #00ff0060 1px 1px 10px 2px;
+}
+
+.rarity-best {
+	box-shadow: inset #0000ff60 1px 1px 10px 2px;
+}
+
+.rarity-rare {
+	box-shadow: inset #ff00ff60 1px 1px 10px 2px;
+}
+
+.rarity-unique {
+	box-shadow: inset #ffb40060 1px 1px 10px 2px;
+}
+
+.rarity-epic {
+	box-shadow: inset #ff000060 1px 1px 10px 2px;
+}

@@ -1,0 +1,222 @@
+.z-index1 {
+	box-shadow: fill #000000DD 0px 2px 6px 0px;
+	z-index: 1;
+}
+
+.container {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.row {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  
+  background-color: #9E9E9E20;
+
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.divider-vertical {
+  height: 100%;
+  width: 1px;
+  
+  background-color: #9E9E9E20;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.title {
+	color: #ffffff8a;
+	font-size: 30px;
+}
+
+.text {
+	color: #ffffffde;
+	font-size: 25px;	
+}
+
+VerticalScrollBar {
+	width: 10px;
+	height: 100%;
+
+	horizontal-align: right;
+}
+
+#ScrollThumb {
+	width: 100%;
+	height: 30px;
+
+	background-color: #9E9E9E20;
+}
+
+
+.CraftingRoot {
+	width: 100%;
+	height: 100%;
+}
+
+.MainPanel {
+	width: 1200px;
+	height: 700px;
+
+	horizontal-align: center;
+	vertical-align: middle;
+
+	background-color: #303030;
+
+	flow-children: down;
+}
+
+.Window {
+	width: 100%;
+	height: 700px;
+
+    flow-children: right;
+}
+
+/*
+ *  Recipes list
+ */
+.Recipes {
+	width: 400px;
+	height: 100%;
+
+	flow-children: down;
+}
+
+#Search {
+	width: 100%;
+	height: 50px;
+}
+
+.RecipesList {
+	width: 100%;
+	height: 100%;
+
+	overflow: squish scroll;
+	flow-children: down;
+}
+
+.recipe-title {
+	width: 100%;
+	height: 30px;
+}
+
+/*
+ *  Main crafting
+ */
+.CraftInfo {
+	width: 800px;
+	height: 100%;
+
+	flow-children: down;
+}
+
+#ItemName {
+	width: 100%;
+	height: 50px;
+
+	text-align: center;
+}
+
+#ItemDescPanel {
+	width: 100%;
+	height: 280px;
+
+	flow-children: right;
+}
+
+#ItemImage {
+	width: 200px;
+	height: 100%;
+}
+
+#CraftingItemPanel {
+	horizontal-align: center;
+	vertical-align: middle;
+}
+
+#ItemDesc {
+	width: 600px;
+	height: 100%;
+
+	overflow: squish scroll;
+	flow-children: down;
+}
+
+.RecipeParts {
+	width: 100%;
+	height: 280px;
+
+	overflow: scroll scroll;
+	flow-children: down;
+}
+
+.RecipePartsRow {
+	height: 130px;
+
+	flow-children: right;
+	horizontal-align: center;
+}
+
+.recipepart-image {
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.recipe-plus {
+	color: #ffffffde;
+	font-size: 25px;
+
+	margin-left: 4px;
+	margin-right: 4px;
+	
+	vertical-align: middle;
+}
+
+
+.Buttons {
+	width: 100%;
+	height: 70px;
+
+	flow-children: right;
+}
+
+.button {
+	width: 150px;
+	height: 50px;
+
+	background-color: #616161;
+	border-radius: 2px;	
+
+	horizontal-align: right;
+
+}
+
+.button:hover {
+	box-shadow: fill #000000DD 0px 8px 12px 0px;
+
+	transition: box-shadow 2.0s ease-in-out 2.0s;
+}
+
+.button:active {
+	background-color: #757575;
+}
+
+.btn-title {
+	width: 100%;
+
+	color: #ffffff8a;
+	font-size: 30px;
+
+	margin-top: 5px;
+	text-align: center;
+}
