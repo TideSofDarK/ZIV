@@ -11,6 +11,11 @@ function InitAbilities( hero )
   end
 end
 
+function AddAbilityAndUpgrade( unit, ability )
+  unit:AddAbility(ability)
+  unit:FindAbilityByName(ability):UpgradeAbility(false)
+end
+
 function DebugPrint(...)
   local spew = Convars:GetInt('ziv_spew') or -1
   if spew == -1 and ZIV_DEBUG_SPEW then

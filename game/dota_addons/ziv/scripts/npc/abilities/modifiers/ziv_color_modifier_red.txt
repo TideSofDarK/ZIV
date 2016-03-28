@@ -1,4 +1,4 @@
-"ziv_creep_modifier_color_blue"
+"ziv_color_modifier_red"
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
@@ -8,7 +8,7 @@
 
   "precache"
   {
-    "particle"  "particles/ziv_creep_modifier_color_blue.vpcf"
+    "particle"  "particles/ziv_creep_modifier_color_red.vpcf"
   }
 
   "Modifiers"
@@ -19,8 +19,10 @@
       "IsHidden"      "0"
       "IsDebuff"      "0"
 
-      "EffectName"    "particles/ziv_creep_modifier_color_blue.vpcf"
-      "EffectAttachType"  "follow_origin"
+      "Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
+
+      "StatusEffectName"    "particles/ziv_creep_modifier_color_red.vpcf"
+      "StatusEffectPriority"  "10"
     }
   }
 }
