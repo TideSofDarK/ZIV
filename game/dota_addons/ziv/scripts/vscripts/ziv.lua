@@ -272,6 +272,7 @@ function ZIV:InitZIV()
   Convars:RegisterCommand( "print_hero_stats", Dynamic_Wrap(ZIV, 'PrintHeroStats'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "ai", Dynamic_Wrap(ZIV, 'AddItemToContainer'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "sp", Dynamic_Wrap(ZIV, 'SpawnBasicPack'), "", FCVAR_CHEAT )
+  Convars:RegisterCommand( "sbd", Dynamic_Wrap(ZIV, 'SpawnBasicDrop'), "", FCVAR_CHEAT )
 
   GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( ZIV, "FilterExecuteOrder" ), self )
 
@@ -330,6 +331,30 @@ function ZIV:SpawnBasicPack(count)
           SpawnLord = true
         }
       )
+    end
+  end
+end
+
+function ZIV:SpawnBasicDrop(count)
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+      local hero = cmdPlayer:GetAssignedHero()
+
+      local enigma = CreateItemOnPositionSync(hero:GetAbsOrigin(), CreateItem("item_basic_coat", nil, nil))
+
+      Physics:Unit(enigma)
+
+      enigma:SetAbsOrigin(hero:GetAbsOrigin())
+
+      local seed = math.random(0, 1000)
+
+      local x = (525 * math.cos(seed)) + math.random(0,100)
+      local y = (525 * math.sin(seed)) + math.random(0,100)
+
+      enigma:AddPhysicsVelocity(Vector(x, y, 1100))
+      enigma:SetPhysicsAcceleration(Vector(0,0,-1500)) 
     end
   end
 end
