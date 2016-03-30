@@ -1,9 +1,11 @@
 <root>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/crafting/crafting.css" />
+		<include src="file://{resources}/styles/custom_game/crafting/item_mini.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/crafting/crafting.js" />
+		<include src="file://{resources}/scripts/custom_game/crafting/item_tooltip.js" /> 
 	</scripts>
 	<Panel class="CraftingRoot" hittest="false">
 		<Panel class="MainPanel z-index1" >

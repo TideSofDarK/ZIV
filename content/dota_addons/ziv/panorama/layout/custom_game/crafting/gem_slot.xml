@@ -1,0 +1,55 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/crafting/item_mini.css" />
+	</styles>
+	<script>
+		$( "#GemImage" ).AddClass("rarity-normal rarity-good rarity-best rarity-rare rarity-unique rarity-epic");
+
+		function SetRarity( rarity )
+		{
+			$( "#GemImage" ).SetHasClass("rarity-normal rarity-good rarity-best rarity-rare rarity-unique rarity-epic", false);
+
+			var rarityClass = "rarity-normal";
+			switch( rarity )
+			{
+				case 1:
+					rarityClass = "rarity-good";
+					break;
+
+				case 2:
+					rarityClass = "rarity-best";
+					break;
+
+				case 3:
+					rarityClass = "rarity-rare";
+					break;
+
+				case 4:
+					rarityClass = "rarity-unique";
+					break;
+
+				case 5:
+					rarityClass = "rarity-epic";
+					break;
+			}
+
+			$( "#GemImage" ).SetHasClass(rarityClass, true )
+		}
+
+		function AddDesc()
+		{
+
+		}
+
+		function Update( id )
+		{
+			SetRarity( 1 );
+		}
+
+		$.GetContextPanel().Update = Update;
+	</script>
+	<Panel class="gem-slot" hittest="true">
+		<DOTAItemImage hittest="false" class="gem-slot-image" id="GemImage" />
+		<Panel class="gem-slot-desc" id="GemSlot_Desc" />
+	</Panel>
+</root>
