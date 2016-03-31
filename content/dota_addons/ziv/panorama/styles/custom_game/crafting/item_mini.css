@@ -8,20 +8,19 @@
 }
 
 .rarity-magic {
-	box-shadow: inset #00ff0060 1px 1px 10px 2px;
+	box-shadow: inset #0000ff60 1px 1px 10px 2px;
 }
 
 .rarity-rare {
-	box-shadow: inset #ff00ff60 1px 1px 10px 2px;
+	box-shadow: inset #FFFF0060 1px 1px 10px 2px;
 }
 
 .rarity-epic {
-	box-shadow: inset #ff000060 1px 1px 10px 2px;
+	box-shadow: inset #FFA50060 1px 1px 10px 2px;
 }
 
-
 .rarity-legendary {
-	box-shadow: inset #ffb40060 1px 1px 10px 2px;
+	box-shadow: inset #FF00FF60 1px 1px 10px 2px;
 }
 
 
@@ -30,19 +29,19 @@
 }
 
 .rarity-magic-text {
-	color: #00ff00;
+	color: #0000ff;
 }
 
 .rarity-rare-text {
-	color: #ff00ff;
+	color: #FFFF00;
 }
 
 .rarity-legendary-text {
-	color: #ffb400;
+	color: #FFA500;
 }
 
 .rarity-epic-text {
-	color: #ff0000;
+	color: #FF00FF;
 }
 
 .gem-slot {
@@ -76,6 +75,6 @@
 }
 
 #GemSlot_Desc_Text {
-	margin-bottom: 10px;
+	margin-top: 7px;
 	vertical-align: center;
 }

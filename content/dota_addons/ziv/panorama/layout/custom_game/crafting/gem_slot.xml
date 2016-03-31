@@ -32,18 +32,31 @@
 			$( "#GemImage" ).SetHasClass(rarityClass, true )
 		}
 
-		function AddDesc()
+		function SetText(modifiers)
 		{
-			// $("#GemSlot_Desc_Text").text = "asd";
+			var newText = "";
+			$("#GemSlot_Desc_Text").html = true;
+			for (var key in modifiers) {
+				if (key != "gem") { 
+					newText = newText + "" + "+" + modifiers[key] + " " + $.Localize(key) + "" +"<br>";
+				}
+			}
+			$("#GemSlot_Desc_Text").text = newText; 
 		}
 
 		function Update( id )
 		{
-			SetRarity( 1 );
-			// AddDesc();
+			SetRarity( 2 );
+		}
+
+		function SetImage(itemname) 
+		{
+			$("#GemImage").itemname = itemname;
 		}
 
 		$.GetContextPanel().Update = Update;
+		$.GetContextPanel().SetImage = SetImage;
+		$.GetContextPanel().SetText = SetText;
 	</script>
 	<Panel class="gem-slot" hittest="true">
 		<DOTAItemImage hittest="false" class="gem-slot-image" id="GemImage" />
