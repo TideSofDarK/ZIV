@@ -47,10 +47,10 @@
     "MovementSpeed"       "360"
     "MovementTurnRate"      "1.0"
 
-    "StatusHealth"        "500"
-    "StatusHealthRegen"     "0.1"
-    "StatusMana"        "200"
-    "StatusManaRegen"     "100.0"
+    "StatusHealth"        "1000"
+    "StatusHealthRegen"     "1.0"
+    "StatusMana"        "100"
+    "StatusManaRegen"     "50.0"
 
     "VisionDaytimeRange"    "1800"
     "VisionNighttimeRange"    "1800"

@@ -1,0 +1,20 @@
+"ziv_hero_normal_hpbar_behavior"
+{
+  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+  "BaseClass"           "ability_datadriven"
+  "AbilityTextureName"            "rubick_empty1"
+  "MaxLevel"                      "1"
+  
+  "Modifiers"
+  {
+    "ziv_hero_normal_hpbar_behavior_untouched"
+    {
+      "Passive"                        "1"
+      "IsHidden"                        "1"    
+      "States"
+      {
+        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+      }
+    }
+  }
+}

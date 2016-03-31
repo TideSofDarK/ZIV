@@ -1,9 +1,9 @@
-"npc_creep_skeleton"
+"npc_creep_wraith"
 {
     "BaseClass"         "npc_dota_creature"
-    "HealthBarOffset"   "150"
-    "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
-    "ModelScale"    "1"
+    "HealthBarOffset"   "140"
+    "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl"
+    "ModelScale"    "1.1"
     "Level"           "1"
 
     "Ability1"          ""
@@ -12,9 +12,9 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "1"
-    "AttackDamageMax"     "3"
-    "AttackRate"        "1.5"
+    "AttackDamageMin"     "3"
+    "AttackDamageMax"     "4"
+    "AttackRate"        "1"
     "AttackAnimationPoint"    "0.5"
     "AttackRange"       "100"
 

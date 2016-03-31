@@ -12,9 +12,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "15"
-    "AttackDamageMax"     "20"
-    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+    "AttackDamageMin"     "2"
+    "AttackDamageMax"     "4"
     "AttackRate"        "1"
     "AttackAnimationPoint"    "0.5"
     "AttackRange"       "100"
@@ -23,10 +22,10 @@
     "BountyGoldMin"       "0"
     "BountyGoldMax"       "0"
 
-    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
 
     "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"       "300"
+    "MovementSpeed"       "330"
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 

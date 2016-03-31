@@ -317,6 +317,13 @@
 	    "BaseClass"           "ability_datadriven"
 	    "AbilityTextureName"            "rubick_empty1"
 	  }
+	"ziv_stats_bonus_fix"
+	{
+		"BaseClass"			"ability_lua" 
+		"ScriptFile"		"abilities/ziv_stats_bonus_fix.lua"
+	
+		"AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
 	"ziv_fortify_modifiers"
 	{
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -1041,7 +1048,7 @@
 	  "AbilityCooldown"         "13"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	
-	  "AbilityManaCost"       "120"
+	  "AbilityManaCost"       "70"
 	  
 	  "MaxLevel"          "7"
 	
@@ -1290,7 +1297,7 @@
 	  "AbilityCooldown"         "20"
 	  "AbilityChannelTime"      "7"
 	
-	  "AbilityManaCost"       "120"
+	  "AbilityManaCost"       "60"
 	  
 	  "MaxLevel"          "7"
 	
@@ -1596,7 +1603,7 @@
 	  "AbilityCooldown"         "13"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 	
-	  "AbilityManaCost"       "120"
+	  "AbilityManaCost"       "50"
 	  
 	  "MaxLevel"          "7"
 	
@@ -2225,7 +2232,7 @@
 	  "precache"
 	  {
 	    "particle"  "particles/ziv_creep_lord_modifier_regen_aura.vpcf"
-	    "particle"  "particles/items_fx/healing_tango.vpcf"
+	    "particle"  "particles/ziv_creep_lord_modifier_regen_aura_effect.vpcf"
 	  }
 	  
 	  "AbilitySpecial"
@@ -2272,7 +2279,7 @@
 	      "IsHidden"      "0"
 	      "IsDebuff"      "0"
 	
-	      "EffectName"    "particles/items_fx/healing_tango.vpcf"
+	      "EffectName"    "particles/ziv_creep_lord_modifier_regen_aura_effect.vpcf"
 	      "EffectAttachType"  "follow_origin"
 	
 	      "Properties"
@@ -2484,6 +2491,26 @@
 	    "ziv_creep_normal_hpbar_behavior_untouched"
 	    {
 	      "Passive"                        "0"
+	      "IsHidden"                        "1"    
+	      "States"
+	      {
+	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	  }
+	}
+	"ziv_hero_normal_hpbar_behavior"
+	{
+	  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityTextureName"            "rubick_empty1"
+	  "MaxLevel"                      "1"
+	  
+	  "Modifiers"
+	  {
+	    "ziv_hero_normal_hpbar_behavior_untouched"
+	    {
+	      "Passive"                        "1"
 	      "IsHidden"                        "1"    
 	      "States"
 	      {

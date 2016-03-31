@@ -93,6 +93,7 @@ function UpdateAbilityList()
 		return;
 
 	var queryUnit = Game.GetLocalPlayerInfo()["player_selected_hero_entity_index"];
+	// GameUI.SetCameraTarget(queryUnit);
 
 	// see if we can level up
 	var nRemainingPoints = Entities.GetAbilityPoints( queryUnit );

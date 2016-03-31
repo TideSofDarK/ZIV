@@ -1,0 +1,39 @@
+"item_basic_chest"
+{
+  "BaseClass"               "item_datadriven"
+  "ID"		"1011"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "Model"                   "models/courier/lockjaw/lockjaw.vmdl" 
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+
+  "AbilityCastPoint"      "0"
+  "AbilityCooldown"       "0"
+  "AbilityManaCost"       "0"
+  
+  "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+  "ItemShopTags"        "consumable"
+  "ItemQuality"         "consumable"
+  "ItemPermanent"         "0"
+  "ItemSellable"          "0"
+  "ItemKillable"          "1"
+  "ItemPurchasable"       "0"
+
+  "ItemStackable" "0"
+  "ItemPermanent" "0"
+  "ItemInitialCharges" "1"
+  "ItemDisplayCharges" "1"
+  "ItemRequiresCharges" "1"
+  "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
+  "ItemCastOnPickup"    "1"
+
+  "OnSpellStart"
+  {    
+    "SpendCharge" 
+    {}
+    "RunScript"
+    {
+      "ScriptFile"  "items/chests.lua"
+      "Function"    "Pickup"
+    }
+  }
+}

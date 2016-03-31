@@ -9,7 +9,7 @@
   "precache"
   {
     "particle"  "particles/ziv_creep_lord_modifier_regen_aura.vpcf"
-    "particle"  "particles/items_fx/healing_tango.vpcf"
+    "particle"  "particles/ziv_creep_lord_modifier_regen_aura_effect.vpcf"
   }
   
   "AbilitySpecial"
@@ -56,7 +56,7 @@
       "IsHidden"      "0"
       "IsDebuff"      "0"
 
-      "EffectName"    "particles/items_fx/healing_tango.vpcf"
+      "EffectName"    "particles/ziv_creep_lord_modifier_regen_aura_effect.vpcf"
       "EffectAttachType"  "follow_origin"
 
       "Properties"
