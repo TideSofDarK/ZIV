@@ -3,33 +3,29 @@
 		<include src="file://{resources}/styles/custom_game/crafting/item_mini.css" />
 	</styles>
 	<script>
-		$( "#GemImage" ).AddClass("rarity-normal rarity-good rarity-best rarity-rare rarity-unique rarity-epic");
+		$( "#GemImage" ).AddClass("rarity-normal rarity-magic rarity-rare rarity-epic rarity-legendary");
 
 		function SetRarity( rarity )
 		{
-			$( "#GemImage" ).SetHasClass("rarity-normal rarity-good rarity-best rarity-rare rarity-unique rarity-epic", false);
+			$( "#GemImage" ).SetHasClass("rarity-normal rarity-magic rarity-rare rarity-epic rarity-legendary", false);
 
 			var rarityClass = "rarity-normal";
 			switch( rarity )
 			{
 				case 1:
-					rarityClass = "rarity-good";
+					rarityClass = "rarity-magic";
 					break;
 
 				case 2:
-					rarityClass = "rarity-best";
-					break;
-
-				case 3:
 					rarityClass = "rarity-rare";
 					break;
 
-				case 4:
-					rarityClass = "rarity-unique";
+				case 3:
+					rarityClass = "rarity-epic";
 					break;
 
-				case 5:
-					rarityClass = "rarity-epic";
+				case 4:
+					rarityClass = "rarity-legendary";
 					break;
 			}
 

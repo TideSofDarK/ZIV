@@ -7,19 +7,15 @@
 	box-shadow: inset #ffffff60 1px 1px 10px 2px;
 }
 
-.rarity-good {
+.rarity-magic {
 	box-shadow: inset #00ff0060 1px 1px 10px 2px;
-}
-
-.rarity-best {
-	box-shadow: inset #0000ff60 1px 1px 10px 2px;
 }
 
 .rarity-rare {
 	box-shadow: inset #ff00ff60 1px 1px 10px 2px;
 }
 
-.rarity-unique {
+.rarity-legendary {
 	box-shadow: inset #ffb40060 1px 1px 10px 2px;
 }
 
@@ -32,19 +28,15 @@
 	color: #ffffff;
 }
 
-.rarity-good-text {
+.rarity-magic-text {
 	color: #00ff00;
-}
-
-.rarity-best-text {
-	color: #0000ff;
 }
 
 .rarity-rare-text {
 	color: #ff00ff;
 }
 
-.rarity-unique-text {
+.rarity-legendary-text {
 	color: #ffb400;
 }
 
