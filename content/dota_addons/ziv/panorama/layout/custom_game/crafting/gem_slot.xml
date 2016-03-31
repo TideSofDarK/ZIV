@@ -34,18 +34,21 @@
 
 		function AddDesc()
 		{
-
+			// $("#GemSlot_Desc_Text").text = "asd";
 		}
 
 		function Update( id )
 		{
 			SetRarity( 1 );
+			// AddDesc();
 		}
 
 		$.GetContextPanel().Update = Update;
 	</script>
 	<Panel class="gem-slot" hittest="true">
 		<DOTAItemImage hittest="false" class="gem-slot-image" id="GemImage" />
-		<Panel class="gem-slot-desc" id="GemSlot_Desc" />
+		<Panel class="gem-slot-desc" id="GemSlot_Desc" >
+			<Label id="GemSlot_Desc_Text" text="empty_gem_slot"/>
+		</Panel>
 	</Panel>
 </root>

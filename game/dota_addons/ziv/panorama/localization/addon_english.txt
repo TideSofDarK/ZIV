@@ -35,6 +35,8 @@
 	"MODIFIER_PROPERTY_STATS_ALL_BONUS" "to All Stats"
 	"MODIFIER_PROPERTY_HEALTH_BONUS" "to max HP"
 
+	"empty_gem_slot" "Empty Slot"
+
 	"status_attr"	"Attributes"
 	"status_status"	"Status"
 	"status_hp"	"Health Points: "

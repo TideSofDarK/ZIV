@@ -35,6 +35,8 @@
 	"MODIFIER_PROPERTY_STATS_ALL_BONUS" "ко всем Статам"
 	"MODIFIER_PROPERTY_HEALTH_BONUS" "к максимальному здоровью"
 
+	"empty_gem_slot" "Пустой слот"
+
 	"status_attr"	"Характеристики"
 	"status_status"	"Статус"
 	"status_hp"	"Здоворье: "
