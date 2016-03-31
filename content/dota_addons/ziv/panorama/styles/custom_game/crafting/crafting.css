@@ -73,6 +73,8 @@ VerticalScrollBar {
 	background-color: #303030;
 
 	flow-children: down;
+
+	visibility: collapse; 
 }
 
 .Window {
