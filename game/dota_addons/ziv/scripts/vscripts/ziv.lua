@@ -47,6 +47,7 @@ require('filters')
 require('items/equipment')
 
 require('director')
+require('loot')
 
 pidInventory = {}
 lootSpawns = nil
@@ -202,13 +203,16 @@ function ZIV:OnHeroInGame(hero)
 
   local hero_name = hero:GetUnitName()
 
-  for i=0,(tonumber(CustomNetTables:GetTableValue("hero_kvs", hero_name.."_ziv")["AbilityLayout"]) - 1) do
-    local abil = hero:GetAbilityByIndex(i)
-    abil:UpgradeAbility(true)
-  end
+  -- for i=0,(tonumber(CustomNetTables:GetTableValue("hero_kvs", hero_name.."_ziv")["AbilityLayout"]) - 1) do
+  --   local abil = hero:GetAbilityByIndex(i)
+  --   abil:UpgradeAbility(true)
+  -- end
 
   hero:AddAbility("ziv_fortify_modifiers")
-  hero:FindAbilityByName("ziv_fortify_modifiers"):UpgradeAbility(true)
+  hero:AddAbility("ziv_stats_bonus_fix")
+  hero:AddAbility("ziv_hero_normal_hpbar_behavior")
+
+  InitAbilities(hero)
 
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
     --with the "example_ability" ability
@@ -272,8 +276,10 @@ function ZIV:InitZIV()
   Convars:RegisterCommand( "print_hero_stats", Dynamic_Wrap(ZIV, 'PrintHeroStats'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "ai", Dynamic_Wrap(ZIV, 'AddItemToContainer'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "sp", Dynamic_Wrap(ZIV, 'SpawnBasicPack'), "", FCVAR_CHEAT )
+  Convars:RegisterCommand( "sbd", Dynamic_Wrap(ZIV, 'SpawnBasicDrop'), "", FCVAR_CHEAT )
 
   GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( ZIV, "FilterExecuteOrder" ), self )
+  GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( ZIV, "DamageFilter" ), self )
 
   ZIV.ItemKVs = LoadKeyValues("scripts/npc/npc_items_custom.txt")
   ZIV.AbilityKVs = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
@@ -330,6 +336,38 @@ function ZIV:SpawnBasicPack(count)
           SpawnLord = true
         }
       )
+    end
+  end
+end
+
+function ZIV:SpawnBasicDrop(count)
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+      local hero = cmdPlayer:GetAssignedHero()
+
+      local enigma = CreateItemOnPositionSync(hero:GetAbsOrigin(), CreateItem("item_basic_chest", nil, nil))
+      enigma.particles = enigma.particles or {}
+
+      Physics:Unit(enigma)
+
+      enigma:SetAbsOrigin(hero:GetAbsOrigin())
+
+      local seed = math.random(0, 360)
+
+      local boost = math.random(0,425)
+
+      local x = ((185 + boost) * math.cos(seed))
+      local y = ((185 + boost) * math.sin(seed))
+
+      enigma:AddPhysicsVelocity(Vector(x, y, 1100))
+      enigma:SetPhysicsAcceleration(Vector(0,0,-1700)) 
+
+      local particle = ParticleManager:CreateParticle("particles/ziv_chest_light_legendary.vpcf", PATTACH_ABSORIGIN_FOLLOW, enigma)
+      ParticleManager:SetParticleControl(particle, 0, enigma:GetAbsOrigin())
+
+      table.insert(enigma.particles, particle)
     end
   end
 end

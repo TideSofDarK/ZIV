@@ -133,11 +133,15 @@ function ItemShowTooltip()
 
 	var itemName = Abilities.GetAbilityName( m_Item );
 	$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, m_QueryUnit );
+	
+	SetTooltipData();
 }
 
 function ItemHideTooltip()
 {
 	$.DispatchEvent( "DOTAHideAbilityTooltip", $.GetContextPanel() );
+
+	DestroyTooltipData();
 }
 
 var lastClick = 1; // 1 right, 0 left
@@ -376,6 +380,33 @@ function GetSlot()
 	return m_slot;
 }
 
+function SetTooltipData()
+{
+	var parent = $.GetContextPanel();
+	while(parent.id != "Hud")
+		parent = parent.GetParent();
+
+	if (m_Item && m_Item != -1) {
+		var tooltip = parent.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
+		if (tooltip.FindChildTraverse("GemsPanel")) {
+			tooltip.FindChildTraverse("GemsPanel").RemoveAndDeleteChildren();
+		}
+		tooltip.m_Item = m_Item;
+	}
+}
+
+function DestroyTooltipData()
+{
+	var parent = $.GetContextPanel();
+	while(parent.id != "Hud")
+		parent = parent.GetParent();
+
+	if (m_Item && m_Item != -1) {
+		var tooltip = parent.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
+		tooltip.m_Item = -1;
+	}
+}
+
 (function()
 {
 	$.GetContextPanel().SetItem = SetItem;
@@ -388,4 +419,6 @@ function GetSlot()
 	$.RegisterEventHandler( 'DragLeave', $.GetContextPanel(), OnDragLeave );
 	$.RegisterEventHandler( 'DragStart', $.GetContextPanel(), OnDragStart );
 	$.RegisterEventHandler( 'DragEnd', $.GetContextPanel(), OnDragEnd );
+
+	// $.RegisterForUnhandledEvent( "DOTAShowAbilityTooltipForEntityIndex", SetTooltipData);	
 })();

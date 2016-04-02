@@ -3,53 +3,65 @@
 		<include src="file://{resources}/styles/custom_game/crafting/item_mini.css" />
 	</styles>
 	<script>
-		$( "#GemImage" ).AddClass("rarity-normal rarity-good rarity-best rarity-rare rarity-unique rarity-epic");
+		$( "#GemImage" ).AddClass("rarity-normal rarity-magic rarity-rare rarity-epic rarity-legendary");
 
 		function SetRarity( rarity )
 		{
-			$( "#GemImage" ).SetHasClass("rarity-normal rarity-good rarity-best rarity-rare rarity-unique rarity-epic", false);
+			$( "#GemImage" ).SetHasClass("rarity-normal rarity-magic rarity-rare rarity-epic rarity-legendary", false);
 
 			var rarityClass = "rarity-normal";
 			switch( rarity )
 			{
 				case 1:
-					rarityClass = "rarity-good";
+					rarityClass = "rarity-magic";
 					break;
 
 				case 2:
-					rarityClass = "rarity-best";
-					break;
-
-				case 3:
 					rarityClass = "rarity-rare";
 					break;
 
-				case 4:
-					rarityClass = "rarity-unique";
+				case 3:
+					rarityClass = "rarity-epic";
 					break;
 
-				case 5:
-					rarityClass = "rarity-epic";
+				case 4:
+					rarityClass = "rarity-legendary";
 					break;
 			}
 
 			$( "#GemImage" ).SetHasClass(rarityClass, true )
 		}
 
-		function AddDesc()
+		function SetText(modifiers)
 		{
-
+			var newText = "";
+			$("#GemSlot_Desc_Text").html = true;
+			for (var key in modifiers) {
+				if (key != "gem") { 
+					newText = newText + "" + "+" + modifiers[key] + " " + $.Localize(key) + "" +"<br>";
+				}
+			}
+			$("#GemSlot_Desc_Text").text = newText; 
 		}
 
 		function Update( id )
 		{
-			SetRarity( 1 );
+			SetRarity( 2 );
+		}
+
+		function SetImage(itemname) 
+		{
+			$("#GemImage").itemname = itemname;
 		}
 
 		$.GetContextPanel().Update = Update;
+		$.GetContextPanel().SetImage = SetImage;
+		$.GetContextPanel().SetText = SetText;
 	</script>
 	<Panel class="gem-slot" hittest="true">
 		<DOTAItemImage hittest="false" class="gem-slot-image" id="GemImage" />
-		<Panel class="gem-slot-desc" id="GemSlot_Desc" />
+		<Panel class="gem-slot-desc" id="GemSlot_Desc" >
+			<Label id="GemSlot_Desc_Text" text="empty_gem_slot"/>
+		</Panel>
 	</Panel>
 </root>

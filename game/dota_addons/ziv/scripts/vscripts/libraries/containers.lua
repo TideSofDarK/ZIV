@@ -647,7 +647,10 @@ function Containers:OrderFilter(order)
         action = function(playerID, container, unit, target)
           if IsValidEntity(physItem) then
             local item = physItem:GetContainedItem()
-            if item and defInventory:AddItem(item) then
+            if item and string.match(item:GetName(), "chest") and not physItem.opened then
+              Loot:OpenChest( physItem, unit )
+              physItem.opened = true
+            elseif item and defInventory:AddItem(item) then
               physItem:RemoveSelf()
             end
           end
@@ -807,9 +810,11 @@ function Containers:OrderFilter(order)
           end
         end
       else
+
         if full then
           local physItem = CreateItemOnPositionSync(unit:GetAbsOrigin() + RandomVector(5), item)
           unit:PickupDroppedItem(physItem)
+
         else
           for i=6,11 do
             local item = unit:GetItemInSlot(i)

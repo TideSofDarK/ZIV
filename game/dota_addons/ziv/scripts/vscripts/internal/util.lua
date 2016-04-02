@@ -1,3 +1,13 @@
+function DestroyEntityBasedOnHealth(killer, target)
+  local damageTable = {
+    victim = target,
+    attacker = killer,
+    damage = target:GetMaxHealth(),
+    damage_type = DAMAGE_TYPE_PURE,
+  }
+  ApplyDamage(damageTable)
+end
+
 function InitAbilities( hero )
   for i=0, hero:GetAbilityCount()-1 do
     local abil = hero:GetAbilityByIndex(i)
@@ -9,6 +19,11 @@ function InitAbilities( hero )
       end
     end
   end
+end
+
+function AddAbilityAndUpgrade( unit, ability )
+  unit:AddAbility(ability)
+  unit:FindAbilityByName(ability):UpgradeAbility(false)
 end
 
 function DebugPrint(...)

@@ -92,6 +92,18 @@
       }
     }
 
+    "MODIFIER_PROPERTY_HEALTH_BONUS"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+  
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_HEALTH_BONUS" "1"
+      }
+    }
+
     "MODIFIER_PROPERTY_STATS_ALL_BONUS"
     {
       "Passive"      "0"

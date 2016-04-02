@@ -92,7 +92,8 @@ function UpdateAbilityList()
 	if ( !abilityListPanel )
 		return;
 
-	var queryUnit = Players.GetQueryUnit(Players.GetLocalPlayer());
+	var queryUnit = Game.GetLocalPlayerInfo()["player_selected_hero_entity_index"];
+	// GameUI.SetCameraTarget(queryUnit);
 
 	// see if we can level up
 	var nRemainingPoints = Entities.GetAbilityPoints( queryUnit );
@@ -101,6 +102,7 @@ function UpdateAbilityList()
 	$.GetContextPanel().SetHasClass( "could_level_up", ( bControlsUnit && bPointsToSpend ) );
 
 	var heroKV = CustomNetTables.GetTableValue( "hero_kvs", Entities.GetUnitName( queryUnit )+"_ziv" );
+
 	var abilityLayout = 0
 	if (heroKV) {
 		var abilityLayout = parseInt(heroKV["AbilityLayout"])

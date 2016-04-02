@@ -372,3 +372,14 @@ end
 function ZIV:OnGetHeroStatus( keys )
   
 end
+
+function ZIV:OnItemTooltipGetModifiers( keys )
+  local pID = keys.pID
+  local itemID = keys.item
+
+  local item = EntIndexToHScript(itemID)
+  -- print(item:GetName())
+  if item then
+    CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_item_tooltip_send_modifiers", { rarity = item.rarity or 0, fortify_modifiers = (item.fortify_modifiers or {}), built_in_modifiers = (item.built_in_modifiers or {})} )
+  end
+end

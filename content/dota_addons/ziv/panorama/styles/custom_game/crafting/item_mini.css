@@ -7,24 +7,20 @@
 	box-shadow: inset #ffffff60 1px 1px 10px 2px;
 }
 
-.rarity-good {
-	box-shadow: inset #00ff0060 1px 1px 10px 2px;
-}
-
-.rarity-best {
+.rarity-magic {
 	box-shadow: inset #0000ff60 1px 1px 10px 2px;
 }
 
 .rarity-rare {
-	box-shadow: inset #ff00ff60 1px 1px 10px 2px;
-}
-
-.rarity-unique {
-	box-shadow: inset #ffb40060 1px 1px 10px 2px;
+	box-shadow: inset #FFFF0060 1px 1px 10px 2px;
 }
 
 .rarity-epic {
-	box-shadow: inset #ff000060 1px 1px 10px 2px;
+	box-shadow: inset #FFA50060 1px 1px 10px 2px;
+}
+
+.rarity-legendary {
+	box-shadow: inset #FF00FF60 1px 1px 10px 2px;
 }
 
 
@@ -32,24 +28,27 @@
 	color: #ffffff;
 }
 
-.rarity-good-text {
-	color: #00ff00;
-}
-
-.rarity-best-text {
+.rarity-magic-text {
 	color: #0000ff;
 }
 
 .rarity-rare-text {
-	color: #ff00ff;
+	color: #FFFF00;
 }
 
-.rarity-unique-text {
-	color: #ffb400;
+.rarity-legendary-text {
+	color: #FFA500;
 }
 
 .rarity-epic-text {
-	color: #ff0000;
+	color: #FF00FF;
+}
+
+.modifier-slot {
+	width: 100%;
+	height: 25px;
+
+	flow-children: right;
 }
 
 .gem-slot {
@@ -72,4 +71,26 @@
 .gem-slot-desc {
 	width: 100%;
 	height: 100%;
+
+	text-shadow: 1px 1px 1px black;
+	text-align: center;
+	/*text-transform: uppercase;*/
+	text-overflow: clip;
+
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	color: White;
+}
+
+#GemSlot_Desc_Text {
+	margin-top: 7px;
+	vertical-align: center;
+}
+
+#ModifierText {
+	text-shadow: 1px 1px 1px black;
+	text-align: center;
+
+	font-size: 16px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	color: White;
 }

@@ -11,7 +11,7 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
-  "FortifyModifiersCount" "1"
+  "FortifyModifiersCount" "2"
   "FortifyModifiers"
   {
     "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"

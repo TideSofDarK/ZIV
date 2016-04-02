@@ -257,50 +257,6 @@
 	      }
 	    }
 	  }
-	"ziv_creep_normal_hpbar_behavior"
-	{
-	  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-	  "BaseClass"           "ability_datadriven"
-	  "AbilityTextureName"            "rubick_empty1"
-	  "MaxLevel"                      "1"
-	  
-	  "Modifiers"
-	  {
-	    "ziv_creep_normal_hpbar_behavior_logic"
-	    {
-	      "Passive"                        "1"
-	      "IsHidden"                        "1"    
-	
-	      "OnCreated"
-	      {
-	        "ApplyModifier"
-	        {
-	          "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
-	          "Target"     "CASTER"
-	        }
-	      }
-	
-	      "OnTakeDamage"
-	      {
-	        "RemoveModifier"
-	        {
-	          "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
-	          "Target"     "CASTER"
-	        }
-	      }
-	    }
-	    
-	    "ziv_creep_normal_hpbar_behavior_untouched"
-	    {
-	      "Passive"                        "0"
-	      "IsHidden"                        "1"    
-	      "States"
-	      {
-	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
-	      }
-	    }
-	  }
-	}
 	"ziv_empty1"
 	  {
 	    // General
@@ -361,6 +317,13 @@
 	    "BaseClass"           "ability_datadriven"
 	    "AbilityTextureName"            "rubick_empty1"
 	  }
+	"ziv_stats_bonus_fix"
+	{
+		"BaseClass"			"ability_lua" 
+		"ScriptFile"		"abilities/ziv_stats_bonus_fix.lua"
+	
+		"AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
 	"ziv_fortify_modifiers"
 	{
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -452,6 +415,18 @@
 	      "Properties"
 	      {
 	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
+	      }
+	    }
+	
+	    "MODIFIER_PROPERTY_HEALTH_BONUS"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	  
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_HEALTH_BONUS" "1"
 	      }
 	    }
 	
@@ -1085,7 +1060,7 @@
 	  "AbilityCooldown"         "13"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	
-	  "AbilityManaCost"       "120"
+	  "AbilityManaCost"       "70"
 	  
 	  "MaxLevel"          "7"
 	
@@ -1334,7 +1309,7 @@
 	  "AbilityCooldown"         "20"
 	  "AbilityChannelTime"      "7"
 	
-	  "AbilityManaCost"       "120"
+	  "AbilityManaCost"       "60"
 	  
 	  "MaxLevel"          "7"
 	
@@ -1640,7 +1615,7 @@
 	  "AbilityCooldown"         "13"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 	
-	  "AbilityManaCost"       "120"
+	  "AbilityManaCost"       "50"
 	  
 	  "MaxLevel"          "7"
 	
@@ -2118,6 +2093,90 @@
 	    }
 	  }
 	}
+	"ziv_color_modifier_blue"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+	  "AbilityTextureName"            "rubick_empty1"
+	  
+	  "MaxLevel"          "1"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/ziv_creep_modifier_color_blue.vpcf"
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_creep_color"
+	    {
+	      "Passive" "1"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "StatusEffectName"    "particles/ziv_creep_modifier_color_blue.vpcf"
+	      "StatusEffectPriority"  "10"
+	    }
+	  }
+	}
+	"ziv_color_modifier_green"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+	  "AbilityTextureName"            "rubick_empty1"
+	  
+	  "MaxLevel"          "1"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/ziv_creep_modifier_color_green.vpcf"
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_creep_color"
+	    {
+	      "Passive" "1"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "StatusEffectName"     "particles/ziv_creep_modifier_color_green.vpcf"      
+	      "StatusEffectPriority"  "10"
+	    }
+	  }
+	}
+	"ziv_color_modifier_red"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+	  "AbilityTextureName"            "rubick_empty1"
+	  
+	  "MaxLevel"          "1"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/ziv_creep_modifier_color_red.vpcf"
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_creep_color"
+	    {
+	      "Passive" "1"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "StatusEffectName"    "particles/ziv_creep_modifier_color_red.vpcf"
+	      "StatusEffectPriority"  "10"
+	    }
+	  }
+	}
 	"ziv_creep_lord_modifier_degen_aura"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -2185,7 +2244,7 @@
 	  "precache"
 	  {
 	    "particle"  "particles/ziv_creep_lord_modifier_regen_aura.vpcf"
-	    "particle"  "particles/items_fx/healing_tango.vpcf"
+	    "particle"  "particles/ziv_creep_lord_modifier_regen_aura_effect.vpcf"
 	  }
 	  
 	  "AbilitySpecial"
@@ -2232,91 +2291,13 @@
 	      "IsHidden"      "0"
 	      "IsDebuff"      "0"
 	
-	      "EffectName"    "particles/items_fx/healing_tango.vpcf"
+	      "EffectName"    "particles/ziv_creep_lord_modifier_regen_aura_effect.vpcf"
 	      "EffectAttachType"  "follow_origin"
 	
 	      "Properties"
 	      {
 	        "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%hp_regen_percentage"
 	      }
-	    }
-	  }
-	}
-	"ziv_creep_modifier_color_blue"
-	{
-	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-	  "AbilityTextureName"            "rubick_empty1"
-	  
-	  "MaxLevel"          "1"
-	
-	  "precache"
-	  {
-	    "particle"  "particles/ziv_creep_modifier_color_blue.vpcf"
-	  }
-	
-	  "Modifiers"
-	  {
-	    "modifier_creep_color"
-	    {
-	      "Passive" "1"
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
-	
-	      "EffectName"    "particles/ziv_creep_modifier_color_blue.vpcf"
-	      "EffectAttachType"  "follow_origin"
-	    }
-	  }
-	}
-	"ziv_creep_modifier_color_green"
-	{
-	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-	  "AbilityTextureName"            "rubick_empty1"
-	  
-	  "MaxLevel"          "1"
-	
-	  "precache"
-	  {
-	    "particle"  "particles/ziv_creep_modifier_color_green.vpcf"
-	  }
-	
-	  "Modifiers"
-	  {
-	    "modifier_creep_color"
-	    {
-	      "Passive" "1"
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
-	
-	      "EffectName"    "particles/ziv_creep_modifier_color_green.vpcf"
-	      "EffectAttachType"  "follow_origin"
-	    }
-	  }
-	}
-	"ziv_creep_modifier_color_red"
-	{
-	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-	  "AbilityTextureName"            "rubick_empty1"
-	  
-	  "MaxLevel"          "1"
-	
-	  "precache"
-	  {
-	    "particle"  "particles/ziv_creep_modifier_color_red.vpcf"
-	  }
-	
-	  "Modifiers"
-	  {
-	    "modifier_creep_color"
-	    {
-	      "Passive" "1"
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
-	
-	      "EffectName"    "particles/ziv_creep_modifier_color_red.vpcf"
-	      "EffectAttachType"  "follow_origin"
 	    }
 	  }
 	}
@@ -2482,6 +2463,70 @@
 	          "Target"            "ATTACKER"
 	          "LifestealPercent"  "%lifesteal"
 	        }
+	      }
+	    }
+	  }
+	}
+	"ziv_creep_normal_hpbar_behavior"
+	{
+	  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityTextureName"            "rubick_empty1"
+	  "MaxLevel"                      "1"
+	  
+	  "Modifiers"
+	  {
+	    "ziv_creep_normal_hpbar_behavior_logic"
+	    {
+	      "Passive"                        "1"
+	      "IsHidden"                        "1"    
+	
+	      "OnCreated"
+	      {
+	        "ApplyModifier"
+	        {
+	          "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
+	          "Target"     "CASTER"
+	        }
+	      }
+	
+	      "OnTakeDamage"
+	      {
+	        "RemoveModifier"
+	        {
+	          "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
+	          "Target"     "CASTER"
+	        }
+	      }
+	    }
+	    
+	    "ziv_creep_normal_hpbar_behavior_untouched"
+	    {
+	      "Passive"                        "0"
+	      "IsHidden"                        "1"    
+	      "States"
+	      {
+	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	  }
+	}
+	"ziv_hero_normal_hpbar_behavior"
+	{
+	  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityTextureName"            "rubick_empty1"
+	  "MaxLevel"                      "1"
+	  
+	  "Modifiers"
+	  {
+	    "ziv_hero_normal_hpbar_behavior_untouched"
+	    {
+	      "Passive"                        "1"
+	      "IsHidden"                        "1"    
+	      "States"
+	      {
+	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
 	      }
 	    }
 	  }

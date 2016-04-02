@@ -9,7 +9,7 @@
   "AbilityCooldown"         "13"
   "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 
-  "AbilityManaCost"       "120"
+  "AbilityManaCost"       "50"
   
   "MaxLevel"          "7"
 

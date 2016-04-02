@@ -1,3 +1,7 @@
+-- unit.fortify_modifiers["itemname"] = {MODIFIER_NAME = 1}
+-- item.fortify_modifiers = {{MODIFIER_NAME = 1}, {MODIFIER_NAME = 2}}
+-- item.built_in_modifiers = {MODIFIER_NAME = 1, MODIFIER_NAME = 2}
+
 function CheckSlot( unit, slot )
 	local modifierCount = unit:GetModifierCount()
 	for i=0,modifierCount do

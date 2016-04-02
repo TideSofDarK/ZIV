@@ -1,9 +1,9 @@
-"npc_creep_zombie"
+"npc_creep_skeleton"
 {
     "BaseClass"         "npc_dota_creature"
-    "HealthBarOffset"   "140"
-    "Model"           "models/heroes/undying/undying_minion.vmdl"
-    "ModelScale"    "0.855"
+    "HealthBarOffset"   "150"
+    "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
+    "ModelScale"    "1"
     "Level"           "1"
 
     "Ability1"          ""
@@ -12,9 +12,9 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "2"
-    "AttackDamageMax"     "4"
-    "AttackRate"        "1"
+    "AttackDamageMin"     "1"
+    "AttackDamageMax"     "3"
+    "AttackRate"        "1.5"
     "AttackAnimationPoint"    "0.5"
     "AttackRange"       "100"
 
