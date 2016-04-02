@@ -44,6 +44,13 @@
 	color: #FF00FF;
 }
 
+.modifier-slot {
+	width: 100%;
+	height: 25px;
+
+	flow-children: right;
+}
+
 .gem-slot {
 	width: 100%;
 	height: 53px;
@@ -70,11 +77,20 @@
 	/*text-transform: uppercase;*/
 	text-overflow: clip;
 
-	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 	color: White;
 }
 
 #GemSlot_Desc_Text {
 	margin-top: 7px;
 	vertical-align: center;
+}
+
+#ModifierText {
+	text-shadow: 1px 1px 1px black;
+	text-align: center;
+
+	font-size: 16px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	color: White;
 }

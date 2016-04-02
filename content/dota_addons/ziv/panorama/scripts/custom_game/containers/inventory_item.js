@@ -388,6 +388,9 @@ function SetTooltipData()
 
 	if (m_Item && m_Item != -1) {
 		var tooltip = parent.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
+		if (tooltip.FindChildTraverse("GemsPanel")) {
+			tooltip.FindChildTraverse("GemsPanel").RemoveAndDeleteChildren();
+		}
 		tooltip.m_Item = m_Item;
 	}
 }
