@@ -340,7 +340,7 @@ function ZIV:SpawnBasicPack(count)
   end
 end
 
-function ZIV:SpawnBasicDrop(count)
+function ZIV:SpawnBasicDrop(rarity)
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
@@ -349,6 +349,7 @@ function ZIV:SpawnBasicDrop(count)
 
       local enigma = CreateItemOnPositionSync(hero:GetAbsOrigin(), CreateItem("item_basic_chest", nil, nil))
       enigma.particles = enigma.particles or {}
+      enigma.rarity = tonumber(rarity) or 0
 
       Physics:Unit(enigma)
 
@@ -364,7 +365,8 @@ function ZIV:SpawnBasicDrop(count)
       enigma:AddPhysicsVelocity(Vector(x, y, 1100))
       enigma:SetPhysicsAcceleration(Vector(0,0,-1700)) 
 
-      local particle = ParticleManager:CreateParticle("particles/ziv_chest_light_legendary.vpcf", PATTACH_ABSORIGIN_FOLLOW, enigma)
+      local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[rarity], PATTACH_ABSORIGIN_FOLLOW, enigma)
+      print()
       ParticleManager:SetParticleControl(particle, 0, enigma:GetAbsOrigin())
 
       table.insert(enigma.particles, particle)

@@ -8,6 +8,12 @@ Loot.RARITY_RARE = 2
 Loot.RARITY_EPIC = 3
 Loot.RARITY_LEGENDARY = 4
 
+Loot.RARITY_PARTICLES = {}
+Loot.RARITY_PARTICLES[Loot.RARITY_MAGIC] = "particles/ziv_chest_light_magic.vpcf"
+Loot.RARITY_PARTICLES[Loot.RARITY_RARE] = "particles/ziv_chest_light_rare.vpcf"
+Loot.RARITY_PARTICLES[Loot.RARITY_EPIC] = "particles/ziv_chest_light_epic.vpcf"
+Loot.RARITY_PARTICLES[Loot.RARITY_LEGENDARY] = "particles/ziv_chest_light_legendary.vpcf"
+
 function Loot:AddModifiers(item)
 	local modifier_count = item.rarity + math.random(0, 2)
 	item.built_in_modifiers = item.built_in_modifiers or {}
@@ -58,15 +64,24 @@ function Loot:OpenChest( chest, unit )
 			if chest_rarity > Loot.RARITY_COMMON then     
 				local new_item = new_item_c:GetContainedItem()
 
+				new_item.rarity = 0
+
 				if i == count then
 					new_item.rarity = chest_rarity
 				else
 					if math.random(0,1) == 0 then
-						new_item.rarity = math.random(0,chest_rarity-1)
+						new_item.rarity = math.abs(math.random(0,chest_rarity-1))
 					end
 				end
 
-				Loot:AddModifiers(new_item)
+				if new_item.rarity > 0 then 
+					Loot:AddModifiers(new_item)
+
+					local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[new_item.rarity], PATTACH_ABSORIGIN_FOLLOW, new_item_c)
+					ParticleManager:SetParticleControl(particle, 0, new_item_c:GetAbsOrigin())
+					new_item_c.particles = {}
+					table.insert(new_item_c.particles, particle)
+				end
 			end
 
 			EmitSoundOn("Item.DropWorld",new_item_c)
