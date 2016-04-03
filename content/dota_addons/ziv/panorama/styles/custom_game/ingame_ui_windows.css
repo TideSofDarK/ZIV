@@ -33,10 +33,10 @@
 	width: 80%;
 	height: 30%;
 
-	border: 1px solid #111111ff;
+/*	border: 1px solid #111111ff;
 	border-radius: 20px;
 
-	background-color: #111111bb;
+	background-color: #111111bb;*/
 }
 
 .TextBlockLabel {
@@ -80,8 +80,8 @@
 }
 
 .OKButton {
-	width: 115px;
-	height: 45px;
+	width: 153px;
+	height: 42px;
 
 	border-radius: 1px;
 
@@ -89,7 +89,8 @@
 	border-left-style: solid;
 	border-left-width: 2px;*/
 
-	background-color: #3fb568;
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_red_button.png');
+	background-size: 100% 100%;
 
 	horizontal-align: right;
 }

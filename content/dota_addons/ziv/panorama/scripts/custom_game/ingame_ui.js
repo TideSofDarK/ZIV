@@ -170,7 +170,7 @@ function UpdateHPAndMP() {
 }
 
 function CreateSideButtons() {
-	$.CreatePanel( "Panel", $("#SideButtons"), "" ).BLoadLayout( "file://{resources}/layout/custom_game/equip_list.xml", false, false );
+	// $.CreatePanel( "Panel", $("#SideButtons"), "" ).BLoadLayout( "file://{resources}/layout/custom_game/equip_list.xml", false, false );
 }
 
 function OpenFortifyWindow() {
@@ -179,6 +179,10 @@ function OpenFortifyWindow() {
 
 function OpenStatusWindow() {
 	$.CreatePanel( "Panel", $.GetContextPanel(), "" ).BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_status.xml", false, false );
+}
+
+function OpenInventoryWindow() {
+	GameEvents.SendCustomGameEventToServer( "OpenInventory", {} );
 }
 
 (function()

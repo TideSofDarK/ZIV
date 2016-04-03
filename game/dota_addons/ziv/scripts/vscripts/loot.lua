@@ -47,7 +47,7 @@ function Loot:OpenChest( chest, unit )
 		if i < count then
 			i = i + 1
 
-			local new_item_c = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem("item_basic_coat", nil, nil))
+			local new_item_c = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem("item_basic_coat", unit, unit))
 
 			Physics:Unit(new_item_c)
 

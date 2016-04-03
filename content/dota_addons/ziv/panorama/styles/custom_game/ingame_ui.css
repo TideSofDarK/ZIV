@@ -20,29 +20,31 @@
 .MidBottom {
 	horizontal-align: center;
 	flow-children: down;
+
+	margin-left: 20px;
 }
 
 #BottomRoot {
 	width: 1630px;
 	height: 15px;
 
-	background-color: #111111FF;
+	/*background-color: #111111FF;*/
 }
 
 #MinimapBorder {
 	width: 293px;
 	height: 340px;
 
-	border: 15px solid #111111FF;
+/*	border: 15px solid #111111FF;
 	border-top-right-radius: 6px;
 	border-bottom-width: 0px;
-	border-top-width: 60px;
+	border-top-width: 60px;*/
 
 	background-color: #ffffff00;
 }
 
 .HealthPoints {
-	width: 560px;
+	width: 593px;
 	height: 35px;
 
 	margin-bottom: -2px;
@@ -53,7 +55,7 @@
 }
 
 .ManaPoints {
-	width: 560px;
+	width: 593px;
 	height: 22px;
 
 	margin-bottom: -2px;
@@ -105,29 +107,26 @@
 
 #SideButtons {
 	horizontal-align: right;
-	flow-children: down;
-
-	margin-bottom: 300px;
+	flow-children: right;
+	margin-right: 16px;
 }
 
 .BottomButton {
 	/*opacity: 0.99;*/
 	vertical-align: bottom;
-	margin-bottom: 2px;
+	margin-bottom: 36px;
+	margin-left: 2px;
 	
-    width: 80px;
-    height: 80px;
-    overflow: squish;
+    width: 69px;
+    height: 141px;
 
-    transition-property: background-color;
+    background-size: 100% 100%;
+
+/*    overflow: squish;*/
+
+/*    transition-property: background-color;
 	transition-duration: .2s;
-	transition-timing-function: ease-in-out, linear;
-
-    background-color: gradient( radial, 50% 50%, 10% 0%, 70% 90%, from( #222222FF ), to( #111111FF ) );
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 49% 49%;
-    opacity-mask: url('file://{images}/custom_game/ingame_ui/button_mask.png');
+	transition-timing-function: ease-in-out, linear;*/
 }
 
 .ButtonLabel {
@@ -139,16 +138,21 @@
 }
 
 .BottomButton:hover {
-	background-size: 59% 59%;
+	/*background-size: 59% 59%;*/
+	wash-color: #bbbbbb;
 }
 .BottomButton:selected,
 .BottomButton:hover
 {
-    background-color: gradient( radial, 50% 50%, 0% 0%, 60% 60%, from( #3F51B5FF ), to( #222222FF ) );
+    /*background-color: gradient( radial, 50% 50%, 0% 0%, 60% 60%, from( #3F51B5FF ), to( #222222FF ) );*/
 }
 
-#equipment_button {
-	background-image: url('file://{images}/custom_game/ingame_ui/equipment.png');
+#inventory_button {
+	background-image: url('file://{images}/custom_game/ingame_ui/inventory.png');
+}
+
+#character_button {
+	background-image: url('file://{images}/custom_game/ingame_ui/character.png');
 }
 
 #craft_button {
@@ -160,8 +164,8 @@
 }
 
 #Portait {
-	width: 140px;
-	height: 220px;
+	width: 120px;
+	height: 160px;
 
 	vertical-align: bottom;
 
@@ -169,14 +173,14 @@
 
 	background-color: #111111FF;
 
-	border: 15px solid #111111FF;
+/*	border: 15px solid #111111FF;
 	border-top-right-radius: 6px;
 	border-left-width: 0px;
 	border-bottom-width: 20px;
-	border-top-width: 30px;
+	border-top-width: 30px;*/
 
-	margin-right: 20px;
-	margin-bottom: 0px;
+	margin-left: 10px;
+	margin-bottom: 20px;
 
 	transform: translate3d( -2px, 0px, 0px );
 }
@@ -187,4 +191,40 @@
 
 	width: 100%;
 	height: 100%;
+}
+
+#BottomGfx {
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom.png');
+
+	width: 1359px;
+	height: 213px;
+
+	margin-bottom: 0px;
+
+	vertical-align: bottom;
+	horizontal-align: center;
+}
+
+#BottomLeftGfx {
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_left_corner.png');
+
+	width: 567px;
+	height: 340px;
+
+	margin-bottom: -1px;
+
+	vertical-align: bottom;
+	horizontal-align: left;
+}
+
+#BottomRightGfx {
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_right_corner.png');
+
+	width: 428px;
+	height: 255px;
+
+	margin-bottom: -1px;
+
+	vertical-align: bottom;
+	horizontal-align: right;
 }

@@ -365,8 +365,7 @@ function ZIV:SpawnBasicDrop(rarity)
       enigma:AddPhysicsVelocity(Vector(x, y, 1100))
       enigma:SetPhysicsAcceleration(Vector(0,0,-1700)) 
 
-      local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[rarity], PATTACH_ABSORIGIN_FOLLOW, enigma)
-      print()
+      local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[tonumber(rarity)], PATTACH_ABSORIGIN_FOLLOW, enigma)
       ParticleManager:SetParticleControl(particle, 0, enigma:GetAbsOrigin())
 
       table.insert(enigma.particles, particle)

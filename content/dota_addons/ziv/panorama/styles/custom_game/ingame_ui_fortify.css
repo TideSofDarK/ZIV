@@ -13,10 +13,11 @@ DOTAItemImage {
 }
 
 #FortifyOKButton {
-	horizontal-align: right;
+	horizontal-align: center;
 	vertical-align: bottom;
 
-	margin: 25px;
+	margin-bottom: 35px;
+	margin-left: 5px;
 }
 
 #FortifyTextBlock {
@@ -25,7 +26,7 @@ DOTAItemImage {
 
 	height: 38%;
 
-	margin-bottom: 100px;
+	margin-bottom: 66px;
 }
 
 #FortifyTextBlockLabel {
@@ -33,14 +34,16 @@ DOTAItemImage {
 }
 
 .FortifyItem {
-	margin-top: 70px;
-	width: 138px;
-	height: 100px;
+	margin-top: 92px;
+	width: 126px;
+	height: 90px;
 
 	border-radius: 5px;
 	border: 1px solid #111111ff;
 
 	background-color: gradient( radial, 10% 10%, 0% 0%, 100% 100%, from( #222222FF ), to( #111111FF ) );
+
+	visibility: collapse;
 }
 
 .FortifyHammer {
@@ -55,13 +58,16 @@ DOTAItemImage {
 }
 
 #FortifyItem {
-	margin-left: 60px;
+	margin-left: 72px;
+
+	transform: rotateZ( -4deg );
 
 	horizontal-align: left;
 }
 
 #FortifyTool {
-	margin-right: 60px;
+	margin-right: 67px;
+	transform: translate3d( -3px, 2px, 0px );
 
 	horizontal-align: right;
 }
@@ -72,4 +78,15 @@ DOTAItemImage {
 
 .item_gem_malachite {
 	color: #3fb568;
+}
+
+#Background {
+	background-image: url('file://{images}/custom_game/ingame_ui/fortify_bg.png');
+	background-size: 100% 100%;
+
+	width: 525px;
+	height: 480px;
+
+	vertical-align: center;
+	horizontal-align: center;
 }
