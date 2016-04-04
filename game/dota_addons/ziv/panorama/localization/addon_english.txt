@@ -49,6 +49,7 @@
 
 	"dragfortify"				"Drag and drop weapon or armor from inventory to fortify"
 	"dragfortify_gem"			"Drag and drop gem from inventory to insert it"
+	"fortify_button"			"Fortify"
 
 	"item_gem_malachite_fortify_string" "random modifier from list (attack speed, move speed, evasion, bonus agility)"
 	"item_gem_topaz_fortify_string" "random modifier from list (bonus to single stat, bonus to all stats, bonus armor)"

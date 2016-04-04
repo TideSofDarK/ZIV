@@ -35,7 +35,7 @@ function OnDragDrop(panelId, draggedPanel) {
 
 		$("#FortifyTool").style.visibility = "visible;";
 
-		Game.EmitSound( "Item.PickUpGemShop" )
+		Game.EmitSound( "Item.PickUpGemShop" );
 	}
 
 	CheckOKButton()

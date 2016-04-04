@@ -102,14 +102,25 @@ function CreateModifiersPanel( tooltip, built_in_modifiers )
 
 function Tooltip( panelName )
 {
-	var tooltip = hudRoot.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
+	if (hudRoot && hudRoot.FindChildTraverse("DOTAAbilityTooltip")) {
+		var tooltip = hudRoot.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
 
-	if (tooltip.m_Item == -1) {
-		$.Schedule(0.03, Tooltip);
-		return;
+		var gemsPanel = tooltip.FindChildTraverse("GemsPanel");
+		var modifiersPanel = tooltip.FindChildTraverse("ModifiersPanel");
+		if (gemsPanel) {
+			gemsPanel.RemoveAndDeleteChildren();
+		}
+		if (modifiersPanel) {
+			modifiersPanel.RemoveAndDeleteChildren();
+		}
+
+		if (tooltip.m_Item == -1) {
+			$.Schedule(0.03, Tooltip);
+			return;
+		}
+
+		GameEvents.SendCustomGameEventToServer( "ziv_item_tooltip_get_modifiers", { "pID" : Players.GetLocalPlayer(), "item" : tooltip.m_Item } );
 	}
-
-	GameEvents.SendCustomGameEventToServer( "ziv_item_tooltip_get_modifiers", { "pID" : Players.GetLocalPlayer(), "item" : tooltip.m_Item } );
 }
 
 function ShowActualTooltip(keys) {

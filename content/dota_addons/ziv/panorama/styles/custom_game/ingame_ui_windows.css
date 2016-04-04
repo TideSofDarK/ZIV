@@ -55,10 +55,13 @@
 }
 
 .CloseButton {
-	width: 40px;
-	height: 42px;
+	width: 39px;
+	height: 41px;
 
-	border-radius: 4px;
+	margin: 5px;
+	margin-top: 6px;
+
+	border-radius: 1px;
 
 /*	border-left-color: #55441166;
 	border-left-style: solid;
@@ -66,8 +69,8 @@
 
 	background-color: #b53f51;
 
-	background-image: url("s2r://panorama/images/control_icons/x_close_png.vtex");
-	background-size: 24px 24px;
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_close_button.png');
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 

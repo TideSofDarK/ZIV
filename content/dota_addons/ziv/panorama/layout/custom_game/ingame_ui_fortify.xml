@@ -7,6 +7,7 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_fortify.js" />
+		<include src="file://{resources}/scripts/custom_game/containers/draggable.js" />
 	</scripts>
 	<Panel class="FortifyRoot" hittest="true">
 		<Panel id="Background"/>
@@ -31,7 +32,7 @@
 		</Panel>
 
 		<Button onactivate="OKButton()" class="OKButton" id="FortifyOKButton">
-			<Label id="FortifyOKButtonLabel" class="WindowLabel" text="Fortify"/>
+			<Label id="FortifyOKButtonLabel" class="WindowLabel" text="#fortify_button"/>
 		</Button>
 	</Panel>
 </root>
