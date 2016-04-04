@@ -12,6 +12,8 @@ function OnDragDrop(panelId, draggedPanel) {
 
 		GameEvents.SendCustomGameEventToServer( "ziv_fortify_item_get_modifiers", { "pID" : Players.GetLocalPlayer(), "item" : itemIndex } );
 
+		$("#FortifyItem").style.visibility = "visible;";
+
 		Game.EmitSound( "ui.inv_equip_bone" )
 	} else {
 		var itemKV = CustomNetTables.GetTableValue( "item_kvs", itemName );
@@ -31,7 +33,9 @@ function OnDragDrop(panelId, draggedPanel) {
 
 		$("#FortifyTool").currentItem = itemIndex;
 
-		Game.EmitSound( "Item.PickUpGemShop" )
+		$("#FortifyTool").style.visibility = "visible;";
+
+		Game.EmitSound( "Item.PickUpGemShop" );
 	}
 
 	CheckOKButton()
@@ -40,6 +44,9 @@ function OnDragDrop(panelId, draggedPanel) {
 function FortifyResult(table) {
 	var item = table["item"];
 	var modifiers = table["modifiers"];
+
+	$("#FortifyTool").style.visibility = "collapse;";
+
 	GameEvents.SendCustomGameEventToServer( "ziv_fortify_item_get_modifiers", { "pID" : Players.GetLocalPlayer(), "item" : item } );
 }
 

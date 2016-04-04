@@ -13,14 +13,14 @@
   </scripts>
   <Panel hittest="false" class="ContainersBase">
 
-    <Panel hittest="false" style="opacity:1;flow-children:down;">
+<!--     <Panel hittest="false" style="opacity:1;flow-children:down;">
       <Button class="SplashButton" style="width:250px;margin-top:80px;" onactivate="OpenInventory()">
         <Label text="Open Inventory"/>
       </Button>
       <Button class="SplashButton" style="width:250px;" onactivate="DefaultInventory()">
         <Label text="Change Default Inventory"/>
       </Button>
-    </Panel>
+    </Panel> -->
 
 
     <Panel hittest="false" style="width:100%; height:100%;" id="PanoramaInventory">

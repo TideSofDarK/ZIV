@@ -8,11 +8,11 @@
 }
 
 .rarity-magic {
-	box-shadow: inset #0000ff60 1px 1px 10px 2px;
+	box-shadow: inset #3d50c5 1px 1px 10px 2px;
 }
 
 .rarity-rare {
-	box-shadow: inset #FFFF0060 1px 1px 10px 2px;
+	box-shadow: inset #ffea00 1px 1px 10px 2px;
 }
 
 .rarity-epic {
@@ -29,11 +29,11 @@
 }
 
 .rarity-magic-text {
-	color: #0000ff;
+	color: #3d50c5;
 }
 
 .rarity-rare-text {
-	color: #FFFF00;
+	color: #ffea00;
 }
 
 .rarity-legendary-text {

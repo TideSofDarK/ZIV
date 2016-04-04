@@ -7,16 +7,15 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_fortify.js" />
+		<include src="file://{resources}/scripts/custom_game/containers/draggable.js" />
 	</scripts>
-	<Panel class="Window FortifyRoot" hittest="true">
-		<Panel class="Headline">
-			<Label id="FortifyLabel" class="WindowLabel" text="Fortify">
-				<Button onactivate="CloseButton()" class="CloseButton">
-				</Button>
-			</Label>
-		</Panel>
+	<Panel class="FortifyRoot" hittest="true">
+		<Panel id="Background"/>
 
-		<Image class='FortifyHammer' src="file://{images}/custom_game/ingame_ui/hammer.png"/>
+		<Button onactivate="CloseButton()" class="CloseButton">
+		</Button>
+
+		<!-- <Image class='FortifyHammer' src="file://{images}/custom_game/ingame_ui/hammer.png"/> -->
 
 		<Panel class="FortifyItem" id="FortifyItem">
 
@@ -33,7 +32,7 @@
 		</Panel>
 
 		<Button onactivate="OKButton()" class="OKButton" id="FortifyOKButton">
-			<Label id="FortifyOKButtonLabel" class="WindowLabel" text="Fortify"/>
+			<Label id="FortifyOKButtonLabel" class="WindowLabel" text="#fortify_button"/>
 		</Button>
 	</Panel>
 </root>

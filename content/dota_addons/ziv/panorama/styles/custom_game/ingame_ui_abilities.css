@@ -2,7 +2,6 @@
 {
 	horizontal-align: center;
 	vertical-align: bottom;
-	margin-bottom: 8px;
 	flow-children: right;
 }
 
@@ -78,8 +77,8 @@
 
 #AbilityButton
 {
-	width: 110px;
-	height: 110px;
+	width: 116px;
+	height: 116px;
 	border: 2px solid transparent;
 }
 

@@ -9,12 +9,10 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui.js" />
 	</scripts>
 	<Panel class="InGameUIRoot" hittest="false">
+		<Panel id="BottomGfx"/>
+		<Panel id="BottomRightGfx"/>
 		<Panel class="Bottom RightBottom" hittest="false">
 			<Panel class="InventoryOverlayRoot" hittest="false">
-				<Panel id="SideButtons" hittest="false">
-					<Button id="craft_button" class="BottomButton" onactivate="OpenFortifyWindow()" />
-					<Button id="help_button" class="BottomButton" onactivate="OpenStatusWindow()" />
-				</Panel>
 
 				<Panel id="inventory_items">
 					<Panel id="inventory_row_1" />
@@ -25,6 +23,13 @@
 
 			</Panel>
 			<Panel hittest="false" id="BottomRoot">
+
+			</Panel>
+			<Panel id="SideButtons" hittest="false">
+				<Button id="craft_button" class="BottomButton" onactivate="OpenFortifyWindow()" />
+				<Button id="character_button" class="BottomButton" onactivate="OpenStatusWindow()" />
+				<Button id="inventory_button" class="BottomButton" onactivate="OpenInventoryWindow()" />
+				<Button id="help_button" class="BottomButton" onactivate="" />
 			</Panel>
 		</Panel>
 
@@ -56,5 +61,6 @@
 				<Panel id="ability_list" />
 			</Panel>
 		</Panel>
+		<Panel id="BottomLeftGfx"/>
 	</Panel>
 </root>
