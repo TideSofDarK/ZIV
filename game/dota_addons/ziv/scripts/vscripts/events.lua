@@ -233,6 +233,7 @@ function ZIV:OnEntityKilled( keys )
 
   -- The Unit that was Killed
   local killedUnit = EntIndexToHScript( keys.entindex_killed )
+  local attackerUnit = EntIndexToHScript( keys.entindex_attacker )
   -- The Killing entity
   local killerEntity = nil
 
@@ -251,6 +252,7 @@ function ZIV:OnEntityKilled( keys )
 
   if killedUnit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
     PopupNumbers(killedUnit, "heal", Vector(215, 50, 248), 1.0, killedUnit:GetDeathXP(), nil, nil)
+    Loot:Generate( killedUnit, attackerUnit )
   end
 
   if killedUnit.particles then

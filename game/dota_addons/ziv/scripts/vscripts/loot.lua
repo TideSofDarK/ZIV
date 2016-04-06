@@ -14,6 +14,50 @@ Loot.RARITY_PARTICLES[Loot.RARITY_RARE] = "particles/ziv_chest_light_rare.vpcf"
 Loot.RARITY_PARTICLES[Loot.RARITY_EPIC] = "particles/ziv_chest_light_epic.vpcf"
 Loot.RARITY_PARTICLES[Loot.RARITY_LEGENDARY] = "particles/ziv_chest_light_legendary.vpcf"
 
+Loot.Table = LoadKeyValues('scripts/kv/LootTable.kv')
+
+function IsItemDropped( chance )
+  return math.random(100) < chance
+end
+
+function Loot:Generate( creep, killer )
+  if Loot.Table == nil then
+    return
+  end
+  
+  -- Get loot table
+  local lootTable = Loot.Table[creep:GetName()]
+  if lootTable == nil then
+    return
+  end
+
+  -- Generate chest
+  if IsItemDropped(lootTable.LootChance) then
+    local chest = CreateItemOnPositionSync(creep:GetAbsOrigin(), CreateItem("item_basic_chest", nil, nil))
+    chest.particles = chest.particles or {}
+    chest.Max = lootTable.Max
+    chest.Loot = lootTable.Loot
+
+    Physics:Unit(chest)
+
+    chest:SetAbsOrigin(creep:GetAbsOrigin())
+
+    local seed = math.random(0, 360)
+    local boost = math.random(0,425)
+
+    local x = ((185 + boost) * math.cos(seed))
+    local y = ((185 + boost) * math.sin(seed))
+
+    chest:AddPhysicsVelocity(Vector(x, y, 1100))
+    chest:SetPhysicsAcceleration(Vector(0,0,-1700)) 
+
+    local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[tonumber(rarity)], PATTACH_ABSORIGIN_FOLLOW, chest)
+    ParticleManager:SetParticleControl(particle, 0, chest:GetAbsOrigin())
+
+    table.insert(chest.particles, particle)
+  end
+end
+
 function Loot:AddModifiers(item)
 	local modifier_count = item.rarity + math.random(0, 2)
 	item.built_in_modifiers = item.built_in_modifiers or {}
@@ -32,9 +76,53 @@ function Loot:AddModifiers(item)
 	end
 end
 
+function Loot:RandomItemFromLootTable( lootTable, chest_unit )
+  local seed = math.random(100)
+  local rarity = nil
+  local items = nil
+  
+  -- Random rarity
+  local num = 0
+  for k,v in pairs(lootTable) do
+    if seed > num and seed <= num + v.Chance then
+      rarity = tonumber(k)
+      items = v.Items
+    end
+    
+    num = num + v.Chance
+  end
+  
+  -- Random item in group
+  local itemName = items[tostring(math.random( #items ))]
+  local item = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem(itemName, unit, unit))
+  
+  if rarity > Loot.RARITY_COMMON then     
+    local new_item = item:GetContainedItem()
+    new_item.rarity = 0
+
+    if i == count then
+      new_item.rarity = rarity
+    else
+      if math.random(0,1) == 0 then
+        new_item.rarity = math.abs(math.random(0,rarity-1))
+      end
+    end
+
+    if new_item.rarity > 0 then 
+      Loot:AddModifiers(new_item)
+
+      local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[new_item.rarity], PATTACH_ABSORIGIN_FOLLOW, item)
+      ParticleManager:SetParticleControl(particle, 0, item:GetAbsOrigin())
+      item.particles = {}
+      table.insert(item.particles, particle)
+    end
+  end
+  
+  return item
+end
+
 function Loot:OpenChest( chest, unit )
-	local chest_rarity = chest.rarity or Loot.RARITY_MAGIC
-	local count = math.random(3, 8)
+	local count = math.random(chest.Max) + 1
 
 	local i = 1
 
@@ -47,12 +135,11 @@ function Loot:OpenChest( chest, unit )
 		if i < count then
 			i = i + 1
 
-			local new_item_c = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem("item_basic_coat", unit, unit))
+			local new_item_c = Loot:RandomItemFromLootTable( chest.Loot, chest_unit )
 
 			Physics:Unit(new_item_c)
 
 			local seed = math.random(0, 360)
-
 			local boost = math.random(0,325)
 
 			local x = ((185 + boost) * math.cos(seed))
@@ -60,29 +147,6 @@ function Loot:OpenChest( chest, unit )
 
 			new_item_c:AddPhysicsVelocity(Vector(x, y, 1100))
 			new_item_c:SetPhysicsAcceleration(Vector(0,0,-1700))
-
-			if chest_rarity > Loot.RARITY_COMMON then     
-				local new_item = new_item_c:GetContainedItem()
-
-				new_item.rarity = 0
-
-				if i == count then
-					new_item.rarity = chest_rarity
-				else
-					if math.random(0,1) == 0 then
-						new_item.rarity = math.abs(math.random(0,chest_rarity-1))
-					end
-				end
-
-				if new_item.rarity > 0 then 
-					Loot:AddModifiers(new_item)
-
-					local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[new_item.rarity], PATTACH_ABSORIGIN_FOLLOW, new_item_c)
-					ParticleManager:SetParticleControl(particle, 0, new_item_c:GetAbsOrigin())
-					new_item_c.particles = {}
-					table.insert(new_item_c.particles, particle)
-				end
-			end
 
 			EmitSoundOn("Item.DropWorld",new_item_c)
 
