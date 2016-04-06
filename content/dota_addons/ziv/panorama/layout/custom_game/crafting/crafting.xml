@@ -11,8 +11,7 @@
 		<include src="file://{resources}/scripts/custom_game/containers/draggable.js" />
 	</scripts>
 	<Panel class="MainPanel z-index1" hittestchildren="true">
-		<Button onactivate="CloseButton()" class="CloseButton" id="CloseButton">
-		</Button>
+		<Button onactivate="CloseButton()" class="CloseButton" id="CloseButton" />
 		<Panel class="Window row" hittestchildren="true">
 			<Panel class="Recipes" >
 				<TextEntry class="container row title" id="Search" multiline="false" textmode="normal" maxchars="100" text="Type here..." 
@@ -40,8 +39,10 @@
 				<Panel class="divider" />
 
 				<Panel class="RecipeParts container row" id="RecipeParts" >
-					<Panel class="RecipePartsRow container row" id="RecipeRow1" />
-					<Panel class="RecipePartsRow container row" id="RecipeRow2" />
+					<Panel class="RecipePartsRows" >
+						<Panel class="RecipePartsRow container row" id="RecipeRow1" />
+						<Panel class="RecipePartsRow container row" id="RecipeRow2" />
+					</Panel>
 				</Panel>
 
 				<!-- <Panel class="divider" /> -->

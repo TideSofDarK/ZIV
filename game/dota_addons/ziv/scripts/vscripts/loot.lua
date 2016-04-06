@@ -26,35 +26,14 @@ function Loot:Generate( creep, killer )
   end
   
   -- Get loot table
-  local lootTable = Loot.Table[creep:GetName()]
+  local lootTable = Loot.Table[creep:GetUnitName()]
   if lootTable == nil then
     return
   end
 
-  -- Generate chest
-  if IsItemDropped(lootTable.LootChance) then
-    local chest = CreateItemOnPositionSync(creep:GetAbsOrigin(), CreateItem("item_basic_chest", nil, nil))
-    chest.particles = chest.particles or {}
-    chest.Max = lootTable.Max
-    chest.Loot = lootTable.Loot
-
-    Physics:Unit(chest)
-
-    chest:SetAbsOrigin(creep:GetAbsOrigin())
-
-    local seed = math.random(0, 360)
-    local boost = math.random(0,425)
-
-    local x = ((185 + boost) * math.cos(seed))
-    local y = ((185 + boost) * math.sin(seed))
-
-    chest:AddPhysicsVelocity(Vector(x, y, 1100))
-    chest:SetPhysicsAcceleration(Vector(0,0,-1700)) 
-
-    local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[tonumber(rarity)], PATTACH_ABSORIGIN_FOLLOW, chest)
-    ParticleManager:SetParticleControl(particle, 0, chest:GetAbsOrigin())
-
-    table.insert(chest.particles, particle)
+  -- Generate items
+  if IsItemDropped(lootTable.LootChance or 0) then
+    Loot:CreepDrops( lootTable, creep, killer )
   end
 end
 
@@ -76,7 +55,7 @@ function Loot:AddModifiers(item)
 	end
 end
 
-function Loot:RandomItemFromLootTable( lootTable, chest_unit )
+function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
   local seed = math.random(100)
   local rarity = nil
   local items = nil
@@ -94,7 +73,7 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit )
   
   -- Random item in group
   local itemName = items[tostring(math.random( #items ))]
-  local item = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem(itemName, unit, unit))
+  local item = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem(itemName, owner, owner))
   
   if rarity > Loot.RARITY_COMMON then     
     local new_item = item:GetContainedItem()
@@ -121,6 +100,34 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit )
   return item
 end
 
+function Loot:CreepDrops( lootTable, creep, killer )
+	local count = math.random(lootTable.Max) + 1
+  local i = 1
+  
+	Timers:CreateTimer(function ()
+		if i < count then
+			i = i + 1
+
+			local new_item_c = Loot:RandomItemFromLootTable( lootTable.Loot, creep, killer )
+
+			Physics:Unit(new_item_c)
+
+			local seed = math.random(0, 360)
+			local boost = math.random(0,325)
+
+			local x = ((185 + boost) * math.cos(seed))
+			local y = ((185 + boost) * math.sin(seed))
+
+			new_item_c:AddPhysicsVelocity(Vector(x, y, 1100))
+			new_item_c:SetPhysicsAcceleration(Vector(0,0,-1700))
+
+			EmitSoundOn("Item.DropWorld", new_item_c)
+
+			return math.random(0.31, 0.41)
+		end
+	end)   
+end
+
 function Loot:OpenChest( chest, unit )
 	local count = math.random(chest.Max) + 1
 
@@ -135,7 +142,7 @@ function Loot:OpenChest( chest, unit )
 		if i < count then
 			i = i + 1
 
-			local new_item_c = Loot:RandomItemFromLootTable( chest.Loot, chest_unit )
+			local new_item_c = Loot:RandomItemFromLootTable( chest.Loot, chest_unit, nil )
 
 			Physics:Unit(new_item_c)
 
