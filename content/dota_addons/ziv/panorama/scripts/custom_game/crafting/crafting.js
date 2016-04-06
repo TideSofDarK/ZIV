@@ -101,23 +101,23 @@ function AddPlus( parent )
 	plusPanel.text = "+";
 }
 
+function CreateRecipeParts( count )
+{
+	$( "#RecipeRow1" ).RemoveAndDeleteChildren();
+	$( "#RecipeRow2" ).RemoveAndDeleteChildren();
+
+	for (var i = 0; i < count; i++) {
+		var panelName = i < 4 ? "#RecipeRow1" : "#RecipeRow2";
+		AddRecipeSlot( $( panelName ), i );
+	}
+}
 
 function InitSlots()
 {
 	craftingItemPanel = $.CreatePanel( "Panel", $( "#ItemImage" ), "CraftingItemPanel" );
 	craftingItemPanel.BLoadLayout( "file://{resources}/layout/custom_game/crafting/item_mini.xml", false, false );
 	
-	for (var i = 0; i < 4; i++)
-	{
-		AddRecipeSlot( $( "#RecipeRow1" ), i );
-		AddRecipeSlot( $( "#RecipeRow2" ), i + 4 );
-
-		if (i < 3)
-		{
-			AddPlus( $( "#RecipeRow1" ) );
-			AddPlus( $( "#RecipeRow2" ) );
-		}
-	}	
+	CreateRecipeParts( 6 );
 }
 
 (function()

@@ -167,24 +167,28 @@ VerticalScrollBar {
 
 .RecipeParts {
 	width: 100%;
-	height: 240px;
+	height: 270px;
 
-	overflow: scroll scroll;
+	margin-top: 10px;
+}
+
+.RecipePartsRows {
 	flow-children: down;
-
-	vertical-align: center;
-
-	margin-top: 40px;
+	
+	horizontal-align: center;
+	vertical-align: middle;
 }
 
 .RecipePartsRow {
-	height: 90px;
-
 	flow-children: right;
+
 	horizontal-align: center;
+	vertical-align: middle;
 }
 
 .recipepart-image {
+	height: 90px;
+
 	margin-left: 4px;
 	margin-right: 4px;
 }
