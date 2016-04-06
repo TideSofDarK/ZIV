@@ -20,7 +20,7 @@
   background-color: #9E9E9E20;
 
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 28px;
 }
 
 .divider-vertical {
@@ -34,17 +34,24 @@
 }
 
 .title {
-	color: #ffffff8a;
+	color: #ffffffde;
 	font-size: 30px;
+
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+
+	text-shadow: 1px 1px 2px black;
 }
 
 .text {
-	color: #ffffffde;
-	font-size: 25px;	
+	color: #ffffff8a;
+	font-size: 23px;	
+
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	line-height: 19px;
 }
 
 VerticalScrollBar {
-	width: 10px;
+	width: 23px;
 	height: 100%;
 
 	horizontal-align: right;
@@ -54,27 +61,24 @@ VerticalScrollBar {
 	width: 100%;
 	height: 30px;
 
+	border-radius: 10px;
+
 	background-color: #9E9E9E20;
-}
-
-
-.CraftingRoot {
-	width: 100%;
-	height: 100%;
 }
 
 .MainPanel {
 	width: 1200px;
 	height: 700px;
 
+	background-image: url('file://{images}/custom_game/ingame_ui/crafting_bg.png');
+	background-size: 100% 100%;
+
 	horizontal-align: center;
 	vertical-align: middle;
 
-	background-color: #303030;
+	box-shadow: #000000ff -1px -1px -1px;
 
-	flow-children: down;
-
-	visibility: collapse; 
+	/*flow-children: down;*/
 }
 
 .Window {
@@ -88,7 +92,7 @@ VerticalScrollBar {
  *  Recipes list
  */
 .Recipes {
-	width: 400px;
+	width: 300px;
 	height: 100%;
 
 	flow-children: down;
@@ -97,11 +101,14 @@ VerticalScrollBar {
 #Search {
 	width: 100%;
 	height: 50px;
+
+	margin-left: 21px;
+	line-height: 40px;
 }
 
 .RecipesList {
 	width: 100%;
-	height: 100%;
+	height: 91%;
 
 	overflow: squish scroll;
 	flow-children: down;
@@ -110,13 +117,15 @@ VerticalScrollBar {
 .recipe-title {
 	width: 100%;
 	height: 30px;
+
+	margin-left: 19px;
 }
 
 /*
  *  Main crafting
  */
 .CraftInfo {
-	width: 800px;
+	width: 890px;
 	height: 100%;
 
 	flow-children: down;
@@ -131,7 +140,7 @@ VerticalScrollBar {
 
 #ItemDescPanel {
 	width: 100%;
-	height: 280px;
+	height: 256px;
 
 	flow-children: right;
 }
@@ -147,23 +156,29 @@ VerticalScrollBar {
 }
 
 #ItemDesc {
-	width: 600px;
+	width: 100%;
 	height: 100%;
 
 	overflow: squish scroll;
 	flow-children: down;
+
+	margin-top: 30px;
 }
 
 .RecipeParts {
 	width: 100%;
-	height: 280px;
+	height: 240px;
 
 	overflow: scroll scroll;
 	flow-children: down;
+
+	vertical-align: center;
+
+	margin-top: 40px;
 }
 
 .RecipePartsRow {
-	height: 130px;
+	height: 90px;
 
 	flow-children: right;
 	horizontal-align: center;
@@ -187,9 +202,23 @@ VerticalScrollBar {
 
 .Buttons {
 	width: 100%;
-	height: 70px;
+	height: 100px;
 
-	flow-children: right;
+	flow-children: down;
+}
+
+#CloseButton {
+	width: 64px;
+	height: 55px;
+
+	margin-right: 5px;
+}
+
+#CraftButton {
+	width: 250px;
+	height: 52px;
+	horizontal-align: center;
+	vertical-align: center;
 }
 
 .button {
@@ -216,9 +245,23 @@ VerticalScrollBar {
 .btn-title {
 	width: 100%;
 
-	color: #ffffff8a;
+	color: #ffffffde;
 	font-size: 30px;
 
-	margin-top: 5px;
+	margin-top: 8px;
 	text-align: center;
+
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	text-shadow: 1px 1px 1px black;
+}
+
+#Background {
+	background-image: url('file://{images}/custom_game/ingame_ui/crafting_bg.png');
+	background-size: 100% 100%;
+
+	width: 100%;
+	height: 100%;
+
+/*	vertical-align: center;
+	horizontal-align: center;*/
 }

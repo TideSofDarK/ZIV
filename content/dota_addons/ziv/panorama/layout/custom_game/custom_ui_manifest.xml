@@ -57,10 +57,10 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/containers/container_base.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui.xml" />
-<!--     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_fortify.xml" /> -->
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_fortify.xml" />
 
-    <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection.xml" />
-
+    <!-- <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection.xml" /> -->
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_status.xml"/>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/crafting/crafting.xml" />
     <!-- From Overthrow.
 

@@ -531,7 +531,7 @@
 			"file": "game/dota_addons/ziv/scripts/vscripts/events.lua",
 			"settings":
 			{
-				"buffer_size": 11197,
+				"buffer_size": 11220,
 				"line_ending": "Windows"
 			}
 		},
@@ -547,7 +547,7 @@
 			"file": "content/dota_addons/ziv/panorama/styles/custom_game/crafting/item_mini.css",
 			"settings":
 			{
-				"buffer_size": 1358,
+				"buffer_size": 1354,
 				"line_ending": "Windows"
 			}
 		},
@@ -555,7 +555,23 @@
 			"file": "content/dota_addons/ziv/panorama/scripts/custom_game/crafting/item_tooltip.js",
 			"settings":
 			{
-				"buffer_size": 3197,
+				"buffer_size": 3650,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "game/dota_addons/ziv/scripts/kv/recipes.kv",
+			"settings":
+			{
+				"buffer_size": 250,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "game/dota_addons/ziv/scripts/npc/items/item_basic_recipe.txt",
+			"settings":
+			{
+				"buffer_size": 1066,
 				"line_ending": "Windows"
 			}
 		}
@@ -621,6 +637,7 @@
 		"/D/workspace/ZiV/game/dota_addons/ziv/panorama",
 		"/D/workspace/ZiV/game/dota_addons/ziv/panorama/localization",
 		"/D/workspace/ZiV/game/dota_addons/ziv/scripts",
+		"/D/workspace/ZiV/game/dota_addons/ziv/scripts/kv",
 		"/D/workspace/ZiV/game/dota_addons/ziv/scripts/npc",
 		"/D/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities",
 		"/D/workspace/ZiV/game/dota_addons/ziv/scripts/npc/abilities/heroes",
@@ -776,7 +793,7 @@
 	],
 	"find":
 	{
-		"height": 36.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -1060,7 +1077,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -1089,7 +1106,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1098,15 +1115,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11197,
+						"buffer_size": 11220,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10936,
-								10936
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1119,7 +1136,7 @@
 						"translation.y": 6970.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1148,7 +1165,7 @@
 						"translation.y": 7190.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1157,15 +1174,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1358,
+						"buffer_size": 1354,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1084,
-								1084
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1177,7 +1194,7 @@
 						"translation.y": 1179.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1186,15 +1203,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3197,
+						"buffer_size": 3650,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2086,
-								1671
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1206,6 +1223,64 @@
 						"translation.y": 1159.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "game/dota_addons/ziv/scripts/kv/recipes.kv",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								148,
+								148
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Dota Reborn Package/dota-kv/dotaKV.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "game/dota_addons/ziv/scripts/npc/items/item_basic_recipe.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1066,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1053,
+								1053
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Dota Reborn Package/dota-kv/dotaKV.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 0,
 					"type": "text"
 				}
@@ -1214,7 +1289,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -1251,7 +1326,7 @@
 	"project": "ziv.sublime-project",
 	"replace":
 	{
-		"height": 66.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":

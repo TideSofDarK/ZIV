@@ -1,14 +1,17 @@
 function CloseButton() {
-	$.GetContextPanel().RemoveAndDeleteChildren();
-	$.GetContextPanel().DeleteAsync( 0.0 );
+	$.GetContextPanel().style.visibility = "collapse;";
+}
+
+function Open() {
+	Update();
+	$.GetContextPanel().style.visibility = "visible;";
 }
 
 function roundToTwo(num) {    
     return +(Math.round(num + "e+2")  + "e-2");
 }
 
-(function()
-{
+function Update() {
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	var name = Entities.GetUnitName(queryUnit);
 
@@ -32,4 +35,9 @@ function roundToTwo(num) {
 	$("#EVASION").text = $.Localize("status_evasion") + "0%";
 	$("#MDA").text = $.Localize("status_mda") + "0%";
 	$("#CTC").text = $.Localize("status_ctc") + "0%";
+}
+
+(function()
+{
+	GameEvents.Subscribe( "ziv_open_status", Open );
 })();

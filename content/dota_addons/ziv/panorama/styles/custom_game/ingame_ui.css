@@ -43,24 +43,24 @@
 	background-color: #ffffff00;
 }
 
-.HealthPoints {
-	width: 593px;
-	height: 35px;
+.BarBackground {
+	margin-left: 1px;
+
+	width: 591px;
 
 	margin-bottom: -2px;
 
 	border-radius: 4px;
+}
+
+.HealthPoints {
+	height: 35px;
 
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #00000033 ), to( #00000044 ) );
 }
 
 .ManaPoints {
-	width: 593px;
-	height: 22px;
-
-	margin-bottom: -2px;
-
-	border-radius: 4px;
+	height: 20px;
 
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #00000033 ), to( #00000044 ) );
 }
@@ -93,7 +93,7 @@
 }
 
 #hp_bar {
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #3fb568ff ), to( #359857ff ) );
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #b53f51 ), to( #b53f51 ) );
 }
 
 #mp {
@@ -197,7 +197,23 @@
 	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom.png');
 
 	width: 1359px;
-	height: 213px;
+	height: 200px;
+
+	background-size: 100% 100%;
+
+	margin-bottom: 0px;
+
+	vertical-align: bottom;
+	horizontal-align: center;
+}
+
+#BottomForegroundGfx {
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom_a.png');
+
+	width: 1359px;
+	height: 200px;
+
+	background-size: 100% 100%;
 
 	margin-bottom: 0px;
 
@@ -224,6 +240,8 @@
 
 	width: 428px;
 	height: 255px;
+
+	background-size: 100% 100%;
 
 	margin-bottom: -1px;
 

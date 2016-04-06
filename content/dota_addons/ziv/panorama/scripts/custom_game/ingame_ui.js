@@ -7,6 +7,12 @@ var m_InventoryPanels = []
 var DOTA_ITEM_STASH_MIN = 0;
 var DOTA_ITEM_STASH_MAX = 12;
 
+var m_StatusPanel;
+var m_FortifyPanel;
+var m_CraftingPanel;
+
+var modelParticle;
+
 function UpdateInventory()
 {
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
@@ -143,7 +149,7 @@ function UpdateAbilityList()
 }
 
 function UpdateHPAndMP() {
-	var queryUnit = Players.GetLocalPlayerPortraitUnit();
+	var queryUnit = Game.GetLocalPlayerInfo()["player_selected_hero_entity_index"];
 	var hp = 	Entities.GetHealth( queryUnit )
 	var maxHP = 	Entities.GetMaxHealth( queryUnit )
 	var mp = 	Entities.GetMana( queryUnit )
@@ -169,20 +175,45 @@ function UpdateHPAndMP() {
 	$.Schedule( 0.1, UpdateHPAndMP );
 }
 
+// function CreateHPAndMPParticles() {
+// 	var queryUnit = Game.GetLocalPlayerInfo()["player_selected_hero_entity_index"];
+
+// 	if (modelParticle) {
+// 		Particles.DestroyParticleEffect(modelParticle, true);
+// 	}
+
+//     modelParticle = Particles.CreateParticle("particles/ziv_hp_bar.vpcf", ParticleAttachment_t.PATTACH_CUSTOMORIGIN, queryUnit);
+
+
+//     UpdateParticles();
+// }
+
+// function UpdateParticles() {
+//     Particles.SetParticleControl(modelParticle, 3, [0,0,0])
+//     Particles.SetParticleControl(modelParticle, 0, GameUI.GetScreenWorldPosition())
+//     $.Schedule(0.1, UpdateParticles);
+// }
+
 function CreateSideButtons() {
 	// $.CreatePanel( "Panel", $("#SideButtons"), "" ).BLoadLayout( "file://{resources}/layout/custom_game/equip_list.xml", false, false );
 }
 
 function OpenFortifyWindow() {
-	$.CreatePanel( "Panel", $.GetContextPanel(), "" ).BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_fortify.xml", false, false );
+	// $.CreatePanel( "Panel", $.GetContextPanel(), "" ).BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_fortify.xml", false, false );
+	GameEvents.SendEventClientSide( "ziv_open_fortify", {} )
 }
 
 function OpenStatusWindow() {
-	$.CreatePanel( "Panel", $.GetContextPanel(), "" ).BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_status.xml", false, false );
+	// $.CreatePanel( "Panel", $.GetContextPanel(), "" ).BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_status.xml", false, false );
+	GameEvents.SendEventClientSide( "ziv_open_status", {} )
 }
 
 function OpenInventoryWindow() {
 	GameEvents.SendCustomGameEventToServer( "OpenInventory", {} );
+}
+
+function OpenCraftingWindow() {
+	GameEvents.SendEventClientSide( "ziv_open_crafting", null )
 }
 
 (function()
@@ -207,4 +238,6 @@ function OpenInventoryWindow() {
 	UpdateHPAndMP();
 
 	CreateSideButtons();
+
+	// CreateHPAndMPParticles();
 })();

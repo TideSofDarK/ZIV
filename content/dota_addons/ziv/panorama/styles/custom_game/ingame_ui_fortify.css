@@ -10,6 +10,8 @@ DOTAItemImage {
 
 	width: 525px;
 	height: 480px;
+
+	visibility: collapse;
 }
 
 #FortifyOKButton {
