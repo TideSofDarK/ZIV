@@ -9,7 +9,7 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_status.js" />
 		<include src="file://{resources}/scripts/custom_game/containers/draggable.js" />
 	</scripts>
-	<Panel class="Window StatusRoot" hittest="true" draggable="true">
+	<Panel class="Window StatusRoot Hide" hittest="true" draggable="true">
 		<Panel class="StatusInfo">
 			<Panel id="hires">
 				<Button onactivate="CloseButton()" class="CloseButton" id="CloseButton">

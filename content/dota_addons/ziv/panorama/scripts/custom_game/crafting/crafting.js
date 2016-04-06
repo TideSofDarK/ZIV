@@ -3,11 +3,11 @@
 var craftingItemPanel = null;
 
 function Open() {
-	$.GetContextPanel().style.visibility = "visible;";
+	$.GetContextPanel().SetHasClass("Hide", false);
 }
 
 function CloseButton() {
-	$.GetContextPanel().style.visibility = "collapse;";
+	$.GetContextPanel().SetHasClass("Hide", true);
 }
 
 function RecipeClick( id )

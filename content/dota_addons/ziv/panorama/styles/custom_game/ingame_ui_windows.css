@@ -107,3 +107,7 @@
 {
 	wash-color: #bbbbbb;
 }
+
+.Hide {
+	opacity: 0; visibility: collapse;
+}

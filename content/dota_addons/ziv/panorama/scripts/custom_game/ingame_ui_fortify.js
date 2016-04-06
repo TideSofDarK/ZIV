@@ -102,7 +102,7 @@ function OKButton() {
 }
 
 function CloseButton() {
-	$.GetContextPanel().style.visibility = "collapse;";
+	$.GetContextPanel().SetHasClass("Hide", false);
 }
 
 function Open() {
@@ -111,7 +111,7 @@ function Open() {
 	$("#FortifyTool").currentItem = undefined;
 	$("#FortifyItem").currentItem = undefined;
 	$("#FortifyTextBlockLabel").text = $.Localize("dragfortify");
-	$.GetContextPanel().style.visibility = "visible;";
+	$.GetContextPanel().SetHasClass("Hide", true);
 }
 
 (function() {

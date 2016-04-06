@@ -10,7 +10,7 @@
 		<include src="file://{resources}/scripts/custom_game/crafting/item_tooltip.js" /> 
 		<include src="file://{resources}/scripts/custom_game/containers/draggable.js" />
 	</scripts>
-	<Panel class="MainPanel z-index1" hittestchildren="true">
+	<Panel class="MainPanel z-index1 Hides" hittestchildren="true">
 		<Button onactivate="CloseButton()" class="CloseButton" id="CloseButton" />
 		<Panel class="Window row" hittestchildren="true">
 			<Panel class="Recipes" >

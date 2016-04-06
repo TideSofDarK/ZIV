@@ -200,7 +200,8 @@ function CreateSideButtons() {
 
 function OpenFortifyWindow() {
 	// $.CreatePanel( "Panel", $.GetContextPanel(), "" ).BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_fortify.xml", false, false );
-	GameEvents.SendEventClientSide( "ziv_open_fortify", {} )
+	// GameEvents.SendEventClientSide( "ziv_open_fortify", {} )
+	GameEvents.SendEventClientSide( "ziv_open_crafting", null )
 }
 
 function OpenStatusWindow() {
