@@ -102,16 +102,22 @@ function OKButton() {
 }
 
 function CloseButton() {
-	$.GetContextPanel().SetHasClass("Hide", false);
+	$.GetContextPanel().ToggleClass("Hide", true);
 }
 
 function Open() {
-	$("#FortifyToolImage").DeleteAsync( 0.0 );
-	$("#FortifyItemImage").DeleteAsync( 0.0 );
-	$("#FortifyTool").currentItem = undefined;
-	$("#FortifyItem").currentItem = undefined;
-	$("#FortifyTextBlockLabel").text = $.Localize("dragfortify");
-	$.GetContextPanel().SetHasClass("Hide", true);
+	$.GetContextPanel().SetHasClass("Hide", false);
+	if ($("#FortifyToolImage")) {
+		$("#FortifyToolImage").DeleteAsync( 0.0 );
+		$("#FortifyTool").currentItem = undefined;
+	}
+	if ($("#FortifyItemImage")) {
+		$("#FortifyItemImage").DeleteAsync( 0.0 );
+		$("#FortifyItem").currentItem = undefined;
+	}
+	if ($("#FortifyTextBlockLabel")) {
+		$("#FortifyTextBlockLabel").text = $.Localize("dragfortify");
+	}
 }
 
 (function() {
