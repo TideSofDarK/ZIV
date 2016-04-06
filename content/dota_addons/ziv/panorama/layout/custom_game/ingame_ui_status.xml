@@ -67,6 +67,6 @@
 			</Panel>
 		</Panel>
 
-		<Panel id="Foreground"/>
+		<Panel id="Foreground" hittest="false"/>
 	</Panel>
 </root>

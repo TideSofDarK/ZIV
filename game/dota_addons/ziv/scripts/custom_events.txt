@@ -1,0 +1,15 @@
+"CustomEvents"
+{
+	"ziv_open_status"
+	{
+	
+	}
+	"ziv_open_fortify"
+	{
+	
+	}
+	"ziv_open_crafting"
+	{
+	
+	}
+}

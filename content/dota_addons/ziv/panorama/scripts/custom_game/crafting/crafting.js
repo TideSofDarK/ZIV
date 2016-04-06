@@ -2,6 +2,14 @@
 
 var craftingItemPanel = null;
 
+function Open() {
+	$.GetContextPanel().style.visibility = "visible;";
+}
+
+function CloseButton() {
+	$.GetContextPanel().style.visibility = "collapse;";
+}
+
 function RecipeClick( id )
 {
 	$.Msg("Recipe " + id + " clicked!");
@@ -117,5 +125,7 @@ function InitSlots()
 	InitSlots();
 
 	FillRecipesList(); 
+
+	GameEvents.Subscribe( "ziv_open_crafting", Open );
 })();
 

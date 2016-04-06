@@ -378,8 +378,8 @@ end
 function ZIV:OnItemTooltipGetModifiers( keys )
   local pID = keys.pID
   local itemID = keys.item
-  if itemID then
-    local item = EntIndexToHScript(itemID)
+  if tonumber(itemID) then
+    local item = EntIndexToHScript(tonumber(itemID))
     if item then
       CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_item_tooltip_send_modifiers", { rarity = item.rarity or 0, fortify_modifiers = (item.fortify_modifiers or {}), built_in_modifiers = (item.built_in_modifiers or {})} )
     end

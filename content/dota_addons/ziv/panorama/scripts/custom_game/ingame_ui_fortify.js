@@ -102,8 +102,16 @@ function OKButton() {
 }
 
 function CloseButton() {
-	$.GetContextPanel().RemoveAndDeleteChildren();
-	$.GetContextPanel().DeleteAsync( 0.0 );
+	$.GetContextPanel().style.visibility = "collapse;";
+}
+
+function Open() {
+	$("#FortifyToolImage").DeleteAsync( 0.0 );
+	$("#FortifyItemImage").DeleteAsync( 0.0 );
+	$("#FortifyTool").currentItem = undefined;
+	$("#FortifyItem").currentItem = undefined;
+	$("#FortifyTextBlockLabel").text = $.Localize("dragfortify");
+	$.GetContextPanel().style.visibility = "visible;";
 }
 
 (function() {
@@ -111,6 +119,7 @@ function CloseButton() {
 
 	GameEvents.Subscribe( "ziv_fortify_item_result", FortifyResult );
 	GameEvents.Subscribe( "ziv_fortify_get_modifiers", GetModifiers );
+	GameEvents.Subscribe( "ziv_open_fortify", Open );
 
 	$("#FortifyTextBlockLabel").html = true;
 
