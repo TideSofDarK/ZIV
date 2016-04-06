@@ -108,6 +108,8 @@ function CreateRecipeParts( count )
 
 	for (var i = 0; i < count; i++) {
 		var panelName = i < 4 ? "#RecipeRow1" : "#RecipeRow2";
+		if (i % 4 != 0)
+			AddPlus( $( panelName ) );		
 		AddRecipeSlot( $( panelName ), i );
 	}
 }
@@ -117,7 +119,7 @@ function InitSlots()
 	craftingItemPanel = $.CreatePanel( "Panel", $( "#ItemImage" ), "CraftingItemPanel" );
 	craftingItemPanel.BLoadLayout( "file://{resources}/layout/custom_game/crafting/item_mini.xml", false, false );
 	
-	CreateRecipeParts( 6 );
+	CreateRecipeParts( 8 );
 }
 
 (function()
