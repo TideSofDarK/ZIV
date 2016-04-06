@@ -212,6 +212,7 @@ VerticalScrollBar {
 	height: 55px;
 
 	margin-right: 5px;
+	z-index: 1;
 }
 
 #CraftButton {
