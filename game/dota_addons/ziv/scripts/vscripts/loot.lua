@@ -72,10 +72,10 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
   end
   
   -- Random item in group
-  local itemName = items[tostring(math.random( #items ))]
+  local itemName = items[tostring(math.random(#items) - 1)]
   local item = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem(itemName, owner, owner))
   
-  if rarity > Loot.RARITY_COMMON then     
+  if rarity > Loot.RARITY_COMMON then
     local new_item = item:GetContainedItem()
     new_item.rarity = 0
 
@@ -101,7 +101,7 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
 end
 
 function Loot:CreepDrops( lootTable, creep, killer )
-	local count = math.random(lootTable.Max) + 1
+	local count = math.random(lootTable.Max)
   local i = 1
   
 	Timers:CreateTimer(function ()
