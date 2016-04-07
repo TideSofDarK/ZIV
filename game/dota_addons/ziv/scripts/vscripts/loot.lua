@@ -72,7 +72,7 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
   end
   
   -- Random item in group
-  local itemName = items[tostring(math.random(#items) - 1)]
+  local itemName = items[tostring(math.random(0, GetTableLength(items) - 1))]
   local item = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem(itemName, owner, owner))
   
   if rarity > Loot.RARITY_COMMON then
