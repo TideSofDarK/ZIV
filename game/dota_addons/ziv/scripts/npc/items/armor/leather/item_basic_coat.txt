@@ -3,7 +3,7 @@
   "ID"		"1002"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_chainmail"
+  "AbilityTextureName"      "item_basic_coat"
 
   "Slot"  "torso"
 

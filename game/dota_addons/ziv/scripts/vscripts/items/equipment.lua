@@ -113,7 +113,7 @@ function ZIV:OnFortify( keys )
 
   	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ziv_fortify_item_result", { item = keys.item, modifiers = new_modifiers } )
 
-  	UTIL_Remove(tool)
+  	Crafting:UsePart( tool, 1, tonumber(playerID) )
 end
 
 function ZIV:OnFortifyGetModifiers( keys )

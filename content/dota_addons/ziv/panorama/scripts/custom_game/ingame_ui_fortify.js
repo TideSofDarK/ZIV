@@ -37,7 +37,7 @@ function OnDragDrop(panelId, draggedPanel) {
 
 		Game.EmitSound( "Item.PickUpGemShop" );
 	}
-
+	
 	CheckOKButton()
 }
 

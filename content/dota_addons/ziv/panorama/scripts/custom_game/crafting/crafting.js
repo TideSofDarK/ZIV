@@ -55,6 +55,18 @@ function FillRecipesList()
 	}
 }
 
+function CraftButton() 
+{
+	if (selectedRecipe) 
+	{
+		var craftRequest = {}
+		craftRequest["item"] = selectedRecipe.id;
+		craftRequest["pID"] = Players.GetLocalPlayer();
+
+		GameEvents.SendCustomGameEventToServer( "ziv_craft_request", craftRequest );
+	}
+}
+
 /*
  *   Search
  */

@@ -32,6 +32,7 @@ require('libraries/popups')
 require('libraries/playertables')
 require('libraries/containers')
 
+require('items/crafting')
 
 -- These internal libraries set up ziv's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/ziv')
@@ -49,7 +50,7 @@ require('items/equipment')
 require('director')
 require('loot')
 
-pidInventory = {}
+ZIV.pidInventory = {}
 lootSpawns = nil
 itemDrops = nil
 privateBankEnt = nil
@@ -68,7 +69,7 @@ defaultInventory = {}
 
 function ZIV:OpenInventory(args)
   local pid = args.PlayerID
-  pidInventory[pid]:Open(pid)
+  ZIV.pidInventory[pid]:Open(pid)
 end
 
 function ZIV:DefaultInventory(args)
@@ -82,7 +83,7 @@ function ZIV:DefaultInventory(args)
     defaultInventory[pid] = false
     msg = "Default Inventory Set To DOTA Inventory"
   else
-    Containers:SetDefaultInventory(hero, pidInventory[pid])
+    Containers:SetDefaultInventory(hero, ZIV.pidInventory[pid])
     defaultInventory[pid] = true
   end
 
@@ -175,7 +176,7 @@ function ZIV:OnHeroInGame(hero)
     OnDragWorld = true,
   })
 
-  pidInventory[pid] = c
+  ZIV.pidInventory[pid] = c
 
   local item = CreateItem("item_gem_malachite", hero, hero)
   c:AddItem(item)
@@ -316,7 +317,7 @@ function ZIV:AddItemToContainer(item, count)
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
       local item = CreateItem(item, hero, hero)
-      pidInventory[playerID]:AddItem(item, tonumber(count) or nil)
+      ZIV.pidInventory[playerID]:AddItem(item, tonumber(count) or nil)
     end
   end
 end

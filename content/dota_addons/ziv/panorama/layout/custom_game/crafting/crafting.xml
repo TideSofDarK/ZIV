@@ -47,7 +47,7 @@
 				<!-- <Panel class="divider" /> -->
 
 				<Panel class="Buttons container row" >
-			  		<Button class="OKButton z-index1" id="CraftButton" onactivate="">
+			  		<Button class="OKButton z-index1" id="CraftButton" onactivate="CraftButton()">
 			  			<Label class="btn-title" text="Create" /> 
 			  		</Button>						
 				</Panel>
