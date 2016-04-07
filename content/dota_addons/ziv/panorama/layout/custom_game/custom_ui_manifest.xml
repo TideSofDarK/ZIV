@@ -42,6 +42,16 @@
     GameUI.SetRenderBottomInsetOverride( 0 );
     GameUI.SetRenderTopInsetOverride( 0 );
 
+    function SetRecipesList(eventArgs) {
+        GameUI.CustomUIConfig().recipes = eventArgs;
+        $.Msg(eventArgs);
+    }
+
+    (function()
+    {
+        GameEvents.Subscribe( "ziv_set_recipes_kvs", SetRecipesList );
+    })();
+
   </script>
 
   <Panel>

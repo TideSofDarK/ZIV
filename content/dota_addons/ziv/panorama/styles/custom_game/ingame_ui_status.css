@@ -2,8 +2,6 @@
 	horizontal-align: center;
 	vertical-align: center;
 
-	box-shadow: #000000ff 0px 0px 10px 0px;
-
 	background-image: url('file://{images}/custom_game/ingame_ui/status_bg.png');
 	background-size: 100% 100%;
 
@@ -11,8 +9,6 @@
 	height: 561px;
 
 	margin-bottom: 240px;
-
-	visibility: collapse;
 }
 
 .StatusInfo {
@@ -155,7 +151,7 @@
 }
 
 #CloseButton {
-	margin-top: 6px;
+	/*margin-top: 6px;*/
 }
 
 #Foreground {

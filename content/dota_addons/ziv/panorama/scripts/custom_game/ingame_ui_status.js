@@ -1,10 +1,10 @@
 function CloseButton() {
-	$.GetContextPanel().style.visibility = "collapse;";
+	$.GetContextPanel().SetHasClass("Hide", true);
 }
 
 function Open() {
 	Update();
-	$.GetContextPanel().style.visibility = "visible;";
+	$.GetContextPanel().SetHasClass("Hide", false);
 }
 
 function roundToTwo(num) {    

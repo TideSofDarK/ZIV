@@ -1951,6 +1951,26 @@ function Containers:CreateContainer(cont)
     return items
   end
 
+  function c:CheckForItem(name, count)
+    local nameTable = self.itemNames[name]
+    local items = {}
+    if not nameTable then
+      return items
+    end
+
+    for id,slot in pairs(nameTable) do
+      local item = GetItem(id)
+      if item then
+        if item:GetCurrentCharges() >= count then
+          return true
+        end
+      else
+        nameTable[id] = nil
+      end
+    end
+    return false
+  end
+
   function c:GetItemsByName(name)
     local nameTable = self.itemNames[name]
     local items = {}

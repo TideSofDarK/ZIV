@@ -32,6 +32,7 @@ require('libraries/popups')
 require('libraries/playertables')
 require('libraries/containers')
 
+require('items/crafting')
 
 -- These internal libraries set up ziv's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/ziv')
@@ -49,7 +50,7 @@ require('items/equipment')
 require('director')
 require('loot')
 
-pidInventory = {}
+ZIV.pidInventory = {}
 lootSpawns = nil
 itemDrops = nil
 privateBankEnt = nil
@@ -68,7 +69,7 @@ defaultInventory = {}
 
 function ZIV:OpenInventory(args)
   local pid = args.PlayerID
-  pidInventory[pid]:Open(pid)
+  ZIV.pidInventory[pid]:Open(pid)
 end
 
 function ZIV:DefaultInventory(args)
@@ -82,7 +83,7 @@ function ZIV:DefaultInventory(args)
     defaultInventory[pid] = false
     msg = "Default Inventory Set To DOTA Inventory"
   else
-    Containers:SetDefaultInventory(hero, pidInventory[pid])
+    Containers:SetDefaultInventory(hero, ZIV.pidInventory[pid])
     defaultInventory[pid] = true
   end
 
@@ -146,6 +147,7 @@ function ZIV:OnAllPlayersLoaded()
 
     CustomGameEventManager:Send_ServerToAllClients( "ziv_set_heroes_kvs", ZIV.HeroesKVs )
     CustomGameEventManager:Send_ServerToAllClients( "ziv_set_herolist", ZIV.HerolistKVs )
+    CustomGameEventManager:Send_ServerToAllClients( "ziv_set_recipes_kvs", ZIV.RecipesKVs )
 
     SendToServerConsole("dota_combine_models 0")
   end)
@@ -164,9 +166,9 @@ function ZIV:OnHeroInGame(hero)
   local pid = hero:GetPlayerID()
 
   local c = Containers:CreateContainer({
-    layout =      {3,3,3},
-    skins =       {},
-    headerText =  "My Inventory",
+    layout =      {3,3,3,3,3},
+    skins =       {"Hourglass"},
+    headerText =  "Bag",
     pids =        {pid},
     entity =      hero,
     closeOnOrder = false,
@@ -174,22 +176,22 @@ function ZIV:OnHeroInGame(hero)
     OnDragWorld = true,
   })
 
-  pidInventory[pid] = c
+  ZIV.pidInventory[pid] = c
 
-  local item = CreateItem("item_tango", hero, hero)
-  c:AddItem(item, 4)
+  local item = CreateItem("item_gem_malachite", hero, hero)
+  c:AddItem(item)
+
+  item = CreateItem("item_gem_topaz", hero, hero)
+  c:AddItem(item)
+
+  item = CreateItem("item_basic_parts", hero, hero)
+  c:AddItem(item)
+
+  item = CreateItem("item_basic_leather", hero, hero)
+  c:AddItem(item, 3)
 
   item = CreateItem("item_tango", hero, hero)
-  c:AddItem(item, 6)
-
-  item = CreateItem("item_force_staff", hero, hero)
-  c:AddItem(item)
-
-  item = CreateItem("item_blade_mail", hero, hero)
-  c:AddItem(item)
-
-  item = CreateItem("item_veil_of_discord", hero, hero)
-  c:AddItem(item)
+  c:AddItem(item, 3)
 
   -- defaultInventory[pid] = true
   Containers:SetDefaultInventory(hero, c)
@@ -286,6 +288,7 @@ function ZIV:InitZIV()
   ZIV.UnitKVs = LoadKeyValues("scripts/npc/npc_units_custom.txt")
   ZIV.HeroesKVs = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
   ZIV.HerolistKVs = LoadKeyValues("scripts/npc/herolist.txt")
+  ZIV.RecipesKVs = LoadKeyValues("scripts/kv/Recipes.kv")
 
   Director:Init()
 end
@@ -314,7 +317,7 @@ function ZIV:AddItemToContainer(item, count)
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
       local item = CreateItem(item, hero, hero)
-      pidInventory[playerID]:AddItem(item, count or 1)
+      ZIV.pidInventory[playerID]:AddItem(item, tonumber(count) or nil)
     end
   end
 end

@@ -1,11 +1,19 @@
 .Hourglass.Outer
 {
-  background-color: #ADD8E622;
+  width: 310px;
+  height: 425px;
+
+  background-image: url('file://{images}/custom_game/ingame_ui/inventory_bg.png');
+  background-size: 100% 100%;
+
+  border-color: transparent;
+  border-radius: 7px;
 }
 
 .Hourglass #Header
 {
-  background-color: #55222288;
+  background-color: transparent;
+  height: 60px;
 }
 
 .Hourglass #Footer
@@ -15,44 +23,105 @@
 
 .Hourglass #HeaderLabel
 { 
-  color: #ffffff;
+  margin-top: 17px;
+  color: #ffffffbb;
+
+  text-shadow: 1px 1px 1px black;
+  text-align: left;
+  text-transform: uppercase;
+  text-overflow: clip;
+
+  box-shadow: #000000ff 0px 0px 8px 0.3;
+
+  font-weight: bold;
+  font-size: 23px;
+  font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 }
 
 .Hourglass #Inner
 {
-  background-color: #ADD8E6;
+  border-color: transparent;
+  background-color: transparent;
+
 }
 
 .Hourglass .ItemRow
 {
   margin-top: 2px;
   margin-bottom: 2px;
-  background-color: #aa8833;
+  background-color: transparent;
 } 
 
 .Hourglass .ItemPanel
 {
-  width:66px;
-  height:48px;
+  width:81px;
+  height:60px;
+
+  margin-top: -1px;
 }
 
 .Hourglass #row1
 {
   clip: rect(-100%, 200%, 200%, -100%);
-  background-color: #ccaa44;
+  background-color: transparent;
+
+  margin-left: 8px;
+  margin-top: 4px;
 }
 
 .Hourglass #row2
 {
-  background-color: #aa8833;
+  background-color: transparent;
+
+  margin-left: 8px;
+  margin-top: 4px;
 }
 
 .Hourglass #row3
 {
-  background-color: #776622;
+  background-color: transparent;
+
+  margin-left: 8px;
+  margin-top: 4px;
 }
 
-.Hourglass #slot1
+.Hourglass .ItemPanel
+{
+  box-shadow: fill #000000ff 0px 0px 12px 0px;
+  border-radius: 6px;
+}
+
+.Hourglass .CloseButton {
+  width: 47px;
+  height: 52px;
+
+  margin-right: 4px;
+  margin-top: 6px;
+
+  border-radius: 1px;
+
+/*  border-left-color: #55441166;
+  border-left-style: solid;
+  border-left-width: 2px;*/
+
+  wash-color: none;
+
+  background-color: #b53f51;
+
+  background-image: url('file://{images}/custom_game/ingame_ui/ui_close_button.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+  horizontal-align: right;
+}
+
+.Hourglass .CloseButton:hover
+{
+  wash-color: #bbbbbb;
+}
+
+/*.Hourglass #slot1
 {
   border: 8px solid red;
   box-shadow: fill black 1px 1px 2px 2px;
@@ -73,7 +142,7 @@
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite; 
-}
+}*/
 
 
 @keyframes 'goleft'

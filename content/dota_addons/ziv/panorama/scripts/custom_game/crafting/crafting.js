@@ -1,21 +1,28 @@
 "use strict";
 
 var craftingItemPanel = null;
+var selectedRecipe = null;
 
 function Open() {
-	$.GetContextPanel().style.visibility = "visible;";
+	$.GetContextPanel().SetHasClass("Hide", false);
 }
 
 function CloseButton() {
-	$.GetContextPanel().style.visibility = "collapse;";
+	$.GetContextPanel().SetHasClass("Hide", true);
 }
 
-function RecipeClick( id )
+function RecipeClick( id, panel )
 {
-	$.Msg("Recipe " + id + " clicked!");
+	craftingItemPanel.Update( id );
+	$("#ItemDescLabel").text = $.Localize("DOTA_Tooltip_ability_"+id+"_Description");
+	$("#ItemName").text = $.Localize("DOTA_Tooltip_ability_"+id);
+	CreateRecipeParts(id);
 
-	$.Msg(craftingItemPanel.id)
-	craftingItemPanel.Update( 0 );
+	if (selectedRecipe) {
+		selectedRecipe.FindChildTraverse("RecipeTitle").RemoveClass("RecipeLabelSelected");
+	}
+	panel.FindChildTraverse("RecipeTitle").AddClass("RecipeLabelSelected");
+	selectedRecipe = panel;
 }
 
 function AddRecipe( id )
@@ -23,21 +30,41 @@ function AddRecipe( id )
 	var recipePanel = $.CreatePanel( "Panel", $( "#RecipesList" ), "Recipe_" + id );
 	recipePanel.BLoadLayout( "file://{resources}/layout/custom_game/crafting/recipe_title.xml", false, false );
 
-	recipePanel.SetName( "Name " + id )
+	recipePanel.SetName( $.Localize("DOTA_Tooltip_ability_"+id) )
 
 	var click = (function() { 
 				return function() {
-					RecipeClick( id );	
+					RecipeClick( id, recipePanel );	
 				}
 			}(recipePanel));
 
 	recipePanel.SetPanelEvent("onmouseactivate", click);
+
+	if (selectedRecipe == null) 
+	{
+		selectedRecipe = recipePanel;
+		RecipeClick( id, selectedRecipe )
+	}
 }
 
 function FillRecipesList()
 {
-	for (var i = 0; i < 50; i++)
-		AddRecipe( i );   
+	for (var key in GameUI.CustomUIConfig().recipes) 
+	{
+		AddRecipe( key ); 
+	}
+}
+
+function CraftButton() 
+{
+	if (selectedRecipe) 
+	{
+		var craftRequest = {}
+		craftRequest["item"] = selectedRecipe.id;
+		craftRequest["pID"] = Players.GetLocalPlayer();
+
+		GameEvents.SendCustomGameEventToServer( "ziv_craft_request", craftRequest );
+	}
 }
 
 /*
@@ -46,14 +73,14 @@ function FillRecipesList()
 
 function SearchHover()
 {
-	if ($( "#Search" ).text == "Type here..."/*$.Localize( "#exchange_bet_text" )*/ )
+	if ($( "#Search" ).text == "search..."/*$.Localize( "#exchange_bet_text" )*/ )
 		$( "#Search" ).text = "";
 }
 
 function SearchStopHover()
 {
 	if ($( "#Search" ).text == "" && !$( "#Search" ).BHasKeyFocus())
-		$( "#Search" ).text = "Type here...";//$.Localize( "#exchange_bet_text" );
+		$( "#Search" ).text = "search...";//$.Localize( "#exchange_bet_text" );
 }
 
 function SearchRecipes()
@@ -85,12 +112,15 @@ function UpdateInfo()
 /*
  *   Item images init
  */
-function AddRecipeSlot( parent, num )
+function AddRecipeSlot( parent, num, key, count )
 {
 	var part = $.CreatePanel( "Panel", parent, "RecipePart_" + num );
 	part.BLoadLayout( "file://{resources}/layout/custom_game/crafting/item_mini.xml", false, false );
 	part.AddClass("recipepart-image");
 	part.SetHasClass("recipepart-image", true);	
+
+	part.Update(key);
+	part.SetCount(count);
 }
 
 function AddPlus( parent )
@@ -101,16 +131,22 @@ function AddPlus( parent )
 	plusPanel.text = "+";
 }
 
-function CreateRecipeParts( count )
+function CreateRecipeParts( id )
 {
 	$( "#RecipeRow1" ).RemoveAndDeleteChildren();
 	$( "#RecipeRow2" ).RemoveAndDeleteChildren();
 
-	for (var i = 0; i < count; i++) {
+	var count = Object.keys( GameUI.CustomUIConfig().recipes[id]["Recipe"] ).length;
+
+	var i = 0;
+	for (var key in GameUI.CustomUIConfig().recipes[id]["Recipe"]) 
+	{
 		var panelName = i < 4 ? "#RecipeRow1" : "#RecipeRow2";
 		if (i % 4 != 0)
 			AddPlus( $( panelName ) );		
-		AddRecipeSlot( $( panelName ), i );
+		AddRecipeSlot( $( panelName ), i, key, GameUI.CustomUIConfig().recipes[id]["Recipe"][key] );
+
+		i++;
 	}
 }
 
@@ -119,7 +155,7 @@ function InitSlots()
 	craftingItemPanel = $.CreatePanel( "Panel", $( "#ItemImage" ), "CraftingItemPanel" );
 	craftingItemPanel.BLoadLayout( "file://{resources}/layout/custom_game/crafting/item_mini.xml", false, false );
 	
-	CreateRecipeParts( 8 );
+	// CreateRecipeParts( 8 );
 }
 
 (function()

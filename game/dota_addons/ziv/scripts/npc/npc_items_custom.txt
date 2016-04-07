@@ -39,6 +39,75 @@
 	    }
 	  }
 	}
+	"item_basic_parts"
+	{
+	  "ID"		"1111"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_basic_parts"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	}
+	
+	"item_basic_leather"
+	{
+	  "ID"    "1112"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_basic_leather"
+	
+	  "ItemStackable"                 "1"
+	  "ItemPermanent"                 "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	}
+	"item_basic_recipe"
+	{
+	  "BaseClass"               "item_datadriven"
+	  "ID"		"1012"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "Model"                   "models/props_gameplay/recipe.vmdl" 
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	  "AbilityTextureName"            "item_recipe"
+	
+	  "AbilityCastPoint"      "0"
+	  "AbilityCooldown"       "0"
+	  "AbilityManaCost"       "0"
+	  
+	  "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+	  "ItemShopTags"        "consumable"
+	  "ItemQuality"         "consumable"
+	  "ItemPermanent"         "0"
+	  "ItemSellable"          "0"
+	  "ItemKillable"          "1"
+	  "ItemPurchasable"       "0"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	  "ItemInitialCharges" "1"
+	  "ItemDisplayCharges" "1"
+	  "ItemRequiresCharges" "1"
+	  "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
+	  "ItemCastOnPickup"    "1"
+	
+	  "OnSpellStart"
+	  {    
+	    "SpendCharge" 
+	    {}
+	    "RunScript"
+	    {
+	      "ScriptFile"  "items/recipes.lua"
+	      "Function"    "Learn"
+	    }
+	  }
+	}
 	//Shield
 	  "item_example_item"
 	  {
@@ -214,7 +283,7 @@
 	  "ID"		"1002"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_chainmail"
+	  "AbilityTextureName"      "item_basic_coat"
 	
 	  "Slot"  "torso"
 	
@@ -274,10 +343,11 @@
 	  "ID"		"1003"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_gem"
+	  "AbilityTextureName"      "item_gem_malachite"
 	
 	  "ItemStackable"         "1"
 	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
@@ -316,6 +386,7 @@
 	
 	  "ItemStackable"         "1"
 	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
@@ -453,6 +524,66 @@
 	      "Properties"
 	      {
 	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
+	      }
+	    }
+	  }
+	}
+	"item_basic_sword"
+	{
+	  "ID"		"1150"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_basic_sword"
+	
+	  "Slot"  "hand"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "damage"      "6"
+	    }
+	  }
+	  
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "items/equipment.lua"
+	      "Function"    "Equip"
+	    }
+	    "ApplyModifier"
+	    {
+	      "ModifierName"  "modifier_basic_sword_equipped_torso"
+	      "Target"     "CASTER"
+	    }
+	    "FireSound"
+	    {
+	      "EffectName"  "ui.inv_equip_leather"
+	      "Target"     "CASTER"
+	    }
+	  }
+	  
+	  "Modifiers"
+	  {
+	    "modifier_basic_sword_equipped_torso"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsBuff"      "1"
+	    
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%damage"
 	      }
 	    }
 	  }

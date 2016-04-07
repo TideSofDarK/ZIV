@@ -18,8 +18,12 @@ DOTAItemImage {
 	horizontal-align: center;
 	vertical-align: bottom;
 
-	margin-bottom: 35px;
-	margin-left: 5px;
+	height: 55px;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_gem_button.png');
+
+	margin-bottom: 28px;
+	margin-left: 9px;
 }
 
 #FortifyTextBlock {

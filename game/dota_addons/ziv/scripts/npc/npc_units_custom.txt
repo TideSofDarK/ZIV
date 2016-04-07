@@ -675,7 +675,7 @@
 	"npc_creep_wraith"
 	{
 	    "BaseClass"         "npc_dota_creature"
-	    "HealthBarOffset"   "140"
+	    "HealthBarOffset"   "180"
 	    "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl"
 	    "ModelScale"    "1.1"
 	    "Level"           "1"

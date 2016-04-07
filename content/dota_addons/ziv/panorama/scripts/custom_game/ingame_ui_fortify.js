@@ -37,7 +37,7 @@ function OnDragDrop(panelId, draggedPanel) {
 
 		Game.EmitSound( "Item.PickUpGemShop" );
 	}
-
+	
 	CheckOKButton()
 }
 
@@ -102,16 +102,22 @@ function OKButton() {
 }
 
 function CloseButton() {
-	$.GetContextPanel().style.visibility = "collapse;";
+	$.GetContextPanel().ToggleClass("Hide", true);
 }
 
 function Open() {
-	$("#FortifyToolImage").DeleteAsync( 0.0 );
-	$("#FortifyItemImage").DeleteAsync( 0.0 );
-	$("#FortifyTool").currentItem = undefined;
-	$("#FortifyItem").currentItem = undefined;
-	$("#FortifyTextBlockLabel").text = $.Localize("dragfortify");
-	$.GetContextPanel().style.visibility = "visible;";
+	$.GetContextPanel().SetHasClass("Hide", false);
+	if ($("#FortifyToolImage")) {
+		$("#FortifyToolImage").DeleteAsync( 0.0 );
+		$("#FortifyTool").currentItem = undefined;
+	}
+	if ($("#FortifyItemImage")) {
+		$("#FortifyItemImage").DeleteAsync( 0.0 );
+		$("#FortifyItem").currentItem = undefined;
+	}
+	if ($("#FortifyTextBlockLabel")) {
+		$("#FortifyTextBlockLabel").text = $.Localize("dragfortify");
+	}
 }
 
 (function() {

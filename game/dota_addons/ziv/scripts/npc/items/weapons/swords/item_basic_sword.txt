@@ -1,11 +1,11 @@
-"item_basic_coat"
+"item_basic_sword"
 {
-  "ID"		"1002"
+  "ID"		"1150"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_basic_coat"
+  "AbilityTextureName"      "item_basic_sword"
 
-  "Slot"  "torso"
+  "Slot"  "hand"
 
   "ItemStackable" "0"
   "ItemPermanent" "0"
@@ -20,7 +20,7 @@
     "01"
     {
       "var_type"      "FIELD_INTEGER"
-      "armor"      "5"
+      "damage"      "6"
     }
   }
   
@@ -33,7 +33,7 @@
     }
     "ApplyModifier"
     {
-      "ModifierName"  "modifier_basic_coat_equipped_torso"
+      "ModifierName"  "modifier_basic_sword_equipped_torso"
       "Target"     "CASTER"
     }
     "FireSound"
@@ -45,7 +45,7 @@
   
   "Modifiers"
   {
-    "modifier_basic_coat_equipped_torso"
+    "modifier_basic_sword_equipped_torso"
     {
       "Passive"      "0"
       "IsHidden"      "1"
@@ -53,7 +53,7 @@
     
       "Properties"
       {
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
+        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%damage"
       }
     }
   }

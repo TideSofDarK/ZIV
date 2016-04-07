@@ -83,7 +83,7 @@
 }
 
 .OKButton {
-	width: 153px;
+	width: 149px;
 	height: 42px;
 
 	border-radius: 1px;
@@ -106,4 +106,13 @@
 .OKButton:hover
 {
 	wash-color: #bbbbbb;
+}
+
+.Hide {
+	opacity: 0; 
+	visibility: collapse;
+}
+
+.BasicShadow {
+	box-shadow: #000000ff 0px 0px 21px 0px;
 }

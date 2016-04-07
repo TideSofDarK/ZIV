@@ -9,7 +9,7 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_fortify.js" />
 		<include src="file://{resources}/scripts/custom_game/containers/draggable.js" />
 	</scripts>
-	<Panel class="FortifyRoot" hittest="true">
+	<Panel class="FortifyRoot Hide BasicShadow" hittest="true" draggable="true">
 		<Panel id="Background"/>
 
 		<Button onactivate="CloseButton()" class="CloseButton">
