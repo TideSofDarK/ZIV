@@ -1,6 +1,7 @@
 <root>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/crafting/item_mini.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 	</styles>
 	<script>
 		$( "#ItemImage" ).AddClass("rarity-normal rarity-magic rarity-rare rarity-epic rarity-legendary");
@@ -34,12 +35,21 @@
 
 		function Update( id )
 		{
-			SetRarity( 1 );
+			SetRarity( 0 );
+
+			$( "#ItemImage" ).itemname = id;
+		}
+
+		function SetCount( count )
+		{
+			$( "#Count" ).text = count;
 		}
 
 		$.GetContextPanel().Update = Update;
+		$.GetContextPanel().SetCount = SetCount;
 	</script>
 	<Panel hittest="false">
 		<DOTAItemImage hittest="false" id="ItemImage" /> 
+		<Label class="Hide" id="Count" text="1" />
 	</Panel>
 </root>

@@ -12,10 +12,10 @@ function CloseButton() {
 
 function RecipeClick( id )
 {
-	$.Msg("Recipe " + id + " clicked!");
-
-	$.Msg(craftingItemPanel.id)
-	craftingItemPanel.Update( 0 );
+	craftingItemPanel.Update( id );
+	$("#ItemDescLabel").text = $.Localize("DOTA_Tooltip_ability_"+id+"_Description");
+	$("#ItemName").text = $.Localize("DOTA_Tooltip_ability_"+id);
+	CreateRecipeParts(id);
 }
 
 function AddRecipe( id )
@@ -23,7 +23,7 @@ function AddRecipe( id )
 	var recipePanel = $.CreatePanel( "Panel", $( "#RecipesList" ), "Recipe_" + id );
 	recipePanel.BLoadLayout( "file://{resources}/layout/custom_game/crafting/recipe_title.xml", false, false );
 
-	recipePanel.SetName( "Name " + id )
+	recipePanel.SetName( $.Localize("DOTA_Tooltip_ability_"+id) )
 
 	var click = (function() { 
 				return function() {
@@ -36,8 +36,10 @@ function AddRecipe( id )
 
 function FillRecipesList()
 {
-	for (var i = 0; i < 50; i++)
-		AddRecipe( i );   
+	for (var key in GameUI.CustomUIConfig().recipes) 
+	{
+		AddRecipe( key ); 
+	}
 }
 
 /*
@@ -85,12 +87,15 @@ function UpdateInfo()
 /*
  *   Item images init
  */
-function AddRecipeSlot( parent, num )
+function AddRecipeSlot( parent, num, key, count )
 {
 	var part = $.CreatePanel( "Panel", parent, "RecipePart_" + num );
 	part.BLoadLayout( "file://{resources}/layout/custom_game/crafting/item_mini.xml", false, false );
 	part.AddClass("recipepart-image");
 	part.SetHasClass("recipepart-image", true);	
+
+	part.Update(key);
+	part.SetCount(count);
 }
 
 function AddPlus( parent )
@@ -101,16 +106,22 @@ function AddPlus( parent )
 	plusPanel.text = "+";
 }
 
-function CreateRecipeParts( count )
+function CreateRecipeParts( id )
 {
 	$( "#RecipeRow1" ).RemoveAndDeleteChildren();
 	$( "#RecipeRow2" ).RemoveAndDeleteChildren();
 
-	for (var i = 0; i < count; i++) {
+	var count = Object.keys( GameUI.CustomUIConfig().recipes[id]["Recipe"] ).length;
+
+	var i = 0;
+	for (var key in GameUI.CustomUIConfig().recipes[id]["Recipe"]) 
+	{
 		var panelName = i < 4 ? "#RecipeRow1" : "#RecipeRow2";
 		if (i % 4 != 0)
 			AddPlus( $( panelName ) );		
-		AddRecipeSlot( $( panelName ), i );
+		AddRecipeSlot( $( panelName ), i, key, GameUI.CustomUIConfig().recipes[id]["Recipe"][key] );
+
+		i++;
 	}
 }
 
@@ -119,7 +130,7 @@ function InitSlots()
 	craftingItemPanel = $.CreatePanel( "Panel", $( "#ItemImage" ), "CraftingItemPanel" );
 	craftingItemPanel.BLoadLayout( "file://{resources}/layout/custom_game/crafting/item_mini.xml", false, false );
 	
-	CreateRecipeParts( 8 );
+	// CreateRecipeParts( 8 );
 }
 
 (function()

@@ -1,0 +1,60 @@
+"item_basic_sword"
+{
+  "ID"		"1150"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "BaseClass"           "item_datadriven"
+  "AbilityTextureName"      "item_basic_sword"
+
+  "Slot"  "hand"
+
+  "ItemStackable" "0"
+  "ItemPermanent" "0"
+
+  "ItemDroppable"         "1"
+  "ItemPurchasable"       "0"
+  "ItemSellable"          "0"
+  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "damage"      "6"
+    }
+  }
+  
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "items/equipment.lua"
+      "Function"    "Equip"
+    }
+    "ApplyModifier"
+    {
+      "ModifierName"  "modifier_basic_sword_equipped_torso"
+      "Target"     "CASTER"
+    }
+    "FireSound"
+    {
+      "EffectName"  "ui.inv_equip_leather"
+      "Target"     "CASTER"
+    }
+  }
+  
+  "Modifiers"
+  {
+    "modifier_basic_sword_equipped_torso"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsBuff"      "1"
+    
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%damage"
+      }
+    }
+  }
+}

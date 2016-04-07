@@ -3,7 +3,6 @@
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 		<include src="file://{resources}/styles/custom_game/crafting/crafting.css" />
 		<include src="file://{resources}/styles/custom_game/crafting/item_mini.css" />
-
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/crafting/crafting.js" />
@@ -14,7 +13,7 @@
 		<Button onactivate="CloseButton()" class="CloseButton" id="CloseButton" />
 		<Panel class="Window row" hittestchildren="true">
 			<Panel class="Recipes" >
-				<TextEntry class="container row title" id="Search" multiline="false" textmode="normal" maxchars="100" text="Type here..." 
+				<TextEntry class="container row title" id="Search" multiline="false" textmode="normal" maxchars="100" text="search..." 
 					oninputsubmit="SearchRecipes()"
 		  			onmouseover="SearchHover()"
 		  			onmouseout="SearchStopHover()"

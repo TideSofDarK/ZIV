@@ -94,3 +94,18 @@
 	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 	color: White;
 }
+
+#Count {
+	horizontal-align: right;
+	vertical-align: bottom;
+
+	margin: 13px;
+	margin-bottom: 3px;
+
+	text-shadow: 1px 1px 1px black;
+	text-align: right;
+
+	font-size: 25px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	color: White;
+}
