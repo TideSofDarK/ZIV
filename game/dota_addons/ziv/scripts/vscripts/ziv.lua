@@ -165,7 +165,7 @@ function ZIV:OnHeroInGame(hero)
   local pid = hero:GetPlayerID()
 
   local c = Containers:CreateContainer({
-    layout =      {3,3,3},
+    layout =      {3,3,3,3,3},
     skins =       {"Hourglass"},
     headerText =  "Bag",
     pids =        {pid},
@@ -187,6 +187,9 @@ function ZIV:OnHeroInGame(hero)
   c:AddItem(item)
 
   item = CreateItem("item_basic_leather", hero, hero)
+  c:AddItem(item, 3)
+
+  item = CreateItem("item_tango", hero, hero)
   c:AddItem(item, 3)
 
   -- defaultInventory[pid] = true
@@ -313,7 +316,7 @@ function ZIV:AddItemToContainer(item, count)
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
       local item = CreateItem(item, hero, hero)
-      pidInventory[playerID]:AddItem(item, count or 1)
+      pidInventory[playerID]:AddItem(item, tonumber(count) or nil)
     end
   end
 end

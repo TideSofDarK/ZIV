@@ -1,6 +1,8 @@
 #ItemImage {
 	width: 150px;
 	height: 110px;
+
+	border-radius: 6px;
 }
 
 .rarity-normal {

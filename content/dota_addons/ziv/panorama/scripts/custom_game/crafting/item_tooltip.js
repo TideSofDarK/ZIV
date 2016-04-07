@@ -71,6 +71,8 @@ function CreateModifiersPanel( tooltip, built_in_modifiers )
 	}
 	new_modifiers.text = "";
 
+	tooltip.FindChildTraverse("ItemCost").style.visibility = tooltip.FindChildTraverse("BuyCostLabel").text == "0" ? "collapse;" : "visible;";
+
 	if (Object.keys( built_in_modifiers ).length >= 1)
 	{
 		new_modifiers.style.visibility = "visible;";

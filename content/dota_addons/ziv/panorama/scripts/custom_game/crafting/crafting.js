@@ -17,7 +17,7 @@ function RecipeClick( id, panel )
 	$("#ItemDescLabel").text = $.Localize("DOTA_Tooltip_ability_"+id+"_Description");
 	$("#ItemName").text = $.Localize("DOTA_Tooltip_ability_"+id);
 	CreateRecipeParts(id);
-	
+
 	if (selectedRecipe) {
 		selectedRecipe.FindChildTraverse("RecipeTitle").RemoveClass("RecipeLabelSelected");
 	}
@@ -39,6 +39,12 @@ function AddRecipe( id )
 			}(recipePanel));
 
 	recipePanel.SetPanelEvent("onmouseactivate", click);
+
+	if (selectedRecipe == null) 
+	{
+		selectedRecipe = recipePanel;
+		RecipeClick( id, selectedRecipe )
+	}
 }
 
 function FillRecipesList()

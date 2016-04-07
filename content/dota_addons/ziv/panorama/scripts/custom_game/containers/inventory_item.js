@@ -310,7 +310,7 @@ function OnDragStart( panelId, dragCallbacks )
 	displayPanel.m_DragCompleted = false; // whether the drag was successful
 	displayPanel.m_OriginalPanel = $.GetContextPanel();
 	displayPanel.m_QueryUnit = m_QueryUnit;
-	displayPanel.style.borderRadius = "4px;";
+	displayPanel.style.borderRadius = "6px;";
 
 	// hook up the display panel, and specify the panel offset from the cursor
 	dragCallbacks.displayPanel = displayPanel;

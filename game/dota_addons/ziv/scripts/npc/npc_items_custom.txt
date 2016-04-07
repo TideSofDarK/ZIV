@@ -48,6 +48,7 @@
 	
 	  "ItemStackable"         "1"
 	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
@@ -60,8 +61,9 @@
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_basic_leather"
 	
-	  "ItemStackable"         "1"
-	  "ItemPermanent"         "0"
+	  "ItemStackable"                 "1"
+	  "ItemPermanent"                 "0"
+	  "ItemInitialCharges"            "1"
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
@@ -345,6 +347,7 @@
 	
 	  "ItemStackable"         "1"
 	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
@@ -383,6 +386,7 @@
 	
 	  "ItemStackable"         "1"
 	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
