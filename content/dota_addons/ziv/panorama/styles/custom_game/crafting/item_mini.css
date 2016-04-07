@@ -99,11 +99,11 @@
 	horizontal-align: right;
 	vertical-align: bottom;
 
-	margin: 13px;
-	margin-bottom: 3px;
+	margin: 5px;
+	margin-bottom: -4px;
 
-	text-shadow: 1px 1px 1px black;
-	text-align: right;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+	text-align: center;
 
 	font-size: 25px;
 	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;

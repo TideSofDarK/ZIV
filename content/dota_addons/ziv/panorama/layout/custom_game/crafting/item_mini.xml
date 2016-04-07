@@ -42,14 +42,32 @@
 
 		function SetCount( count )
 		{
+			$( "#Count" ).RemoveClass("Hide");
 			$( "#Count" ).text = count;
+		}
+
+		function ItemShowTooltip()
+		{
+			if ( $( "#ItemImage" ).itemname == -1 )
+				return;
+
+			var itemName = $( "#ItemImage" ).itemname;
+			$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, Game.GetLocalPlayerInfo()["player_selected_hero_entity_index"] );
+		}
+
+		function ItemHideTooltip()
+		{
+			$.DispatchEvent( "DOTAHideAbilityTooltip", $.GetContextPanel() );
 		}
 
 		$.GetContextPanel().Update = Update;
 		$.GetContextPanel().SetCount = SetCount;
 	</script>
 	<Panel hittest="false">
-		<DOTAItemImage hittest="false" id="ItemImage" /> 
+		<DOTAItemImage hittest="true" id="ItemImage" 
+				onmouseover="ItemShowTooltip()"
+				onmouseout="ItemHideTooltip()"
+				/> 
 		<Label class="Hide" id="Count" text="1" />
 	</Panel>
 </root>

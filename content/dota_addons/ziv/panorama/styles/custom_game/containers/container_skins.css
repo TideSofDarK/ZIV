@@ -1,5 +1,8 @@
 .Hourglass.Outer
 {
+  width: 310px;
+  height: 310px;
+
   background-image: url('file://{images}/custom_game/ingame_ui/inventory_bg.png');
   background-size: 100% 100%;
 
@@ -10,6 +13,7 @@
 .Hourglass #Header
 {
   background-color: transparent;
+  height: 52px;
 }
 
 .Hourglass #Footer
@@ -50,37 +54,49 @@
 
 .Hourglass .ItemPanel
 {
-  width:66px;
-  height:48px;
+  width:81px;
+  height:60px;
+
+  margin-top: 10px;
 }
 
 .Hourglass #row1
 {
   clip: rect(-100%, 200%, 200%, -100%);
   background-color: transparent;
+
+  margin-left: 8px;
+  margin-top: 4px;
 }
 
 .Hourglass #row2
 {
   background-color: transparent;
+
+  margin-left: 8px;
+  margin-top: 4px;
 }
 
 .Hourglass #row3
 {
   background-color: transparent;
+
+  margin-left: 8px;
+  margin-top: 4px;
 }
 
 .Hourglass .ItemPanel
 {
-
+  box-shadow: fill #000000ff 0px 0px 12px 0px;
+  border-radius: 4px;
 }
 
 .Hourglass .CloseButton {
-  width: 37px;
-  height: 45px;
+  width: 47px;
+  height: 52px;
 
   margin-right: 4px;
-  margin-top: 5px;
+  margin-top: 6px;
 
   border-radius: 1px;
 

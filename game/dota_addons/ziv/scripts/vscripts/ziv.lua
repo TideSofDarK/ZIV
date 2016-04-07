@@ -187,7 +187,7 @@ function ZIV:OnHeroInGame(hero)
   c:AddItem(item)
 
   item = CreateItem("item_basic_leather", hero, hero)
-  c:AddItem(item)
+  c:AddItem(item, 3)
 
   -- defaultInventory[pid] = true
   Containers:SetDefaultInventory(hero, c)

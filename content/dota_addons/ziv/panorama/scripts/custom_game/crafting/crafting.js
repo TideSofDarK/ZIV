@@ -1,6 +1,7 @@
 "use strict";
 
 var craftingItemPanel = null;
+var selectedRecipe = null;
 
 function Open() {
 	$.GetContextPanel().SetHasClass("Hide", false);
@@ -10,12 +11,18 @@ function CloseButton() {
 	$.GetContextPanel().SetHasClass("Hide", true);
 }
 
-function RecipeClick( id )
+function RecipeClick( id, panel )
 {
 	craftingItemPanel.Update( id );
 	$("#ItemDescLabel").text = $.Localize("DOTA_Tooltip_ability_"+id+"_Description");
 	$("#ItemName").text = $.Localize("DOTA_Tooltip_ability_"+id);
 	CreateRecipeParts(id);
+	
+	if (selectedRecipe) {
+		selectedRecipe.FindChildTraverse("RecipeTitle").RemoveClass("RecipeLabelSelected");
+	}
+	panel.FindChildTraverse("RecipeTitle").AddClass("RecipeLabelSelected");
+	selectedRecipe = panel;
 }
 
 function AddRecipe( id )
@@ -27,7 +34,7 @@ function AddRecipe( id )
 
 	var click = (function() { 
 				return function() {
-					RecipeClick( id );	
+					RecipeClick( id, recipePanel );	
 				}
 			}(recipePanel));
 
@@ -48,14 +55,14 @@ function FillRecipesList()
 
 function SearchHover()
 {
-	if ($( "#Search" ).text == "Type here..."/*$.Localize( "#exchange_bet_text" )*/ )
+	if ($( "#Search" ).text == "search..."/*$.Localize( "#exchange_bet_text" )*/ )
 		$( "#Search" ).text = "";
 }
 
 function SearchStopHover()
 {
 	if ($( "#Search" ).text == "" && !$( "#Search" ).BHasKeyFocus())
-		$( "#Search" ).text = "Type here...";//$.Localize( "#exchange_bet_text" );
+		$( "#Search" ).text = "search...";//$.Localize( "#exchange_bet_text" );
 }
 
 function SearchRecipes()
