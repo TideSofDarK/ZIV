@@ -1695,6 +1695,300 @@
 	    }
 	  }
 	}
+	"ziv_samurai_dash"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastPoint"        "0"
+	  "AbilityCooldown"         "2.5"
+	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+	
+	  "AbilityManaCost"       "70"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf"
+	    "particle"  "particles/heroes/samurai/samurai_dash.vpcf"
+	    "particle"  "particles/econ/items/naga/naga_prismatic_empress/naga_prismatic_weapon_blade_trail.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_damage"            "70 100 130 160 190 220 250"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "dash_speed"            "95"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_FLOAT"
+	      "duration"            "0.25"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_dash.lua"
+	      "Function"          "Dash"
+	      "Target"            "POINT"
+	    }
+	    "ApplyMotionController"
+	    {
+	      "Target"    "CASTER"
+	      "ScriptFile"    "abilities/heroes/samurai/ziv_samurai_dash.lua"
+	      "HorizontalControlFunction" "DashHorizontal"        
+	    }
+	    "ApplyModifier"
+	    {
+	      "ModifierName"  "modifier_dash_running"
+	      "Target"     "CASTER"
+	    }
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_Juggernaut.BladeFury.Impact"
+	      "Target"     "CASTER"
+	    }
+	    "FireSound"
+	    {
+	      "EffectName"  "DOTA_Item.DiffusalBlade.Target"
+	      "Target"     "CASTER"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_dash_hit"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	    }
+	    "modifier_dash_running"
+	    {
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "Duration"  "%duration"
+	
+	      "ThinkInterval"  "0.03"
+	      "OnIntervalThink"
+	      {
+	        "ActOnTargets"
+	        {
+	          "Target"
+	          {
+	            "Center"    "CASTER"
+	            "Radius"   "155"
+	            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            "Types"   "DOTA_UNIT_TARGET_BASIC"
+	          }
+	        
+	          "Action"    
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_dash.lua"
+	              "Function"    "DealDashDamage"
+	            }
+	          }
+	        }
+	      }
+	    }
+	  }
+	}
+	"ziv_samurai_execution"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET" // DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
+	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+	
+	  "AbilityCastAnimation"      ""
+	
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastPoint"        "0.04"
+	  "AbilityCooldown"        "0.12"
+	  "AbilityCastRange"        "128"
+	
+	  "AbilityManaCost"       "10"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/econ/items/juggernaut/jugg_sword_fireborn_odachi/jugg_crit_blur_fb_odachi.vpcf"
+	    "particle"  "particles/heroes/samurai/samurai_execution_cleave.vpcf"
+	    "particle"  "particles/heroes/samurai/samurai_execution_cleave_dust.vpcf"
+	    "particle"  "particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+	  }
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type" "FIELD_FLOAT"
+	      "bonus_attack_speed" "100"
+	    }
+	    "02"
+	    {
+	      "var_type" "FIELD_FLOAT"
+	      "radius" "300"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_execution.lua"
+	      "Function"    "StartAttack"
+	      "Target"      "TARGET"
+	    }
+	
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_SkeletonKing.CriticalStrike"
+	      "Target"    "CASTER"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_execution"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+	      }
+	    }
+	  }
+	}
+	"ziv_samurai_whirlwind"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastPoint"        "0"
+	  "AbilityCooldown"         "0.195"
+	
+	  "AbilityManaCost"       "10"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+	  }
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type" "FIELD_FLOAT"
+	      "duration" "0.3"
+	    }
+	    "02"
+	    {
+	      "var_type" "FIELD_INTEGER"
+	      "movespeed_reduction" "-28"
+	    }
+	    "03"
+	    {
+	      "var_type" "FIELD_INTEGER"
+	      "radius" "250"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
+	      "Function"    "StartWhirlwind"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_whirlwind"
+	    {
+	      "Duration"  "%duration"
+	
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "ThinkInterval"  "0.07"
+	      "OnIntervalThink"
+	      {
+	        "ActOnTargets"
+	        {
+	          "Target"
+	          {
+	            "Center"    "TARGET"
+	            "Radius"   "%radius"
+	            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          }
+	        
+	          "Action"    
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
+	              "Function"    "DealDamage"
+	            }
+	          }
+	        }
+	      }
+	
+	      "OnCreated"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
+	          "Function"    "InitParticles"
+	        }
+	      }
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_NO_UNIT_COLLISION"    "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	  
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_reduction" 
+	      }
+	    }
+	  }
+	}    
+	  
 	"ziv_sniper_empty1"
 	{
 		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"

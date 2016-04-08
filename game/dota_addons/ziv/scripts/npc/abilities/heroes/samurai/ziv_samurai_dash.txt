@@ -1,0 +1,113 @@
+"ziv_samurai_dash"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AbilityCastPoint"        "0"
+  "AbilityCooldown"         "2.5"
+  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+
+  "AbilityManaCost"       "70"
+  
+  "MaxLevel"          "7"
+
+  "precache"
+  {
+    "particle"  "particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf"
+    "particle"  "particles/heroes/samurai/samurai_dash.vpcf"
+    "particle"  "particles/econ/items/naga/naga_prismatic_empress/naga_prismatic_weapon_blade_trail.vpcf"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+  }
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_damage"            "70 100 130 160 190 220 250"
+    }
+    "02"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "dash_speed"            "95"
+    }
+    "03"
+    {
+      "var_type"            "FIELD_FLOAT"
+      "duration"            "0.25"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_dash.lua"
+      "Function"          "Dash"
+      "Target"            "POINT"
+    }
+    "ApplyMotionController"
+    {
+      "Target"    "CASTER"
+      "ScriptFile"    "abilities/heroes/samurai/ziv_samurai_dash.lua"
+      "HorizontalControlFunction" "DashHorizontal"        
+    }
+    "ApplyModifier"
+    {
+      "ModifierName"  "modifier_dash_running"
+      "Target"     "CASTER"
+    }
+    "FireSound"
+    {
+      "EffectName"  "Hero_Juggernaut.BladeFury.Impact"
+      "Target"     "CASTER"
+    }
+    "FireSound"
+    {
+      "EffectName"  "DOTA_Item.DiffusalBlade.Target"
+      "Target"     "CASTER"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_dash_hit"
+    {
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+    }
+    "modifier_dash_running"
+    {
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "Duration"  "%duration"
+
+      "ThinkInterval"  "0.03"
+      "OnIntervalThink"
+      {
+        "ActOnTargets"
+        {
+          "Target"
+          {
+            "Center"    "CASTER"
+            "Radius"   "155"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Types"   "DOTA_UNIT_TARGET_BASIC"
+          }
+        
+          "Action"    
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_dash.lua"
+              "Function"    "DealDashDamage"
+            }
+          }
+        }
+      }
+    }
+  }
+}

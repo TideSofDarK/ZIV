@@ -333,7 +333,7 @@ function ZIV:SpawnBasicPack(count)
         {
           Level = 1,
           SpawnBasic = true,
-          Count = count or 10,
+          Count = tonumber(count) or 10,
           Position = hero:GetAbsOrigin(),
           LordModifier = "ziv_creep_lord_modifier_regen_aura",
           SpawnLord = true

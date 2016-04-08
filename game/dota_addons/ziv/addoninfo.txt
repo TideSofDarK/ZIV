@@ -1,12 +1,12 @@
 "AddonInfo"
 {
-  "TeamCount" "2"
-  "maps"      "template_map"
-  "IsPlayable"  "1"
-  "template_map"
-  {
-          "MaxPlayers"                    "8"
-  }
+	"TeamCount" "2"
+	"maps"      "template_map"
+	"IsPlayable"  "1"
+	"template_map"
+	{
+		"MaxPlayers"                    "8"
+	}
 //  "desert_duo"
 //  {
 //          "MaxPlayers"                    "10"
@@ -15,4 +15,31 @@
 //  {
 //          "MaxPlayers"                    "10"
 //  }
+	"Default_Keys"
+	{
+	    "01"
+	    {
+	        "Key"       "q"
+	        "Command"   "+ZIVCastAbility1"
+	        "Name"      "Cast Ability 1"
+	    }
+	    "02"
+	    {
+	        "Key"       "w"
+	        "Command"   "+ZIVCastAbility2"
+	        "Name"      "Cast Ability 2"
+	    }
+	    "03"
+	    {
+	        "Key"       "e"
+	        "Command"   "+ZIVCastAbility3"
+	        "Name"      "Cast Ability 3"
+	    }
+	    "04"
+	    {
+	        "Key"       "r"
+	        "Command"   "+ZIVCastAbility4"
+	        "Name"      "Cast Ability 4"
+	    }
+	}
 }
