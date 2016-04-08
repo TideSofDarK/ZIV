@@ -344,6 +344,7 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_gem_malachite"
+	  "Model"                   "models/items/malachit.vmdl" 
 	
 	  "ItemStackable"         "1"
 	  "ItemPermanent"         "0"
@@ -383,6 +384,7 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_gem_topaz"
+	  "Model"                   "models/items/topaz.vmdl" 
 	
 	  "ItemStackable"         "1"
 	  "ItemPermanent"         "0"
