@@ -12,6 +12,7 @@
 *.vjs_c
 *.vxml_c
 *.vcss_c
+*.vmesh_c
 
 # Commit panorama compiled textures
 # !game/dota_addons/ziv/panorama/images/*.vtex_c
