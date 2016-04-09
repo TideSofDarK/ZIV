@@ -1,0 +1,104 @@
+"ziv_samurai_whirlwind"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AbilityCastPoint"        "0"
+  "AbilityCooldown"         "0.195"
+
+  "AbilityManaCost"       "10"
+  
+  "MaxLevel"          "7"
+
+  "precache"
+  {
+    "particle"  "particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+  }
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type" "FIELD_FLOAT"
+      "duration" "0.3"
+    }
+    "02"
+    {
+      "var_type" "FIELD_INTEGER"
+      "movespeed_reduction" "-28"
+    }
+    "03"
+    {
+      "var_type" "FIELD_INTEGER"
+      "radius" "250"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
+      "Function"    "StartWhirlwind"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_whirlwind"
+    {
+      "Duration"  "%duration"
+
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "ThinkInterval"  "0.07"
+      "OnIntervalThink"
+      {
+        "ActOnTargets"
+        {
+          "Target"
+          {
+            "Center"    "TARGET"
+            "Radius"   "%radius"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+          }
+        
+          "Action"    
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
+              "Function"    "DealDamage"
+            }
+          }
+        }
+      }
+
+      "OnCreated"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
+          "Function"    "InitParticles"
+        }
+      }
+
+      "States"
+      {
+        "MODIFIER_STATE_NO_UNIT_COLLISION"    "MODIFIER_STATE_VALUE_ENABLED"
+      }
+  
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_reduction" 
+      }
+    }
+  }
+}    
+  

@@ -1,6 +1,7 @@
 "use strict";
 
 var m_AbilityPanels = []; // created up to a high-water mark, but reused when selection changes
+var m_AbilityCasting = [];
 
 var m_InventoryPanels = []
 
@@ -11,7 +12,44 @@ var m_StatusPanel;
 var m_FortifyPanel;
 var m_CraftingPanel;
 
-var modelParticle;
+// var modelParticle;
+
+function GetMouseCastTarget()
+{
+	$.Msg("asd");
+	var mouseEntities = GameUI.FindScreenEntities( GameUI.GetCursorPosition() );
+	var localHeroIndex = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+	mouseEntities = mouseEntities.filter( function(e) { return e.entityIndex !== localHeroIndex; } );
+	for ( var e of mouseEntities )
+	{
+		if ( !e.accurateCollision )
+			continue;
+		return e.entityIndex;
+	}
+
+	for ( var e of mouseEntities )
+	{
+		return e.entityIndex;
+	}
+
+	return -1;
+}
+
+function GetMouseCastPosition( abilityIndex )
+{
+	var localHeroIndex = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+	var localHeroPosition = Entities.GetAbsOrigin( localHeroIndex );
+	var position = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
+	var targetDelta = [ position[0] - localHeroPosition[0], position[1] - localHeroPosition[1] ];
+	var targetDist = Math.sqrt( targetDelta[0] * targetDelta[0] + targetDelta[1] * targetDelta[1] );
+	var abilityRange = Abilities.GetCastRange( abilityIndex );
+	if ( targetDist > abilityRange && abilityRange > 0 )
+	{
+		position[0] = localHeroPosition[0] + targetDelta[0] * abilityRange / targetDist;
+		position[1] = localHeroPosition[1] + targetDelta[1] * abilityRange / targetDist;
+	}
+	return position;
+}
 
 function UpdateInventory()
 {
@@ -175,6 +213,52 @@ function UpdateHPAndMP() {
 	$.Schedule( 0.1, UpdateHPAndMP );
 }
 
+function ZIVStopAbility(number) {
+	var ability = Entities.GetAbility( Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), number-1 ); 
+	if (m_AbilityCasting[ability] == true) {
+		m_AbilityCasting[ability] = false;
+	}
+}
+
+function ZIVCastAbility(number, pressing) { 
+	var ability = Entities.GetAbility( Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), number-1 ); 
+
+	if (ability !== -1) {
+		if (pressing && m_AbilityCasting[ability] == false) {
+			return;
+		}
+		var order = {
+			AbilityIndex : ability,
+			QueueBehavior : OrderQueueBehavior_t.DOTA_ORDER_QUEUE_NEVER,
+			ShowEffects : false,
+			OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_NO_TARGET
+		};
+		var abilityBehavior = Abilities.GetBehavior( order.AbilityIndex );
+		if ( abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT )
+		{
+			order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION;
+			order.Position = GetMouseCastPosition( order.AbilityIndex );
+		}
+		if ( abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET )
+		{
+			var target = GetMouseCastTarget();
+			if (target !== -1) 
+			{
+				order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET;
+				order.TargetIndex = GetMouseCastTarget();
+			}
+		}
+
+		if (Abilities.GetCooldownTimeRemaining( ability ) == 0) {
+			Game.PrepareUnitOrders( order );
+		}
+
+		m_AbilityCasting[ability] = true;
+
+		$.Schedule(0.06, (function() {ZIVCastAbility(number, true)}) )
+	}
+}
+
 // function CreateHPAndMPParticles() {
 // 	var queryUnit = Game.GetLocalPlayerInfo()["player_selected_hero_entity_index"];
 
@@ -219,16 +303,6 @@ function OpenCraftingWindow() {
 
 (function()
 {
-	// CreateInventoryPanels();
-	// UpdateInventory();
-
-	// GameEvents.Subscribe( "dota_inventory_changed", UpdateInventory );
-	// GameEvents.Subscribe( "dota_inventory_item_changed", UpdateInventory );
-	// GameEvents.Subscribe( "m_event_dota_inventory_changed_query_unit", UpdateInventory );
-	// GameEvents.Subscribe( "m_event_keybind_changed", UpdateInventory );
-	// GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateInventory );
-	// GameEvents.Subscribe( "dota_player_update_query_unit", UpdateInventory );
-
 	GameEvents.Subscribe( "dota_portrait_ability_layout_changed", UpdateAbilityList );
 	GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateAbilityList );
 	GameEvents.Subscribe( "dota_player_update_query_unit", UpdateAbilityList );
@@ -239,6 +313,9 @@ function OpenCraftingWindow() {
 	UpdateHPAndMP();
 
 	CreateSideButtons();
+
+	GameUI.CustomUIConfig().ZIVCastAbility = ZIVCastAbility;
+	GameUI.CustomUIConfig().ZIVStopAbility = ZIVStopAbility;
 
 	// CreateHPAndMPParticles();
 })();
