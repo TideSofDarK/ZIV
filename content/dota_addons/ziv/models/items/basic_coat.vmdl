@@ -8,8 +8,8 @@
 		[
 			{
 				_class = "CVmesh"
-				m_meshName = "topaz"
-				m_meshFile = "models/items/topaz.fbx"
+				m_meshName = "basic_coat"
+				m_meshFile = "models/items/basic_coat.fbx"
 				m_materialSearchPath = ""
 				m_bSkinParentedObjects = true
 				m_bLegacySkinParentedTransforms = false
@@ -75,15 +75,15 @@
 								m_sBoneName = "Cube1"
 								m_vMinBounds =
 								[
-									-25.000000,
-									-3.000000,
-									40.000000,
+									-55.000000,
+									-30.000000,
+									50.000000,
 								]
 								m_vMaxBounds =
 								[
-									25.000000,
-									20.000000,
-									93.000000,
+									55.000000,
+									30.000000,
+									115.000000,
 								]
 								m_bTranslationOnly = false
 								m_cRenderColor =
@@ -254,8 +254,8 @@
 		[
 			{
 				_class = "CVMaterialRemap"
-				m_sSearchMaterial = "topaz.vmat"
-				m_sReplaceMaterial = "materials/models/gem_topaz.vmat"
+				m_sSearchMaterial = "coat.vmat"
+				m_sReplaceMaterial = "materials/models/basic_coat.vmat"
 			},
 		]
 	}
