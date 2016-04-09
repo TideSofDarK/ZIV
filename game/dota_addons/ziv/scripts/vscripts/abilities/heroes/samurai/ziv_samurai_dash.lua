@@ -21,7 +21,7 @@ function Dash( keys )
 
 	caster:AddNewModifier( caster, nil, "modifier_disarmed", {duration=1.0} )
 
-	caster:SetForwardVector(ability.direction)
+	caster:SetForwardVector((target - caster:GetAbsOrigin()))
 
 	if ability.particle or ability.particle2 then
 		ParticleManager:DestroyParticle(ability.particle, false)
@@ -38,6 +38,9 @@ function Dash( keys )
 	Timers:CreateTimer(0.27, function (  )
 		ParticleManager:DestroyParticle(ability.particle, false)
 		ParticleManager:DestroyParticle(ability.particle2, false)
+
+		caster:SetForwardVector(ability.direction)
+		caster:Stop()
 	end)
 end
 

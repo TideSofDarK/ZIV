@@ -8,8 +8,8 @@
 		[
 			{
 				_class = "CVmesh"
-				m_meshName = "topaz"
-				m_meshFile = "models/items/topaz.dmx"
+				m_meshName = "malachite"
+				m_meshFile = "models/items/malachite.dmx"
 				m_materialSearchPath = ""
 				m_bSkinParentedObjects = true
 				m_bLegacySkinParentedTransforms = false
@@ -96,21 +96,48 @@
 							},
 							{
 								_class = "CVhitBox"
+								m_name = "Armature"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "Armature"
+								m_vMinBounds =
+								[
+									0.000000,
+									0.000000,
+									2426976495258830900000000000000000.000000,
+								]
+								m_vMaxBounds =
+								[
+									0.000000,
+									0.000000,
+									2426976495258830900000000000000000.000000,
+								]
+								m_bTranslationOnly = false
+								m_cRenderColor =
+								[
+									0,
+									0,
+									0,
+									0,
+								]
+							},
+							{
+								_class = "CVhitBox"
 								m_name = "Bone"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
 								m_sBoneName = "Bone"
 								m_vMinBounds =
 								[
-									-18.404881,
-									6.570531,
-									-25.792774,
+									-19.979527,
+									2.206123,
+									-25.650871,
 								]
 								m_vMaxBounds =
 								[
-									19.058788,
-									30.593884,
-									20.919750,
+									26.126247,
+									24.059280,
+									26.511421,
 								]
 								m_bTranslationOnly = false
 								m_cRenderColor =
@@ -160,11 +187,11 @@
 			[
 				{
 					_class = "CVanim"
-					m_Animationname = "topaz_idle"
-					m_Filepath = "models/items/anims/topaz_idle.dmx"
+					m_Animationname = "malachite_idle"
+					m_Filepath = "models/items/anims/malachite_idle.dmx"
 					m_nStartframe = 0
 					m_nEndframe = 250
-					m_flFps = 100.000000
+					m_flFps = 120.000000
 					m_Loop =
 					{
 						_class = "CAnimationLoop"
@@ -286,8 +313,8 @@
 		[
 			{
 				_class = "CVMaterialRemap"
-				m_sSearchMaterial = "topaz.vmat"
-				m_sReplaceMaterial = "materials/models/gem_topaz.vmat"
+				m_sSearchMaterial = "malachit.vmat"
+				m_sReplaceMaterial = "materials/models/gem_malachit.vmat"
 			},
 		]
 	}
@@ -307,7 +334,7 @@
 	m_nMaxClothVertsPerMesh = 2048
 	m_bBuildClothBoneHierarchy = false
 	m_nNavType = "AUTH_NAV_MESH"
-	m_bMakeUniqueVMeshes = true
+	m_bMakeUniqueVMeshes = false
 	m_bMakeImplicitBindPoseSequence = false
 	m_bAdjustSkeletonFromBoneFlags = false
 	m_pAnimGroups =

@@ -5,6 +5,7 @@
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_gem_topaz"
   "Model"                   "models/items/topaz.vmdl"
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
   "ItemStackable"         "1"
   "ItemPermanent"         "0"
