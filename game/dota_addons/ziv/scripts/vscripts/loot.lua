@@ -75,6 +75,9 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
   local itemName = items[tostring(math.random(0, GetTableLength(items) - 1))]
   local item = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem(itemName, owner, owner))
   
+  -- Random item rotation
+  item:SetAngles(0, math.random(0, 360), 0)
+  
   if rarity > Loot.RARITY_COMMON then
     local new_item = item:GetContainedItem()
     new_item.rarity = 0
