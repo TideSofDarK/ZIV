@@ -4,10 +4,12 @@ var craftingItemPanel = null;
 var selectedRecipe = null;
 
 function Open() {
+	GameUI.CustomUIConfig().ZIVAddToPanelsQueue($.GetContextPanel());
 	$.GetContextPanel().SetHasClass("Hide", false);
 }
 
 function CloseButton() {
+	GameUI.CustomUIConfig().ZIVRemoveFromPanelsQueue($.GetContextPanel());
 	$.GetContextPanel().SetHasClass("Hide", true);
 }
 
@@ -161,7 +163,6 @@ function InitSlots()
 (function()
 {
 	InitSlots();
-
 	FillRecipesList(); 
 
 	GameEvents.Subscribe( "ziv_open_crafting", Open );

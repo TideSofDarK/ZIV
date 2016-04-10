@@ -24,6 +24,11 @@ function GetIDString()
   return idString;
 }
 
+function GetPanel()
+{
+  return $.GetContextPanel();
+}
+
 function ContainerChange(tableName, changes, del)
 {
   var panel = $.GetContextPanel();
@@ -335,6 +340,7 @@ function NullDragEnd( panelId, draggedPanel)
   panel.DeleteContainer = DeleteContainer;
   panel.GetID = GetID;
   panel.GetIDString = GetIDString;
+  panel.GetPanel = GetPanel;
   panel.IsShop = IsShop;
 
   if (panel.initialized){
