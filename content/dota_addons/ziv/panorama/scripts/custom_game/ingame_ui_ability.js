@@ -24,7 +24,7 @@ function SetAbility( ability, queryUnit, bInLevelUp )
 function AutoUpdateAbility()
 {
 	UpdateAbility();
-	$.Schedule( 0.1, AutoUpdateAbility );
+	$.Schedule( 0.03, AutoUpdateAbility );
 }
 
 function UpdateAbility()

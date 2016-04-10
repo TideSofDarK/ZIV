@@ -5,7 +5,6 @@ function DealDamage( _attacker, _victim, _damage, _type )
       damage = _damage,
       damage_type = _type
   }
-  print(_damage)
   ApplyDamage(damageTable)
 end
 

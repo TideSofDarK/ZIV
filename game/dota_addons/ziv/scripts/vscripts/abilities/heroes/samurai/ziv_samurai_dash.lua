@@ -3,8 +3,6 @@ function Dash( keys )
 	local target = keys.target_points[1]
 	local ability = keys.ability
 
-	caster:Stop()
-
 	ProjectileManager:ProjectileDodge(caster)
 
 	local ability_level = ability:GetLevel() - 1
@@ -22,6 +20,7 @@ function Dash( keys )
 	caster:AddNewModifier( caster, nil, "modifier_disarmed", {duration=1.0} )
 
 	caster:SetForwardVector((target - caster:GetAbsOrigin()))
+	caster:Stop()
 
 	if ability.particle or ability.particle2 then
 		ParticleManager:DestroyParticle(ability.particle, false)
@@ -34,7 +33,7 @@ function Dash( keys )
 	ability.particle = ParticleManager:CreateParticle("particles/heroes/samurai/samurai_dash.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ability.particle2 = ParticleManager:CreateParticle("particles/heroes/samurai/samurai_blade_trail.vpcf", PATTACH_POINT_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(ability.particle2, 0, caster, PATTACH_POINT_FOLLOW, "blade_attachment", caster:GetAbsOrigin(), true) 
-	
+
 	Timers:CreateTimer(0.27, function (  )
 		ParticleManager:DestroyParticle(ability.particle, false)
 		ParticleManager:DestroyParticle(ability.particle2, false)

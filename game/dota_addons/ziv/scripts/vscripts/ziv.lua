@@ -216,6 +216,13 @@ function ZIV:OnHeroInGame(hero)
 
   InitAbilities(hero)
 
+  local camera_target = CreateUnitByName("npc_dummy_unit",hero:GetAbsOrigin() + Vector(0,325,0),false,hero,hero,hero:GetTeamNumber())
+  InitAbilities(camera_target)
+  PlayerResource:SetCameraTarget(pid, camera_target)
+  Timers:CreateTimer(function ()
+    camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,-295,0))
+    return 0.03
+  end)
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
     --with the "example_ability" ability
 

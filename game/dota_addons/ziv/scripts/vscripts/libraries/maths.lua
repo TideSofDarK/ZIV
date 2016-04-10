@@ -5,6 +5,31 @@ function RandomPointInsideCircle(radius)
     return Vector(x,y,0) 
 end
 
+function angleOfPoint( pt )
+   local x, y = pt.x, pt.y
+   local radian = math.atan2(y,x)
+   local angle = radian*180/math.pi
+   if angle < 0 then angle = 360 + angle end
+   return angle
+end
+
+function angleBetweenPoints( a, b )
+   local x, y = b.x - a.x, b.y - a.y
+   return angleOfPoint( { x=x, y=y } )
+end
+
+function smallestAngleDiff( target, source )
+   local a = target - source
+   
+   if (a > 180) then
+      a = a - 360
+   elseif (a < -180) then
+      a = a + 360
+   end
+   
+   return a
+end
+
 function lerp_vector(a, b, t)
   local newVector = Vector(0,0,0)
   for i=1,3 do
