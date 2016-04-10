@@ -9,7 +9,7 @@
 			{
 				_class = "CVmesh"
 				m_meshName = "basic_coat"
-				m_meshFile = "models/items/basic_coat.fbx"
+				m_meshFile = "models/items/basic_coat.dmx"
 				m_materialSearchPath = ""
 				m_bSkinParentedObjects = true
 				m_bLegacySkinParentedTransforms = false
@@ -69,21 +69,21 @@
 						[
 							{
 								_class = "CVhitBox"
-								m_name = "Hit"
+								m_name = "Bone"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
-								m_sBoneName = "Cube1"
+								m_sBoneName = "Bone"
 								m_vMinBounds =
 								[
-									-55.000000,
-									-30.000000,
-									50.000000,
+									-17.789639,
+									-20.946991,
+									-39.294159,
 								]
 								m_vMaxBounds =
 								[
-									55.000000,
-									30.000000,
-									115.000000,
+									18.148228,
+									28.870743,
+									40.354019,
 								]
 								m_bTranslationOnly = false
 								m_cRenderColor =
@@ -133,15 +133,15 @@
 			[
 				{
 					_class = "CVanim"
-					m_Animationname = "Cube"
-					m_Filepath = "models/items/Cube.dmx"
+					m_Animationname = "basic_coat_idle"
+					m_Filepath = "models/items/anims/basic_coat_idle.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 0
-					m_flFps = 30.000000
+					m_nEndframe = 250
+					m_flFps = 25.000000
 					m_Loop =
 					{
 						_class = "CAnimationLoop"
-						m_bLoop = false
+						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
@@ -156,6 +156,11 @@
 					m_bDisable = false
 					m_Activities =
 					[
+						{
+							_class = "CActivity"
+							m_Name = "ACT_DOTA_IDLE"
+							m_nWeight = 1
+						},
 					]
 					m_AnimationEvents =
 					[
@@ -174,7 +179,7 @@
 						[
 							0.000000,
 							0.000000,
-							0.000000,
+							24.000000,
 						]
 						m_rotation =
 						[

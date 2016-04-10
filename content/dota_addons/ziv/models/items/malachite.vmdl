@@ -69,75 +69,21 @@
 						[
 							{
 								_class = "CVhitBox"
-								m_name = "Armature"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Armature"
-								m_vMinBounds =
-								[
-									0.000000,
-									0.000000,
-									2426976495258830900000000000000000.000000,
-								]
-								m_vMaxBounds =
-								[
-									0.000000,
-									0.000000,
-									2426976495258830900000000000000000.000000,
-								]
-								m_bTranslationOnly = false
-								m_cRenderColor =
-								[
-									0,
-									0,
-									0,
-									0,
-								]
-							},
-							{
-								_class = "CVhitBox"
-								m_name = "Armature"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Armature"
-								m_vMinBounds =
-								[
-									0.000000,
-									0.000000,
-									2426976495258830900000000000000000.000000,
-								]
-								m_vMaxBounds =
-								[
-									0.000000,
-									0.000000,
-									2426976495258830900000000000000000.000000,
-								]
-								m_bTranslationOnly = false
-								m_cRenderColor =
-								[
-									0,
-									0,
-									0,
-									0,
-								]
-							},
-							{
-								_class = "CVhitBox"
 								m_name = "Bone"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
 								m_sBoneName = "Bone"
 								m_vMinBounds =
 								[
-									-19.979527,
-									2.206123,
-									-25.650871,
+									-23.774479,
+									-5.407074,
+									-9.447755,
 								]
 								m_vMaxBounds =
 								[
-									26.126247,
-									24.059280,
-									26.511421,
+									15.941166,
+									25.572634,
+									13.805783,
 								]
 								m_bTranslationOnly = false
 								m_cRenderColor =

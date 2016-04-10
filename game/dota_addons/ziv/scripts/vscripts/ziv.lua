@@ -220,7 +220,7 @@ function ZIV:OnHeroInGame(hero)
   InitAbilities(camera_target)
   PlayerResource:SetCameraTarget(pid, camera_target)
   Timers:CreateTimer(function ()
-    camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,-295,0))
+    camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,-275,0))
     return 0.03
   end)
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
