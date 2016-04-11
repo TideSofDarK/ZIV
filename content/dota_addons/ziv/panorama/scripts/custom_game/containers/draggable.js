@@ -1,3 +1,5 @@
+var parentPanel = $.GetContextPanel().GetParent();
+
 function OnDragStart( panelId, dragCallbacks )
 {
   var panel = $('#' + panelId);
@@ -5,7 +7,7 @@ function OnDragStart( panelId, dragCallbacks )
   panel.style.verticalAlign = "top;";
   panel.style.horizontalAlign = "left;";
 
-  dragCallbacks.displayPanel = panel;//panel;
+  dragCallbacks.displayPanel = panel;
 
   var cursor = GameUI.GetCursorPosition();
 
@@ -17,6 +19,7 @@ function OnDragStart( panelId, dragCallbacks )
 
 function OnDragEnd( panelId, draggedPanel )
 {
+  $('#' + panelId).SetParent(parentPanel);
   return false; 
 } 
 
