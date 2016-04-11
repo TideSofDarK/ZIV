@@ -5,6 +5,8 @@
 
     "ChooseLayout"  "1122"
 
+    "AbilityLayout"     "4"
+
     "Ability1"        "ziv_knight_dash" 
     "Ability2"        "ziv_knight_parry" 
     "Ability3"        "ziv_knight_stone_form" 

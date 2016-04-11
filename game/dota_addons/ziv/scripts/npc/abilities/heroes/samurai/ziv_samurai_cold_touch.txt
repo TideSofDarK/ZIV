@@ -1,0 +1,87 @@
+"ziv_samurai_cold_touch"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+  
+  "MaxLevel"          "7"
+
+  "precache"
+  {
+    "particle"  "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf"
+    "particle"  "particles/status_fx/status_effect_frost_lich.vpcf"
+  }
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "bonus_damage"            "70 100 130 160 190 220 250"
+    }
+    "02"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "slow"            "-20"
+    }
+    "03"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "slow_duration"            "4"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_cold_touch.lua"
+      "Function"          "InitColdTouch"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_cold_touch_frozen"
+    {
+      "Duration"  "%slow_duration"
+      "IsHidden"      "1"
+      "IsDebuff"      "1"
+
+      "StatusEffectName"     "particles/status_fx/status_effect_frost_lich.vpcf"      
+      "StatusEffectPriority"  "11"
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+      }
+    }
+    "modifier_cold_touch"
+    {
+      "Passive" "0"
+      "IsHidden"      "1"
+      "IsBuff"    "1"
+
+      "OnDestroy"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_cold_touch.lua"
+          "Function"          "Toggle"
+        }
+      }
+
+      "OnDealDamage"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_cold_touch.lua"
+          "Function"          "OnDealDamage"
+          "Damage"  "%attack_damage"
+        }
+      }
+    }
+  }
+}

@@ -27,6 +27,7 @@ function LeftButton() {
 	{
 		currentCharacter--;
 	}
+	UpdateFrames();
 }
 
 function RightButton() {
@@ -34,6 +35,7 @@ function RightButton() {
 	{
 		currentCharacter++;
 	}
+	UpdateFrames();
 }
 
 function LockIn() {
@@ -51,7 +53,19 @@ function LockIn() {
 }
 
 function CreateHero() {
-	GameEvents.SendCustomGameEventToServer( "ziv_choose_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroFrames[currentCharacter].heroName } );
+	var abilities = heroFrames[currentCharacter].FindChildTraverse("AbilitiesPanel");
+	var selected_abilities = [];
+	if (abilities) {
+		for (var i = 0; i < abilities.GetChildCount(); i++) {
+			var ability = abilities.GetChild( i );
+			if (ability) {
+				if (ability.BHasClass("selected")) {
+					selected_abilities.push(ability.id);
+				}
+			}
+		}
+	}
+	GameEvents.SendCustomGameEventToServer( "ziv_choose_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroFrames[currentCharacter].heroName, "abilities" : selected_abilities } );
 }
 
 function CreateFrames() {
@@ -60,13 +74,13 @@ function CreateFrames() {
 		$.Schedule(0.1, CreateFrames);
 	}
 	else {
-		var root = $.GetContextPanel();
+		var _root = $("#HeroFrames");
 
 		for (var hero in heroList) {
 	    	var value = heroList[hero];
 
 	    	if (value == "1") {
-				var newHeroFrame = $.CreatePanel( "Panel", root, "HeroFrame" );
+				var newHeroFrame = $.CreatePanel( "Panel", _root, "HeroFrame_" + hero  );
 
 				newHeroFrame.abilityPanels = [];
 
@@ -85,38 +99,30 @@ function CreateFrames() {
 
 function UpdateFrames() {
     for (var i = heroFrames.length-1; i >= 0; i--) {
-        var positionVector = heroFrames[i].style.position;
-        if (positionVector != undefined) {
-            var lockedInOffset = 0;
-            var scrollOffset = 1;
- 
-            if (lockedIn && currentCharacter != i) {
-                lockedInOffset = i < currentCharacter ? -3000 : 3000;
-                scrollOffset = 0.275;
-            }
- 
-            var sign = i < currentCharacter
-                ? -1
-                : i > currentCharacter ? 1 : 0;
-            heroFrames[i].style.x = 1000 * sign + lockedInOffset + (( (i - currentCharacter) * marginX ) ) + "px;";
-            heroFrames[i].style.zIndex = i < currentCharacter
-                ? (heroFrames.length - currentCharacter)
-                : i > currentCharacter
-                    ? (heroFrames.length - i - currentCharacter)
-                    : 10;
- 
-            //heroFrames[i].style.y = (marginY/2) + ((Math.abs(currentCharacter - i) * marginY)) + "px;";
- 
-            heroFrames[i].SetHasClass( "unselectedLeft", i < currentCharacter );
-            heroFrames[i].SetHasClass( "unselectedRight", i > currentCharacter );
+        var lockedInOffset = 0;
+        var scrollOffset = 1;
+
+        if (lockedIn && currentCharacter != i) {
+            lockedInOffset = i < currentCharacter ? -3000 : 3000;
+            scrollOffset = 0.275;
         }
-        else
-        {
-            heroFrames[i].style.position = "0px 0px -1px;";
-        }
+
+        var sign = i < currentCharacter
+            ? -1
+            : i > currentCharacter ? 1 : 0;
+        heroFrames[i].style.x = (1000 * sign + lockedInOffset + (( (i - currentCharacter) * marginX ) ) + "px 0px;") + "px;";
+        heroFrames[i].style.y = "-45px;";
+        heroFrames[i].style.zIndex = i < currentCharacter
+            ? (heroFrames.length - currentCharacter)
+            : i > currentCharacter
+                ? (heroFrames.length - i - currentCharacter)
+                : 10;
+
+        heroFrames[i].SetHasClass( "unselectedLeft", i < currentCharacter );
+        heroFrames[i].SetHasClass( "unselectedRight", i > currentCharacter );
     }
  
-    $.Schedule(0.01, UpdateFrames)
+    // $.Schedule(0.01, UpdateFrames)
 }
 
 function SetHeroList(eventArgs) {

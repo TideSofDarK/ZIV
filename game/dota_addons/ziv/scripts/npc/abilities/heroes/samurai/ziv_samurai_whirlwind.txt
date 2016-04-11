@@ -14,6 +14,8 @@
   "precache"
   {
     "particle"  "particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf"
+    "particle"  "particles/heroes/samurai/samurai_whirlwind_cold.vpcf"
+    "particle"  "particles/creeps/ziv_creep_blood_a.vpcf"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
   }
 
@@ -55,7 +57,7 @@
       "IsHidden"      "0"
       "IsDebuff"      "0"
 
-      "ThinkInterval"  "0.07"
+      "ThinkInterval"  "0.15"
       "OnIntervalThink"
       {
         "ActOnTargets"
@@ -74,7 +76,7 @@
             "RunScript"
             {
               "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
-              "Function"    "DealDamage"
+              "Function"    "DamageTick"
             }
           }
         }

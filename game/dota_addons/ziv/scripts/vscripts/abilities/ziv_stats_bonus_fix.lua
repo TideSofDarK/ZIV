@@ -11,3 +11,7 @@ function ziv_stats_bonus_fix:OnHeroCalculateStatBonus(params)
 		self:GetCaster():AddNewModifier(caster, self, "modifier_stats_bonus_fix", nil)
 	end
 end
+
+function ziv_stats_bonus_fix:GetBehavior()
+	return DOTA_ABILITY_BEHAVIOR_HIDDEN
+end 

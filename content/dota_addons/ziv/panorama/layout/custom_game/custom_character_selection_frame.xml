@@ -8,7 +8,6 @@
 		<include src="file://{resources}/scripts/custom_game/custom_character_selection_frame.js" />
 	</scripts>
 	<Panel hittest="false" class="HeroFrame">
-<!-- 			<DOTAHeroMovie id="SKSHIT" class="HeroMovie" src="file://{resources}/videos/heroes/npc_dota_hero_dragon_knight.webm" controls="none" repeat="true" autoplay="onload"/> -->
 		<Panel hittest="false" class="HeroFrame Top" id="hires">
 			<Label class="CharacterNameLabel Headline1" id="HeroName" text="DRAGON KNIGHT" />
 		</Panel>

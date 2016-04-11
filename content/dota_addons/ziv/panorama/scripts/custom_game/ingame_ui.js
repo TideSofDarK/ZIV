@@ -309,6 +309,7 @@ function OpenCraftingWindow() {
 	GameEvents.Subscribe( "dota_hero_ability_points_changed", UpdateAbilityList );
 	
 	UpdateAbilityList(); // initial update
+	
 	UpdateHPAndMP();
 
 	CreateSideButtons();

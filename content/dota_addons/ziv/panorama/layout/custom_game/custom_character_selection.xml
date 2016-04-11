@@ -8,7 +8,8 @@
 		<include src="file://{resources}/scripts/custom_game/custom_character_selection.js" />
 	</scripts>
 	<Panel hittest="false" class="Root">
-		<DOTAScenePanel id="Background" map="hero_selection" camera="camera_1"/>
+		<Panel id="HeroFrames">
+		</Panel>
 		<Panel class="SelectionRoot">
 			<Button class="GenericButton ChooseButton" id="ChooseButton" MaterialStyle="ChooseButton"
 							onactivate="LockIn()"

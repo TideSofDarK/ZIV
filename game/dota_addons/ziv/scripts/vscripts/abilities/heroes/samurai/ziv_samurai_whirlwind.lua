@@ -14,12 +14,17 @@ function StartWhirlwind( keys )
 	end
 
 	if not caster.whirlwind_particle then
+		local whirlwind_particle_name = "particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf"
+		if caster:HasModifier("modifier_cold_touch") then
+			whirlwind_particle_name = "particles/heroes/samurai/samurai_whirlwind_cold.vpcf"
+		end
+
 		caster.whirlwind_particle = ParticleManager:CreateParticle(
-			"particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf", 
+			whirlwind_particle_name, 
 			PATTACH_ABSORIGIN_FOLLOW, 
 			caster)
 		ParticleManager:SetParticleControl(caster.whirlwind_particle, 0, Vector(0,0,20))
-		ParticleManager:SetParticleControl(caster.whirlwind_particle, 5, Vector(225,1,1))
+		ParticleManager:SetParticleControl(caster.whirlwind_particle, 5, Vector(285,1,1))
 
 		Timers:CreateTimer(_duration + 0.03, function ()
 			if caster:HasModifier("modifier_whirlwind") == false then
@@ -38,19 +43,19 @@ function StartWhirlwind( keys )
 	end
 end
 
-function DealDamage( keys )
+function DamageTick( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
 
-    local damageTable = {
-        victim = target,
-        attacker = caster,
-        damage = caster:GetAverageTrueAttackDamage() / 5,
-        damage_type = DAMAGE_TYPE_PURE,
-    }
+	local particle = ParticleManager:CreateParticle(
+			"particles/creeps/ziv_creep_blood_a.vpcf", 
+			PATTACH_ABSORIGIN_FOLLOW, 
+			target)
 
-    ApplyDamage(damageTable)
+	ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true) 
+
+	DealDamage( caster, target, caster:GetAverageTrueAttackDamage() / 3, DAMAGE_TYPE_PURE )
 end
 
 function InitParticles( keys )

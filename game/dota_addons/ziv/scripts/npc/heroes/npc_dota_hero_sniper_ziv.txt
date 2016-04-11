@@ -1,10 +1,11 @@
 "npc_dota_hero_sniper_ziv"
   {
-    "AbilityLayout"     "4"
     "override_hero"     "npc_dota_hero_sniper"
 
     "ChooseLayout"  "1122"
 
+    "AbilityLayout"     "4"
+    
     "Ability1"        "ziv_sniper_empty1" 
     "Ability2"        "ziv_sniper_empty2" 
     "Ability3"        "ziv_sniper_trueshot_aura" 

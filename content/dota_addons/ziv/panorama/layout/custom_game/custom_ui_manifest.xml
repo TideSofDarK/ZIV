@@ -83,25 +83,17 @@
 
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/equip_list.xml" /> -->
 
+    <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection_background.xml" />
+    <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection.xml" />
+
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/containers/container_base.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_fortify.xml" />
-
-    <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_status.xml"/>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/crafting/crafting.xml" />
-    <!-- From Overthrow.
 
-
-
-        <CustomUIElement type="HudTopBar"           layoutfile="file://{resources}/layout/custom_game/multiteam_top_scoreboard.xml" />
-        <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/overthrow_item_notification.xml" />
-        <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/team_select.xml" />
-        <CustomUIElement type="FlyoutScoreboard"    layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" />
-        <CustomUIElement type="HeroSelection"       layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
-        <CustomUIElement type="EndScreen"           layoutfile="file://{resources}/layout/custom_game/multiteam_end_screen.xml" />
-        <CustomUIElement type="GameInfo"            layoutfile="file://{resources}/layout/custom_game/overthrow_game_info.xml" />
-    -->
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/modmaker/modmaker.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_worldpanels.xml" />
   </Panel>
 </root>

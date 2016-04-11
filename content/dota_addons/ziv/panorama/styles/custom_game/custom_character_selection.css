@@ -36,13 +36,22 @@
 
 .Root {
 	z-index: 1;
+
+	vertical-align: center;
+	horizontal-align: center;
 }
 
 .SelectionRoot {
+	horizontal-align: center;
+	vertical-align: bottom;
+}
+
+#HeroFrames {
+	vertical-align: center;
+	horizontal-align: center;
+
 	width: 1920px;
 	height: 1080px;
-
-	/*background-color: Grey900;*/
 }
 
 #Background {
@@ -53,11 +62,6 @@
 }
 
 .HeroFrame {
-/*	x: 0px;
-	y: 0px;*/
-
-	/*margin-bottom: 100px;*/
-
 	box-shadow: #000000ff 0px 0px 10px 0px;
 
 	vertical-align: center;
@@ -73,7 +77,7 @@
 	transition-duration: .3s;
 	transition-timing-function: ease-in-out, linear;
 
-	z-index: 10;
+	z-index: 1;
 }
 
 .HeroFrame.unselectedLeft {
@@ -275,6 +279,8 @@
 	
 	transition-property: background-color;
 	transition-duration: .2s;
+
+	z-index: 3;
 }
 
 .GenericButton.deactivated

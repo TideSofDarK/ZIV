@@ -1,12 +1,33 @@
 -- This file contains all ziv-registered events and has already set up the passed-in parameters for your use.
 -- Do not remove the ZIV:_Function calls in these events as it will mess with the internal ziv systems.
 
--- Cleanup a player when they leave
 function ZIV:OnPlayerSelectedHero( args )
   local pID = tonumber(args.pID)
+  local player = PlayerResource:GetPlayer(pID)
   local hero_name = args.hero_name
 
-  CreateHeroForPlayer(hero_name, PlayerResource:GetPlayer(pID))
+  local abilities = args.abilities
+
+  local hero = CreateHeroForPlayer(hero_name, player)
+  -- PrintTable(abilities)
+
+  for i=0,16 do
+    local abil = hero:GetAbilityByIndex(i)
+    if abil and abil:GetName() then
+      hero:RemoveAbility(abil:GetName())
+    end
+  end
+
+  for i=0,3 do
+    print(abilities[tostring(i)])
+    hero:AddAbility(abilities[tostring(i)])
+  end
+
+  hero:AddAbility("ziv_fortify_modifiers")
+  hero:AddAbility("ziv_stats_bonus_fix")
+  hero:AddAbility("ziv_hero_normal_hpbar_behavior")
+
+  InitAbilities(hero)
 end
 
 function ZIV:OnDisconnect(keys)
@@ -57,6 +78,16 @@ function ZIV:OnEntityHurt(keys)
 
     if keys.entindex_inflictor ~= nil then
       damagingAbility = EntIndexToHScript( keys.entindex_inflictor )
+    end
+
+    if entCause.OnDamageDealCallbacks then
+      for i,v in ipairs(entCause.OnDamageDealCallbacks) do
+        if v then
+          v(entVictim)
+          table.remove(entCause.OnDamageDealCallbacks, i)
+          break
+        end
+      end
     end
   end
 end

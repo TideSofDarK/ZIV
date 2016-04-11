@@ -10,8 +10,8 @@ function UpdateInfo() {
 	$("#HeroName").text = $.Localize(heroName);
 	$("#HeroBio").text = $.Localize("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
 
-	$("#hires").style.backgroundImage = "url(\"s2r://panorama/images/custom_game/heroes/" + heroName + "_ziv_jpg.vtex\");";
-	
+	$("#hires").style.backgroundImage = "url(\"s2r://panorama/images/custom_game/heroes/" + heroName + "_ziv.jpg\");";
+
 	var attribute = $.GetContextPanel().heroesKVs[heroName+"_ziv"]["AttributePrimary"].replace("DOTA_ATTRIBUTE_","").toLowerCase();
 	var str = $.GetContextPanel().heroesKVs[heroName+"_ziv"]["AttributeBaseStrength"];
 	var agi = $.GetContextPanel().heroesKVs[heroName+"_ziv"]["AttributeBaseAgility"];
@@ -99,10 +99,11 @@ function UpdateSkills() {
 	var lastGroup = [];
 	
 	for (var i = 0; i < GetSpellCount(stringLayout); i++) {
-		var newChildPanel = $.CreatePanel( "Panel", root, "AbilityPanel" );
+		var abilityName = $.GetContextPanel().heroesKVs[$.GetContextPanel().heroName+"_ziv"]["Ability"+(i+1)];
+		var newChildPanel = $.CreatePanel( "Panel", root, abilityName );
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection_ability.xml", false, false );
 
-		newChildPanel.FindChild("AbilityImage").abilityname = $.GetContextPanel().heroesKVs[$.GetContextPanel().heroName+"_ziv"]["Ability"+(i+1)];
+		newChildPanel.FindChild("AbilityImage").abilityname = abilityName;
 
 		newChildPanel.style.marginLeft = "50px;"; 
 

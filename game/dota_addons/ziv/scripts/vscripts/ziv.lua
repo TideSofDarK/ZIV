@@ -31,6 +31,10 @@ require('libraries/popups')
 -- Containers
 require('libraries/playertables')
 require('libraries/containers')
+-- Worldpanels
+require('libraries/worldpanels')
+-- Modmaker
+require('libraries/modmaker')
 
 require('items/crafting')
 
@@ -164,6 +168,7 @@ function ZIV:OnHeroInGame(hero)
   DebugPrint("[ZIV] Hero spawned in game for first time -- " .. hero:GetUnitName())
 
   local pid = hero:GetPlayerID()
+  local player = PlayerResource:GetPlayer(pid)
 
   local c = Containers:CreateContainer({
     layout =      {3,3,3,3,3},
@@ -190,31 +195,9 @@ function ZIV:OnHeroInGame(hero)
   item = CreateItem("item_basic_leather", hero, hero)
   c:AddItem(item, 3)
 
-  item = CreateItem("item_tango", hero, hero)
-  c:AddItem(item, 3)
-
-  -- defaultInventory[pid] = true
   Containers:SetDefaultInventory(hero, c)
 
-  -- This line for example will set the starting gold of every hero to 500 unreliable gold
-  hero:SetGold(500, false)
-
-  -- These lines will create an item and add it to the player, effectively ensuring they start with the item
-  -- local item = CreateItem("item_example_item", hero, hero)
-  -- hero:AddItem(item)
-
   local hero_name = hero:GetUnitName()
-
-  -- for i=0,(tonumber(CustomNetTables:GetTableValue("hero_kvs", hero_name.."_ziv")["AbilityLayout"]) - 1) do
-  --   local abil = hero:GetAbilityByIndex(i)
-  --   abil:UpgradeAbility(true)
-  -- end
-
-  hero:AddAbility("ziv_fortify_modifiers")
-  hero:AddAbility("ziv_stats_bonus_fix")
-  hero:AddAbility("ziv_hero_normal_hpbar_behavior")
-
-  InitAbilities(hero)
 
   local camera_target = CreateUnitByName("npc_dummy_unit",hero:GetAbsOrigin() + Vector(0,325,0),false,hero,hero,hero:GetTeamNumber())
   InitAbilities(camera_target)
@@ -223,12 +206,6 @@ function ZIV:OnHeroInGame(hero)
     camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,-275,0))
     return 0.03
   end)
-  --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
-    --with the "example_ability" ability
-
-  local abil = hero:GetAbilityByIndex(1)
-  hero:RemoveAbility(abil:GetAbilityName())
-  hero:AddAbility("example_ability")]]
 end
 
 --[[

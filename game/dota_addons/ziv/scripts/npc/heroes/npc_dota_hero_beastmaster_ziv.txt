@@ -5,6 +5,8 @@
 
     "ChooseLayout"  "1122"
 
+    "AbilityLayout"     "4"
+
     "Ability1"        "ziv_beastmaster_pet" 
     "Ability2"        "ziv_empty2" 
     "Ability3"        "ziv_beastmaster_bird" 

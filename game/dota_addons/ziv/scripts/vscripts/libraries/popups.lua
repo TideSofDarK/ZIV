@@ -60,6 +60,10 @@ function PopupExperience(target, amount)
     PopupNumbers(target, "miss", Vector(154, 46, 254), 1.0, amount, POPUP_SYMBOL_PRE_PLUS, nil)
 end
 
+function PopupColdDamage(target, amount)
+    PopupNumbers(target, "crit", Vector(173,216,230), 1.0, amount, nil, POPUP_SYMBOL_POST_EYE)
+end
+
 function PopupMana(target, amount)
     PopupNumbers(target, "heal", Vector(0, 176, 246), 1.0, amount, POPUP_SYMBOL_PRE_PLUS, nil)
 end

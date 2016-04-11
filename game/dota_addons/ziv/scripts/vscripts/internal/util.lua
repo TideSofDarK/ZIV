@@ -5,6 +5,9 @@ function DealDamage( _attacker, _victim, _damage, _type )
       damage = _damage,
       damage_type = _type
   }
+  if math.random(0, 1) == 0 then
+    StartAnimation(_victim, {duration=0.3, activity=ACT_DOTA_FLINCH, rate=1.5})
+  end
   ApplyDamage(damageTable)
 end
 

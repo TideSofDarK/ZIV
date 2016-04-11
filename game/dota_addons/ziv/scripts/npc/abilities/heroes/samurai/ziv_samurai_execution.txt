@@ -20,6 +20,7 @@
 
   "precache"
   {
+    "particle"  "particles/heroes/samurai/samurai_execution_frost_earth.vpcf"
     "particle"  "particles/econ/items/juggernaut/jugg_sword_fireborn_odachi/jugg_crit_blur_fb_odachi.vpcf"
     "particle"  "particles/heroes/samurai/samurai_execution_cleave.vpcf"
     "particle"  "particles/heroes/samurai/samurai_execution_cleave_dust.vpcf"

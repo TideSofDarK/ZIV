@@ -1695,6 +1695,93 @@
 	    }
 	  }
 	}
+	"ziv_samurai_cold_touch"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf"
+	    "particle"  "particles/status_fx/status_effect_frost_lich.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_damage"            "70 100 130 160 190 220 250"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "slow"            "-20"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "slow_duration"            "4"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_cold_touch.lua"
+	      "Function"          "InitColdTouch"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_cold_touch_frozen"
+	    {
+	      "Duration"  "%slow_duration"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "1"
+	
+	      "StatusEffectName"     "particles/status_fx/status_effect_frost_lich.vpcf"      
+	      "StatusEffectPriority"  "11"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+	      }
+	    }
+	    "modifier_cold_touch"
+	    {
+	      "Passive" "0"
+	      "IsHidden"      "1"
+	      "IsBuff"    "1"
+	
+	      "OnDestroy"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_cold_touch.lua"
+	          "Function"          "Toggle"
+	        }
+	      }
+	
+	      "OnDealDamage"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_cold_touch.lua"
+	          "Function"          "OnDealDamage"
+	          "Damage"  "%attack_damage"
+	        }
+	      }
+	    }
+	  }
+	}
 	"ziv_samurai_dash"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -1830,6 +1917,7 @@
 	
 	  "precache"
 	  {
+	    "particle"  "particles/heroes/samurai/samurai_execution_frost_earth.vpcf"
 	    "particle"  "particles/econ/items/juggernaut/jugg_sword_fireborn_odachi/jugg_crit_blur_fb_odachi.vpcf"
 	    "particle"  "particles/heroes/samurai/samurai_execution_cleave.vpcf"
 	    "particle"  "particles/heroes/samurai/samurai_execution_cleave_dust.vpcf"
@@ -1885,6 +1973,107 @@
 	    }
 	  }
 	}
+	"ziv_samurai_reign_of_fire"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_fire_f.vpcf"
+	    "particle"  "particles/winter_fx/healing_campfire_flame_a.vpcf"
+	    "particle" "particles/heroes/samurai/samurai_fire_steps.vpcf"
+	    "particle" "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_damage"            "70 100 130 160 190 220 250"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "burn_damage_percent"            "5"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "burn_duration"            "4"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_reign_of_fire.lua"
+	      "Function"          "InitReignOfFire"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_reign_of_fire_burn"
+	    {
+	      "Duration"  "%burn_duration"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "1"
+	
+	      "OnCreated"
+	      {
+	        "AttachEffect"
+	        {
+	          "EffectName"    "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+	          "EffectAttachType"  "follow_overhead"
+	          "Target"      "TARGET"
+	        }
+	      }
+	
+	      "ThinkInterval"  "1.0"
+	      "OnIntervalThink"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_reign_of_fire.lua"
+	          "Function"          "OnDamageTick"
+	        }
+	      }
+	    }
+	    "modifier_reign_of_fire"
+	    {
+	      "Passive" "0"
+	      "IsHidden"      "1"
+	      "IsBuff"    "1"
+	
+	      "OnDestroy"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_reign_of_fire.lua"
+	          "Function"          "Toggle"
+	        }
+	      }
+	
+	      "OnDealDamage"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_reign_of_fire.lua"
+	          "Function"          "OnDealDamage"
+	          "Damage"  "%attack_damage"
+	        }
+	      }
+	    }
+	  }
+	}
 	"ziv_samurai_whirlwind"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -1901,6 +2090,8 @@
 	  "precache"
 	  {
 	    "particle"  "particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf"
+	    "particle"  "particles/heroes/samurai/samurai_whirlwind_cold.vpcf"
+	    "particle"  "particles/creeps/ziv_creep_blood_a.vpcf"
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
 	  }
 	
@@ -1942,7 +2133,7 @@
 	      "IsHidden"      "0"
 	      "IsDebuff"      "0"
 	
-	      "ThinkInterval"  "0.07"
+	      "ThinkInterval"  "0.15"
 	      "OnIntervalThink"
 	      {
 	        "ActOnTargets"
@@ -1961,7 +2152,7 @@
 	            "RunScript"
 	            {
 	              "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
-	              "Function"    "DealDamage"
+	              "Function"    "DamageTick"
 	            }
 	          }
 	        }
