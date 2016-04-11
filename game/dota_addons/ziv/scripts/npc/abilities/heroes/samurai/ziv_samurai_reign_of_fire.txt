@@ -6,6 +6,8 @@
 
   "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
   
+  "AbilityCooldown"         "4.5"
+
   "MaxLevel"          "7"
 
   "precache"
