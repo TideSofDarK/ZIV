@@ -45,21 +45,24 @@ end
 
 function DamageTick( keys )
 	local caster = keys.caster
-	local target = keys.target
 	local ability = keys.ability
 
-	local particle = ParticleManager:CreateParticle(
-			"particles/creeps/ziv_creep_blood_a.vpcf", 
-			PATTACH_ABSORIGIN_FOLLOW, 
-			target)
+	local units_in_radius = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),  nil, ability:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
-	ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true) 
+	if #units_in_radius > 0 then
+		caster:EmitSound("Hero_Abaddon.Attack")
+	end
 
-	DealDamage( caster, target, caster:GetAverageTrueAttackDamage() / 3, DAMAGE_TYPE_PURE )
-end
+	for k,v in pairs(units_in_radius) do
+		local target = v
 
-function InitParticles( keys )
-	local caster = keys.caster
-	local ability = keys.ability
+		local particle = ParticleManager:CreateParticle(
+				"particles/creeps/ziv_creep_blood_a.vpcf", 
+				PATTACH_ABSORIGIN_FOLLOW, 
+				target)
 
+		ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true) 
+
+		DealDamage( caster, target, caster:GetAverageTrueAttackDamage() / 3, DAMAGE_TYPE_PURE )
+	end
 end

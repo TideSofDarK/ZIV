@@ -7,7 +7,9 @@ function OnDealDamage( keys )
 	table.insert(caster.OnDamageDealCallbacks, function (target)
 		local bonus_damage = math.ceil(damage/10)
 		DealDamage( target, target, bonus_damage, DAMAGE_TYPE_MAGICAL )
-		PopupColdDamage(target, bonus_damage)
+		-- PopupColdDamage(target, bonus_damage)
+
+		ParticleManager:CreateParticle("particles/creeps/ziv_creep_blood_frozen.vpcf", PATTACH_POINT_FOLLOW, target)
 
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_cold_touch_frozen", {})
 	end)

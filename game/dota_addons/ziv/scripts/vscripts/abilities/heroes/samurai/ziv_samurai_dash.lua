@@ -7,7 +7,7 @@ function Dash( keys )
 
 	local ability_level = ability:GetLevel() - 1
 
-	StartAnimation(caster, {duration=ability:GetSpecialValueFor("duration"), activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=3.4})
+	StartAnimation(caster, {duration=ability:GetSpecialValueFor("duration"), activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=5.4})
 
 	ability.direction = (target - caster:GetAbsOrigin()):Normalized()
 
@@ -30,9 +30,14 @@ function Dash( keys )
 		ability.particle2=nil
 	end
 
+	local blade_trail_particle = "particles/heroes/samurai/samurai_blade_trail.vpcf"
+	if caster:HasModifier("modifier_cold_touch") then
+		blade_trail_particle = "particles/heroes/samurai/samurai_blade_trail_cold.vpcf"
+	end
+
 	ability.particle = ParticleManager:CreateParticle("particles/heroes/samurai/samurai_dash.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-	ability.particle2 = ParticleManager:CreateParticle("particles/heroes/samurai/samurai_blade_trail.vpcf", PATTACH_POINT_FOLLOW, caster)
-	ParticleManager:SetParticleControlEnt(ability.particle2, 0, caster, PATTACH_POINT_FOLLOW, "blade_attachment", caster:GetAbsOrigin(), true) 
+	ability.particle2 = ParticleManager:CreateParticle(blade_trail_particle, PATTACH_POINT_FOLLOW, caster)
+	ParticleManager:SetParticleControlEnt(ability.particle2, 0, caster, PATTACH_POINT_FOLLOW, "blade_attachment", caster:GetAbsOrigin(), false) 
 
 	Timers:CreateTimer(0.27, function (  )
 		ParticleManager:DestroyParticle(ability.particle, false)

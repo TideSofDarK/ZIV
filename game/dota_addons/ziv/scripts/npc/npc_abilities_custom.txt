@@ -1709,6 +1709,7 @@
 	
 	  "precache"
 	  {
+	    "particle"  "particles/creeps/ziv_creep_blood_frozen.vpcf"
 	    "particle"  "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf"
 	    "particle"  "particles/status_fx/status_effect_frost_lich.vpcf"
 	  }
@@ -2080,6 +2081,7 @@
 	    "particle"  "particles/heroes/samurai/samurai_whirlwind_cold.vpcf"
 	    "particle"  "particles/creeps/ziv_creep_blood_a.vpcf"
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
 	  }
 	
 	  "AbilitySpecial"
@@ -2123,34 +2125,10 @@
 	      "ThinkInterval"  "0.15"
 	      "OnIntervalThink"
 	      {
-	        "ActOnTargets"
-	        {
-	          "Target"
-	          {
-	            "Center"    "TARGET"
-	            "Radius"   "%radius"
-	            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	            "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-	            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	          }
-	        
-	          "Action"    
-	          {
-	            "RunScript"
-	            {
-	              "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
-	              "Function"    "DamageTick"
-	            }
-	          }
-	        }
-	      }
-	
-	      "OnCreated"
-	      {
 	        "RunScript"
 	        {
 	          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
-	          "Function"    "InitParticles"
+	          "Function"    "DamageTick"
 	        }
 	      }
 	
