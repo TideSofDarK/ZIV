@@ -77,9 +77,9 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
   
   -- Random item rotation
   item:SetAngles(0, math.random(0, 360), 0)
-  
-  if rarity > Loot.RARITY_COMMON then
-    local new_item = item:GetContainedItem()
+  local new_item = item:GetContainedItem()
+
+  if rarity > Loot.RARITY_COMMON and not string.match(new_item:GetName(), "gem") then
     new_item.rarity = 0
 
     if i == count then
