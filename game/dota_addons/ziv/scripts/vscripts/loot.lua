@@ -112,6 +112,7 @@ function Loot:CreepDrops( lootTable, creep, killer )
 			i = i + 1
 
 			local new_item_c = Loot:RandomItemFromLootTable( lootTable.Loot, creep, killer )
+			CreateItemPanel( new_item_c )
 
 			Physics:Unit(new_item_c)
 
@@ -146,6 +147,7 @@ function Loot:OpenChest( chest, unit )
 			i = i + 1
 
 			local new_item_c = Loot:RandomItemFromLootTable( chest.Loot, chest_unit, nil )
+			CreateItemPanel( new_item_c )
 
 			Physics:Unit(new_item_c)
 

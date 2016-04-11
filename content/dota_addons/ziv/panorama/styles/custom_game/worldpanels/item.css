@@ -1,0 +1,24 @@
+.Item {
+	/*height: 60px;*/
+	background-color: black; 
+}
+
+.Item:hover {
+	/*wash-color: #bbbbbb;*/
+	background-color: #3F51B5; 
+}
+
+#ItemNameLabel {
+/*	text-shadow: 1px 1px 1px black;*/
+	padding-left: 20px;
+	padding-right: 20px;
+
+	text-align: center;
+	text-transform: uppercase;
+	text-overflow: clip;
+
+	font-weight: bold;
+	font-size: 18px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color: White;
+}

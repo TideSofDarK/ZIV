@@ -182,6 +182,7 @@ function WorldPanels:CreateWorldPanel(pids, conf)
     offsetX =           conf.offsetY,
     entityHeight =      conf.entityHeight,
     edge =              conf.edgePadding,
+    data =              conf.data or {},
   }
 
   if conf.horizontalAlign then pt.hAlign = haStoI[conf.horizontalAlign] end

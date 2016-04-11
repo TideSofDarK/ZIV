@@ -335,6 +335,7 @@ function ZIV:SpawnBasicDrop(rarity)
       local hero = cmdPlayer:GetAssignedHero()
 
       local enigma = CreateItemOnPositionSync(hero:GetAbsOrigin(), CreateItem("item_basic_chest", nil, nil))
+      CreateItemPanel( enigma )
       enigma.particles = enigma.particles or {}
       enigma.rarity = tonumber(rarity) or 0
 

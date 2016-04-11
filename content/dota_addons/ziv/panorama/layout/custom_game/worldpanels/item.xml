@@ -1,0 +1,15 @@
+<root> 
+  <styles>
+    <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    <include src="file://{resources}/styles/custom_game/worldpanels/item.css" />
+    <include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/worldpanels/item.js" /> 
+  </scripts>
+  <Panel hittest="false" class="Item Hide">
+    <Button onactivate="Click()">
+      <Label id="ItemNameLabel" text="DICK" />
+    </Button>
+  </Panel>
+</root>

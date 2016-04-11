@@ -134,7 +134,7 @@
 		{
 			_class = "C_OP_InstantaneousEmitter"
 			m_nMaxEmittedPerFrame = 64
-			m_nParticlesToEmit = 64
+			m_nParticlesToEmit = 32
 		},
 	]
 }

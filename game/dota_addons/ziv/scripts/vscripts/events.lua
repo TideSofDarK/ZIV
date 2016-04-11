@@ -52,21 +52,16 @@ end
 -- An NPC has spawned somewhere in game.  This includes heroes
 function ZIV:OnNPCSpawned(keys)
   DebugPrint("[ZIV] NPC Spawned")
-  DebugPrintTable(keys)
+  PrintTable(keys)
 
   -- This internal handling is used to set up main ziv functions
   ZIV:_OnNPCSpawned(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
 
-  -- if npc.IsHero and not string.match(npc:GetUnitName(), "dummy") and not npc.worldPanel then
-  --   -- entityHeight could be loaded from the npc_heroes.txt "HealthBarOffset"
-  --   npc.worldPanel = WorldPanels:CreateWorldPanelForAll(
-  --     {layout = "file://{resources}/layout/custom_game/worldpanels/healthbar.xml",
-  --       entity = npc:GetEntityIndex(),
-  --       entityHeight = npc:GetBoundingMaxs().z * 2,
-  --     })
-  -- end
+  if npc.IsHero and not string.match(npc:GetUnitName(), "dummy") and not npc.worldPanel then
+
+  end
 end
 
 -- An entity somewhere has been hurt.  This event fires very often with many units so don't do too many expensive

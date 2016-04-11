@@ -1,3 +1,12 @@
+function CreateItemPanel( item_container )
+  item_container.worldPanel = WorldPanels:CreateWorldPanelForAll(
+    {layout = "file://{resources}/layout/custom_game/worldpanels/item.xml",
+      entity = item_container:GetEntityIndex(),
+      data = { name = item_container:GetContainedItem():GetName() },
+      entityHeight = 100,
+    })
+end
+
 function ReleaseChildParticles( caster )
   caster.particles = caster.particles or {}
 
