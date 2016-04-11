@@ -20,19 +20,20 @@ function IsItemDropped( chance )
   return math.random(100) < chance
 end
 
-function Loot:Generate( creep, killer )
+function Loot:GetLootTable( creep )
   if Loot.Table == nil then
-    return
+    return nil
   end
   
   -- Get loot table
-  local lootTable = Loot.Table[creep:GetUnitName()]
-  if lootTable == nil then
-    return
-  end
+  return Loot.Table[creep:GetUnitName()]
+end
+
+function Loot:Generate( creep, killer )
+  local lootTable = Loot:GetLootTable( creep )
 
   -- Generate items
-  if IsItemDropped(lootTable.LootChance or 0) then
+  if lootTable ~= nil and IsItemDropped(lootTable.LootChance or 0) then
     Loot:CreepDrops( lootTable, creep, killer )
   end
 end
@@ -104,7 +105,7 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
 end
 
 function Loot:CreepDrops( lootTable, creep, killer )
-	local count = math.random(lootTable.Max)
+	local count = math.random(1, lootTable.Max)
   local i = 1
   
 	Timers:CreateTimer(function ()
@@ -133,20 +134,24 @@ function Loot:CreepDrops( lootTable, creep, killer )
 end
 
 function Loot:OpenChest( chest, unit )
-	local count = math.random(chest.Max) + 1
-
-	local i = 1
-
 	local chest_unit = CreateUnitByName("npc_basic_chest",chest:GetAbsOrigin(),false,nil,nil,unit:GetTeamNumber())
 	InitAbilities(chest_unit)
-
 	chest:RemoveSelf()
 
+  local lootTable = Loot:GetLootTable( chest_unit )
+  
+  if lootTable == nil then
+    return
+  end
+  
+	local count = math.random(1, lootTable.Max)
+	local i = 1
+  
 	Timers:CreateTimer(function ()
 		if i < count then
 			i = i + 1
 
-			local new_item_c = Loot:RandomItemFromLootTable( chest.Loot, chest_unit, nil )
+			local new_item_c = Loot:RandomItemFromLootTable( lootTable`.Loot, chest_unit, nil )
 			CreateItemPanel( new_item_c )
 
 			Physics:Unit(new_item_c)
