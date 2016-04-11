@@ -1,10 +1,12 @@
-function CloseButton() {
-	$.GetContextPanel().SetHasClass("Hide", true);
-}
-
 function Open() {
+	GameUI.CustomUIConfig().ZIVAddToPanelsQueue($.GetContextPanel());
 	Update();
 	$.GetContextPanel().SetHasClass("Hide", false);
+}
+
+function CloseButton() {
+	GameUI.CustomUIConfig().ZIVRemoveFromPanelsQueue($.GetContextPanel());
+	$.GetContextPanel().SetHasClass("Hide", true);
 }
 
 function roundToTwo(num) {    
