@@ -1,3 +1,17 @@
+function ReleaseChildParticles( caster )
+  caster.particles = caster.particles or {}
+
+  for k,v in pairs(caster.particles) do
+    ParticleManager:DestroyParticle(v, false)
+  end
+end
+
+function SetToggleState( ability, state )
+  if ability:GetToggleState() ~= state then
+    ability:ToggleAbility()
+  end
+end
+
 function DealDamage( _attacker, _victim, _damage, _type )
   local damageTable = {
       victim = _victim,

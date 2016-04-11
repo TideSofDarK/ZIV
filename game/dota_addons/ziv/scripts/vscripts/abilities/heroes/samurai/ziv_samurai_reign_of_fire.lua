@@ -25,14 +25,14 @@ function InitReignOfFire( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
-	caster.particles = caster.particles or {}
+	ReleaseChildParticles( caster )
 
-	for k,v in pairs(caster.particles) do
-      ParticleManager:DestroyParticle(v, false)
+    if caster:HasModifier("modifier_cold_touch") then
+    	caster:RemoveModifierByName("modifier_cold_touch")
+    	SetToggleState( caster:FindAbilityByName("ziv_samurai_cold_touch"), false )
     end
 
 	if ability:GetToggleState() == false then
-		caster:RemoveModifierByName("modifier_cold_touch")
 		ability:ApplyDataDrivenModifier(caster,caster,"modifier_reign_of_fire",{})
 
 	    local fire = ParticleManager:CreateParticle("particles/winter_fx/healing_campfire_flame_a.vpcf", PATTACH_POINT_FOLLOW, caster)
@@ -43,10 +43,6 @@ function InitReignOfFire( keys )
 	elseif caster:HasModifier("modifier_reign_of_fire") == true then
 		caster:RemoveModifierByName("modifier_cold_touch")
 	end
-	ability:ToggleAbility()
-end
 
-function Toggle( keys )
-	local ability = keys.ability
 	ability:ToggleAbility()
 end

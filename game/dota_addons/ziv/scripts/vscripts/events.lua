@@ -9,7 +9,6 @@ function ZIV:OnPlayerSelectedHero( args )
   local abilities = args.abilities
 
   local hero = CreateHeroForPlayer(hero_name, player)
-  -- PrintTable(abilities)
 
   for i=0,16 do
     local abil = hero:GetAbilityByIndex(i)
@@ -19,7 +18,6 @@ function ZIV:OnPlayerSelectedHero( args )
   end
 
   for i=0,3 do
-    print(abilities[tostring(i)])
     hero:AddAbility(abilities[tostring(i)])
   end
 

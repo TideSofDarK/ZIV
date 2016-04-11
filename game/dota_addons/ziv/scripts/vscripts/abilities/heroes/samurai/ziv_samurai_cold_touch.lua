@@ -17,14 +17,14 @@ function InitColdTouch( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
-	caster.particles = caster.particles or {}
+	ReleaseChildParticles( caster )
 
-	for k,v in pairs(caster.particles) do
-      ParticleManager:DestroyParticle(v, false)
+    if caster:HasModifier("modifier_reign_of_fire") then
+    	caster:RemoveModifierByName("modifier_reign_of_fire")
+    	SetToggleState( caster:FindAbilityByName("ziv_samurai_reign_of_fire"), false )
     end
 
     if ability:GetToggleState() == false then
-    	caster:RemoveModifierByName("modifier_reign_of_fire")
 		ability:ApplyDataDrivenModifier(caster,caster,"modifier_cold_touch",{})
 
 		table.insert(caster.particles, ParticleManager:CreateParticle("particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster))
@@ -32,10 +32,5 @@ function InitColdTouch( keys )
 		caster:RemoveModifierByName("modifier_cold_touch")
 	end
 
-	ability:ToggleAbility()
-end
-
-function Toggle( keys )
-	local ability = keys.ability
 	ability:ToggleAbility()
 end

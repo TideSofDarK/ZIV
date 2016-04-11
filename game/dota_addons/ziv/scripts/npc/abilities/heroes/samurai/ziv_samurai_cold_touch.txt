@@ -1,7 +1,7 @@
 "ziv_samurai_cold_touch"
 {
   "BaseClass"           "ability_datadriven"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
   "AbilityTextureName"            "rubick_empty1"
 
   "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
@@ -65,15 +65,6 @@
       "Passive" "0"
       "IsHidden"      "1"
       "IsBuff"    "1"
-
-      "OnDestroy"
-      {
-        "RunScript"
-        {
-          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_cold_touch.lua"
-          "Function"          "Toggle"
-        }
-      }
 
       "OnDealDamage"
       {

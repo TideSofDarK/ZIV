@@ -1,7 +1,7 @@
 "ziv_samurai_reign_of_fire"
 {
   "BaseClass"           "ability_datadriven"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
   "AbilityTextureName"            "rubick_empty1"
 
   "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
@@ -15,6 +15,7 @@
     "particle"  "particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_fire_f.vpcf"
     "particle"  "particles/winter_fx/healing_campfire_flame_a.vpcf"
     "particle" "particles/heroes/samurai/samurai_fire_steps.vpcf"
+    "particle"  "particles/heroes/samurai/samurai_fire_steps_a.vpcf"
     "particle" "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
   }
   
@@ -79,15 +80,6 @@
       "Passive" "0"
       "IsHidden"      "1"
       "IsBuff"    "1"
-
-      "OnDestroy"
-      {
-        "RunScript"
-        {
-          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_reign_of_fire.lua"
-          "Function"          "Toggle"
-        }
-      }
 
       "OnDealDamage"
       {
