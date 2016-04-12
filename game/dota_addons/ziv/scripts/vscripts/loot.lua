@@ -151,7 +151,7 @@ function Loot:OpenChest( chest, unit )
 		if i < count then
 			i = i + 1
 
-			local new_item_c = Loot:RandomItemFromLootTable( lootTable`.Loot, chest_unit, nil )
+			local new_item_c = Loot:RandomItemFromLootTable( lootTable.Loot, chest_unit, nil )
 			CreateItemPanel( new_item_c )
 
 			Physics:Unit(new_item_c)
