@@ -1,0 +1,93 @@
+"ziv_sniper_explosive_trap"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"       
+    "particle"      "particles/status_fx/status_effect_stickynapalm.vpcf"
+    "particle"      "particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf"   
+    "particle"      "particles/units/heroes/hero_batrider/batrider_flamebreak_explosion.vpcf"
+    "particle"  "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
+    "particle"  "particles/neutral_fx/roshan_slam_debris_small.vpcf"
+    "particle"  "particles/generic_gameplay/dust_impact_large.vpcf"
+    "particle"  "particles/econ/courier/courier_mechjaw/mechjaw_death_sparks.vpcf"
+  }
+
+  "AbilityCastRange"        "400"
+  "AbilityCastPoint"        "0.001"
+  "AbilityCooldown"       "5.0"
+
+  "AbilityManaCost"       "75"
+
+  "MaxLevel"  "7"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "damage_amp"    "3.5"
+    }
+    "02"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "slow_duration"    "3.75"
+    }
+    "03"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "slow"    "-30"
+    }
+    "04"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "trap_duration"    "10"
+    }
+    "05"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "trap_radius"    "400"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/sniper/ziv_sniper_explosive_trap.lua"
+      "Function"    "CreateTrapUnit"
+      "Target"    "POINT"
+    }
+
+    "FireSound"
+    {
+      "EffectName"            "Hero_Techies.StasisTrap.Plant"
+      "Target"                "CASTER"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_explosive_trap_effect"
+    {
+      "Duration" "%slow_duration"
+
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "1"
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+      }
+
+      "StatusEffectName"  "particles/status_fx/status_effect_stickynapalm.vpcf"
+      "StatusEffectPriority"  "15"
+      "EffectName"    "particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf"
+      "EffectAttachType"  "follow_origin"
+    }
+  }
+}

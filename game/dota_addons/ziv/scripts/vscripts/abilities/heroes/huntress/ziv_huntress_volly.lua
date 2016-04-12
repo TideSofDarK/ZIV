@@ -6,6 +6,10 @@ ProjectileHolder = {}
 function Volly(args)
 	local caster = args.caster
 	local ability = args.ability
+	local target = args.target_points[1]
+
+	caster:SetForwardVector((target - caster:GetAbsOrigin()):Normalized() )
+	caster:Stop()
 
 	local info = 
 	{
@@ -31,12 +35,20 @@ function Volly(args)
 	local z = 0.04
 
 	Timers:CreateTimer(function (  )
-		if i < 30.5 and ability:IsChanneling() == true then
+		if i < 30.5 and caster:HasModifier("modifier_volly") then
+			caster:SetForwardVector((target - caster:GetAbsOrigin()):Normalized() )
+			caster:Stop()
+
 			info.vVelocity = RotatePosition(Vector(0,0,0), QAngle(0,i,0), caster:GetForwardVector()) * args.MoveSpeed
 			projectile = ProjectileManager:CreateLinearProjectile(info)
 
 			i = i + (30.5/5)
 			z = z + 0.006
+
+			StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=3.0, translate="focusfire"})
+
+			caster:EmitSound("Hero_DrowRanger.Attack")
+
 			return z
 		else
 

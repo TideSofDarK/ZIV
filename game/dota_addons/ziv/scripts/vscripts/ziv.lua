@@ -35,6 +35,8 @@ require('libraries/containers')
 require('libraries/worldpanels')
 -- Modmaker
 require('libraries/modmaker')
+-- Traps
+require('libraries/traps')
 
 require('items/crafting')
 
@@ -53,6 +55,8 @@ require('items/equipment')
 
 require('director')
 require('loot')
+
+LinkLuaModifier("modifier_fade_out", "libraries/modifiers/modifier_fade_out.lua", LUA_MODIFIER_MOTION_NONE)
 
 ZIV.pidInventory = {}
 lootSpawns = nil

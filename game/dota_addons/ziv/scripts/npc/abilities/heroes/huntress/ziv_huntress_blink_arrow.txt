@@ -1,0 +1,83 @@
+"ziv_huntress_blink_arrow"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"       
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_queenofpain.vsndevts"
+    "particle"      "particles/heroes/huntress/huntress_blink_arrow_start.vpcf"
+    "particle"      "particles/heroes/huntress/huntress_blink_arrow_attack.vpcf"   
+    "particle"      "particles/econ/events/ti5/blink_dagger_start_sparkles_ti5.vpcf"
+    "particle"      "particles/econ/events/ti5/blink_dagger_end_lvl2_ti5.vpcf"
+  }
+
+  "AbilityCastRange"        "900"
+  "AbilityCastPoint"        "0.2"
+  "AbilityCooldown"       "10.0"
+  "AbilityCastAnimation"      "ACT_DOTA_ATTACK"
+
+  "AbilityManaCost"       "75"
+
+  "MaxLevel"  "7"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "arrow_delay"    "1.5"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_blink_arrow.lua"
+      "Function"    "FireArrow"
+      "Target"    "POINT"
+    }
+
+    "FireEffect"
+    {
+      "EffectName"        "particles/heroes/huntress/huntress_blink_arrow_start.vpcf"
+      "EffectAttachType"  "follow_origin"
+      "Target"            "CASTER"
+    }
+
+    "FireSound"
+    {
+      "EffectName"            "Hero_Medusa.Attack"
+      "Target"                "CASTER"
+    }
+
+    "DelayedAction"
+    {
+      "Delay"     "%arrow_delay"
+      "Action"    
+      {
+        "FireEffect"
+        {
+          "EffectName"        "particles/heroes/huntress/huntress_blink_arrow_attack.vpcf"
+          "EffectAttachType"  "start_at_customorigin"
+          "TargetPoint"       "POINT"
+
+          "ControlPoints"
+          {
+            "01"    "POINT"
+          }
+        }
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_blink_arrow.lua"
+          "Function"    "Blink"
+          "Target"    "POINT"
+        }
+      }
+    }
+  }
+}

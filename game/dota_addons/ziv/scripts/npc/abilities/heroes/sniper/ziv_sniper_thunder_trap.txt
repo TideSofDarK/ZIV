@@ -1,0 +1,91 @@
+"ziv_sniper_thunder_trap"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"      
+    "particle"      "particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
+    "particle"  "particles/heroes/sniper/sniper_thunder_trap_sparks.vpcf"
+    "particle"  "particles/units/heroes/hero_ursa/ursa_earthshock_dust.vpcf"
+    "particle"  "particles/units/heroes/hero_ursa/ursa_dust_hit.vpcf"
+    "particle"  "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+    "particle"  "particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_ground_smoke.vpcf"
+  }
+
+  "AbilityCastRange"        "400"
+  "AbilityCastPoint"        "0.001"
+  "AbilityCooldown"       "5.0"
+
+  "AbilityManaCost"       "75"
+
+  "MaxLevel"  "7"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "damage_amp"    "3.5"
+    }
+    "02"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "incoming_damage_amp_duration"    "4.1"
+    }
+    "03"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "incoming_damage_amp"    "130"
+    }
+    "04"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "trap_duration"    "10"
+    }
+    "05"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "trap_radius"    "400"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/sniper/ziv_sniper_thunder_trap.lua"
+      "Function"    "CreateTrapUnit"
+      "Target"    "POINT"
+    }
+
+    "FireSound"
+    {
+      "EffectName"            "Hero_Techies.StasisTrap.Plant"
+      "Target"                "CASTER"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_thunder_trap_effect"
+    {
+      "Duration" "%incoming_damage_amp_duration"
+
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "1"
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%incoming_damage_amp" 
+      }
+
+      "StatusEffectName"  "particles/status_fx/status_effect_electrical.vpcf"
+      "StatusEffectPriority"  "2"
+    }
+  }
+}

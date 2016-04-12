@@ -1,10 +1,9 @@
-"npc_dummy_unit"
+"npc_explosive_trap"
 {
     "BaseClass"         "npc_dota_creature"
-    "Model"           "models/development/invisiblebox.vmdl"
-    "SoundSet"          "Creep_Good_Range"
-    "Level"           "0"
-    "UnitLabel"         "healing_ward"
+    "Model"           "models/items/rattletrap/mechanised_pilgrim_cog/mechanised_pilgrim_cog.vmdl"
+    "Level"           "1"
+
     "Ability1"          "dummy_unit"
 
     "ArmorPhysical"       "0"
@@ -42,7 +41,7 @@
 
     "StatusHealth"        "1"
     "StatusHealthRegen"     "0"
-    "StatusMana"        "1"
+    "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
     "TeamName"          "DOTA_TEAM_GOODGUYS"

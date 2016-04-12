@@ -1,3 +1,8 @@
+function AddChildParticle( unit, particle )
+  unit.particles = unit.particles or {}
+  table.insert(unit.particles, particle)
+end
+
 function CreateItemPanel( item_container )
   item_container.worldPanel = WorldPanels:CreateWorldPanelForAll(
     {layout = "file://{resources}/layout/custom_game/worldpanels/item.xml",

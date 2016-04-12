@@ -180,15 +180,15 @@
 	  {
 	    "override_hero"     "npc_dota_hero_sniper"
 	
-	    "ChooseLayout"  "1122"
+	    "ChooseLayout"  "1112"
 	
 	    "AbilityLayout"     "4"
 	    
 	    "Ability1"        "ziv_sniper_empty1" 
 	    "Ability2"        "ziv_sniper_empty2" 
 	    "Ability3"        "ziv_sniper_trueshot_aura" 
-	    "Ability4"        "ziv_empty4"
-	    "Ability5"        "ziv_empty5"
+	    "Ability4"        "ziv_sniper_explosive_trap"
+	    "Ability5"        "ziv_sniper_thunder_trap"
 	    "Ability6"        "ziv_empty6"
 	    "Ability7"        ""
 	    "Ability8"        ""
@@ -238,14 +238,14 @@
 	  {
 	    "override_hero"     "npc_dota_hero_windrunner"
 	
-	    "ChooseLayout"  "1212"
+	    "ChooseLayout"  "1111"
 	
 	    "AbilityLayout"     "4"
 	
 	    "Ability1"        "ziv_huntress_trap" 
 	    "Ability2"        "ziv_huntress_passive_snare" 
 	    "Ability3"        "ziv_huntress_volly" 
-	    "Ability4"        "ziv_empty4"
+	    "Ability4"        "ziv_huntress_blink_arrow"
 	    "Ability5"        "ziv_empty5"
 	    "Ability6"        "ziv_empty6"
 	    "Ability7"        ""
