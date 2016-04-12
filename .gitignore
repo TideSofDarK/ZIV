@@ -32,3 +32,4 @@ game/dota_addons/ziv/resource/overviews/*
 *.exe
 *.bat
 
+*.sublime-workspace
