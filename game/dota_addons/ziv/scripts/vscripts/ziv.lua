@@ -62,7 +62,7 @@ LinkLuaModifier("modifier_fade_out", "libraries/modifiers/modifier_fade_out.lua"
 
 function ZIV:OpenInventory(args)
   local pid = args.PlayerID
-  pidInventory[pid]:Open(pid)
+  ZIV.pidInventory[pid]:Open(pid)
 end
 
 --[[
@@ -164,7 +164,7 @@ function ZIV:OnHeroInGame(hero)
     OnRightClickJS = "SpecialContextMenu"
   })
 
-  pidInventory[pid] = c
+  ZIV.pidInventory[pid] = c
 
   local item = CreateItem("item_gem_malachite", hero, hero)
   c:AddItem(item)
@@ -289,7 +289,7 @@ function ZIV:AddItemToContainer(item, count)
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
       local item = CreateItem(item, hero, hero)
-      pidInventory[playerID]:AddItem(item, tonumber(count) or nil)
+      ZIV.pidInventory[playerID]:AddItem(item, tonumber(count) or nil)
     end
   end
 end
@@ -354,7 +354,7 @@ if LOADED then
 end
 LOADED = true
 
-pidInventory = {}
+ZIV.pidInventory = {}
 lootSpawns = nil
 itemDrops = nil
 privateBankEnt = nil
