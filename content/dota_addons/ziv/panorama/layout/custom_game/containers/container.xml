@@ -1,11 +1,11 @@
 <root>
   <styles>
     <include src="s2r://panorama/styles/dotastyles.vcss_c" />
-    <include src="file://{resources}/styles/custom_game/containers/container.css" />
-    <include src="file://{resources}/styles/custom_game/containers/container_skins.css" />
+    <include src="file://{resources}/styles/containers/container.css" />
+    <include src="file://{resources}/styles/containers/container_skins.css" />
   </styles>
   <scripts>
-    <include src="file://{resources}/scripts/custom_game/containers/container.js" /> 
+    <include src="file://{resources}/scripts/containers/container.js" /> 
   </scripts>
   <Panel draggable="true" class="Outer">
     <Panel id="Header">
@@ -20,3 +20,4 @@
     </Panel>
   </Panel>
 </root>
+ 

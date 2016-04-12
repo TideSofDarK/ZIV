@@ -30,7 +30,6 @@ require('libraries/maths')
 require('libraries/popups')
 -- Containers
 require('libraries/playertables')
-require('libraries/containers')
 -- Worldpanels
 require('libraries/worldpanels')
 -- Modmaker
@@ -56,46 +55,14 @@ require('items/equipment')
 require('director')
 require('loot')
 
+-- Containers
+require('libraries/containers')
+
 LinkLuaModifier("modifier_fade_out", "libraries/modifiers/modifier_fade_out.lua", LUA_MODIFIER_MOTION_NONE)
-
-ZIV.pidInventory = {}
-lootSpawns = nil
-itemDrops = nil
-privateBankEnt = nil
-sharedBankEnt = nil
-contShopRadEnt = nil
-contShopDireEnt = nil
-itemShopEnt = nil
-
-contShopRad = nil
-contShopDire = nil
-itemShop = nil
-sharedBank = nil
-privateBank = {}
-
-defaultInventory = {}
 
 function ZIV:OpenInventory(args)
   local pid = args.PlayerID
-  ZIV.pidInventory[pid]:Open(pid)
-end
-
-function ZIV:DefaultInventory(args)
-  local pid = args.PlayerID
-  local hero = PlayerResource:GetSelectedHeroEntity(pid)
-
-  local di = defaultInventory[pid]
-  local msg = "Default Inventory Set To Container Inventory"
-  if di then
-    Containers:SetDefaultInventory(hero, nil)
-    defaultInventory[pid] = false
-    msg = "Default Inventory Set To DOTA Inventory"
-  else
-    Containers:SetDefaultInventory(hero, ZIV.pidInventory[pid])
-    defaultInventory[pid] = true
-  end
-
-  Notifications:Top(pid, {text=msg,duration=5})
+  pidInventory[pid]:Open(pid)
 end
 
 --[[
@@ -174,18 +141,30 @@ function ZIV:OnHeroInGame(hero)
   local pid = hero:GetPlayerID()
   local player = PlayerResource:GetPlayer(pid)
 
+  -- local c = Containers:CreateContainer({
+  --   layout =      {3,3,3,3,3},
+  --   skins =       {}, --
+  --   headerText =  "Bag",
+  --   pids =        {pid},
+  --   entity =      hero,
+  --   closeOnOrder = false,
+  --   position =    "1200px 600px 0px",
+  --   OnDragWorld = true,
+  -- })
+
   local c = Containers:CreateContainer({
     layout =      {3,3,3,3,3},
     skins =       {"Hourglass"},
     headerText =  "Bag",
     pids =        {pid},
     entity =      hero,
-    closeOnOrder = false,
-    position =    "1200px 600px 0px",
+    closeOnOrder =false,
+    position =    "75% 25%",
     OnDragWorld = true,
+    OnRightClickJS = "SpecialContextMenu"
   })
 
-  ZIV.pidInventory[pid] = c
+  pidInventory[pid] = c
 
   local item = CreateItem("item_gem_malachite", hero, hero)
   c:AddItem(item)
@@ -199,7 +178,12 @@ function ZIV:OnHeroInGame(hero)
   item = CreateItem("item_basic_leather", hero, hero)
   c:AddItem(item, 3)
 
+  defaultInventory[pid] = true
   Containers:SetDefaultInventory(hero, c)
+
+  local pack = CreateItem("item_containers_lua_pack", hero, hero)
+  pack.container = c
+  hero:AddItem(pack)
 
   local hero_name = hero:GetUnitName()
 
@@ -305,7 +289,7 @@ function ZIV:AddItemToContainer(item, count)
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
       local item = CreateItem(item, hero, hero)
-      ZIV.pidInventory[playerID]:AddItem(item, tonumber(count) or nil)
+      pidInventory[playerID]:AddItem(item, tonumber(count) or nil)
     end
   end
 end
@@ -364,3 +348,25 @@ function ZIV:SpawnBasicDrop(rarity)
     end
   end
 end
+
+if LOADED then
+  return
+end
+LOADED = true
+
+pidInventory = {}
+lootSpawns = nil
+itemDrops = nil
+privateBankEnt = nil
+sharedBankEnt = nil
+contShopRadEnt = nil
+contShopDireEnt = nil
+itemShopEnt = nil
+
+contShopRad = nil
+contShopDire = nil
+itemShop = nil
+sharedBank = nil
+privateBank = {}
+
+defaultInventory = {}

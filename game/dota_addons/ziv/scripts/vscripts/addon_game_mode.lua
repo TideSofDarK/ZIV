@@ -49,7 +49,6 @@ end
 
 -- Create the game mode when we activate
 function Activate()
-  Containers:Init()
   GameRules.ZIV = ZIV()
   GameRules.ZIV:InitZIV()
 end
