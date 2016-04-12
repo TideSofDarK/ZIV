@@ -7,7 +7,6 @@
     <include src="s2r://panorama/styles/hero_splash.vcss_c" />
   </styles>
   <scripts>
-    <include src="file://{resources}/scripts/custom_game/playertables/playertables.js" /> 
     <include src="file://{resources}/scripts/custom_game/containers/container_base.js" /> 
     <include src="file://{resources}/scripts/custom_game/containers/dota_inventory.js" /> 
   </scripts>
