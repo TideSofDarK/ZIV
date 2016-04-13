@@ -709,6 +709,93 @@
 	    }
 	  }
 	}
+	"ziv_huntress_ballista"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "AbilityTextureName"            "rubick_empty1"
+	  
+	  "AbilityCastAnimation"      ""
+	  
+	  "AbilityCastRange"        "1100"
+	  "AbilityManaCost"         "60"
+	  "AbilityCastPoint"        "0.001"
+	  "AbilityChannelTime"      "1.0"
+	  "AbilityCooldown"         "4"
+	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "soundfile"           "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_FLOAT"
+	      "ballista_duration"            "9.5"
+	    }
+	  }
+	  
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_ballista.lua"
+	      "Function"    "SpawnBallista"
+	      "Target"    "POINT"
+	    }
+	  }
+	
+	  "OnProjectileHitUnit"
+	  {
+	    "DeleteOnHit"  "1"
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_ballista.lua"
+	      "Function"    "SplitShotImpact"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_ballista"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_UNSELECTABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_CANNOT_MISS"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	
+	      "OnDeath"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_ballista.lua"
+	          "Function"    "BallistaDeath"
+	        }
+	      }
+	
+	      "OnAttackLanded"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_ballista.lua"
+	          "Function"    "SplitShot"
+	        }
+	      }
+	    }
+	  }
+	}
 	"ziv_huntress_blink_arrow"
 	{
 	  "BaseClass"           "ability_datadriven"

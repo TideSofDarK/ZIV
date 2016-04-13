@@ -18,7 +18,9 @@ function TrapTimer( keys, check, remove, duration )
 	Timers:CreateTimer(function (  )
 		if keys.trap and keys.trap:IsNull() == false and not keys.trap.worldPanel then
 			if time < duration then
-				check( keys )
+				if check then 
+					check( keys )
+				end
 			else
 				remove( keys )
 			end
