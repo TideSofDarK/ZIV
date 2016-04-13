@@ -113,7 +113,7 @@
       {
         "DelayedAction"
         {
-          "Delay"     "2.0"
+          "Delay"     "1.0"
           "Action"    
           {
             "ActOnTargets"

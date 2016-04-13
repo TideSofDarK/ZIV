@@ -26,6 +26,8 @@ function ZIV:OnPlayerSelectedHero( args )
   hero:AddAbility("ziv_hero_normal_hpbar_behavior")
 
   InitAbilities(hero)
+
+  hero:AddNewModifier(hero,nil,"modifier_disable_auto_attack",{})
 end
 
 function ZIV:OnDisconnect(keys)

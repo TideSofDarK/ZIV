@@ -59,6 +59,7 @@ require('loot')
 require('libraries/containers')
 
 LinkLuaModifier("modifier_fade_out", "libraries/modifiers/modifier_fade_out.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_disable_auto_attack", "libraries/modifiers/modifier_disable_auto_attack.lua", LUA_MODIFIER_MOTION_NONE)
 
 function ZIV:OpenInventory(args)
   local pid = args.PlayerID

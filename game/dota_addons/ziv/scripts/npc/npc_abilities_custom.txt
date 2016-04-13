@@ -334,6 +334,18 @@
 	  
 	  "Modifiers"
 	  {
+	    "modifier_disable_auto_attack"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
+	      }
+	    }
+	
 	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
 	    {
 	      "Passive"      "0"
@@ -827,7 +839,7 @@
 	    "01"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "arrow_delay"    "1.5"
+	      "arrow_delay"    "1.1"
 	    }
 	  }
 	
@@ -1092,7 +1104,7 @@
 	      {
 	        "DelayedAction"
 	        {
-	          "Delay"     "2.0"
+	          "Delay"     "1.0"
 	          "Action"    
 	          {
 	            "ActOnTargets"

@@ -65,6 +65,11 @@ function BeginAttackState(targetEntity){
 		order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_ATTACK_TARGET;
 		order.TargetIndex = targetEntity
 		Game.PrepareUnitOrders(order)
+
+		if (GameUI.CustomUIConfig().LMBPressed == true) {
+			$.Schedule(0.4, OnLeftButtonPressed);
+
+		}
 		return
 	}
 	/*
@@ -212,46 +217,47 @@ function BeginMoveState()
 // Handle Left Button events
 function OnLeftButtonPressed()
 {
-	if(Entities.GetAbilityCount(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) >= 7){
-		var castAbilityIndex = Entities.GetAbility( Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), 5 );
-		var targetIndex = GetMouseCastTarget();
-		if ( targetIndex === -1 )
-		{
-			if ( GameUI.IsShiftDown() )
-			{
-				if(Abilities.IsPassive(castAbilityIndex)){
-					//BeginAttackState()
-				}else{
-					BeginSpellState( 0, castAbilityIndex, -1 );
-				}
-			}
-			else
-			{
-				BeginMoveState();
-			}
-		}
-		else if ( Entities.IsItemPhysical( targetIndex ) )
-		{
-			BeginPickUpState( targetIndex );
-		}
-		else
-		{
-			if(!Abilities.IsPassive(castAbilityIndex) && Abilities.IsCooldownReady(castAbilityIndex) && Abilities.GetLevel(castAbilityIndex) > 0 && Abilities.GetManaCost(castAbilityIndex) < Entities.GetMana(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))){
-				BeginSpellState( 0, castAbilityIndex, targetIndex );
-				$.Msg("ATTACK " + ("" + !Abilities.IsPassive(castAbilityIndex)) + ("" + Abilities.IsCooldownReady(castAbilityIndex)) + ("" + Abilities.GetLevel(castAbilityIndex) > 0) + ( "" + Abilities.GetManaCost(castAbilityIndex) < Entities.GetMana(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))));
-			}else{
-				if ( GameUI.IsShiftDown() )
-				{
+	// if(Entities.GetAbilityCount(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) >= 7){
+		// var castAbilityIndex = Entities.GetAbility( Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), 5 );
+		// var targetIndex = GetMouseCastTarget();
+		// if ( targetIndex === -1 )
+		// {
+		// 	if ( GameUI.IsShiftDown() )
+		// 	{
+		// 		if(Abilities.IsPassive(castAbilityIndex)){
+		// 			BeginAttackState()
+		// 		}else{
+		// 			BeginSpellState( 0, castAbilityIndex, -1 );
+		// 		}
+		// 	}
+		// 	else
+		// 	{
+		// 		BeginMoveState();
+		// 	}
+		// }
+		// else if ( Entities.IsItemPhysical( targetIndex ) )
+		// {
+		// 	BeginPickUpState( targetIndex );
+		// }
+		// else
+		// {
+		// 	if(!Abilities.IsPassive(castAbilityIndex) && Abilities.IsCooldownReady(castAbilityIndex) && Abilities.GetLevel(castAbilityIndex) > 0 && Abilities.GetManaCost(castAbilityIndex) < Entities.GetMana(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))){
+		// 		BeginSpellState( 0, castAbilityIndex, targetIndex );
+		// 		$.Msg("ATTACK " + ("" + !Abilities.IsPassive(castAbilityIndex)) + ("" + Abilities.IsCooldownReady(castAbilityIndex)) + ("" + Abilities.GetLevel(castAbilityIndex) > 0) + ( "" + Abilities.GetManaCost(castAbilityIndex) < Entities.GetMana(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))));
+		// 	}else{
+		// 		if ( GameUI.IsShiftDown() )
+		// 		{
 
-					GameUI.SelectUnit( targetIndex, false )
-				}
-				else
-				{
-					BeginAttackState(targetIndex);
-				}
-			}
-		}
-	}else{
+		// 			GameUI.SelectUnit( targetIndex, false )
+		// 		}
+		// 		else
+		// 		{
+		// 			BeginAttackState(targetIndex);
+		// 		}
+		// 	}
+		// }
+	// }else
+	{
 		var targetIndex = GetMouseCastTarget();
 		if ( targetIndex === -1 )
 		{
@@ -363,7 +369,9 @@ GameUI.SetMouseCallback( function( eventName, arg ) {
 		// Left-click is move to position or attack
 		if ( arg === 0 )
 		{
+			GameUI.CustomUIConfig().LMBPressed = true;
 			OnLeftButtonPressed();
+			
 			return CONSUME_EVENT;
 		}
 
@@ -379,6 +387,16 @@ GameUI.SetMouseCallback( function( eventName, arg ) {
 		{
 			g_targetYaw = 0;
 			g_yaw = g_targetYaw;
+			return CONSUME_EVENT;
+		}
+	}
+
+	if ( eventName === "released" )
+	{
+		// Left-click is move to position or attack
+		if ( arg === 0 )
+		{
+			GameUI.CustomUIConfig().LMBPressed = false;
 			return CONSUME_EVENT;
 		}
 	}
