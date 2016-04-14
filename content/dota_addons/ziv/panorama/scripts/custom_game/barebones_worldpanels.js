@@ -17,77 +17,20 @@ var entities = [];
 // panel deletion call?
 // Delete call to server for cleanup
 
-function WorldPanelChange(id, changes, dels)
+function Position( wp, k )
 {
-  //$.Msg("change ", id, ' -- ', changes, ' -- ', dels);
-  for (var k in changes){
-    var wp = panels[k];
-    if (!wp){
-      wp = {};
-      panels[k] = wp;
-    }
-
-    if (changes[k].layout !== wp.layout){
-      if (wp.panel)
-        wp.panel.DeleteAsync(0);
-
-      wp.panel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
-      wp.panel.BLoadLayout(changes[k].layout, false, false);
-      wp.panel.WorldPanel = wp;
-      wp.panel.Data = wp.data;
-      wp.panel.OnEdge = false;
-      wp.panel.OffScreen = false;
-      wp.panel.DeleteWorldPanel = function(pan){ 
-        return function(){
-          pan.DeleteAsync(0);
-          delete panels[k];
-        }
-      }(wp.panel);
-
-    }
-
-    for (j in changes[k]){
-      if (j == "position"){
-        wp[j] = changes[k][j].split(' ');
-        wp[j] = [parseFloat(wp[j][0]), parseFloat(wp[j][1]), parseFloat(wp[j][2])]
-      }
-      else
-        wp[j] = changes[k][j];
-    }
-    
-    //wp.dirty = true;
-    wp.offsetX = wp.offsetX || 0;
-    wp.offsetY = wp.offsetY || 0;
-    wp.entityHeight = wp.entityHeight || 0;
-    wp.hAlign = wp.hAlign || HA_CENTER;
-    wp.vAlign = wp.vAlign || VA_BOTTOM;
-    wp.edge = wp.edge || -1;
-
-  }
-
-  for (var k in dels){
-    panels[k].panel.DeleteAsync(0);
-    delete panels[k];
-  }
-}
-
-function PositionPanels()
-{
-  //$.Msg(Object.keys(panels).length);
-  for (var k in panels){
-    var wp = panels[k];
     var pos = wp.position;
     if (!pos){
       if (!Entities.IsValidEntity(wp.entity)){
         panels[k].panel.DeleteAsync(0);
         delete panels[k];
-        continue;
+        return
       }
 
       pos = Entities.GetAbsOrigin(wp.entity);
       if (entities.indexOf(wp.entity) === -1){
         wp.panel.visible = false;
-        continue;
+        return
       }
       wp.panel.visible = true;
 
@@ -198,14 +141,236 @@ function PositionPanels()
     {
       wp.panel.visible = true;  
     }
-
     
     wp.panel.style.position = x + "px " + y + "px 0px;";
+    
+    wp.panel.X = x;
+    wp.panel.Y = y;
+}
 
-    //$.Msg(k, ' -- ', pw, ' -- ', ph);
-    //var x = scale * Math.min(sw - panel.desiredlayoutwidth,Math.max(0, wx - panel.desiredlayoutwidth/2));
-    //var y = scale * Math.min(sh - panel.desiredlayoutheight,Math.max(0, wy - panel.desiredlayoutheight - 50));
+function UpdateParams( panel )
+{
+    var sh = GameUI.CustomUIConfig().screenheight;
+    var scale = 1080 / sh;
+
+    panel.X = panel.actualxoffset * scale;
+    panel.Y = panel.actualyoffset * scale;
+
+    panel.Width = panel.actuallayoutwidth * scale;
+    panel.Height = panel.actuallayoutheight * scale;
+}
+
+function WorldPanelChange(id, changes, dels)
+{
+  //$.Msg("change ", id, ' -- ', changes, ' -- ', dels);
+  for (var k in changes){
+    var wp = panels[k];
+    if (!wp){
+      wp = {};
+      panels[k] = wp;
+    }
+
+    if (changes[k].layout !== wp.layout){
+      if (wp.panel)
+        wp.panel.DeleteAsync(0);
+
+      wp.panel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
+      wp.panel.BLoadLayout(changes[k].layout, false, false);
+      wp.panel.WorldPanel = wp;
+      wp.panel.Data = wp.data;
+      wp.panel.OnEdge = false;
+      wp.panel.OffScreen = false;
+
+      wp.panel.X = 0;
+      wp.panel.Y = 0;
+
+      wp.panel.DeleteWorldPanel = function(pan){ 
+        return function(){
+          pan.DeleteAsync(0);
+          delete panels[k];
+        }
+      }(wp.panel);
+
+      wp.Position = function() {
+        return function(){
+          Position(wp, k);
+        }
+      }(wp, k);
+
+      wp.panel.UpdateParams = function() {
+        return function(){
+          UpdateParams(wp.panel);
+        }
+      }(wp.panel);
+
+      wp.panel.UpdateParams();
+    }
+
+    for (j in changes[k]){
+      if (j == "position"){
+        wp[j] = changes[k][j].split(' ');
+        wp[j] = [parseFloat(wp[j][0]), parseFloat(wp[j][1]), parseFloat(wp[j][2])]
+      }
+      else
+        wp[j] = changes[k][j];
+    }
+    
+    //wp.dirty = true;
+    wp.offsetX = wp.offsetX || 0;
+    wp.offsetY = wp.offsetY || 0;
+    wp.entityHeight = wp.entityHeight || 0;
+    wp.hAlign = wp.hAlign || HA_CENTER;
+    wp.vAlign = wp.vAlign || VA_BOTTOM;
+    wp.edge = wp.edge || -1;
+
   }
+
+  for (var k in dels){
+    panels[k].panel.DeleteAsync(0);
+    delete panels[k];
+  }
+}
+
+//-----------------------------------------------------------------------------
+// Panels reposition
+//-----------------------------------------------------------------------------
+var positionPanels = [];
+
+function IsInside( checkElem, elem )
+{
+    var lt_c = { x: checkElem.X, y: checkElem.Y };
+    var rb_c = { x: checkElem.X + checkElem.Width, y: checkElem.Y + checkElem.Height };
+
+    var lt = { x: elem.X, y: elem.Y };
+    var rb = { x: elem.X + elem.Width, y: elem.Y + elem.Height };
+    
+    return { 
+        x: (lt.x >= lt_c.x && lt.x <= rb_c.x) || (rb.x >= lt_c.x && rb.x <= rb_c.x),
+        y: (lt.y >= lt_c.y && lt.y <= rb_c.y) || (rb.y >= lt_c.y && rb.y <= rb_c.y)
+    };
+}
+
+function RemoveIntersectsIdeal( checkElem, elem )
+{
+    var lt_c = { x: checkElem.X, y: checkElem.Y };
+    var rb_c = { x: checkElem.X + checkElem.Width, y: checkElem.Y + checkElem.Height };
+
+    var lt = { x: elem.X, y: elem.Y };
+    var rb = { x: elem.X + elem.Width, y: elem.Y + elem.Height };
+    
+    var isInside = IsInside(checkElem, elem);
+    
+    if (isInside.x && isInside.y)
+    {
+        var newPosX = (lt_c.x + checkElem.Width / 2) <= (lt.x + elem.Width / 2) 
+                    ? lt.x - checkElem.Width
+                    : rb.x;
+                    
+        var newPosY = (lt_c.y + checkElem.Height / 2) <= (lt.y + elem.Height / 2) 
+                    ? lt.y - checkElem.Height
+                    : rb.y;
+        
+        var overX = Math.abs((checkElem.X - newPosX) / checkElem.Width);
+        var overY = Math.abs((checkElem.Y - newPosY) / checkElem.Height);
+        
+        if (Math.abs(overX - overY) < 0.1)
+        {
+            checkElem.style.position = parseInt(newPosX) + "px " + parseInt(newPosY) + "px 0px;";
+            return;
+        }
+        
+        if (overX < overY)
+            checkElem.style.position = parseInt(newPosX) + "px " + parseInt(checkElem.Y) + "px 0px;";
+        else
+            checkElem.style.position = parseInt(checkElem.X) + "px " + parseInt(newPosY) + "px 0px;";
+    }
+}
+
+function RemoveIntersectsGrid( checkElem, elem )
+{
+    var isInside = IsInside( checkElem, elem );
+    if (isInside.x && Math.abs(checkElem.Y - elem.Y) < 2)//Math.abs(checkElem.Y - elem.Y) / checkElem.Height < 0.1 )
+    {
+      var newPosX = elem.X + elem.Width;
+      
+      var yOffset = checkElem.Y % checkElem.Height;
+      yOffset = isNaN(yOffset) ? 0 : yOffset
+      var offsetCount =  yOffset < checkElem.Height / 2 ? 0 : 1;
+
+      checkElem.style.position = parseInt(newPosX) + "px " + parseInt(checkElem.Y - yOffset + offsetCount * checkElem.Height ) + "px 0px;";
+    }
+}
+
+function CheckElement( elem )
+{
+    var index = positionPanels.indexOf(elem);
+    positionPanels.forEach(function(item, i, arr){
+        if (i >= index)
+            return;
+
+        RemoveIntersectsGrid( elem, item );
+        //RemoveIntersectsIdeal( elem, item );
+        //IsIntersectsLinearRightBottom( elem, item );
+    });
+}
+
+function RepositionItems()
+{
+    positionPanels.forEach(function(item, i, arr) {
+        var yOffset = item.Y % item.Height;
+        yOffset = isNaN(yOffset) ? 0 : yOffset
+        var offsetCount =  yOffset < item.Height / 2 ? 0 : 1;
+
+        item.style.position = parseInt(item.X) + "px " + parseInt(item.Y - yOffset + offsetCount * item.Height ) + "px 0px;";
+
+        item.UpdateParams();     
+    });
+
+    positionPanels.sort(function(a, b){
+        if (Math.abs(a.Y - b.Y) < 3)
+          return a.X < b.X ? -1 : 1;
+
+        return a.Y < b.Y ? -1 : 1;
+        return 0;
+    });
+
+    // Сортировка слева направо сверху вниз
+    /*positionPanels.sort(function(a, b){
+        if (a.X < b.X && a.Y < b.Y) {
+            return -1;
+        }
+        if (a.X > b.X && a.Y > b.Y) {
+            return 1;
+        }
+
+        if (a.X < b.X)
+            return a.Y > b.Y ? 1 : -1;
+        else
+            return a.Y < b.Y ? -1 : 1;
+
+        // a должно быть равным b
+        return 0;
+    });*/
+
+    positionPanels.forEach(function(item, i, arr) {
+        CheckElement(item);
+    });
+}
+
+function PositionPanels()
+{
+  positionPanels = [];
+
+  //$.Msg(Object.keys(panels).length);
+  for (var k in panels){
+    var wp = panels[k];
+    wp.Position();
+    wp.panel.UpdateParams();
+
+    positionPanels.push(wp.panel);
+  }
+
+  RepositionItems();
 
   $.Schedule(1/200, PositionPanels);
 }
