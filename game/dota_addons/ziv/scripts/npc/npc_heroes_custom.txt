@@ -5,15 +5,15 @@
 	    "AbilityLayout"     "4"
 	    "override_hero"     "npc_dota_hero_beastmaster"
 	
-	    "ChooseLayout"  "1122"
+	    "ChooseLayout"  "2111"
 	
 	    "AbilityLayout"     "4"
 	
 	    "Ability1"        "ziv_beastmaster_pet" 
-	    "Ability2"        "ziv_empty2" 
-	    "Ability3"        "ziv_beastmaster_bird" 
-	    "Ability4"        "ziv_empty4"
-	    "Ability5"        "ziv_empty5"
+	    "Ability2"        "ziv_beastmaster_pet2" 
+	    "Ability3"        "ziv_beastmaster_cleave" 
+	    "Ability4"        "ziv_beastmaster_bird"
+	    "Ability5"        "ziv_beastmaster_leap"
 	    "Ability6"        "ziv_empty6"
 	    "Ability7"        ""
 	    "Ability8"        ""
@@ -235,19 +235,19 @@
 	    "VisionNighttimeRange"    "1800"
 	  }
 	"npc_dota_hero_windrunner_ziv"
-	  {
+	{
 	    "override_hero"     "npc_dota_hero_windrunner"
 	
-	    "ChooseLayout"  "2111"
+	    "ChooseLayout"  "21111"
 	
-	    "AbilityLayout"     "4"
+	    "AbilityLayout"     "5"
 	
 	    "Ability1"        "ziv_huntress_ballista" 
 	    "Ability2"        "ziv_huntress_volly" 
-	    "Ability3"        "ziv_huntress_passive_snare" 
+	    "Ability3"        "ziv_huntress_focus_fire" 
 	    "Ability4"        "ziv_huntress_blink_arrow"
 	    "Ability5"        "ziv_huntress_trap"
-	    "Ability6"        "ziv_empty5"
+	    "Ability6"        "ziv_huntress_passives"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -291,5 +291,5 @@
 	
 	    "VisionDaytimeRange"    "1800"
 	    "VisionNighttimeRange"    "1800"
-	  }
+	}
 }

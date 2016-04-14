@@ -160,7 +160,7 @@ function UpdateAbilityList()
 		var ability = Entities.GetAbility( queryUnit, i );
 		if ( ability == -1 )
 			continue;
-
+		
 		if ( !Abilities.IsDisplayedAbility(ability) )
 			continue;
 		
@@ -170,6 +170,11 @@ function UpdateAbilityList()
 			var abilityPanel = $.CreatePanel( "Panel", abilityListPanel, "" );
 			abilityPanel.BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_ability.xml", false, false );
 			m_AbilityPanels.push( abilityPanel );
+
+			if (abilityLayout == 5) {
+				$.Msg("asd");
+				abilityPanel.AddClass("Layout5");
+			}
 		}
 
 		// update the panel for the current unit / ability

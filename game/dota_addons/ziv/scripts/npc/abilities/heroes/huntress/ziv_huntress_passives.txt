@@ -1,4 +1,4 @@
-"ziv_huntress_passive_snare"
+"ziv_huntress_passives"
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -27,6 +27,11 @@
       "var_type"      "FIELD_FLOAT"
       "snare_duration"    "3.5 4.0 4.5 5.0"
     }
+    "03"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "bonus_attackspeed"    "100"
+    }
   }
 
   "OnProjectileHitUnit"
@@ -43,11 +48,16 @@
 
   "Modifiers"
   {
-    "modifier_passive_snare"
+    "modifier_passives"
     {
       "Passive"      "1"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
+      }
 
       "OnAttackStart"
       {

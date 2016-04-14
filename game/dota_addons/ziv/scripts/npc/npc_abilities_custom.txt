@@ -538,6 +538,138 @@
 	    }
 	  }
 	}
+	"ziv_beastmaster_cleave"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+	
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastPoint"        "0.001"
+	  "AbilityCooldown"        "0.05"
+	  "AbilityCastRange"        "128"
+	
+	  "AbilityManaCost"       "12"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/units/heroes/hero_ursa/ursa_claw_left.vpcf"
+	    "particle"  "particles/units/heroes/hero_ursa/ursa_claw_right.vpcf"
+	    "particle"  "particles/items_fx/battlefury_cleave.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
+	  }
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type" "FIELD_FLOAT"
+	      "bonus_attack_speed" "100"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_cleave.lua"
+	      "Function"    "Cleave"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	  }
+	}
+	"ziv_beastmaster_leap"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	
+		"AbilityTextureName"	"rubick_empty1"
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_ursa/ursa_earthshock.vpcf"
+			"particle"  "particles/heroes/beastmaster/beastmaster_leap_trail.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_beastmaster.vsndevts"
+		}
+	
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+		"AbilityCooldown"				"6.0"
+		
+		"AbilityManaCost"				"40 35 30 20"
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"leap_distance"			"800"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"leap_speed"			"1600.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"leap_acceleration"		"7000.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_radius"		"775"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus"	"4 8 12 16"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus_as"	"8 16 24 32"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"leap_duration"			"10.0"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Beastmaster.Call.Hawk"
+				"Target"		"CASTER"
+			}
+			
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/heroes/beastmaster/ziv_beastmaster_leap.lua"
+				"Function"		"Leap"
+				"Target"            "POINT"
+			}
+	
+			"ApplyMotionController"
+			{
+			    "Target" 		"CASTER"
+			    "ScriptFile"    "abilities/heroes/beastmaster/ziv_beastmaster_leap.lua"
+			    "HorizontalControlFunction" "LeapHorizonal"
+			    "VerticalControlFunction" 	"LeapVertical"         
+			}
+		}
+	}
 	"ziv_beastmaster_pet"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -721,6 +853,158 @@
 	    }
 	  }
 	}
+	"ziv_beastmaster_pet2"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE" //DOTA_ABILITY_BEHAVIOR_PASSIVE
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
+	
+	  "AbilityCastPoint"  "0.3"
+	
+	  "precache"
+	  {
+	    "model" "models/items/lone_druid/bear/dark_wood_bear/dark_wood_bear.vmdl"
+	    "particle"  "particles/units/heroes/hero_beastmaster/beastmaster_call_boar.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_beastmaster.vsndevts"
+	    "soundfile"         "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+	    "particle"          "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+	  }
+	
+	  "MaxLevel"  "7"
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "wolf_bonus_attack_speed"            "10 15 20 25 30 35 40"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "wolf_bonus_damage"            "10 20 30 40 50 60 70"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_FLOAT"
+	      "bear_stun_duration"            "0.3"
+	    }
+	    "04"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bear_stun_chance"            "5 10 15 20 35 50 75"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	      "Function"    "SpawnPet"
+	      "model" "models/items/lone_druid/bear/dark_wood_bear/dark_wood_bear.vmdl"
+	      "respawn_pet" "1"
+	    }
+	  }
+	
+	  "OnUpgrade"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	      "Function"    "KillPet"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	      "Function"    "SpawnPet"
+	      "model" "models/items/lone_druid/bear/dark_wood_bear/dark_wood_bear.vmdl"
+	    }
+	  }
+	
+	  "OnOwnerDied"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	      "Function"    "KillPet"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_beastmaster_pet_passive"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "OnCreated"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	          "Function"    "SpawnPet"
+	          "model" "models/items/lone_druid/bear/dark_wood_bear/dark_wood_bear.vmdl"
+	        }
+	      }
+	    }
+	    "modifier_beastmaster_pet"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	
+	      "ThinkInterval"  "0.2"
+	      "OnIntervalThink"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	          "Function"    "PetAI"
+	        }
+	      }
+	
+	      "OnAttackStart"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	          "Function"    "EndCrit"
+	        }
+	        "Random"
+	        {
+	          "Chance"        "%bear_stun_chance"
+	          "PseudoRandom"  "DOTA_PSEUDO_RANDOM_PHANTOMASSASSIN_CRIT"
+	
+	          "OnSuccess"
+	          {
+	            "ApplyModifier"
+	            {
+	              "ModifierName"  "modifier_stunned"
+	              "Target"     "TARGET"
+	              "Duration"    "%bear_stun_duration"
+	            }
+	          }
+	        }
+	      }
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%wolf_bonus_attack_speed"
+	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"  "%wolf_bonus_damage"
+	      }
+	    
+	      "States"
+	      {
+	        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	  }
+	}
 	"ziv_huntress_ballista"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -839,7 +1123,7 @@
 	    "01"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "arrow_delay"    "1.1"
+	      "arrow_delay"    "0.5"
 	    }
 	  }
 	
@@ -891,7 +1175,82 @@
 	    }
 	  }
 	}
-	"ziv_huntress_passive_snare"
+	"ziv_huntress_focus_fire"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET" //DOTA_ABILITY_BEHAVIOR_IMMEDIATE
+	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+	
+	  "AbilityTextureName"            "rubick_empty1"
+	  
+	  "AbilityCastAnimation"      ""
+	  
+	  "AbilityCastRange"        "1100"
+	  "AbilityManaCost"         "30"
+	  "AbilityCastPoint"        "0.001"
+	  "AbilityCooldown"         "0.8"
+	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"           "particles/heroes/huntress/huntress_focus_fire_projectile.vpcf"
+	    "soundfile"         "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
+	    "soundfile"           "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_damage"            "70 100 130 160 190 220 250"
+	    }
+	  }
+	  
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_focus_fire.lua"
+	      "Function"    "StartBarrage"
+	    }
+	  }
+	
+	  "OnProjectileHitUnit"
+	  {
+	    "DeleteOnHit"  "1"
+	
+	    // "RunScript"
+	    // {
+	    //   "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_focus_fire.lua"
+	    //   "Function"    "ProjectileImpact"
+	    // }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_focus_fire"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "OnOrder"
+	      {
+	        "RemoveModifier"
+	        {
+	          "ModifierName"  "modifier_focus_fire"
+	          "Target"     "CASTER"
+	        }
+	      }
+	    }
+	  }
+	}
+	"ziv_huntress_passives"
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -920,6 +1279,11 @@
 	      "var_type"      "FIELD_FLOAT"
 	      "snare_duration"    "3.5 4.0 4.5 5.0"
 	    }
+	    "03"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "bonus_attackspeed"    "100"
+	    }
 	  }
 	
 	  "OnProjectileHitUnit"
@@ -936,11 +1300,16 @@
 	
 	  "Modifiers"
 	  {
-	    "modifier_passive_snare"
+	    "modifier_passives"
 	    {
 	      "Passive"      "1"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
+	      }
 	
 	      "OnAttackStart"
 	      {
@@ -2123,6 +2492,7 @@
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
 	  }
 	
 	  "AbilitySpecial"

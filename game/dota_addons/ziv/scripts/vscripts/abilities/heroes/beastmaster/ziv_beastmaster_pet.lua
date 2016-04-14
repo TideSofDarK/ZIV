@@ -13,6 +13,11 @@ function SpawnPet( keys )
 		caster.pet = CreateUnitByName("npc_beastmaster_pet_level"..tostring(level), caster:GetAbsOrigin() + RandomPointInsideCircle(400), false, nil, caster, caster:GetTeamNumber())
 		ability:ApplyDataDrivenModifier(caster, caster.pet, "modifier_beastmaster_pet", {})
 
+		if keys.model then
+			caster.pet:SetModel(keys.model)
+			caster.pet:SetOriginalModel(keys.model)
+		end
+
 		caster:EmitSound("Hero_Beastmaster.Call.Boar")
 
 		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_boar.vpcf", PATTACH_ABSORIGIN, caster.pet)

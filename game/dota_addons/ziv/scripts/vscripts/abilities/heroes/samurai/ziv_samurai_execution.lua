@@ -9,6 +9,8 @@ function StartAttack( keys )
 	local p1 = ParticleManager:CreateParticle(p_endx, PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(p1, 0, caster:GetOrigin())
 
+	caster:EmitSound("Hero_DragonKnight.PreAttack")
+
 	Timers:CreateTimer(0.09, function()
 		p1 = ParticleManager:CreateParticle('particles/heroes/samurai/samurai_execution_cleave.vpcf', PATTACH_ABSORIGIN_FOLLOW, target)
 		ParticleManager:SetParticleControl(p1, 0, target:GetOrigin())

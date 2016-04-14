@@ -16,8 +16,8 @@ function ZIV:OnPlayerSelectedHero( args )
       hero:RemoveAbility(abil:GetName())
     end
   end
-
-  for i=0,3 do
+  
+  for i=0,GetTableLength(abilities) do
     hero:AddAbility(abilities[tostring(i)])
   end
 

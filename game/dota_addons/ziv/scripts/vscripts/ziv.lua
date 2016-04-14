@@ -161,8 +161,7 @@ function ZIV:OnHeroInGame(hero)
     entity =      hero,
     closeOnOrder =false,
     position =    "75% 25%",
-    OnDragWorld = true,
-    OnRightClickJS = "SpecialContextMenu"
+    OnDragWorld = true
   })
 
   ZIV.pidInventory[pid] = c
@@ -278,6 +277,12 @@ function ZIV:PrintHeroStats()
       print("AS: "..tostring(hero:GetAttackSpeed()))
       for i=0,hero:GetModifierCount() do
         print(hero:GetModifierNameByIndex(i), hero:GetModifierStackCount(hero:GetModifierNameByIndex(i), hero))
+      end
+      for i=0,16 do
+        local abil = hero:GetAbilityByIndex(i)
+        if abil then
+          print(abil:GetName())
+        end
       end
     end
   end

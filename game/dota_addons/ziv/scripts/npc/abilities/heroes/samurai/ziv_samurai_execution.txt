@@ -29,6 +29,7 @@
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
   }
 
   "AbilitySpecial"

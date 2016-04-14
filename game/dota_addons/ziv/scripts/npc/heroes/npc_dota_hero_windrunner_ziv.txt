@@ -1,17 +1,17 @@
 "npc_dota_hero_windrunner_ziv"
-  {
+{
     "override_hero"     "npc_dota_hero_windrunner"
 
-    "ChooseLayout"  "2111"
+    "ChooseLayout"  "21111"
 
-    "AbilityLayout"     "4"
+    "AbilityLayout"     "5"
 
     "Ability1"        "ziv_huntress_ballista" 
     "Ability2"        "ziv_huntress_volly" 
-    "Ability3"        "ziv_huntress_passive_snare" 
+    "Ability3"        "ziv_huntress_focus_fire" 
     "Ability4"        "ziv_huntress_blink_arrow"
     "Ability5"        "ziv_huntress_trap"
-    "Ability6"        "ziv_empty5"
+    "Ability6"        "ziv_huntress_passives"
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""
@@ -55,4 +55,4 @@
 
     "VisionDaytimeRange"    "1800"
     "VisionNighttimeRange"    "1800"
-  }
+}

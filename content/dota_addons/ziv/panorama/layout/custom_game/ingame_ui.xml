@@ -43,13 +43,15 @@
 		</Panel>
 
 		<Panel class="Bottom MidBottom" hittest="false">
-			<Panel class="BarBackground HealthPoints">
-				<Panel class="Bar" id="hp_bar"/>
-				<Label text="100/100" class="ValueLabel" id="hp" />
-			</Panel>
-			<Panel class="BarBackground ManaPoints">
-				<Panel class="Bar" id="mp_bar"/>
-				<Label text="100/100" class="ValueLabel" id="mp" />
+			<Panel class="Bars" hittest="false">
+				<Panel class="BarBackground HealthPoints">
+					<Panel class="Bar" id="hp_bar"/>
+					<Label text="100/100" class="ValueLabel" id="hp" />
+				</Panel>
+				<Panel class="BarBackground ManaPoints">
+					<Panel class="Bar" id="mp_bar"/>
+					<Label text="100/100" class="ValueLabel" id="mp" />
+				</Panel>
 			</Panel>
 			<Panel class="AbilityOverlayRoot">
 <!-- 				<Button id="LevelUpButton" onactivate="OnLevelUpClicked()">

@@ -85,6 +85,14 @@ DOTAAbilityImage {
 	/*border: 2px solid transparent;*/
 }
 
+.Layout5
+{
+	width: 85px;
+	height: 83px;
+
+	margin-bottom: 30px;
+}
+
 .is_passive #AbilityButton
 {
 	border: 2px solid #00000000;

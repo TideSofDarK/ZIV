@@ -19,9 +19,16 @@
 
 .MidBottom {
 	horizontal-align: center;
-	flow-children: down;
+	height: 200px;
 
 	margin-left: 20px;
+}
+
+.Bars {
+	vertical-align: top;
+	flow-children: down;
+
+	margin-top: 6px;
 }
 
 #BottomRoot {

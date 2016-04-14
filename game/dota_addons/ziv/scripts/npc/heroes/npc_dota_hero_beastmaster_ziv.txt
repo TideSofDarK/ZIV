@@ -3,15 +3,15 @@
     "AbilityLayout"     "4"
     "override_hero"     "npc_dota_hero_beastmaster"
 
-    "ChooseLayout"  "1122"
+    "ChooseLayout"  "2111"
 
     "AbilityLayout"     "4"
 
     "Ability1"        "ziv_beastmaster_pet" 
-    "Ability2"        "ziv_empty2" 
-    "Ability3"        "ziv_beastmaster_bird" 
-    "Ability4"        "ziv_empty4"
-    "Ability5"        "ziv_empty5"
+    "Ability2"        "ziv_beastmaster_pet2" 
+    "Ability3"        "ziv_beastmaster_cleave" 
+    "Ability4"        "ziv_beastmaster_bird"
+    "Ability5"        "ziv_beastmaster_leap"
     "Ability6"        "ziv_empty6"
     "Ability7"        ""
     "Ability8"        ""
