@@ -245,59 +245,24 @@ function IsInside( checkElem, elem )
     var rb = { x: elem.X + elem.Width, y: elem.Y + elem.Height };
     
     return { 
-        x: (lt.x >= lt_c.x && lt.x <= rb_c.x) || (rb.x >= lt_c.x && rb.x <= rb_c.x),
-        y: (lt.y >= lt_c.y && lt.y <= rb_c.y) || (rb.y >= lt_c.y && rb.y <= rb_c.y)
+        x: rb.x - lt_c.x >= 0,
+        y: rb.y - lt_c.y >= 0
     };
-}
-
-function RemoveIntersectsIdeal( checkElem, elem )
-{
-    var lt_c = { x: checkElem.X, y: checkElem.Y };
-    var rb_c = { x: checkElem.X + checkElem.Width, y: checkElem.Y + checkElem.Height };
-
-    var lt = { x: elem.X, y: elem.Y };
-    var rb = { x: elem.X + elem.Width, y: elem.Y + elem.Height };
-    
-    var isInside = IsInside(checkElem, elem);
-    
-    if (isInside.x && isInside.y)
-    {
-        var newPosX = (lt_c.x + checkElem.Width / 2) <= (lt.x + elem.Width / 2) 
-                    ? lt.x - checkElem.Width
-                    : rb.x;
-                    
-        var newPosY = (lt_c.y + checkElem.Height / 2) <= (lt.y + elem.Height / 2) 
-                    ? lt.y - checkElem.Height
-                    : rb.y;
-        
-        var overX = Math.abs((checkElem.X - newPosX) / checkElem.Width);
-        var overY = Math.abs((checkElem.Y - newPosY) / checkElem.Height);
-        
-        if (Math.abs(overX - overY) < 0.1)
-        {
-            checkElem.style.position = parseInt(newPosX) + "px " + parseInt(newPosY) + "px 0px;";
-            return;
-        }
-        
-        if (overX < overY)
-            checkElem.style.position = parseInt(newPosX) + "px " + parseInt(checkElem.Y) + "px 0px;";
-        else
-            checkElem.style.position = parseInt(checkElem.X) + "px " + parseInt(newPosY) + "px 0px;";
-    }
 }
 
 function RemoveIntersectsGrid( checkElem, elem )
 {
     var isInside = IsInside( checkElem, elem );
-    if (isInside.x && Math.abs(checkElem.Y - elem.Y) < 2)//Math.abs(checkElem.Y - elem.Y) / checkElem.Height < 0.1 )
+    if (isInside.x && Math.abs(checkElem.Y - elem.Y) < 2)
     {
-      var newPosX = elem.X + elem.Width;
+        var newPosX = elem.X + elem.Width;
       
-      var yOffset = checkElem.Y % checkElem.Height;
-      yOffset = isNaN(yOffset) ? 0 : yOffset
-      var offsetCount =  yOffset < checkElem.Height / 2 ? 0 : 1;
+        var offset = checkElem.Y % checkElem.Height;
+        offset = isNaN(offset) ? 0 : offset
+        var count = offset / checkElem.Height < 0.5 ? 0 : 1;
 
-      checkElem.style.position = parseInt(newPosX) + "px " + parseInt(checkElem.Y - yOffset + offsetCount * checkElem.Height ) + "px 0px;";
+        checkElem.style.position = parseInt(newPosX) + "px " + parseInt(checkElem.Y - offset + count * checkElem.Height ) + "px 0px;";
+        checkElem.UpdateParams();
     }
 }
 
@@ -309,21 +274,18 @@ function CheckElement( elem )
             return;
 
         RemoveIntersectsGrid( elem, item );
-        //RemoveIntersectsIdeal( elem, item );
-        //IsIntersectsLinearRightBottom( elem, item );
     });
 }
 
 function RepositionItems()
 {
     positionPanels.forEach(function(item, i, arr) {
-        var yOffset = item.Y % item.Height;
-        yOffset = isNaN(yOffset) ? 0 : yOffset
-        var offsetCount =  yOffset < item.Height / 2 ? 0 : 1;
+        var offset = item.Y % item.Height;
+        offset = isNaN(offset) ? 0 : offset
+        var count = offset / item.Height < 0.5 ? 0 : 1;
 
-        item.style.position = parseInt(item.X) + "px " + parseInt(item.Y - yOffset + offsetCount * item.Height ) + "px 0px;";
-
-        item.UpdateParams();     
+        item.style.position = parseInt(item.X) + "px " + parseInt(item.Y - offset + count * item.Height ) + "px 0px;";
+        item.UpdateParams();
     });
 
     positionPanels.sort(function(a, b){
@@ -331,26 +293,7 @@ function RepositionItems()
           return a.X < b.X ? -1 : 1;
 
         return a.Y < b.Y ? -1 : 1;
-        return 0;
     });
-
-    // Сортировка слева направо сверху вниз
-    /*positionPanels.sort(function(a, b){
-        if (a.X < b.X && a.Y < b.Y) {
-            return -1;
-        }
-        if (a.X > b.X && a.Y > b.Y) {
-            return 1;
-        }
-
-        if (a.X < b.X)
-            return a.Y > b.Y ? 1 : -1;
-        else
-            return a.Y < b.Y ? -1 : 1;
-
-        // a должно быть равным b
-        return 0;
-    });*/
 
     positionPanels.forEach(function(item, i, arr) {
         CheckElement(item);
