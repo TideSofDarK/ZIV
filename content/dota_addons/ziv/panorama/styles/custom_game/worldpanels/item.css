@@ -1,6 +1,9 @@
 .Item {
 	/*height: 60px;*/
-	background-color: black; 
+	background-color: black;
+
+    transition-property: position;
+    transition-duration: 0.2s; 
 }
 
 .Item:hover {
