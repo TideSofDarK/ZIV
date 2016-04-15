@@ -117,8 +117,12 @@ function CloseButton() {
 
 	$("#FortifyTool").currentItem = undefined;
 	$("#FortifyItem").currentItem = undefined;
-	$("#FortifyToolImage").itemname = undefined;
-	$("#FortifyItemImage").itemname = undefined;
+	if ($("#FortifyToolImage")) {
+		$("#FortifyToolImage").DeleteAsync(0);
+	}
+	if ($("#FortifyItemImage")) {
+		$("#FortifyItemImage").DeleteAsync(0);
+	}
 }
 
 function Open() {
