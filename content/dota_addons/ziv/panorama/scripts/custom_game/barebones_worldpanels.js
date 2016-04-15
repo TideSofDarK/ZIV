@@ -257,7 +257,7 @@ function RemoveIntersectsGrid( checkElem, elem )
     {
         var newPosX = elem.X + elem.Width;
       
-        var offset = checkElem.Y % checkElem.Height;
+        var offset = Math.abs(checkElem.Y - checkElem.TopOffset) % checkElem.Height;
         offset = isNaN(offset) ? 0 : offset
         var count = offset / checkElem.Height < 0.5 ? 0 : 1;
 
@@ -279,20 +279,21 @@ function CheckElement( elem )
 
 function RepositionItems()
 {
+    positionPanels.sort(function(a, b){
+        if (Math.abs(a.Y - b.Y) <= a.Height)
+          return a.X < b.X ? -1 : 1;
+
+        return a.Y <= b.Y ? -1 : 1;
+    });
+
     positionPanels.forEach(function(item, i, arr) {
-        var offset = item.Y % item.Height;
+        item.TopOffset = positionPanels[0].Y;
+        var offset = Math.abs(item.Y - item.TopOffset) % item.Height;
         offset = isNaN(offset) ? 0 : offset
         var count = offset / item.Height < 0.5 ? 0 : 1;
 
         item.style.position = parseInt(item.X) + "px " + parseInt(item.Y - offset + count * item.Height ) + "px 0px;";
         item.UpdateParams();
-    });
-
-    positionPanels.sort(function(a, b){
-        if (Math.abs(a.Y - b.Y) < 3)
-          return a.X < b.X ? -1 : 1;
-
-        return a.Y < b.Y ? -1 : 1;
     });
 
     positionPanels.forEach(function(item, i, arr) {
@@ -309,8 +310,9 @@ function PositionPanels()
     var wp = panels[k];
     wp.Position();
     wp.panel.UpdateParams();
-
-    positionPanels.push(wp.panel);
+ 
+    if (wp.panel.layoutfile.indexOf("item.xml") != -1)
+      positionPanels.push(wp.panel);
   }
 
   RepositionItems();

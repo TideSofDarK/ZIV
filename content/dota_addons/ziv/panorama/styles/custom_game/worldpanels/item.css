@@ -3,7 +3,7 @@
 	background-color: black;
 
     transition-property: position;
-    transition-duration: 0.2s; 
+    transition-duration: 0.15s; 
 }
 
 .Item:hover {
