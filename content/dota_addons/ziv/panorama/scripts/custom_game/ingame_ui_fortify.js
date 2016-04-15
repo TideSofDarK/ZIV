@@ -1,12 +1,16 @@
 function OnDragDrop(panelId, draggedPanel) {
-	var itemName = draggedPanel["itemname"];
 	var itemIndex = draggedPanel["contextEntityIndex"];
-
+	var itemName = Abilities.GetAbilityName(itemIndex);
 	draggedPanel.m_DragCompleted = true;
 
-	if (itemName.indexOf( "item_gem_" ) === -1) {
+	var itemKV = CustomNetTables.GetTableValue( "item_kvs", itemName );
+
+	if (itemName.indexOf( "item_gem_" ) === -1 &&
+		(itemName.indexOf( "item_rune_" ) === -1 && $("#FortifyItem").currentItem == undefined) ||
+		(itemName.indexOf( "item_rune_" ) !== -1 && $("#FortifyItem").currentItem == undefined)) {
 		var displayPanel = $.CreatePanel( "DOTAItemImage", $("#FortifyItem"), "FortifyItemImage" );
-		displayPanel.itemname = itemName;
+		displayPanel.itemname = itemKV["AbilityTextureName"];
+		displayPanel.contextEntityIndex = itemIndex;
 
 		$("#FortifyItem").currentItem = itemIndex;
 
@@ -18,7 +22,11 @@ function OnDragDrop(panelId, draggedPanel) {
 	} else {
 		var itemKV = CustomNetTables.GetTableValue( "item_kvs", itemName );
 		if (itemKV) {
-			var newText = "+" + itemKV["FortifyModifiersCount"] + " " + $.Localize(itemName + "_fortify_string")
+			var plus = "+" + itemKV["FortifyModifiersCount"] + " ";
+			if (itemName.indexOf( "item_rune_" ) !== -1) {
+				plus = "";
+			}
+			var newText = plus + $.Localize(itemName + "_fortify_string")
 			$("#FortifyTextBlockLabel").text = newText;
 			if ($("#FortifyTextBlockLabel").temp_text && $("#FortifyTextBlockLabel").temp_text != "") {
 				$("#FortifyTextBlockLabel").text = $("#FortifyTextBlockLabel").text + "<br>" + $("#FortifyTextBlockLabel").temp_text;		
@@ -29,7 +37,8 @@ function OnDragDrop(panelId, draggedPanel) {
 		if ($("#FortifyToolImage")) { $("#FortifyToolImage").DeleteAsync( 0.0 ); }
 
 		var displayPanel = $.CreatePanel( "DOTAItemImage", $("#FortifyTool"), "FortifyToolImage" );
-		displayPanel.itemname = itemName;
+		displayPanel.itemname = itemKV["AbilityTextureName"];
+		displayPanel.contextEntityIndex = itemIndex;
 
 		$("#FortifyTool").currentItem = itemIndex;
 
@@ -105,6 +114,11 @@ function CloseButton() {
 	GameUI.CustomUIConfig().ZIVRemoveFromPanelsQueue($.GetContextPanel());
 
 	$.GetContextPanel().ToggleClass("Hide", true);
+
+	$("#FortifyTool").currentItem = undefined;
+	$("#FortifyItem").currentItem = undefined;
+	$("#FortifyToolImage").itemname = undefined;
+	$("#FortifyItemImage").itemname = undefined;
 }
 
 function Open() {

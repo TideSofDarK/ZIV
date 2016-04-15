@@ -129,5 +129,12 @@
         "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
       }
     }
+
+    "ziv_samurai_whirlwind_damage"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+    }
   }
 }

@@ -97,8 +97,14 @@ function UpdateItem()
 	if (m_Container)
 		$.GetContextPanel().SetHasClass( "is_active", (Abilities.GetLocalPlayerActiveAbility() == m_Item));
 	
+	var itemKV = CustomNetTables.GetTableValue( "item_kvs", itemName );
+	var itemImageName = itemName;
+	if (itemKV) {
+		itemImageName = itemKV["AbilityTextureName"] ? itemKV["AbilityTextureName"] : itemName;
+	}
+
 	$( "#HotkeyText" ).text = hotkey;
-	$( "#ItemImage" ).itemname = itemName;
+	$( "#ItemImage" ).itemname = itemImageName; 
 	$( "#ItemImage" ).contextEntityIndex = m_Item;
 	$( "#ChargeCount" ).text = chargeCount;
 	$( "#AltChargeCount" ).text = altChargeCount;
@@ -392,15 +398,18 @@ function OnDragStart( panelId, dragCallbacks )
 
 	ItemHideTooltip(); // tooltip gets in the way
 
+	var itemKV = CustomNetTables.GetTableValue( "item_kvs", itemName );
+
 	// create a temp panel that will be dragged around
 	var displayPanel = $.CreatePanel( "DOTAItemImage", $.GetContextPanel(), "dragImage" );
-	displayPanel.itemname = itemName;
+	displayPanel.itemname = itemKV["AbilityTextureName"]; 
 	displayPanel.contextEntityIndex = m_Item;
 	displayPanel.m_DragItem = m_Item;
 	displayPanel.m_contID = m_contID;
 	displayPanel.m_DragCompleted = false; // whether the drag was successful
 	displayPanel.m_OriginalPanel = $.GetContextPanel();
 	displayPanel.m_QueryUnit = m_QueryUnit;
+	displayPanel.style.borderRadius = "6px;";
 
 	// hook up the display panel, and specify the panel offset from the cursor
 	dragCallbacks.displayPanel = displayPanel;

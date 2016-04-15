@@ -456,6 +456,32 @@
 	    }
 	  }
 	}
+	"item_rune_whirlwind_damage"
+	{
+	  "ID"		"1655"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_samurai"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_samurai_whirlwind_damage"
+	    {
+	      "min" "5"
+	      "max" "10"
+	    }
+	  }
+	}
 	"item_basic_shotgun"
 	{
 	  "ID"		"1005"

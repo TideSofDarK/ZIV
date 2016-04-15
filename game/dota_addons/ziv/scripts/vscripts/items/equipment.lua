@@ -105,8 +105,19 @@ function ZIV:OnFortify( keys )
 
   	item.fortify_modifiers = item.fortify_modifiers or {}
 
-  	local new_modifiers = GetRandomFortifyModifiers( toolKV["FortifyModifiers"], tonumber(toolKV["FortifyModifiersCount"]) )
+  	local new_modifiers = GetRandomFortifyModifiers( toolKV["FortifyModifiers"], tonumber(toolKV["FortifyModifiersCount"]) or 0 )
   	new_modifiers["gem"] = tool:GetName()
+  	
+  	if string.match(tool:GetName(), "rune") and tool.fortify_modifiers then
+  		for k,v in pairs(tool.fortify_modifiers) do
+  			for k2,v2 in pairs(v) do
+  				if k2 ~= "gem" then
+  					new_modifiers[k2] = (new_modifiers[k2] or 0) + v2
+  				end
+  			end
+  		end
+  	end
+
   	table.insert(item.fortify_modifiers, new_modifiers)
 
   	PrintTable(item.fortify_modifiers)
@@ -125,6 +136,9 @@ end
 
 function GetRandomFortifyModifiers( modifiers_kv, count )
 	local modifiers = {}
+
+	if not modifiers_kv or not count then return modifiers end
+
 	for i=1,count do
 		local modifier = ""
 		local value = 0
