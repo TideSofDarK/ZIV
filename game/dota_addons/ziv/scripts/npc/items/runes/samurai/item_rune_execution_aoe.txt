@@ -1,6 +1,6 @@
-"item_rune_whirlwind_damage"
+"item_rune_execution_aoe"
 {
-  "ID"		"1656"
+  "ID"		"1658"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_rune_samurai"
@@ -17,10 +17,10 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_samurai_whirlwind_damage"
+    "ziv_samurai_execution_aoe"
     {
-      "min" "5"
-      "max" "10"
+      "min" "50"
+      "max" "100"
     }
   }
 }

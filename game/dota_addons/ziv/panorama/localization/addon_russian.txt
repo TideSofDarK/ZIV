@@ -34,7 +34,11 @@
 	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "к Броне"
 	"MODIFIER_PROPERTY_STATS_ALL_BONUS" "ко всем Статам"
 	"MODIFIER_PROPERTY_HEALTH_BONUS" "к максимальному здоровью"
+
 	"ziv_samurai_whirlwind_damage"	"к урону от Whirldwind"
+	"ziv_samurai_whirlwind_aoe"	"к радиусу Whirldwind"
+	"ziv_samurai_execution_cd"	"к скорости Execution"
+	"ziv_samurai_execution_aoe"	"к радиусу Execution"
 
 	"empty_gem_slot" "Пустой слот"
 
@@ -51,8 +55,6 @@
 	"dragfortify"				"Перетащите оружие или броню из инвентаря в это окно чтобы улучшить его"
 	"dragfortify_gem"			"Перетащите гем из инвентаря в это окно чтобы вставить его в шмотку"
 	"fortify_button"			"Улучшить"
-
-	"item_rune_whirlwind_damage_fortify_string" "Дополнительный урон к способности Whirlwind. Используется только героем Samurai."
 
 	"item_gem_malachite_fortify_string" "случайных модификаторов из списка (скорость атаки, скорость передвижения, уклоенение, бонус к ловкости)"
 	"item_gem_topaz_fortify_string" "случайных модификаторов из списка (бонус к одной из характеристик, бонус ко всем характеристикам, бонус к броне)"

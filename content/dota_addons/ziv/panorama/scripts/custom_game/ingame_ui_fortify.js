@@ -22,11 +22,14 @@ function OnDragDrop(panelId, draggedPanel) {
 	} else {
 		var itemKV = CustomNetTables.GetTableValue( "item_kvs", itemName );
 		if (itemKV) {
-			var plus = "+" + itemKV["FortifyModifiersCount"] + " ";
+			var plus = "+" + itemKV["FortifyModifiersCount"] + " " + $.Localize(itemName + "_fortify_string");
 			if (itemName.indexOf( "item_rune_" ) !== -1) {
-				plus = "";
+				for (var key in itemKV["FortifyModifiers"]) {
+					plus = "+" + itemKV["FortifyModifiers"][key]["min"] + "-" + itemKV["FortifyModifiers"][key]["max"] + " " + $.Localize(key);
+					break;
+				}
 			}
-			var newText = plus + $.Localize(itemName + "_fortify_string")
+			var newText = plus;
 			$("#FortifyTextBlockLabel").text = newText;
 			if ($("#FortifyTextBlockLabel").temp_text && $("#FortifyTextBlockLabel").temp_text != "") {
 				$("#FortifyTextBlockLabel").text = $("#FortifyTextBlockLabel").text + "<br>" + $("#FortifyTextBlockLabel").temp_text;		

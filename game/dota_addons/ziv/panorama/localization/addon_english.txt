@@ -34,7 +34,11 @@
 	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "to Armor"
 	"MODIFIER_PROPERTY_STATS_ALL_BONUS" "to All Stats"
 	"MODIFIER_PROPERTY_HEALTH_BONUS" "to max HP"
+
 	"ziv_samurai_whirlwind_damage"	"to Whirlwind damage"
+	"ziv_samurai_whirlwind_aoe"	"to Whirldwind radius"
+	"ziv_samurai_execution_cd"	"to Execution speed"
+	"ziv_samurai_execution_aoe"	"to Execution radius"
 
 	"empty_gem_slot" "Empty Slot"
 
@@ -51,8 +55,6 @@
 	"dragfortify"				"Drag and drop weapon or armor from inventory to fortify"
 	"dragfortify_gem"			"Drag and drop gem from inventory to insert it"
 	"fortify_button"			"Fortify"
-
-	"item_rune_whirlwind_damage_fortify_string" "Adds bonus damage to Whirlwind. Used only by Samurai."
 
 	"item_gem_malachite_fortify_string" "random modifier from list (attack speed, move speed, evasion, bonus agility)"
 	"item_gem_topaz_fortify_string" "random modifier from list (bonus to single stat, bonus to all stats, bonus armor)"
