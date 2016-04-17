@@ -12,4 +12,13 @@
 	{
 	
 	}
+
+	"ziv_open_side_item_desc"
+	{
+	
+	}
+	"ziv_close_side_item_desc"
+	{
+
+	}
 }

@@ -1,0 +1,21 @@
+<root>
+	<styles>
+		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_side_item_description.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/ingame_ui_side_item_description.js" />
+	</scripts>
+	<Panel class="Window ItemDescRoot Hide BasicShadow" hittestchildren="true" > 
+		<Panel class="Header">
+			<Panel class="ItemImage"> 
+				<DOTAItemImage id="ItemImage" />
+			</Panel>
+			<Label id="ItemNameLabel" text="Item name" />
+		</Panel>
+		<Panel class="Description">
+			<Label id="ItemDescLabel" text="Very long description text about this mega item. ololo ahaha bgg" />
+		</Panel>	
+	</Panel>
+</root>

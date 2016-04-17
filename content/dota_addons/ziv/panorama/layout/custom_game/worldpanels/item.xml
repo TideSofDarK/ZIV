@@ -8,7 +8,7 @@
     <include src="file://{resources}/scripts/custom_game/worldpanels/item.js" /> 
   </scripts>
   <Panel hittest="false" class="Item Hide">
-    <Button onactivate="Click()">
+    <Button onactivate="Click()" onmouseover="Hover()" onmouseout="Leave()">
       <Label id="ItemNameLabel" text="DICK" />
     </Button>
   </Panel>
