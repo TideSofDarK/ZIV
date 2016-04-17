@@ -1,0 +1,40 @@
+.rarity-normal {
+	box-shadow: inset #ffffff60 1px 1px 10px 2px;
+}
+
+.rarity-magic {
+	box-shadow: inset #3d50c5 1px 1px 10px 2px;
+}
+
+.rarity-rare {
+	box-shadow: inset #ffea00 1px 1px 10px 2px;
+}
+
+.rarity-epic {
+	box-shadow: inset #FFA50060 1px 1px 10px 2px;
+}
+
+.rarity-legendary {
+	box-shadow: inset #FF00FF60 1px 1px 10px 2px;
+}
+
+
+.rarity-normal-text {
+	color: #ffffff;
+}
+
+.rarity-magic-text {
+	color: #3d50c5;
+}
+
+.rarity-rare-text {
+	color: #ffea00;
+}
+
+.rarity-legendary-text {
+	color: #FFA500;
+}
+
+.rarity-epic-text {
+	color: #FF00FF;
+}

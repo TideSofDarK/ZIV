@@ -2,7 +2,9 @@ function Open( args ) {
 	$.GetContextPanel().SetHasClass("Hide", false);
 	var entity = args["entity"];
 
-	//$( "#ItemImage" ).itemname
+	$( "#ItemImage" ).itemname = args["name"];
+	$( "#ItemNameLabel").text = $.Localize("DOTA_Tooltip_ability_" + args["name"]);
+	$( "#ItemDescLabel").text = $.Localize("DOTA_Tooltip_ability_" + args["name"] + "_Description");
 }
 
 function Close() {

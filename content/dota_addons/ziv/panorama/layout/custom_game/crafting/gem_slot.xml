@@ -1,6 +1,7 @@
 <root>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/crafting/item_mini.css" />
+		<include src="file://{resources}/styles/custom_game/crafting/rarities.css" />
 	</styles>
 	<script>
 		$( "#GemImage" ).AddClass("rarity-normal rarity-magic rarity-rare rarity-epic rarity-legendary");
