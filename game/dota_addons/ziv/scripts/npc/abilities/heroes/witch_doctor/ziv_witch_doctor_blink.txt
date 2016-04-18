@@ -9,12 +9,23 @@
     "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"       
     "particle"      "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
     "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_a.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_b.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_c.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_d.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_e.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_f.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_g.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_h.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_h1.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_h2.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_h1.vpcf"
   }
 
   "AbilityCastRange"        "700"
   "AbilityCastPoint"        "0.2"
   "AbilityCooldown"       "0.9"
-  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
+  "AbilityCastAnimation"      ""
 
   "AbilityManaCost"       "25"
 
@@ -31,7 +42,7 @@
     "FireEffect"
     {
       "EffectName"    "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
-      "EffectAttachType"  "attach_origin"
+      "EffectAttachType"  "follow_origin"
       "ControlPoints"
       {
         "01"    "80 80 80"

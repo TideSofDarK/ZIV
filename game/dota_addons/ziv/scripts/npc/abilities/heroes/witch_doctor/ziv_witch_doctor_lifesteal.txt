@@ -1,0 +1,49 @@
+"ziv_witch_doctor_lifesteal"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "precache"
+  {
+    "particle"  "particles/heroes/witch_doctor/witch_doctor_lifesteal.vpcf"
+    "particle" "particles/units/heroes/hero_juggernaut/juggernaut_healing_ward_var02_flame.vpcf"
+  }
+
+  "MaxLevel"  "7"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "lifesteal_percent"    "0.02"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_passives"
+    {
+      "Passive"      "1"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "OnDealDamage"
+      {
+        "FireEffect"
+        {
+          "EffectName"        "particles/heroes/witch_doctor/witch_doctor_lifesteal.vpcf"
+          "EffectAttachType"  "follow_origin"
+          "Target"            "CASTER"
+        }
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_lifesteal.lua"
+          "Function"    "Lifesteal"
+          "Damage" "%attack_damage"
+        }
+      }
+    }
+  }
+}

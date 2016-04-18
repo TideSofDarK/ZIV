@@ -164,6 +164,7 @@
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/witch_doctor/witch_doctor_blink_fx_b.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/witch_doctor/witch_doctor_blink_fx_c.vpcf"

@@ -683,6 +683,108 @@
 	
 	    "AttackDesire"        "1.5"
 	} 
+	"npc_witch_doctor_skeleton"
+	{
+	    "BaseClass"         "npc_dota_creature"
+	    "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
+	    "Level"           "1"
+	    
+	    "Ability1"          ""
+	    "Ability2"          ""
+	    "Ability3"          ""
+	    "Ability4"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackRange"        "128"
+	    
+	    "AttackDamageMin"        "15"
+	    "AttackDamageMax"        "20"
+	
+	    "AttackRate"        "1.5"
+	    "AttackAnimationPoint"        "0.27"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "425"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "370"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	
+	    "VisionDaytimeRange"    "0"
+	    "VisionNighttimeRange"    "0"
+	} 
+	"npc_witch_doctor_totem"
+	{
+	    "BaseClass"         "npc_dota_creature"
+	    "Model"           "models/items/witchdoctor/wd_ward/ribbitar_ward/ribbitar_ward.vmdl"
+	    "ModelScale" "0.8"
+	    "Level"           "1"
+	
+	    "Ability1"          "dummy_unit"
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+	    "AttackDamageMin"     "1"
+	    "AttackDamageMax"     "2"
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "0.5"
+	    "AttackAnimationPoint"    "0.1"
+	    "AttackAcquisitionRange"  "800"
+	    "AttackRange"       "600"
+	    "ProjectileModel"     "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf"
+	    "ProjectileSpeed"     "1100"
+	
+	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
+	    "AttributeBaseStrength"   "0"
+	    "AttributeStrengthGain"   "0"
+	    "AttributeBaseIntelligence" "0"
+	    "AttributeIntelligenceGain" "0"
+	    "AttributeBaseAgility"    "0"
+	    "AttributeAgilityGain"    "0"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"
+	    "MovementSpeed"       "450"
+	    "MovementTurnRate"      "0.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "1"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "TeamName"          "DOTA_TEAM_GOODGUYS"
+	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    "UnitRelationshipClass"   "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+	
+	    "VisionDaytimeRange"    "0"
+	    "VisionNighttimeRange"    "0"
+	
+	    "AttackDesire"        "1.5"
+	} 
 	"npc_basic_chest"
 	{
 	    // General

@@ -3,15 +3,15 @@
     "AbilityLayout"     "4"
     "override_hero"     "npc_dota_hero_witch_doctor"
 
-    "ChooseLayout"  "2111"
+    "ChooseLayout"  "11111"
 
-    "AbilityLayout"     "4"
+    "AbilityLayout"     "5"
 
     "Ability1"        "ziv_witch_doctor_blink" 
-    "Ability2"        "ziv_empty2" 
-    "Ability3"        "ziv_empty3" 
-    "Ability4"        "ziv_empty4"
-    "Ability5"        "ziv_empty5"
+    "Ability2"        "ziv_witch_doctor_curse" 
+    "Ability3"        "ziv_witch_doctor_totem" 
+    "Ability4"        "ziv_witch_doctor_lifesteal"
+    "Ability5"        "ziv_witch_doctor_spawn"
     "Ability6"        "ziv_empty6"
     "Ability7"        ""
     "Ability8"        ""

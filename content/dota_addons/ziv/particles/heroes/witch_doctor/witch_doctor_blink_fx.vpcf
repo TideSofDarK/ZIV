@@ -132,6 +132,7 @@
 	[
 		{
 			m_ChildRef = resource:"particles/heroes/witch_doctor/witch_doctor_blink_fx_a.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/witch_doctor/witch_doctor_blink_fx_e.vpcf"

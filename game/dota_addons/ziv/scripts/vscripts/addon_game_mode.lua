@@ -45,6 +45,8 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_dota_hero_beastmaster", context)
   PrecacheUnitByNameSync("npc_dota_hero_windrunner", context)
   PrecacheUnitByNameSync("npc_dota_hero_sniper", context)
+
+  PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_treant.vsndevts",context)
 end
 
 -- Create the game mode when we activate

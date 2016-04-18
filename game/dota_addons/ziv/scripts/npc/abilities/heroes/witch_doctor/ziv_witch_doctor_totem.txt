@@ -1,0 +1,97 @@
+"ziv_witch_doctor_totem"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"     
+    "particle"      "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf"
+  }
+
+  "AbilityCastRange"        "400"
+  "AbilityCastPoint"        "0.3"
+  "AbilityCooldown"       "5.0"
+  "AbilityCastAnimation"      "none"
+
+  "AbilityManaCost"       "75"
+
+  "MaxLevel"  "7"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "damage_amp"    "4.0"
+    }
+    "02"
+    {
+      "var_type"  "FIELD_FLOAT"
+      "totem_duration"  "8.0"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+      "Function"    "CreateTotem"
+      "Target"    "POINT"
+    }
+  }
+
+  "OnProjectileHitUnit"
+  {
+    "DeleteOnHit"  "1"
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+      "Function"    "SplitShotImpact"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_witch_doctor_totem"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
+      "Attributes" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
+
+      "OnDestroy"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+          "Function"    "RemoveTotem"
+        }
+      }
+      
+      "OnAttackStart"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+          "Function"    "SplitShot"
+        }
+      }
+
+      "States"
+      {
+        "MODIFIER_STATE_MAGIC_IMMUNE" "MODIFIER_STATE_VALUE_ENABLED"
+        // "MODIFIER_STATE_ROOTED"   "MODIFIER_STATE_VALUE_ENABLED"
+      }
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+        "MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "1"
+      }
+    }
+  }
+}
