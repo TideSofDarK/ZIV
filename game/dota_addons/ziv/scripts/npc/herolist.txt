@@ -6,6 +6,7 @@
   "npc_dota_hero_sniper" "1"
   "npc_dota_hero_windrunner" "1"
   "npc_dota_hero_juggernaut" "1"
+  "npc_dota_hero_witch_doctor" "1"
 
   "npc_dota_hero_ancient_apparition" "0"
   "npc_dota_hero_antimage" "0"
@@ -58,7 +59,6 @@
   "npc_dota_hero_viper" "0"
   "npc_dota_hero_weaver" "0"
   
-  "npc_dota_hero_witch_doctor" "0"
   "npc_dota_hero_zuus" "0"
   "npc_dota_hero_broodmother" "0"
   "npc_dota_hero_skeleton_king" "0"

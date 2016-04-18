@@ -3307,6 +3307,47 @@
 	    }
 	  }
 	}
+	"ziv_witch_doctor_blink"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "precache"
+	  {
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"       
+	    "particle"      "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
+	    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx.vpcf"
+	  }
+	
+	  "AbilityCastRange"        "700"
+	  "AbilityCastPoint"        "0.2"
+	  "AbilityCooldown"       "0.9"
+	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
+	
+	  "AbilityManaCost"       "25"
+	
+	  "MaxLevel"  "7"
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_blink.lua"
+	      "Function"    "Blink"
+	      "Target"       "POINT"
+	    }
+	    "FireEffect"
+	    {
+	      "EffectName"    "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
+	      "EffectAttachType"  "attach_origin"
+	      "ControlPoints"
+	      {
+	        "01"    "80 80 80"
+	      }
+	    }
+	  }
+	}
 	"ziv_color_modifier_blue"
 	{
 	  "BaseClass"           "ability_datadriven"
