@@ -1,14 +1,16 @@
 .Item {
 	/*height: 60px;*/
 	background-color: black;
-
-    transition-property: position;
-    transition-duration: 0.15s; 
 }
 
 .Item:hover {
 	/*wash-color: #bbbbbb;*/
 	background-color: #3F51B5; 
+}
+
+.Transition {
+    transition-property: position;
+    transition-duration: 0.15s; 
 }
 
 #ItemNameLabel {

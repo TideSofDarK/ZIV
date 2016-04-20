@@ -280,10 +280,13 @@ function CheckElement( elem )
 function RepositionItems()
 {
     positionPanels.sort(function(a, b){
-        if (Math.abs(a.Y - b.Y) <= a.Height)
+        var rowA = a.Y / a.Height + (a.Y % a.Height / a.Height > 0.5) ? 1 : 0;
+        var rowB = b.Y / b.Height + (b.Y % b.Height / b.Height > 0.5) ? 1 : 0;
+
+        if (rowA == rowB)
           return a.X < b.X ? -1 : 1;
 
-        return a.Y <= b.Y ? -1 : 1;
+        return rowA < rowB ? -1 : 1;
     });
 
     positionPanels.forEach(function(item, i, arr) {
