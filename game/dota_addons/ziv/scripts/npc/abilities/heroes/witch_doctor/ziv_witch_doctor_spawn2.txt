@@ -1,4 +1,4 @@
-"ziv_witch_doctor_spawn"
+"ziv_witch_doctor_spawn2"
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
@@ -26,13 +26,13 @@
   {
     "01"
     {
-      "var_type"      "FIELD_FLOAT"
-      "damage_amp"      "1.5"
+      "var_type"      "FIELD_INTEGER"
+      "slow"      "-40"
     }
     "02"
     {
-      "var_type"      "FIELD_FLOAT"
-      "tick"    "1.0"
+      "var_type"      "FIELD_INTEGER"
+      "slow_duration"    "5"
     }
     "03"
     {
@@ -47,7 +47,7 @@
     "05"
     {
       "var_type"      "FIELD_INTEGER"
-      "skeleton_attack_speed"    "100"
+      "zombie_attack_speed"    "100"
     }
   }
 
@@ -57,13 +57,15 @@
     {
       "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_spawn.lua"
       "Function"    "WDSpawn"
+      "creep" "npc_witch_doctor_zombie"
+      "modifier"  "modifier_witch_doctor_zombie"
       "Target"       "POINT"
     }
   }
 
   "Modifiers"
   {
-    "modifier_witch_doctor_skeleton"
+    "modifier_witch_doctor_zombie"
     {
       "Passive"      "0"
       "IsHidden"      "0"
@@ -76,13 +78,48 @@
 
       "Properties"
       {
-        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%skeleton_attack_speed"
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%zombie_attack_speed"
+      }
+
+      "OnAttackLanded"
+      {
+        "ApplyModifier"
+        {
+          "ModifierName"  "modifier_witch_doctor_zombie_slow"
+          "Target"     "TARGET"
+          "Duration"    "%slow_duration"
+        }
       }
     
       "States"
       {
         "MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
         "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+      }
+    }
+
+    "modifier_witch_doctor_zombie_slow"
+    {
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "StatusEffectName"     "particles/status_fx/status_effect_stickynapalm.vpcf"      
+      "StatusEffectPriority"  "5"
+
+      "OnCreated"
+      {
+        "AttachEffect"
+        {
+          "EffectName"        "particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf"
+          "EffectAttachType"  "follow_origin"
+          "Target"            "TARGET"
+        }
+      }
+      
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
       }
     }
   }

@@ -6,7 +6,7 @@ function randomPointInCircle(x, y, radius)
 	return Vector(x + randX, y + randY, 0)
 end
 
-function SpawnSkeletons( keys )
+function WDSpawn( keys )
 	local caster = keys.caster
 	local target = keys.target_points[1]
 	local ability = keys.ability
@@ -18,22 +18,22 @@ function SpawnSkeletons( keys )
 
 	if #units > 0 then
 		for i=1,clamp(#units, 1, count) do
-			CreateSkeleton(caster, units[i]:GetAbsOrigin(), duration, units[i], ability)
+			SpawnWDCreep(caster, units[i]:GetAbsOrigin(), duration, units[i], ability, keys.creep, keys.modifier)
 		end
 	end
 
 	for i=1,(count - #units) do
-		CreateSkeleton(caster, target + randomPointInCircle(0, 0, 300), duration, nil, ability)
+		SpawnWDCreep(caster, target + randomPointInCircle(0, 0, 300), duration, nil, ability, keys.creep, keys.modifier)
 	end
 end
 
-function CreateSkeleton(caster, pos, _duration, target, ability)
-	local creep = CreateUnitByName("npc_witch_doctor_skeleton",pos,true,caster,caster,caster:GetTeamNumber())
+function SpawnWDCreep(caster, pos, _duration, target, ability, creep_name, modifier_name)
+	local creep = CreateUnitByName(creep_name or "npc_witch_doctor_skeleton",pos,true,caster,caster,caster:GetTeamNumber())
 
 	ParticleManager:CreateParticle("particles/units/heroes/hero_undying/undying_zombie_spawn_dirt02.vpcf", PATTACH_ABSORIGIN, creep)
 
 	creep:AddNewModifier(caster,ability,"modifier_kill",{duration = _duration})
-	ability:ApplyDataDrivenModifier(caster,creep,"modifier_witch_doctor_skeleton",{})
+	ability:ApplyDataDrivenModifier(caster,creep,modifier_name or "modifier_witch_doctor_skeleton",{})
 	if target then
 		creep:MoveToTargetToAttack(target)
 	else

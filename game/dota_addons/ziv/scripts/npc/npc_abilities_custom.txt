@@ -1015,14 +1015,14 @@
 	"ziv_huntress_ballista"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT"
 	  "AbilityTextureName"            "rubick_empty1"
 	  
 	  "AbilityCastAnimation"      ""
 	  
 	  "AbilityCastRange"        "1100"
 	  "AbilityManaCost"         "60"
-	  "AbilityCastPoint"        "0.001"
+	  "AbilityCastPoint"        "0.09"
 	  "AbilityChannelTime"      "1.0"
 	  "AbilityCooldown"         "4"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
@@ -1197,7 +1197,7 @@
 	  "AbilityCastRange"        "1100"
 	  "AbilityManaCost"         "30"
 	  "AbilityCastPoint"        "0.001"
-	  "AbilityCooldown"         "0.8"
+	  "AbilityCooldown"         "0.6"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	  
 	  "MaxLevel"          "7"
@@ -3562,7 +3562,7 @@
 	    "RunScript"
 	    {
 	      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_spawn.lua"
-	      "Function"    "SpawnSkeletons"
+	      "Function"    "WDSpawn"
 	      "Target"       "POINT"
 	    }
 	  }
@@ -3589,6 +3589,132 @@
 	      {
 	        "MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
 	        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	  }
+	}
+	"ziv_witch_doctor_spawn2"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "AOERadius" "300"
+	
+	  "precache"
+	  {
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+	    "particle"      "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"
+	    "particle"  "particles/units/heroes/hero_undying/undying_zombie_spawn_dirt02.vpcf"
+	  }
+	
+	  "AbilityCastRange"        "700"
+	  "AbilityCastPoint"        "0.3"
+	  "AbilityCooldown"       "0.9"
+	  "AbilityCastAnimation"      ""
+	
+	  "AbilityManaCost"       "25"
+	
+	  "MaxLevel"  "7"
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "slow"      "-40"
+	    }
+	    "02"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "slow_duration"    "5"
+	    }
+	    "03"
+	    {
+	      "var_type"      "FIELD_FLOAT"
+	      "duration"    "6"
+	    }
+	    "04"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "count"    "6"
+	    }
+	    "05"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "zombie_attack_speed"    "100"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_spawn.lua"
+	      "Function"    "WDSpawn"
+	      "creep" "npc_witch_doctor_zombie"
+	      "modifier"  "modifier_witch_doctor_zombie"
+	      "Target"       "POINT"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_witch_doctor_zombie"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "StatusEffectName"     "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"      
+	      "StatusEffectPriority"  "10"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%zombie_attack_speed"
+	      }
+	
+	      "OnAttackLanded"
+	      {
+	        "ApplyModifier"
+	        {
+	          "ModifierName"  "modifier_witch_doctor_zombie_slow"
+	          "Target"     "TARGET"
+	          "Duration"    "%slow_duration"
+	        }
+	      }
+	    
+	      "States"
+	      {
+	        "MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	
+	    "modifier_witch_doctor_zombie_slow"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "StatusEffectName"     "particles/status_fx/status_effect_stickynapalm.vpcf"      
+	      "StatusEffectPriority"  "5"
+	
+	      "OnCreated"
+	      {
+	        "AttachEffect"
+	        {
+	          "EffectName"        "particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf"
+	          "EffectAttachType"  "follow_origin"
+	          "Target"            "TARGET"
+	        }
+	      }
+	      
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
 	      }
 	    }
 	  }
@@ -3681,6 +3807,119 @@
 	      {
 	        "MODIFIER_STATE_MAGIC_IMMUNE" "MODIFIER_STATE_VALUE_ENABLED"
 	        // "MODIFIER_STATE_ROOTED"   "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+	        "MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "1"
+	      }
+	    }
+	  }
+	}
+	"ziv_witch_doctor_totem2"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityTextureName"            "rubick_empty1"
+	
+	  "precache"
+	  {
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"    
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"  
+	    "particle"      "particles/heroes/witch_doctor/witch_doctor_totem2_fx.vpcf"
+	    "particle"      "particles/heroes/witch_doctor/witch_doctor_totem2_lasso.vpcf"
+	  }
+	
+	  "AbilityCastRange"        "400"
+	  "AbilityCastPoint"        "0.3"
+	  "AbilityCooldown"       "5.0"
+	  "AbilityCastAnimation"      "none"
+	
+	  "AbilityManaCost"       "75"
+	
+	  "MaxLevel"  "7"
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"      "FIELD_FLOAT"
+	      "damage_amp"    "4.0"
+	    }
+	    "02"
+	    {
+	      "var_type"  "FIELD_FLOAT"
+	      "totem_duration"  "8.0"
+	    }
+	    "03"
+	    {
+	      "var_type"  "FIELD_INTEGER"
+	      "radius"  "500"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_Juggernaut.HealingWard.Cast"  
+	      "Target" "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+	      "Function"    "CreateTotem2"
+	      "Target"    "POINT"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_witch_doctor_totem2"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
+	      "Attributes" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
+	
+	      "OnDestroy"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+	          "Function"    "RemoveTotem"
+	        }
+	      }
+	
+	      "ThinkInterval"  "0.4"
+	      "OnIntervalThink"
+	      {
+	        "ActOnTargets"
+	        {
+	          "Target"
+	          {
+	            "Center"    "CASTER"
+	            "Radius"   "%radius"
+	            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          }
+	        
+	          "Action"    
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+	              "Function"    "Pulling"
+	            }
+	          }
+	        }
+	      }
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_MAGIC_IMMUNE" "MODIFIER_STATE_VALUE_ENABLED"
 	      }
 	      "Properties"
 	      {

@@ -13,7 +13,7 @@
   "AbilityCastRange"        "1100"
   "AbilityManaCost"         "30"
   "AbilityCastPoint"        "0.001"
-  "AbilityCooldown"         "0.8"
+  "AbilityCooldown"         "0.6"
   "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
   
   "MaxLevel"          "7"

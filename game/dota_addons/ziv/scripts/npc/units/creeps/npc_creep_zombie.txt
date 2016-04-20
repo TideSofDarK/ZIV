@@ -1,6 +1,8 @@
 "npc_creep_zombie"
 {
     "BaseClass"         "npc_dota_creature"
+    "SoundSet"                  "Undying_Zombie"
+    
     "HealthBarOffset"   "140"
     "Model"           "models/heroes/undying/undying_minion.vmdl"
     "ModelScale"    "0.855"

@@ -92,6 +92,7 @@ function UpdateSkills() {
 	var root = $("#AbilitiesPanel");
 	
 	var stringLayout = $.GetContextPanel().heroesKVs[$.GetContextPanel().heroName+"_ziv"]["ChooseLayout"].toString();
+	var abilityLayout = parseInt($.GetContextPanel().heroesKVs[$.GetContextPanel().heroName+"_ziv"]["AbilityLayout"].toString());
 	var spellCount = GetSpellCount(stringLayout);
 	var positions = GetSpellPositionsBasedOnLayout(stringLayout);
 	var abilityGroups = GetAbilityGroups(stringLayout);
@@ -105,7 +106,7 @@ function UpdateSkills() {
 
 		newChildPanel.FindChild("AbilityImage").abilityname = abilityName;
 
-		newChildPanel.style.marginLeft = "50px;"; 
+		newChildPanel.style.marginLeft = abilityLayout == 5 ? "17px;" : "50px;"; 
 
 		newChildPanel.style.x = positions[i][0] + "px;";
 		newChildPanel.style.y = positions[i][1] + "px;";

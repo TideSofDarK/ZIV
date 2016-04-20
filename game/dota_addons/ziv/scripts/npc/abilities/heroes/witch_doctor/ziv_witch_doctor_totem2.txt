@@ -1,0 +1,113 @@
+"ziv_witch_doctor_totem2"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"    
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"  
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_totem2_fx.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witch_doctor_totem2_lasso.vpcf"
+  }
+
+  "AbilityCastRange"        "400"
+  "AbilityCastPoint"        "0.3"
+  "AbilityCooldown"       "5.0"
+  "AbilityCastAnimation"      "none"
+
+  "AbilityManaCost"       "75"
+
+  "MaxLevel"  "7"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "damage_amp"    "4.0"
+    }
+    "02"
+    {
+      "var_type"  "FIELD_FLOAT"
+      "totem_duration"  "8.0"
+    }
+    "03"
+    {
+      "var_type"  "FIELD_INTEGER"
+      "radius"  "500"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "FireSound"
+    {
+      "EffectName"  "Hero_Juggernaut.HealingWard.Cast"  
+      "Target" "CASTER"
+    }
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+      "Function"    "CreateTotem2"
+      "Target"    "POINT"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_witch_doctor_totem2"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
+      "Attributes" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
+
+      "OnDestroy"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+          "Function"    "RemoveTotem"
+        }
+      }
+
+      "ThinkInterval"  "0.4"
+      "OnIntervalThink"
+      {
+        "ActOnTargets"
+        {
+          "Target"
+          {
+            "Center"    "CASTER"
+            "Radius"   "%radius"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+          }
+        
+          "Action"    
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+              "Function"    "Pulling"
+            }
+          }
+        }
+      }
+
+      "States"
+      {
+        "MODIFIER_STATE_MAGIC_IMMUNE" "MODIFIER_STATE_VALUE_ENABLED"
+      }
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+        "MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "1"
+      }
+    }
+  }
+}

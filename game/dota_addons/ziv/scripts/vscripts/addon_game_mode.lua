@@ -47,6 +47,7 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_dota_hero_sniper", context)
 
   PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_treant.vsndevts",context)
+  PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts",context)
 end
 
 -- Create the game mode when we activate
