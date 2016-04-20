@@ -1,7 +1,11 @@
 "npc_witch_doctor_skeleton"
 {
     "BaseClass"         "npc_dota_creature"
+    "SoundSet"  "n_creep_skeleton_melee"
+    
     "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
+    "ModelScale"    "1.2"
+    "HealthBarOffset"   "150"
     "Level"           "1"
     
     "Ability1"          ""
@@ -13,7 +17,10 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackRange"        "128"
+    "AttackRate"    "0.75"
+    "AttackAnimationPoint"  "0.4"
+    "AttackAcquisitionRange"    "150"
+    "AttackRange"   "100"
     
     "AttackDamageMin"        "15"
     "AttackDamageMax"        "20"
@@ -28,7 +35,7 @@
     "BoundsHullName"      "DOTA_HULL_SIZE_HERO"
 
     "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"       "425"
+    "MovementSpeed"       "495"
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 

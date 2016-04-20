@@ -6,10 +6,10 @@ Director.BASIC_PACK_COUNT = 12
 Director.BASIC_PACK_SPREAD = 820
 Director.BASIC_LORD_SPREAD = 135
 
-Director.color_modifier_list = {}
-Director.creep_modifier_list = {}
-Director.lord_modifier_list = {}
-Director.creep_list = {}
+Director.color_modifier_list = Director.color_modifier_list or {}
+Director.creep_modifier_list = Director.creep_modifier_list or {}
+Director.lord_modifier_list = Director.lord_modifier_list or {}
+Director.creep_list = Director.creep_list or {}
 
 function Director:Init()
 	for k,v in pairs(ZIV.AbilityKVs) do

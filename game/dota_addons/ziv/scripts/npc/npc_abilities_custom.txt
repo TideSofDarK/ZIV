@@ -3510,14 +3510,13 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 	  "AbilityTextureName"            "rubick_empty1"
 	
-	  "AOERadius" "500"
+	  "AOERadius" "300"
 	
 	  "precache"
 	  {
 	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
-	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
-	    "soundfile"      "soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
-	    "particle"      "particles/econ/courier/courier_trail_cursed/courier_cursed_ambient_c.vpcf"
+	    "particle"      "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"
+	    "particle"  "particles/units/heroes/hero_undying/undying_zombie_spawn_dirt02.vpcf"
 	  }
 	
 	  "AbilityCastRange"        "700"
@@ -3546,11 +3545,21 @@
 	      "var_type"      "FIELD_FLOAT"
 	      "duration"    "6"
 	    }
+	    "04"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "count"    "6"
+	    }
+	    "05"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "skeleton_attack_speed"    "100"
+	    }
 	  }
 	
 	  "OnSpellStart"
 	  {
-	    "SpawSkeletons"
+	    "RunScript"
 	    {
 	      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_spawn.lua"
 	      "Function"    "SpawnSkeletons"
@@ -3565,12 +3574,21 @@
 	      "Passive"      "0"
 	      "IsHidden"      "0"
 	      "IsDebuff"      "0"
-	    
-	      // "EffectName"    "particle_name"
-	      // "EffectAttachType"  "follow_origin"
-	    
-	      "OnCreated"
+	
+	      "Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "StatusEffectName"     "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"      
+	      "StatusEffectPriority"  "10"
+	
+	      "Properties"
 	      {
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%skeleton_attack_speed"
+	      }
+	    
+	      "States"
+	      {
+	        "MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
 	      }
 	    }
 	  }
