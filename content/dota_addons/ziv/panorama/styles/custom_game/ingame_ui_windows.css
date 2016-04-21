@@ -116,3 +116,16 @@
 .BasicShadow {
 	box-shadow: #000000ff 0px 0px 21px 0px;
 }
+
+.WindowButtonLabel {
+	horizontal-align: center;
+	vertical-align: center;
+
+	color: #ffffffde;
+	font-size: 16px;
+
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+
+	text-shadow: 1px 1px 2px black;
+	line-height: 0px;
+}

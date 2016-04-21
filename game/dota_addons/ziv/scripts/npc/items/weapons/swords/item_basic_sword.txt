@@ -5,7 +5,7 @@
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_basic_sword"
 
-  "Slot"  "hand"
+  "Slot"  "sword"
 
   "ItemStackable" "0"
   "ItemPermanent" "0"
@@ -33,7 +33,7 @@
     }
     "ApplyModifier"
     {
-      "ModifierName"  "modifier_basic_sword_equipped_torso"
+      "ModifierName"  "modifier_basic_sword_equipped_sword"
       "Target"     "CASTER"
     }
     "FireSound"
@@ -45,7 +45,7 @@
   
   "Modifiers"
   {
-    "modifier_basic_sword_equipped_torso"
+    "modifier_basic_sword_equipped_sword"
     {
       "Passive"      "0"
       "IsHidden"      "1"

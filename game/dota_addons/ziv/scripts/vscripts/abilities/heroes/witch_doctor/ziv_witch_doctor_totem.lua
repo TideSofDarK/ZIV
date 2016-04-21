@@ -13,7 +13,7 @@ function CreateTotem( keys )
 	ability:ApplyDataDrivenModifier(totem,totem,"modifier_witch_doctor_totem",{duration = _duration})
 	InitAbilities(totem)
 
-	Timers:CreateTimer(0.3, function (  )
+	Timers:CreateTimer(0.6, function (  )
 		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf",PATTACH_POINT,totem)
 		ParticleManager:SetParticleControlEnt(particle, 0, totem, PATTACH_POINT_FOLLOW, "attach_attack1", totem:GetAbsOrigin(), false)
 

@@ -5,7 +5,7 @@
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_quarterstaff"
 
-  "Slot"  "weapon"
+  "Slot"  "gun"
   "CustomSkill1"  "ziv_sniper_shotgun_special"
   "CustomSkill2"  "ziv_sniper_shotgun_passive"
 
@@ -38,7 +38,7 @@
   
   "Modifiers"
   {
-    "modifier_basic_shotgun_equipped_weapon"
+    "modifier_basic_shotgun_equipped_gun"
     {
       "Passive"      "0"
       "IsHidden"      "1"

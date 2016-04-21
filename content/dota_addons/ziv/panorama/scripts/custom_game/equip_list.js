@@ -7,54 +7,27 @@ function OnEquipmentButtonClicked()
 	 $( "#equip_list" ).visible = $( "#equip_list" ).visible == false;
 }
 
-function UpdateBuff( buffPanel, queryUnit, buffSerial )
+function UpdateBuff( buffPanel, itemName )
 {
-	var noBuff = ( buffSerial == -1 );
-	buffPanel.SetHasClass( "no_buff", noBuff );
-	buffPanel.m_QueryUnit = queryUnit;
-	buffPanel.m_BuffSerial = buffSerial;
-	if ( noBuff )
-	{
-		return;
-	}
-	
-	var nNumStacks = Buffs.GetStackCount( queryUnit, buffSerial );
-	buffPanel.SetHasClass( "is_debuff", Buffs.IsDebuff( queryUnit, buffSerial ) );
-	buffPanel.SetHasClass( "has_stacks", ( nNumStacks > 0 ) );
-
-	var stackCount = buffPanel.FindChildInLayoutFile( "StackCount" );
 	var itemImage = buffPanel.FindChildInLayoutFile( "ItemImage" );
-	var abilityImage = buffPanel.FindChildInLayoutFile( "AbilityImage" );
-	if ( stackCount )
-	{
-		stackCount.text = nNumStacks;
-	}
-	
-	var buffTexture = Buffs.GetTexture( queryUnit, buffSerial );
+	// itemImage.itemname = "item_" + buffPanel.id;
 
-	if (buffTexture) {
-		buffPanel.buffTexture = buffTexture;
-	}
-	else if (buffPanel.buffTexture)
+	if (itemName == "") 
 	{
-		buffTexture = buffPanel.buffTexture;
-	}
-
-	var itemIdx = buffTexture.indexOf( "item_" );
-	if ( itemIdx === -1 )
-	{
-		if ( itemImage ) itemImage.itemname = "";
-		if ( abilityImage ) abilityImage.abilityname = buffTexture;
-		buffPanel.SetHasClass( "item_buff", false );
-		buffPanel.SetHasClass( "ability_buff", true );
+		buffPanel.style.backgroundImage = "url(\'file://{images}/custom_game/ingame_ui/slots/" + buffPanel.id + ".png\');";
+		itemImage.style.visibility = "collapse;"
 	}
 	else
 	{
-		if ( itemImage ) itemImage.itemname = buffTexture;
-		if ( abilityImage ) abilityImage.abilityname = "";
-		buffPanel.SetHasClass( "item_buff", true );
-		buffPanel.SetHasClass( "ability_buff", false );
+		itemImage.itemname = "item_" + itemName;
+		itemImage.style.visibility = "visible;"
 	}
+
+	// $.Msg("url(\'file://{images}/items/" + buffPanel.id + ".png\');");
+
+	// $.Msg("item_" + buffPanel.id);
+
+	return;
 }
 
 function UpdateBuffs()
@@ -63,50 +36,57 @@ function UpdateBuffs()
 	if ( !buffsListPanel )
 		return;
 
-	var queryUnit = Players.GetLocalPlayerPortraitUnit();
+	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+
+	var heroKV = CustomNetTables.GetTableValue( "hero_kvs", Entities.GetUnitName( queryUnit )+"_ziv" );
+	var slots = heroKV["EquipmentSlots"].split(';');
 	
 	var nBuffs = Entities.GetNumBuffs( queryUnit );
 
-	for (var x = 0; x < m_BuffPanels.length; x++) {
-		if (Buffs.GetName(m_BuffPanels[x].m_QueryUnit, m_BuffPanels[x].m_BuffSerial) == "") {
-			m_BuffPanels[x].RemoveAndDeleteChildren();
-			m_BuffPanels.splice(x, 1);
-			x--;
-		}
-	}
-	
+	// for (var x = 0; x < slots.length; x++) {
+	// 	if (Buffs.GetName(m_BuffPanels[x].m_QueryUnit, m_BuffPanels[x].m_BuffSerial) == "") {
+	// 		m_BuffPanels[x].RemoveAndDeleteChildren();
+	// 		m_BuffPanels.splice(x, 1);
+	// 		x--;
+	// 	}
+	// }
+
 	// update all the panels
-	for ( var i = 0; i < nBuffs; ++i )
+	for ( var i = 0; i < Math.max(slots.length, nBuffs); ++i )
 	{
-
-		var buffSerial = Entities.GetBuff( queryUnit, i );
-
-		var buffName = Buffs.GetName(queryUnit, buffSerial);
-
-		if ( buffName.contains("_equipped_") == false )
-			continue;
-
-		if ( buffSerial == -1 )
-			continue;
-
 		var present = false;
-		for (var x = 0; x < m_BuffPanels.length; x++) {
-			if (m_BuffPanels[x].m_BuffSerial == buffSerial) {
-				present = true;
+		if (m_BuffPanels.length == slots.length)
+		{
+			var buffSerial = Entities.GetBuff( queryUnit, i );
 
-				UpdateBuff( m_BuffPanels[x], queryUnit, buffSerial );
-				break;
+			var buffName = Buffs.GetName(queryUnit, buffSerial);
+
+			var itemName = "";
+			var slot = "";
+
+			if (buffName.contains("_equipped_")) {
+				itemName = buffName.replace("modifier_", "");
+				slot = itemName.substring(itemName.indexOf("_equipped_"), itemName.length).replace("_equipped_","");
+				itemName = itemName.substring(0, itemName.indexOf("_equipped"));
+			}
+
+			for (var x = 0; x < m_BuffPanels.length; x++) {
+				if (m_BuffPanels[x].id == slot) {
+					present = true;
+
+					UpdateBuff( m_BuffPanels[x], itemName );
+					break;
+				}
 			}
 		}
-		
-		if ( present == false )
+		else if ( present == false )
 		{
 			// create a new panel
-			var buffPanel = $.CreatePanel( "Panel", buffsListPanel, "" );
+			var buffPanel = $.CreatePanel( "Panel", buffsListPanel, slots[i]);
 			buffPanel.BLoadLayout( "file://{resources}/layout/custom_game/equip_list_buff.xml", false, false );
 			m_BuffPanels.push( buffPanel );
 
-			UpdateBuff( buffPanel, queryUnit, buffSerial );
+			UpdateBuff( buffPanel, "" );
 		}
 	}
 

@@ -8,26 +8,28 @@ function ZIV:OnPlayerSelectedHero( args )
 
   local abilities = args.abilities
 
-  local hero = CreateHeroForPlayer(hero_name, player)
+  PrecacheUnitByNameAsync(hero_name, function (  )
+    local hero = CreateHeroForPlayer(hero_name, player)
 
-  for i=0,16 do
-    local abil = hero:GetAbilityByIndex(i)
-    if abil and abil:GetName() then
-      hero:RemoveAbility(abil:GetName())
+    for i=0,16 do
+      local abil = hero:GetAbilityByIndex(i)
+      if abil and abil:GetName() then
+        hero:RemoveAbility(abil:GetName())
+      end
     end
-  end
-  
-  for i=0,GetTableLength(abilities) do
-    hero:AddAbility(abilities[tostring(i)])
-  end
+    
+    for i=0,GetTableLength(abilities) do
+      hero:AddAbility(abilities[tostring(i)])
+    end
 
-  hero:AddAbility("ziv_fortify_modifiers")
-  hero:AddAbility("ziv_stats_bonus_fix")
-  hero:AddAbility("ziv_hero_normal_hpbar_behavior")
+    hero:AddAbility("ziv_fortify_modifiers")
+    hero:AddAbility("ziv_stats_bonus_fix")
+    hero:AddAbility("ziv_hero_normal_hpbar_behavior")
 
-  InitAbilities(hero)
+    InitAbilities(hero)
 
-  hero:AddNewModifier(hero,nil,"modifier_disable_auto_attack",{})
+    hero:AddNewModifier(hero,nil,"modifier_disable_auto_attack",{})
+  end, pID)
 end
 
 function ZIV:OnDisconnect(keys)

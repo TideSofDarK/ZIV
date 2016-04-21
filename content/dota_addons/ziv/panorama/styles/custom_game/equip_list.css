@@ -1,24 +1,55 @@
 .BuffListRoot
 {
-	horizontal-align: center;
-	vertical-align: bottom;
-	margin-bottom: 215px;
-	margin-left: 0px;
-	
-	flow-children: right;
+	width: 100%;
+	height: 100%;
 }
 
-#buffs_list
+#equip_list
 {
-	flow-children: right;
+	horizontal-align: right;
+	vertical-align: bottom;
+	margin-bottom: 300px;
+	margin-right: 50px;
+
+
+}
+
+#boots
+{
+	margin-top: 225px;
+}
+
+#pants
+{
+	margin-top: 150px;
+}
+
+#sword,
+#staff,
+#bow
+{
+	margin-left: -75px;
+	margin-top: 75px;
+}
+
+#ring,
+#shield
+{
+	margin-left: 150px;
+	margin-top: 75px;
+}
+
+#gloves
+{
+	margin-top: 75px;
 }
 
 .BuffRoot
 {
-
+	horizontal-align: center;
 	margin: 0px;
-	margin-right: 10px;
-	border-radius: 3px;
+	/*margin-right: 10px;*/
+	/*border-radius: 3px;*/
 }
 
 .no_buff.BuffRoot
@@ -28,9 +59,8 @@
 
 #BuffFrame
 {
-	margin: 5px;
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #52ae21 ), to( #2c6e08 ) );
-	padding: 1px;
+	background-image: url('file://{images}/custom_game/ingame_ui/slot.png');
+	background-size: 100% 100%;
 }
 
 .is_debuff #BuffFrame
@@ -57,26 +87,28 @@
 
 #BuffImage
 {
-	width: 60px;
-	height: 60px;
+	width: 65px;
+	height: 65px;
+
+	background-position: 50% 50%;
 }
 
 #AbilityImage,
 #ItemImage,
 #BuffFrame
 {
-	border-top:		2px solid #000000CC;
+/*	border-top:		2px solid #000000CC;
 	border-bottom:	2px solid #FFFFFF22;
 	border-left:	2px solid #000000CC;
-	border-right:	2px solid #FFFFFF22;
+	border-right:	2px solid #FFFFFF22;*/
 }
 
 #BuffFrame
 {
-	border-top:		2px solid #FFFFFF22;
+/*	border-top:		2px solid #FFFFFF22;
 	border-bottom:	2px solid #000000CC;
 	border-left:	2px solid #FFFFFF22;
-	border-right:	2px solid #000000CC;
+	border-right:	2px solid #000000CC;*/
 }
 
 #AbilityImage

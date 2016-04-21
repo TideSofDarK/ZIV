@@ -11,8 +11,8 @@
 		<include src="file://{resources}/scripts/custom_game/equip_list.js" />
 	</scripts>
 	<Panel class="BuffListRoot" hittest="false">
-		<Panel id="equip_list" />
+		<Panel id="equip_list">
 
-		<ToggleButton checked="checked" id="equipment_button" class="BottomButton" onactivate="OnEquipmentButtonClicked()"/>
+		</Panel>
 	</Panel>
 </root>

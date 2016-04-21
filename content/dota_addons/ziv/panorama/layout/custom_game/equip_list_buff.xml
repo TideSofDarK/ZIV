@@ -34,7 +34,7 @@
 							onmouseout="BuffHideTooltip()"
 							>
 			<Panel id="BuffImage">
-				<DOTAAbilityImage id="AbilityImage" />
+				<!-- <DOTAAbilityImage id="AbilityImage" /> -->
 				<DOTAItemImage id="ItemImage" scaling="stretch-to-fit-y-preserve-aspect" />
 			</Panel>
 			<Label id="StackCount" />

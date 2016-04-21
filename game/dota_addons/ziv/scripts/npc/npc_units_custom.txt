@@ -1028,7 +1028,12 @@
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
 	
-	    "AttackDesire"        "1.2"
+	    "AttackDesire"        "1.8"
+	
+	    "Creature"
+	    {
+	        "DisableClumpingBehavior"   "1"
+	    }
 	} 
 	"npc_creep_wraith"
 	{
@@ -1073,7 +1078,12 @@
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
 	
-	    "AttackDesire"        "1.2"
+	    "AttackDesire"        "1.8"
+	
+	    "Creature"
+	    {
+	        "DisableClumpingBehavior"   "1"
+	    }
 	} 
 	"npc_creep_zombie"
 	{
@@ -1120,6 +1130,11 @@
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
 	
-	    "AttackDesire"        "1.2"
+	    "AttackDesire"        "1.8"
+	
+	    "Creature"
+	    {
+	        "DisableClumpingBehavior"   "1"
+	    }
 	} 
 }

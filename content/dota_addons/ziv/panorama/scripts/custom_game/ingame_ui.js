@@ -284,8 +284,9 @@ function ZIVCastAbility(number, pressing) {
 //     $.Schedule(0.1, UpdateParticles);
 // }
 
-function CreateSideButtons() {
-	// $.CreatePanel( "Panel", $("#SideButtons"), "" ).BLoadLayout( "file://{resources}/layout/custom_game/equip_list.xml", false, false );
+function OpenEquipment() {
+	//$("#EquipList")
+	$.CreatePanel( "Panel", $.GetContextPanel(), "" ).BLoadLayout( "file://{resources}/layout/custom_game/equip_list.xml", false, false );
 }
 
 function OpenFortifyWindow() {
@@ -348,7 +349,7 @@ function ZIVRemoveFromPanelsQueue( panel )
 	
 	UpdateHPAndMP();
 
-	CreateSideButtons();
+	// CreateSideButtons();
 
 	GameUI.CustomUIConfig().ZIVCastAbility = ZIVCastAbility;
 	GameUI.CustomUIConfig().ZIVStopAbility = ZIVStopAbility;

@@ -44,5 +44,10 @@
     "VisionDaytimeRange"    "0"
     "VisionNighttimeRange"    "0"
 
-    "AttackDesire"        "1.2"
+    "AttackDesire"        "1.8"
+
+    "Creature"
+    {
+        "DisableClumpingBehavior"   "1"
+    }
 } 

@@ -4,6 +4,7 @@
 		<include src="file://{resources}/styles/custom_game/ingame_ui.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_inventory.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui.js" />
@@ -13,19 +14,14 @@
 		<Panel id="BottomGfx" hittest="false"/>
 		<Panel id="BottomRightGfx"/>
 		<Panel class="Bottom RightBottom" hittest="false">
-			<Panel class="InventoryOverlayRoot" hittest="false">
-
-				<Panel id="inventory_items">
-					<Panel id="inventory_row_1" />
-					<Panel id="inventory_row_2" />
-					<Panel id="inventory_row_3" />
-					<Panel id="inventory_row_4" />
-				</Panel>
+			<Panel hittest="false" id="EquipList">
 
 			</Panel>
-			<Panel hittest="false" id="BottomRoot">
 
-			</Panel>
+			<Button id="equipment_button" class="OKButton" onactivate="OpenEquipment()" >
+				<Label text="#equipment" class="WindowButtonLabel" />
+			</Button>
+
 			<Panel id="SideButtons" hittest="false">
 				<Button id="craft_button" class="BottomButton" onactivate="OpenFortifyWindow()" />
 				<Button id="character_button" class="BottomButton" onactivate="OpenStatusWindow()" />

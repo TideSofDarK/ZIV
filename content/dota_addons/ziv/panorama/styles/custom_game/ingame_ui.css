@@ -15,6 +15,8 @@
 .RightBottom {
 	horizontal-align: right;
 	flow-children: down;
+
+	height: 255px;
 }
 
 .MidBottom {
@@ -113,6 +115,7 @@
 }
 
 #SideButtons {
+	vertical-align: center;
 	horizontal-align: right;
 	flow-children: right;
 	margin-right: 16px;
@@ -120,8 +123,8 @@
 
 .BottomButton {
 	/*opacity: 0.99;*/
-	vertical-align: bottom;
-	margin-bottom: 36px;
+	
+	margin-bottom: 1px;
 	margin-left: 3px;
 	
     width: 69px;
@@ -168,6 +171,22 @@
 
 #help_button {
 	background-image: url('file://{images}/custom_game/ingame_ui/help.png');
+}
+
+#equipment_button {
+	horizontal-align: center;
+	width: 127px;
+	height: 30px; 
+
+	border-radius: 6px;
+
+	margin-top: 11px;
+	margin-right: 11px;
+}
+
+#EquipList
+{
+	
 }
 
 #Portait {

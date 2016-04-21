@@ -567,7 +567,7 @@
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_quarterstaff"
 	
-	  "Slot"  "weapon"
+	  "Slot"  "gun"
 	  "CustomSkill1"  "ziv_sniper_shotgun_special"
 	  "CustomSkill2"  "ziv_sniper_shotgun_passive"
 	
@@ -600,7 +600,7 @@
 	  
 	  "Modifiers"
 	  {
-	    "modifier_basic_shotgun_equipped_weapon"
+	    "modifier_basic_shotgun_equipped_gun"
 	    {
 	      "Passive"      "0"
 	      "IsHidden"      "1"
@@ -621,7 +621,7 @@
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_pers"
 	
-	  "Slot"  "weapon"
+	  "Slot"  "gun"
 	  "CustomSkill1"  "ziv_sniper_smg_special"
 	  "CustomSkill2"  "ziv_sniper_smg_rush"
 	
@@ -654,7 +654,7 @@
 	  
 	  "Modifiers"
 	  {
-	    "modifier_basic_smg_equipped_weapon"
+	    "modifier_basic_smg_equipped_gun"
 	    {
 	      "Passive"      "0"
 	      "IsHidden"      "1"
@@ -674,7 +674,7 @@
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_basic_sword"
 	
-	  "Slot"  "hand"
+	  "Slot"  "sword"
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"
@@ -702,7 +702,7 @@
 	    }
 	    "ApplyModifier"
 	    {
-	      "ModifierName"  "modifier_basic_sword_equipped_torso"
+	      "ModifierName"  "modifier_basic_sword_equipped_sword"
 	      "Target"     "CASTER"
 	    }
 	    "FireSound"
@@ -714,7 +714,7 @@
 	  
 	  "Modifiers"
 	  {
-	    "modifier_basic_sword_equipped_torso"
+	    "modifier_basic_sword_equipped_sword"
 	    {
 	      "Passive"      "0"
 	      "IsHidden"      "1"
