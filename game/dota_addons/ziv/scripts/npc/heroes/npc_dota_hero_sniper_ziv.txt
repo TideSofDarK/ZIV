@@ -2,6 +2,8 @@
   {
     "override_hero"     "npc_dota_hero_sniper"
 
+    "EquipmentSlots" "torso;gun;gloves;ring;pants;boots"
+
     "ChooseLayout"  "1112"
 
     "AbilityLayout"     "4"

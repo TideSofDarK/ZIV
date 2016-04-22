@@ -2,32 +2,48 @@
 
 var m_BuffPanels = []; // created up to a high-water mark, but reused
 
-function OnEquipmentButtonClicked()
+function UpdateBuff( buffPanel )
 {
-	 $( "#equip_list" ).visible = $( "#equip_list" ).visible == false;
-}
+	$.Schedule(0.1, function () {
+		buffPanel.Update()
+	})
 
-function UpdateBuff( buffPanel, itemName )
-{
-	var itemImage = buffPanel.FindChildInLayoutFile( "ItemImage" );
-	// itemImage.itemname = "item_" + buffPanel.id;
+	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 
-	if (itemName == "") 
+	for ( var i = 0; i < Entities.GetNumBuffs( queryUnit ); ++i )
 	{
-		buffPanel.style.backgroundImage = "url(\'file://{images}/custom_game/ingame_ui/slots/" + buffPanel.id + ".png\');";
-		itemImage.style.visibility = "collapse;"
+		var buffSerial = Entities.GetBuff( queryUnit, i );
+
+		var buffName = Buffs.GetName(queryUnit, buffSerial);
+
+		var itemName;
+		var slot;
+
+		if (buffName.contains("_equipped_")) {
+			itemName = buffName.replace("modifier_", "");
+			slot = itemName.substring(itemName.indexOf("_equipped_"), itemName.length).replace("_equipped_","");
+			itemName = itemName.substring(0, itemName.indexOf("_equipped"));
+		}
+
+		if (itemName && slot && buffPanel.id == slot)
+		{
+			buffPanel.m_BuffName = buffName;
+			buffPanel.m_BuffSerial = buffSerial;
+
+			if (itemName == "") 
+			{
+				buffPanel.m_ItemImage.style.visibility = "collapse;"
+			}
+			else
+			{
+				buffPanel.m_ItemImage.itemname = "item_" + itemName;
+				buffPanel.m_ItemImage.style.visibility = "visible;"
+			}
+			return;
+		}
 	}
-	else
-	{
-		itemImage.itemname = "item_" + itemName;
-		itemImage.style.visibility = "visible;"
-	}
 
-	// $.Msg("url(\'file://{images}/items/" + buffPanel.id + ".png\');");
-
-	// $.Msg("item_" + buffPanel.id);
-
-	return;
+	buffPanel.m_ItemImage.style.visibility = "collapse;"
 }
 
 function UpdateBuffs()
@@ -43,60 +59,44 @@ function UpdateBuffs()
 	
 	var nBuffs = Entities.GetNumBuffs( queryUnit );
 
-	// for (var x = 0; x < slots.length; x++) {
-	// 	if (Buffs.GetName(m_BuffPanels[x].m_QueryUnit, m_BuffPanels[x].m_BuffSerial) == "") {
-	// 		m_BuffPanels[x].RemoveAndDeleteChildren();
-	// 		m_BuffPanels.splice(x, 1);
-	// 		x--;
-	// 	}
-	// }
-
-	// update all the panels
-	for ( var i = 0; i < Math.max(slots.length, nBuffs); ++i )
+	for ( var i = 0; i < slots.length; ++i )
 	{
-		var present = false;
-		if (m_BuffPanels.length == slots.length)
-		{
-			var buffSerial = Entities.GetBuff( queryUnit, i );
+		var buffPanel = $.CreatePanel( "Panel", buffsListPanel, slots[i]);
+		buffPanel.BLoadLayout( "file://{resources}/layout/custom_game/equip_list_buff.xml", false, false );
+		m_BuffPanels.push( buffPanel );
 
-			var buffName = Buffs.GetName(queryUnit, buffSerial);
+		buffPanel.AddClass(slots[i]);
 
-			var itemName = "";
-			var slot = "";
+		buffPanel.style.backgroundImage = "url(\'file://{images}/custom_game/ingame_ui/slots/" + slots[i] + ".png\');";
 
-			if (buffName.contains("_equipped_")) {
-				itemName = buffName.replace("modifier_", "");
-				slot = itemName.substring(itemName.indexOf("_equipped_"), itemName.length).replace("_equipped_","");
-				itemName = itemName.substring(0, itemName.indexOf("_equipped"));
-			}
+		buffPanel.Update = function() {
+			UpdateBuff(this);	
+		};
 
-			for (var x = 0; x < m_BuffPanels.length; x++) {
-				if (m_BuffPanels[x].id == slot) {
-					present = true;
-
-					UpdateBuff( m_BuffPanels[x], itemName );
-					break;
-				}
-			}
-		}
-		else if ( present == false )
-		{
-			// create a new panel
-			var buffPanel = $.CreatePanel( "Panel", buffsListPanel, slots[i]);
-			buffPanel.BLoadLayout( "file://{resources}/layout/custom_game/equip_list_buff.xml", false, false );
-			m_BuffPanels.push( buffPanel );
-
-			UpdateBuff( buffPanel, "" );
-		}
+		buffPanel.Update();
 	}
-
-	
 }
 
-function AutoUpdateBuffs()
+function GetVectorFromStylePosition(posString) {
+	if (!posString) return [0,0,0]
+	var splitted = posString.split(" ");
+	var vector = []
+	for (var i = 0; i < splitted.length; i++) {
+		vector[i] = parseInt(splitted[i]);
+	}
+	return vector
+}
+
+function Open()
 {
-	UpdateBuffs();
-	$.Schedule( 0.03, AutoUpdateBuffs );
+	if (m_BuffPanels.length == 0) UpdateBuffs();
+	// $.GetContextPanel().style.visibility = $.GetContextPanel().style.visibility == "collapse" ? "visible;" : "collapse;";
+
+	for (var i = 0; i < m_BuffPanels.length; i++) {
+		var id = m_BuffPanels[i].id;
+		m_BuffPanels[i].SetHasClass(id, m_BuffPanels[i].BHasClass(id) == false)
+		// m_BuffPanels[i].RemoveClass("HiddenBuff")
+	}
 }
 
 (function()
@@ -105,7 +105,9 @@ function AutoUpdateBuffs()
 
 	GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateBuffs );
 	GameEvents.Subscribe( "dota_player_update_query_unit", UpdateBuffs );
+
+	GameEvents.Subscribe( "ziv_open_equipment", Open );
 	
-	AutoUpdateBuffs(); // initial update of dynamic state
+	// AutoUpdateBuffs(); // initial update of dynamic state
 })();
 

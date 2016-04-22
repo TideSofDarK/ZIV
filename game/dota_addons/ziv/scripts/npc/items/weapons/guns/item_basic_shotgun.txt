@@ -3,7 +3,7 @@
   "ID"		"1005"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_quarterstaff"
+  "AbilityTextureName"      "item_basic_shotgun"
 
   "Slot"  "gun"
   "CustomSkill1"  "ziv_sniper_shotgun_special"
@@ -26,7 +26,7 @@
     }
     "ApplyModifier"
     {
-      "ModifierName"  "modifier_basic_shotgun_equipped_weapon"
+      "ModifierName"  "modifier_basic_shotgun_equipped_gun"
       "Target"     "CASTER"
     }
     "FireSound"

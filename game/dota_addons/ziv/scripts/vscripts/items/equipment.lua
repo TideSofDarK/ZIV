@@ -19,10 +19,12 @@ end
 function UnEquip( unit, buffName )
 	if string.match(buffName, "_equipped_") then
     	unit:RemoveModifierByName(buffName)
+    	print(buffName)
 
     	local itemName = string.gsub (string.gsub (buffName, "modifier", "item"), "_equipped_%a+", "")
 
-    	local new_item = unit:AddItemByName(itemName)
+    	local new_item = CreateItem(itemName, unit, unit)
+    	ZIV.pidInventory[unit:GetPlayerOwnerID()]:AddItem(new_item)
 
     	if unit.fortify_modifiers and unit.fortify_modifiers[itemName] and unit:HasAbility("ziv_fortify_modifiers") then
 			for id,gem_table in pairs(unit.fortify_modifiers[itemName]) do

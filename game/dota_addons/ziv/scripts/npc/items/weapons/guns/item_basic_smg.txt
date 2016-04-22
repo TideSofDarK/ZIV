@@ -26,7 +26,7 @@
     }
     "ApplyModifier"
     {
-      "ModifierName"  "modifier_basic_smg_equipped_weapon"
+      "ModifierName"  "modifier_basic_smg_equipped_gun"
       "Target"     "CASTER"
     }
     "FireSound"

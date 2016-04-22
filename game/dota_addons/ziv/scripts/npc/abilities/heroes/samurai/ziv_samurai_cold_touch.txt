@@ -15,6 +15,7 @@
     "particle"  "particles/creeps/ziv_creep_blood_frozen.vpcf"
     "particle"  "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf"
     "particle"  "particles/status_fx/status_effect_frost_lich.vpcf"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
   }
   
   "AbilitySpecial"

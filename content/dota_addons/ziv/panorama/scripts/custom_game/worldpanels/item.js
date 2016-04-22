@@ -46,13 +46,18 @@ function Hover()
 {
   var wp = $.GetContextPanel().WorldPanel;  
   var offScreen = $.GetContextPanel().OffScreen;
-  if (!offScreen && wp)
-    GameEvents.SendEventClientSide( "ziv_open_side_item_desc", { "entity": wp.entity, "name": wp.data["name"] } );
+  var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+  if (!offScreen && wp) {
+    GameUI.CustomUIConfig().ItemShowTooltip($.GetContextPanel(), parseInt(wp.data["item_entity"]), queryUnit);
+    // GameEvents.SendEventClientSide( "ziv_open_side_item_desc", { "entity": wp.entity, "name": wp.data["name"] } );
+  }
 }
 
 function Leave()
 {
-  GameEvents.SendEventClientSide( "ziv_close_side_item_desc", null);
+  var wp = $.GetContextPanel().WorldPanel;  
+  GameUI.CustomUIConfig().ItemHideTooltip($.GetContextPanel(), parseInt(wp.data["item_entity"]));
+  //GameEvents.SendEventClientSide( "ziv_close_side_item_desc", null);
 }
 
 (function()

@@ -12,6 +12,10 @@
 	{
 	
 	}
+	"ziv_open_equipment"
+	{
+	
+	}
 
 	"ziv_open_side_item_desc"
 	{

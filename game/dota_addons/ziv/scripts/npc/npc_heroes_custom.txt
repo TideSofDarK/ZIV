@@ -2,8 +2,9 @@
 {
 	"npc_dota_hero_beastmaster_ziv"
 	{
-	    "AbilityLayout"     "4"
 	    "override_hero"     "npc_dota_hero_beastmaster"
+	
+	    "EquipmentSlots" "torso;axe;gloves;axe;pants;boots"
 	
 	    "ChooseLayout"  "2111"
 	
@@ -61,8 +62,9 @@
 	}
 	"npc_dota_hero_dragon_knight_ziv"
 	  {
-	    "AbilityLayout"     "4"
 	    "override_hero"     "npc_dota_hero_dragon_knight"
+	
+	    "EquipmentSlots" "torso;sword;gloves;shield;pants;boots"
 	
 	    "ChooseLayout"  "1122"
 	
@@ -182,6 +184,8 @@
 	  {
 	    "override_hero"     "npc_dota_hero_sniper"
 	
+	    "EquipmentSlots" "torso;gun;gloves;ring;pants;boots"
+	
 	    "ChooseLayout"  "1112"
 	
 	    "AbilityLayout"     "4"
@@ -240,6 +244,8 @@
 	{
 	    "override_hero"     "npc_dota_hero_windrunner"
 	
+	    "EquipmentSlots" "torso;bow;gloves;ammo;pants;boots"
+	
 	    "ChooseLayout"  "21111"
 	
 	    "AbilityLayout"     "5"
@@ -296,8 +302,9 @@
 	}
 	"npc_dota_hero_witch_doctor_ziv"
 	{
-	    "AbilityLayout"     "4"
 	    "override_hero"     "npc_dota_hero_witch_doctor"
+	
+	    "EquipmentSlots" "torso;staff;gloves;ring;pants;boots"
 	
 	    "ChooseLayout"  "21121"
 	

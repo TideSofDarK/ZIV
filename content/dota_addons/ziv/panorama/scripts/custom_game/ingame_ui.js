@@ -286,7 +286,7 @@ function ZIVCastAbility(number, pressing) {
 
 function OpenEquipment() {
 	//$("#EquipList")
-	$.CreatePanel( "Panel", $.GetContextPanel(), "" ).BLoadLayout( "file://{resources}/layout/custom_game/equip_list.xml", false, false );
+	GameEvents.SendEventClientSide( "ziv_open_equipment", {} )
 }
 
 function OpenFortifyWindow() {

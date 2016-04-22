@@ -6,28 +6,42 @@
 	<script>
 		function OnBuffClicked()
 		{
-			var queryUnit = $.GetContextPanel().m_QueryUnit;
+			var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 			var buffSerial = $.GetContextPanel().m_BuffSerial;
-			var alertBuff = GameUI.IsAltDown();
-			Players.BuffClicked( queryUnit, buffSerial, alertBuff );
 
-			GameEvents.SendCustomGameEventToServer( "player_buff_clicked", { "pID" : Players.GetLocalPlayer(), "entityID" : queryUnit, "buffName" : Buffs.GetName(queryUnit, buffSerial) } )
+			if (!buffSerial || !buffSerial) 
+			{
+				return;
+			}
+
+			Game.EmitSound("ui.inv_unequip");
+
+			GameEvents.SendCustomGameEventToServer( "player_buff_clicked", { "pID" : Players.GetLocalPlayer(), "entityID" : queryUnit, "buffName" : $.GetContextPanel().m_BuffName } )
+
+			$.GetContextPanel().m_BuffName = undefined;
+			$.GetContextPanel().m_BuffSerial = undefined;
+			$.GetContextPanel().m_ItemImage.visibility = "collapse;";
 		}
 
 		function BuffShowTooltip()
 		{
-			var queryUnit = $.GetContextPanel().m_QueryUnit;
+			var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 			var buffSerial = $.GetContextPanel().m_BuffSerial;
+
 			var isEnemy = Entities.IsEnemy( queryUnit );
-			$.DispatchEvent( "DOTAShowBuffTooltip", $.GetContextPanel(), queryUnit, buffSerial, isEnemy );
+			$.DispatchEvent( "DOTAShowBuffTooltip", $.GetContextPanel(), queryUnit, buffSerial, false );
 		}
 
 		function BuffHideTooltip()
 		{
 			$.DispatchEvent( "DOTAHideBuffTooltip", $.GetContextPanel() );
 		}
+
+		(function () {
+			$.GetContextPanel().m_ItemImage = $("#ItemImage");
+		})();
 	</script>
-	<Panel class="BuffRoot" hittest="false">
+	<Panel class="BuffRoot HiddenBuff" hittest="false">
 		<Button id="BuffFrame"
 							onactivate="OnBuffClicked()"
 							onmouseover="BuffShowTooltip()"

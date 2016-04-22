@@ -1,7 +1,8 @@
 "npc_dota_hero_witch_doctor_ziv"
 {
-    "AbilityLayout"     "4"
     "override_hero"     "npc_dota_hero_witch_doctor"
+
+    "EquipmentSlots" "torso;staff;gloves;ring;pants;boots"
 
     "ChooseLayout"  "21121"
 

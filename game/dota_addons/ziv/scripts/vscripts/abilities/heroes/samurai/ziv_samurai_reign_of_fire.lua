@@ -25,6 +25,8 @@ function InitReignOfFire( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
+	caster:EmitSound("Hero_Phoenix.FireSpirits.Launch")
+
 	ReleaseChildParticles( caster )
 
     if caster:HasModifier("modifier_cold_touch") then

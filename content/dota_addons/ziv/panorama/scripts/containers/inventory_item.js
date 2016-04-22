@@ -136,24 +136,6 @@ function UpdateItem()
 	$.Schedule( 0.1, UpdateItem );
 }
 
-function ItemShowTooltip()
-{
-	if ( m_Item == -1 )
-		return;
-
-	var itemName = Abilities.GetAbilityName( m_Item );
-	$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, m_QueryUnit );
-
-	SetTooltipData();
-}
-
-function ItemHideTooltip()
-{
-	$.DispatchEvent( "DOTAHideAbilityTooltip", $.GetContextPanel() );
-
-	DestroyTooltipData();
-}
-
 function OnMouseOut()
 {
 	var jsAction = PlayerTables.GetTableValue(m_contString, "OnMouseOutJS");
@@ -175,7 +157,7 @@ function OnMouseOut()
 			return;
 	}
 
-	ItemHideTooltip();
+	GameUI.CustomUIConfig().ItemHideTooltip($.GetContextPanel(), m_Item);
 }
 
 function OnMouseOver()
@@ -199,7 +181,7 @@ function OnMouseOver()
 			return;
 	}
 
-	ItemShowTooltip();
+	GameUI.CustomUIConfig().ItemShowTooltip($.GetContextPanel(), m_Item, m_QueryUnit);
 }
 
 var lastClick = 1; // 1 right, 0 left
@@ -396,7 +378,7 @@ function OnDragStart( panelId, dragCallbacks )
 
 	var itemName = Abilities.GetAbilityName( m_Item );
 
-	ItemHideTooltip(); // tooltip gets in the way
+	GameUI.CustomUIConfig().ItemHideTooltip($.GetContextPanel(), m_Item);
 
 	var itemKV = CustomNetTables.GetTableValue( "item_kvs", itemName );
 
@@ -482,33 +464,6 @@ function SetItem( queryUnit, contID, slot, container )
 function GetSlot()
 {
 	return m_slot;
-}
-
-function SetTooltipData()
-{
-	var parent = $.GetContextPanel();
-	while(parent.id != "Hud")
-		parent = parent.GetParent();
-
-	if (m_Item && m_Item != -1) {
-		var tooltip = parent.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
-		if (tooltip.FindChildTraverse("GemsPanel")) {
-			tooltip.FindChildTraverse("GemsPanel").RemoveAndDeleteChildren();
-		}
-		tooltip.m_Item = m_Item;
-	}
-}
-
-function DestroyTooltipData()
-{
-	var parent = $.GetContextPanel();
-	while(parent.id != "Hud")
-		parent = parent.GetParent();
-
-	if (m_Item && m_Item != -1) {
-		var tooltip = parent.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
-		tooltip.m_Item = -1;
-	}
 }
 
 (function()

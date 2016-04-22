@@ -334,18 +334,6 @@
 	  
 	  "Modifiers"
 	  {
-	    "modifier_disable_auto_attack"
-	    {
-	      "Passive"      "1"
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
-	      }
-	    }
-	
 	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
 	    {
 	      "Passive"      "0"
@@ -2291,6 +2279,7 @@
 	    "particle"  "particles/creeps/ziv_creep_blood_frozen.vpcf"
 	    "particle"  "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf"
 	    "particle"  "particles/status_fx/status_effect_frost_lich.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 	  }
 	  
 	  "AbilitySpecial"
@@ -2566,6 +2555,7 @@
 	    "particle" "particles/heroes/samurai/samurai_fire_steps.vpcf"
 	    "particle"  "particles/heroes/samurai/samurai_fire_steps_a.vpcf"
 	    "particle" "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
 	  }
 	  
 	  "AbilitySpecial"

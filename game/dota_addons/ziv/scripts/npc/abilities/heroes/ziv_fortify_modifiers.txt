@@ -8,18 +8,6 @@
   
   "Modifiers"
   {
-    "modifier_disable_auto_attack"
-    {
-      "Passive"      "1"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-    
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
-      }
-    }
-
     "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
     {
       "Passive"      "0"

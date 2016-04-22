@@ -19,6 +19,8 @@ function InitColdTouch( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
+	caster:EmitSound("Greevil.IceWall.Slow")
+
 	ReleaseChildParticles( caster )
 
     if caster:HasModifier("modifier_reign_of_fire") then
