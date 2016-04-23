@@ -1,5 +1,6 @@
 "use strict";
 var hudRoot = null;
+var tooltip = null;
 
 var MAX_GEMS = 4;
 
@@ -36,7 +37,7 @@ function SetRarity( rarity, label, image )
 	image.style.boxShadow = "inset " + color + " 1px 1px 6px 2px;";
 }
 
-function CreateGemsPanel( tooltip, fortify_modifiers )
+function CreateGemsPanel( fortify_modifiers )
 {
 	var gems = tooltip.FindChildTraverse("GemsPanel");
 	if (!gems)
@@ -78,7 +79,7 @@ function CreateGemsPanel( tooltip, fortify_modifiers )
 	}	
 }
 
-function CreateModifiersPanel( tooltip, built_in_modifiers )
+function CreateModifiersPanel( built_in_modifiers )
 {
 	var modifiers = tooltip.FindChildTraverse("AbilityAttributes").GetParent();
 
@@ -122,7 +123,6 @@ function CreateModifiersPanel( tooltip, built_in_modifiers )
 
 function HideCustomPanels() 
 {
-	$.Msg("s")
 	var tooltip = hudRoot.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
 	var modifiers = tooltip.FindChildTraverse("AbilityAttributes").GetParent();
 
@@ -135,29 +135,19 @@ function HideCustomPanels()
 	if (gems) {
 		gems.style.visibility = "collapse;";
 	}
-
-	var label = tooltip.FindChildTraverse("AbilityName");
-	var image = tooltip.FindChildTraverse("ItemImage");
-
-	SetRarity( 0, label, image );
 }
 
 function Tooltip( )
 {
 	if (hudRoot && hudRoot.FindChildTraverse("DOTAAbilityTooltip")) {
-		var tooltip = hudRoot.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
-		tooltip.style.visibility = "visible;";
-
-		var gemsPanel = tooltip.FindChildTraverse("GemsPanel");
-		var modifiersPanel = tooltip.FindChildTraverse("ModifiersPanel");
-		if (gemsPanel) {
-			// gemsPanel.RemoveAndDeleteChildren();
-		}
-		if (modifiersPanel) {
-			// modifiersPanel.RemoveAndDeleteChildren();
-		}
+		
+		var label = tooltip.FindChildTraverse("AbilityName");
+		var image = tooltip.FindChildTraverse("ItemImage");
 
 		if (tooltip.m_Item == -1) {
+			tooltip.style.visibility = "visible;";
+			SetRarity( 0, label, image );
+
 			$.Schedule(0.03, Tooltip);
 			return;
 		}
@@ -167,19 +157,15 @@ function Tooltip( )
 }
 
 function ShowActualTooltip(keys) {
-	var tooltip = hudRoot.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
 	tooltip.style.visibility = "visible;";
-
-	// tooltip.FindChildTraverse("GemsPanel").RemoveAndDeleteChildren();
-	// tooltip.FindChildTraverse("ModifiersPanel").RemoveAndDeleteChildren();	
 
 	var label = tooltip.FindChildTraverse("AbilityName");
 	var image = tooltip.FindChildTraverse("ItemImage");
 
 	SetRarity( keys.rarity, label, image );
 
-	CreateModifiersPanel( tooltip, keys.built_in_modifiers );
-	CreateGemsPanel( tooltip, keys.fortify_modifiers );
+	CreateModifiersPanel( keys.built_in_modifiers );
+	CreateGemsPanel( keys.fortify_modifiers );
 
 	$.Msg(keys);
 }
@@ -187,6 +173,8 @@ function ShowActualTooltip(keys) {
 (function()
 {
 	hudRoot = GetHudRoot();
+	tooltip = hudRoot.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
+
 	$.RegisterForUnhandledEvent( "DOTAShowAbilityTooltipForEntityIndex", Tooltip);
 	$.RegisterForUnhandledEvent( "DOTAHideAbilityTooltip", HideCustomPanels);
 	GameEvents.Subscribe( "ziv_item_tooltip_send_modifiers", ShowActualTooltip );
