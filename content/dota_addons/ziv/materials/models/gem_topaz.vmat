@@ -14,16 +14,16 @@ Layer0
 	g_vColorTint "[0.705882 0.784314 1.000000 0.000000]"
 	g_vTexCoordOffset "[0.000 0.000]"
 	g_vTexCoordScale "[1.000 1.000]"
-	TextureColor "materials/models/topaz.tga"
+	TextureColor "materials/models/topaz.png"
 
 	//---- Self Illum ----
-	TextureSelfIllumMask "materials/models/topaz_refl.tga"
+	TextureSelfIllumMask "materials/models/topaz_refl.png"
 
 	//---- Specular ----
 	g_flSpecularBloom "6.415"
 	g_flSpecularIntensity "7.000"
-	TextureBloom "materials/models/topaz_refl.tga"
-	TextureReflectance "materials/models/topaz_refl.tga"
+	TextureBloom "materials/models/topaz_refl.png"
+	TextureReflectance "materials/models/topaz_refl.png"
 
 	//---- Translucent ----
 	g_flOpacityScale "1.000"

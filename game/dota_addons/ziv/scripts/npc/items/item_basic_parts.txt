@@ -19,6 +19,9 @@
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_basic_leather"
+  "Model"                   "models/items/basic_leather.vmdl"
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf" 
+
 
   "ItemStackable"                 "1"
   "ItemPermanent"                 "0"

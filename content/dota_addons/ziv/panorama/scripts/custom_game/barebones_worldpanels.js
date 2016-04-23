@@ -257,11 +257,11 @@ function RemoveIntersectsGrid( checkElem, elem )
     {
         var newPosX = elem.X + elem.Width;
       
-        var offset = Math.abs(checkElem.Y - checkElem.TopOffset) % checkElem.Height;
+        var offset = Math.floor(checkElem.TopOffset + (checkElem.Row - checkElem.TopRow) * checkElem.Height);
         offset = isNaN(offset) ? 0 : offset
-        var count = offset / checkElem.Height < 0.5 ? 0 : 1;
 
-        checkElem.style.position = parseInt(newPosX) + "px " + parseInt(checkElem.Y - offset + count * checkElem.Height ) + "px 0px;";
+        checkElem.style.position = parseInt(newPosX) + "px " + parseInt(offset) + "px 0px;";
+
         checkElem.UpdateParams();
     }
 }
@@ -279,9 +279,12 @@ function CheckElement( elem )
 
 function RepositionItems()
 {
-    positionPanels.sort(function(a, b){
-        var rowA = a.Y / a.Height + (a.Y % a.Height / a.Height > 0.5) ? 1 : 0;
-        var rowB = b.Y / b.Height + (b.Y % b.Height / b.Height > 0.5) ? 1 : 0;
+    positionPanels = positionPanels.sort(function(a, b){
+        var rowA = Math.floor( a.Y / a.Height + ((a.Y % a.Height / a.Height > 0.5) ? 1 : 0) );
+        var rowB = Math.floor( b.Y / b.Height + ((b.Y % b.Height / b.Height > 0.5) ? 1 : 0) );
+
+        a.Row = rowA;
+        b.Row = rowB;
 
         if (rowA == rowB)
           return a.X < b.X ? -1 : 1;
@@ -291,17 +294,18 @@ function RepositionItems()
 
     positionPanels.forEach(function(item, i, arr) {
         item.TopOffset = positionPanels[0].Y;
-        var offset = Math.abs(item.Y - item.TopOffset) % item.Height;
+        item.TopRow = positionPanels[0].Row;
+        var offset = Math.floor(item.TopOffset + (item.Row - item.TopRow) * item.Height);
         offset = isNaN(offset) ? 0 : offset
-        var count = offset / item.Height < 0.5 ? 0 : 1;
 
-        item.style.position = parseInt(item.X) + "px " + parseInt(item.Y - offset + count * item.Height ) + "px 0px;";
+        item.style.position = parseInt(item.X) + "px " + parseInt(offset) + "px 0px;";
         item.UpdateParams();
     });
 
     positionPanels.forEach(function(item, i, arr) {
         CheckElement(item);
     });
+    
 }
 
 function PositionPanels()
