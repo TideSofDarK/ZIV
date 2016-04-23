@@ -60,6 +60,9 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_basic_leather"
+	  "Model"                   "models/items/basic_leather.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf" 
+	
 	
 	  "ItemStackable"                 "1"
 	  "ItemPermanent"                 "0"
@@ -673,6 +676,9 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_basic_sword"
+	  "Model"                   "models/items/basic_sword.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
+	
 	
 	  "Slot"  "sword"
 	

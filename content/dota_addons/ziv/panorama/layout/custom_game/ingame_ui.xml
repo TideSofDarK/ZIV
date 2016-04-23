@@ -23,7 +23,8 @@
 			</Button>
 
 			<Panel id="SideButtons" hittest="false">
-				<Button id="craft_button" class="BottomButton" onactivate="OpenFortifyWindow()" />
+				<Button id="craft_button" class="BottomButton" onactivate="OpenCraftingWindow()" />
+				<Button id="fortify_button" class="BottomButton" onactivate="OpenFortifyWindow()" />
 				<Button id="character_button" class="BottomButton" onactivate="OpenStatusWindow()" />
 				<Button id="inventory_button" class="BottomButton" onactivate="OpenInventoryWindow()" />
 				<Button id="help_button" class="BottomButton" onactivate="" />

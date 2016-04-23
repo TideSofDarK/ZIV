@@ -284,19 +284,38 @@ function ZIVCastAbility(number, pressing) {
 //     $.Schedule(0.1, UpdateParticles);
 // }
 
+function GrayoutButton() {
+	$("#fortify_button").style.brightness = "0.5;";
+	$("#craft_button").style.brightness = "0.5;";
+}
+
+function SetCraftingButton() {
+	$("#fortify_button").style.visibility = "collapse;";
+	$("#craft_button").style.visibility = "visible;";
+
+	$("#craft_button").style.brightness = "1.0;";
+}
+
+function SetFortifyButton() {
+	$("#fortify_button").style.visibility = "visible;";
+	$("#craft_button").style.visibility = "collapse;";
+
+	$("#fortify_button").style.brightness = "1.0;";
+}
+
 function OpenEquipment() {
-	//$("#EquipList")
 	GameEvents.SendEventClientSide( "ziv_open_equipment", {} )
 }
 
 function OpenFortifyWindow() {
-	// $.CreatePanel( "Panel", $.GetContextPanel(), "" ).BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_fortify.xml", false, false );
 	GameEvents.SendEventClientSide( "ziv_open_fortify", {} )
-	GameEvents.SendEventClientSide( "ziv_open_crafting", null )
+}
+
+function OpenCraftingWindow() {
+	GameEvents.SendEventClientSide( "ziv_open_crafting", {} )
 }
 
 function OpenStatusWindow() {
-	// $.CreatePanel( "Panel", $.GetContextPanel(), "" ).BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_status.xml", false, false );
 	GameEvents.SendEventClientSide( "ziv_open_status", {} )
 }
 
@@ -344,6 +363,10 @@ function ZIVRemoveFromPanelsQueue( panel )
 	GameEvents.Subscribe( "dota_player_update_query_unit", UpdateAbilityList );
 	GameEvents.Subscribe( "dota_ability_changed", UpdateAbilityList );
 	GameEvents.Subscribe( "dota_hero_ability_points_changed", UpdateAbilityList );
+
+	GameEvents.Subscribe( "ziv_set_fortify_button", SetFortifyButton );
+	GameEvents.Subscribe( "ziv_set_crafting_button", SetCraftingButton );
+	GameEvents.Subscribe( "ziv_set_grayout_button", GrayoutButton );
 	
 	UpdateAbilityList(); // initial update
 	
