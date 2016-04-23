@@ -7,7 +7,7 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_fortify.js" />
-		<include src="file://{resources}/scripts/custom_game/containers/draggable.js" />
+		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
 	<Panel class="FortifyRoot Hide BasicShadow" hittest="true" draggable="true">
 		<Panel id="Background"/>

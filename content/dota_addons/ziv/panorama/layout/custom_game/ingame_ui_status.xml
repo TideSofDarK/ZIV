@@ -7,7 +7,7 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_status.js" />
-		<include src="file://{resources}/scripts/custom_game/containers/draggable.js" />
+		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
 	<Panel class="Window StatusRoot Hide BasicShadow" hittestchildren="true" draggable="true">
 		<Panel class="StatusInfo">

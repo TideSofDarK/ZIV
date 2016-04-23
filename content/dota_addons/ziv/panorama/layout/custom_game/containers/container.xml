@@ -5,7 +5,8 @@
     <include src="file://{resources}/styles/containers/container_skins.css" />
   </styles>
   <scripts>
-    <include src="file://{resources}/scripts/containers/container.js" /> 
+    <include src="file://{resources}/scripts/containers/container.js" />
+    <include src="file://{resources}/scripts/containers/draggable.js" /> 
   </scripts>
   <Panel draggable="true" class="Outer">
     <Panel id="Header">
