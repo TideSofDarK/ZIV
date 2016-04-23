@@ -1,11 +1,11 @@
 function Open() {
-	GameUI.CustomUIConfig().ZIVAddToPanelsQueue($.GetContextPanel());
+	$.GetContextPanel().AddToPanelsQueue();
 	Update();
 	$.GetContextPanel().SetHasClass("Hide", false);
 }
 
 function CloseButton() {
-	GameUI.CustomUIConfig().ZIVRemoveFromPanelsQueue($.GetContextPanel());
+	$.GetContextPanel().RemoveFromPanelsQueue();
 	$.GetContextPanel().SetHasClass("Hide", true);
 }
 
