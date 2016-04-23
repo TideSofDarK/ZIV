@@ -12,8 +12,6 @@ var m_StatusPanel;
 var m_FortifyPanel;
 var m_CraftingPanel;
 
-var panelsQueue = [];
-
 // var modelParticle;
 
 function GetMouseCastTarget()
@@ -327,35 +325,6 @@ function OpenCraftingWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_crafting", null )
 }
 
-function ZIVAddToPanelsQueue( panel )
-{
-	var isExists = false;
-	for (var num in panelsQueue)
-		if (panel == panelsQueue[num])
-		{
-			var temp = panelsQueue[num];
-			panelsQueue.splice(num, 1);
-			panelsQueue.push(temp);
-
-			isExists = true;
-		}
-
-	if (!isExists)
-		panelsQueue.push(panel);
-
-	// Set z-index
-	for (var num in panelsQueue)
-		if (panelsQueue[num])
-			panelsQueue[num].style.zIndex = num + ";";
-}
-
-function ZIVRemoveFromPanelsQueue( panel )
-{
-	for (var num in panelsQueue)
-		if (panel == panelsQueue[num])
-			panelsQueue.splice(num, 1);
-}
-
 (function()
 {
 	GameEvents.Subscribe( "dota_portrait_ability_layout_changed", UpdateAbilityList );
@@ -375,9 +344,7 @@ function ZIVRemoveFromPanelsQueue( panel )
 	// CreateSideButtons();
 
 	GameUI.CustomUIConfig().ZIVCastAbility = ZIVCastAbility;
-	GameUI.CustomUIConfig().ZIVStopAbility = ZIVStopAbility;
-	GameUI.CustomUIConfig().ZIVAddToPanelsQueue = ZIVAddToPanelsQueue;
-	GameUI.CustomUIConfig().ZIVRemoveFromPanelsQueue = ZIVRemoveFromPanelsQueue;
+	GameUI.CustomUIConfig().ZIVStopAbility = ZIVStopAbility; 
 
 	// CreateHPAndMPParticles();
 })();

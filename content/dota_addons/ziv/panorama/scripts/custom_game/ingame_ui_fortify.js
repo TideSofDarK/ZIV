@@ -114,7 +114,7 @@ function OKButton() {
 }
 
 function CloseButton() {
-	GameUI.CustomUIConfig().ZIVRemoveFromPanelsQueue($.GetContextPanel());
+	$.GetContextPanel().RemoveFromPanelsQueue();
 
 	$.GetContextPanel().ToggleClass("Hide", true);
 
@@ -129,7 +129,7 @@ function CloseButton() {
 }
 
 function Open() {
-	GameUI.CustomUIConfig().ZIVAddToPanelsQueue($.GetContextPanel());
+	$.GetContextPanel().AddToPanelsQueue();
 
 	$.GetContextPanel().SetHasClass("Hide", false);
 	if ($("#FortifyToolImage")) {
