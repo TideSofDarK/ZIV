@@ -2,15 +2,30 @@
 	<styles>
 		<include src="file://{resources}/styles/custom_game/material_design.css" />
 		<include src="file://{resources}/styles/custom_game/custom_character_selection.css" />	
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/material_design.js" />
 		<include src="file://{resources}/scripts/custom_game/custom_character_selection.js" />
 	</scripts>
 	<Panel hittest="false" class="Root">
+		<Label class="Headline3" text="#addoninfo" />	
 		<Panel id="HeroFrames">
 		</Panel>
-		<Panel class="SelectionRoot">
+		<Panel id="Menu">
+			<Button class="OKButton MenuButton" id="CreateCharacterButton"
+								onactivate="CreateCharacterButton()"
+								>
+				<Label class="Headline2" text="#createcharacter" />					
+			</Button>
+
+			<Button class="OKButton MenuButton" id="LoadCharacterButton"
+								onactivate="LoadCharacterButton()"
+								>
+				<Label class="Headline2" text="#loadcharacter" />				
+			</Button>
+		</Panel>
+		<Panel id="SelectionRoot">
 			<Button class="GenericButton ChooseButton" id="ChooseButton" MaterialStyle="ChooseButton"
 							onactivate="LockIn()"
 							>

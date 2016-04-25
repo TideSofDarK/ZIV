@@ -125,6 +125,13 @@ function UpdateFrames() {
     // $.Schedule(0.01, UpdateFrames)
 }
 
+function CreateCharacterButton() {
+	$("#Menu").style.visibility = "collapse;";
+	$("#SelectionRoot").style.visibility = "visible;";
+
+	CreateFrames();
+}
+
 function SetHeroList(eventArgs) {
 	heroList = eventArgs;
 }
@@ -137,7 +144,7 @@ function SetHeroesKVs(eventArgs) {
 	GameEvents.Subscribe( "ziv_set_herolist", SetHeroList );
 	GameEvents.Subscribe( "ziv_set_heroes_kvs", SetHeroesKVs );
 
-	CreateFrames();
+	// CreateFrames();
 
 	GameUI.SetMouseCallback( function( eventName, arg ) {
 		var CONSUME_EVENT = true;

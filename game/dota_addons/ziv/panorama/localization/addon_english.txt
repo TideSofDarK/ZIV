@@ -17,8 +17,12 @@
 	"DOTA_Custom8"    								"Purple Horse"
 	
 	"addonname"										"ZIV"
+	"addoninfo"										"ZIV 0.01 (Alpha), 2016"
 
 	"equipment"										"Equipment"
+
+	"createcharacter"										"Create Character"
+	"loadcharacter"										"Load Character"
 
 	"biography"										"Biography"
 	"abilities"										"Abilities"

@@ -31,6 +31,41 @@
 	color: White;
 }
 
+.Headline2 {
+	vertical-align: center;
+	horizontal-align: center;
+
+	text-shadow: 1px 1px 1px black;
+	text-align: center;
+	text-transform: uppercase;
+	text-overflow: clip;
+
+	box-shadow: #000000ff 0px 0px 8px 0.3;
+
+	font-weight: bold;
+	font-size: 20px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color: White;
+}
+
+.Headline3 {
+	vertical-align: bottom;
+	horizontal-align: left;
+
+	text-shadow: 1px 1px 1px black;
+	text-align: left;
+	text-overflow: clip;
+
+	box-shadow: #000000ff 0px 0px 8px 0.3;
+
+	font-weight: normal;
+	font-size: 18px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	color: #ffffff88;
+
+	margin-left: 7px;
+}
+
 /*
 */
 
@@ -41,9 +76,31 @@
 	horizontal-align: center;
 }
 
-.SelectionRoot {
+#SelectionRoot {
 	horizontal-align: center;
 	vertical-align: bottom;
+
+	visibility: collapse;
+}
+
+#Menu {
+	vertical-align: center;
+	horizontal-align: center;
+
+	margin-top: 300px;
+
+	flow-children:down;
+}
+
+.MenuButton {
+	horizontal-align: center;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_red_button.png');
+
+	width: 265px;
+	height: 45px;
+
+	margin: 4px;
 }
 
 #HeroFrames {
