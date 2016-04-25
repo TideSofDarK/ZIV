@@ -73,7 +73,7 @@ function SpawnGlaive( keys )
 			    caster:EmitSound("Hero_Luna.MoonGlaive.Impact")
 			end
 
-			if distance:Length() < 25 then
+			if distance:Length() < 75 then
 			    glaive:SetPhysicsAcceleration(Vector(0,0,0))
 			    glaive:SetPhysicsVelocity(Vector(0,0,0))
 			    glaive:OnPhysicsFrame(nil)
