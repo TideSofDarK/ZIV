@@ -11,9 +11,6 @@ function SpawnGlaive( keys )
 	local glaive = CreateUnitByName("npc_dummy_unit",caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_mom_r")),false,caster,caster,caster:GetTeamNumber())
 	InitAbilities(glaive)
 
-	-- glaive:SetModel("models/heroes/undying/undying_minion_torso.vmdl")
-	-- glaive:SetOriginalModel("models/heroes/undying/undying_minion_torso.vmdl")
-
 	ability:ApplyDataDrivenModifier(caster,	glaive,	"modifier_glaive_unit",{})
 	glaive:AddNewModifier(glaive,nil,"modifier_phased",{})
 
@@ -25,6 +22,7 @@ function SpawnGlaive( keys )
 
     glaive:SetPhysicsVelocityMax(5000)
     glaive:SetPhysicsFriction (0.15)
+    glaive:Slide(true)
 	glaive:PreventDI()
 
 	local state = GLAIVE_STATE_ATTACK
