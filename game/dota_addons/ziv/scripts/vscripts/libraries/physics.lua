@@ -54,7 +54,8 @@ function Physics:start()
     self.colliderSkipOffset = 0
     self.frameCount = 0
 
-    self.thinkEnt = Entities:CreateByClassname("info_target") -- Entities:FindByClassname(nil, 'CWorld')
+    --self.thinkEnt = Entities:CreateByClassname("info_target") -- Entities:FindByClassname(nil, 'CWorld')
+    self.thinkEnt = SpawnEntityFromTableSynchronous("info_target", {targetname="physics_lua_thinker"})
     --wspawn:SetContextThink("PhysicsThink", Dynamic_Wrap( Physics, 'Think' ), PHYSICS_THINK )
     self.thinkEnt:SetThink("Think", self, "physics", PHYSICS_THINK)
 

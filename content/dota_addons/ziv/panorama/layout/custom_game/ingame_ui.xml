@@ -46,8 +46,8 @@
 					<Label text="100/100" class="ValueLabel" id="hp" />
 				</Panel>
 				<Panel class="BarBackground ManaPoints">
-					<Panel class="Bar" id="mp_bar"/>
-					<Label text="100/100" class="ValueLabel" id="mp" />
+					<Panel class="Bar" id="sp_bar"/>
+					<Label text="100/100" class="ValueLabel" id="sp" />
 				</Panel>
 			</Panel>
 			<Panel class="AbilityOverlayRoot">

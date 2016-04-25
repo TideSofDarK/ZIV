@@ -95,6 +95,8 @@
 	transition-timing-function: ease-in-out, linear;*/
 
 	box-shadow: inset #333333ff 0px 1px 4px 0px;
+
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #3F51B5ff ), to( #212a5eff ) );
 }
 
 #hp {
@@ -105,13 +107,13 @@
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #b53f51 ), to( #b53f51 ) );
 }
 
-#mp {
+#sp {
 	font-size: 17px;
 	margin-top: 1px;
 }
 
-#mp_bar {
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #3F51B5ff ), to( #212a5eff ) );
+.EnergyBar {
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #b5a33fff ), to( #c1af4dff ) );
 }
 
 #SideButtons {
@@ -139,6 +141,11 @@
 	transition-timing-function: ease-in-out, linear;*/
 }
 
+.Grayout {
+	saturation: 1.0;
+	brightness: 0.6;
+}
+
 .ButtonLabel {
 	color: white;
 	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
@@ -147,14 +154,10 @@
 	text-align: left;
 }
 
-.BottomButton:hover {
+.BottomButton:hover,
+.BottomButton:disabled {
 	/*background-size: 59% 59%;*/
 	wash-color: #bbbbbb;
-}
-.BottomButton:selected,
-.BottomButton:hover
-{
-    /*background-color: gradient( radial, 50% 50%, 0% 0%, 60% 60%, from( #3F51B5FF ), to( #222222FF ) );*/
 }
 
 #inventory_button {
@@ -167,7 +170,7 @@
 
 #craft_button {
 	background-image: url('file://{images}/custom_game/ingame_ui/craft.png');
-	brightness: 0.5;
+	/*brightness: 0.5;*/
 }
 
 #fortify_button {

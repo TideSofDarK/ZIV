@@ -1,0 +1,143 @@
+"ziv_dark_goddess_concentration"
+{
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityTextureName"			"drow_ranger_marksmanship"
+
+	"AbilityManaCost"	"25"
+	"AbilityCastPoint"        "0.5"
+	"AbilityCooldown"				"10.0"
+
+	"MaxLevel" "7"
+
+	"precache"
+	{
+		"particle"  "particles/heroes/dark_goddess/dark_goddess_concentration.vpcf"
+		"particle"  "particles/heroes/dark_goddess/dark_goddess_concentration_lifesteal.vpcf"
+		"soundfile" "soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type" "FIELD_INTEGER"
+			"duration" "10"
+		}
+		"02"
+		{
+			"var_type" "FIELD_INTEGER"
+			"evasion" "45"
+		}
+		"03"
+		{
+			"var_type" "FIELD_INTEGER"
+			"bonus_attackspeed" "50"
+		}
+		"04"
+		{
+			"var_type" "FIELD_INTEGER"
+			"bonus_movespeed" "45"
+		}
+		"05"
+		{
+			"var_type" "FIELD_INTEGER"
+			"bonus_attackspeed_passive" "150"
+		}
+		"06"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "lifesteal_percent"     "0.2"
+        }
+	}
+
+	"OnSpellStart"
+	{
+		"FireEffect"
+		{
+			"EffectName"        "particles/items2_fx/teleport_end_dust.vpcf"
+			"EffectAttachType"  "follow_origin"
+			"Target"            "CASTER"
+		}
+		"FireSound"
+		{
+			"EffectName"	"Hero_ObsidianDestroyer.EssenceAura"
+			"Target" 		"CASTER"
+		}
+		"ApplyModifier"
+		{
+			"ModifierName"	"modifier_concentration"
+			"Target" 		"CASTER"
+			"Duration"		"%duration"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_concentration_passive"
+		{
+			"Passive"			"1"
+			"IsHidden"			"1"
+			"IsDebuff"			"0"
+		
+			"Properties"
+			{
+			    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed_passive" 
+			}
+		}
+
+		"modifier_concentration"
+		{
+			"Passive"			"0"
+			"IsHidden"			"1"
+			"IsDebuff"			"0"
+		
+			"EffectName"		"particles/heroes/dark_goddess/dark_goddess_concentration.vpcf"
+			"EffectAttachType"	"follow_overhead"
+
+			"OnAttackLanded"
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"	"modifier_concentration_lifesteal"
+					"Target" 		"CASTER"
+					"Duration"		"0.03"
+				}
+			}
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_EVASION_CONSTANT" "%evasion"
+			    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed" 
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movespeed" 	
+			}
+		
+			"States"
+			{
+				"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+
+		"modifier_concentration_lifesteal"
+        {
+            "Passive"           "0"
+            "IsHidden"          "1"
+            
+            "OnDealDamage"
+            {
+            	"FireEffect"
+            	{
+            		"EffectName"        "particles/heroes/dark_goddess/dark_goddess_concentration_lifesteal.vpcf"
+            		"EffectAttachType"  "follow_origin"
+            		"Target"            "CASTER"
+            	}
+            	
+            	"Heal"
+            	{
+            		"Target"        "CASTER"
+            		"HealAmount"	"%lifesteal_percent * %attack_damage"
+            	}
+            }
+        }
+	}
+}

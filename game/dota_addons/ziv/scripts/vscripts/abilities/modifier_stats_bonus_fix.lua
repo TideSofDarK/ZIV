@@ -77,7 +77,7 @@ function modifier_stats_bonus_fix:CalculateStatsBonus(kv)
 	self.moveSpeedBonus = 0
 
 	self.manaBonus = intellect * -13
-	self.manaRegenBonus = intellect * 0.04
+	self.manaRegenBonus = intellect * -0.04
 
 	self:GetAbility().CalcStat = 1
 	hero:CalculateStatBonus()

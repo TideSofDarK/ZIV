@@ -63,7 +63,7 @@ function CreateGemsPanel( fortify_modifiers )
 
 		if (i >= gemsCount) 
 		{
-			// gems.style.visibility = "collapse;";
+			gem.style.visibility = "collapse;";
 		}
 		else
 		{	
@@ -73,8 +73,9 @@ function CreateGemsPanel( fortify_modifiers )
 				gem.SetImage(itemname) 
 				gem.SetText(fortify_modifiers[i+1]) 
 			}
-			$.Msg("dick");
+
 			gems.style.visibility = "visible;";
+			gem.style.visibility = "visible;";
 
 			gem.Update(0);
 		}
@@ -142,7 +143,7 @@ function HideCustomPanels()
 function Tooltip( )
 {
 	if (hudRoot && hudRoot.FindChildTraverse("DOTAAbilityTooltip")) {
-		
+		SetTooltipNode()
 		var label = tooltip.FindChildTraverse("AbilityName");
 		var image = tooltip.FindChildTraverse("ItemImage");
 

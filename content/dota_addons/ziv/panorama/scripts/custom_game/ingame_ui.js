@@ -190,15 +190,29 @@ function UpdateAbilityList()
 	}
 }
 
-function UpdateHPAndMP() {
+function SetPortrait() 
+{
 	var queryUnit = Game.GetLocalPlayerInfo()["player_selected_hero_entity_index"];
+	$("#PortaitImage").heroname = Entities.GetUnitName(queryUnit);
+}
+
+function UpdateHPAndMP() 
+{
+	var queryUnit = Game.GetLocalPlayerInfo()["player_selected_hero_entity_index"];
+	if (!queryUnit || queryUnit == -1) $.Schedule( 0.1, UpdateHPAndMP );
 	var hp = 	Entities.GetHealth( queryUnit )
 	var maxHP = 	Entities.GetMaxHealth( queryUnit )
 	var mp = 	Entities.GetMana( queryUnit )
 	var maxMP = 	Entities.GetMaxMana( queryUnit )
 
+	var heroKV = CustomNetTables.GetTableValue( "hero_kvs", Entities.GetUnitName( queryUnit )+"_ziv" );
+	if (heroKV["UsesEnergy"]) 
+	{
+		$("#sp_bar").AddClass("EnergyBar")
+	}
+
 	$("#hp").text = hp + "/" + maxHP;
-	$("#mp").text = mp + "/" + maxMP;
+	$("#sp").text = mp + "/" + maxMP;
 
 	if (hp) {
 		var hpPercentage = Math.ceil(hp / maxHP * 100);
@@ -207,11 +221,11 @@ function UpdateHPAndMP() {
 
 	if (mp) {
 		var mpPercentage = Math.ceil(mp / maxMP * 100);
-		$("#mp_bar").style.width = mpPercentage + "%;";
+		$("#sp_bar").style.width = mpPercentage + "%;";
 	}
 
 	if (maxMP == 0) {
-		$("#mp").text = "";
+		$("#sp").text = "";
 	}
 
 	$.Schedule( 0.1, UpdateHPAndMP );
@@ -233,7 +247,7 @@ function ZIVCastAbility(number, pressing) {
 		}
 		var order = {
 			AbilityIndex : ability,
-			QueueBehavior : OrderQueueBehavior_t.DOTA_ORDER_QUEUE_NEVER,
+			Queue : OrderQueueBehavior_t.DOTA_ORDER_QUEUE_NEVER,
 			ShowEffects : false,
 			OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_NO_TARGET
 		};
@@ -283,22 +297,27 @@ function ZIVCastAbility(number, pressing) {
 // }
 
 function GrayoutButton() {
-	$("#fortify_button").style.brightness = "0.5;";
-	$("#craft_button").style.brightness = "0.5;";
+	$("#fortify_button").AddClass("Grayout");
+	$("#craft_button").AddClass("Grayout");
+
+	$("#fortify_button").enabled = false;
+	$("#craft_button").enabled = false;
 }
 
 function SetCraftingButton() {
 	$("#fortify_button").style.visibility = "collapse;";
 	$("#craft_button").style.visibility = "visible;";
 
-	$("#craft_button").style.brightness = "1.0;";
+	$("#craft_button").RemoveClass("Grayout");
+	$("#craft_button").enabled = true;
 }
 
 function SetFortifyButton() {
 	$("#fortify_button").style.visibility = "visible;";
 	$("#craft_button").style.visibility = "collapse;";
 
-	$("#fortify_button").style.brightness = "1.0;";
+	$("#fortify_button").RemoveClass("Grayout");
+	$("#fortify_button").enabled = true;
 }
 
 function OpenEquipment() {
@@ -341,10 +360,8 @@ function OpenCraftingWindow() {
 	
 	UpdateHPAndMP();
 
-	// CreateSideButtons();
+	SetPortrait();
 
 	GameUI.CustomUIConfig().ZIVCastAbility = ZIVCastAbility;
 	GameUI.CustomUIConfig().ZIVStopAbility = ZIVStopAbility; 
-
-	// CreateHPAndMPParticles();
 })();

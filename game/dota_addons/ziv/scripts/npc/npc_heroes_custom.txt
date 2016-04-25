@@ -50,7 +50,7 @@
 	
 	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
 	    "MovementSpeed"       "360"
-	    "MovementTurnRate"      "1.0"
+	    "MovementTurnRate"      "4.0"
 	
 	    "StatusHealth"        "1000"
 	    "StatusHealthRegen"     "1.0"
@@ -110,7 +110,7 @@
 	
 	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
 	    "MovementSpeed"       "360"
-	    "MovementTurnRate"      "1.0"
+	    "MovementTurnRate"      "4.0"
 	
 	    "StatusHealth"        "1000"
 	    "StatusHealthRegen"     "1.0"
@@ -120,6 +120,67 @@
 	    "VisionDaytimeRange"    "1800"
 	    "VisionNighttimeRange"    "1800"
 	  }
+	"npc_dota_hero_drow_ranger_ziv"
+	{
+	    "override_hero"     "npc_dota_hero_drow_ranger"
+	    "UsesEnergy"    "1"
+	
+	    "EquipmentSlots" "torso;bow;gloves;ring;pants;boots"
+	
+	    "ChooseLayout"  "1221"
+	
+	    "AbilityLayout"     "4"
+	
+	    "Ability1"        "ziv_dark_goddess_corrupted_arrow" 
+	    "Ability2"        "ziv_dark_goddess_concentration" 
+	    "Ability3"        "ziv_empty3" 
+	    "Ability4"        "ziv_empty4"
+	    "Ability5"        "ziv_empty5"
+	    "Ability6"        "ziv_dark_goddess_glaive"
+	    "Ability7"        ""
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackDamageMin"     "10"
+	    "AttackDamageMax"     "15"
+	
+	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
+	    "AttributeBaseStrength"   "4"
+	    "AttributeStrengthGain"   "0"
+	    "AttributeBaseIntelligence" "5"
+	    "AttributeIntelligenceGain" "0"
+	    "AttributeBaseAgility"    "6"
+	    "AttributeAgilityGain"    "0"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    //"BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+	    //"RingRadius"        "70"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "360"
+	    "MovementTurnRate"      "4.0"
+	
+	    "StatusHealth"        "1000"
+	    "StatusHealthRegen"     "1.0"
+	    "StatusMana"        "100"
+	    "StatusManaRegen"     "50.0"
+	
+	    "VisionDaytimeRange"    "1800"
+	    "VisionNighttimeRange"    "1800"
+	}
 	"npc_dota_hero_juggernaut_ziv"
 	{
 	    "override_hero"     "npc_dota_hero_juggernaut"
@@ -170,7 +231,7 @@
 	
 	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
 	    "MovementSpeed"       "365"
-	    "MovementTurnRate"      "1.0"
+	    "MovementTurnRate"      "4.0"
 	
 	    "StatusHealth"        "1000"
 	    "StatusHealthRegen"     "1.0"
@@ -230,7 +291,7 @@
 	
 	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
 	    "MovementSpeed"       "360"
-	    "MovementTurnRate"      "1.0"
+	    "MovementTurnRate"      "4.0"
 	
 	    "StatusHealth"        "1000"
 	    "StatusHealthRegen"     "1.0"
@@ -290,7 +351,7 @@
 	
 	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
 	    "MovementSpeed"       "360"
-	    "MovementTurnRate"      "1.0"
+	    "MovementTurnRate"      "4.0"
 	
 	    "StatusHealth"        "1000"
 	    "StatusHealthRegen"     "1.0"
@@ -350,7 +411,7 @@
 	
 	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
 	    "MovementSpeed"       "360"
-	    "MovementTurnRate"      "1.0"
+	    "MovementTurnRate"      "4.0"
 	
 	    "StatusHealth"        "1000"
 	    "StatusHealthRegen"     "1.0"

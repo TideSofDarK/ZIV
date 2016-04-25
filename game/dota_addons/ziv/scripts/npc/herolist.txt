@@ -7,20 +7,18 @@
   "npc_dota_hero_windrunner" "1"
   "npc_dota_hero_juggernaut" "1"
   "npc_dota_hero_witch_doctor" "1"
+  "npc_dota_hero_drow_ranger" "1"
 
   "npc_dota_hero_ancient_apparition" "0"
   "npc_dota_hero_antimage" "0"
   "npc_dota_hero_axe" "0"
   "npc_dota_hero_bane" "0"
-  
   "npc_dota_hero_bloodseeker" "0"
   "npc_dota_hero_chen" "0"
   "npc_dota_hero_crystal_maiden" "0"
   "npc_dota_hero_dark_seer" "0"
   "npc_dota_hero_dazzle"  "0"
-  
   "npc_dota_hero_doom_bringer" "0"
-  "npc_dota_hero_drow_ranger" "0"
   "npc_dota_hero_earthshaker" "0"
   "npc_dota_hero_enchantress" "0"
   "npc_dota_hero_enigma" "0"

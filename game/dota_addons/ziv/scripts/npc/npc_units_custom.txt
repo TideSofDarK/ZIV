@@ -423,6 +423,58 @@
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
 	} 
+	"npc_dark_goddess_spirit"
+	{
+	    "BaseClass"         "npc_dota_creature"
+	    "SoundSet"                  "Creep_Bad_Melee"
+	    
+	    "Model"           "models/items/enigma/eidolon/geodesic/geodesic.vmdl"
+	    "ModelScale"    "0.6"
+	    "HealthBarOffset"   "150"
+	    "Level"           "1"
+	    
+	    "Ability1"          ""
+	    "Ability2"          ""
+	    "Ability3"          ""
+	    "Ability4"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackRate"                "0.3"
+	    "AttackAnimationPoint"      "0.7"
+	    "AttackAcquisitionRange"    "150"
+	    "AttackRange"   "128"
+	    
+	    "AttackDamageMin"        "15"
+	    "AttackDamageMax"        "20"
+	
+	    "AttackRate"        "1.5"
+	    "AttackAnimationPoint"        "0.27"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "305"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "370"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	
+	    "VisionDaytimeRange"    "0"
+	    "VisionNighttimeRange"    "0"
+	} 
 	"npc_huntress_ballista"
 	{
 	    "BaseClass"                 "npc_dota_creep_lane"

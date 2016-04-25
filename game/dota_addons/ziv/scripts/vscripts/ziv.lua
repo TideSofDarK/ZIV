@@ -251,6 +251,7 @@ function ZIV:InitZIV()
   Convars:RegisterCommand( "ai", Dynamic_Wrap(ZIV, 'AddItemToContainer'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "sp", Dynamic_Wrap(ZIV, 'SpawnBasicPack'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "sbd", Dynamic_Wrap(ZIV, 'SpawnBasicDrop'), "", FCVAR_CHEAT )
+  Convars:RegisterCommand( "mki", Dynamic_Wrap(ZIV, 'MakeHeroInvisible'), "", FCVAR_CHEAT )
 
   GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( ZIV, "FilterExecuteOrder" ), self )
   GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( ZIV, "DamageFilter" ), self )
@@ -263,6 +264,17 @@ function ZIV:InitZIV()
   ZIV.RecipesKVs = LoadKeyValues("scripts/kv/Recipes.kv")
 
   Director:Init()
+end
+
+function ZIV:MakeHeroInvisible()
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+      local hero = cmdPlayer:GetAssignedHero()
+      hero:AddNewModifier(hero,nil,"modifier_persistent_invisibility",{})
+    end
+  end
 end
 
 function ZIV:PrintHeroStats()

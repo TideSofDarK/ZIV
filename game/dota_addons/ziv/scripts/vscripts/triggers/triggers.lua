@@ -2,12 +2,14 @@ function OnStartTouch(trigger)
 	local unit = trigger.activator
 	local caller = trigger.caller
 
+	local pID = unit:GetPlayerOwnerID()
+
  	local trigger_name = caller:GetName()
 
  	if string.match(trigger_name, "fortify") then
- 		SetFortifyButton( unit )
+ 		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_set_fortify_button", {  } )
  	elseif string.match(trigger_name, "crafting") then
- 		SetCraftingButton( unit )
+ 		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_set_crafting_button", {  } )
  	end
 
  	AddTrigger( unit, caller )
@@ -17,7 +19,7 @@ function OnEndTouch(trigger)
 	local unit = trigger.activator
 	local caller = trigger.caller
 
-	RemoveTrigger( unit, callerr )
+	RemoveTrigger( unit, caller )
 
 	local pID = unit:GetPlayerOwnerID()
 
@@ -28,7 +30,7 @@ function OnEndTouch(trigger)
 	        return
 	    end
 	end
-
+	
 	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_set_grayout_button", {  } )
 end
 
@@ -42,7 +44,7 @@ function RemoveTrigger( unit, trigger )
 
 	for i=GetTableLength( unit.triggers ),1,-1 do
     	if unit.triggers[i] == trigger then
-	        table.remove(unit.triggers, unit.triggers[i])
+	        table.remove(unit.triggers, i)
 	        return
 	    end
 	end
@@ -56,16 +58,4 @@ function RemoveTriggersByName( unit, trigger_name )
 	        table.remove(unit.triggers, trigger)
 	    end
 	end
-end
-
-function SetFortifyButton( unit )
-	local pID = unit:GetPlayerOwnerID()
-
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_set_fortify_button", {  } )
-end
-
-function SetCraftingButton( unit )
-	local pID = unit:GetPlayerOwnerID()
-
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_set_crafting_button", {  } )
 end

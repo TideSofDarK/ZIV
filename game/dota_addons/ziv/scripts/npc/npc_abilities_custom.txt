@@ -1000,6 +1000,481 @@
 	    }
 	  }
 	}
+	"ziv_dark_goddess_concentration"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"drow_ranger_marksmanship"
+	
+		"AbilityManaCost"	"25"
+		"AbilityCastPoint"        "0.5"
+		"AbilityCooldown"				"10.0"
+	
+		"MaxLevel" "7"
+	
+		"precache"
+		{
+			"particle"  "particles/heroes/dark_goddess/dark_goddess_concentration.vpcf"
+			"particle"  "particles/heroes/dark_goddess/dark_goddess_concentration_lifesteal.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type" "FIELD_INTEGER"
+				"duration" "10"
+			}
+			"02"
+			{
+				"var_type" "FIELD_INTEGER"
+				"evasion" "45"
+			}
+			"03"
+			{
+				"var_type" "FIELD_INTEGER"
+				"bonus_attackspeed" "50"
+			}
+			"04"
+			{
+				"var_type" "FIELD_INTEGER"
+				"bonus_movespeed" "45"
+			}
+			"05"
+			{
+				"var_type" "FIELD_INTEGER"
+				"bonus_attackspeed_passive" "150"
+			}
+			"06"
+	        {
+	            "var_type"              "FIELD_FLOAT"
+	            "lifesteal_percent"     "0.2"
+	        }
+		}
+	
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"        "particles/items2_fx/teleport_end_dust.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_ObsidianDestroyer.EssenceAura"
+				"Target" 		"CASTER"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_concentration"
+				"Target" 		"CASTER"
+				"Duration"		"%duration"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_concentration_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed_passive" 
+				}
+			}
+	
+			"modifier_concentration"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			
+				"EffectName"		"particles/heroes/dark_goddess/dark_goddess_concentration.vpcf"
+				"EffectAttachType"	"follow_overhead"
+	
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_concentration_lifesteal"
+						"Target" 		"CASTER"
+						"Duration"		"0.03"
+					}
+				}
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "%evasion"
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movespeed" 	
+				}
+			
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+	
+			"modifier_concentration_lifesteal"
+	        {
+	            "Passive"           "0"
+	            "IsHidden"          "1"
+	            
+	            "OnDealDamage"
+	            {
+	            	"FireEffect"
+	            	{
+	            		"EffectName"        "particles/heroes/dark_goddess/dark_goddess_concentration_lifesteal.vpcf"
+	            		"EffectAttachType"  "follow_origin"
+	            		"Target"            "CASTER"
+	            	}
+	            	
+	            	"Heal"
+	            	{
+	            		"Target"        "CASTER"
+	            		"HealAmount"	"%lifesteal_percent * %attack_damage"
+	            	}
+	            }
+	        }
+		}
+	}
+	"ziv_dark_goddess_corrupted_arrow"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"drow_ranger_frost_arrows"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC"
+	
+		"AbilityCastRange"	"600"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"4.0"
+		"AbilityDamage"	"0"
+		"AbilityManaCost" "1"
+	
+		"MaxLevel" "7"
+	
+		"precache"
+		{
+			"particle"	"particles/heroes/dark_goddess/dark_goddess_corrupted_arrow.vpcf"
+			"particle"	"particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_effect.vpcf"
+			"particle"  "particles/status_fx/status_effect_terrorblade_reflection.vpcf"
+			"particle"  "particles/econ/items/enigma/enigma_geodesic/enigma_eidelon_geodesic_eye.vpcf"
+			"particle"  "particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_dispersion.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"corruption_duration"	"4"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"slow"	"-20"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage_amp"	"20"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"spirit_duration"	"3"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"spirit_attackspeed"	"155"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"spirit_min"	"1"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"spirit_max"	"4"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"attack_damage_amp"	"2.5"
+			}
+			"09"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"energy_restored"	"1"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
+				"Function"		"ToggleArrows"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_corrupted_arrow"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+	
+				"Orb"
+				{
+					"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/heroes/dark_goddess/dark_goddess_corrupted_arrow.vpcf"
+				}
+	
+				"OnOrbFire"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_DrowRanger.FrostArrows"
+						"Target"	"TARGET"
+					}
+				}
+	
+				"OnOrbImpact"
+				{
+					"SpendMana"
+					{
+						"Mana"		"%AbilityManaCost"
+					}
+					"ApplyModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"modifier_corrupted_arrow_effect"
+						"Duration"	"%corruption_duration"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
+						"Function"		"AdditionalDamage"
+						"Target"	"TARGET"
+					}
+				}
+	
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
+						"Function"		"SpawnSpirit"
+						"Target"	"TARGET"
+					}
+				}
+			}
+	
+			"modifier_corrupted_spirit"
+		    {
+		    	"Passive"      "0"
+		    	"IsHidden"      "0"
+		    	"IsDebuff"      "0"
+	
+		    	"Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+		    	"StatusEffectName"     "particles/status_fx/status_effect_terrorblade_reflection.vpcf"      
+		    	"StatusEffectPriority"  "10"
+	
+		    	"OnAttackLanded"
+		    	{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
+						"Function"		"RestoreEnergy"
+						"Target"	"TARGET"
+					}
+		    	}
+	
+		    	"Properties"
+		    	{
+		    		"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%spirit_attackspeed"
+		    	}
+		    
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+		    }
+	
+			"modifier_corrupted_arrow_effect"
+			{
+				"IsDebuff"	"1"
+				"Duration"	"%slow_duration"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movement_speed"
+				}
+	
+				"EffectName"	"particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_effect.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_amp"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+				}
+			}
+		}
+	}
+	"ziv_dark_goddess_glaive"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	
+		"AbilityTextureName"            "luna_moon_glaive"
+	
+		"AbilityManaCost"	"45"
+		"AbilityCastPoint"        "0.35"
+		"AbilityCooldown"				"5.0"
+		"AbilityCastRange"				"1200"
+	
+		"precache"
+		{
+			"particle"  "particles/heroes/dark_goddess/dark_goddess_glaive.vpcf"
+			"particle"  "particles/status_fx/status_effect_rupture.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_amp"			"2.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bleeding_damage_amp"			"0.7"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bleeding_slow"			"-20"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bleeding_duration"			"4"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Silencer.GlaivesOfWisdom"
+				"Target" 		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_glaive.lua"
+				"Function"		"SpawnGlaive"
+				"Target"	"POINT"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_glaive_unit"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"TARGET"
+							"Radius" 	"200"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						}
+					
+						"Action"    
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_glaive.lua"
+								"Function"		"BleedDamage"
+								"Target" 		"TARGET"
+							}
+							"ApplyModifier"
+							{
+								"ModifierName"	"modifier_glaive_bleeding"
+								"Target" 		"TARGET"
+							}
+						}
+					}
+				}
+			}
+	
+			"modifier_glaive_bleeding"
+			{
+				"Duration"	"%bleeding_duration"
+	
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+		
+				"StatusEffectName" 		"particles/status_fx/status_effect_rupture.vpcf" 	   
+				"StatusEffectPriority"  "3"
+	
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+		
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_glaive.lua"
+						"Function"		"BleedDamage"
+					}
+				}
+	
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bleeding_slow" 
+				}
+			}
+		}
+	}
 	"ziv_huntress_ballista"
 	{
 	  "BaseClass"           "ability_datadriven"

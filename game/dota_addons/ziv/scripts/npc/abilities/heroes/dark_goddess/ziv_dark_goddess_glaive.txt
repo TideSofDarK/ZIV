@@ -1,0 +1,137 @@
+"ziv_dark_goddess_glaive"
+{
+	"BaseClass"				"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+
+	"AbilityTextureName"            "luna_moon_glaive"
+
+	"AbilityManaCost"	"45"
+	"AbilityCastPoint"        "0.35"
+	"AbilityCooldown"				"5.0"
+	"AbilityCastRange"				"1200"
+
+	"precache"
+	{
+		"particle"  "particles/heroes/dark_goddess/dark_goddess_glaive.vpcf"
+		"particle"  "particles/status_fx/status_effect_rupture.vpcf"
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
+		"soundfile"	"soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"damage_amp"			"2.5"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"bleeding_damage_amp"			"0.7"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"bleeding_slow"			"-20"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"bleeding_duration"			"4"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"FireSound"
+		{
+			"EffectName"	"Hero_Silencer.GlaivesOfWisdom"
+			"Target" 		"CASTER"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_glaive.lua"
+			"Function"		"SpawnGlaive"
+			"Target"	"POINT"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_glaive_unit"
+		{
+			"Passive"			"0"
+			"IsHidden"			"1"
+			"IsDebuff"			"0"
+		
+			"ThinkInterval"  "0.1"
+			"OnIntervalThink"
+			{
+				"ActOnTargets"
+				{
+					"Target"
+					{
+						"Center"  	"TARGET"
+						"Radius" 	"200"
+						"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					}
+				
+					"Action"    
+					{
+						"RunScript"
+						{
+							"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_glaive.lua"
+							"Function"		"BleedDamage"
+							"Target" 		"TARGET"
+						}
+						"ApplyModifier"
+						{
+							"ModifierName"	"modifier_glaive_bleeding"
+							"Target" 		"TARGET"
+						}
+					}
+				}
+			}
+		}
+
+		"modifier_glaive_bleeding"
+		{
+			"Duration"	"%bleeding_duration"
+
+			"Passive"			"0"
+			"IsHidden"			"1"
+			"IsDebuff"			"0"
+	
+			"StatusEffectName" 		"particles/status_fx/status_effect_rupture.vpcf" 	   
+			"StatusEffectPriority"  "3"
+
+			"OnCreated"
+			{
+				"AttachEffect"
+				{
+					"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+					"EffectAttachType"  "follow_origin"
+					"Target"            "TARGET"
+				}
+			}
+	
+			"ThinkInterval"  "1.0"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_glaive.lua"
+					"Function"		"BleedDamage"
+				}
+			}
+
+			"Properties"
+			{
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bleeding_slow" 
+			}
+		}
+	}
+}
