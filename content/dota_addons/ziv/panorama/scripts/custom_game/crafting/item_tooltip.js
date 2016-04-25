@@ -185,8 +185,6 @@ function SetTooltipNode() {
 {
 	hudRoot = GetHudRoot();
 
-	SetTooltipNode();
-
 	$.RegisterForUnhandledEvent( "DOTAShowAbilityTooltipForEntityIndex", Tooltip);
 	$.RegisterForUnhandledEvent( "DOTAHideAbilityTooltip", HideCustomPanels);
 	GameEvents.Subscribe( "ziv_item_tooltip_send_modifiers", ShowActualTooltip );

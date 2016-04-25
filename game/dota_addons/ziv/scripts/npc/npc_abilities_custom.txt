@@ -1196,7 +1196,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"spirit_attackspeed"	"155"
+				"spirit_attackspeed"	"175"
 			}
 			"06"
 			{
@@ -1322,10 +1322,7 @@
 				"IsDebuff"	"1"
 				"Duration"	"%slow_duration"
 	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movement_speed"
-				}
+				"Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
 	
 				"EffectName"	"particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_effect.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -4736,7 +4733,7 @@
 	    {
 	      "Passive"           "1"
 	      "IsHidden"          "1"
-	      "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+	      // "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
 	      
 	      "Orb"
 	      {
@@ -4747,7 +4744,7 @@
 	      {
 	        "RunScript"
 	        {
-	          "ScriptFile"            "abilities/modifiers/frenzy.lua"
+	          "ScriptFile"            "abilities/modifiers/vampire.lua"
 	          "Function"              "Lifesteal"
 	        }
 	      }

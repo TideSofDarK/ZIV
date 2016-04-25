@@ -5,7 +5,7 @@ function CreateTrapUnit( keys )
 
 	local _duration = ability:GetLevelSpecialValueFor("trap_duration", ability:GetLevel())
 
-	local trap = CreateUnitByName("npc_thunder_trap", target, false, nil, caster:GetPlayerOwner(), caster:GetTeamNumber())
+	local trap = CreateUnitByName("npc_thunder_trap", target, false, caster, caster, caster:GetTeamNumber())
 
 	InitAbilities(trap)
 

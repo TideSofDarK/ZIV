@@ -30,12 +30,15 @@ function Loot:GetLootTable( creep )
 end
 
 function Loot:Generate( creep, killer )
-  local lootTable = Loot:GetLootTable( creep )
+	local lootTable = Loot:GetLootTable( creep )
 
-  -- Generate items
-  if lootTable ~= nil and IsItemDropped(lootTable.LootChance or 0) then
-    Loot:CreepDrops( lootTable, creep, killer )
-  end
+	if killer:IsHero() == false  then
+		killer = PlayerResource:GetPlayer(killer:GetPlayerOwnerID()):GetAssignedHero()
+	end
+
+	if lootTable ~= nil and IsItemDropped(lootTable.LootChance or 0) then
+    	Loot:CreepDrops( lootTable, creep, killer )
+	end
 end
 
 function Loot:AddModifiers(item)
@@ -106,7 +109,7 @@ end
 
 function Loot:CreepDrops( lootTable, creep, killer )
 	local count = math.random(1, lootTable.Max)
-  local i = 1
+  	local i = 1
   
 	Timers:CreateTimer(function ()
 		if i < count then

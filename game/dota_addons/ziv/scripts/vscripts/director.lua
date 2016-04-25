@@ -139,7 +139,7 @@ function Director:SpawnCreeps( spawn_table )
 
 		for i=1,count do 
 			local creep_name = Director:GetRandomCreep(spawn_table["Type"], spawn_table["Level"], spawn_table["Level"])
-			local position = spawn_table["Position"] + RandomPointInsideCircle(spawn_table["BasicSpread"] or Director.BASIC_PACK_SPREAD)
+			local position = RandomPointInsideCircle(spawn_table["Position"][1], spawn_table["Position"][2], spawn_table["BasicSpread"] or Director.BASIC_PACK_SPREAD)
 
 			local creep = CreateUnitByName(creep_name, position, true, nil, nil, DOTA_TEAM_NEUTRALS)
 			

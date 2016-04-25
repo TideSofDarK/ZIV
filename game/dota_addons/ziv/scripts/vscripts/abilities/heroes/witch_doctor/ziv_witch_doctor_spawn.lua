@@ -1,11 +1,3 @@
-function randomPointInCircle(x, y, radius)
-	local randX, randY
-	repeat
-		randX, randY = math.random(-radius, radius), math.random(-radius, radius)
-	until (((-randX) ^ 2) + ((-randY) ^ 2)) ^ 0.5 <= radius
-	return Vector(x + randX, y + randY, 0)
-end
-
 function WDSpawn( keys )
 	local caster = keys.caster
 	local target = keys.target_points[1]
@@ -23,7 +15,7 @@ function WDSpawn( keys )
 	end
 
 	for i=1,(count - #units) do
-		SpawnWDCreep(caster, target + randomPointInCircle(0, 0, 300), duration, nil, ability, keys.creep, keys.modifier)
+		SpawnWDCreep(caster, target + RandomPointInsideCircle(0, 0, 300), duration, nil, ability, keys.creep, keys.modifier)
 	end
 end
 
@@ -38,7 +30,7 @@ function SpawnWDCreep(caster, pos, _duration, target, ability, creep_name, modif
 		creep:MoveToTargetToAttack(target)
 	else
 		Timers:CreateTimer(math.random(0.0, 4.0), function ()
-			creep:MoveToPositionAggressive(pos + randomPointInCircle(0, 0, 300))
+			creep:MoveToPositionAggressive(pos + RandomPointInsideCircle(0, 0, 300))
 		end)
 	end
 end

@@ -1,4 +1,12 @@
-function RandomPointInsideCircle(radius)
+function RandomPointInsideCircle(x, y, radius)
+  local randX, randY
+  repeat
+    randX, randY = math.random(-radius, radius), math.random(-radius, radius)
+  until (((-randX) ^ 2) + ((-randY) ^ 2)) ^ 0.5 <= radius
+  return Vector(x + randX, y + randY, 0)
+end
+
+function RandomPointOnCircle(radius)
     local angle = math.random(0,math.pi * 2)
     local x = radius * math.cos(angle)
     local y = radius * math.sin(angle)

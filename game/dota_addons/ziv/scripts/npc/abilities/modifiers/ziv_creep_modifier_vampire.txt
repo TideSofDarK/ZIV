@@ -31,7 +31,7 @@
     {
       "Passive"           "1"
       "IsHidden"          "1"
-      "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+      // "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
       
       "Orb"
       {
@@ -42,7 +42,7 @@
       {
         "RunScript"
         {
-          "ScriptFile"            "abilities/modifiers/frenzy.lua"
+          "ScriptFile"            "abilities/modifiers/vampire.lua"
           "Function"              "Lifesteal"
         }
       }

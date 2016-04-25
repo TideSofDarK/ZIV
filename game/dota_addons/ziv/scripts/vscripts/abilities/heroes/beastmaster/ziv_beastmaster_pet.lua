@@ -10,7 +10,7 @@ function SpawnPet( keys )
 		if keys.respawn_pet then
 			KillPet( keys )
 		end
-		caster.pet = CreateUnitByName("npc_beastmaster_pet_level"..tostring(level), caster:GetAbsOrigin() + RandomPointInsideCircle(400), false, nil, caster, caster:GetTeamNumber())
+		caster.pet = CreateUnitByName("npc_beastmaster_pet_level"..tostring(level), caster:GetAbsOrigin() + RandomPointOnCircle(400), false, caster, caster, caster:GetTeamNumber())
 		ability:ApplyDataDrivenModifier(caster, caster.pet, "modifier_beastmaster_pet", {})
 
 		if keys.model then
@@ -52,7 +52,7 @@ function PetAI( keys )
 			else
 				caster.pet.last_walking_time = caster.pet.last_walking_time or ZIV.TRUE_TIME
 				if ZIV.TRUE_TIME - caster.pet.last_walking_time > math.random(3.5, 5.1) then
-					ExecuteOrderFromTable({ UnitIndex = caster.pet:entindex(), OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION, Position = caster:GetAbsOrigin() + RandomPointInsideCircle(325), Queue = nil})
+					ExecuteOrderFromTable({ UnitIndex = caster.pet:entindex(), OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION, Position = caster:GetAbsOrigin() + RandomPointOnCircle(325), Queue = nil})
 					caster.pet.last_walking_time = ZIV.TRUE_TIME
 				end
 			end

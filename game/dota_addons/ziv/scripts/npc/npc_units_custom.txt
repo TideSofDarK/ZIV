@@ -425,8 +425,9 @@
 	} 
 	"npc_dark_goddess_spirit"
 	{
-	    "BaseClass"         "npc_dota_creature"
-	    "SoundSet"                  "Creep_Bad_Melee"
+	    "BaseClass"         "npc_dota_creep"
+	    "SoundSet"                  "Creep_Good_Range"
+	    // "wearable"              "8638"
 	    
 	    "Model"           "models/items/enigma/eidolon/geodesic/geodesic.vmdl"
 	    "ModelScale"    "0.6"

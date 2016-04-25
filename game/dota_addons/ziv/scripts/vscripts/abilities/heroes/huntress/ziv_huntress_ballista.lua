@@ -5,7 +5,7 @@ function SpawnBallista( keys )
 
 	local _duration = ability:GetLevelSpecialValueFor("ballista_duration", ability:GetLevel())
 
-	local ballista = CreateUnitByName("npc_huntress_ballista", target, false, nil, caster:GetPlayerOwner(), caster:GetTeamNumber())
+	local ballista = CreateUnitByName("npc_huntress_ballista", target, false, caster, caster, caster:GetTeamNumber())
 	ability:ApplyDataDrivenModifier(ballista,ballista,"modifier_ballista",{})
 
 	ballista:AddNewModifier(ballista, nil, "modifier_kill", {duration = _duration})
