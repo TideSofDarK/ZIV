@@ -60,10 +60,10 @@
 
 	font-weight: normal;
 	font-size: 18px;
-	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	color: #ffffff88;
 
-	margin-left: 7px;
+	margin: 5px;
 }
 
 /*
@@ -83,24 +83,79 @@
 	visibility: collapse;
 }
 
+#Logo {
+	margin-top: 60px;
+	vertical-align: top;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/logo.png');
+
+	width: 352px;
+	height: 430px;
+}
+
 #Menu {
-	vertical-align: center;
-	horizontal-align: center;
+	margin-top: 475px;
 
-	margin-top: 300px;
+	background-image: url('file://{images}/custom_game/ingame_ui/menu_background.png');
 
-	flow-children:down;
+	width: 410px;
+	height: 334px;
+
+	transition-property: transform;
+	transition-duration: 0.4s;
+	transition-timing-function: ease-in-out, linear;
+}
+
+#CharacterList {
+	margin-top: 475px;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/hero_loading.png');
+
+	height: 411px;
+	width: 724px;
+
+	transition-property: transform;
+	transition-duration: 0.4s;
+	transition-timing-function: ease-in-out, linear;
+
+	visibility: collapse;
+}
+
+.FlippedB {
+	transform: rotateY( 90deg ) rotateZ( 0deg ) rotateX( 0deg );
+}
+
+.FlippedA {
+	transform: rotateY( -90deg ) rotateZ( 0deg ) rotateX( 0deg );
 }
 
 .MenuButton {
 	horizontal-align: center;
 
 	background-image: url('file://{images}/custom_game/ingame_ui/ui_red_button.png');
+	background-size: 100% 100%;
 
-	width: 265px;
+	width: 285px;
 	height: 45px;
 
-	margin: 4px;
+	border-radius: 1px;
+
+	margin-top: 110px;
+	margin-bottom: 110px;
+}
+
+.MenuButton:disabled 
+{
+	wash-color: #999999;
+}
+
+.MenuButton:hover
+{
+	wash-color: #bbbbbb;
+}
+
+#LoadCharacterButton {
+	vertical-align: bottom;
 }
 
 #HeroFrames {

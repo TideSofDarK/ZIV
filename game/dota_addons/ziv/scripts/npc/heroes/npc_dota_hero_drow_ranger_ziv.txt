@@ -12,7 +12,7 @@
     "Ability1"        "ziv_dark_goddess_corrupted_arrow" 
     "Ability2"        "ziv_dark_goddess_concentration" 
     "Ability3"        "ziv_empty3" 
-    "Ability4"        "ziv_empty4"
+    "Ability4"        "ziv_dark_goddess_explode"
     "Ability5"        "ziv_empty5"
     "Ability6"        "ziv_dark_goddess_glaive"
     "Ability7"        ""

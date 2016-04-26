@@ -129,3 +129,11 @@
 	text-shadow: 1px 1px 2px black;
 	line-height: 0px;
 }
+
+.GenericBackground {
+	vertical-align: center;
+	horizontal-align: center;
+	
+	background-position: 50% 50%;
+	background-size: 100% 100%;
+}

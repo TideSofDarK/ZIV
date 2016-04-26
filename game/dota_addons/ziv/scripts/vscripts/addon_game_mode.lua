@@ -54,6 +54,8 @@ function Precache( context )
   PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts",context)
   PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts",context)
   PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts",context)
+  PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_lich.vsndevts",context)
+  PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts",context)
 end
 
 -- Create the game mode when we activate

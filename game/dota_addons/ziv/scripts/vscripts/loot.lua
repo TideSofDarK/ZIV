@@ -14,10 +14,23 @@ Loot.RARITY_PARTICLES[Loot.RARITY_RARE] = "particles/ziv_chest_light_rare.vpcf"
 Loot.RARITY_PARTICLES[Loot.RARITY_EPIC] = "particles/ziv_chest_light_epic.vpcf"
 Loot.RARITY_PARTICLES[Loot.RARITY_LEGENDARY] = "particles/ziv_chest_light_legendary.vpcf"
 
+Loot.CommonModifiers = {}
+Loot.RuneModifiers = {}
+
 Loot.Table = LoadKeyValues('scripts/kv/LootTable.kv')
 
 function IsItemDropped( chance )
   return math.random(100) < chance
+end
+
+function Loot:Init()
+	for k,v in pairs(ZIV.AbilityKVs["ziv_fortify_modifiers"]["Modifiers"]) do
+		if string.match(k, "MODIFIER_PROPERTY") then
+			Loot.CommonModifiers[k] = v
+		elseif string.match(k, "ziv_") then
+			Loot.RuneModifiers[k] = v
+		end
+	end
 end
 
 function Loot:GetLootTable( creep )
@@ -38,6 +51,9 @@ function Loot:Generate( creep, killer )
 
 	if lootTable ~= nil and IsItemDropped(lootTable.LootChance or 0) then
     	Loot:CreepDrops( lootTable, creep, killer )
+    	if lootTable.Preset then 
+    		Loot:CreepDrops( Loot.Table[lootTable.Preset], creep, killer ) 
+    	end
 	end
 end
 
@@ -46,9 +62,9 @@ function Loot:AddModifiers(item)
 	item.built_in_modifiers = item.built_in_modifiers or {}
 
 	for i=1,modifier_count do
-		local seed = math.random(1, GetTableLength(ZIV.AbilityKVs["ziv_fortify_modifiers"]["Modifiers"]))
+		local seed = math.random(1, GetTableLength(Loot.CommonModifiers))
 		local x = 1
-		for k,v in pairs(ZIV.AbilityKVs["ziv_fortify_modifiers"]["Modifiers"]) do
+		for k,v in pairs(Loot.CommonModifiers) do
 			if x == seed then
 				item.built_in_modifiers[k] = item.built_in_modifiers[k] or 0
 				item.built_in_modifiers[k] = item.built_in_modifiers[k] + math.random(1,12)
@@ -59,52 +75,72 @@ function Loot:AddModifiers(item)
 	end
 end
 
+function Loot:CombineLootTables(table1, table2)
+	if not table1 then return table2 end
+	if not table2 then return table1 end
+
+	local new_table = table1.Loot
+	local length = GetTableLength(table1.Loot)
+	for k,v in pairs(table2.Loot) do
+		new_table[tostring(length+tonumber(k))] = v
+	end
+	
+	return new_table
+end
+
 function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
-  local seed = math.random(100)
-  local rarity = nil
-  local items = nil
-  
-  -- Random rarity
-  local num = 0
-  for k,v in pairs(lootTable) do
-    if seed > num and seed <= num + v.Chance then
-      rarity = tonumber(k)
-      items = v.Items
-    end
-    
-    num = num + v.Chance
-  end
-  
-  -- Random item in group
-  local itemName = items[tostring(math.random(0, GetTableLength(items) - 1))]
-  local item = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem(itemName, owner, owner))
-  
-  -- Random item rotation
-  item:SetAngles(0, math.random(0, 360), 0)
-  local new_item = item:GetContainedItem()
+	if not lootTable then return end
 
-  if rarity > Loot.RARITY_COMMON and not string.match(new_item:GetName(), "gem") then
-    new_item.rarity = 0
+	local itemName = ""
 
-    if i == count then
-      new_item.rarity = rarity
-    else
-      if math.random(0,1) == 0 then
-        new_item.rarity = math.abs(math.random(0,rarity-1))
-      end
+	local seed = math.random(100)
+  	local rarity = nil
+  	local items = nil
+
+	if type(lootTable) == "table" then
+	  	-- Random rarity
+	  	local num = 0
+	  	for k,v in pairs(lootTable.Loot) do
+	    	if seed > num and seed <= num + v.Chance then
+	      		rarity = tonumber(k)
+	      		items = v.Items
+	    	end
+	    
+	    	num = num + v.Chance
+	  	end
+	  
+	  	-- Random item in group
+	  	itemName = items[tostring(math.random(0, GetTableLength(items) - 1))]
+	else
+		itemName = lootTable
+	end
+	print("dickss"..itemName)
+  	local item = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem(itemName, owner, owner))
+  
+  	-- Random item rotation
+  	item:SetAngles(0, math.random(0, 360), 0)
+  	local new_item = item:GetContainedItem()
+
+  	new_item.rarity = 0
+
+  	if rarity > Loot.RARITY_COMMON and not string.match(new_item:GetName(), "gem") then
+    	if i == count then
+      		new_item.rarity = rarity
+    	elseif math.random(0,1) == 0 then
+        	new_item.rarity = math.abs(math.random(0,rarity-1))
+      	end
     end
 
     if new_item.rarity > 0 then 
-      Loot:AddModifiers(new_item)
+      	Loot:AddModifiers(new_item)
 
-      local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[new_item.rarity], PATTACH_ABSORIGIN_FOLLOW, item)
-      ParticleManager:SetParticleControl(particle, 0, item:GetAbsOrigin())
-      item.particles = {}
-      table.insert(item.particles, particle)
-    end
-  end
+      	local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[new_item.rarity], PATTACH_ABSORIGIN_FOLLOW, item)
+      	ParticleManager:SetParticleControl(particle, 0, item:GetAbsOrigin())
+      	item.particles = {}
+      	table.insert(item.particles, particle)
+ 	end
   
-  return item
+  	return item
 end
 
 function Loot:CreepDrops( lootTable, creep, killer )
@@ -115,21 +151,7 @@ function Loot:CreepDrops( lootTable, creep, killer )
 		if i < count then
 			i = i + 1
 
-			local new_item_c = Loot:RandomItemFromLootTable( lootTable.Loot, creep, killer )
-			CreateItemPanel( new_item_c )
-
-			Physics:Unit(new_item_c)
-
-			local seed = math.random(0, 360)
-			local boost = math.random(0,325)
-
-			local x = ((185 + boost) * math.cos(seed))
-			local y = ((185 + boost) * math.sin(seed))
-
-			new_item_c:AddPhysicsVelocity(Vector(x, y, 1100))
-			new_item_c:SetPhysicsAcceleration(Vector(0,0,-1700))
-
-			EmitSoundOn("Item.DropWorld", new_item_c)
+			Loot:SpawnPhysicalItem(Loot:RandomItemFromLootTable( lootTable, creep, killer ))
 
 			return math.random(0.31, 0.41)
 		end
@@ -141,11 +163,11 @@ function Loot:OpenChest( chest, unit )
 	InitAbilities(chest_unit)
 	chest:RemoveSelf()
 
-  local lootTable = Loot:GetLootTable( chest_unit )
+  	local lootTable = Loot:GetLootTable( chest_unit )
   
-  if lootTable == nil then
-    return
-  end
+  	if lootTable == nil then
+    	return
+  	end
   
 	local count = math.random(1, lootTable.Max)
 	local i = 1
@@ -154,21 +176,7 @@ function Loot:OpenChest( chest, unit )
 		if i < count then
 			i = i + 1
 
-			local new_item_c = Loot:RandomItemFromLootTable( lootTable.Loot, chest_unit, nil )
-			CreateItemPanel( new_item_c )
-
-			Physics:Unit(new_item_c)
-
-			local seed = math.random(0, 360)
-			local boost = math.random(0,325)
-
-			local x = ((185 + boost) * math.cos(seed))
-			local y = ((185 + boost) * math.sin(seed))
-
-			new_item_c:AddPhysicsVelocity(Vector(x, y, 1100))
-			new_item_c:SetPhysicsAcceleration(Vector(0,0,-1700))
-
-			EmitSoundOn("Item.DropWorld",new_item_c)
+			Loot:SpawnPhysicalItem(Loot:RandomItemFromLootTable( lootTable, chest_unit, nil ))
 
 			return math.random(0.31, 0.41)
 		else
@@ -179,4 +187,21 @@ function Loot:OpenChest( chest, unit )
 			end)
 		end
 	end) 
+end
+
+function Loot:SpawnPhysicalItem(new_item_c)
+	CreateItemPanel( new_item_c )
+
+	Physics:Unit(new_item_c)
+
+	local seed = math.random(0, 360)
+	local boost = math.random(0,325)
+
+	local x = ((185 + boost) * math.cos(seed))
+	local y = ((185 + boost) * math.sin(seed))
+
+	new_item_c:AddPhysicsVelocity(Vector(x, y, 1100))
+	new_item_c:SetPhysicsAcceleration(Vector(0,0,-1700))
+
+	EmitSoundOn("Item.DropWorld",new_item_c)
 end

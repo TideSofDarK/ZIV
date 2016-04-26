@@ -132,6 +132,16 @@ function CreateCharacterButton() {
 	CreateFrames();
 }
 
+function LoadCharacterButton() {
+	$("#Menu").AddClass("FlippedB");
+	$.Schedule(0.4, RemoveFlipClass);
+}
+
+function RemoveFlipClass() {
+	$("#CharacterList").RemoveClass("FlippedA");
+	$("#CharacterList").style.visibility = "visible;";
+}
+
 function SetHeroList(eventArgs) {
 	heroList = eventArgs;
 }

@@ -459,6 +459,32 @@
 	    }
 	  }
 	}
+	"item_rune_glaive_count"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "item_rune_glaive_count"
+	    {
+	      "min" "10"
+	      "max" "50"
+	    }
+	  }
+	}
 	"item_rune_execution_aoe"
 	{
 	  "ID"		"1658"
@@ -560,6 +586,57 @@
 	    {
 	      "min" "5"
 	      "max" "10"
+	    }
+	  }
+	}
+	"item_basic_bow"
+	{
+	  "ID"		"1019"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_basic_bow"
+	
+	  "Slot"  "bow"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	  
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "items/equipment.lua"
+	      "Function"    "Equip"
+	    }
+	    "ApplyModifier"
+	    {
+	      "ModifierName"  "modifier_basic_bow_equipped_bow"
+	      "Target"     "CASTER"
+	    }
+	    "FireSound"
+	    {
+	      "EffectName"  "ui.inv_equip_wood"
+	      "Target"     "CASTER"
+	    }
+	  }
+	  
+	  "Modifiers"
+	  {
+	    "modifier_basic_bow_equipped_bow"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsBuff"      "1"
+	    
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
+	      }
 	    }
 	  }
 	}

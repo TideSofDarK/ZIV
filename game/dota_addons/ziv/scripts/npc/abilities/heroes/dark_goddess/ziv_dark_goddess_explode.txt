@@ -1,0 +1,58 @@
+"ziv_dark_goddess_explode"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+  "AbilityTextureName"            "rubick_empty1"
+
+  "AOERadius" "%radius"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
+    "particle"  "particles/heroes/dark_goddess/dark_goddess_explode.vpcf"
+  }
+
+  "AbilityCastRange"        "700"
+  "AbilityCastPoint"        "0.4"
+  "AbilityCooldown"       "4.55"
+  "AbilityCastAnimation"      ""
+
+  "AbilityManaCost"       "35"
+
+  "MaxLevel"  "7"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "damage_amp"      "1.5"
+    }
+    "02"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "radius"    "345"
+    }
+    "03"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "explosion_radius"    "225"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "FireSound"
+    {
+      "EffectName"  "Ability.DarkRitual"
+      "Target"     "CASTER"
+    }
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/dark_goddess/ziv_dark_goddess_explode.lua"
+      "Function"    "Explode"
+      "Target"  "POINT"
+    }
+  }
+}

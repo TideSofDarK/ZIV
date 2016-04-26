@@ -124,5 +124,12 @@
       "IsHidden"      "1"
       "IsDebuff"      "0"
     }
+
+    "ziv_dark_goddess_glaive_count"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+    }
   }
 }

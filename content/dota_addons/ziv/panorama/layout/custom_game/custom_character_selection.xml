@@ -10,16 +10,19 @@
 	</scripts>
 	<Panel hittest="false" class="Root">
 		<Label class="Headline3" text="#addoninfo" />	
+		<Panel class="GenericBackground" id="Logo">
+		</Panel>
 		<Panel id="HeroFrames">
 		</Panel>
-		<Panel id="Menu">
-			<Button class="OKButton MenuButton" id="CreateCharacterButton"
+		<Panel class="GenericBackground FlippedA" id="CharacterList">
+		</Panel>
+		<Panel class="GenericBackground" id="Menu">
+			<Button class="MenuButton" id="CreateCharacterButton"
 								onactivate="CreateCharacterButton()"
 								>
 				<Label class="Headline2" text="#createcharacter" />					
 			</Button>
-
-			<Button class="OKButton MenuButton" id="LoadCharacterButton"
+			<Button class="MenuButton" id="LoadCharacterButton"
 								onactivate="LoadCharacterButton()"
 								>
 				<Label class="Headline2" text="#loadcharacter" />				

@@ -264,6 +264,7 @@ function ZIV:InitZIV()
   ZIV.RecipesKVs = LoadKeyValues("scripts/kv/Recipes.kv")
 
   Director:Init()
+  Loot:Init()
 end
 
 function ZIV:MakeHeroInvisible()
