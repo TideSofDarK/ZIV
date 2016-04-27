@@ -1,6 +1,6 @@
-"item_rune_execution_cd"
+"item_rune_witch_doctor_spawn_cd"
 {
-  "ID"		"1657"
+  "ID"		"1609"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_rune_samurai"
@@ -17,7 +17,7 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_samurai_execution_cd"
+    "ziv_witch_doctor_spawn_cd"
     {
       "min" "10"
       "max" "30"

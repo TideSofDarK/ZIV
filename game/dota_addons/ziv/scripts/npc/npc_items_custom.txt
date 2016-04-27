@@ -459,6 +459,162 @@
 	    }
 	  }
 	}
+	"item_rune_concentration_cost"
+	{
+	  "ID"		"1513"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_dark_goddess_concentration_cost"
+	    {
+	      "min" "5"
+	      "max" "15"
+	    }
+	  }
+	}
+	"item_rune_concentration_ms"
+	{
+	  "ID"		"1514"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_dark_goddess_concentration_ms"
+	    {
+	      "min" "15"
+	      "max" "50"
+	    }
+	  }
+	}
+	"item_rune_corrupted_arrow_as"
+	{
+	  "ID"		"1517"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_dark_goddess_corrupted_arrow_as"
+	    {
+	      "min" "10"
+	      "max" "30"
+	    }
+	  }
+	}
+	"item_rune_corrupted_arrow_spirit_count"
+	{
+	  "ID"		"1511"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_dark_goddess_corrupted_arrow_spirit_count"
+	    {
+	      "min" "1"
+	      "max" "2"
+	    }
+	  }
+	}
+	"item_rune_explode_cd"
+	{
+	  "ID"		"1512"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_dark_goddess_explode_cd"
+	    {
+	      "min" "2"
+	      "max" "4"
+	    }
+	  }
+	}
+	"item_rune_glaive_bleed_damage"
+	{
+	  "ID"		"1510"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_dark_goddess_glaive_bleed_damage"
+	    {
+	      "min" "0.2"
+	      "max" "1.0"
+	    }
+	  }
+	}
 	"item_rune_glaive_count"
 	{
 	  "ID"		"1509"
@@ -478,7 +634,7 @@
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
-	    "item_rune_glaive_count"
+	    "ziv_dark_goddess_glaive_count"
 	    {
 	      "min" "10"
 	      "max" "50"
@@ -532,8 +688,8 @@
 	  {
 	    "ziv_samurai_execution_cd"
 	    {
-	      "min" "0.01"
-	      "max" "0.03"
+	      "min" "1"
+	      "max" "3"
 	    }
 	  }
 	}
@@ -591,7 +747,7 @@
 	}
 	"item_basic_bow"
 	{
-	  "ID"		"1019"
+	  "ID"		"1025"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_basic_bow"

@@ -29,6 +29,8 @@
 	"lockin"										"Lock-In"
 	"lockedin"										"Waiting for start"
 
+	// Common modifiers
+
 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "to Attack Speed"
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "to Move Speed"
 	"MODIFIER_PROPERTY_EVASION_CONSTANT" "to Evasion rating"
@@ -39,10 +41,32 @@
 	"MODIFIER_PROPERTY_STATS_ALL_BONUS" "to All Stats"
 	"MODIFIER_PROPERTY_HEALTH_BONUS" "to max HP"
 
+	// Runes
+
 	"ziv_samurai_whirlwind_damage"	"to Whirlwind damage"
 	"ziv_samurai_whirlwind_aoe"	"to Whirldwind radius"
 	"ziv_samurai_execution_cd"	"to Execution speed"
 	"ziv_samurai_execution_aoe"	"to Execution radius"
+	"ziv_samurai_dash_damage"	"to Dash damage"
+	"ziv_samurai_whirlwind_ms"	"to Whirldwind move speed"
+
+	"ziv_dark_goddess_glaive_count"	"chance to throw additional Glaive"
+	"ziv_dark_goddess_glaive_bleed_damage"	"to Glaive bleed damage"
+	"ziv_dark_goddess_corrupted_arrow_spirit_count"	"to Corrupted Arrow spirit count"
+	"ziv_dark_goddess_corrupted_arrow_as"	"to Corrupted Arrow attack speed"
+	"ziv_dark_goddess_explode_cd"	"percent reduction of Explode energy cost"
+	"ziv_dark_goddess_concentration_ms"	"to Concentration move speed"
+	"ziv_dark_goddess_concentration_cost"	"reduction of Concentration energy cost"
+
+	"ziv_witch_doctor_blink_heal"	"additional heal after blink"
+	"ziv_witch_doctor_curse_duration"	"to Curse duration"
+	"ziv_witch_doctor_lifesteal_mana"	"damage to mana"
+	"ziv_witch_doctor_spawn_cd"	"percent reduction of both Spawn abilities cooldown"
+	"ziv_witch_doctor_spawn_count"	"to both Spawn abilities unit count"
+	"ziv_witch_doctor_totem2_radius"	"to Magnetic Totem radius"
+	"ziv_witch_doctor_totem2_targets"	"to Megnetic Totem target count"
+	"ziv_witch_doctor_totem_radius"	"to Spirit Totem radius"
+	"ziv_witch_doctor_totem_targets"	"to Spirit Totem target count"
 
 	"empty_gem_slot" "Empty Slot"
 

@@ -1,9 +1,9 @@
-"item_rune_execution_cd"
+"item_rune_concentration_cost"
 {
-  "ID"		"1657"
+  "ID"		"1513"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_samurai"
+  "AbilityTextureName"      "item_rune_dark_goddess"
   "Model"                   "models/items/topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
@@ -17,10 +17,10 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_samurai_execution_cd"
+    "ziv_dark_goddess_concentration_cost"
     {
-      "min" "10"
-      "max" "30"
+      "min" "5"
+      "max" "15"
     }
   }
 }

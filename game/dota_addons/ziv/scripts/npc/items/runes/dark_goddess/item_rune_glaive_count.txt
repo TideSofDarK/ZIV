@@ -17,7 +17,7 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "item_rune_glaive_count"
+    "ziv_dark_goddess_glaive_count"
     {
       "min" "10"
       "max" "50"

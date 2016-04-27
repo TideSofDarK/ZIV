@@ -40,6 +40,7 @@
 			_class = "C_OP_InterpolateRadius"
 			m_flStartScale = 0.100000
 			m_bEaseInAndOut = true
+			m_bDisableOperator = true
 		},
 	]
 	m_flConstantRadius = 1.000000
@@ -54,7 +55,6 @@
 				},
 			]
 			m_bIgnoreNormal = true
-			m_bAnimated = true
 		},
 	]
 	m_Emitters =

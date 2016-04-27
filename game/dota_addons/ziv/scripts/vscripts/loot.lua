@@ -61,10 +61,15 @@ function Loot:AddModifiers(item)
 	local modifier_count = item.rarity + math.random(0, 2)
 	item.built_in_modifiers = item.built_in_modifiers or {}
 
+	local all_modifiers = Loot.CommonModifiers
+	-- if string.match(item:GetName(), "item_rune_") then 
+	-- 	all_modifiers = Loot.CommonModifiers
+	-- end
+
 	for i=1,modifier_count do
-		local seed = math.random(1, GetTableLength(Loot.CommonModifiers))
+		local seed = math.random(1, GetTableLength(all_modifiers))
 		local x = 1
-		for k,v in pairs(Loot.CommonModifiers) do
+		for k,v in pairs(all_modifiers) do
 			if x == seed then
 				item.built_in_modifiers[k] = item.built_in_modifiers[k] or 0
 				item.built_in_modifiers[k] = item.built_in_modifiers[k] + math.random(1,12)
