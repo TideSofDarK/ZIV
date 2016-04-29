@@ -2,7 +2,7 @@
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
-  "AbilityTextureName"            "rubick_empty1"
+  "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastRange"        "1100"
   "AbilityManaCost"         "60"

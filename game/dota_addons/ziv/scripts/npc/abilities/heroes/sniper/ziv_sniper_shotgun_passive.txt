@@ -2,7 +2,7 @@
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName"            "rubick_empty1"
+  "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastRange"        "600"
   "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"

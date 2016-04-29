@@ -29,19 +29,6 @@ function SetToggleState( ability, state )
   end
 end
 
-function DealDamage( _attacker, _victim, _damage, _type )
-  local damageTable = {
-      victim = _victim,
-      attacker = _attacker,
-      damage = _damage,
-      damage_type = _type
-  }
-  if math.random(0, 1) == 0 then
-    StartAnimation(_victim, {duration=0.3, activity=ACT_DOTA_FLINCH, rate=1.5})
-  end
-  ApplyDamage(damageTable)
-end
-
 function DestroyEntityBasedOnHealth(killer, target)
   local damageTable = {
     victim = target,

@@ -8,7 +8,7 @@
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_ALL | DOTA_UNIT_TARGET_TREE"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
     "BaseClass"         "ability_lua"
-    "AbilityTextureName"        "rubick_empty1"
+    "AbilityTextureName"        "ziv_empty"
     "ScriptFile"          "libraries/abilities/containers_lua_targeting_tree"
     "MaxLevel"            "1"
     "IsCastableWhileHidden" "1"

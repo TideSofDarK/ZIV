@@ -10,7 +10,7 @@
 	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_ALL"
 	    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
 	    "BaseClass"         "ability_lua"
-	    "AbilityTextureName"        "rubick_empty1"
+	    "AbilityTextureName"        "ziv_empty"
 	    "ScriptFile"          "libraries/abilities/containers_lua_targeting"
 	    "MaxLevel"            "1"
 	    "IsCastableWhileHidden" "1"
@@ -38,7 +38,7 @@
 	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_ALL | DOTA_UNIT_TARGET_TREE"
 	    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
 	    "BaseClass"         "ability_lua"
-	    "AbilityTextureName"        "rubick_empty1"
+	    "AbilityTextureName"        "ziv_empty"
 	    "ScriptFile"          "libraries/abilities/containers_lua_targeting_tree"
 	    "MaxLevel"            "1"
 	    "IsCastableWhileHidden" "1"
@@ -64,7 +64,7 @@
 	  {
 	    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	    "BaseClass"           "ability_datadriven"
-	    "AbilityTextureName"            "rubick_empty1"
+	    "AbilityTextureName"            "ziv_empty"
 	    "MaxLevel"                      "1"
 	    
 	    "Modifiers"
@@ -258,65 +258,68 @@
 	    }
 	  }
 	"ziv_empty1"
-	  {
-	    // General
-	    //-------------------------------------------------------------------------------------------------------------
-	    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-	    "MaxLevel"            "0"
-	    "BaseClass"           "ability_datadriven"
-	    "AbilityTextureName"            "rubick_empty1"
-	  }
+	{
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"            "0"
+		"BaseClass"           "ability_datadriven"
+		"AbilityTextureName"            "ziv_empty"
+	}
+	
 	"ziv_empty2"
-	  {
-	    // General
-	    //-------------------------------------------------------------------------------------------------------------
-	    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-	    "MaxLevel"            "0"
-	    "BaseClass"           "ability_datadriven"
-	    "AbilityTextureName"            "rubick_empty1"
-	  }
+	{
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"            "0"
+		"BaseClass"           "ability_datadriven"
+		"AbilityTextureName"            "ziv_empty"
+	}
+	
 	"ziv_empty3"
-	  {
-	    // General
-	    //-------------------------------------------------------------------------------------------------------------
-	    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-	    "MaxLevel"            "0"
-	    "BaseClass"           "ability_datadriven"
-	    "AbilityTextureName"            "rubick_empty1"
-	  }
+	{
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"            "0"
+		"BaseClass"           "ability_datadriven"
+		"AbilityTextureName"            "ziv_empty"
+	}
+	
 	"ziv_empty4"
-	  {
-	    // General
-	    //-------------------------------------------------------------------------------------------------------------
-	    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-	    "MaxLevel"            "0"
-	    "BaseClass"           "ability_datadriven"
-	    "AbilityTextureName"            "rubick_empty1"
-	  }
+	{
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"            "0"
+		"BaseClass"           "ability_datadriven"
+		"AbilityTextureName"            "ziv_empty"
+	}
+	
 	"ziv_empty5"
-	  {
-	    // General
-	    //-------------------------------------------------------------------------------------------------------------
-	    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-	    "MaxLevel"            "0"
-	    "BaseClass"           "ability_datadriven"
-	    "AbilityTextureName"            "rubick_empty1"
-	  }
+	{
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"            "0"
+		"BaseClass"           "ability_datadriven"
+		"AbilityTextureName"            "ziv_empty"
+	}
+	
 	"ziv_empty6"
-	  {
-	    // General
-	    //-------------------------------------------------------------------------------------------------------------
-	    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-	    "MaxLevel"            "0"
-	    "BaseClass"           "ability_datadriven"
-	    "AbilityTextureName"            "rubick_empty1"
-	  }
+	{
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"            "0"
+		"BaseClass"           "ability_datadriven"
+		"AbilityTextureName"            "ziv_empty"
+	}
+	
+	"ziv_empty7"
+	{
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"            "0"
+		"BaseClass"           "ability_datadriven"
+		"AbilityTextureName"            "ziv_empty"
+	}
+	
+	"ziv_empty8"
+	{
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"            "0"
+		"BaseClass"           "ability_datadriven"
+		"AbilityTextureName"            "ziv_empty"
+	}
 	"ziv_stats_bonus_fix"
 	{
 		"BaseClass"			"ability_lua" 
@@ -334,6 +337,34 @@
 	  
 	  "Modifiers"
 	  {
+	    "modifier_fire_resistance"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    }
+	
+	    "modifier_cold_resistance"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    }
+	
+	    "modifier_lightning_resistance"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    }
+	
+	    "modifier_dark_resistance"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    }
+	
 	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
 	    {
 	      "Passive"      "0"
@@ -465,7 +496,7 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET" //DOTA_ABILITY_BEHAVIOR_PASSIVE
 	  "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	  "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
 	
@@ -548,7 +579,7 @@
 	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 	
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastPoint"        "0.001"
 	  "AbilityCooldown"        "0.05"
@@ -593,7 +624,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 	
-		"AbilityTextureName"	"rubick_empty1"
+		"AbilityTextureName"	"ziv_empty"
 	
 		"precache"
 		{
@@ -676,7 +707,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE" //DOTA_ABILITY_BEHAVIOR_PASSIVE
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
 	
@@ -859,7 +890,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE" //DOTA_ABILITY_BEHAVIOR_PASSIVE
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
 	
@@ -1346,7 +1377,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AOERadius" "%radius"
 	
@@ -1537,11 +1568,569 @@
 			}
 		}
 	}
+	"ziv_elementalist_ball_lightning"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"ziv_empty"
+	
+		"AbilityCastRange"        "700"
+		"AbilityCastPoint"				"0.35"
+		"AbilityCooldown"				"5.0"
+		
+		"AbilityManaCost"				"15"
+	
+		"AbilityCastAnimation" "ACT_DOTA_CAST_ALACRITY"
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"ball_lightning_move_speed"			"1250 1875 2500"		
+			}
+			"02"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"ball_lightning_aoe"				"125 200 275"		
+			}
+		}
+	
+		"precache"
+		{
+			"soundfile"							"soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+			"particle"							"particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning.vpcf"
+			"particle"							"particles/status_fx/status_effect_base.vpcf"
+		}
+		
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"					"Hero_StormSpirit.BallLightning"
+			}
+			
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"					"Hero_StormSpirit.BallLightning.Loop"
+			}
+		
+			"RunScript"
+			{
+				"ScriptFile"					"abilities/heroes/elementalist/ziv_elementalist_ball_lightning.lua"
+				"Function"						"BallLightningTraverse"
+				"Target"						"POINT"
+			}
+			
+			"ApplyModifier"
+			{
+				"Target"						"CASTER"
+				"ModifierName"					"modifier_ball_lightning_buff"
+			}
+		}
+		
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"						"0"
+		
+			"RunScript"
+			{
+				"ScriptFile"					"abilities/heroes/elementalist/ziv_elementalist_ball_lightning.lua"
+				"Function"						"BallLightningDamage"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_ball_lightning_buff"
+			{
+				"IsPurgable"					"0"
+				"IsBuff"						"1"
+			
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"				"CASTER"	
+						"EffectName"			"particles/heroes/elementalist/elementalist_ball_lightning.vpcf"
+						"EffectAttachType"		"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_hitloc"
+							"CASTER"			"attach_hitloc"
+						}
+					}
+				}
+			
+				"States"
+				{
+					// "MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	"ziv_elementalist_cold_blast"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		
+		"HotKeyOverride"				"B"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	
+		"AbilityTextureName"			"ziv_empty"
+	
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"5"
+		"AbilityManaCost"				"20"
+	
+		"AbilityCastAnimation" "ACT_DOTA_CAST_DEAFENING_BLAST"
+	
+		"MaxLevel"						"7"
+	
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"particle"		"particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf"
+			"particle"		"particles/units/heroes/hero_invoker/invoker_deafening_blast_knockback_debuff.vpcf"
+			"particle"		"particles/units/heroes/hero_invoker/invoker_deafening_blast_disarm_debuff.vpcf"
+			"particle"		"particles/status_fx/status_effect_frost.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"travel_distance"		"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"travel_speed"			"1100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_start"			"175"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_end"			"225"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"end_vision_duration"	"1.75"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"40 80 120 160 200 240 280"
+				"levelkey"				"exortlevel"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"knockback_duration"	"0.25 0.5 0.75 1.0 1.25 1.5 1.75"
+				"levelkey"				"quaslevel"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"disarm_duration"		"1.0 1.5 2.0 2.5 3.0 3.5 4.0"
+				"levelkey"				"wexlevel"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Invoker.DeafeningBlast"
+				"Target" 		"CASTER"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_cold_blast.lua"
+				"Function"		"ColdBlastStart"
+				"Target"		"POINT"
+				"dummy_ability_name"	"ziv_elementalist_cold_blast_dummy"
+				"projectile_name"		"particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf"
+			}
+		}
+	}
+	
+	"ziv_elementalist_cold_blast_dummy"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"ziv_empty"
+	
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_cold_blast.lua"
+				"Function"		"ColdBlastHit"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_cold_blast_dummy"
+			{
+				"Passive"	"1"
+	
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"						"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	"ziv_elementalist_cold_orb"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"ziv_empty"
+	
+		"AbilityManaCost"	"25"
+		"AbilityCastPoint"        "0.5"
+		"AbilityCooldown"				"10.0"
+	
+		"MaxLevel" "7"
+	
+		"precache"
+		{
+			"particle"  "particles/heroes/elementalist/elementalist_cold_orb.vpcf"
+			"particle"  "particles/heroes/elementalist/elementalist_cold_orb_explosion.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_shadow_fiend.vsndevts"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type" "FIELD_INTEGER"
+				"damage_amp" "2.3"
+			}
+			"02"
+			{
+				"var_type" "FIELD_INTEGER"
+				"bonus_attackspeed_passive" "200"
+			}
+			"03"
+			{
+				"var_type" "FIELD_INTEGER"
+				"radius" "200"
+			}
+			"04"
+			{
+				"var_type" "FIELD_INTEGER"
+				"cold_duration" "3"
+			}
+			"05"
+			{
+				"var_type" "FIELD_INTEGER"
+				"cold_movespeed" "-20"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_cold_orb_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed_passive" 
+				}
+			}
+	
+			"modifier_cold_orb_effect"
+			{
+				"Duration"	"%cold_duration"
+	
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			
+				"EffectName"		"particles/generic_gameplay/generic_slowed_cold.vpcf"
+				"EffectAttachType"      "attach_hitloc"
+			
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%cold_movespeed" 
+				}
+			}
+	
+			"modifier_cold_orb"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+	
+				"Orb"
+				{
+					"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/heroes/elementalist/elementalist_cold_orb.vpcf"
+				}
+	
+				"OnOrbFire"
+				{
+	
+				}
+	
+				"OnOrbImpact"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/heroes/elementalist/elementalist_cold_orb_explosion.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_cold_orb.lua"
+						"Function"		"ColdOrbImpact"
+						"Target"	"TARGET"
+					}
+				}
+			}
+		}
+	}
+	"ziv_elementalist_dark_illusion"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AbilityCastRange"        "700"
+	  "AbilityCastPoint"        "0.3"
+	  "AbilityCooldown"         "13"
+	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+	
+	  "AbilityCastAnimation" "ACT_DOTA_CAST_EMP"
+	
+	  "AbilityManaCost"       "70"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/status_fx/status_effect_slark_shadow_dance.vpcf"
+	    "particle"  "particles/units/heroes/hero_slark/slark_shadow_dance_dummy.vpcf"
+	    "particle"  "particles/econ/events/ti4/blink_dagger_start_smoke_ti4.vpcf"
+	    "particle"  "particles/heroes/elementalist/elementalist_dark_illusion.vpcf"
+	    "soundfile" "soundevents/game_sounds_items.vsndevts"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_queenofpain.vsndevts"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "illusion_duration"            "8"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "illusion_incoming_damage"            "50"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "DOTA_Item.SmokeOfDeceit.Activate"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/elementalist/ziv_elementalist_dark_illusion.lua"
+	      "Function"    "DarkIllusion"
+	      "Target"  "POINT"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_dark_illusion_out"
+	    {
+	      "Duration" "%illusion_duration"
+	
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "OnDestroy"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/elementalist/ziv_elementalist_dark_illusion.lua"
+	          "Function"    "OnModifierDestroy"
+	        }
+	      }
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100" 
+	      }
+	    
+	      "States"
+	      {
+	        "MODIFIER_STATE_INVULNERABLE"           "MODIFIER_STATE_VALUE_ENABLED"
+	            
+	        "MODIFIER_STATE_ATTACK_IMMUNE"          "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_MAGIC_IMMUNE"           "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_UNSELECTABLE"           "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_HEALTH_BAR"          "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_ROOTED" "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	
+	    "modifier_dark_illusion"
+	    {
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
+	
+	      "StatusEffectName"     "particles/status_fx/status_effect_slark_shadow_dance.vpcf"      
+	      "StatusEffectPriority"  "3"
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_UNSELECTABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	  }
+	}
+	"ziv_elementalist_dark_orb"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"ziv_empty"
+	
+		"AbilityManaCost"	"25"
+		"AbilityCastPoint"        "0.5"
+		"AbilityCooldown"				"10.0"
+	
+		"MaxLevel" "7"
+	
+		"precache"
+		{
+			"particle"  "particles/heroes/elementalist/elementalist_dark_orb.vpcf"
+			"particle"  "particles/heroes/elementalist/elementalist_dark_orb_explosion.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type" "FIELD_INTEGER"
+				"damage_amp" "2.3"
+			}
+			"02"
+			{
+				"var_type" "FIELD_INTEGER"
+				"radius" "300"
+			}
+			"03"
+			{
+				"var_type" "FIELD_INTEGER"
+				"bonus_attackspeed_passive" "175"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_dark_orb_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed_passive" 
+				}
+			}
+	
+			"modifier_dark_orb"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+	
+				"Orb"
+				{
+					"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/heroes/elementalist/elementalist_dark_orb.vpcf"
+				}
+	
+				"OnOrbFire"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Nevermore.Attack"
+						"Target" 		"CASTER"
+					}
+				}
+	
+				"OnOrbImpact"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/heroes/elementalist/elementalist_dark_orb_explosion.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_dark_orb.lua"
+						"Function"		"DarkOrbImpact"
+						"Target"	"TARGET"
+					}
+				}
+			}
+		}
+	}
 	"ziv_huntress_ballista"
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  
 	  "AbilityCastAnimation"      ""
 	  
@@ -1628,7 +2217,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
 	  {
@@ -1715,7 +2304,7 @@
 	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 	
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  
 	  "AbilityCastAnimation"      ""
 	  
@@ -1786,7 +2375,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
 	  {
@@ -1894,7 +2483,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
 	  {
@@ -2059,7 +2648,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  
 	  "AbilityCastAnimation"      ""
 	  
@@ -2157,7 +2746,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "600"
 	  "AbilityCastPoint"        "0.3"
@@ -2255,7 +2844,7 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	  "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	  "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "0"
 	  "AbilityCastPoint"        "0.1"
@@ -2337,7 +2926,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCooldown"         "3"
 	  
@@ -2406,7 +2995,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "0"
 	  "AbilityCastPoint"        "0.1"
@@ -2593,7 +3182,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
 	
@@ -2712,7 +3301,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "600"
 	  "AbilityCastPoint"        "0"
@@ -2803,7 +3392,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 	
@@ -2885,7 +3474,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastPoint"        "0.0001"
 	  "AbilityCooldown"         "2.5"
@@ -3004,7 +3593,7 @@
 	
 	  "AbilityCastAnimation"      ""
 	
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastPoint"        "0.04"
 	  "AbilityCooldown"        "0.12"
@@ -3077,7 +3666,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 	  
@@ -3173,7 +3762,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastPoint"        "0"
 	  "AbilityCooldown"         "0.195"
@@ -3257,20 +3846,20 @@
 		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"            "7"
 		"BaseClass"           "ability_datadriven"
-		"AbilityTextureName"            "rubick_empty1"
+		"AbilityTextureName"            "ziv_empty"
 	}
 	"ziv_sniper_empty2"
 	{
 		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"            "7"
 		"BaseClass"           "ability_datadriven"
-		"AbilityTextureName"            "rubick_empty1"
+		"AbilityTextureName"            "ziv_empty"
 	}
 	"ziv_sniper_explosive_trap"
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
 	  {
@@ -3363,7 +3952,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "600"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
@@ -3422,7 +4011,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "600"
 	  "AbilityCastPoint"        "1.55"
@@ -3517,7 +4106,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastPoint"        "0.25"
 	  "AbilityCooldown"         "21 19 17 15 13 11 9"
@@ -3626,7 +4215,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "1100"
 	  "AbilityManaCost"         "60"
@@ -3726,7 +4315,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
 	  {
@@ -3817,7 +4406,7 @@
 	{
 	  "BaseClass"           "ability_lua"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "1000"
 	
@@ -3838,7 +4427,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
 	  {
@@ -3890,7 +4479,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AOERadius" "500"
 	
@@ -3986,7 +4575,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
 	  {
@@ -4035,7 +4624,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AOERadius" "300"
 	
@@ -4124,7 +4713,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AOERadius" "300"
 	
@@ -4250,7 +4839,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
 	  {
@@ -4347,7 +4936,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
 	  {
@@ -4460,7 +5049,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  
 	  "MaxLevel"          "1"
 	
@@ -4488,7 +5077,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  
 	  "MaxLevel"          "1"
 	
@@ -4516,7 +5105,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  
 	  "MaxLevel"          "1"
 	
@@ -4544,7 +5133,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  
 	  "MaxLevel"          "1"
 	
@@ -4600,7 +5189,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  
 	  "MaxLevel"          "1"
 	
@@ -4668,7 +5257,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  
 	  "MaxLevel"          "1"
 	
@@ -4729,7 +5318,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  
 	  "MaxLevel"          "1"
 	
@@ -4769,7 +5358,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  
 	  "MaxLevel"          "1"
 	
@@ -4834,7 +5423,7 @@
 	{
 	  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  "MaxLevel"                      "1"
 	  
 	  "Modifiers"
@@ -4878,7 +5467,7 @@
 	{
 	  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityTextureName"            "rubick_empty1"
+	  "AbilityTextureName"            "ziv_empty"
 	  "MaxLevel"                      "1"
 	  
 	  "Modifiers"

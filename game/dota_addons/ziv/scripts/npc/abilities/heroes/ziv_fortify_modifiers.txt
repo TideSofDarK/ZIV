@@ -8,6 +8,34 @@
   
   "Modifiers"
   {
+    "modifier_fire_resistance"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+    }
+
+    "modifier_cold_resistance"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+    }
+
+    "modifier_lightning_resistance"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+    }
+
+    "modifier_dark_resistance"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+    }
+
     "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
     {
       "Passive"      "0"

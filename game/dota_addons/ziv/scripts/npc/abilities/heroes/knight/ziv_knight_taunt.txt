@@ -2,7 +2,7 @@
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-  "AbilityTextureName"            "rubick_empty1"
+  "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
 

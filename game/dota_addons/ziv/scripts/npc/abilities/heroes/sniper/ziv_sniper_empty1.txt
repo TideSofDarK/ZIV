@@ -3,5 +3,5 @@
 	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	"MaxLevel"            "7"
 	"BaseClass"           "ability_datadriven"
-	"AbilityTextureName"            "rubick_empty1"
+	"AbilityTextureName"            "ziv_empty"
 }

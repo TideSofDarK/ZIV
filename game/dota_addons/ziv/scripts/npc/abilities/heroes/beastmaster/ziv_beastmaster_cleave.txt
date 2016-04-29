@@ -6,7 +6,7 @@
   "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
   "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 
-  "AbilityTextureName"            "rubick_empty1"
+  "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastPoint"        "0.001"
   "AbilityCooldown"        "0.05"

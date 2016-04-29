@@ -181,6 +181,67 @@
 	    "VisionDaytimeRange"    "1800"
 	    "VisionNighttimeRange"    "1800"
 	}
+	"npc_dota_hero_invoker_ziv"
+	{
+	    "override_hero"     "npc_dota_hero_invoker"
+	
+	    "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"
+	
+	    "ChooseLayout"  "2222"
+	
+	    "AbilityLayout"     "4"
+	
+	    "Ability1"        "ziv_elementalist_dark_orb" 
+	    "Ability2"        "ziv_elementalist_cold_orb" 
+	    "Ability3"        "ziv_elementalist_ball_lightning" 
+	    "Ability4"        "ziv_elementalist_dark_illusion"
+	    "Ability5"        "ziv_elementalist_cold_blast"
+	    "Ability6"        "ziv_empty5"
+	    "Ability7"        "ziv_empty6"
+	    "Ability8"        "ziv_empty7"
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackDamageMin"     "10"
+	    "AttackDamageMax"     "15"
+	    "ProjectileSpeed"     "1150"
+	
+	    "AttributePrimary"      "DOTA_ATTRIBUTE_INTELLECT"
+	    "AttributeBaseStrength"   "5"
+	    "AttributeStrengthGain"   "0"
+	    "AttributeBaseIntelligence" "5"
+	    "AttributeIntelligenceGain" "0"
+	    "AttributeBaseAgility"    "5"
+	    "AttributeAgilityGain"    "0"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    //"BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+	    //"RingRadius"        "70"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "360"
+	    "MovementTurnRate"      "4.0"
+	
+	    "StatusHealth"        "1000"
+	    "StatusHealthRegen"     "1.0"
+	    "StatusMana"        "100"
+	    "StatusManaRegen"     "50.0"
+	
+	    "VisionDaytimeRange"    "1800"
+	    "VisionNighttimeRange"    "1800"
+	}
 	"npc_dota_hero_juggernaut_ziv"
 	{
 	    "override_hero"     "npc_dota_hero_juggernaut"

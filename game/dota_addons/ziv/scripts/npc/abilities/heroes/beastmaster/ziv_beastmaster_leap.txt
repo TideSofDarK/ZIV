@@ -3,7 +3,7 @@
 	"BaseClass"				"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 
-	"AbilityTextureName"	"rubick_empty1"
+	"AbilityTextureName"	"ziv_empty"
 
 	"precache"
 	{

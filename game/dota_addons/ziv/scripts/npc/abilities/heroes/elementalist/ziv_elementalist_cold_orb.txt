@@ -1,0 +1,113 @@
+"ziv_elementalist_cold_orb"
+{
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityTextureName"			"ziv_empty"
+
+	"AbilityManaCost"	"25"
+	"AbilityCastPoint"        "0.5"
+	"AbilityCooldown"				"10.0"
+
+	"MaxLevel" "7"
+
+	"precache"
+	{
+		"particle"  "particles/heroes/elementalist/elementalist_cold_orb.vpcf"
+		"particle"  "particles/heroes/elementalist/elementalist_cold_orb_explosion.vpcf"
+		"soundfile" "soundevents/game_sounds_heroes/game_sounds_shadow_fiend.vsndevts"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type" "FIELD_INTEGER"
+			"damage_amp" "2.3"
+		}
+		"02"
+		{
+			"var_type" "FIELD_INTEGER"
+			"bonus_attackspeed_passive" "200"
+		}
+		"03"
+		{
+			"var_type" "FIELD_INTEGER"
+			"radius" "200"
+		}
+		"04"
+		{
+			"var_type" "FIELD_INTEGER"
+			"cold_duration" "3"
+		}
+		"05"
+		{
+			"var_type" "FIELD_INTEGER"
+			"cold_movespeed" "-20"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_cold_orb_passive"
+		{
+			"Passive"			"1"
+			"IsHidden"			"1"
+			"IsDebuff"			"0"
+		
+			"Properties"
+			{
+			    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed_passive" 
+			}
+		}
+
+		"modifier_cold_orb_effect"
+		{
+			"Duration"	"%cold_duration"
+
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"1"
+		
+			"EffectName"		"particles/generic_gameplay/generic_slowed_cold.vpcf"
+			"EffectAttachType"      "attach_hitloc"
+		
+			"Properties"
+			{
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%cold_movespeed" 
+			}
+		}
+
+		"modifier_cold_orb"
+		{
+			"Passive"	"1"
+			"IsHidden"	"1"
+
+			"Orb"
+			{
+				"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
+				"ProjectileName"	"particles/heroes/elementalist/elementalist_cold_orb.vpcf"
+			}
+
+			"OnOrbFire"
+			{
+
+			}
+
+			"OnOrbImpact"
+			{
+				"FireEffect"
+				{
+					"EffectName"        "particles/heroes/elementalist/elementalist_cold_orb_explosion.vpcf"
+					"EffectAttachType"  "follow_origin"
+					"Target"            "TARGET"
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_cold_orb.lua"
+					"Function"		"ColdOrbImpact"
+					"Target"	"TARGET"
+				}
+			}
+		}
+	}
+}

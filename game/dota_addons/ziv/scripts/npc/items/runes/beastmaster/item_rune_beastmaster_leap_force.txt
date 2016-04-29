@@ -1,0 +1,26 @@
+"item_rune_beastmaster_leap_force"
+{
+  "ID"		"1513"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"           "item_datadriven"
+  "AbilityTextureName"      "item_rune_dark_goddess"
+  "Model"                   "models/items/topaz.vmdl"
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+
+  "ItemStackable"         "1"
+  "ItemPermanent"         "0"
+  "ItemInitialCharges"            "1"
+
+  "MaxUpgradeLevel"       "1"
+  "ItemBaseLevel"         "1"
+
+  "FortifyModifiersCount" "1"
+  "FortifyModifiers"
+  {
+    "ziv_beastmaster_leap_force"
+    {
+      "min" "10"
+      "max" "30"
+    }
+  }
+}

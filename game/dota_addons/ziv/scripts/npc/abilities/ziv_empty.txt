@@ -1,0 +1,63 @@
+"ziv_empty1"
+{
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	"MaxLevel"            "0"
+	"BaseClass"           "ability_datadriven"
+	"AbilityTextureName"            "ziv_empty"
+}
+
+"ziv_empty2"
+{
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	"MaxLevel"            "0"
+	"BaseClass"           "ability_datadriven"
+	"AbilityTextureName"            "ziv_empty"
+}
+
+"ziv_empty3"
+{
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	"MaxLevel"            "0"
+	"BaseClass"           "ability_datadriven"
+	"AbilityTextureName"            "ziv_empty"
+}
+
+"ziv_empty4"
+{
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	"MaxLevel"            "0"
+	"BaseClass"           "ability_datadriven"
+	"AbilityTextureName"            "ziv_empty"
+}
+
+"ziv_empty5"
+{
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	"MaxLevel"            "0"
+	"BaseClass"           "ability_datadriven"
+	"AbilityTextureName"            "ziv_empty"
+}
+
+"ziv_empty6"
+{
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	"MaxLevel"            "0"
+	"BaseClass"           "ability_datadriven"
+	"AbilityTextureName"            "ziv_empty"
+}
+
+"ziv_empty7"
+{
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	"MaxLevel"            "0"
+	"BaseClass"           "ability_datadriven"
+	"AbilityTextureName"            "ziv_empty"
+}
+
+"ziv_empty8"
+{
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	"MaxLevel"            "0"
+	"BaseClass"           "ability_datadriven"
+	"AbilityTextureName"            "ziv_empty"
+}

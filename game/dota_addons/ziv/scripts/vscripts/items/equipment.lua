@@ -30,7 +30,15 @@ function UnEquip( unit, buffName )
 			for id,gem_table in pairs(unit.fortify_modifiers[itemName]) do
 				for k,v in pairs(gem_table) do
 					if unit:HasModifier(k) then
-						unit:SetModifierStackCount(k, unit, unit:GetModifierStackCount(k, unit) - v)
+						if unit:HasModifier(k) == false then
+							unit:FindAbilityByName("ziv_fortify_modifiers"):ApplyDataDrivenModifier(unit,unit,k,{})
+						end
+
+						local new_count = unit:GetModifierStackCount(k, unit) - v
+						unit:SetModifierStackCount(k, unit, new_count)
+						if new_count <= 0 then
+							unit:RemoveModifierByName(k)
+						end
 					end
 				end
 			end

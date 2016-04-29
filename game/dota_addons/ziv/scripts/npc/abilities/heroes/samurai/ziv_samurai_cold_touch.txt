@@ -2,7 +2,7 @@
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-  "AbilityTextureName"            "rubick_empty1"
+  "AbilityTextureName"            "ziv_empty"
 
   "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 

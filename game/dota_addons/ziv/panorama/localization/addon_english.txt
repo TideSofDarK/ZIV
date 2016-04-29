@@ -43,12 +43,22 @@
 
 	// Runes
 
+	"ziv_huntress_ballista_as"	"to Ballista attack speed"
+	"ziv_huntress_ballista_cd"	"percent reduction of Ballista cooldown"
+	"ziv_huntress_blink_arrow_damage"	"to Blink Arrow damage"
+	"ziv_huntress_focus_fire_damage"	"to Focus Fire damage"
+	"ziv_huntress_trap_duration"	"to Trap duration"
+	"ziv_huntress_volley_arrows"	"to Volley arrow count"
+	"ziv_huntress_volley_damage"	"to Volley damage"
+
 	"ziv_samurai_whirlwind_damage"	"to Whirlwind damage"
 	"ziv_samurai_whirlwind_aoe"	"to Whirldwind radius"
 	"ziv_samurai_execution_cd"	"to Execution speed"
 	"ziv_samurai_execution_aoe"	"to Execution radius"
 	"ziv_samurai_dash_damage"	"to Dash damage"
 	"ziv_samurai_whirlwind_ms"	"to Whirldwind move speed"
+	"ziv_samurai_cold_touch_damage"	"to Cold Touch damage"
+	"ziv_samurai_reign_of_fire_damage"	"to Reign of Fire damage"
 
 	"ziv_dark_goddess_glaive_count"	"chance to throw additional Glaive"
 	"ziv_dark_goddess_glaive_bleed_damage"	"to Glaive bleed damage"
@@ -67,6 +77,32 @@
 	"ziv_witch_doctor_totem2_targets"	"to Megnetic Totem target count"
 	"ziv_witch_doctor_totem_radius"	"to Spirit Totem radius"
 	"ziv_witch_doctor_totem_targets"	"to Spirit Totem target count"
+
+	"ziv_sniper_explosive_trap_damage"	"to Explosive Trap damage"
+	"ziv_sniper_shotgun_special_damage"	"to Shotgun Active damage"
+	"ziv_sniper_shotgun_special_force"	"to Shotgun Active force"
+	"ziv_sniper_smg_rush_duration"	"to SMG Rush duration"
+	"ziv_sniper_smg_special_damage"	"to SMG Special damage"
+	"ziv_sniper_thunder_trap_damage"	"to Thunder trap damage"
+
+	"ziv_beastmaster_leap_cd"	"percent reduction of Leap cooldown"
+	"ziv_beastmaster_leap_damage"	"to Leap damage"
+	"ziv_beastmaster_leap_force"	"to Leap force"
+	"ziv_beastmaster_cleave_aoe"	"to Cleave radius"
+	"ziv_beastmaster_cleave_speed"	"to Cleave speed"
+	"ziv_beastmaster_pet_as"	"to primary pet's attack speed"
+	"ziv_beastmaster_pet_ms"	"to primary pet's move speed"
+
+	"ziv_knight_dragon_cd"	"percent reduction of Dragon cooldown"
+	"ziv_knight_dragon_radius"	"to Dragon explosion radius"
+	"ziv_knight_flee_ms"	"to Flee move speed"
+	"ziv_knight_dash_force"	"to Dash knockback force"
+	"ziv_knight_parry_cd"	"percent reduction of Parry cooldown"
+	"ziv_knight_parry_force"	"to Parry knockback force"
+	"ziv_knight_stone_form_damage"	"to Stone Form explosion damage"
+	"ziv_knight_stone_form_reduction"	"percent reduction of Stone Form duration"
+
+	// UI
 
 	"empty_gem_slot" "Empty Slot"
 

@@ -8,7 +8,7 @@
 
   "AbilityCastAnimation"      ""
 
-  "AbilityTextureName"            "rubick_empty1"
+  "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastPoint"        "0.04"
   "AbilityCooldown"        "0.12"

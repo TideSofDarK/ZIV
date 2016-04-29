@@ -1,0 +1,90 @@
+"ziv_elementalist_dark_orb"
+{
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityTextureName"			"ziv_empty"
+
+	"AbilityManaCost"	"25"
+	"AbilityCastPoint"        "0.5"
+	"AbilityCooldown"				"10.0"
+
+	"MaxLevel" "7"
+
+	"precache"
+	{
+		"particle"  "particles/heroes/elementalist/elementalist_dark_orb.vpcf"
+		"particle"  "particles/heroes/elementalist/elementalist_dark_orb_explosion.vpcf"
+		"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type" "FIELD_INTEGER"
+			"damage_amp" "2.3"
+		}
+		"02"
+		{
+			"var_type" "FIELD_INTEGER"
+			"radius" "300"
+		}
+		"03"
+		{
+			"var_type" "FIELD_INTEGER"
+			"bonus_attackspeed_passive" "175"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_dark_orb_passive"
+		{
+			"Passive"			"1"
+			"IsHidden"			"1"
+			"IsDebuff"			"0"
+		
+			"Properties"
+			{
+			    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed_passive" 
+			}
+		}
+
+		"modifier_dark_orb"
+		{
+			"Passive"	"1"
+			"IsHidden"	"1"
+
+			"Orb"
+			{
+				"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
+				"ProjectileName"	"particles/heroes/elementalist/elementalist_dark_orb.vpcf"
+			}
+
+			"OnOrbFire"
+			{
+				"FireSound"
+				{
+					"EffectName"	"Hero_Nevermore.Attack"
+					"Target" 		"CASTER"
+				}
+			}
+
+			"OnOrbImpact"
+			{
+				"FireEffect"
+				{
+					"EffectName"        "particles/heroes/elementalist/elementalist_dark_orb_explosion.vpcf"
+					"EffectAttachType"  "follow_origin"
+					"Target"            "TARGET"
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_dark_orb.lua"
+					"Function"		"DarkOrbImpact"
+					"Target"	"TARGET"
+				}
+			}
+		}
+	}
+}

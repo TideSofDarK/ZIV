@@ -119,7 +119,7 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
 	else
 		itemName = lootTable
 	end
-	print("dickss"..itemName)
+
   	local item = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem(itemName, owner, owner))
   
   	-- Random item rotation

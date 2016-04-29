@@ -36,6 +36,10 @@ require('libraries/worldpanels')
 require('libraries/modmaker')
 -- Traps
 require('libraries/traps')
+-- Particles
+require('libraries/particles')
+-- Damage
+require('libraries/damage')
 
 require('items/crafting')
 
@@ -59,6 +63,7 @@ require('loot')
 require('libraries/containers')
 
 LinkLuaModifier("modifier_fade_out", "libraries/modifiers/modifier_fade_out.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_transparent", "libraries/modifiers/modifier_transparent.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_disable_auto_attack", "libraries/modifiers/modifier_disable_auto_attack.lua", LUA_MODIFIER_MOTION_NONE)
 
 function ZIV:OpenInventory(args)
@@ -139,60 +144,64 @@ end
 function ZIV:OnHeroInGame(hero)
   DebugPrint("[ZIV] Hero spawned in game for first time -- " .. hero:GetUnitName())
 
-  local pid = hero:GetPlayerID()
-  local player = PlayerResource:GetPlayer(pid)
+  Timers:CreateTimer(function (  )
+    if hero:IsIllusion() then return end
 
-  -- local c = Containers:CreateContainer({
-  --   layout =      {3,3,3,3,3},
-  --   skins =       {}, --
-  --   headerText =  "Bag",
-  --   pids =        {pid},
-  --   entity =      hero,
-  --   closeOnOrder = false,
-  --   position =    "1200px 600px 0px",
-  --   OnDragWorld = true,
-  -- })
+    local pid = hero:GetPlayerID()
+    local player = PlayerResource:GetPlayer(pid)
 
-  local c = Containers:CreateContainer({
-    layout =      {3,3,3,3,3},
-    skins =       {"Hourglass"},
-    headerText =  "Bag",
-    pids =        {pid},
-    entity =      hero,
-    closeOnOrder =false,
-    position =    "75% 25%",
-    OnDragWorld = true
-  })
+    -- local c = Containers:CreateContainer({
+    --   layout =      {3,3,3,3,3},
+    --   skins =       {}, --
+    --   headerText =  "Bag",
+    --   pids =        {pid},
+    --   entity =      hero,
+    --   closeOnOrder = false,
+    --   position =    "1200px 600px 0px",
+    --   OnDragWorld = true,
+    -- })
 
-  ZIV.pidInventory[pid] = c
+    local c = Containers:CreateContainer({
+      layout =      {3,3,3,3,3},
+      skins =       {"Hourglass"},
+      headerText =  "Bag",
+      pids =        {pid},
+      entity =      hero,
+      closeOnOrder =false,
+      position =    "75% 25%",
+      OnDragWorld = true
+    })
 
-  local item = CreateItem("item_gem_malachite", hero, hero)
-  c:AddItem(item)
+    ZIV.pidInventory[pid] = c
 
-  item = CreateItem("item_gem_topaz", hero, hero)
-  c:AddItem(item)
+    local item = CreateItem("item_gem_malachite", hero, hero)
+    c:AddItem(item)
 
-  item = CreateItem("item_basic_parts", hero, hero)
-  c:AddItem(item)
+    item = CreateItem("item_gem_topaz", hero, hero)
+    c:AddItem(item)
 
-  item = CreateItem("item_basic_leather", hero, hero)
-  c:AddItem(item, 3)
+    item = CreateItem("item_basic_parts", hero, hero)
+    c:AddItem(item)
 
-  defaultInventory[pid] = true
-  Containers:SetDefaultInventory(hero, c)
+    item = CreateItem("item_basic_leather", hero, hero)
+    c:AddItem(item, 3)
 
-  local pack = CreateItem("item_containers_lua_pack", hero, hero)
-  pack.container = c
-  hero:AddItem(pack)
+    defaultInventory[pid] = true
+    Containers:SetDefaultInventory(hero, c)
 
-  local hero_name = hero:GetUnitName()
+    local pack = CreateItem("item_containers_lua_pack", hero, hero)
+    pack.container = c
+    hero:AddItem(pack)
 
-  local camera_target = CreateUnitByName("npc_dummy_unit",hero:GetAbsOrigin() + Vector(0,325,0),false,hero,hero,hero:GetTeamNumber())
-  InitAbilities(camera_target)
-  PlayerResource:SetCameraTarget(pid, camera_target)
-  Timers:CreateTimer(function ()
-    camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,-275,0))
-    return 0.03
+    local hero_name = hero:GetUnitName()
+
+    local camera_target = CreateUnitByName("npc_dummy_unit",hero:GetAbsOrigin() + Vector(0,325,0),false,hero,hero,hero:GetTeamNumber())
+    InitAbilities(camera_target)
+    PlayerResource:SetCameraTarget(pid, camera_target)
+    Timers:CreateTimer(function ()
+      camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,-275,0))
+      return 0.03
+    end)
   end)
 end
 

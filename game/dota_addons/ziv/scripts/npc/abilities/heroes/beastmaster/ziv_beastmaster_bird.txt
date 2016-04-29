@@ -4,7 +4,7 @@
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET" //DOTA_ABILITY_BEHAVIOR_PASSIVE
   "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
   "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
-  "AbilityTextureName"            "rubick_empty1"
+  "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
 

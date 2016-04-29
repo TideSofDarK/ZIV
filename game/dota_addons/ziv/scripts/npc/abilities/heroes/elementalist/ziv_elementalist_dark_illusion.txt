@@ -1,0 +1,115 @@
+"ziv_elementalist_dark_illusion"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "AbilityTextureName"            "ziv_empty"
+
+  "AbilityCastRange"        "700"
+  "AbilityCastPoint"        "0.3"
+  "AbilityCooldown"         "13"
+  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+
+  "AbilityCastAnimation" "ACT_DOTA_CAST_EMP"
+
+  "AbilityManaCost"       "70"
+  
+  "MaxLevel"          "7"
+
+  "precache"
+  {
+    "particle"  "particles/status_fx/status_effect_slark_shadow_dance.vpcf"
+    "particle"  "particles/units/heroes/hero_slark/slark_shadow_dance_dummy.vpcf"
+    "particle"  "particles/econ/events/ti4/blink_dagger_start_smoke_ti4.vpcf"
+    "particle"  "particles/heroes/elementalist/elementalist_dark_illusion.vpcf"
+    "soundfile" "soundevents/game_sounds_items.vsndevts"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_queenofpain.vsndevts"
+  }
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "illusion_duration"            "8"
+    }
+    "02"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "illusion_incoming_damage"            "50"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "FireSound"
+    {
+      "EffectName"  "DOTA_Item.SmokeOfDeceit.Activate"
+      "Target"     "CASTER"
+    }
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/elementalist/ziv_elementalist_dark_illusion.lua"
+      "Function"    "DarkIllusion"
+      "Target"  "POINT"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_dark_illusion_out"
+    {
+      "Duration" "%illusion_duration"
+
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "OnDestroy"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/elementalist/ziv_elementalist_dark_illusion.lua"
+          "Function"    "OnModifierDestroy"
+        }
+      }
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100" 
+      }
+    
+      "States"
+      {
+        "MODIFIER_STATE_INVULNERABLE"           "MODIFIER_STATE_VALUE_ENABLED"
+            
+        "MODIFIER_STATE_ATTACK_IMMUNE"          "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_MAGIC_IMMUNE"           "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_UNSELECTABLE"           "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_NO_HEALTH_BAR"          "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_ROOTED" "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+      }
+    }
+
+    "modifier_dark_illusion"
+    {
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
+
+      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
+
+      "StatusEffectName"     "particles/status_fx/status_effect_slark_shadow_dance.vpcf"      
+      "StatusEffectPriority"  "3"
+
+      "States"
+      {
+        "MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_UNSELECTABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+      }
+    }
+  }
+}
