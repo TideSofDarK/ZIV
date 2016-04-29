@@ -1,17 +1,7 @@
 "use strict";
-var hudRoot = null;
 var tooltip = null;
 
 var MAX_GEMS = 4;
-
-function GetHudRoot()
-{
-	var parent = $.GetContextPanel().GetParent();
-	while(parent.id != "Hud")
-		parent = parent.GetParent();
-
-	return parent;
-}
 
 function SetRarity( rarity, label, image )
 {
@@ -126,7 +116,7 @@ function CreateModifiersPanel( built_in_modifiers )
 
 function HideCustomPanels() 
 {
-	var tooltip = hudRoot.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
+	var tooltip = GameUI.CustomUIConfig().hudRoot.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
 	var modifiers = tooltip.FindChildTraverse("AbilityAttributes").GetParent();
 
 	var new_modifiers = modifiers.FindChildTraverse("AdditionalModifiers");
@@ -142,7 +132,7 @@ function HideCustomPanels()
 
 function Tooltip( )
 {
-	if (hudRoot && hudRoot.FindChildTraverse("DOTAAbilityTooltip")) {
+	if (GameUI.CustomUIConfig().hudRoot && GameUI.CustomUIConfig().hudRoot.FindChildTraverse("DOTAAbilityTooltip")) {
 		SetTooltipNode()
 		var label = tooltip.FindChildTraverse("AbilityName");
 		var image = tooltip.FindChildTraverse("ItemImage");
@@ -177,14 +167,12 @@ function SetTooltipNode() {
 	if (tooltip) return;
 	else {
 		$.Schedule(0.03, SetTooltipNode);
-		tooltip = hudRoot.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
+		tooltip = GameUI.CustomUIConfig().hudRoot.FindChildTraverse("DOTAAbilityTooltip").FindChildTraverse("Contents");
 	}
 }
 
 (function()
 {
-	hudRoot = GetHudRoot();
-
 	$.RegisterForUnhandledEvent( "DOTAShowAbilityTooltipForEntityIndex", Tooltip);
 	$.RegisterForUnhandledEvent( "DOTAHideAbilityTooltip", HideCustomPanels);
 	GameEvents.Subscribe( "ziv_item_tooltip_send_modifiers", ShowActualTooltip );

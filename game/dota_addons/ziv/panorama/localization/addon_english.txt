@@ -31,6 +31,12 @@
 
 	// Common modifiers
 
+	"modifier_all_resistances" "to All Magic Resistances"
+	"modifier_fire_resistance" "to Fire Resistance"
+	"modifier_cold_resistance" "to Cold Resistance"
+	"modifier_lightning_resistance" "to Lightning Resistance"
+	"modifier_dark_resistance" "to Dark Resistance"
+
 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "to Attack Speed"
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "to Move Speed"
 	"MODIFIER_PROPERTY_EVASION_CONSTANT" "to Evasion rating"

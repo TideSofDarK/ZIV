@@ -8,6 +8,13 @@
   
   "Modifiers"
   {
+    "modifier_all_resistances"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+    }
+
     "modifier_fire_resistance"
     {
       "Passive"      "0"

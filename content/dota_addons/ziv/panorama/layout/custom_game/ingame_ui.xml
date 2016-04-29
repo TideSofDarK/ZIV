@@ -11,11 +11,10 @@
 		<include src="file://{resources}/scripts/custom_game/arpgctrl.js" />
 	</scripts>
 	<Panel class="InGameUIRoot" hittest="false">
-		<Panel id="BottomGfx" hittest="false"/>
-		<Panel id="BottomRightGfx"/>
+		<Panel class="GenericBackground" id="BottomGfx" hittest="false"/>
+		<Panel class="GenericBackground" id="RightBottomGfx"/>
 		<Panel class="Bottom RightBottom" hittest="false">
 			<Panel hittest="false" id="EquipList">
-
 			</Panel>
 
 			<Button id="equipment_button" class="OKButton" onactivate="OpenEquipment()" >
@@ -59,7 +58,7 @@
 				<Panel id="ability_list" />
 			</Panel>
 		</Panel>
-		<Panel id="BottomLeftGfx" hittest="false"/>
-		<Panel id="BottomForegroundGfx" hittest="false"/>
+		<Panel class="GenericBackground" id="LeftBottomGfx" hittest="false"/>
+		<!-- <Panel id="BottomForegroundGfx" hittest="false"/> -->
 	</Panel>
 </root>

@@ -2,7 +2,7 @@
 {
 	"BaseClass"						"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	"AbilityTextureName"			"drow_ranger_marksmanship"
+	"AbilityTextureName"			"ziv_empty"
 
 	"AbilityManaCost"	"25"
 	"AbilityCastPoint"        "0.5"

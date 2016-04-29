@@ -8,7 +8,7 @@ function BallLightningTraverse( keys )
 	local casterLoc = caster:GetAbsOrigin()
 	local target = keys.target_points[ 1 ] 
 	local ability = keys.ability
-	
+	print(ability:GetAbilityDamageType())
 	local speed = ability:GetLevelSpecialValueFor( "ball_lightning_move_speed", ability:GetLevel() - 1 )
 	local radius = ability:GetLevelSpecialValueFor( "ball_lightning_aoe", ability:GetLevel() - 1 )
 	

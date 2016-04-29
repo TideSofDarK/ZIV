@@ -1,8 +1,3 @@
--- This is the primary ziv ziv script and should be used to assist in initializing your game mode
-
-
--- Set this to true if you want to see a complete debug output of all events/processes done by ziv
--- You can also change the cvar 'ziv_spew' at any time to 1 or 0 for output/no output
 ZIV_DEBUG_SPEW = false 
 
 if ZIV == nil then
@@ -293,6 +288,12 @@ function ZIV:PrintHeroStats()
     local playerID = cmdPlayer:GetPlayerID()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
+      print("MR: "..tostring(hero:GetMagicalArmorValue()))
+      print("FR: "..tostring(hero:GetModifierStackCount("modifier_fire_resistance",nil)))
+      print("CR: "..tostring(hero:GetModifierStackCount("modifier_cold_resistance",nil)))
+      print("LR: "..tostring(hero:GetModifierStackCount("modifier_lightning_resistance",nil)))
+      print("DR: "..tostring(hero:GetModifierStackCount("modifier_dark_resistance",nil)))
+
       print("STR: "..tostring(hero:GetStrength()))
       print("AGI: "..tostring(hero:GetAgility()))
       print("INT: "..tostring(hero:GetIntellect()))

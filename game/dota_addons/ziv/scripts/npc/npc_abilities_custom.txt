@@ -325,7 +325,7 @@
 		"BaseClass"			"ability_lua" 
 		"ScriptFile"		"abilities/ziv_stats_bonus_fix.lua"
 	
-		"AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
 	"ziv_fortify_modifiers"
 	{
@@ -337,6 +337,13 @@
 	  
 	  "Modifiers"
 	  {
+	    "modifier_all_resistances"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    }
+	
 	    "modifier_fire_resistance"
 	    {
 	      "Passive"      "0"
@@ -1042,7 +1049,7 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"drow_ranger_marksmanship"
+		"AbilityTextureName"			"ziv_empty"
 	
 		"AbilityManaCost"	"25"
 		"AbilityCastPoint"        "0.5"
@@ -1184,7 +1191,7 @@
 	"ziv_dark_goddess_corrupted_arrow"
 	{
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"drow_ranger_frost_arrows"
+		"AbilityTextureName"	"ziv_empty"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC"
@@ -1435,8 +1442,8 @@
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-	
-		"AbilityTextureName"            "luna_moon_glaive"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"            "ziv_empty"
 	
 		"AbilityManaCost"	"45"
 		"AbilityCastPoint"        "0.35"
@@ -1685,7 +1692,6 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		
 		"HotKeyOverride"				"B"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 	
 		"AbilityTextureName"			"ziv_empty"
 	
@@ -1824,7 +1830,7 @@
 		{
 			"particle"  "particles/heroes/elementalist/elementalist_cold_orb.vpcf"
 			"particle"  "particles/heroes/elementalist/elementalist_cold_orb_explosion.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_shadow_fiend.vsndevts"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
 		}
 	
 		"AbilitySpecial"
@@ -1930,7 +1936,6 @@
 	  "AbilityCastRange"        "700"
 	  "AbilityCastPoint"        "0.3"
 	  "AbilityCooldown"         "13"
-	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	
 	  "AbilityCastAnimation" "ACT_DOTA_CAST_EMP"
 	
@@ -3301,6 +3306,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "600"
@@ -4839,6 +4845,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
@@ -4936,6 +4943,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"

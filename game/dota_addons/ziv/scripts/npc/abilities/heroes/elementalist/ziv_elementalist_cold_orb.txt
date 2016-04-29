@@ -14,7 +14,7 @@
 	{
 		"particle"  "particles/heroes/elementalist/elementalist_cold_orb.vpcf"
 		"particle"  "particles/heroes/elementalist/elementalist_cold_orb_explosion.vpcf"
-		"soundfile" "soundevents/game_sounds_heroes/game_sounds_shadow_fiend.vsndevts"
+		"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
 	}
 
 	"AbilitySpecial"

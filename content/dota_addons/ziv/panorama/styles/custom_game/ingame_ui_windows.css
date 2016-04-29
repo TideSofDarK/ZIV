@@ -55,19 +55,14 @@
 }
 
 .CloseButton {
-	width: 40px;
-	height: 42px;
+	width: 45px;
+	height: 46px;
 
-	margin-right: 4px;
-	margin-top: 5px;
-
-	border-radius: 1px;
+	margin: 4px;
 
 /*	border-left-color: #55441166;
 	border-left-style: solid;
 	border-left-width: 2px;*/
-
-	background-color: #b53f51;
 
 	background-image: url('file://{images}/custom_game/ingame_ui/ui_close_button.png');
 	background-size: 100% 100%;

@@ -1,6 +1,3 @@
--- This file contains all ziv-registered events and has already set up the passed-in parameters for your use.
--- Do not remove the ZIV:_Function calls in these events as it will mess with the internal ziv systems.
-
 function ZIV:OnPlayerSelectedHero( args )
   local pID = tonumber(args.pID)
   local player = PlayerResource:GetPlayer(pID)
@@ -42,6 +39,7 @@ function ZIV:OnDisconnect(keys)
   local userid = keys.userid
 
 end
+
 -- The overall game state has changed
 function ZIV:OnGameRulesStateChange(keys)
   DebugPrint("[ZIV] GameRules State Changed")

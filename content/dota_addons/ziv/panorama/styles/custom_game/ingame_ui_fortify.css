@@ -8,21 +8,20 @@ DOTAItemImage {
 	horizontal-align: center;
 	vertical-align: center;
 
-	width: 525px;
-	height: 480px;
-
-	visibility: collapse;
+	width: 544px;
+	height: 419px;
 }
 
 #FortifyOKButton {
 	horizontal-align: center;
 	vertical-align: bottom;
 
-	height: 55px;
+	height: 50px;
+	width: 153px;
 
 	background-image: url('file://{images}/custom_game/ingame_ui/ui_gem_button.png');
 
-	margin-bottom: 28px;
+	margin-bottom: 25px;
 	margin-left: 9px;
 }
 
@@ -88,11 +87,7 @@ DOTAItemImage {
 
 #Background {
 	background-image: url('file://{images}/custom_game/ingame_ui/fortify_bg.png');
-	background-size: 100% 100%;
-
-	width: 525px;
-	height: 480px;
-
-	vertical-align: center;
-	horizontal-align: center;
+	
+	width: 544px;
+	height: 419px;
 }

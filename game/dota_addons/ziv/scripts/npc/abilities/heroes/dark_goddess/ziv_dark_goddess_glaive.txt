@@ -2,8 +2,8 @@
 {
 	"BaseClass"				"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-
-	"AbilityTextureName"            "luna_moon_glaive"
+	"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+	"AbilityTextureName"            "ziv_empty"
 
 	"AbilityManaCost"	"45"
 	"AbilityCastPoint"        "0.35"

@@ -72,7 +72,11 @@
         Game.AddCommand("-ZIVCastAbility4", GameUI.CustomUIConfig().ZIVStopAbility4, "", 0);
     })();
 
-    
+    var parent = $.GetContextPanel().GetParent();
+    while(parent.id != "Hud")
+        parent = parent.GetParent();
+
+    GameUI.CustomUIConfig().hudRoot = parent;
 
   </script>
 

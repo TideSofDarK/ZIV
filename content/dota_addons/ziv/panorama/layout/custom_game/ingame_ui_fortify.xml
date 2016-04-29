@@ -10,7 +10,7 @@
 		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
 	<Panel class="FortifyRoot Hide BasicShadow" hittest="true" draggable="true">
-		<Panel id="Background"/>
+		<Panel class="GenericBackground" id="Background"/>
 
 		<Button onactivate="CloseButton()" class="CloseButton">
 		</Button>

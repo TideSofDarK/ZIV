@@ -7,7 +7,6 @@
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 	
 	"HotKeyOverride"				"B"
-	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 	"AbilityTextureName"			"ziv_empty"
 

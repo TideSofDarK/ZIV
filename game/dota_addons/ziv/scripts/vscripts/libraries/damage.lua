@@ -8,6 +8,7 @@ function DealDamage( _attacker, _victim, _damage, _type )
 	local _damage = _damage
 	if _type >= DAMAGE_TYPE_FIRE then
 		local resistance = 0
+		resistance = _victim:GetModifierStackCount("modifier_all_resistances",nil) or resistance
 
 		if _type == DAMAGE_TYPE_FIRE then
 			resistance = _victim:GetModifierStackCount("modifier_fire_resistance",nil) or resistance

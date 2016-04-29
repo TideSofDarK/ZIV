@@ -120,17 +120,17 @@
 	vertical-align: center;
 	horizontal-align: right;
 	flow-children: right;
-	margin-right: 16px;
+	margin-right: 17px;
+	margin-top: 8px;
 }
 
 .BottomButton {
 	/*opacity: 0.99;*/
 	
-	margin-bottom: 1px;
 	margin-left: 3px;
 	
-    width: 69px;
-    height: 141px;
+    width: 70px;
+    height: 135px;
 
     background-size: 100% 100%;
 
@@ -185,11 +185,11 @@
 #equipment_button {
 	horizontal-align: center;
 	width: 127px;
-	height: 30px; 
+	height: 29px; 
 
 	border-radius: 6px;
 
-	margin-top: 11px;
+	margin-top: 16px;
 	margin-right: 11px;
 }
 
@@ -231,15 +231,10 @@
 #BottomGfx {
 	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom.png');
 
-	width: 1359px;
-	height: 200px;
-
-	background-size: 100% 100%;
-
-	margin-bottom: 0px;
+	width: 1361px;
+	height: 210px;
 
 	vertical-align: bottom;
-	horizontal-align: center;
 }
 
 #BottomForegroundGfx {
@@ -256,29 +251,21 @@
 	horizontal-align: center;
 }
 
-#BottomLeftGfx {
+#LeftBottomGfx {
 	background-image: url('file://{images}/custom_game/ingame_ui/ui_left_corner.png');
 
-	width: 567px;
-	height: 340px;
-
-	background-size: 100% 100%;
-
-	margin-bottom: -1px;
+	width: 515px;
+	height: 339px;
 
 	vertical-align: bottom;
 	horizontal-align: left;
 }
 
-#BottomRightGfx {
+#RightBottomGfx {
 	background-image: url('file://{images}/custom_game/ingame_ui/ui_right_corner.png');
 
-	width: 428px;
-	height: 255px;
-
-	background-size: 100% 100%;
-
-	margin-bottom: -1px;
+	width: 319px;
+	height: 248px;
 
 	vertical-align: bottom;
 	horizontal-align: right;

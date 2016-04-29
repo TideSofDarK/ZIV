@@ -15,14 +15,13 @@ DOTAAbilityImage {
 {
 	flow-children: right;
 
-	margin-top: 17px;
 	margin-left: -23px;
 }
 
 .AbilityPanel
 {
 	margin-left: 28px;
-	margin-bottom: 17px;
+	margin-bottom: 8px;
 }
 
 .AbilityPanel.no_ability
@@ -30,65 +29,17 @@ DOTAAbilityImage {
 	visibility: collapse;
 }
 
-#LevelUpButton
-{
-	border: 1px solid black;
-    background-color: #c4a529;
-	width: 114px;
-	height: 28px;
-	margin-bottom: 6px;
-	visibility: collapse;
-}
-
-.could_level_up #LevelUpButton
-{
-	visibility: visible;
-}
-
-#LevelUpButton:hover
-{
-    background-color: #9e8b2c;
-}
-
-#LevelUpButtonInset
-{
-	width: 100%;
-	height: 100%;
-	border: 2px solid black;
-    background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffffff ), color-stop( 0.1, #c4a529 ), color-stop( 0.75, #9e8b2c ), color-stop( 0.9, #c4a529 ), to( #ffffff ) );
-	margin: 1px;
-}
-
-#LevelUpButton:hover #LevelUpButtonInset
-{
-    background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffffff ), color-stop( 0.2, #c4a529 ), color-stop( 0.75, #9e8b2c ), color-stop( 0.8, #c4a529 ), to( #ffffff ) );
-}
-
-#LevelUpButton Label
-{
-	text-transform: uppercase;
-	text-shadow: 0px 1px 3px 2.5 #000000;
-	color: white;
-	vertical-align: center;
-	horizontal-align: center;
-}
-
-#ButtonAndLevel
-{
-	flow-children: down;
-}
-
 #AbilityButton
 {
-	width: 110px;
-	height: 105px;
+	width: 86px;
+	height: 86px;
 	/*border: 2px solid transparent;*/
 }
 
 .Layout5
 {
-	width: 85px;
-	height: 83px;
+	width: 64px;
+	height: 64px;
 
 	margin-bottom: 30px;
 }
@@ -98,30 +49,20 @@ DOTAAbilityImage {
 	border: 2px solid #00000000;
 }
 
-#UpgradeBorder
+#AbilityButton
 {
-	background-color: transparent;
-}
-
-.learnable_ability #UpgradeBorder
-{
-   background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffffff ), color-stop( 0.1, #c4a529 ), color-stop( 0.75, #9e8b2c ), color-stop( 0.9, #c4a529 ), to( #ffffff ) );
+	vertical-align: center;
+	horizontal-align: center;
 }
 
 #AbilityButton:hover
 {
-	border: 2px solid white;
+	/*border: 2px solid white;*/
 }
 
 #AbilityButton:active
 {
 	border: 4px solid white;
-}
-
-.no_level DOTAAbilityImage
-{
-	saturation: 0;
-	wash-color: #303030;
 }
 
 .insufficient_mana DOTAAbilityImage
@@ -138,44 +79,26 @@ DOTAAbilityImage {
 
 #AbilityStatusBorder
 {
-	border: 2px solid transparent;
-}
+	vertical-align: center;
+	horizontal-align: center;
 
-.auto_cast_enabled #AbilityStatusBorder
-{
-	border: 4px solid orange;
+	background-image: url('file://{images}/custom_game/ingame_ui/item_toggle.png');
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+
+	width: 101px;
+	height: 101px;
+
+	opacity: 0.0;
+
+	transition-property: opacity;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-in-out, linear;
 }
 
 .toggle_enabled #AbilityStatusBorder
 {
-	border: 1px solid green;
-}
-
-#AbilityLevelContainer
-{
-	horizontal-align: center;
-	flow-children: right;
-}
-
-.LevelPanel
-{
-	width: 12px;
-	height: 12px;
-	margin-left: 1px;
-	margin-right: 1px;
-
-	border-radius: 3px;
-
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #2e2716 ), to( #020302 ) );
-	border: 2px solid #ffffff05;
-
-	visibility: collapse;
-}
-
-.active_level.LevelPanel
-{
-	background-color: #ceaa31;
-	border: 2px solid #734918;
+	opacity: 1.0;
 }
 
 #CooldownOverlay
@@ -231,7 +154,7 @@ DOTAAbilityImage {
 {
 	width: 100%;
 	height: 100%;
-	background-color: gradient( radial, 50% -20%, 0% 0%, 80% 80%, from( #FFFFFF ), to( #FFFFFF00 ) );
+	background-color: gradient( radial, 50% -20%, 0% 0%, 80% 80%, from( #FFFFFF88 ), to( #FFFFFF00 ) );
 	/*border: 4px solid #FFFFFF40;*/
 	opacity: 0;
 }
@@ -243,8 +166,8 @@ DOTAAbilityImage {
 
 #Hotkey
 {
-	margin-left: 8px;
-	margin-top: 18px;
+	margin-left: 0px;
+	margin-top: 0px;
 
 	vertical-align: top;
 	horizontal-align: left;

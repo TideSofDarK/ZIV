@@ -1,7 +1,7 @@
 "ziv_dark_goddess_corrupted_arrow"
 {
 	"BaseClass"	"ability_datadriven"
-	"AbilityTextureName"	"drow_ranger_frost_arrows"
+	"AbilityTextureName"	"ziv_empty"
 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC"

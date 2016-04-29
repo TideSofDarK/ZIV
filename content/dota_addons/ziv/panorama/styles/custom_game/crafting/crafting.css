@@ -93,7 +93,7 @@ VerticalScrollBar {
  *  Recipes list
  */
 .Recipes {
-	width: 285px;
+	width: 276px;
 	height: 100%;
 
 	flow-children: down;
@@ -101,7 +101,9 @@ VerticalScrollBar {
 
 #Search {
 	width: 100%;
-	height: 50px;
+	height: 63px;
+
+	padding-top: 19px;
 
 	margin-left: 21px;
 }
@@ -147,14 +149,17 @@ VerticalScrollBar {
 
 #ItemName {
 	width: 100%;
-	height: 50px;
+	height: 63px;
 
+	padding-top: 19px;
+
+	vertical-align: center;
 	text-align: center;
 }
 
 #ItemDescPanel {
 	width: 100%;
-	height: 256px;
+	height: 236px;
 
 	flow-children: right;
 }
@@ -242,11 +247,12 @@ VerticalScrollBar {
 }
 
 #CraftButton {
-	width: 250px;
-	height: 52px;
+	width: 220px;
+	height: 54px;
 	horizontal-align: center;
 	vertical-align: center;
-	margin-top: 5px;
+	margin-right: 16px;
+	margin-top: 8px;
 }
 
 .button {
@@ -254,7 +260,6 @@ VerticalScrollBar {
 	height: 50px;
 
 	background-color: #616161;
-	border-radius: 2px;	
 
 	horizontal-align: right;
 }
