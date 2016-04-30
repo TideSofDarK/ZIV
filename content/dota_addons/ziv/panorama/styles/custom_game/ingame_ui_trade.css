@@ -1,0 +1,70 @@
+DOTAItemImage {
+	width: 100%;
+	height: 100%;
+	transform: scale3d( 1, 1, 0 );
+}
+
+.TradeRoot {
+	horizontal-align: center;
+	vertical-align: center;
+
+	width: 712px;
+	height: 533px;
+}
+
+#TradeAcceptButton {
+	horizontal-align: center;
+	vertical-align: bottom;
+
+	height: 40px;
+	width: 155px;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_red_button.png');
+
+	margin-bottom: 20px;
+	margin-left: 18px;
+}
+
+.TradeItems {
+	width: 685px;
+
+	horizontal-align: center;
+
+	flow-children: down;
+}
+
+.CloseButton {
+	z-index: 1;
+}
+
+#PlayerTradeItems {
+	margin-top: 273px;
+}
+
+#OfferedTradeItems {
+	margin-top: 30px;
+	margin-left: -10px;
+}
+
+.ItemsRow {
+	horizontal-align: center;
+
+	flow-children: right;
+}
+
+.ItemPanel {
+  	width: 81px;
+  	height: 60px;
+
+  	margin-top: -1px;
+
+	box-shadow: fill #000000ff 0px 0px 12px 0px;
+	border-radius: 6px;  	
+}
+
+#Background {
+	background-image: url('file://{images}/custom_game/ingame_ui/trade_bg.png');
+	
+	width: 712px;
+	height: 533px;
+}
