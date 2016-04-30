@@ -63,18 +63,9 @@ function ColdBlastHit( keys )
 	local caster_owner = caster:GetOwner() -- Hero
 	local target = keys.target
 	local ability = keys.ability
-	local owner_ability = caster_owner:FindAbilityByName("deafening_blast_datadriven")
-	local exort_level = 1
-	local quas_level = 1
+	local owner_ability = caster_owner:FindAbilityByName("ziv_elementalist_cold_blast")
 
-	local damage = owner_ability:GetLevelSpecialValueFor("damage", exort_level) 
+	local damage = owner_ability:GetLevelSpecialValueFor("damage_amp", 1) * caster_owner:GetAverageTrueAttackDamage()
 
-	local damage_table = {}
-	damage_table.attacker = caster_owner
-	damage_table.victim = target
-	damage_table.ability = owner_ability
-	damage_table.damage_type = owner_ability:GetAbilityDamageType() 
-	damage_table.damage = damage
-
-	ApplyDamage(damage_table)
+	DealDamage(caster_owner, target, damage, DAMAGE_TYPE_COLD)
 end

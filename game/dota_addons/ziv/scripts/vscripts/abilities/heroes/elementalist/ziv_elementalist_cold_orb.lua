@@ -7,7 +7,7 @@ function ColdOrbImpact( keys )
 
 	for k,v in pairs(units) do
 		if IsValidEntity(v) then
-			DealDamage(caster, v, caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_MAGICAL)
+			DealDamage(caster, v, caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_COLD)
 			ability:ApplyDataDrivenModifier(caster,v,"modifier_cold_orb_effect",{})
 		end
 	end

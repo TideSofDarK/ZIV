@@ -20,7 +20,7 @@ function DealDamage( _attacker, _victim, _damage, _type )
 			resistance = _victim:GetModifierStackCount("modifier_dark_resistance",nil) or resistance
 		end
 
-		damage = damage - (damage * (resistance/100))
+		_damage = _damage - (_damage * (resistance/100))
 
 		_type = DAMAGE_TYPE_MAGICAL
 	end

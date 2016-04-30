@@ -30,7 +30,7 @@
 	vertical-align: top;
 	flow-children: down;
 
-	margin-top: 6px;
+	margin-top: 4px;
 }
 
 #BottomRoot {
@@ -63,13 +63,13 @@
 }
 
 .HealthPoints {
-	height: 35px;
+	height: 45px;
 
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #00000033 ), to( #00000044 ) );
 }
 
 .ManaPoints {
-	height: 20px;
+	height: 31px;
 
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #00000033 ), to( #00000044 ) );
 }
@@ -100,7 +100,7 @@
 }
 
 #hp {
-	margin-top: 5px;
+	line-height: 36px;
 }
 
 #hp_bar {
@@ -109,7 +109,7 @@
 
 #sp {
 	font-size: 17px;
-	margin-top: 1px;
+	line-height: 27px;
 }
 
 .EnergyBar {
@@ -240,15 +240,10 @@
 #BottomForegroundGfx {
 	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom_a.png');
 
-	width: 1359px;
-	height: 200px;
-
-	background-size: 100% 100%;
-
-	margin-bottom: 0px;
+	width: 1361px;
+	height: 210px;
 
 	vertical-align: bottom;
-	horizontal-align: center;
 }
 
 #LeftBottomGfx {

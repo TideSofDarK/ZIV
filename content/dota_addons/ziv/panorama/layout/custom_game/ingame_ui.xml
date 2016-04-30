@@ -59,6 +59,6 @@
 			</Panel>
 		</Panel>
 		<Panel class="GenericBackground" id="LeftBottomGfx" hittest="false"/>
-		<!-- <Panel id="BottomForegroundGfx" hittest="false"/> -->
+		<Panel class="GenericBackground" id="BottomForegroundGfx" hittest="false"/>
 	</Panel>
 </root>

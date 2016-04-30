@@ -5,8 +5,6 @@
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-	
-	"HotKeyOverride"				"B"
 
 	"AbilityTextureName"			"ziv_empty"
 
@@ -58,20 +56,7 @@
 		"06"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"damage"				"40 80 120 160 200 240 280"
-			"levelkey"				"exortlevel"
-		}
-		"07"
-		{
-			"var_type"				"FIELD_FLOAT"
-			"knockback_duration"	"0.25 0.5 0.75 1.0 1.25 1.5 1.75"
-			"levelkey"				"quaslevel"
-		}
-		"08"
-		{
-			"var_type"				"FIELD_FLOAT"
-			"disarm_duration"		"1.0 1.5 2.0 2.5 3.0 3.5 4.0"
-			"levelkey"				"wexlevel"
+			"damage_amp"				"2.3"
 		}
 	}
 
