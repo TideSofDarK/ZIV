@@ -7,7 +7,7 @@
   "AbilityCastRange"        "700"
   "AbilityCastPoint"        "0.2"
   "AbilityCooldown"       "4.55"
-  "AbilityCastAnimation"      "ACT_DOTA_CAST_EMP"
+  "AbilityCastAnimation"      "ACT_DOTA_CAST_ALACRITY"
 
   "AbilityManaCost"       "35"
 

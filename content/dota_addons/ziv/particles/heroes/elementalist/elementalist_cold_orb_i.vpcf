@@ -10,7 +10,7 @@
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
 			m_bAdditive = true
 			m_flOverbrightFactor = 4.000000
-			m_hTexture = resource:"materials/particle/spark_02.vtex"
+			m_hTexture = resource:"materials/particle/particle_crescent.vtex"
 			m_bIgnoreDT = true
 			m_flMinLength = 10.000000
 			m_flMaxLength = 200.000000
