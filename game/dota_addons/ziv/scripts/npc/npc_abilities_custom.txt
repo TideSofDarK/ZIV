@@ -2214,9 +2214,9 @@
 	  "AbilityCastRange"        "700"
 	  "AbilityCastPoint"        "0.2"
 	  "AbilityCooldown"       "4.55"
-	  "AbilityCastAnimation"      "ACT_DOTA_CAST_EMP"
+	  "AbilityCastAnimation"      "ACT_DOTA_VICTORY"
 	
-	  "AbilityManaCost"       "35"
+	  "AbilityManaCost"       "80"
 	
 	  "MaxLevel"  "7"
 	
@@ -2224,9 +2224,12 @@
 	  {
 	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
-	    "particle"  "particles/econ/items/zeus/arcana_chariot/zeus_arcana_static_field.vpcf"
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+	    "particle"  "particles/heroes/elementalist/elementalist_overload_impact.vpcf"
 	    "particle"  "particles/units/heroes/hero_razor/razor_plasmafield.vpcf"
 	    "particle"  "particles/items_fx/chain_lightning.vpcf"
+	    "particle"  "particles/status_fx/status_effect_frost_lich.vpcf"
 	  }
 	
 	  "AbilitySpecial"
@@ -2239,7 +2242,17 @@
 	    "02"
 	    {
 	      "var_type"      "FIELD_INTEGER"
-	      "max_targets"      "10"
+	      "max_targets"      "15"
+	    }
+	    "03"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "slow"      "-20"
+	    }
+	    "04"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "slow_duration"      "3"
 	    }
 	  }
 	
@@ -2254,6 +2267,24 @@
 	    {
 	      "ScriptFile"  "abilities/heroes/elementalist/ziv_elementalist_overload.lua"
 	      "Function"    "Overload"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_overload_frozen"
+	    {
+	      "Duration"  "%slow_duration"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "1"
+	
+	      "StatusEffectName"     "particles/status_fx/status_effect_frost_lich.vpcf"      
+	      "StatusEffectPriority"  "3"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+	      }
 	    }
 	  }
 	}

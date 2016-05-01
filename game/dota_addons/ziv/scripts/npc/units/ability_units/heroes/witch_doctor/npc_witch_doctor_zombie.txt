@@ -43,8 +43,8 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+    
+    
 
     "VisionDaytimeRange"    "0"
     "VisionNighttimeRange"    "0"

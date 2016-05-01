@@ -48,9 +48,9 @@
 	    "StatusManaRegen"     "0"
 	
 	    "TeamName"          "DOTA_TEAM_GOODGUYS"
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
-	    "UnitRelationshipClass"   "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+	    
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -96,8 +96,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -141,8 +141,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -187,8 +187,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -233,8 +233,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -279,8 +279,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -325,8 +325,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -371,8 +371,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -417,8 +417,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -470,8 +470,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -611,9 +611,9 @@
 	    // Team
 	    //----------------------------------------------------------------
 	    "TeamName"          "DOTA_TEAM_GOODGUYS"      // Team name.
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
-	    "UnitRelationshipClass"   "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+	    
+	    
+	    
 	    
 	    // Vision
 	    //----------------------------------------------------------------
@@ -671,9 +671,9 @@
 	    "StatusManaRegen"     "0"
 	
 	    "TeamName"          "DOTA_TEAM_GOODGUYS"
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
-	    "UnitRelationshipClass"   "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+	    
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -727,9 +727,9 @@
 	    "StatusManaRegen"     "0"
 	
 	    "TeamName"          "DOTA_TEAM_GOODGUYS"
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
-	    "UnitRelationshipClass"   "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+	    
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -782,8 +782,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -836,9 +836,9 @@
 	    "StatusManaRegen"     "0"
 	
 	    "TeamName"          "DOTA_TEAM_GOODGUYS"
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
-	    "UnitRelationshipClass"   "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+	    
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -892,9 +892,9 @@
 	    "StatusManaRegen"     "0"
 	
 	    "TeamName"          "DOTA_TEAM_GOODGUYS"
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
-	    "UnitRelationshipClass"   "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+	    
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -946,8 +946,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -1027,8 +1027,8 @@
 	    // Team
 	    //----------------------------------------------------------------
 	    "TeamName"          "DOTA_TEAM_GOODGUYS"      // Team name.
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    // Vision
 	    //----------------------------------------------------------------
@@ -1075,8 +1075,8 @@
 	    "StatusManaRegen"     "0"
 	
 	    "TeamName"          "DOTA_TEAM_GOODGUYS"
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -1125,8 +1125,8 @@
 	    "StatusManaRegen"     "0"
 	
 	    "TeamName"          "DOTA_TEAM_GOODGUYS"
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
@@ -1177,8 +1177,8 @@
 	    "StatusManaRegen"     "0"
 	
 	    "TeamName"          "DOTA_TEAM_GOODGUYS"
-	    "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	    
+	    
 	
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
