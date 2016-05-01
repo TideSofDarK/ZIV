@@ -19,10 +19,11 @@
     "soundfile"     "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
     "soundfile"     "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
     "soundfile"     "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+    "particle"  "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
     "particle"  "particles/heroes/elementalist/elementalist_overload_impact.vpcf"
     "particle"  "particles/units/heroes/hero_razor/razor_plasmafield.vpcf"
     "particle"  "particles/items_fx/chain_lightning.vpcf"
-    "particle"  "particles/status_fx/status_effect_frost_lich.vpcf"
+    "particle"  "particles/status_fx/status_effect_iceblast.vpcf"
   }
 
   "AbilitySpecial"
@@ -45,7 +46,7 @@
     "04"
     {
       "var_type"      "FIELD_INTEGER"
-      "slow_duration"      "3"
+      "duration"      "3"
     }
   }
 
@@ -67,16 +68,33 @@
   {
     "modifier_overload_frozen"
     {
-      "Duration"  "%slow_duration"
+      "Duration"  "%duration"
       "IsHidden"      "1"
       "IsDebuff"      "1"
 
-      "StatusEffectName"     "particles/status_fx/status_effect_frost_lich.vpcf"      
+      "StatusEffectName"    "particles/status_fx/status_effect_iceblast.vpcf"      
       "StatusEffectPriority"  "3"
 
       "Properties"
       {
         "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+      }
+    }
+
+    "modifier_overload_burn"
+    {
+      "Duration"  "%duration"
+      "IsHidden"      "1"
+      "IsDebuff"      "1"
+
+      "OnCreated"
+      {
+        "AttachEffect"
+        {
+          "EffectName"    "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+          "EffectAttachType"  "follow_overhead"
+          "Target"      "TARGET"
+        }
       }
     }
   }

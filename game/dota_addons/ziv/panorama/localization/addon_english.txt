@@ -49,6 +49,15 @@
 
 	// Runes
 
+	"ziv_elementalist_overload_targets"	"to max Overload targets"
+	"ziv_elementalist_overload_lightning_damage"	"to Overload lightning damage"
+	"ziv_elementalist_overload_fire_damage"	"to Overload fire damage"
+	"ziv_elementalist_overload_cold_damage"	"to Overload cold damage"
+	"ziv_elementalist_cold_blast_radius"	"to Cold Blast radius"
+	"ziv_elementalist_fire_blast_radius"	"to Fire Blast radius"
+	"ziv_elementalist_dark_orb_damage"	"to Dark Orb damage"
+	"ziv_elementalist_cold_orb_damage"	"to Cold Orb damage"
+
 	"ziv_huntress_ballista_as"	"to Ballista attack speed"
 	"ziv_huntress_ballista_cd"	"percent reduction of Ballista cooldown"
 	"ziv_huntress_blink_arrow_damage"	"to Blink Arrow damage"

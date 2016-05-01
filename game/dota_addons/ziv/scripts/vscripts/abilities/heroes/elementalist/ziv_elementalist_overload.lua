@@ -50,6 +50,8 @@ function Overload( keys )
 				local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_overload_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
 				DealDamage(caster, v, damage/3, DAMAGE_TYPE_FIRE)
 
+				ability:ApplyDataDrivenModifier(caster,v,"modifier_overload_burn",{})
+
 				v:EmitSound("Hero_SkeletonKing.Hellfire_BlastImpact")
 			end)
 			i = i + 1
