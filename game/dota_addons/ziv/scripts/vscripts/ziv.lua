@@ -54,6 +54,8 @@ require('items/equipment')
 require('director')
 require('loot')
 
+require('minimap')
+
 -- Containers
 require('libraries/containers')
 

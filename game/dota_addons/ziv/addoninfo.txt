@@ -41,5 +41,12 @@
 	        "Command"   "+ZIVCastAbility4"
 	        "Name"      "Cast Ability 4"
 	    }
+
+	    "05"
+	    {
+	        "Key"       "tab"
+	        "Command"   "ZIVShowMinimap"
+	        "Name"      "Show minimap"
+	    }
 	}
 }
