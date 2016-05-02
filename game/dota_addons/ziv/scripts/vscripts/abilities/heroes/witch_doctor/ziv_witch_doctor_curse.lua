@@ -25,5 +25,5 @@ function Damage( keys )
 
 	PopupDamageOverTime(caster, final_damage)
 
-	DealDamage(caster, caster, final_damage, DAMAGE_TYPE_MAGICAL)
+	DealDamage(caster, caster, final_damage, DAMAGE_TYPE_DARK)
 end

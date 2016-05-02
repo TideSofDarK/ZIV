@@ -63,7 +63,7 @@ function Explode( keys )
 				end
 
 				ability:ApplyDataDrivenModifier(caster, v, "modifier_thunder_trap_effect", {})
-				DealDamage( caster, v, caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_PURE )
+				DealDamage( caster, v, caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_LIGHTNING )
 			end
 		end
 

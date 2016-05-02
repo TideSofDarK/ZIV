@@ -12,33 +12,23 @@
 	</scripts>
 	<Panel class="InGameUIRoot" hittest="false">
 		<Panel class="GenericBackground" id="BottomGfx" hittest="false"/>
-		<Panel class="GenericBackground" id="RightBottomGfx"/>
-		<Panel class="Bottom RightBottom" hittest="false">
-			<Panel hittest="false" id="EquipList">
-			</Panel>
+		<!-- <Panel class="GenericBackground" id="RightBottomGfx"/> -->
+<!-- 		<Panel class="Bottom RightBottom" hittest="false">
 
-			<Button id="equipment_button" class="OKButton" onactivate="OpenEquipment()" >
-				<Label text="#equipment" class="WindowButtonLabel" />
-			</Button>
+		</Panel> -->
 
-			<Panel id="SideButtons" hittest="false">
-				<Button id="craft_button" class="BottomButton" onactivate="OpenCraftingWindow()" />
-				<Button id="fortify_button" class="BottomButton" onactivate="OpenFortifyWindow()" />
-				<Button id="character_button" class="BottomButton" onactivate="OpenStatusWindow()" />
-				<Button id="inventory_button" class="BottomButton" onactivate="OpenInventoryWindow()" />
-				<Button id="help_button" class="BottomButton" onactivate="" />
-			</Panel>
-		</Panel>
-
-		<Panel class="Bottom LeftBottom" hittest="false">
+<!-- 		<Panel class="Bottom LeftBottom" hittest="false">
 			<Panel hittest="false" id="MinimapBorder">
 			</Panel>
 			<Panel hittest="false" id="Portait">
 				<DOTAHeroMovie id="PortaitImage" heroname="npc_dota_hero_dragon_knight" />
 			</Panel>
-		</Panel>
+		</Panel> -->
 
 		<Panel class="Bottom MidBottom" hittest="false">
+			<Panel hittest="false" id="Portait">
+				<DOTAHeroMovie id="PortaitImage" heroname="npc_dota_hero_dragon_knight" />
+			</Panel>
 			<Panel class="Bars" hittest="false">
 				<Panel class="BarBackground HealthPoints">
 					<Panel class="Bar" id="hp_bar"/>
@@ -57,8 +47,22 @@
 				</Button> -->
 				<Panel id="ability_list" />
 			</Panel>
+			<Panel hittest="false" id="EquipList">
+			</Panel>
+
+			<Button id="equipment_button" class="OKButton" onactivate="OpenEquipment()" >
+				<Label text="#equipment" class="WindowButtonLabel" />
+			</Button>
+
+			<Panel id="SideButtons" hittest="false">
+				<Button id="craft_button" class="BottomButton" onactivate="OpenCraftingWindow()" />
+				<Button id="fortify_button" class="BottomButton" onactivate="OpenFortifyWindow()" />
+				<Button id="character_button" class="BottomButton" onactivate="OpenStatusWindow()" />
+				<Button id="inventory_button" class="BottomButton" onactivate="OpenInventoryWindow()" />
+				<Button id="help_button" class="BottomButton" onactivate="" />
+			</Panel>
 		</Panel>
-		<Panel class="GenericBackground" id="LeftBottomGfx" hittest="false"/>
+		<!-- <Panel class="GenericBackground" id="LeftBottomGfx" hittest="false"/> -->
 		<Panel class="GenericBackground" id="BottomForegroundGfx" hittest="false"/>
 	</Panel>
 </root>

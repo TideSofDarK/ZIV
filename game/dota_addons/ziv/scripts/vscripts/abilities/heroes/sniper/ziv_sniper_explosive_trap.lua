@@ -57,7 +57,7 @@ function Explode( keys )
 		if #units_in_radius > 0 then
 			for k,v in pairs(units_in_radius) do
 				ability:ApplyDataDrivenModifier(caster, v, "modifier_explosive_trap_effect", {})
-				DealDamage( caster, v, caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_PURE )
+				DealDamage( caster, v, caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_FIRE )
 			end
 		end
 

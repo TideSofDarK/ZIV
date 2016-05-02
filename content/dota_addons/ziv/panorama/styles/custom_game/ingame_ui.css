@@ -22,11 +22,13 @@
 .MidBottom {
 	horizontal-align: center;
 	height: 200px;
+	width: 1074px;
 
 	margin-left: 20px;
 }
 
 .Bars {
+	horizontal-align: center;
 	vertical-align: top;
 	flow-children: down;
 
@@ -120,17 +122,17 @@
 	vertical-align: center;
 	horizontal-align: right;
 	flow-children: right;
-	margin-right: 17px;
-	margin-top: 8px;
+	margin-right: -1px;
+	margin-bottom: 20px;
 }
 
 .BottomButton {
 	/*opacity: 0.99;*/
 	
-	margin-left: 3px;
+	margin-left: 4px;
 	
-    width: 70px;
-    height: 135px;
+    width: 55px;
+    height: 101px;
 
     background-size: 100% 100%;
 
@@ -183,14 +185,14 @@
 }
 
 #equipment_button {
-	horizontal-align: center;
-	width: 127px;
-	height: 29px; 
+	horizontal-align: right;
+	width: 107px;
+	height: 24px; 
 
 	border-radius: 6px;
 
-	margin-top: 16px;
-	margin-right: 11px;
+	margin-top: 24px;
+	margin-right: 66px;
 }
 
 #EquipList
@@ -202,7 +204,7 @@
 	width: 120px;
 	height: 160px;
 
-	vertical-align: bottom;
+	vertical-align: top;
 
 	z-index: 0;
 
@@ -214,10 +216,10 @@
 	border-bottom-width: 20px;
 	border-top-width: 30px;*/
 
-	margin-left: 10px;
-	margin-bottom: 20px;
+	margin-left: 108px;
+	margin-top: 25px;
 
-	transform: translate3d( -2px, 0px, 0px );
+	/*transform: translate3d( -2px, 0px, 0px );*/
 }
 
 #PortaitImage {
@@ -231,8 +233,8 @@
 #BottomGfx {
 	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom.png');
 
-	width: 1361px;
-	height: 210px;
+	width: 1920px;
+	height: 310px;
 
 	vertical-align: bottom;
 }
@@ -240,8 +242,8 @@
 #BottomForegroundGfx {
 	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom_a.png');
 
-	width: 1361px;
-	height: 210px;
+	width: 1920px;
+	height: 310px;
 
 	vertical-align: bottom;
 }

@@ -35,6 +35,8 @@ require('libraries/traps')
 require('libraries/particles')
 -- Damage
 require('libraries/damage')
+-- Random
+require('libraries/random')
 
 require('items/crafting')
 

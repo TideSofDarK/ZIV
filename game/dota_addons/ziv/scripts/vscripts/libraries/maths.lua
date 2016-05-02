@@ -55,6 +55,10 @@ function clamp(val, lower, upper)
     return math.max(lower, math.min(upper, val))
 end
 
+function round(num, idp)
+  return tonumber(string.format("%." .. (idp or 0) .. "f", num))
+end
+
 function smoothstep(edge0, edge1, x)
     x = clamp((x - edge0)/(edge1 - edge0), 0.0, 1.0)
     return x*x*(3 - 2*x)

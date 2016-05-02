@@ -5488,7 +5488,7 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "hp_regen_percentage" "15"
+	      "hp_regen_percentage" "4"
 	    }
 	    "02"
 	    {

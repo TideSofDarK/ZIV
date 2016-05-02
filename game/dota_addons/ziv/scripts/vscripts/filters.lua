@@ -22,6 +22,10 @@ function ZIV:DamageFilter( filterTable )
     local damage = filterTable["damage"]
     local damage_type = filterTable["damagetype_const"]
 
+    if damage_type ~= DAMAGE_TYPE_PHYSICAL then
+        damage_type = DAMAGE_TYPE_PURE
+    end
+
     -- if _victim:IsHero() and _attacker:IsHero() == false then
     --     local damage = (_victim:GetMaxHealth() / 100) * _attacker:GetAverageTrueAttackDamage()
     --     _victim:SetHealth(_victim:GetHealth() - damage)
