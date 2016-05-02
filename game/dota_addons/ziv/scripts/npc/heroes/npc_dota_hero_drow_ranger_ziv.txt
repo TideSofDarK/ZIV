@@ -5,16 +5,16 @@
 
     "EquipmentSlots" "torso;bow;gloves;ring;pants;boots"
 
-    "ChooseLayout"  "1221"
+    "ChooseLayout"  "1121"
 
     "AbilityLayout"     "4"
 
     "Ability1"        "ziv_dark_goddess_corrupted_arrow" 
     "Ability2"        "ziv_dark_goddess_concentration" 
-    "Ability3"        "ziv_empty3" 
-    "Ability4"        "ziv_dark_goddess_explode"
-    "Ability5"        "ziv_empty5"
-    "Ability6"        "ziv_dark_goddess_glaive"
+    "Ability3"        "ziv_dark_goddess_explode" 
+    "Ability4"        "ziv_dark_goddess_combine"
+    "Ability5"        "ziv_dark_goddess_glaive"
+    "Ability6"        ""
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""

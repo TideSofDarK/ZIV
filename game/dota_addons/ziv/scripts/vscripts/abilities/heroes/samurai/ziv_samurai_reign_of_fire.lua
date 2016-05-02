@@ -7,7 +7,7 @@ function OnDamageTick( keys )
 	local damage = math.ceil((caster:GetAverageTrueAttackDamage() / 100) * ability:GetSpecialValueFor("burn_damage_percent"))
 
 	PopupCriticalDamage(target, damage)
-	DealDamage(target, target, damage, DAMAGE_TYPE_MAGICAL)
+	DealDamage(target, target, damage, DAMAGE_TYPE_FIRE)
 end
 
 function OnDealDamage( keys )

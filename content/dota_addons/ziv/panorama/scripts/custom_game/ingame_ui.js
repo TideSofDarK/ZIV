@@ -192,7 +192,7 @@ function UpdateAbilityList()
 
 function SetPortrait() 
 {
-	var queryUnit = Game.GetLocalPlayerInfo()["player_selected_hero_entity_index"];
+	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 	$("#PortaitImage").heroname = Entities.GetUnitName(queryUnit);
 }
 
@@ -272,8 +272,8 @@ function ZIVCastAbility(number, pressing) {
 		}
 
 		m_AbilityCasting[ability] = true;
-
-		$.Schedule(0.06, (function() {ZIVCastAbility(number, true)}) )
+		
+		$.Schedule(Abilities.GetCooldownTimeRemaining( ability ), (function() {ZIVCastAbility(number, true)}) )
 	}
 }
 

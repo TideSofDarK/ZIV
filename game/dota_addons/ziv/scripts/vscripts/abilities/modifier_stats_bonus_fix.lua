@@ -65,7 +65,7 @@ function modifier_stats_bonus_fix:CalculateStatsBonus(kv)
 
 	self.attackBonus = 0
 
-	self.healthBonus = (19 * -strength)
+	self.healthBonus = (20 * -strength)
 	self.healtRegenBonus = 0
 	
 	hero.baseArmorValue = hero.baseArmorValue or hero:GetPhysicalArmorBaseValue()
@@ -76,7 +76,7 @@ function modifier_stats_bonus_fix:CalculateStatsBonus(kv)
 	self.attackSpeedBonus = -agility
 	self.moveSpeedBonus = 0
 
-	self.manaBonus = intellect * -13
+	self.manaBonus = intellect * -12
 	self.manaRegenBonus = intellect * -0.04
 
 	self:GetAbility().CalcStat = 1

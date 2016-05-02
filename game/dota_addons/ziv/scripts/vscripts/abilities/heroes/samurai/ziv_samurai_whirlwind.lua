@@ -63,6 +63,11 @@ function DamageTick( keys )
 
 		ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true) 
 
-		DealDamage( caster, target, caster:GetAverageTrueAttackDamage() / 3, DAMAGE_TYPE_PURE )
+		local damage_type = DAMAGE_TYPE_FIRE
+		if caster:HasModifier("modifier_cold_touch") then
+			damage_type = DAMAGE_TYPE_COLD
+		end
+
+		DealDamage( caster, target, caster:GetAverageTrueAttackDamage() / 3, damage_type )
 	end
 end

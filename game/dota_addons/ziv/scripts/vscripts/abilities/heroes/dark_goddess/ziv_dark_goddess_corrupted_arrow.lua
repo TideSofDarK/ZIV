@@ -1,18 +1,3 @@
-function ToggleArrows( keys )
-	local caster = keys.caster
-	local ability = keys.ability
-
-	ability:RefundManaCost()
-
-	if ability:GetToggleState() == true then
-		caster:RemoveModifierByName("modifier_corrupted_arrow")
-	else
-		ability:ApplyDataDrivenModifier(caster,caster,"modifier_corrupted_arrow",{})
-	end
-
-	ability:ToggleAbility()
-end
-
 function SpawnSpirit( keys )
 	local caster = keys.caster
 	local target = keys.unit
@@ -68,6 +53,9 @@ function RestoreEnergy( keys )
 	local target = keys.target
 	local ability = keys.ability
 
+	local caster_owner = caster:GetOwnerEntity()
+	DealDamage(caster_owner, target, caster_owner:GetAverageTrueAttackDamage(), DAMAGE_TYPE_DARK)
+
 	local energy_restored = ability:GetSpecialValueFor("energy_restored")
 	
 	caster:GiveMana(energy_restored)
@@ -88,9 +76,11 @@ function AdditionalDamage( keys )
     	ParticleManager:SetParticleControlEnt(particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin() + Vector(0,0,16), true)
     	ParticleManager:SetParticleControlEnt(particle, 1, v, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin() + Vector(0,0,16), true)
 
-		DealDamage(caster, v, (ability:GetSpecialValueFor("attack_damage_amp") * caster:GetAverageTrueAttackDamage()) / 3, DAMAGE_TYPE_PURE)
+		DealDamage(caster, v, (ability:GetSpecialValueFor("attack_damage_amp") * caster:GetAverageTrueAttackDamage()) / 3, DAMAGE_TYPE_DARK)
 		v:EmitSound("Hero_Spectre.PreAttack")
+
+		ability:ApplyDataDrivenModifier(caster,v,"modifier_corrupted_arrow_effect",{})
 	end
 
-	DealDamage(caster, target, ability:GetSpecialValueFor("attack_damage_amp") * caster:GetAverageTrueAttackDamage(), DAMAGE_TYPE_PURE)
+	DealDamage(caster, target, ability:GetSpecialValueFor("attack_damage_amp") * caster:GetAverageTrueAttackDamage(), DAMAGE_TYPE_DARK)
 end

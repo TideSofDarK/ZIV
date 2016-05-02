@@ -1,4 +1,4 @@
-"ziv_dark_goddess_explode"
+"ziv_dark_goddess_combine"
 {
   "BaseClass"               "ability_datadriven"
   "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
@@ -26,18 +26,23 @@
   {
     "01"
     {
-      "var_type"          "FIELD_FLOAT"
-      "damage_amp"        "1.5"
+      "var_type"          "FIELD_INTEGER"
+      "radius"            "345"
     }
     "02"
     {
       "var_type"          "FIELD_INTEGER"
-      "radius"            "345"
+      "bonus_attackspeed"            "75"
     }
     "03"
     {
+      "var_type"          "FIELD_FLOAT"
+      "bonus_duration"            "1.75"
+    }
+    "04"
+    {
       "var_type"          "FIELD_INTEGER"
-      "explosion_radius"  "225"
+      "bonus_hp"            "15"
     }
   }
 
@@ -45,9 +50,22 @@
   {
     "RunScript"
     {
-      "ScriptFile"    "abilities/heroes/dark_goddess/ziv_dark_goddess_explode.lua"
-      "Function"      "Explode"
+      "ScriptFile"    "abilities/heroes/dark_goddess/ziv_dark_goddess_combine.lua"
+      "Function"      "Combine"
       "Target"        "POINT"
+    }
+  }
+
+  "modifier_corrupted_spirit_combined"
+  {
+    "Passive"      "0"
+    "IsHidden"      "0"
+    "IsDebuff"      "0"
+
+    "Properties"
+    {
+      "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
+      "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE" "%bonus_hp" 
     }
   }
 }

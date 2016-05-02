@@ -1,11 +1,11 @@
 "ziv_dark_goddess_concentration"
 {
 	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityTextureName"			"ziv_empty"
 
 	"AbilityManaCost"	"25"
-	"AbilityCastPoint"        "0.5"
+	"AbilityCastPoint"        "0"
 	"AbilityCooldown"				"10.0"
 
 	"MaxLevel" "7"
@@ -42,17 +42,27 @@
 		"05"
 		{
 			"var_type" "FIELD_INTEGER"
-			"bonus_attackspeed_passive" "150"
+			"bonus_attackspeed_passive" "190"
 		}
 		"06"
         {
             "var_type"              "FIELD_FLOAT"
             "lifesteal_percent"     "0.2"
         }
+        "07"
+        {
+        	"var_type"	"FIELD_INTEGER"
+        	"mana_cost"	"2"
+        }
 	}
 
 	"OnSpellStart"
 	{
+		"RunScript"
+		{
+			"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_concentration.lua"
+			"Function"		"ToggleConcentration"
+		}
 		"FireEffect"
 		{
 			"EffectName"        "particles/items2_fx/teleport_end_dust.vpcf"
@@ -63,12 +73,6 @@
 		{
 			"EffectName"	"Hero_ObsidianDestroyer.EssenceAura"
 			"Target" 		"CASTER"
-		}
-		"ApplyModifier"
-		{
-			"ModifierName"	"modifier_concentration"
-			"Target" 		"CASTER"
-			"Duration"		"%duration"
 		}
 	}
 
@@ -94,6 +98,15 @@
 		
 			"EffectName"		"particles/heroes/dark_goddess/dark_goddess_concentration.vpcf"
 			"EffectAttachType"	"follow_overhead"
+
+			"ThinkInterval"  "0.5"
+			"OnIntervalThink"
+			{
+				"SpendMana"
+				{
+					"Mana"		"%mana_cost"
+				}
+			}
 
 			"OnAttackLanded"
 			{

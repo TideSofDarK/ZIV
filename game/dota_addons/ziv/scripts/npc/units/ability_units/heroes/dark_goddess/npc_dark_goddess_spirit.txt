@@ -23,8 +23,8 @@
     "AttackAcquisitionRange"    "150"
     "AttackRange"   "128"
     
-    "AttackDamageMin"        "15"
-    "AttackDamageMax"        "20"
+    "AttackDamageMin"        "1"
+    "AttackDamageMax"        "2"
 
     "AttackRate"        "1.5"
     "AttackAnimationPoint"        "0.27"

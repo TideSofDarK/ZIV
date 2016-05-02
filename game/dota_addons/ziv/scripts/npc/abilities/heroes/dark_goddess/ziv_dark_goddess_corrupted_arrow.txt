@@ -2,7 +2,7 @@
 {
 	"BaseClass"	"ability_datadriven"
 	"AbilityTextureName"	"ziv_empty"
-	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC"
 
@@ -10,7 +10,7 @@
 	"AbilityCastPoint"	"0.0"
 	"AbilityCooldown"	"4.0"
 	"AbilityDamage"	"0"
-	"AbilityManaCost" "1"
+	"AbilityManaCost" "0"
 
 	"MaxLevel" "7"
 
@@ -46,7 +46,7 @@
 		"04"
 		{
 			"var_type"	"FIELD_INTEGER"
-			"spirit_duration"	"3"
+			"spirit_duration"	"5"
 		}
 		"05"
 		{
@@ -88,7 +88,7 @@
 	{
 		"modifier_corrupted_arrow"
 		{
-			"Passive"	"0"
+			"Passive"	"1"
 			"IsHidden"	"1"
 
 			"Orb"
