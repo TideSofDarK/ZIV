@@ -480,7 +480,7 @@
 	  {
 	    "ziv_beastmaster_leap_cd"
 	    {
-	      "min" "20"
+	      "min" "5"
 	      "max" "30"
 	    }
 	  }
@@ -532,8 +532,8 @@
 	  {
 	    "ziv_beastmaster_leap_force"
 	    {
-	      "min" "10"
-	      "max" "30"
+	      "min" "1"
+	      "max" "100"
 	    }
 	  }
 	}
@@ -558,8 +558,8 @@
 	  {
 	    "ziv_beastmaster_cleave_aoe"
 	    {
-	      "min" "25"
-	      "max" "75"
+	      "min" "5"
+	      "max" "95"
 	    }
 	  }
 	}
@@ -584,7 +584,7 @@
 	  {
 	    "ziv_beastmaster_cleave_speed"
 	    {
-	      "min" "10"
+	      "min" "2"
 	      "max" "30"
 	    }
 	  }
@@ -611,7 +611,7 @@
 	    "ziv_beastmaster_pet_as"
 	    {
 	      "min" "5"
-	      "max" "30"
+	      "max" "80"
 	    }
 	  }
 	}
@@ -637,7 +637,7 @@
 	    "ziv_beastmaster_pet_ms"
 	    {
 	      "min" "5"
-	      "max" "30"
+	      "max" "40"
 	    }
 	  }
 	}

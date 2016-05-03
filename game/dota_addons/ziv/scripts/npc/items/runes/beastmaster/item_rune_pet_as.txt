@@ -20,7 +20,7 @@
     "ziv_beastmaster_pet_as"
     {
       "min" "5"
-      "max" "30"
+      "max" "80"
     }
   }
 }

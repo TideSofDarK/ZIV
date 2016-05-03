@@ -3,6 +3,8 @@ function Cleave( keys )
 	local target = keys.target
 	local ability = keys.ability
 
+	StartRuneCooldown(ability,"ziv_beastmaster_cleave_speed",caster)
+
 	caster:SetForwardVector((target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized())
 	caster:Stop()
 
@@ -21,7 +23,7 @@ function Cleave( keys )
 
 	DealDamage(caster,target,caster:GetAverageTrueAttackDamage()/2, DAMAGE_TYPE_PHYSICAL)
 
-	local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 128, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local units = FindUnitsInCone(caster:GetAbsOrigin(), caster:GetForwardVector(), 300, 150 + GRMSC("ziv_beastmaster_cleave_aoe", caster), caster:GetTeamNumber(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER)
 	for k,v in pairs(units) do
 		ParticleManager:CreateParticle("particles/units/heroes/hero_riki/riki_backstab_hit_blood.vpcf",PATTACH_ABSORIGIN,v)
 		ParticleManager:CreateParticle("particles/units/heroes/hero_dazzle/dazzle_poison_touch_blood.vpcf",PATTACH_ABSORIGIN,v)

@@ -1,5 +1,9 @@
-function GRMSC(name,caster)
+function GRMSC(name, caster)
 	return caster:GetModifierStackCount(name,nil) or 0
+end
+
+function StartRuneCooldown(ability,name,caster)
+	ability:StartCooldown((1 - (GRMSC(name,caster) / 100)) * ability:GetCooldown(ability:GetLevel())) 
 end
 
 function GetRuneDamageIncrease(name,caster)

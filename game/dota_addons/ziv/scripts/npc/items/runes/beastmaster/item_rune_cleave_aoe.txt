@@ -19,8 +19,8 @@
   {
     "ziv_beastmaster_cleave_aoe"
     {
-      "min" "25"
-      "max" "75"
+      "min" "5"
+      "max" "95"
     }
   }
 }

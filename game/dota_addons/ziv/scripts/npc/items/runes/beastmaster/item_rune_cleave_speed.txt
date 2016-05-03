@@ -19,7 +19,7 @@
   {
     "ziv_beastmaster_cleave_speed"
     {
-      "min" "10"
+      "min" "2"
       "max" "30"
     }
   }

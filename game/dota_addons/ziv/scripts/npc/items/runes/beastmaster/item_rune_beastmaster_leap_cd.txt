@@ -19,7 +19,7 @@
   {
     "ziv_beastmaster_leap_cd"
     {
-      "min" "20"
+      "min" "5"
       "max" "30"
     }
   }

@@ -2,7 +2,9 @@ function Leap( keys )
 	local target = keys.target_points[1]
 	local caster = keys.caster
 	local ability = keys.ability
-	local ability_level = ability:GetLevel() - 1	
+	local ability_level = ability:GetLevel() - 1
+
+	StartRuneCooldown(ability,"ziv_beastmaster_leap_cd",caster)
 
 	caster:SetForwardVector((target - caster:GetAbsOrigin()):Normalized())
 	caster:Stop()
@@ -41,7 +43,7 @@ function LeapHorizonal( keys )
 			        should_stun = 1,
 			        knockback_duration = 1.0,
 			        duration = 1.0,
-			        knockback_distance = 150,
+			        knockback_distance = 75 + GRMSC("ziv_beastmaster_leap_force",caster),
 			        knockback_height = 80,
 			        center_x = caster:GetAbsOrigin().x,
 			        center_y = caster:GetAbsOrigin().y,
@@ -49,13 +51,7 @@ function LeapHorizonal( keys )
 			    }
 				v:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
 
-			    local damageTable = {
-			        victim = v,
-			        attacker = caster,
-			        damage = caster:GetAverageTrueAttackDamage() / 2,
-			        damage_type = DAMAGE_TYPE_MAGICAL,
-			    }
-			    ApplyDamage(damageTable)
+			    DealDamage(caster, v, GetRuneDamageIncrease("ziv_beastmaster_leap_damage",caster), DAMAGE_TYPE_PHYSICAL)
 			end
 		end)
 		
