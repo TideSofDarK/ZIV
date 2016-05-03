@@ -6,15 +6,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/minimap/minimap.js" />
 	</scripts>
-	<script>
-		function ShowMinimap()
-		{
-			$.GetContextPanel().visible = !$.GetContextPanel().visible;
-		}
-
-		Game.AddCommand("ZIVShowMinimap", ShowMinimap, "", 0); 
-	</script>
-	<Panel class="MinimapRoot" hittest="false">
+	<Panel class="MinimapRoot TopLeft" hittest="false">
 		<Panel class="ImageContainer" id="ImagePanel">
 			<Image class="MinimapMarks" id="PointerImage" src="file://{images}/custom_game/minimap/pointer.png" />			
 			<Image id="MinimapImage" src="file://{images}/custom_game/minimap/minimap.png">

@@ -176,8 +176,24 @@ function SetWorldBounds( args )
 	UpdateMinimap(); 
 }
 
+function ChangeMinimapMode()
+{
+	if ($.GetContextPanel().BHasClass("Hero"))
+	{
+		$.GetContextPanel().RemoveClass("Hero");
+		$.GetContextPanel().AddClass("TopLeft")
+	}
+	else
+	{
+		$.GetContextPanel().RemoveClass("TopLeft");
+		$.GetContextPanel().AddClass("Hero")
+	}
+}
+
 (function()
 {
+	Game.AddCommand("ZIVShowMinimap", ChangeMinimapMode, "", 0); 
+
 	GameEvents.SendCustomGameEventToServer( "world_bounds_request", {} );
 	GameEvents.Subscribe("world_bounds", SetWorldBounds);
 })();
