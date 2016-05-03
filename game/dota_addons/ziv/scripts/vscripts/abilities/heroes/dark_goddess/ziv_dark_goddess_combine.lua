@@ -4,6 +4,7 @@ function Combine( keys )
 	local ability = keys.ability
 
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),target,nil,ability:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+	local max_targets = ability:GetSpecialValueFor("max_targets") + GRMSC("ziv_dark_goddess_combine_targets",caster)
 
 	if #units > 0 then
 		StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.5})
@@ -11,7 +12,9 @@ function Combine( keys )
 
 		local i = 1
 		for k,v in pairs(units) do
-			i = i + 1
+			if i > max_targets then
+				return
+			end
 			if v:GetUnitName() == "npc_dark_goddess_spirit" then
 				if i == #units then
 					-- v:RemoveModifierByName("modifier_kill")
@@ -27,6 +30,8 @@ function Combine( keys )
 
 					DestroyEntityBasedOnHealth(v, v)
 				end
+
+				i = i + 1
 			end
 		end
 	end

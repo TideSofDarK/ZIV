@@ -20,7 +20,7 @@
     "ziv_dark_goddess_concentration_cost"
     {
       "min" "5"
-      "max" "15"
+      "max" "25"
     }
   }
 }

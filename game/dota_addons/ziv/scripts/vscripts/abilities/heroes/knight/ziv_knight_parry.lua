@@ -27,11 +27,5 @@ function Parry( keys )
     }
 	attacker:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
 
-    local damageTable = {
-        victim = attacker,
-        attacker = caster,
-        damage = caster:GetAverageTrueAttackDamage(),
-        damage_type = DAMAGE_TYPE_PHYSICAL,
-    }
-    ApplyDamage(damageTable)
+    DealDamage(caster, attacker, caster:GetAverageTrueAttackDamage(), DAMAGE_TYPE_PHYSICAL)
 end

@@ -1079,17 +1079,22 @@
 	    "02"
 	    {
 	      "var_type"          "FIELD_INTEGER"
-	      "bonus_attackspeed"            "75"
+	      "bonus_attackspeed" "75"
 	    }
 	    "03"
 	    {
 	      "var_type"          "FIELD_FLOAT"
-	      "bonus_duration"            "1.75"
+	      "bonus_duration"    "1.75"
 	    }
 	    "04"
 	    {
 	      "var_type"          "FIELD_INTEGER"
-	      "bonus_hp"            "15"
+	      "bonus_hp"          "15"
+	    }
+	    "05"
+	    {
+	      "var_type"          "FIELD_INTEGER"
+	      "max_targets"       "7"
 	    }
 	  }
 	
@@ -1270,6 +1275,57 @@
 	            	}
 	            }
 	        }
+	
+			"modifier_concentration_cost_rune"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+	
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANACOST_PERCENTAGE" "1"
+				}
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"libraries/runes.lua"
+						"rune_modifier" 		"ziv_dark_goddess_concentration_cost"
+						"modifier_name" 		"modifier_concentration_cost_rune"
+						"check_modifier" 		"modifier_concentration"
+						"Function"				"BasicPropertyRune"
+					}
+				}
+			}
+	
+			"modifier_concentration_ms_rune"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+	
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "1"
+				}
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"libraries/runes.lua"
+						"rune_modifier" "ziv_dark_goddess_concentration_ms"
+						"modifier_name" "modifier_concentration_ms_rune"
+						"Function"		"BasicPropertyRune"
+					}
+				}
+			}
 		}
 	}
 	"ziv_dark_goddess_corrupted_arrow"
@@ -1462,6 +1518,31 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
 				}
 			}
+	
+			"modifier_corrupted_arrow_as_rune"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+	
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"libraries/runes.lua"
+						"rune_modifier" "ziv_dark_goddess_corrupted_arrow_as"
+						"modifier_name" "modifier_corrupted_arrow_as_rune"
+						"Function"		"BasicPropertyRune"
+					}
+				}
+			}
 		}
 	}
 	"ziv_dark_goddess_explode"
@@ -1504,6 +1585,11 @@
 	    {
 	      "var_type"          "FIELD_INTEGER"
 	      "explosion_radius"  "225"
+	    }
+	    "04"
+	    {
+	      "var_type"          "FIELD_INTEGER"
+	      "max_targets"       "7"
 	    }
 	  }
 	

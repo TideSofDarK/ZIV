@@ -8,6 +8,12 @@ function SpawnGlaive( keys )
 	local target = keys.target_points[1]
 	local ability = keys.ability
 
+	if GetRuneChance("ziv_dark_goddess_glaive_count",caster) == true then
+		Timers:CreateTimer(0.3, function (  )
+			SpawnGlaive( keys )
+		end)
+	end
+
 	local glaive = CreateUnitByName("npc_dummy_unit",caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_mom_r")),false,caster,caster,caster:GetTeamNumber())
 	InitAbilities(glaive)
 
@@ -89,7 +95,7 @@ function BleedDamage( keys )
 	local ability = keys.ability
 
 	if target:HasModifier("modifier_glaive_bleeding") then
-		DealDamage( caster, target, caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("bleeding_damage_amp"), DAMAGE_TYPE_PHYSICAL )
+		DealDamage( caster, target, GetRuneDamageIncrease("ziv_dark_goddess_glaive_bleed_damage",caster) * ability:GetSpecialValueFor("bleeding_damage_amp"), DAMAGE_TYPE_PHYSICAL )
 		caster:EmitSound("Hero_Pudge.Dismember")
 	else
 		DealDamage( caster, target, caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_PHYSICAL )

@@ -11,7 +11,7 @@ function SpawnSpirit( keys )
 
 	PrecacheUnitByNameAsync("npc_dark_goddess_spirit", function (  )
 		if target then
-			local spirit_count = math.random(ability:GetSpecialValueFor("spirit_min"), ability:GetSpecialValueFor("spirit_max"))
+			local spirit_count = math.random(ability:GetSpecialValueFor("spirit_min"), ability:GetSpecialValueFor("spirit_max")) + GRMSC("ziv_dark_goddess_corrupted_arrow_spirit_count",caster)
 
 			local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(),  nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			local i = 1

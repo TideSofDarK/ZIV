@@ -37,6 +37,8 @@ require('libraries/particles')
 require('libraries/damage')
 -- Random
 require('libraries/random')
+-- Runes
+require('libraries/runes')
 
 require('items/crafting')
 

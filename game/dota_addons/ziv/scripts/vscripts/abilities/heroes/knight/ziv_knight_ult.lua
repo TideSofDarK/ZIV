@@ -64,14 +64,7 @@ function DragonComes( keys )
 			    	local units_in_burn_radius = FindUnitsInRadius(caster:GetTeamNumber(), target,  nil, explosion_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 
 			    	for k,v in pairs(units_in_burn_radius) do
-				    	local damageTable = {
-					        victim = v,
-					        attacker = caster,
-					        damage = burn_damage,
-					        damage_type = DAMAGE_TYPE_MAGICAL,
-					    }
-
-					    ApplyDamage(damageTable)
+						DealDamage(caster, v, burn_damage, DAMAGE_TYPE_FIRE)
 			    	end
 
 			    	burn_timer = burn_timer + 1
@@ -92,13 +85,7 @@ function DragonComes( keys )
 				    }
 					v:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
 
-				    local damageTable = {
-				        victim = v,
-				        attacker = caster,
-				        damage = explosion_damage,
-				        damage_type = DAMAGE_TYPE_MAGICAL,
-				    }
-				    ApplyDamage(damageTable)
+				    DealDamage(caster, v, explosion_damage, DAMAGE_TYPE_FIRE)
 			    end
 			end)
 

@@ -152,5 +152,56 @@
             	}
             }
         }
+
+		"modifier_concentration_cost_rune"
+		{
+			"Passive"			"1"
+			"IsHidden"			"0"
+			"IsDebuff"			"0"
+
+			"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+		
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MANACOST_PERCENTAGE" "1"
+			}
+
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"			"libraries/runes.lua"
+					"rune_modifier" 		"ziv_dark_goddess_concentration_cost"
+					"modifier_name" 		"modifier_concentration_cost_rune"
+					"check_modifier" 		"modifier_concentration"
+					"Function"				"BasicPropertyRune"
+				}
+			}
+		}
+
+		"modifier_concentration_ms_rune"
+		{
+			"Passive"			"1"
+			"IsHidden"			"0"
+			"IsDebuff"			"0"
+
+			"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+		
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "1"
+			}
+
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"libraries/runes.lua"
+					"rune_modifier" "ziv_dark_goddess_concentration_ms"
+					"modifier_name" "modifier_concentration_ms_rune"
+					"Function"		"BasicPropertyRune"
+				}
+			}
+		}
 	}
 }

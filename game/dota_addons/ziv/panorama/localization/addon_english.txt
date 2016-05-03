@@ -79,7 +79,8 @@
 	"ziv_dark_goddess_glaive_bleed_damage"	"to Glaive bleed damage"
 	"ziv_dark_goddess_corrupted_arrow_spirit_count"	"to Corrupted Arrow spirit count"
 	"ziv_dark_goddess_corrupted_arrow_as"	"to Corrupted Arrow attack speed"
-	"ziv_dark_goddess_explode_cd"	"percent reduction of Explode energy cost"
+	"ziv_dark_goddess_explode_targets"	"additional Explode targets"
+	"ziv_dark_goddess_combine_targets"	"additional Combine targets"
 	"ziv_dark_goddess_concentration_ms"	"to Concentration move speed"
 	"ziv_dark_goddess_concentration_cost"	"reduction of Concentration energy cost"
 
