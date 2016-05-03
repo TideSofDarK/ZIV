@@ -28,6 +28,6 @@ function BasicPropertyRune(keys)
 	end
 
 	Timers:CreateTimer(0.1, function (  )
-		CheckASRune(keys)
+		BasicPropertyRune(keys)
 	end)
 end
