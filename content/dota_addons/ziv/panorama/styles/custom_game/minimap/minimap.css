@@ -31,10 +31,26 @@
 	opacity: 0.5;
 }
 
-.greenSquare {
+.square {
 	width: 15px;
 	height: 15px;
 
-	background-color: green;
 	border: 1px solid black;
+}
+
+.green {
+	background-color: green;
+}
+
+.red {
+	background-color: red;
+	z-index: 1;
+}
+
+.yellow {
+	background-color: yellow;
+}
+
+.white {
+	background-color: white;
 }

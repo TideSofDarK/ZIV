@@ -101,12 +101,24 @@ function SetEntityMapPostition( panel, entity )
 	{
 		panel.style.marginLeft = parentSize.width * relPos[0] - size.width / 2 + "px;"
 		panel.style.marginTop =  parentSize.height * relPos[1] - size.height / 2 + "px;"
+		if (!panel.visible)
+			panel.visible = true;
 	}	
 }
 
 function SetEntityStyle( panel, entity )
 {
-	panel.AddClass("greenSquare");
+	panel.AddClass("square");
+
+	if (Entities.IsItemPhysical(entity))
+		panel.AddClass("yellow");
+
+	if (Entities.IsEnemy(entity))
+		panel.AddClass("red");
+	else if (Entities.IsNeutralUnitType(entity))
+		panel.AddClass("white");
+	else
+		panel.AddClass("green");
 }
 
 // Filter units for minimap
@@ -116,6 +128,8 @@ function FilterUnits( heroID )
 	return Entities.GetAllEntities().filter(function( entity ) {
 		return Entities.IsEntityInRange( heroID, entity, visionRange ) &&
 			!Entities.IsInvisible( entity ) && 
+			//Entities.IsValidEntity( entity ) &&
+			//Entities.IsHero( entity ) &&
 			heroID != entity;
 	})
 }
@@ -149,7 +163,7 @@ function UpdateMinimap()
 	UpdatePointerPosition( heroID );
 	UpdateUnits( heroID );
 
-	$.Schedule(0.1, UpdateMinimap); 
+	$.Schedule(0.05, UpdateMinimap); 
 }
 
 function SetWorldBounds( args ) 
