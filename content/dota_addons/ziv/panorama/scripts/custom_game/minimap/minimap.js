@@ -181,11 +181,11 @@ function ChangeMinimapMode()
 	if ($.GetContextPanel().BHasClass("Hero"))
 	{
 		$.GetContextPanel().RemoveClass("Hero");
-		$.GetContextPanel().AddClass("TopLeft")
+		$.GetContextPanel().AddClass("TopRight")
 	}
 	else
 	{
-		$.GetContextPanel().RemoveClass("TopLeft");
+		$.GetContextPanel().RemoveClass("TopRight");
 		$.GetContextPanel().AddClass("Hero")
 	}
 }
