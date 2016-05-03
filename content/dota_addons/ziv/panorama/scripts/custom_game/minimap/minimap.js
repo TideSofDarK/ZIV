@@ -101,8 +101,6 @@ function SetEntityMapPostition( panel, entity )
 	{
 		panel.style.marginLeft = parentSize.width * relPos[0] - size.width / 2 + "px;"
 		panel.style.marginTop =  parentSize.height * relPos[1] - size.height / 2 + "px;"
-		if (!panel.visible)
-			panel.visible = true;
 	}	
 }
 
