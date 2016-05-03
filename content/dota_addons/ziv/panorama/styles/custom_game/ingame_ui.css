@@ -119,11 +119,11 @@
 }
 
 #SideButtons {
-	vertical-align: center;
+	vertical-align: bottom;
 	horizontal-align: right;
 	flow-children: right;
 	margin-right: -1px;
-	margin-bottom: 20px;
+	margin-bottom: 17px;
 }
 
 .BottomButton {
