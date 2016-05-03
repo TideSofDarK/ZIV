@@ -12,6 +12,8 @@
 	height: 300px;
 
 	overflow: clip clip;
+
+	background-color: #00000080;
 }
 
 .MinimapMarks {
@@ -26,9 +28,7 @@
 }
 
 #MinimapImage {
-	opacity: 0.6;
-
-	background-color: black;
+	opacity: 0.5;
 }
 
 .greenSquare {
