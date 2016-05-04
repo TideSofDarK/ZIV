@@ -27,19 +27,14 @@
 		"02"
 		{
 			"var_type" "FIELD_INTEGER"
-			"bonus_attackspeed_passive" "200"
+			"radius" "200"
 		}
 		"03"
 		{
 			"var_type" "FIELD_INTEGER"
-			"radius" "200"
-		}
-		"04"
-		{
-			"var_type" "FIELD_INTEGER"
 			"cold_duration" "3"
 		}
-		"05"
+		"04"
 		{
 			"var_type" "FIELD_INTEGER"
 			"cold_movespeed" "-20"
@@ -48,18 +43,6 @@
 
 	"Modifiers"
 	{
-		"modifier_cold_orb_passive"
-		{
-			"Passive"			"1"
-			"IsHidden"			"1"
-			"IsDebuff"			"0"
-		
-			"Properties"
-			{
-			    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed_passive" 
-			}
-		}
-
 		"modifier_cold_orb_effect"
 		{
 			"Duration"	"%cold_duration"

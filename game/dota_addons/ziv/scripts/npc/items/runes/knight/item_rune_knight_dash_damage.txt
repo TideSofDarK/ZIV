@@ -1,4 +1,4 @@
-"item_rune_flee_ms"
+"item_rune_knight_dash_damage"
 {
   "ID"    "1656"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -17,10 +17,10 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_knight_flee_ms"
+    "ziv_knight_dash_damage"
     {
-      "min" "5"
-      "max" "35"
+      "min" "2"
+      "max" "25"
     }
   }
 }

@@ -20,7 +20,7 @@
     "ziv_knight_parry_force"
     {
       "min" "1"
-      "max" "10"
+      "max" "60"
     }
   }
 }

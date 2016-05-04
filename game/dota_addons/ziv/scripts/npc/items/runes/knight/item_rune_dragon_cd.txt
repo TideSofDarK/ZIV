@@ -20,7 +20,7 @@
     "ziv_knight_dragon_cd"
     {
       "min" "2"
-      "max" "12"
+      "max" "19"
     }
   }
 }

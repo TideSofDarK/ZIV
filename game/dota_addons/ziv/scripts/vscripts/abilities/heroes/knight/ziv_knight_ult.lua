@@ -3,14 +3,16 @@ function DragonComes( keys )
 	local target = keys.target_points[1]
 	local ability = keys.ability
 
+	StartRuneCooldown(ability,"ziv_knight_dragon_cd",caster)
+
 	local height = ability:GetSpecialValueFor("dragon_height")
 	local radius = ability:GetSpecialValueFor("spawn_radius")
 
-	local explosion_radius = ability:GetSpecialValueFor("explosion_radius")
-	local explosion_damage = ability:GetSpecialValueFor("explosion_damage")
+	local explosion_radius = ability:GetSpecialValueFor("explosion_radius") + GRMSC("ziv_knight_dragon_radius", caster)
+	local explosion_damage = ability:GetSpecialValueFor("explosion_damage_amp") * caster:GetAverageTrueAttackDamage()
 
 	local burn_duration = ability:GetSpecialValueFor("burn_duration")
-	local burn_damage = ability:GetSpecialValueFor("burn_damage")
+	local burn_damage = ability:GetSpecialValueFor("burn_damage_amp") * caster:GetAverageTrueAttackDamage()
 
 	local flee_seconds = 14
 

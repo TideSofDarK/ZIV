@@ -20,7 +20,7 @@
     "ziv_knight_parry_cd"
     {
       "min" "2"
-      "max" "12"
+      "max" "15"
     }
   }
 }

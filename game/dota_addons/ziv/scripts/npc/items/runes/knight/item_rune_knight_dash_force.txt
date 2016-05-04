@@ -20,7 +20,7 @@
     "ziv_knight_dash_force"
     {
       "min" "1"
-      "max" "20"
+      "max" "85"
     }
   }
 }

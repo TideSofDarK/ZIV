@@ -1,4 +1,4 @@
-"item_rune_stone_form_reduction"
+"item_rune_stone_form_targets"
 {
   "ID"    "1656"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -17,10 +17,10 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_knight_stone_form_reduction"
+    "ziv_knight_stone_form_targets"
     {
-      "min" "5"
-      "max" "15"
+      "min" "1"
+      "max" "10"
     }
   }
 }

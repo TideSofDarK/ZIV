@@ -29,27 +29,10 @@
 			"var_type" "FIELD_INTEGER"
 			"radius" "300"
 		}
-		"03"
-		{
-			"var_type" "FIELD_INTEGER"
-			"bonus_attackspeed_passive" "175"
-		}
 	}
 
 	"Modifiers"
 	{
-		"modifier_dark_orb_passive"
-		{
-			"Passive"			"1"
-			"IsHidden"			"1"
-			"IsDebuff"			"0"
-		
-			"Properties"
-			{
-			    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed_passive" 
-			}
-		}
-
 		"modifier_dark_orb"
 		{
 			"Passive"	"1"

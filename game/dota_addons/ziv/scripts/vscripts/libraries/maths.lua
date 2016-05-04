@@ -19,6 +19,11 @@ function FindUnitsInCone(position, coneDirection, coneLength, coneWidth, teamNum
     return output
 end
 
+function IsInFront(a,b,direction)
+  local product = (a.x - b.x) * direction.x + (a.y - b.y) * direction.y + (a.z - b.z) * direction.z
+  return product < 0.0
+end
+
 function RandomPointInsideCircle(x, y, radius)
   local randX, randY
   repeat

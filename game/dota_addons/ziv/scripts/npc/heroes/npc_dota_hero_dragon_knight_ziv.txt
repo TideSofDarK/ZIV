@@ -4,7 +4,7 @@
 
     "EquipmentSlots" "torso;sword;gloves;shield;pants;boots"
 
-    "ChooseLayout"  "1122"
+    "ChooseLayout"  "1121"
 
     "AbilityLayout"     "4"
 
@@ -12,8 +12,8 @@
     "Ability2"        "ziv_knight_parry" 
     "Ability3"        "ziv_knight_stone_form" 
     "Ability4"        "ziv_knight_taunt"
-    "Ability5"        "ziv_knight_flee"
-    "Ability6"        "ziv_knight_ult"
+    "Ability5"        "ziv_knight_ult"
+    "Ability6"        ""
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""

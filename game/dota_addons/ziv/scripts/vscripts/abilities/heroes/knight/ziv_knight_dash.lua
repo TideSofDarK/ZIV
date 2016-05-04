@@ -8,9 +8,9 @@ function Dash( keys )
 
 	local ability_level = ability:GetLevel() - 1
 
-	StartAnimation(caster, {duration=0.55, activity=ACT_DOTA_RUN, rate=2.3})
+	StartAnimation(caster, {duration=0.44, activity=ACT_DOTA_RUN, rate=2.3})
 
-	Timers:CreateTimer(0.55, function (  )
+	Timers:CreateTimer(0.44, function (  )
 		StartAnimation(caster, {duration=1.2, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.7})
 	end)
 
@@ -24,7 +24,7 @@ function Dash( keys )
 
 	caster:AddNewModifier( caster, nil, "modifier_disarmed", {duration=1.0} )
 
-	ability.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	ability.particle = ParticleManager:CreateParticle("particles/heroes/knight/knight_dash.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 
 	Timers:CreateTimer(1.0, function (  )
 		ParticleManager:DestroyParticle(ability.particle, false)
@@ -57,7 +57,7 @@ function Knockback( keys )
         should_stun = 1,
         knockback_duration = 1,
         duration = 1,
-        knockback_distance = 250,
+        knockback_distance = 200 + GRMSC("ziv_knight_dash_force", caster),
         knockback_height = 50,
         center_x = caster:GetAbsOrigin().x,
         center_y = caster:GetAbsOrigin().y,
@@ -65,11 +65,5 @@ function Knockback( keys )
     }
 	target:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
 
-    local damageTable = {
-        victim = target,
-        attacker = caster,
-        damage = caster:GetAverageTrueAttackDamage() + ability:GetLevelSpecialValueFor("bonus_damage", ability:GetLevel()-1),
-        damage_type = DAMAGE_TYPE_PHYSICAL,
-    }
-    ApplyDamage(damageTable)
+    DealDamage(caster, target, GetRuneDamage("ziv_knight_dash_damage",caster) + ability:GetLevelSpecialValueFor("damage_amp", ability:GetLevel()-1), DAMAGE_TYPE_FIRE)
 end

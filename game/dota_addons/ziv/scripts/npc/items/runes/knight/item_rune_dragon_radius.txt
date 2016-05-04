@@ -20,7 +20,7 @@
     "ziv_knight_dragon_radius"
     {
       "min" "10"
-      "max" "100"
+      "max" "190"
     }
   }
 }

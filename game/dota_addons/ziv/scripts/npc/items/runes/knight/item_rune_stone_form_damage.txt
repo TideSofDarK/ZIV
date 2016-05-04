@@ -19,8 +19,8 @@
   {
     "ziv_knight_stone_form_damage"
     {
-      "min" "5"
-      "max" "15"
+      "min" "2"
+      "max" "20"
     }
   }
 }

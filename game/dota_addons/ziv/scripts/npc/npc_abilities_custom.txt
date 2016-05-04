@@ -337,6 +337,20 @@
 	  
 	  "Modifiers"
 	  {
+	    "modifier_passive_attack_speed"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
+	    
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
+	      }
+	    }
+	
 	    "modifier_all_resistances"
 	    {
 	      "Passive"      "0"
@@ -1216,16 +1230,11 @@
 				"bonus_movespeed" "45"
 			}
 			"05"
-			{
-				"var_type" "FIELD_INTEGER"
-				"bonus_attackspeed_passive" "190"
-			}
-			"06"
 	        {
 	            "var_type"              "FIELD_FLOAT"
 	            "lifesteal_percent"     "0.2"
 	        }
-	        "07"
+	        "06"
 	        {
 	        	"var_type"	"FIELD_INTEGER"
 	        	"mana_cost"	"2"
@@ -1254,18 +1263,6 @@
 	
 		"Modifiers"
 		{
-			"modifier_concentration_passive"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed_passive" 
-				}
-			}
-	
 			"modifier_concentration"
 			{
 				"Passive"			"0"
@@ -2046,19 +2043,14 @@
 			"02"
 			{
 				"var_type" "FIELD_INTEGER"
-				"bonus_attackspeed_passive" "200"
+				"radius" "200"
 			}
 			"03"
 			{
 				"var_type" "FIELD_INTEGER"
-				"radius" "200"
-			}
-			"04"
-			{
-				"var_type" "FIELD_INTEGER"
 				"cold_duration" "3"
 			}
-			"05"
+			"04"
 			{
 				"var_type" "FIELD_INTEGER"
 				"cold_movespeed" "-20"
@@ -2067,18 +2059,6 @@
 	
 		"Modifiers"
 		{
-			"modifier_cold_orb_passive"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed_passive" 
-				}
-			}
-	
 			"modifier_cold_orb_effect"
 			{
 				"Duration"	"%cold_duration"
@@ -2275,27 +2255,10 @@
 				"var_type" "FIELD_INTEGER"
 				"radius" "300"
 			}
-			"03"
-			{
-				"var_type" "FIELD_INTEGER"
-				"bonus_attackspeed_passive" "175"
-			}
 		}
 	
 		"Modifiers"
 		{
-			"modifier_dark_orb_passive"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed_passive" 
-				}
-			}
-	
 			"modifier_dark_orb"
 			{
 				"Passive"	"1"
@@ -3171,7 +3134,7 @@
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "600"
-	  "AbilityCastPoint"        "0.3"
+	  "AbilityCastPoint"        "0.05"
 	  "AbilityCooldown"         "13"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	
@@ -3181,7 +3144,7 @@
 	
 	  "precache"
 	  {
-	    "particle"  "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge.vpcf"
+	    "particle"  "particles/heroes/knight/knight_dash.vpcf"
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
 	  }
 	  
@@ -3190,7 +3153,7 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_damage"            "70 100 130 160 190 220 250"
+	      "damage_amp"            "2.3"
 	    }
 	    "02"
 	    {
@@ -3350,7 +3313,7 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "AbilityTextureName"            "ziv_empty"
 	
-	  "AbilityCooldown"         "3"
+	  "AbilityCooldown"         "3.5"
 	  
 	  "MaxLevel"          "7"
 	
@@ -3364,7 +3327,7 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "parry_chance"        "10 15 20 25 30 35 40"
+	      "parry_chance"        "20 25 30 35 40 50 60"
 	    }
 	    "02"
 	    {
@@ -3391,13 +3354,10 @@
 	        "Random"
 	        {
 	          "Chance"      "%parry_chance"
+	          "PseudoRandom" "DOTA_PSEUDO_RANDOM_JUGG_CRIT"
+	
 	          "OnSuccess"
 	          {
-	            "FireSound"
-	            {
-	              "EffectName"  "Hero_DragonKnight.DragonTail.Target"
-	              "Target"     "CASTER"
-	            }
 	            "RunScript"
 	            {
 	              "ScriptFile"  "abilities/heroes/knight/ziv_knight_parry.lua"
@@ -3430,46 +3390,38 @@
 	
 	  "precache"
 	  {
+	    "particle"  "particles/units/heroes/hero_visage/visage_stone_form.vpcf"
 	    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
 	  }
 	  
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_armor"            "5 10 15 20 25 30 35"
+	      "var_type"            "FIELD_FLOAT"
+	      "damage_amp"            "0.08"
 	    }
 	    "02"
 	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_regen"            "10 20 30 40 50 60 70"
+	      "var_type"            "FIELD_FLOAT"
+	      "heal_amp"            "0.1"
 	    }
 	    "03"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_resist"            "10 20 30 40 50 60 70"
+	      "explosion_radius"            "450"
 	    }
 	    "04"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_damage"            "20 30 40 50 60 70 80"
+	      "duration"            "7"
 	    }
 	    "05"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_attackspeed"            "350"
-	    }
-	    "06"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_movespeed"            "50"
-	    }
-	    "07"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "duration"            "7"
+	      "max_targets"            "10"
 	    }
 	  }
 	
@@ -3478,7 +3430,7 @@
 	    "RunScript"
 	    {
 	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
-	      "Function"    "StoneForm"
+	      "Function"    "StoneFormStart"
 	    }
 	    "FireSound"
 	    {
@@ -3493,47 +3445,17 @@
 	    }
 	  }
 	
-	  "OnChannelInterrupted"
-	  {
-	    "RemoveModifier"
-	    {
-	      "ModifierName"  "modifier_stone_form"
-	      "Target"     "CASTER"
-	    }
-	    "RunScript"
-	    {
-	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
-	      "Function"    "RollbackModelScale"
-	    }
-	  }
-	
 	  "OnChannelSucceeded"
 	  {
-	    "RemoveModifier"
-	    {
-	      "ModifierName"  "modifier_stone_form"
-	      "Target"     "CASTER"
-	    }
 	    "RunScript"
 	    {
 	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
-	      "Function"    "RollbackModelScale"
-	    }
-	    "ApplyModifier"
-	    {
-	      "ModifierName"  "modifier_knight_fury"
-	      "Target"     "CASTER"
-	      "Duration"    "%duration"
-	    }
-	    "ApplyModifier"
-	    {
-	      "ModifierName"  "modifier_knight_fury_attackspeed"
-	      "Target"     "CASTER"
+	      "Function"    "StoneFormEnd"
 	    }
 	    "FireSound"
 	    {
-	        "EffectName"        "DOTA_Item.MaskOfMadness.Activate"
-	        "Target"            "CASTER"
+	      "EffectName"        "Hero_Leshrac.Split_Earth.Tormented"
+	      "Target"            "CASTER"
 	    }
 	  }
 	
@@ -3550,52 +3472,33 @@
 	      "States"
 	      {
 	        "MODIFIER_STATE_ROOTED"        "MODIFIER_STATE_VALUE_ENABLED"
-	        //"MODIFIER_STATE_DISABLED"         "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_COMMAND_RESTRICTED"         "MODIFIER_STATE_VALUE_ENABLED"
 	      }
 	
 	      "Properties"
 	      {
-	        "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"            "%bonus_resist"
-	        "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%bonus_regen"
-	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
+	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "99999"
 	      }
 	    }
 	
-	    "modifier_knight_fury"
+	    "modifier_stone_form_stacks"
 	    {
-	      "IsHidden"      "0"
+	      "Passive"      "0"
+	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
-	
-	      "EffectName"            "particles/items2_fx/mask_of_madness.vpcf"
-	      "EffectAttachType"      "follow_origin"
-	
-	      "ThinkInterval"  "1.75"
-	      "OnIntervalThink"
+	    
+	      "OnAttacked"
 	      {
-	        "ApplyModifier"
+	        "Heal"
 	        {
-	          "ModifierName"  "modifier_knight_fury_attackspeed"
-	          "Target"     "CASTER"
+	          "Target"        "CASTER"
+	          "HealAmount"  "%heal_amp * %attack_damage"
 	        }
-	      }
-	
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%bonus_damage"
-	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movespeed"
-	      }
-	    }
-	
-	    "modifier_knight_fury_attackspeed"
-	    {
-	      "Duration"  "0.75"
-	
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
-	
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
+	          "Function"    "OnAttacked"
+	        }
 	      }
 	    }
 	  }
@@ -3748,8 +3651,8 @@
 	  {
 	    "01"
 	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "explosion_damage"            "100"
+	      "var_type"            "FIELD_FLOAT"
+	      "explosion_damage_amp"            "3.0"
 	    }
 	    "02"
 	    {
@@ -3759,7 +3662,7 @@
 	    "03"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "burn_damage"            "75"
+	      "burn_damage_amp"            "0.5"
 	    }
 	    "04"
 	    {
@@ -3774,7 +3677,7 @@
 	    "06"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "explosion_radius"            "400"
+	      "explosion_radius"            "295"
 	    }
 	  }
 	

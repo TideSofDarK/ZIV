@@ -8,6 +8,20 @@
   
   "Modifiers"
   {
+    "modifier_passive_attack_speed"
+    {
+      "Passive"      "1"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
+    
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
+      }
+    }
+
     "modifier_all_resistances"
     {
       "Passive"      "0"

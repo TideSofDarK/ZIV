@@ -27,8 +27,8 @@
   {
     "01"
     {
-      "var_type"            "FIELD_INTEGER"
-      "explosion_damage"            "100"
+      "var_type"            "FIELD_FLOAT"
+      "explosion_damage_amp"            "3.0"
     }
     "02"
     {
@@ -38,7 +38,7 @@
     "03"
     {
       "var_type"            "FIELD_INTEGER"
-      "burn_damage"            "75"
+      "burn_damage_amp"            "0.5"
     }
     "04"
     {
@@ -53,7 +53,7 @@
     "06"
     {
       "var_type"            "FIELD_INTEGER"
-      "explosion_radius"            "400"
+      "explosion_radius"            "295"
     }
   }
 

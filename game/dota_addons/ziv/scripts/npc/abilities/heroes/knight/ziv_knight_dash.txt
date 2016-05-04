@@ -5,7 +5,7 @@
   "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastRange"        "600"
-  "AbilityCastPoint"        "0.3"
+  "AbilityCastPoint"        "0.05"
   "AbilityCooldown"         "13"
   "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 
@@ -15,7 +15,7 @@
 
   "precache"
   {
-    "particle"  "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge.vpcf"
+    "particle"  "particles/heroes/knight/knight_dash.vpcf"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
   }
   
@@ -24,7 +24,7 @@
     "01"
     {
       "var_type"            "FIELD_INTEGER"
-      "bonus_damage"            "70 100 130 160 190 220 250"
+      "damage_amp"            "2.3"
     }
     "02"
     {
