@@ -38,11 +38,10 @@
 
   "OnSpellStart"
   {
-    "ApplyModifier"
+    "RunScript"
     {
-      "ModifierName"  "modifier_smg_rush_active"
-      "Target"     "CASTER"
-      "Duration"    "%duration"
+      "ScriptFile"  "abilities/heroes/sniper/ziv_sniper_rush.lua"
+      "Function"    "SMGRush"
     }
     "FireSound"
     {

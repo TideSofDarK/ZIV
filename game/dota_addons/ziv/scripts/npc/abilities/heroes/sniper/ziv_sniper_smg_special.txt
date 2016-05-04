@@ -25,8 +25,8 @@
   {
     "01"
     {
-      "var_type"            "FIELD_INTEGER"
-      "bonus_damage"            "70 100 130 160 190 220 250"
+      "var_type"            "FIELD_FLOAT"
+      "damage_amp"            "2.3"
     }
     "02"
     {

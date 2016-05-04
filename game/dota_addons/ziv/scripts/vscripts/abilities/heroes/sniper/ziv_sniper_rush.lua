@@ -1,3 +1,10 @@
+function SMGRush( keys )
+    local caster = keys.caster
+    local ability = keys.ability
+
+    ability:ApplyDataDrivenModifier(caster,caster,"modifier_smg_rush_active",{duration = ability:GetSpecialValueFor("duration") + GRMSC("ziv_sniper_smg_rush_duration", caster)})
+end
+
 function DoubleAttack( keys )
 	local caster = keys.caster
 	local target = keys.target

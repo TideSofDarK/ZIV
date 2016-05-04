@@ -2,6 +2,7 @@
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
   "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastRange"        "700"

@@ -630,6 +630,7 @@
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	
 		"AbilityTextureName"	"ziv_empty"
 	
@@ -2433,6 +2434,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "700"
@@ -4087,6 +4089,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
@@ -4453,8 +4456,8 @@
 	  {
 	    "01"
 	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_damage"            "70 100 130 160 190 220 250"
+	      "var_type"            "FIELD_FLOAT"
+	      "damage_amp"            "2.3"
 	    }
 	    "02"
 	    {
@@ -4563,11 +4566,10 @@
 	
 	  "OnSpellStart"
 	  {
-	    "ApplyModifier"
+	    "RunScript"
 	    {
-	      "ModifierName"  "modifier_smg_rush_active"
-	      "Target"     "CASTER"
-	      "Duration"    "%duration"
+	      "ScriptFile"  "abilities/heroes/sniper/ziv_sniper_rush.lua"
+	      "Function"    "SMGRush"
 	    }
 	    "FireSound"
 	    {
@@ -4659,8 +4661,8 @@
 	  {
 	    "01"
 	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_damage"            "70 100 130 160 190 220 250"
+	      "var_type"            "FIELD_FLOAT"
+	      "damage_amp"            "2.3"
 	    }
 	    "02"
 	    {

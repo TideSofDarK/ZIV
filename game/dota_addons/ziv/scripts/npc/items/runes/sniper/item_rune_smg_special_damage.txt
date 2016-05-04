@@ -20,7 +20,7 @@
     "ziv_sniper_smg_special_damage"
     {
       "min" "1"
-      "max" "10"
+      "max" "17"
     }
   }
 }

@@ -1703,7 +1703,7 @@
 	    "ziv_sniper_shotgun_special_damage"
 	    {
 	      "min" "1"
-	      "max" "5"
+	      "max" "20"
 	    }
 	  }
 	}
@@ -1728,7 +1728,7 @@
 	  {
 	    "ziv_sniper_shotgun_special_force"
 	    {
-	      "min" "50"
+	      "min" "1"
 	      "max" "100"
 	    }
 	  }
@@ -1755,7 +1755,7 @@
 	    "ziv_sniper_smg_rush_duration"
 	    {
 	      "min" "1"
-	      "max" "5"
+	      "max" "6"
 	    }
 	  }
 	}
@@ -1781,7 +1781,7 @@
 	    "ziv_sniper_smg_special_damage"
 	    {
 	      "min" "1"
-	      "max" "10"
+	      "max" "17"
 	    }
 	  }
 	}

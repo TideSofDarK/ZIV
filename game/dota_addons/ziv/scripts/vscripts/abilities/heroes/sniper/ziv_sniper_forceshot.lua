@@ -41,15 +41,8 @@ function Forceshot(args)
 				draw = false,
 				UnitTest = function(self, unit) return unit:GetUnitName() ~= "npc_dummy_unit" and unit:GetTeamNumber() ~= caster:GetTeamNumber() end,
 				OnUnitHit = function(self, unit) 
-					local bonusDamage = ability:GetLevelSpecialValueFor("bonus_damage", ability:GetLevel())
-					local damageTable = {
-					    victim = unit,
-					    attacker = caster,
-					    damage = caster:GetAverageTrueAttackDamage() + bonusDamage,
-					    damage_type = DAMAGE_TYPE_PHYSICAL,
-					}
 					PassiveKnockback( { caster = caster, target = unit } )
-					ApplyDamage(damageTable)
+					DealDamage(caster, unit, caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_PHYSICAL)
 				end,
 			}
 
@@ -83,7 +76,7 @@ function PassiveKnockback( keys )
         should_stun = 1,
         knockback_duration = 1,
         duration = 1,
-        knockback_distance = 200,
+        knockback_distance = 100 + (GRMSC("ziv_sniper_shotgun_special_force", caster)),
         knockback_height = 100,
         center_x = caster:GetAbsOrigin().x,
         center_y = caster:GetAbsOrigin().y,

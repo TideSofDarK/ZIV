@@ -19,7 +19,7 @@
   {
     "ziv_sniper_shotgun_special_force"
     {
-      "min" "50"
+      "min" "1"
       "max" "100"
     }
   }
