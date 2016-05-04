@@ -19,8 +19,8 @@
   {
     "ziv_samurai_execution_cd"
     {
-      "min" "10"
-      "max" "30"
+      "min" "2"
+      "max" "22"
     }
   }
 }

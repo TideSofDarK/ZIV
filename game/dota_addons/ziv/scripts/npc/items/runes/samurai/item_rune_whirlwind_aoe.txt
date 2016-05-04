@@ -19,8 +19,8 @@
   {
     "ziv_samurai_whirlwind_aoe"
     {
-      "min" "40"
-      "max" "80"
+      "min" "10"
+      "max" "90"
     }
   }
 }

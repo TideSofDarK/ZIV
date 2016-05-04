@@ -3,6 +3,8 @@ function StartAttack( keys )
 	local target = keys.target
 	local ability = keys.ability
 
+	StartRuneCooldown(ability,"ziv_samurai_execution_cd",caster)
+
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK_EVENT, rate=2.2})
 
 	local p_endx = 'particles/econ/items/juggernaut/jugg_sword_fireborn_odachi/jugg_crit_blur_fb_odachi.vpcf'
@@ -36,7 +38,7 @@ function StartAttack( keys )
 		p1 = ParticleManager:CreateParticle(earth_particle_name, PATTACH_ABSORIGIN_FOLLOW, target)
 		ParticleManager:SetParticleControl(p1, 0, target:GetOrigin())
 
-		local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, ability:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, ability:GetSpecialValueFor("radius") + GRMSC("ziv_samurai_execution_aoe", caster), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 		caster:EmitSound("Hero_EarthShaker.Attack")
 

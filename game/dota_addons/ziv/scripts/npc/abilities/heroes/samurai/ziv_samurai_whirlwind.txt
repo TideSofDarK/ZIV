@@ -50,6 +50,32 @@
 
   "Modifiers"
   {
+    "modifier_whirlwind_ms_rune"
+    {
+      "Passive"     "1"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+    
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "1"
+      }
+
+      "OnCreated"
+      {
+        "RunScript"
+        {
+          "ScriptFile"      "libraries/runes.lua"
+          "rune_modifier"     "ziv_samurai_whirlwind_ms"
+          "modifier_name"     "modifier_whirlwind_ms_rune"
+          "check_modifier"    "modifier_whirlwind"
+          "Function"        "BasicPropertyRune"
+        }
+      }
+    }
+    
     "modifier_whirlwind"
     {
       "Duration"  "%duration"

@@ -5,6 +5,7 @@ function OnDamageTick( keys )
 	local ability = keys.ability
 
 	local damage = math.ceil((caster:GetAverageTrueAttackDamage() / 100) * ability:GetSpecialValueFor("burn_damage_percent"))
+	damage = GetRunePercentIncrease(damage,"ziv_samurai_reign_of_fire_damage",caster)
 
 	PopupCriticalDamage(target, damage)
 	DealDamage(target, target, damage, DAMAGE_TYPE_FIRE)

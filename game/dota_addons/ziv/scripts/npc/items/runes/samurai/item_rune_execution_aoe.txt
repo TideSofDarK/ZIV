@@ -19,7 +19,7 @@
   {
     "ziv_samurai_execution_aoe"
     {
-      "min" "50"
+      "min" "10"
       "max" "100"
     }
   }

@@ -47,7 +47,7 @@ function DamageTick( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
-	local units_in_radius = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),  nil, ability:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local units_in_radius = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),  nil, ability:GetSpecialValueFor("radius") + GRMSC("ziv_samurai_whirlwind_aoe", caster), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 	if #units_in_radius > 0 then
 		caster:EmitSound("Hero_Abaddon.Attack")
@@ -68,6 +68,6 @@ function DamageTick( keys )
 			damage_type = DAMAGE_TYPE_COLD
 		end
 
-		DealDamage( caster, target, caster:GetAverageTrueAttackDamage() / 3, damage_type )
+		DealDamage( caster, target, GetRuneDamage("ziv_samurai_whirlwind_damage",caster) / 3, damage_type )
 	end
 end

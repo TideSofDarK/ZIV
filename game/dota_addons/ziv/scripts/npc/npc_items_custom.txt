@@ -1469,7 +1469,7 @@
 	    "ziv_samurai_cold_touch_damage"
 	    {
 	      "min" "2"
-	      "max" "6"
+	      "max" "21"
 	    }
 	  }
 	}
@@ -1494,7 +1494,7 @@
 	  {
 	    "ziv_samurai_execution_aoe"
 	    {
-	      "min" "50"
+	      "min" "10"
 	      "max" "100"
 	    }
 	  }
@@ -1520,8 +1520,8 @@
 	  {
 	    "ziv_samurai_execution_cd"
 	    {
-	      "min" "10"
-	      "max" "30"
+	      "min" "2"
+	      "max" "22"
 	    }
 	  }
 	}
@@ -1547,7 +1547,7 @@
 	    "ziv_samurai_reign_of_fire_damage"
 	    {
 	      "min" "2"
-	      "max" "6"
+	      "max" "15"
 	    }
 	  }
 	}
@@ -1572,8 +1572,8 @@
 	  {
 	    "ziv_samurai_dash_damage"
 	    {
-	      "min" "5"
-	      "max" "10"
+	      "min" "2"
+	      "max" "17"
 	    }
 	  }
 	}
@@ -1598,8 +1598,8 @@
 	  {
 	    "ziv_samurai_whirlwind_aoe"
 	    {
-	      "min" "40"
-	      "max" "80"
+	      "min" "10"
+	      "max" "90"
 	    }
 	  }
 	}
@@ -1625,7 +1625,7 @@
 	    "ziv_samurai_whirlwind_damage"
 	    {
 	      "min" "2"
-	      "max" "6"
+	      "max" "15"
 	    }
 	  }
 	}
@@ -1650,8 +1650,8 @@
 	  {
 	    "ziv_samurai_whirlwind_ms"
 	    {
-	      "min" "10"
-	      "max" "30"
+	      "min" "2"
+	      "max" "27"
 	    }
 	  }
 	}
