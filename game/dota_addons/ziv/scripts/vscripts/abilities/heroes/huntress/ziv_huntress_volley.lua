@@ -3,7 +3,7 @@
 
 ProjectileHolder = {} 
 
-function Volly(args)
+function Volley(args)
 	local caster = args.caster
 	local ability = args.ability
 	local target = args.target_points[1]
@@ -37,7 +37,7 @@ function Volly(args)
 	local z = (2 * i) / arrows
 
 	Timers:CreateTimer(function (  )
-		if i <= 30 and caster:HasModifier("modifier_volly") then
+		if i <= 30 and caster:HasModifier("modifier_volley") then
 			caster:SetForwardVector((target - caster:GetAbsOrigin()):Normalized() )
 			caster:Stop()
 
@@ -57,16 +57,10 @@ function Volly(args)
 	end)
 end
 
-
-function VollyHit(args)
+function VolleyHit(args)
 	local target = args.target
 	local caster = args.caster
 	local ability = args.ability
 		
 	DealDamage(caster, target, GetRuneDamage("ziv_huntress_volley_damage",caster) * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_PHYSICAL)
-end
-
-function VollyThinker(target,runCount)
-	target:SetContextNum("VollyHitCheck",0,0)
-	return nil
 end

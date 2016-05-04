@@ -3062,7 +3062,7 @@
 	    }
 	  }
 	}
-	"ziv_huntress_volly"
+	"ziv_huntress_volley"
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -3104,8 +3104,8 @@
 	  {
 	    "RunScript"
 	    {
-	      "ScriptFile"        "abilities/heroes/huntress/ziv_huntress_volly.lua"
-	      "Function"          "Volly"
+	      "ScriptFile"        "abilities/heroes/huntress/ziv_huntress_volley.lua"
+	      "Function"          "Volley"
 	      "Target"            "POINT"
 	      "FixedDistance"                                     "1200"
 	      "EffectName"                    "particles/windrunner_spell_powershot.vpcf"
@@ -3121,7 +3121,7 @@
 	
 	    "ApplyModifier"
 	    {
-	      "ModifierName"  "modifier_volly"
+	      "ModifierName"  "modifier_volley"
 	      "Target"     "CASTER"
 	      "Duration"    "2.0"
 	    }
@@ -3138,8 +3138,8 @@
 	    
 	    "RunScript"
 	    {
-	      "ScriptFile"        "abilities/heroes/huntress/ziv_huntress_volly.lua"
-	      "Function"          "VollyHit"
+	      "ScriptFile"        "abilities/heroes/huntress/ziv_huntress_volley.lua"
+	      "Function"          "VolleyHit"
 	      "Target"            "TARGET"
 	      "Type"        "DAMAGE_TYPE_PHYSICAL"
 	    }
@@ -3147,7 +3147,7 @@
 	
 	  "Modifiers"
 	  {
-	    "modifier_volly"
+	    "modifier_volley"
 	    {
 	      "Passive"      "0"
 	      "IsHidden"      "1"
@@ -3157,7 +3157,7 @@
 	      {
 	        "RemoveModifier"
 	        {
-	          "ModifierName"  "modifier_volly"
+	          "ModifierName"  "modifier_volley"
 	          "Target"     "CASTER"
 	        }
 	      }

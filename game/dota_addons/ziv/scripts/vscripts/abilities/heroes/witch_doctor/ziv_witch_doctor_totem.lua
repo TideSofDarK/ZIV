@@ -7,10 +7,10 @@ function CreateTotem( keys )
 
 	StartSoundEvent("Hero_WitchDoctor.Death_WardBuild",caster)
 
-	local _duration = ability:GetLevelSpecialValueFor("totem_duration", ability:GetLevel())
+	local duration = ability:GetLevelSpecialValueFor("totem_duration", ability:GetLevel())
 
 	local totem = CreateUnitByName("npc_witch_doctor_totem", target, false, nil, caster:GetPlayerOwner(), caster:GetTeamNumber())
-	ability:ApplyDataDrivenModifier(totem,totem,"modifier_witch_doctor_totem",{duration = _duration})
+	ability:ApplyDataDrivenModifier(totem,totem,"modifier_witch_doctor_totem",{duration = duration})
 	InitAbilities(totem)
 
 	Timers:CreateTimer(0.6, function (  )
@@ -28,15 +28,13 @@ function CreateTotem2( keys )
 	local target = keys.target_points[1]
 	local ability = keys.ability
 
-	local _duration = ability:GetLevelSpecialValueFor("totem_duration", ability:GetLevel()) + GRMSC("ziv_witch_doctor_totem2_duration", caster)
+	local duration = ability:GetLevelSpecialValueFor("totem_duration", ability:GetLevel()) + GRMSC("ziv_witch_doctor_totem2_duration", caster)
 
 	local totem = CreateUnitByName("npc_witch_doctor_totem2", target, false, nil, caster:GetPlayerOwner(), caster:GetTeamNumber())
-	ability:ApplyDataDrivenModifier(totem,totem,"modifier_witch_doctor_totem2",{duration = _duration})
+	ability:ApplyDataDrivenModifier(totem,totem,"modifier_witch_doctor_totem2",{duration = duration})
 	InitAbilities(totem)
 
 	Timers:CreateTimer(0.3, function (  )
-
-
 		local particle = ParticleManager:CreateParticle("particles/heroes/witch_doctor/witch_doctor_totem2_fx.vpcf",PATTACH_OVERHEAD_FOLLOW,totem)
 
 		AddChildParticle( totem, particle )
