@@ -19,8 +19,8 @@
   {
     "ziv_huntress_ballista_as"
     {
-      "min" "20"
-      "max" "40"
+      "min" "5"
+      "max" "50"
     }
   }
 }

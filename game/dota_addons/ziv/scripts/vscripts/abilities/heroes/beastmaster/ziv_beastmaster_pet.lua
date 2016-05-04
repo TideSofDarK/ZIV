@@ -1,14 +1,3 @@
-function BasicPropertyRunePet( keys)
-	if caster.pet ~= nil and caster.pet:IsNull() == false and level == caster.pet:GetLevel() and not keys.respawn_pet then
-		Timers:CreateTimer(0.1, function (  )
-			BasicPropertyRunePet(keys)
-		end)
-	else
-		keys.caster = caster.pet
-		BasicPropertyRune(keys)
-	end
-end
-
 function SpawnPet( keys )
 	local caster = keys.caster
 	local ability = keys.ability

@@ -3,10 +3,15 @@ function SpawnBallista( keys )
 	local ability = keys.ability
 	local target = keys.target_points[1]
 
+    StartRuneCooldown(ability,"ziv_huntress_ballista_cd",caster)
+
 	local _duration = ability:GetLevelSpecialValueFor("ballista_duration", ability:GetLevel())
 
 	local ballista = CreateUnitByName("npc_huntress_ballista", target, false, caster, caster, caster:GetTeamNumber())
 	ability:ApplyDataDrivenModifier(ballista,ballista,"modifier_ballista",{})
+
+    ability:ApplyDataDrivenModifier(ballista,ballista,"modifier_ballista_as",{})
+    ballista:SetModifierStackCount("modifier_ballista_as",ballista,GRMSC("modifier_ballista_as", caster))
 
 	ballista:AddNewModifier(ballista, nil, "modifier_kill", {duration = _duration})
 end
@@ -23,7 +28,7 @@ function SplitShot( keys )
 	local ability = keys.ability
 	local target = keys.target
 
-	local units_in_burn_radius = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(),  nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(),  nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 	local projectile_info = 
     {
@@ -38,7 +43,7 @@ function SplitShot( keys )
         bProvidesVision = false
     }
 
-	for k,v in pairs(units_in_burn_radius) do
+	for k,v in pairs(units) do
     	projectile_info.Target = v
     	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Sniper.Attack", target)
     	ProjectileManager:CreateTrackingProjectile(projectile_info)

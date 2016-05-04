@@ -31,25 +31,26 @@ function Volly(args)
 		vVelocity = 0.0,
 	}
 
-	local i = -30.5
-	local z = 0.04
+	local arrows = ability:GetSpecialValueFor("arrows") + GRMSC("ziv_huntress_volley_arrows", caster)
+
+	local i = -30
+	local z = (2 * i) / arrows
 
 	Timers:CreateTimer(function (  )
-		if i < 30.5 and caster:HasModifier("modifier_volly") then
+		if i <= 30 and caster:HasModifier("modifier_volly") then
 			caster:SetForwardVector((target - caster:GetAbsOrigin()):Normalized() )
 			caster:Stop()
 
 			info.vVelocity = RotatePosition(Vector(0,0,0), QAngle(0,i,0), caster:GetForwardVector()) * args.MoveSpeed
 			projectile = ProjectileManager:CreateLinearProjectile(info)
 
-			i = i + (30.5/5)
-			z = z + 0.006
+			i = i + z
 
 			StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=3.0, translate="focusfire"})
 
 			caster:EmitSound("Hero_DrowRanger.Attack")
 
-			return z
+			return 0.05
 		else
 
 		end
@@ -60,17 +61,12 @@ end
 function VollyHit(args)
 	local target = args.target
 	local caster = args.caster
-	local totalDamage = caster:GetAverageTrueAttackDamage() + args.BonusDamage 
-	
-	local damageTable = {
-			victim = target,
-			attacker = caster,
-			damage = totalDamage,
-			damage_type = DAMAGE_TYPE_PHYSICAL,}
-	ApplyDamage(damageTable)	
+	local ability = args.ability
+		
+	DealDamage(caster, target, GetRuneDamage("ziv_huntress_volley_damage",caster) * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_PHYSICAL)
 end
 
 function VollyThinker(target,runCount)
 	target:SetContextNum("VollyHitCheck",0,0)
-return nil
+	return nil
 end

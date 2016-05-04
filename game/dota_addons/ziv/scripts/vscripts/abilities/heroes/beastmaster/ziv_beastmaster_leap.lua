@@ -51,7 +51,7 @@ function LeapHorizonal( keys )
 			    }
 				v:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
 
-			    DealDamage(caster, v, GetRuneDamageIncrease("ziv_beastmaster_leap_damage",caster), DAMAGE_TYPE_PHYSICAL)
+			    DealDamage(caster, v, GetRuneDamage("ziv_beastmaster_leap_damage",caster), DAMAGE_TYPE_PHYSICAL)
 			end
 		end)
 		

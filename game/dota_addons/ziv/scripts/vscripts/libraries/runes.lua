@@ -6,28 +6,38 @@ function StartRuneCooldown(ability,name,caster)
 	ability:StartCooldown((1 - (GRMSC(name,caster) / 100)) * ability:GetCooldown(ability:GetLevel())) 
 end
 
-function GetRuneDamageIncrease(name,caster)
+function GetRuneDamage(name,caster)
 	return ((GRMSC(name,caster) / 100) + 1) * caster:GetAverageTrueAttackDamage()
 end
 
+function GetRunePercentIncrease(value,name,caster)
+	return ((GRMSC(name,caster) / 100) + 1) * value
+end
+
 function GetRuneChance(name,caster)
-	return math.random(0, 100) > GRMSC(name,caster)
+	return math.random(0, 100) > (100 - GRMSC(name,caster))
 end
 
 function BasicPropertyRune(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 
-	if keys.check_modifier and caster:HasModifier("keys.check_modifier") == false then
-		caster:RemoveModifierByName(keys.modifier_name)
+	local target = caster
+
+	if keys["pet_key"] and IsValidEntity(caster[keys["pet_key"]]) then
+		target = caster[keys["pet_key"]]
+	end
+
+	if keys.check_modifier and target:HasModifier("keys.check_modifier") == false then
+		target:RemoveModifierByName(keys.modifier_name)
 	else
-		local stacks = GRMSC(keys.rune_modifier,caster)
+		local stacks = GRMSC(keys.rune_modifier,target)
 
 		if stacks > 0 then
-			ability:ApplyDataDrivenModifier(caster,caster,keys.modifier_name,{})
-			caster:SetModifierStackCount(keys.modifier_name,caster,stacks)
+			ability:ApplyDataDrivenModifier(target,target,keys.modifier_name,{})
+			target:SetModifierStackCount(keys.modifier_name,target,stacks)
 		else
-			caster:RemoveModifierByName(keys.modifier_name)
+			target:RemoveModifierByName(keys.modifier_name)
 		end
 	end
 

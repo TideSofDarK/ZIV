@@ -873,9 +873,10 @@
 	      {
 	        "RunScript"
 	        {
-	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	          "ScriptFile"  "libraries/runes.lua"
 	          "rune_modifier"     "ziv_beastmaster_pet_as"
 	          "modifier_name"     "modifier_pet_as_rune"
+	          "pet_key"     "pet"
 	          "Function"        "BasicPropertyRunePet"
 	        }
 	      }
@@ -898,9 +899,10 @@
 	      {
 	        "RunScript"
 	        {
-	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	          "ScriptFile"  "libraries/runes.lua"
 	          "rune_modifier"     "ziv_beastmaster_pet_ms"
 	          "modifier_name"     "modifier_pet_ms_rune"
+	          "pet_key"     "pet"
 	          "Function"        "BasicPropertyRunePet"
 	        }
 	      }
@@ -2339,7 +2341,7 @@
 		"AbilityTextureName"			"ziv_empty"
 	
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0.15"
 		"AbilityCooldown"				"4.5"
 		"AbilityManaCost"				"20"
 	
@@ -2376,20 +2378,27 @@
 				"Target" 		"CASTER"
 			}
 	
-			"LinearProjectile"
+			// "LinearProjectile"
+			// {
+			// 	"Target" "POINT"
+			// 	"EffectName" "particles/heroes/elementalist/elementalist_fire_blast.vpcf"
+			// 	"MoveSpeed" "800"
+			// 	"StartRadius" "75"
+			// 	"StartPosition" "attach_origin"
+			// 	"EndRadius" "650"
+			// 	"FixedDistance" "650"
+			// 	"TargetTeams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			// 	"TargetTypes" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO | DOTA_UNITY_TARGET_MECHANICAL"
+			// 	"TargetFlags" "DOTA_UNIT_TARGET_FLAG_NONE"
+			// 	"HasFrontalCone" "1"
+			// 	"ProvidesVision" "0"
+			// }
+	
+			"RunScript"
 			{
-				"Target" "POINT"
-				"EffectName" "particles/heroes/elementalist/elementalist_fire_blast.vpcf"
-				"MoveSpeed" "800"
-				"StartRadius" "75"
-				"StartPosition" "attach_origin"
-				"EndRadius" "650"
-				"FixedDistance" "650"
-				"TargetTeams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"TargetTypes" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO | DOTA_UNITY_TARGET_MECHANICAL"
-				"TargetFlags" "DOTA_UNIT_TARGET_FLAG_NONE"
-				"HasFrontalCone" "1"
-				"ProvidesVision" "0"
+				"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_fire_blast.lua"
+				"Function"		"FireBlast"
+				"Target"    "TARGET"
 			}
 		}
 	
@@ -2574,6 +2583,18 @@
 	
 	  "Modifiers"
 	  {
+	    "modifier_ballista_as"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+	      }
+	    }
+	    
 	    "modifier_ballista"
 	    {
 	      "Passive"      "0"
@@ -2723,7 +2744,7 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_damage"            "70 100 130 160 190 220 250"
+	      "damage_amp"            "0.1"
 	    }
 	  }
 	  
@@ -3004,11 +3025,11 @@
 	            
 	              "Action"    
 	              {
-	                "ApplyModifier"
+	                "RunScript"
 	                {
-	                  "ModifierName"  "modifier_ensnared"
+	                  "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_trap.lua"
+	                  "Function"    "SnareImpact"
 	                  "Target"     "TARGET"
-	                  "Duration"    "%snare_duration"
 	                }
 	              }
 	            }
@@ -3067,8 +3088,13 @@
 	  {
 	    "01"
 	    {
+	      "var_type"            "FIELD_FLOAT"
+	      "damage_amp"            "0.2"
+	    }
+	    "02"
+	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_damage"            "70 100 130 160 190 220 250"
+	      "arrows"            "6"
 	    }
 	  }
 	  
@@ -3114,7 +3140,6 @@
 	      "Function"          "VollyHit"
 	      "Target"            "TARGET"
 	      "Type"        "DAMAGE_TYPE_PHYSICAL"
-	      "BonusDamage"   "%bonus_damage"
 	    }
 	  }
 	

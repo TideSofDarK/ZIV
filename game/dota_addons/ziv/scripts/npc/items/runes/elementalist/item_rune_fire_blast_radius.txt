@@ -19,8 +19,8 @@
   {
     "ziv_elementalist_fire_blast_radius"
     {
-      "min" "10"
-      "max" "70"
+      "min" "5"
+      "max" "50"
     }
   }
 }

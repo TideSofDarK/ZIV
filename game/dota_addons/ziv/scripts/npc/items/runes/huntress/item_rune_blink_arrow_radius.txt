@@ -1,4 +1,4 @@
-"item_rune_blink_arrow_damage"
+"item_rune_blink_arrow_radius"
 {
   "ID"		"1509"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -17,10 +17,10 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_huntress_blink_arrow_damage"
+    "ziv_huntress_blink_arrow_radius"
     {
-      "min" "5"
-      "max" "12"
+      "min" "10"
+      "max" "125"
     }
   }
 }

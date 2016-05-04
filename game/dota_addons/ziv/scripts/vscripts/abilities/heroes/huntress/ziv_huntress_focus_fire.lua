@@ -73,9 +73,9 @@ function StartBarrage( keys )
 		    end)
 
 		    projectiles[projectile_number].OnUnitHit = (function(self, unit) 
-				local bonusDamage = ability:GetLevelSpecialValueFor("bonus_damage", ability:GetLevel())
+				local damage_amp = ability:GetLevelSpecialValueFor("damage_amp", ability:GetLevel()-1)
 
-				DealDamage(caster, unit, (caster:GetAverageTrueAttackDamage() + bonusDamage) / 10, DAMAGE_TYPE_PHYSICAL)
+				DealDamage(caster, unit, GetRuneDamage("ziv_huntress_focus_fire_damage",caster) * damage_amp, DAMAGE_TYPE_PHYSICAL)
 
 				ParticleManager:SetParticleControl(projectileFX, 1, unit:GetAbsOrigin())
 				ParticleManager:SetParticleControl(projectileFX, 2, Vector(0, 0, 0))

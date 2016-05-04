@@ -10,7 +10,7 @@ function DarkOrbImpact( keys )
 
 	for k,v in pairs(units) do
 		if IsValidEntity(v) then
-			DealDamage(caster, v, caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_DARK)
+			DealDamage(caster, v, GRMSC("ziv_elementalist_dark_orb_damage", caster) * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_DARK)
 		end
 	end
 end

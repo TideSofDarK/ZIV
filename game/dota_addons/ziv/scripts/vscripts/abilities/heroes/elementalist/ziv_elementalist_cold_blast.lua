@@ -6,12 +6,11 @@ function ColdBlastStart( keys )
 	local ability_level = ability:GetLevel() - 1
 	local quas_level = 1
 
-	-- Ability and projectile variables
 	local knockback_duration = ability:GetLevelSpecialValueFor("knockback_duration", quas_level) + 0.1
 	local travel_distance = ability:GetLevelSpecialValueFor("travel_distance", ability_level) 
 	local travel_speed = ability:GetLevelSpecialValueFor("travel_speed", ability_level) 
-	local radius_start = ability:GetLevelSpecialValueFor("radius_start", ability_level) 
-	local radius_end = ability:GetLevelSpecialValueFor("radius_end", ability_level) 
+	local radius_start = ability:GetLevelSpecialValueFor("radius_start", ability_level) + GRMSC("ziv_elementalist_cold_blast_radius", caster)
+	local radius_end = ability:GetLevelSpecialValueFor("radius_end", ability_level) + GRMSC("ziv_elementalist_cold_blast_radius", caster)
 	local dummy_ability_name = keys.dummy_ability_name
 	local projectile_name = keys.projectile_name
 	local direction = (target_point - caster_location):Normalized()
@@ -59,8 +58,8 @@ function ColdBlastStart( keys )
 end
 
 function ColdBlastHit( keys )
-	local caster = keys.caster -- Dummy
-	local caster_owner = caster:GetOwner() -- Hero
+	local caster = keys.caster
+	local caster_owner = caster:GetOwner()
 	local target = keys.target
 	local ability = keys.ability
 	local owner_ability = caster_owner:FindAbilityByName("ziv_elementalist_cold_blast")

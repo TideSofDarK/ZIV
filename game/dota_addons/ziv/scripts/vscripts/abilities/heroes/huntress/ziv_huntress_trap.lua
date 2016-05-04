@@ -47,3 +47,11 @@ function RemoveTrapUnit( keys )
 	caster:RemoveModifierByName("modifier_trap_unit")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_trap_delay", {})
 end
+
+function SnareImpact( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+
+	ability:ApplyDataDrivenModifier(caster,target,"modifier_ensnared",{duration = ability:GetSpecialValueFor("snare_duration") + GRMSC("ziv_huntress_trap_duration", caster)})
+end

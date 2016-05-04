@@ -26,8 +26,13 @@
   {
     "01"
     {
+      "var_type"            "FIELD_FLOAT"
+      "damage_amp"            "0.2"
+    }
+    "02"
+    {
       "var_type"            "FIELD_INTEGER"
-      "bonus_damage"            "70 100 130 160 190 220 250"
+      "arrows"            "6"
     }
   }
   
@@ -73,7 +78,6 @@
       "Function"          "VollyHit"
       "Target"            "TARGET"
       "Type"        "DAMAGE_TYPE_PHYSICAL"
-      "BonusDamage"   "%bonus_damage"
     }
   }
 

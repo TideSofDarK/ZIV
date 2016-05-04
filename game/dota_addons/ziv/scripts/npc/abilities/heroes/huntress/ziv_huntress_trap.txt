@@ -128,11 +128,11 @@
             
               "Action"    
               {
-                "ApplyModifier"
+                "RunScript"
                 {
-                  "ModifierName"  "modifier_ensnared"
+                  "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_trap.lua"
+                  "Function"    "SnareImpact"
                   "Target"     "TARGET"
-                  "Duration"    "%snare_duration"
                 }
               }
             }

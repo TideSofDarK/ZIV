@@ -6,7 +6,7 @@
 	"AbilityTextureName"			"ziv_empty"
 
 	"AbilityCastRange"				"600"
-	"AbilityCastPoint"				"0.1"
+	"AbilityCastPoint"				"0.15"
 	"AbilityCooldown"				"4.5"
 	"AbilityManaCost"				"20"
 
@@ -43,20 +43,27 @@
 			"Target" 		"CASTER"
 		}
 
-		"LinearProjectile"
+		// "LinearProjectile"
+		// {
+		// 	"Target" "POINT"
+		// 	"EffectName" "particles/heroes/elementalist/elementalist_fire_blast.vpcf"
+		// 	"MoveSpeed" "800"
+		// 	"StartRadius" "75"
+		// 	"StartPosition" "attach_origin"
+		// 	"EndRadius" "650"
+		// 	"FixedDistance" "650"
+		// 	"TargetTeams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		// 	"TargetTypes" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO | DOTA_UNITY_TARGET_MECHANICAL"
+		// 	"TargetFlags" "DOTA_UNIT_TARGET_FLAG_NONE"
+		// 	"HasFrontalCone" "1"
+		// 	"ProvidesVision" "0"
+		// }
+
+		"RunScript"
 		{
-			"Target" "POINT"
-			"EffectName" "particles/heroes/elementalist/elementalist_fire_blast.vpcf"
-			"MoveSpeed" "800"
-			"StartRadius" "75"
-			"StartPosition" "attach_origin"
-			"EndRadius" "650"
-			"FixedDistance" "650"
-			"TargetTeams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-			"TargetTypes" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO | DOTA_UNITY_TARGET_MECHANICAL"
-			"TargetFlags" "DOTA_UNIT_TARGET_FLAG_NONE"
-			"HasFrontalCone" "1"
-			"ProvidesVision" "0"
+			"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_fire_blast.lua"
+			"Function"		"FireBlast"
+			"Target"    "TARGET"
 		}
 	}
 

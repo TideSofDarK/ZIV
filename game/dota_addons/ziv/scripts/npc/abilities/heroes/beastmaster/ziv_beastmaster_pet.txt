@@ -161,9 +161,10 @@
       {
         "RunScript"
         {
-          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+          "ScriptFile"  "libraries/runes.lua"
           "rune_modifier"     "ziv_beastmaster_pet_as"
           "modifier_name"     "modifier_pet_as_rune"
+          "pet_key"     "pet"
           "Function"        "BasicPropertyRunePet"
         }
       }
@@ -186,9 +187,10 @@
       {
         "RunScript"
         {
-          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+          "ScriptFile"  "libraries/runes.lua"
           "rune_modifier"     "ziv_beastmaster_pet_ms"
           "modifier_name"     "modifier_pet_ms_rune"
+          "pet_key"     "pet"
           "Function"        "BasicPropertyRunePet"
         }
       }

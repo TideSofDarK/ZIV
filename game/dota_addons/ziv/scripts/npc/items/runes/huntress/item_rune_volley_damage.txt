@@ -20,7 +20,7 @@
     "ziv_huntress_volley_damage"
     {
       "min" "2"
-      "max" "10"
+      "max" "15"
     }
   }
 }

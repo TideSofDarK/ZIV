@@ -19,8 +19,8 @@
   {
     "ziv_huntress_focus_fire_damage"
     {
-      "min" "5"
-      "max" "12"
+      "min" "2"
+      "max" "20"
     }
   }
 }

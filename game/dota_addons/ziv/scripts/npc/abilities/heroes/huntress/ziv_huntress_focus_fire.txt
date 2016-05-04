@@ -30,7 +30,7 @@
     "01"
     {
       "var_type"            "FIELD_INTEGER"
-      "bonus_damage"            "70 100 130 160 190 220 250"
+      "damage_amp"            "0.1"
     }
   }
   

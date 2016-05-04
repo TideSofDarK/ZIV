@@ -870,8 +870,8 @@
 	  {
 	    "ziv_elementalist_cold_blast_radius"
 	    {
-	      "min" "10"
-	      "max" "70"
+	      "min" "5"
+	      "max" "95"
 	    }
 	  }
 	}
@@ -897,7 +897,7 @@
 	    "ziv_elementalist_cold_orb_damage"
 	    {
 	      "min" "1"
-	      "max" "10"
+	      "max" "20"
 	    }
 	  }
 	}
@@ -923,7 +923,7 @@
 	    "ziv_elementalist_dark_orb_damage"
 	    {
 	      "min" "1"
-	      "max" "10"
+	      "max" "20"
 	    }
 	  }
 	}
@@ -948,8 +948,8 @@
 	  {
 	    "ziv_elementalist_fire_blast_radius"
 	    {
-	      "min" "10"
-	      "max" "70"
+	      "min" "5"
+	      "max" "50"
 	    }
 	  }
 	}
@@ -974,8 +974,8 @@
 	  {
 	    "ziv_elementalist_overload_cold_damage"
 	    {
-	      "min" "5"
-	      "max" "10"
+	      "min" "2"
+	      "max" "15"
 	    }
 	  }
 	}
@@ -1000,8 +1000,8 @@
 	  {
 	    "ziv_elementalist_overload_fire_damage"
 	    {
-	      "min" "5"
-	      "max" "10"
+	      "min" "2"
+	      "max" "15"
 	    }
 	  }
 	}
@@ -1026,8 +1026,8 @@
 	  {
 	    "ziv_elementalist_overload_lightning_damage"
 	    {
-	      "min" "5"
-	      "max" "10"
+	      "min" "2"
+	      "max" "15"
 	    }
 	  }
 	}
@@ -1078,8 +1078,8 @@
 	  {
 	    "ziv_huntress_ballista_as"
 	    {
-	      "min" "20"
-	      "max" "40"
+	      "min" "5"
+	      "max" "50"
 	    }
 	  }
 	}
@@ -1104,12 +1104,12 @@
 	  {
 	    "ziv_huntress_ballista_cd"
 	    {
-	      "min" "10"
+	      "min" "5"
 	      "max" "30"
 	    }
 	  }
 	}
-	"item_rune_blink_arrow_damage"
+	"item_rune_blink_arrow_radius"
 	{
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1128,10 +1128,10 @@
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
-	    "ziv_huntress_blink_arrow_damage"
+	    "ziv_huntress_blink_arrow_radius"
 	    {
-	      "min" "5"
-	      "max" "12"
+	      "min" "10"
+	      "max" "125"
 	    }
 	  }
 	}
@@ -1156,8 +1156,8 @@
 	  {
 	    "ziv_huntress_focus_fire_damage"
 	    {
-	      "min" "5"
-	      "max" "12"
+	      "min" "2"
+	      "max" "20"
 	    }
 	  }
 	}
@@ -1235,7 +1235,7 @@
 	    "ziv_huntress_volley_damage"
 	    {
 	      "min" "2"
-	      "max" "10"
+	      "max" "15"
 	    }
 	  }
 	}
