@@ -28,7 +28,7 @@ function CreateTotem2( keys )
 	local target = keys.target_points[1]
 	local ability = keys.ability
 
-	local _duration = ability:GetLevelSpecialValueFor("totem_duration", ability:GetLevel())
+	local _duration = ability:GetLevelSpecialValueFor("totem_duration", ability:GetLevel()) + GRMSC("ziv_witch_doctor_totem2_duration", caster)
 
 	local totem = CreateUnitByName("npc_witch_doctor_totem2", target, false, nil, caster:GetPlayerOwner(), caster:GetTeamNumber())
 	ability:ApplyDataDrivenModifier(totem,totem,"modifier_witch_doctor_totem2",{duration = _duration})
@@ -65,9 +65,12 @@ function SplitShot( keys )
 	Timers:CreateTimer(0.2, function ()
 		if caster:IsNull() == false then
 			caster:EmitSound("Hero_WitchDoctor_Ward.Attack")
-			local units_in_burn_radius = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),  nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),  nil, 550 + GRMSC("ziv_witch_doctor_totem_radius", caster:GetOwnerEntity()), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
-			for k,v in pairs(units_in_burn_radius) do
+			local targets = ability:GetSpecialValueFor("totem_targets") + GRMSC("ziv_witch_doctor_totem_targets", caster)
+			local i = 1
+			for k,v in pairs(units) do
+				if i >= targets then break end
 				if v ~= target then 
 					local projectile_info = 
 				    {
@@ -82,6 +85,7 @@ function SplitShot( keys )
 				        bProvidesVision = false
 				    }
 			    	ProjectileManager:CreateTrackingProjectile(projectile_info)
+			    	i = i + 1
 				end
 			end
 		end
@@ -120,8 +124,8 @@ function Pulling( keys )
 
     local angle =math.atan2(target_position.y - caster_position.y, target_position.x - caster_position.x)
 
-	target_position.x = target_position.x - (math.cos(angle) * 64)
-	target_position.y = target_position.y - (math.sin(angle) * 64)
+	target_position.x = target_position.x - (math.cos(angle) * (64 + GRMSC("ziv_witch_doctor_totem2_force", caster)))
+	target_position.y = target_position.y - (math.sin(angle) * (64 + GRMSC("ziv_witch_doctor_totem2_force", caster)))
 
 	local speed = 2.5
 

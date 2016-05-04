@@ -19,7 +19,7 @@
   {
     "ziv_witch_doctor_totem_radius"
     {
-      "min" "50"
+      "min" "10"
       "max" "100"
     }
   }

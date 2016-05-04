@@ -4965,7 +4965,7 @@
 	    "04"
 	    {
 	      "var_type"  "FIELD_INTEGER"
-	      "movespeed_reduction" "-20"
+	      "movespeed_reduction" "-40"
 	    }
 	  }
 	
@@ -5310,6 +5310,11 @@
 	      "damage_amp"    "4.0"
 	    }
 	    "02"
+	    {
+	      "var_type"  "FIELD_INTEGER"
+	      "totem_targets"  "7"
+	    }
+	    "03"
 	    {
 	      "var_type"  "FIELD_FLOAT"
 	      "totem_duration"  "8.0"

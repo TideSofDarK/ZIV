@@ -19,7 +19,7 @@
   {
     "ziv_witch_doctor_spawn_cd"
     {
-      "min" "10"
+      "min" "2"
       "max" "30"
     }
   }

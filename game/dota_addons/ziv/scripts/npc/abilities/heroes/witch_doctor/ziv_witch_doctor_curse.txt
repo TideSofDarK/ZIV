@@ -43,7 +43,7 @@
     "04"
     {
       "var_type"  "FIELD_INTEGER"
-      "movespeed_reduction" "-20"
+      "movespeed_reduction" "-40"
     }
   }
 

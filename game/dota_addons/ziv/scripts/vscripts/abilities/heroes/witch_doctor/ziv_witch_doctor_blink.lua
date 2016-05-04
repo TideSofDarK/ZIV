@@ -14,6 +14,12 @@ function Blink( keys )
 
 	Timers:CreateTimer(0.5, function ()
 		FindClearSpaceForUnit(caster,target,false)
+
+		local heal = GRMSC("ziv_witch_doctor_blink_heal", caster)
+		if heal > 0 then
+			caster:Heal((caster:GetMaxHealth() / 100) * heal,ability)
+			-- TODO Heal particles
+		end
 		
 		Timers:CreateTimer(0.1,function (  )
 			ParticleManager:CreateParticle("particles/econ/events/nexon_hero_compendium_2014/teleport_end_dust_nexon_hero_cp_2014.vpcf",PATTACH_ABSORIGIN,caster)

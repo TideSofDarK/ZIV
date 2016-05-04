@@ -3,7 +3,9 @@ function WDSpawn( keys )
 	local target = keys.target_points[1]
 	local ability = keys.ability
 
-	local count = ability:GetSpecialValueFor("count")
+	StartRuneCooldown(ability,"ziv_witch_doctor_spawn_cd",caster)
+
+	local count = ability:GetSpecialValueFor("count") + GRMSC("ziv_witch_doctor_spawn_count", caster)
 	local duration = ability:GetSpecialValueFor("duration")
 
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)

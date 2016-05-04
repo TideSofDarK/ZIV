@@ -10,7 +10,7 @@ function Curse( keys )
 	ability.damage = caster:GetAverageTrueAttackDamage() * damage_amp
 
 	for k,v in pairs(units) do
-		ability:ApplyDataDrivenModifier(v,v,"modifier_witch_doctor_curse",{})
+		ability:ApplyDataDrivenModifier(v,v,"modifier_witch_doctor_curse",{duration = ability:GetSpecialValueFor("duration") + GRMSC("ziv_witch_doctor_curse_duration", caster)})
 		v:EmitSound("Hero_Treant.Overgrowth.Target")
 	end
 

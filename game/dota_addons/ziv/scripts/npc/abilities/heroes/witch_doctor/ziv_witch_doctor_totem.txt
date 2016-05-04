@@ -29,6 +29,11 @@
     }
     "02"
     {
+      "var_type"  "FIELD_INTEGER"
+      "totem_targets"  "7"
+    }
+    "03"
+    {
       "var_type"  "FIELD_FLOAT"
       "totem_duration"  "8.0"
     }
