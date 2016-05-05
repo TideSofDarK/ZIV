@@ -9,7 +9,7 @@
 	<Panel class="MinimapRoot TopRight" hittest="false">
 		<Panel class="ImageContainer" id="ImagePanel">
 			<Image class="MinimapMarks" id="PointerImage" src="file://{images}/custom_game/minimap/pointer.png" />			
-			<Image id="MinimapImage" src="file://{images}/custom_game/minimap/minimap.png">
+			<Image id="MinimapImage" src="file://{images}/custom_game/minimap/minimap.png" onactivate="MinimapClick()">
 				<Panel class="MarksContainer" id="MarksMap" /> 
 			</Image>
 		</Panel>

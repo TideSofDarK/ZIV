@@ -1,0 +1,30 @@
+.Mark {
+	width: 15px;
+	height: 15px;
+
+	border: 1px solid black;
+
+	z-index: 1;
+}
+
+.Mark:hover {
+	width: 30px;
+	height: 30px;
+}
+
+.green {
+	background-color: green;
+}
+
+.red {
+	background-color: red;
+	z-index: 1;
+}
+
+.yellow {
+	background-color: yellow;
+}
+
+.white {
+	background-color: white;
+}

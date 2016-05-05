@@ -1,5 +1,6 @@
 "use strict";
 
+var marksPath = "file://{resources}/layout/custom_game/minimap/marks/";
 var bounds = null;
 
 // Calculate relative image position
@@ -104,20 +105,26 @@ function SetEntityMapPostition( panel, entity )
 	}	
 }
 
-function SetEntityStyle( panel, entity )
+// Get mark filename
+function GetMarkType( entity )
 {
-	panel.AddClass("square");
+	var type = "default";
 
-	if (Entities.IsItemPhysical(entity))
-		panel.AddClass("yellow");
-
-	if (Entities.IsEnemy(entity))
-		panel.AddClass("red");
-	else if (Entities.IsNeutralUnitType(entity))
-		panel.AddClass("white");
-	else
-		panel.AddClass("green");
+	return type;
 }
+
+function CreateMarkPanel( entity )
+{
+	var panel = $.CreatePanel( "Panel", $( "#MarksMap" ), "Entity_" + entity );
+	panel.BLoadLayout( marksPath + GetMarkType( entity ) +".xml", false, false );
+
+	panel.entity = entity;
+
+	if (panel.UpdateClass)
+		panel.UpdateClass();
+ 
+	return panel;
+} 
 
 // Filter units for minimap
 function FilterUnits( heroID )
@@ -138,15 +145,11 @@ function UpdateUnits( heroID )
 
 	RemoveUnusedMarks( rangeUnits )
 
-	var marksContainer = $( "#MarksMap" );
 	for(var ent of rangeUnits)
 	{
-		var entPanel = marksContainer.FindChild("Entity_" + ent);
+		var entPanel = $( "#MarksMap" ).FindChild("Entity_" + ent);
 		if (!entPanel)
-		{
-			entPanel = $.CreatePanel( "Panel", marksContainer, "Entity_" + ent );
-			SetEntityStyle( entPanel, ent );
-		}
+			entPanel = CreateMarkPanel( ent );
 
 		SetEntityMapPostition( entPanel, ent );	
 	}
@@ -162,6 +165,30 @@ function UpdateMinimap()
 	UpdateUnits( heroID );
 
 	$.Schedule(0.05, UpdateMinimap); 
+}
+
+function MinimapClick()
+{
+	var mousePos = GameUI.GetCursorPosition();
+	var containerPos = $( "#ImagePanel" ).GetPositionWithinWindow();
+
+	var image = $( "#MinimapImage" );
+	var offset = {
+		x: ((mousePos[0] - containerPos.x) - image.actualxoffset) / image.actuallayoutwidth,
+		y: ((mousePos[1] - containerPos.y) - image.actualyoffset) / image.actuallayoutheight
+	}
+
+	var x = bounds["min"].x + (bounds["max"].x - bounds["min"].x) * offset.x;
+	var y = bounds["max"].y - (bounds["max"].y - bounds["min"].y) * offset.y;
+
+	var order = {
+		OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+		Position : [x, y, 0],
+		Queue : false,
+		ShowEffects : false
+	};
+
+	Game.PrepareUnitOrders( order );
 }
 
 function SetWorldBounds( args ) 
@@ -189,7 +216,7 @@ function ChangeMinimapMode()
 }
 
 (function()
-{
+{ 
 	Game.AddCommand("ZIVShowMinimap", ChangeMinimapMode, "", 0); 
 
 	GameEvents.SendCustomGameEventToServer( "world_bounds_request", {} );
