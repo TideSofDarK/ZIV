@@ -1,0 +1,78 @@
+"ziv_undying_attack"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+  "AbilityTextureName"            "ziv_empty"
+
+  "AOERadius" "300"
+
+  "AbilityCastRange"        "100"
+  "AbilityCastPoint"        "0.5"
+  "AbilityCooldown"       "3.2"
+  "AbilityCastAnimation"      ""
+
+  "AbilityManaCost"       "10"
+
+  "MaxLevel"  "1"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+    "particle"  "particles/units/heroes/hero_visage/visage_stoneform_blast.vpcf"
+  }
+
+  "OnAbilityPhaseStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/bosses/undying/ziv_undying_attack.lua"
+      "Function"    "Attack"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "FireSound"
+    {
+      "EffectName"  "Hero_Undying.Attack"
+      "Target"     "CASTER"
+    }
+    "FireSound"
+    {
+      "EffectName"  "Hero_EarthShaker.Attack"
+      "Target"     "CASTER"
+    }
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/bosses/undying/ziv_undying_attack.lua"
+      "Function"    "AttackParticle"
+      "Target"  "POINT"
+    }
+    "ActOnTargets"
+    {
+      "Target"
+      {
+        "Center"    "POINT"
+        "Radius"   "300"
+        "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+      }
+    
+      "Action"    
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/bosses/undying/ziv_undying_attack.lua"
+          "Function"    "AttackImpact"
+          "Target"       "TARGET"
+        }
+      }
+    }
+  }
+
+  "Modifiers"
+  {
+
+  }
+}

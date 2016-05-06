@@ -57,6 +57,50 @@
 	
 	    "AttackDesire"        "1.5"
 	} 
+	"npc_undying_tomb"
+	{
+		"BaseClass"					"npc_dota_creep"
+		"Model"						"models/heroes/undying/undying_tower.vmdl"
+		"SoundSet"					"Undying_Tombstone"
+		"ModelScale"				"0.7"
+		"Level"						"4"
+		"IsSummoned"				"1"
+		"IsAncient"					"1"
+		"IsOther"					"1"
+		
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+		"Ability5"					""
+		"Ability6"					""
+		"Ability7"					""
+		"Ability8"					""
+	
+		"ArmorPhysical"				"5"
+		"MagicalResistance"				"33"
+	
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+	
+		"BountyXP"					"0"
+		"BountyGoldMin"				"125"
+		"BountyGoldMax"				"125"
+	
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"HealthBarOffset"			"250"
+	
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+	
+		"StatusHealth"				"6"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+	}
 	"npc_beastmaster_bird"
 	{
 	    "BaseClass"         "npc_dota_creature"
@@ -952,6 +996,66 @@
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
 	} 
+	"npc_boss_undying"
+	{
+	    "BaseClass"                 "npc_dota_creature"
+	    "Model"                     "models/heroes/undying/undying.vmdl"
+	    "ModelScale"                "1.5"
+	    "Level"                     "20"
+	    "HealthBarOffset"           "290"
+	
+	    "SoundSet"                  "Hero_Undying"
+	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
+	    "VoiceFile"                 "soundevents/voscripts/game_sounds_vo_undying.vsndevts"
+	    
+	    "Ability1"                  "ziv_undying_attack"
+	    "Ability2"                  "ziv_undying_tombs"
+	    "Ability3"                  "ziv_undying_curse"
+	    "Ability4"                  "ziv_undying_consume"
+	    "Ability5"                  "ziv_undying_form"
+	    "Ability6"                  "ziv_undying_passive"
+	    "Ability7"                  "ziv_boss_hpbar"
+	
+	    "ArmorPhysical"             "0"
+	    "MagicalResistance"         "0"
+	
+	    "AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"
+	    "AttackDamageMin"           "6.0"
+	    "AttackDamageMax"           "6.0"
+	    "AttackDamageType"          "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"                "2.00"
+	    "AttackAnimationPoint"      "0.5"
+	    "AttackAcquisitionRange"    "500"
+	    "AttackRange"               "90"
+	
+	    "BountyGoldMin"             "0"
+	    "BountyGoldMax"             "0"
+	
+	    "BoundsHullName"            "DOTA_HULL_SIZE_HUGE"
+	    "RingRadius"    "-1"
+	
+	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"             "150"
+	    "MovementTurnRate"          "0.6"
+	
+	    "StatusHealth"              "10000"
+	    "StatusHealthRegen"         "0.50"
+	    "StatusMana"              "100"
+	    "StatusManaRegen"         "1.50"
+	
+	    "VisionDaytimeRange"        "1000"
+	    "VisionNighttimeRange"      "1000"
+	
+	    "Creature"
+	    {
+	        "DisableClumpingBehavior"   "1"
+	        "AttachWearables"
+	        {
+	            "Wearable1"     {   "ItemDef"       "392"     } //models/heroes/undying/undying_helmet.vmdl
+	            "Wearable2"     {   "ItemDef"       "393"     } //models/heroes/undying/undying_armor.vmdl
+	        }
+	    }
+	}
 	"npc_basic_chest"
 	{
 	    // General
@@ -1035,7 +1139,7 @@
 	    "VisionDaytimeRange"    "0"   // Range of vision during day light.
 	    "VisionNighttimeRange"    "0"   // Range of vision at night time.
 	} 
-	"npc_creep_skeleton"
+	"npc_creep_undead_skeleton"
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"  "n_creep_skeleton_melee"
@@ -1082,7 +1186,7 @@
 	        "DisableClumpingBehavior"   "1"
 	    }
 	} 
-	"npc_creep_wraith"
+	"npc_creep_undead_wraith"
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "HealthBarOffset"   "180"
@@ -1126,7 +1230,7 @@
 	        "DisableClumpingBehavior"   "1"
 	    }
 	} 
-	"npc_creep_zombie"
+	"npc_creep_undead_zombie"
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"                  "Undying_Zombie"

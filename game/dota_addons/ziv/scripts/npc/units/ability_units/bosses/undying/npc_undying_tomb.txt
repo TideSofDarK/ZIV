@@ -1,0 +1,44 @@
+"npc_undying_tomb"
+{
+	"BaseClass"					"npc_dota_creep"
+	"Model"						"models/heroes/undying/undying_tower.vmdl"
+	"SoundSet"					"Undying_Tombstone"
+	"ModelScale"				"0.7"
+	"Level"						"4"
+	"IsSummoned"				"1"
+	"IsAncient"					"1"
+	"IsOther"					"1"
+	
+	"Ability1"					""
+	"Ability2"					""
+	"Ability3"					""
+	"Ability4"					""
+	"Ability5"					""
+	"Ability6"					""
+	"Ability7"					""
+	"Ability8"					""
+
+	"ArmorPhysical"				"5"
+	"MagicalResistance"				"33"
+
+	"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+
+	"BountyXP"					"0"
+	"BountyGoldMin"				"125"
+	"BountyGoldMax"				"125"
+
+	"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+	"HealthBarOffset"			"250"
+
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"				"0"
+	"MovementTurnRate"			"0.0"
+
+	"StatusHealth"				"6"
+	"StatusHealthRegen"			"0"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+
+	"VisionDaytimeRange"		"800"
+	"VisionNighttimeRange"		"800"
+}

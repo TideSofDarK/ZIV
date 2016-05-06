@@ -170,3 +170,17 @@ function Director:SpawnCreeps( spawn_table )
 		end
 	end
 end
+
+-- Misc functions
+function CreateBossHPBar( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+
+	if not caster.worldPanel then
+		caster.worldPanel = WorldPanels:CreateWorldPanelForAll(
+			{layout = "file://{resources}/layout/custom_game/worldpanels/healthbar.xml",
+			entity = caster:GetEntityIndex(),
+			entityHeight = 325,
+			})
+	end
+end

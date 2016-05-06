@@ -1,22 +1,17 @@
 function FindUnitsInCone(position, coneDirection, coneLength, coneWidth, teamNumber, teamFilter, typeFilter, flagFilter, order)
-    --Do a search equal to a cone with width 2PI
-    local units = FindUnitsInRadius(teamNumber, position, nil, coneLength, teamFilter, typeFilter, flagFilter, order, false)
- 
-    --Normalize cone direction just to be sure
-    coneDirection = coneDirection:Normalized()
- 
-    -- Filter found units
-    local output = {}
-    for _, unit in pairs(units) do
-        --Get the direction from the center of the search to the unit
-        local direction = (unit:GetAbsOrigin() - position):Normalized()
-        --If the unit is in the cone add it do the output
-        if direction:Dot(coneDirection) >= math.cos(coneWidth/2) then
-            table.insert(output, unit)
-        end
+  local units = FindUnitsInRadius(teamNumber, position, nil, coneLength, teamFilter, typeFilter, flagFilter, order, false)
+
+  coneDirection = coneDirection:Normalized()
+
+  local output = {}
+  for _, unit in pairs(units) do
+    local direction = (unit:GetAbsOrigin() - position):Normalized()
+    if direction:Dot(coneDirection) >= math.cos(coneWidth/2) then
+      table.insert(output, unit)
     end
- 
-    return output
+  end
+
+  return output
 end
 
 function IsInFront(a,b,direction)

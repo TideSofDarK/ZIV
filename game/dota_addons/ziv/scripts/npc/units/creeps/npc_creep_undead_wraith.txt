@@ -1,4 +1,4 @@
-"npc_creep_wraith"
+"npc_creep_undead_wraith"
 {
     "BaseClass"         "npc_dota_creature"
     "HealthBarOffset"   "180"

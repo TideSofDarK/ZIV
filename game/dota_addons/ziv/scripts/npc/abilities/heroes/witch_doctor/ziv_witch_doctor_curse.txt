@@ -6,14 +6,6 @@
 
   "AOERadius" "500"
 
-  "precache"
-  {
-    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
-    "soundfile" "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
-    "soundfile"      "soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
-    "particle"      "particles/econ/courier/courier_trail_cursed/courier_cursed_ambient_c.vpcf"
-  }
-
   "AbilityCastRange"        "700"
   "AbilityCastPoint"        "0.3"
   "AbilityCooldown"       "0.9"
@@ -22,6 +14,14 @@
   "AbilityManaCost"       "25"
 
   "MaxLevel"  "7"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
+    "soundfile"      "soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+    "particle"      "particles/econ/courier/courier_trail_cursed/courier_cursed_ambient_c.vpcf"
+  }
 
   "AbilitySpecial"
   {

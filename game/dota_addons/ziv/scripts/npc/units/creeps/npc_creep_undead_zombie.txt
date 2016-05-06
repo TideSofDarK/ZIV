@@ -1,4 +1,4 @@
-"npc_creep_zombie"
+"npc_creep_undead_zombie"
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"                  "Undying_Zombie"

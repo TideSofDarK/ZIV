@@ -1,0 +1,116 @@
+"ziv_undying_curse"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+  "AbilityTextureName"            "ziv_empty"
+
+  "AOERadius" "300"
+
+  "AbilityCastRange"        "700"
+  "AbilityCastPoint"        "0.6"
+  "AbilityCooldown"       "4.9"
+  "AbilityCastAnimation"      "ACT_DOTA_UNDYING_DECAY"
+
+  "AbilityManaCost"       "25"
+
+  "MaxLevel"  "7"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
+    "particle"  "particles/econ/items/slardar/slardar_takoyaki_gold/status_effect_slardar_crush_tako_gold.vpcf"
+    "particle"  "particles/units/heroes/hero_undying/undying_decay.vpcf"
+    "particle"      "particles/econ/courier/courier_trail_cursed/courier_cursed_ambient_c.vpcf"
+  }
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "duration"    "6"
+    }
+    "02"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "damage_amp"    "25"
+    }
+    "03"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "slow"    "-40"
+    }
+    "04"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "cd"    "-40"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "FireSound"
+    {
+      "EffectName"  "Hero_Undying.Decay.Cast"
+      "Target"     "CASTER"
+    }
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/bosses/undying/ziv_undying_curse.lua"
+      "Function"    "Curse"
+      "Target"       "POINT"
+    }
+    "ActOnTargets"
+    {
+      "Target"
+      {
+        "Center"    "POINT"
+        "Radius"   "300"
+        "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+      }
+    
+      "Action"    
+      {
+        "ApplyModifier"
+        {
+          "ModifierName"  "modifier_undying_curse"
+          "Target"     "TARGET"
+        }
+      }
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_undying_curse"
+    {
+      "Duration" "%duration"
+
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "StatusEffectName"     "particles/econ/items/slardar/slardar_takoyaki_gold/status_effect_slardar_crush_tako_gold.vpcf"      
+      "StatusEffectPriority"  "3"
+
+      "OnCreated"
+      {
+        "AttachEffect"
+        {
+          "EffectName"        "particles/units/heroes/hero_undying/undying_decay_strength_buff.vpcf"
+          "EffectAttachType"  "follow_origin"
+          "Target"            "TARGET"
+        }
+      }
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_amp"
+        "MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT" "%cd"
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+      }
+    }
+  }
+}

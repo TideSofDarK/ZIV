@@ -1,8 +1,3 @@
-function AddChildParticle( unit, particle )
-  unit.particles = unit.particles or {}
-  table.insert(unit.particles, particle)
-end
-
 function CreateItemPanel( item_container )
   item_container.worldPanel = WorldPanels:CreateWorldPanelForAll(
     {layout = "file://{resources}/layout/custom_game/worldpanels/item.xml",
@@ -23,12 +18,6 @@ function ReleaseChildParticles( caster )
   end
 end
 
-function SetToggleState( ability, state )
-  if ability:GetToggleState() ~= state then
-    ability:ToggleAbility()
-  end
-end
-
 function DestroyEntityBasedOnHealth(killer, target)
   local damageTable = {
     victim = target,
@@ -37,24 +26,6 @@ function DestroyEntityBasedOnHealth(killer, target)
     damage_type = DAMAGE_TYPE_PURE,
   }
   ApplyDamage(damageTable)
-end
-
-function InitAbilities( hero )
-  for i=0, hero:GetAbilityCount()-1 do
-    local abil = hero:GetAbilityByIndex(i)
-    if abil ~= nil then
-      if hero:IsHero() and hero:GetAbilityPoints() > 0 then
-        hero:UpgradeAbility(abil)
-      else
-        abil:SetLevel(1)
-      end
-    end
-  end
-end
-
-function AddAbilityAndUpgrade( unit, ability )
-  unit:AddAbility(ability)
-  unit:FindAbilityByName(ability):UpgradeAbility(false)
 end
 
 function DebugPrint(...)

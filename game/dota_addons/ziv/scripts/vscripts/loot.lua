@@ -46,6 +46,7 @@ function Loot:Generate( creep, killer )
 	local lootTable = Loot:GetLootTable( creep )
 
 	if killer:IsHero() == false  then
+		if not PlayerResource:GetPlayer(killer:GetPlayerOwnerID()) then return end
 		killer = PlayerResource:GetPlayer(killer:GetPlayerOwnerID()):GetAssignedHero()
 	end
 

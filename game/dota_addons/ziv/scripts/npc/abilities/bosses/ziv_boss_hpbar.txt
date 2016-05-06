@@ -1,0 +1,34 @@
+"ziv_boss_hpbar"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityTextureName"            "ziv_empty"
+
+  "MaxLevel"  "1"
+
+  "Modifiers"
+  {
+    "modifier_boss_hpbar"
+    {
+      "Passive"      "1"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
+
+      "OnCreated"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "director.lua"
+          "Function"    "CreateBossHPBar"
+        }
+      }
+
+      "States"
+      {
+        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
+      }
+    }
+  }
+}

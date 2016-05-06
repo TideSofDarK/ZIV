@@ -1,0 +1,28 @@
+"ziv_undying_passive"
+{
+	"BaseClass"           "ability_datadriven"
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityTextureName"            "ziv_empty"
+
+	"MaxLevel"  "1"
+
+	"Modifiers"
+	{
+		"modifier_undying_passive"
+		{
+			"Passive"			"1"
+			"IsHidden"			"0"
+  			"IsDebuff"			"0"
+  	
+  			"OnCreated"
+  			{
+			    "RunScript"
+			    {
+			      	"ScriptFile"  "libraries/abilities.lua"
+			      	"Function"    "SetHull"
+			      	"size" "40"
+			    }
+  			}
+  		}
+  	}
+}

@@ -327,6 +327,343 @@
 	
 		"AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
+	"ziv_boss_hpbar"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "MaxLevel"  "1"
+	
+	  "Modifiers"
+	  {
+	    "modifier_boss_hpbar"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "OnCreated"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "director.lua"
+	          "Function"    "CreateBossHPBar"
+	        }
+	      }
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	  }
+	}
+	"ziv_undying_attack"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AOERadius" "300"
+	
+	  "AbilityCastRange"        "100"
+	  "AbilityCastPoint"        "0.5"
+	  "AbilityCooldown"       "3.2"
+	  "AbilityCastAnimation"      ""
+	
+	  "AbilityManaCost"       "10"
+	
+	  "MaxLevel"  "1"
+	
+	  "precache"
+	  {
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+	    "particle"  "particles/units/heroes/hero_visage/visage_stoneform_blast.vpcf"
+	  }
+	
+	  "OnAbilityPhaseStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/bosses/undying/ziv_undying_attack.lua"
+	      "Function"    "Attack"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_Undying.Attack"
+	      "Target"     "CASTER"
+	    }
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_EarthShaker.Attack"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/bosses/undying/ziv_undying_attack.lua"
+	      "Function"    "AttackParticle"
+	      "Target"  "POINT"
+	    }
+	    "ActOnTargets"
+	    {
+	      "Target"
+	      {
+	        "Center"    "POINT"
+	        "Radius"   "300"
+	        "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	        "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	      }
+	    
+	      "Action"    
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/bosses/undying/ziv_undying_attack.lua"
+	          "Function"    "AttackImpact"
+	          "Target"       "TARGET"
+	        }
+	      }
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	
+	  }
+	}
+	"ziv_undying_curse"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AOERadius" "300"
+	
+	  "AbilityCastRange"        "700"
+	  "AbilityCastPoint"        "0.6"
+	  "AbilityCooldown"       "4.9"
+	  "AbilityCastAnimation"      "ACT_DOTA_UNDYING_DECAY"
+	
+	  "AbilityManaCost"       "25"
+	
+	  "MaxLevel"  "7"
+	
+	  "precache"
+	  {
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
+	    "particle"  "particles/econ/items/slardar/slardar_takoyaki_gold/status_effect_slardar_crush_tako_gold.vpcf"
+	    "particle"  "particles/units/heroes/hero_undying/undying_decay.vpcf"
+	    "particle"      "particles/econ/courier/courier_trail_cursed/courier_cursed_ambient_c.vpcf"
+	  }
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"      "FIELD_FLOAT"
+	      "duration"    "6"
+	    }
+	    "02"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "damage_amp"    "25"
+	    }
+	    "03"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "slow"    "-40"
+	    }
+	    "04"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "cd"    "-40"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_Undying.Decay.Cast"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/bosses/undying/ziv_undying_curse.lua"
+	      "Function"    "Curse"
+	      "Target"       "POINT"
+	    }
+	    "ActOnTargets"
+	    {
+	      "Target"
+	      {
+	        "Center"    "POINT"
+	        "Radius"   "300"
+	        "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	        "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	      }
+	    
+	      "Action"    
+	      {
+	        "ApplyModifier"
+	        {
+	          "ModifierName"  "modifier_undying_curse"
+	          "Target"     "TARGET"
+	        }
+	      }
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_undying_curse"
+	    {
+	      "Duration" "%duration"
+	
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "StatusEffectName"     "particles/econ/items/slardar/slardar_takoyaki_gold/status_effect_slardar_crush_tako_gold.vpcf"      
+	      "StatusEffectPriority"  "3"
+	
+	      "OnCreated"
+	      {
+	        "AttachEffect"
+	        {
+	          "EffectName"        "particles/units/heroes/hero_undying/undying_decay_strength_buff.vpcf"
+	          "EffectAttachType"  "follow_origin"
+	          "Target"            "TARGET"
+	        }
+	      }
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_amp"
+	        "MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT" "%cd"
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+	      }
+	    }
+	  }
+	}
+	"ziv_undying_passive"
+	{
+		"BaseClass"           "ability_datadriven"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "ziv_empty"
+	
+		"MaxLevel"  "1"
+	
+		"Modifiers"
+		{
+			"modifier_undying_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+	  			"IsDebuff"			"0"
+	  	
+	  			"OnCreated"
+	  			{
+				    "RunScript"
+				    {
+				      	"ScriptFile"  "libraries/abilities.lua"
+				      	"Function"    "SetHull"
+				      	"size" "40"
+				    }
+	  			}
+	  		}
+	  	}
+	}
+	"ziv_undying_tombs"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AbilityCastPoint"        "0.3"
+	  "AbilityCooldown"       "15"
+	  "AbilityCastAnimation"      "ACT_DOTA_UNDYING_TOMBSTONE"
+	
+	  "AbilityManaCost"       "25"
+	
+	  "MaxLevel"  "1"
+	
+	  "precache"
+	  {
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
+	    "particle"      "particles/units/heroes/hero_undying/undying_loadout.vpcf"
+	    "particle"  "particles/status_fx/status_effect_dark_seer_illusion.vpcf"
+	    "particle"  "particles/units/heroes/hero_undying/t_r.vpcf"
+	  }
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "tombs_number"      "3"
+	    }
+	    "02"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "creeps_min"      "5"
+	    }
+	    "03"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "creeps_max"      "9"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_Undying.Tombstone"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/bosses/undying/ziv_undying_tombs.lua"
+	      "Function"    "SpawnTombs"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_undying_tomb"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	
+	      "OnCreated"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/bosses/undying/ziv_undying_tombs.lua"
+	          "Function"    "OnTombSpawned"
+	        }
+	      }
+	    }
+	  }
+	}
 	"ziv_fortify_modifiers"
 	{
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -4857,14 +5194,6 @@
 	
 	  "AOERadius" "500"
 	
-	  "precache"
-	  {
-	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
-	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
-	    "soundfile"      "soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
-	    "particle"      "particles/econ/courier/courier_trail_cursed/courier_cursed_ambient_c.vpcf"
-	  }
-	
 	  "AbilityCastRange"        "700"
 	  "AbilityCastPoint"        "0.3"
 	  "AbilityCooldown"       "0.9"
@@ -4873,6 +5202,14 @@
 	  "AbilityManaCost"       "25"
 	
 	  "MaxLevel"  "7"
+	
+	  "precache"
+	  {
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
+	    "soundfile"      "soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+	    "particle"      "particles/econ/courier/courier_trail_cursed/courier_cursed_ambient_c.vpcf"
+	  }
 	
 	  "AbilitySpecial"
 	  {
