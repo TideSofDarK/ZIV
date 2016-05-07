@@ -1,0 +1,78 @@
+"ziv_undying_consume"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+  "AbilityTextureName"            "ziv_empty"
+
+  "AbilityCastRange"        "500"
+  "AbilityCastPoint"        "0.3"
+  "AbilityCooldown"       "14.0"
+  "AbilityChannelTime" "6.0"
+  "AbilityCastAnimation"      "ACT_DOTA_ATTACK"
+
+  "AbilityManaCost"       "25"
+
+  "MaxLevel"  "7"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
+    "particle"  "particles/hw_fx/rosh_dismember.vpcf"
+    "particle"  "particles/status_fx/status_effect_life_stealer_open_wounds.vpcf"
+  }
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "duration"    "6"
+    }
+    "02"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "hp_percent"    "0.05"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "FireSound"
+    {
+      "EffectName"  "Hero_Undying.Decay.Cast"
+      "Target"     "CASTER"
+    }
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/bosses/undying/ziv_undying_consume.lua"
+      "Function"    "Consume"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_undying_consume"
+    {
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "StatusEffectName"     "particles/status_fx/status_effect_life_stealer_open_wounds.vpcf"      
+      "StatusEffectPriority"  "1"
+
+      "States"
+      {
+        "MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+      }
+
+      "OnCreated"
+      {
+        "FireSound"
+        {
+          "EffectName"  "Hero_Pudge.Dismember"
+          "Target"     "TARGET"
+        }
+      }
+    }
+  }
+}

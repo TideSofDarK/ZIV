@@ -192,6 +192,11 @@
 	z-index: 1;
 }
 
+#hires
+{
+	background-image: url("s2r://panorama/images/custom_game/heroes/npc_dota_hero_dragon_knight_ziv.jpg");
+}
+
 .HeroFrame.unselectedLeft {
 	brightness: 0.6;
 	blur: gaussian( 11.9 );

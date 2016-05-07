@@ -1,14 +1,14 @@
 
 "CustomHeroList"
 {
-  "npc_dota_hero_dragon_knight" "0"
+  "npc_dota_hero_dragon_knight" "1"
   "npc_dota_hero_beastmaster" "1"
-  "npc_dota_hero_sniper" "0"
-  "npc_dota_hero_windrunner" "0"
-  "npc_dota_hero_juggernaut" "0"
-  "npc_dota_hero_witch_doctor" "0"
-  "npc_dota_hero_drow_ranger" "0"
-  "npc_dota_hero_invoker" "0"
+  "npc_dota_hero_sniper" "1"
+  "npc_dota_hero_windrunner" "1"
+  "npc_dota_hero_juggernaut" "1"
+  "npc_dota_hero_witch_doctor" "1"
+  "npc_dota_hero_drow_ranger" "1"
+  "npc_dota_hero_invoker" "1"
 
   "npc_dota_hero_ancient_apparition" "0"
   "npc_dota_hero_antimage" "0"
