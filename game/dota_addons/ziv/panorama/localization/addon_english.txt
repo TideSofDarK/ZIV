@@ -122,6 +122,8 @@
 
 	"empty_gem_slot" "Empty Slot"
 
+	"level" "Level"
+
 	"status_attr"	"Attributes"
 	"status_status"	"Status"
 	"status_hp"	"Health Points: "

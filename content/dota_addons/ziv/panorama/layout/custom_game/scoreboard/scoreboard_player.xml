@@ -1,0 +1,25 @@
+<root>
+	<styles>
+		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+		<include src="file://{resources}/styles/custom_game/scoreboard/scoreboard.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/scoreboard/scoreboard_player.js" />
+	</scripts>
+	<Panel class="PlayerRoot" hittest="false">
+		<Image id="HeroImage" />
+		<Panel id="HeroInfo">
+			<Label class="ScoreboardLabel" id="PlayerName" />
+			<Label class="ScoreboardLabel" id="HeroNameLevel" />
+		</Panel> 
+		<Panel id="PlayerButtons">
+			<Button class="ScoreboardButton" id="Party" onactivate="InviteGroup();" >
+				<Image src="file://{images}/custom_game/ingame_ui/scoreboard_btn_group.png" />
+			</Button>
+			<Button class="ScoreboardButton" id="Friendship" onactivate="OfferFriendship();"> 
+				<Image src="file://{images}/custom_game/ingame_ui/scoreboard_btn_friendship.png" />
+			</Button>
+		</Panel> 
+	</Panel>
+</root>
