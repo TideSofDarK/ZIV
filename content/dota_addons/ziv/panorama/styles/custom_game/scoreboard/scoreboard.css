@@ -1,0 +1,96 @@
+.ScoreboardRoot {
+	width: 721px;
+	height: 532px;
+
+	margin-top: 50px;
+
+    transform: translatex( -695px );
+}
+
+.ScoreboardRoot.show {
+    transform: translatex( 0px );
+}
+
+#OpenHide {
+	width: 90px;
+	height: 56px;
+	
+	background-image: url('file://{images}/custom_game/ingame_ui/scoreboard_button.png');
+
+	horizontal-align: right;
+	vertical-align: center;
+
+	z-index: 1;
+}
+
+#Background {
+	background-image: url('file://{images}/custom_game/ingame_ui/scoreboard_bg.png');
+	
+	width: 721px;
+	height: 532px;
+}
+
+.PlayersPanel {
+	width: 630px;
+	height: 500px;
+
+	vertical-align: center;
+
+	flow-children: down;
+}
+
+.PlayerRoot {
+	width: 100%;
+	height: 62px;
+
+	padding: 5px 10px 5px 10px;
+	flow-children: right;
+}
+
+#HeroImage {
+	width: 100px;
+}
+
+.ScoreboardLabel {
+	text-shadow: 1px 2px 1px black;
+	text-align: left;
+	text-transform: uppercase;
+	text-overflow: clip;
+
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color: White;
+}
+
+#HeroInfo {
+	vertical-align: center;
+	margin-left: 10px;
+
+	flow-children: down;
+}
+
+#PlayerName {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+#HeroNameLevel {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+#PlayerButtons {
+	align: right center;
+
+	flow-children: right;
+}
+
+.ScoreboardButton {
+	width: 45px;
+	height: 45px;
+
+	margin: 5px;
+}
+
+.ScoreboardButton:hover {
+	wash-color: #cccccc;
+}

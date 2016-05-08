@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+		<include src="file://{resources}/styles/custom_game/scoreboard/scoreboard.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/scoreboard/scoreboard.js" />
+	</scripts>
+	<Panel class="ScoreboardRoot" hittest="false">
+		<Panel class="GenericBackground" id="Background"/>
+		<Panel hittest="true" id="OpenHide" onmouseover="OnHoverButton()" onmouseout="OnLeaveButton()" />
+		<Panel class="PlayersPanel" id="Players">
+		</Panel> 
+	</Panel>
+</root>

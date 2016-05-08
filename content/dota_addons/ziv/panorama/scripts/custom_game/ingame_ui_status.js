@@ -24,7 +24,7 @@ function Update() {
 	// $("#hires").SetImage("file://{images}/custom_game/heroes/" + name + "_ziv.jpg");
 	$("#hires").style.backgroundImage = "url(\"s2r://panorama/images/custom_game/heroes/" + name + "_ziv_jpg.vtex\");";
 	$("#HeroNameLabel").html = true;
-	$("#HeroNameLabel").text = $.Localize(name) + "<br>" + "<span class=\"LevelAndLeague\">" + "    Level " + Entities.GetLevel(queryUnit) + " | " + "Softcore" + "</span>";
+	$("#HeroNameLabel").text = $.Localize(name) + "<br>" + "<span class=\"LevelAndLeague\">" + "    " + $.Localize("level") + " " + Entities.GetLevel(queryUnit) + " | " + "Softcore" + "</span>";
 
 	$("#Str").text = status["str"];
 	$("#Agi").text = status["agi"];

@@ -102,7 +102,9 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_trade.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/crafting/crafting.xml" />
 
-    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/minimap/minimap.xml" /> -->
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/minimap/minimap.xml" />
+
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/scoreboard/scoreboard.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/modmaker/modmaker.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_worldpanels.xml" />

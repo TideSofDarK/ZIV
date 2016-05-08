@@ -42,6 +42,8 @@
 
 	"empty_gem_slot" "Пустой слот"
 
+	"level" "Уровень"
+
 	"status_attr"	"Характеристики"
 	"status_status"	"Статус"
 	"status_hp"	"Здоворье: "
