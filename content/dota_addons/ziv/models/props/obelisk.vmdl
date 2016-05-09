@@ -52,6 +52,204 @@
 	}
 	m_pHitBoxSetLists =
 	[
+		{
+			_class = "CVhitBoxSetListReference"
+			m_pObject =
+			{
+				m_HitBoxSets =
+				[
+					{
+						m_name = "default"
+						m_HitBoxes =
+						[
+							{
+								m_name = "ObeliskRoot_bone"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "ObeliskRoot_bone"
+								m_vMinBounds =
+								[
+									-30.374775,
+									-30.374752,
+									-0.003258,
+								]
+								m_vMaxBounds =
+								[
+									30.374767,
+									30.374783,
+									71.133423,
+								]
+								m_bTranslationOnly = false
+								m_cRenderColor =
+								[
+									0,
+									0,
+									0,
+									0,
+								]
+							},
+							{
+								m_name = "Part1_bone"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "Part1_bone"
+								m_vMinBounds =
+								[
+									-14.071851,
+									-14.374685,
+									67.135803,
+								]
+								m_vMaxBounds =
+								[
+									12.440688,
+									12.521473,
+									139.439575,
+								]
+								m_bTranslationOnly = false
+								m_cRenderColor =
+								[
+									0,
+									0,
+									0,
+									0,
+								]
+							},
+							{
+								m_name = "Part2_bone"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "Part2_bone"
+								m_vMinBounds =
+								[
+									-4.596888,
+									-14.884250,
+									60.947990,
+								]
+								m_vMaxBounds =
+								[
+									14.153498,
+									12.529065,
+									106.677788,
+								]
+								m_bTranslationOnly = false
+								m_cRenderColor =
+								[
+									0,
+									0,
+									0,
+									0,
+								]
+							},
+							{
+								m_name = "Part3_bone"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "Part3_bone"
+								m_vMinBounds =
+								[
+									1.149966,
+									-16.421757,
+									41.942711,
+								]
+								m_vMaxBounds =
+								[
+									16.009504,
+									1.201958,
+									73.563057,
+								]
+								m_bTranslationOnly = false
+								m_cRenderColor =
+								[
+									0,
+									0,
+									0,
+									0,
+								]
+							},
+							{
+								m_name = "Part4_bone"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "Part4_bone"
+								m_vMinBounds =
+								[
+									-16.595579,
+									-15.476932,
+									34.458252,
+								]
+								m_vMaxBounds =
+								[
+									14.646757,
+									16.939716,
+									94.984314,
+								]
+								m_bTranslationOnly = false
+								m_cRenderColor =
+								[
+									0,
+									0,
+									0,
+									0,
+								]
+							},
+							{
+								m_name = "Part5_bone"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "Part5_bone"
+								m_vMinBounds =
+								[
+									-15.945860,
+									-15.517313,
+									48.228729,
+								]
+								m_vMaxBounds =
+								[
+									-1.368248,
+									13.468939,
+									98.195297,
+								]
+								m_bTranslationOnly = false
+								m_cRenderColor =
+								[
+									0,
+									0,
+									0,
+									0,
+								]
+							},
+							{
+								m_name = "Part6_bone"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "Part6_bone"
+								m_vMinBounds =
+								[
+									-16.121515,
+									-15.726112,
+									46.046875,
+								]
+								m_vMaxBounds =
+								[
+									-14.032305,
+									-14.106083,
+									49.922653,
+								]
+								m_bTranslationOnly = false
+								m_cRenderColor =
+								[
+									0,
+									0,
+									0,
+									0,
+								]
+							},
+						]
+					},
+				]
+				m_AutoCreateSetName = ""
+			}
+		},
 	]
 	m_pAttachmentLists =
 	[
