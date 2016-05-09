@@ -1,7 +1,7 @@
 "ziv_boss_hpbar"
 {
   "BaseClass"           "ability_datadriven"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
   "AbilityTextureName"            "ziv_empty"
 
   "MaxLevel"  "1"

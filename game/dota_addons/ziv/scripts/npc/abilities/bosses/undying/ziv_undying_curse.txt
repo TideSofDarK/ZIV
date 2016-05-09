@@ -11,7 +11,7 @@
   "AbilityCooldown"       "4.9"
   "AbilityCastAnimation"      "ACT_DOTA_UNDYING_DECAY"
 
-  "AbilityManaCost"       "25"
+  "AbilityManaCost"       "0"
 
   "MaxLevel"  "7"
 

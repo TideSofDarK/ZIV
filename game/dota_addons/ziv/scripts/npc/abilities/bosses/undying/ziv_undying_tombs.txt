@@ -8,7 +8,7 @@
   "AbilityCooldown"       "15"
   "AbilityCastAnimation"      "ACT_DOTA_UNDYING_TOMBSTONE"
 
-  "AbilityManaCost"       "25"
+  "AbilityManaCost"       "0"
 
   "MaxLevel"  "1"
 
@@ -61,11 +61,19 @@
       "IsHidden"      "0"
       "IsDebuff"      "0"
 
-      "Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
-
       "States"
       {
         "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
+      }
+
+      "ThinkInterval"  "4.0"
+      "OnIntervalThink"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/bosses/undying/ziv_undying_tombs.lua"
+          "Function"    "OnTombSpawned"
+        }
       }
 
       "OnCreated"

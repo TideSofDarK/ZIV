@@ -34,6 +34,12 @@ function RandomPointOnCircle(radius)
     return Vector(x,y,0) 
 end
 
+function PointOnCircle(radius, angle)
+    local x = radius * math.cos(angle * math.pi / 180)
+    local y = radius * math.sin(angle * math.pi / 180)
+    return Vector(x,y,0) 
+end
+
 function angleOfPoint( pt )
    local x, y = pt.x, pt.y
    local radian = math.atan2(y,x)
@@ -74,6 +80,10 @@ end
 
 function clamp(val, lower, upper)
     return math.max(lower, math.min(upper, val))
+end
+
+function math._repeat(val, upper)
+  return val - math.floor(val / upper) * upper
 end
 
 function round(num, idp)

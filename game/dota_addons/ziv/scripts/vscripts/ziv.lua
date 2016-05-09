@@ -5,8 +5,6 @@ if ZIV == nil then
     _G.ZIV = class({})
 end
 
-ZIV.TRUE_TIME = 0
-
 -- This library allow for easily delayed/timed actions
 require('libraries/timers')
 -- This library can be used for advancted physics/motion/collision of units.  See PhysicsReadme.txt for more information.
@@ -41,6 +39,8 @@ require('libraries/random')
 require('libraries/runes')
 -- Abilities
 require('libraries/abilities')
+-- AI
+require('libraries/ai')
 
 require('items/crafting')
 
@@ -390,6 +390,8 @@ if LOADED then
   return
 end
 LOADED = true
+
+ZIV.TRUE_TIME = 0
 
 ZIV.pidInventory = {}
 lootSpawns = nil

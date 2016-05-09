@@ -80,6 +80,8 @@ end
 -- Type
 -- Spread
 -- LordSpread
+-- NoLoot
+-- Duration
 function Director:SpawnPack( pack_table )
 	local level = pack_table["Level"] or 1
 	local position = pack_table["Position"] or Vector(0,0,0)
@@ -103,7 +105,9 @@ function Director:SpawnPack( pack_table )
 								  Level 				= level,
 								  BasicModifier 			= basic_modifier,
 								  Spread 				= pack_table["BasicSpread"],
-								  Type		= pack_table["Type"] or "creep" })
+								  Type		= pack_table["Type"] or "creep",
+								  NoLoot = pack_table["NoLoot"],
+								  Duration = pack_table["Duration"] })
 		end
 
 		if spawn_lord then
@@ -121,7 +125,9 @@ function Director:SpawnPack( pack_table )
 								  LordModifier 	= lord_modifier,
 								  Spread 	= pack_table["LordSpread"] or Director.BASIC_LORD_SPREAD,
 								  Type		= pack_table["Type"] or "creep",
-								  Lord		= true })
+								  Lord		= true,
+								  NoLoot = pack_table["NoLoot"],
+								  Duration = pack_table["Duration"] })
 		end
 	end
 end
@@ -142,6 +148,14 @@ function Director:SpawnCreeps( spawn_table )
 			local position = RandomPointInsideCircle(spawn_table["Position"][1], spawn_table["Position"][2], spawn_table["BasicSpread"] or Director.BASIC_PACK_SPREAD)
 
 			local creep = CreateUnitByName(creep_name, position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+
+			if spawn_table["NoLoot"] == true then
+				creep.no_loot = true
+			end
+
+			if spawn_table["Duration"] == true then
+				creep:AddNewModifier(creep,nil,"modifier_kill",{duration=tonumber(spawn_table["Duration"])})
+			end
 			
 			creep:AddAbility("ziv_creep_normal_hpbar_behavior")
 

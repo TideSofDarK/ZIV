@@ -14,3 +14,11 @@ function TimedEffect( effect, unit, duration, point )
 
 	return particle
 end
+
+function ReleaseChildParticles( caster )
+  caster.particles = caster.particles or {}
+
+  for k,v in pairs(caster.particles) do
+    ParticleManager:DestroyParticle(v, false)
+  end
+end

@@ -1,7 +1,7 @@
 "ziv_undying_passive"
 {
 	"BaseClass"           "ability_datadriven"
-	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	"AbilityTextureName"            "ziv_empty"
 
 	"MaxLevel"  "1"
@@ -18,8 +18,8 @@
   			{
 			    "RunScript"
 			    {
-			      	"ScriptFile"  "libraries/abilities.lua"
-			      	"Function"    "SetHull"
+			      	"ScriptFile"  "abilities/bosses/undying/ziv_undying_passive.lua"
+			      	"Function"    "Start"
 			      	"size" "40"
 			    }
   			}

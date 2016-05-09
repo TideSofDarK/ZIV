@@ -9,7 +9,7 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_trade.js" />
 		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
-	<Panel class="TradeRoot BasicShadow" hittest="true" draggable="true">
+	<Panel class="TradeRoot Hide BasicShadow" hittest="true" draggable="true">
 		<Panel class="GenericBackground" id="Background"/>
 
 		<Button onactivate="CloseButton()" class="CloseButton" />

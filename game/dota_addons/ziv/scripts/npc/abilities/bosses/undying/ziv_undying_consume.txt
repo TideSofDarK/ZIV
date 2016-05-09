@@ -2,23 +2,28 @@
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+
   "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastRange"        "500"
   "AbilityCastPoint"        "0.3"
-  "AbilityCooldown"       "14.0"
-  "AbilityChannelTime" "6.0"
-  "AbilityCastAnimation"      "ACT_DOTA_ATTACK"
+  "AbilityCooldown"       "12.0"
+  "AbilityChannelTime" "4.0"
+  // "AbilityCastAnimation"      "ACT_DOTA_ATTACK"
 
-  "AbilityManaCost"       "25"
+  "AbilityManaCost"       "0"
 
   "MaxLevel"  "7"
 
   "precache"
   {
     "soundfile"     "soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
-    "particle"  "particles/hw_fx/rosh_dismember.vpcf"
     "particle"  "particles/status_fx/status_effect_life_stealer_open_wounds.vpcf"
+    "particle"  "particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+    "particle"  "particles/bosses/undying/undying_consume.vpcf"
+    "particle"  "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
   }
 
   "AbilitySpecial"
@@ -26,7 +31,7 @@
     "01"
     {
       "var_type"      "FIELD_FLOAT"
-      "duration"    "6"
+      "duration"    "4"
     }
     "02"
     {
@@ -57,6 +62,8 @@
       "IsHidden"      "0"
       "IsDebuff"      "0"
 
+      "OverrideAnimation"     "ACT_DOTA_DISABLED"
+
       "StatusEffectName"     "particles/status_fx/status_effect_life_stealer_open_wounds.vpcf"      
       "StatusEffectPriority"  "1"
 
@@ -67,6 +74,24 @@
 
       "OnCreated"
       {
+        "FireEffect"
+        {
+          "EffectName"        "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+          "EffectAttachType"  "follow_origin"
+          "Target"            "CASTER"
+        }
+        "FireEffect"
+        {
+          "EffectName"        "particles/bosses/undying/undying_consume.vpcf"
+          "EffectAttachType"  "attach_origin"
+          "Target"            "TARGET"
+        }
+        "AttachEffect"
+        {
+          "EffectName"        "particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+          "EffectAttachType"  "follow_overhead"
+          "Target"            "TARGET"
+        }
         "FireSound"
         {
           "EffectName"  "Hero_Pudge.Dismember"

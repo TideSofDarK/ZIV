@@ -1,3 +1,26 @@
+function GetRandomElement(list, checker)
+  local new_table = {}
+
+  for k,v in pairs(list) do
+    if (checker and checker(v) == false) then
+
+    else
+      table.insert(new_table, v)
+    end
+  end
+
+  local count = GetTableLength(new_table)
+  local seed = math.random(1, count)
+  local i = 1
+  -- print("dick", count)
+  for k,v in pairs(new_table) do
+    if i == seed then
+      return v
+    end
+    i = i + 1
+  end
+end
+
 function CreateItemPanel( item_container )
   item_container.worldPanel = WorldPanels:CreateWorldPanelForAll(
     {layout = "file://{resources}/layout/custom_game/worldpanels/item.xml",
@@ -8,14 +31,6 @@ function CreateItemPanel( item_container )
       },
       entityHeight = 100,
     })
-end
-
-function ReleaseChildParticles( caster )
-  caster.particles = caster.particles or {}
-
-  for k,v in pairs(caster.particles) do
-    ParticleManager:DestroyParticle(v, false)
-  end
 end
 
 function DestroyEntityBasedOnHealth(killer, target)

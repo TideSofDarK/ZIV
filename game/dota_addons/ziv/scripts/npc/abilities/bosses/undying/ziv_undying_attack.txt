@@ -6,12 +6,12 @@
 
   "AOERadius" "300"
 
-  "AbilityCastRange"        "100"
-  "AbilityCastPoint"        "0.5"
-  "AbilityCooldown"       "3.2"
+  "AbilityCastRange"        "228"
+  "AbilityCastPoint"        "0.25"
+  "AbilityCooldown"       "1.0"
   "AbilityCastAnimation"      ""
 
-  "AbilityManaCost"       "10"
+  "AbilityManaCost"       "0"
 
   "MaxLevel"  "1"
 

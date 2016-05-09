@@ -8,7 +8,7 @@
   "AbilityCooldown"       "40"
   "AbilityCastAnimation"      "ACT_DOTA_UNDYING_TOMBSTONE"
 
-  "AbilityManaCost"       "50"
+  "AbilityManaCost"       "0"
 
   "MaxLevel"  "1"
 
@@ -76,7 +76,7 @@
       "Properties"
       {
         "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movespeed" 
-        "MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT" "40"
+        "MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT" "2"
       }
     }
   }

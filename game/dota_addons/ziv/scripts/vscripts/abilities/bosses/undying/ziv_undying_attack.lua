@@ -2,7 +2,7 @@ function Attack( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
-	StartAnimation(caster, {duration=1.7, activity=ACT_DOTA_ATTACK, rate=0.6})
+	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_ATTACK, rate=1.2})
 end
 
 function AttackParticle( keys )

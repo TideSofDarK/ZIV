@@ -1,4 +1,5 @@
 function GRMSC(name, caster)
+	if not caster.GetModifierStackCount then return 0 end
 	return caster:GetModifierStackCount(name,nil) or 0
 end
 

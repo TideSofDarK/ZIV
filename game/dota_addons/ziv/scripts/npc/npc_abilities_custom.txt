@@ -330,7 +330,7 @@
 	"ziv_boss_hpbar"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "MaxLevel"  "1"
@@ -369,12 +369,12 @@
 	
 	  "AOERadius" "300"
 	
-	  "AbilityCastRange"        "100"
-	  "AbilityCastPoint"        "0.5"
-	  "AbilityCooldown"       "3.2"
+	  "AbilityCastRange"        "228"
+	  "AbilityCastPoint"        "0.25"
+	  "AbilityCooldown"       "1.0"
 	  "AbilityCastAnimation"      ""
 	
-	  "AbilityManaCost"       "10"
+	  "AbilityManaCost"       "0"
 	
 	  "MaxLevel"  "1"
 	
@@ -443,23 +443,28 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+	
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastRange"        "500"
 	  "AbilityCastPoint"        "0.3"
-	  "AbilityCooldown"       "14.0"
-	  "AbilityChannelTime" "6.0"
-	  "AbilityCastAnimation"      "ACT_DOTA_ATTACK"
+	  "AbilityCooldown"       "12.0"
+	  "AbilityChannelTime" "4.0"
+	  // "AbilityCastAnimation"      "ACT_DOTA_ATTACK"
 	
-	  "AbilityManaCost"       "25"
+	  "AbilityManaCost"       "0"
 	
 	  "MaxLevel"  "7"
 	
 	  "precache"
 	  {
 	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
-	    "particle"  "particles/hw_fx/rosh_dismember.vpcf"
 	    "particle"  "particles/status_fx/status_effect_life_stealer_open_wounds.vpcf"
+	    "particle"  "particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+	    "particle"  "particles/bosses/undying/undying_consume.vpcf"
+	    "particle"  "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
 	  }
 	
 	  "AbilitySpecial"
@@ -467,7 +472,7 @@
 	    "01"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "duration"    "6"
+	      "duration"    "4"
 	    }
 	    "02"
 	    {
@@ -498,6 +503,8 @@
 	      "IsHidden"      "0"
 	      "IsDebuff"      "0"
 	
+	      "OverrideAnimation"     "ACT_DOTA_DISABLED"
+	
 	      "StatusEffectName"     "particles/status_fx/status_effect_life_stealer_open_wounds.vpcf"      
 	      "StatusEffectPriority"  "1"
 	
@@ -508,6 +515,24 @@
 	
 	      "OnCreated"
 	      {
+	        "FireEffect"
+	        {
+	          "EffectName"        "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+	          "EffectAttachType"  "follow_origin"
+	          "Target"            "CASTER"
+	        }
+	        "FireEffect"
+	        {
+	          "EffectName"        "particles/bosses/undying/undying_consume.vpcf"
+	          "EffectAttachType"  "attach_origin"
+	          "Target"            "TARGET"
+	        }
+	        "AttachEffect"
+	        {
+	          "EffectName"        "particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+	          "EffectAttachType"  "follow_overhead"
+	          "Target"            "TARGET"
+	        }
 	        "FireSound"
 	        {
 	          "EffectName"  "Hero_Pudge.Dismember"
@@ -530,7 +555,7 @@
 	  "AbilityCooldown"       "4.9"
 	  "AbilityCastAnimation"      "ACT_DOTA_UNDYING_DECAY"
 	
-	  "AbilityManaCost"       "25"
+	  "AbilityManaCost"       "0"
 	
 	  "MaxLevel"  "7"
 	
@@ -633,10 +658,93 @@
 	    }
 	  }
 	}
+	"ziv_undying_form"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AbilityCastPoint"        "0.3"
+	  "AbilityCooldown"       "40"
+	  "AbilityCastAnimation"      "ACT_DOTA_UNDYING_TOMBSTONE"
+	
+	  "AbilityManaCost"       "0"
+	
+	  "MaxLevel"  "1"
+	
+	  "precache"
+	  {
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
+	    "particle"      "particles/units/heroes/hero_undying/undying_loadout.vpcf"
+	    "particle"  "particles/status_fx/status_effect_dark_seer_illusion.vpcf"
+	    "particle"  "particles/units/heroes/hero_undying/t_r.vpcf"
+	    "model" "models/heroes/undying/undying_flesh_golem.vmdl"
+	  }
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "duration"      "12"
+	    }
+	    "02"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "bonus_movespeed"      "50"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_Undying.Pick"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/bosses/undying/ziv_undying_form.lua"
+	      "Function"    "Form"
+	    }
+	    "ApplyModifier"
+	    {
+	      "ModifierName"  "modifier_undying_form"
+	      "Target"     "CASTER"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_undying_form"
+	    {
+	      "Duration" "%duration"
+	
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "OnDestroy"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/bosses/undying/ziv_undying_form.lua"
+	          "Function"    "FormEnd"
+	        }
+	      }
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movespeed" 
+	        "MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT" "2"
+	      }
+	    }
+	  }
+	}
 	"ziv_undying_passive"
 	{
 		"BaseClass"           "ability_datadriven"
-		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"            "ziv_empty"
 	
 		"MaxLevel"  "1"
@@ -653,8 +761,8 @@
 	  			{
 				    "RunScript"
 				    {
-				      	"ScriptFile"  "libraries/abilities.lua"
-				      	"Function"    "SetHull"
+				      	"ScriptFile"  "abilities/bosses/undying/ziv_undying_passive.lua"
+				      	"Function"    "Start"
 				      	"size" "40"
 				    }
 	  			}
@@ -671,7 +779,7 @@
 	  "AbilityCooldown"       "15"
 	  "AbilityCastAnimation"      "ACT_DOTA_UNDYING_TOMBSTONE"
 	
-	  "AbilityManaCost"       "25"
+	  "AbilityManaCost"       "0"
 	
 	  "MaxLevel"  "1"
 	
@@ -724,11 +832,19 @@
 	      "IsHidden"      "0"
 	      "IsDebuff"      "0"
 	
-	      "Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
-	
 	      "States"
 	      {
 	        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	
+	      "ThinkInterval"  "4.0"
+	      "OnIntervalThink"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/bosses/undying/ziv_undying_tombs.lua"
+	          "Function"    "OnTombSpawned"
+	        }
 	      }
 	
 	      "OnCreated"
@@ -5413,6 +5529,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AOERadius" "300"
@@ -5502,6 +5619,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AOERadius" "300"
@@ -5628,7 +5746,6 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
@@ -5731,7 +5848,6 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
