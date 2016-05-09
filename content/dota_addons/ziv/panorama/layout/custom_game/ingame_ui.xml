@@ -12,19 +12,6 @@
 	</scripts>
 	<Panel class="InGameUIRoot" hittest="false">
 		<Panel class="GenericBackground" id="BottomGfx" hittest="false"/>
-		<!-- <Panel class="GenericBackground" id="RightBottomGfx"/> -->
-<!-- 		<Panel class="Bottom RightBottom" hittest="false">
-
-		</Panel> -->
-
-<!-- 		<Panel class="Bottom LeftBottom" hittest="false">
-			<Panel hittest="false" id="MinimapBorder">
-			</Panel>
-			<Panel hittest="false" id="Portait">
-				<DOTAHeroMovie id="PortaitImage" heroname="npc_dota_hero_dragon_knight" />
-			</Panel>
-		</Panel> -->
-
 		<Panel class="Bottom MidBottom" hittest="false">
 			<Panel hittest="false" id="Portait">
 				<DOTAHeroMovie id="PortaitImage" heroname="npc_dota_hero_dragon_knight" />
@@ -40,11 +27,6 @@
 				</Panel>
 			</Panel>
 			<Panel class="AbilityOverlayRoot">
-<!-- 				<Button id="LevelUpButton" onactivate="OnLevelUpClicked()">
-					<Panel id="LevelUpButtonInset">
-						<Label text="#LevelUp" />
-					</Panel>
-				</Button> -->
 				<Panel id="ability_list" />
 			</Panel>
 			<Panel hittest="false" id="EquipList">

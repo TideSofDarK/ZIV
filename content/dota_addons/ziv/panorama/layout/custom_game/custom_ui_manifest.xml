@@ -2,6 +2,8 @@
   <scripts>
     <include src="file://{resources}/scripts/custom_game/playertables/playertables_base.js" />
     <include src="file://{resources}/scripts/custom_game/custom_tooltips.js" />
+
+    <include src="file://{resources}/scripts/custom_game/ingame_ui_controls.js" />
   </scripts>
   <script>
     // Uncomment any of the following lines in order to disable that portion of the default UI
@@ -50,26 +52,6 @@
     (function()
     {
         GameEvents.Subscribe( "ziv_set_recipes_kvs", SetRecipesList );
-
-        GameUI.CustomUIConfig().ZIVCastAbility1 = function() { GameUI.CustomUIConfig().ZIVCastAbility(1) }
-        GameUI.CustomUIConfig().ZIVCastAbility2 = function() { GameUI.CustomUIConfig().ZIVCastAbility(2) }
-        GameUI.CustomUIConfig().ZIVCastAbility3 = function() { GameUI.CustomUIConfig().ZIVCastAbility(3) }
-        GameUI.CustomUIConfig().ZIVCastAbility4 = function() { GameUI.CustomUIConfig().ZIVCastAbility(4) }
-
-        GameUI.CustomUIConfig().ZIVStopAbility1 = function() { GameUI.CustomUIConfig().ZIVStopAbility(1) }
-        GameUI.CustomUIConfig().ZIVStopAbility2 = function() { GameUI.CustomUIConfig().ZIVStopAbility(2) }
-        GameUI.CustomUIConfig().ZIVStopAbility3 = function() { GameUI.CustomUIConfig().ZIVStopAbility(3) }
-        GameUI.CustomUIConfig().ZIVStopAbility4 = function() { GameUI.CustomUIConfig().ZIVStopAbility(4) }
-
-        Game.AddCommand("+ZIVCastAbility1", GameUI.CustomUIConfig().ZIVCastAbility1, "", 0);
-        Game.AddCommand("+ZIVCastAbility2", GameUI.CustomUIConfig().ZIVCastAbility2, "", 0);
-        Game.AddCommand("+ZIVCastAbility3", GameUI.CustomUIConfig().ZIVCastAbility3, "", 0);
-        Game.AddCommand("+ZIVCastAbility4", GameUI.CustomUIConfig().ZIVCastAbility4, "", 0);
-
-        Game.AddCommand("-ZIVCastAbility1", GameUI.CustomUIConfig().ZIVStopAbility1, "", 0);
-        Game.AddCommand("-ZIVCastAbility2", GameUI.CustomUIConfig().ZIVStopAbility2, "", 0);
-        Game.AddCommand("-ZIVCastAbility3", GameUI.CustomUIConfig().ZIVStopAbility3, "", 0);
-        Game.AddCommand("-ZIVCastAbility4", GameUI.CustomUIConfig().ZIVStopAbility4, "", 0);
     })();
 
     var parent = $.GetContextPanel().GetParent();
@@ -102,7 +84,7 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_trade.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/crafting/crafting.xml" />
 
-    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/minimap/minimap.xml" /> -->
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/minimap/minimap.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/scoreboard/scoreboard.xml" />
 

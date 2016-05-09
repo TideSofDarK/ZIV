@@ -46,4 +46,6 @@
 
 #MinimapImage {
 	opacity: 0.5;
+	width: 400%;
+	height: 400%;
 }

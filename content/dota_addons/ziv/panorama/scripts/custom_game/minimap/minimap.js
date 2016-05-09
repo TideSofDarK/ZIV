@@ -133,8 +133,8 @@ function FilterUnits( heroID )
 	return Entities.GetAllEntities().filter(function( entity ) {
 		return Entities.IsEntityInRange( heroID, entity, visionRange ) &&
 			!Entities.IsInvisible( entity ) && 
-			//Entities.IsValidEntity( entity ) &&
-			//Entities.IsHero( entity ) &&
+			Entities.IsValidEntity( entity ) &&
+			Entities.IsHero( entity ) &&
 			heroID != entity;
 	})
 }
@@ -217,7 +217,8 @@ function ChangeMinimapMode()
 
 (function()
 { 
-	Game.AddCommand("ZIVShowMinimap", ChangeMinimapMode, "", 0); 
+	Game.AddCommand("+ZIVShowMinimap", ChangeMinimapMode, "", 0); 
+	Game.AddCommand("-ZIVShowMinimap", ChangeMinimapMode, "", 0); 
 
 	GameEvents.SendCustomGameEventToServer( "world_bounds_request", {} );
 	GameEvents.Subscribe("world_bounds", SetWorldBounds);
