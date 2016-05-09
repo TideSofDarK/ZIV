@@ -501,9 +501,11 @@
 	    {
 	      "Passive"      "0"
 	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
+	      "IsDebuff"      "1"
 	
-	      "OverrideAnimation"     "ACT_DOTA_DISABLED"
+	      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
+	
+	      // "OverrideAnimation"     "ACT_DOTA_DISABLED"
 	
 	      "StatusEffectName"     "particles/status_fx/status_effect_life_stealer_open_wounds.vpcf"      
 	      "StatusEffectPriority"  "1"
