@@ -182,6 +182,35 @@ function BeginPickUpState( targetEntIndex )
 	})();
 }
 
+var offset = 0;
+
+(function SmoothCameraZ()
+{
+	$.Schedule( 1.0/60.0, SmoothCameraZ );
+	var minStep = 0.5;
+	var target = Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2] - 250;
+	var delta = ( target - offset );
+	if ( Math.abs( delta ) < minStep )
+	{
+		delta = target;
+	}
+	else
+	{
+		var step = delta * 0.3;
+		if ( Math.abs( step ) < minStep )
+		{
+			if ( delta > 0 )
+				step = minStep;
+			else
+				step = -minStep;
+		}
+		offset += step;
+	}
+
+	GameUI.SetCameraLookAtPositionHeightOffset(offset); 
+	return;
+})();
+
 // Tracks the left-button held state when moving.
 function BeginMoveState()
 {
@@ -214,49 +243,8 @@ function BeginMoveState()
 	})();
 }
 
-// Handle Left Button events
 function OnLeftButtonPressed()
 {
-	// if(Entities.GetAbilityCount(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) >= 7){
-		// var castAbilityIndex = Entities.GetAbility( Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), 5 );
-		// var targetIndex = GetMouseCastTarget();
-		// if ( targetIndex === -1 )
-		// {
-		// 	if ( GameUI.IsShiftDown() )
-		// 	{
-		// 		if(Abilities.IsPassive(castAbilityIndex)){
-		// 			BeginAttackState()
-		// 		}else{
-		// 			BeginSpellState( 0, castAbilityIndex, -1 );
-		// 		}
-		// 	}
-		// 	else
-		// 	{
-		// 		BeginMoveState();
-		// 	}
-		// }
-		// else if ( Entities.IsItemPhysical( targetIndex ) )
-		// {
-		// 	BeginPickUpState( targetIndex );
-		// }
-		// else
-		// {
-		// 	if(!Abilities.IsPassive(castAbilityIndex) && Abilities.IsCooldownReady(castAbilityIndex) && Abilities.GetLevel(castAbilityIndex) > 0 && Abilities.GetManaCost(castAbilityIndex) < Entities.GetMana(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))){
-		// 		BeginSpellState( 0, castAbilityIndex, targetIndex );
-		// 		$.Msg("ATTACK " + ("" + !Abilities.IsPassive(castAbilityIndex)) + ("" + Abilities.IsCooldownReady(castAbilityIndex)) + ("" + Abilities.GetLevel(castAbilityIndex) > 0) + ( "" + Abilities.GetManaCost(castAbilityIndex) < Entities.GetMana(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))));
-		// 	}else{
-		// 		if ( GameUI.IsShiftDown() )
-		// 		{
-
-		// 			GameUI.SelectUnit( targetIndex, false )
-		// 		}
-		// 		else
-		// 		{
-		// 			BeginAttackState(targetIndex);
-		// 		}
-		// 	}
-		// }
-	// }else
 	{
 		var targetIndex = GetMouseCastTarget();
 		if ( targetIndex === -1 )
@@ -335,4 +323,4 @@ GameUI.SetMouseCallback( function( eventName, arg ) {
 
 GameUI.SetCameraPitchMax( 55 );
 GameUI.SetCameraDistance( 900 );
-GameUI.SetCameraLookAtPositionHeightOffset( 200 )
+GameUI.SetCameraLookAtPositionHeightOffset(Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2]); 

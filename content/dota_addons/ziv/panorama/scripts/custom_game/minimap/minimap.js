@@ -197,6 +197,11 @@ function SetWorldBounds( args )
 
 	bounds["min"] = args.min;
 	bounds["max"] = args.max;
+	bounds["name"] = args.map;
+
+	var image = $( "#MinimapImage" );
+	image.SetImage( "file://{images}/custom_game/minimap/" + bounds["name"] + ".png" );
+	$.Msg("file://{images}/custom_game/minimap/" + bounds["name"] + ".png");
  
 	UpdateMinimap(); 
 }

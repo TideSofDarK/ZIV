@@ -9,7 +9,7 @@ function Dash( keys )
 
 	StartAnimation(caster, {duration=ability:GetSpecialValueFor("duration"), activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=5.4})
 
-	ability.direction = (target - caster:GetAbsOrigin()):Normalized()
+	ability.direction = UnitLookAtPoint( caster, target )
 
 	ability.distance = 450
 
@@ -19,7 +19,7 @@ function Dash( keys )
 
 	caster:AddNewModifier( caster, nil, "modifier_disarmed", {duration=1.0} )
 
-	caster:SetForwardVector((target - caster:GetAbsOrigin()))
+	caster:SetForwardVector(UnitLookAtPoint( caster, target ))
 	caster:Stop()
 
 	if ability.particle or ability.particle2 then

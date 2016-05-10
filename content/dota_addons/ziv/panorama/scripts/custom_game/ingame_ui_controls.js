@@ -75,7 +75,7 @@ function ZIVCastAbility(number, pressing) {
 			}
 		}
 
-		if (Abilities.GetCooldownTimeRemaining( ability ) == 0) {
+		if (Abilities.IsCooldownReady(ability) === true) {
 			Game.PrepareUnitOrders( order );
 		}
 

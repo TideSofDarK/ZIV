@@ -1,11 +1,15 @@
 "AddonInfo"
 {
-	"TeamCount" "2"
+	"TeamCount" "1"
 	"maps"      "template_map"
 	"IsPlayable"  "1"
 	"template_map"
 	{
 		"MaxPlayers"                    "8"
+	}
+	"ziv_test"
+	{
+		"MaxPlayers"                    "4"
 	}
 //  "desert_duo"
 //  {

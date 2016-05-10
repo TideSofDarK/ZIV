@@ -1,17 +1,14 @@
 "ziv_samurai_execution"
 {
   "BaseClass"           "ability_datadriven"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET" // DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
-  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
 
   "AbilityCastAnimation"      ""
 
   "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastPoint"        "0.04"
-  "AbilityCooldown"        "0.12"
+  "AbilityCooldown"        "0.295"
   "AbilityCastRange"        "128"
 
   "AbilityManaCost"       "10"
@@ -52,7 +49,7 @@
     {
       "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_execution.lua"
       "Function"    "StartAttack"
-      "Target"      "TARGET"
+      "Target"      "POINT"
     }
 
     "FireSound"

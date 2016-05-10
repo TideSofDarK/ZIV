@@ -33,6 +33,20 @@ function Loot:Init()
 	end
 end
 
+function Loot:CreateChest( pos, rarity )
+	local chest = CreateItemOnPositionSync(pos, CreateItem("item_basic_chest", nil, nil))
+	CreateItemPanel( chest )
+	chest.particles = chest.particles or {}
+	chest.rarity = rarity or (math.random(0, 4))
+
+	chest:SetAngles(0, math.random(0, 360), 0)
+
+	local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[chest.rarity], PATTACH_ABSORIGIN_FOLLOW, chest)
+	ParticleManager:SetParticleControl(particle, 0, chest:GetAbsOrigin())
+
+	table.insert(chest.particles, particle)
+end
+
 function Loot:GetLootTable( creep )
   if Loot.Table == nil then
     return nil
