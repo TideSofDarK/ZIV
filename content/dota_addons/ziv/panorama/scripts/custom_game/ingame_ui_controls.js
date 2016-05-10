@@ -4,7 +4,6 @@ var m_AbilityCasting = [];
 
 function GetMouseCastTarget()
 {
-	$.Msg("asd");
 	var mouseEntities = GameUI.FindScreenEntities( GameUI.GetCursorPosition() );
 	var localHeroIndex = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 	mouseEntities = mouseEntities.filter( function(e) { return e.entityIndex !== localHeroIndex; } );

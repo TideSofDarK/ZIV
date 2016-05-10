@@ -2550,12 +2550,13 @@
 	"ziv_elementalist_cold_orb"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityTextureName"			"ziv_empty"
 	
+		"AbilityCastRange" 	"600"
 		"AbilityManaCost"	"25"
-		"AbilityCastPoint"        "0.5"
-		"AbilityCooldown"				"10.0"
+		"AbilityCastPoint"        "0.0"
+		"AbilityCooldown"				"0.0"
 	
 		"MaxLevel" "7"
 	
@@ -2563,6 +2564,7 @@
 		{
 			"particle"  "particles/heroes/elementalist/elementalist_cold_orb.vpcf"
 			"particle"  "particles/heroes/elementalist/elementalist_cold_orb_explosion.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
 		}
 	
@@ -2587,6 +2589,19 @@
 			{
 				"var_type" "FIELD_INTEGER"
 				"cold_movespeed" "-20"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"libraries/abilities.lua"
+				"Function"		"SimulateRangeAttack"
+				"effect" "particles/heroes/elementalist/elementalist_cold_orb.vpcf"
+				"damage_amp" "%damage_amp"
+				"sound" "Hero_Ancient_Apparition.IceVortexCast"
+				"Target" "POINT"
 			}
 		}
 	
@@ -2622,7 +2637,11 @@
 	
 				"OnOrbFire"
 				{
-	
+					"FireSound"
+					{
+						"EffectName"	"Hero_Ancient_Apparition.IceVortexCast"
+						"Target" 		"CASTER"
+					}
 				}
 	
 				"OnOrbImpact"
@@ -2760,12 +2779,13 @@
 	"ziv_elementalist_dark_orb"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityTextureName"			"ziv_empty"
 	
+		"AbilityCastRange" 	"600"
 		"AbilityManaCost"	"25"
-		"AbilityCastPoint"        "0.5"
-		"AbilityCooldown"				"10.0"
+		"AbilityCastPoint"        "0.0"
+		"AbilityCooldown"				"0.0"
 	
 		"MaxLevel" "7"
 	
@@ -2787,6 +2807,19 @@
 			{
 				"var_type" "FIELD_INTEGER"
 				"radius" "300"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"libraries/abilities.lua"
+				"Function"		"SimulateRangeAttack"
+				"effect" "particles/heroes/elementalist/elementalist_dark_orb.vpcf"
+				"damage_amp" "%damage_amp"
+				"sound" "Hero_Nevermore.Attack"
+				"Target" "POINT"
 			}
 		}
 	

@@ -58,7 +58,6 @@ function UpdateAbilityList()
 			m_AbilityPanels.push( abilityPanel );
 
 			if (abilityLayout == 5) {
-				$.Msg("asd");
 				abilityPanel.AddClass("Layout5");
 			}
 		}
