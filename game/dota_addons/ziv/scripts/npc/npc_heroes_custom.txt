@@ -57,8 +57,8 @@
 	    "StatusMana"        "100"
 	    "StatusManaRegen"     "50.0"
 	
-	    "VisionDaytimeRange"    "1800"
-	    "VisionNighttimeRange"    "1800"
+	    "VisionDaytimeRange"    "1300"
+	    "VisionNighttimeRange"    "1300"
 	}
 	"npc_dota_hero_dragon_knight_ziv"
 	  {
@@ -117,8 +117,8 @@
 	    "StatusMana"        "100"
 	    "StatusManaRegen"     "15.0"
 	
-	    "VisionDaytimeRange"    "1800"
-	    "VisionNighttimeRange"    "1800"
+	    "VisionDaytimeRange"    "1300"
+	    "VisionNighttimeRange"    "1300"
 	  }
 	"npc_dota_hero_drow_ranger_ziv"
 	{
@@ -178,8 +178,8 @@
 	    "StatusMana"        "100"
 	    "StatusManaRegen"     "50.0"
 	
-	    "VisionDaytimeRange"    "1800"
-	    "VisionNighttimeRange"    "1800"
+	    "VisionDaytimeRange"    "1300"
+	    "VisionNighttimeRange"    "1300"
 	}
 	"npc_dota_hero_invoker_ziv"
 	{
@@ -239,8 +239,8 @@
 	    "StatusMana"        "100"
 	    "StatusManaRegen"     "50.0"
 	
-	    "VisionDaytimeRange"    "1800"
-	    "VisionNighttimeRange"    "1800"
+	    "VisionDaytimeRange"    "1300"
+	    "VisionNighttimeRange"    "1300"
 	}
 	"npc_dota_hero_juggernaut_ziv"
 	{
@@ -299,8 +299,8 @@
 	    "StatusMana"        "100"
 	    "StatusManaRegen"     "40.0"
 	
-	    "VisionDaytimeRange"    "1800"
-	    "VisionNighttimeRange"    "1800"
+	    "VisionDaytimeRange"    "1300"
+	    "VisionNighttimeRange"    "1300"
 	}
 	"npc_dota_hero_sniper_ziv"
 	  {
@@ -359,9 +359,9 @@
 	    "StatusMana"        "100"
 	    "StatusManaRegen"     "50.0"
 	
-	    "VisionDaytimeRange"    "1800"
-	    "VisionNighttimeRange"    "1800"
-	  }
+	    "VisionDaytimeRange"    "1300"
+	    "VisionNighttimeRange"    "1300"
+	}
 	"npc_dota_hero_windrunner_ziv"
 	{
 	    "override_hero"     "npc_dota_hero_windrunner"
@@ -419,8 +419,8 @@
 	    "StatusMana"        "100"
 	    "StatusManaRegen"     "50.0"
 	
-	    "VisionDaytimeRange"    "1800"
-	    "VisionNighttimeRange"    "1800"
+	    "VisionDaytimeRange"    "1300"
+	    "VisionNighttimeRange"    "1300"
 	}
 	"npc_dota_hero_witch_doctor_ziv"
 	{
@@ -479,7 +479,7 @@
 	    "StatusMana"        "100"
 	    "StatusManaRegen"     "50.0"
 	
-	    "VisionDaytimeRange"    "1800"
-	    "VisionNighttimeRange"    "1800"
+	    "VisionDaytimeRange"    "1300"
+	    "VisionNighttimeRange"    "1300"
 	}
 }

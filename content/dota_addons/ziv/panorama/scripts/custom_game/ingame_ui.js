@@ -184,8 +184,5 @@ function OpenCraftingWindow() {
 
 	SetPortrait();
 
-	GameUI.CustomUIConfig().ZIVCastAbility = ZIVCastAbility;
-	GameUI.CustomUIConfig().ZIVStopAbility = ZIVStopAbility; 
-
 	// GameUI.CustomUIConfig().hudRoot.FindChildTraverse("RadarButton").DeleteAsync(0.0);
 })();

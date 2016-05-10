@@ -221,10 +221,14 @@ function ChangeMinimapMode()
 }
 
 (function()
-{ 
-	Game.AddCommand("+ZIVShowMinimap", ChangeMinimapMode, "", 0); 
-	Game.AddCommand("-ZIVShowMinimap", ChangeMinimapMode, "", 0); 
-
+{
 	GameEvents.SendCustomGameEventToServer( "world_bounds_request", {} );
 	GameEvents.Subscribe("world_bounds", SetWorldBounds);
+	
+	if (!GameUI.CustomUIConfig().ChangeMinimapMode)
+	{
+		GameUI.CustomUIConfig().ChangeMinimapMode = ChangeMinimapMode; 
+		Game.AddCommand("+ZIVShowMinimap", GameUI.CustomUIConfig().ChangeMinimapMode, "", 0); 
+		Game.AddCommand("-ZIVShowMinimap", GameUI.CustomUIConfig().ChangeMinimapMode, "", 0); 
+	}
 })();
