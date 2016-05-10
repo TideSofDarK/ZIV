@@ -11,20 +11,23 @@ end
 
 function SimulateRangeAttack( keys  )
   local unit = keys.caster
-  local point = keys.target_points[1]
   local ability = keys.ability
   local speed = unit:GetProjectileSpeed()
   local duration = unit:GetAttackAnimationPoint()
 
-  local damage_amp = GetSpecial(ability, "damage_amp")
-
-  point.z = unit:GetAbsOrigin().z
+  local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
 
   ability:StartCooldown(unit:GetAttackAnimationPoint())
 
   StartAnimation(unit, {duration=duration + unit:GetBaseAttackTime(), activity=ACT_DOTA_ATTACK, rate=1.0})
 
   unit:AddNewModifier(unit,ability,"modifier_custom_attack",{duration = duration + unit:GetBaseAttackTime()})
+
+  local units = FindUnitsInRadius(unit:GetTeamNumber(),keys.target_points[1],nil,200,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
+
+  if #units > 0 then
+    keys.target_points[1] = units[1]:GetAbsOrigin() + Vector(0,0,64)
+  end
 
   Timers:CreateTimer(duration, function()
     if unit:HasModifier("modifier_custom_attack") == false then
@@ -35,28 +38,38 @@ function SimulateRangeAttack( keys  )
       unit:EmitSound(keys.sound)
     end
 
-    local distanceToTarget = (unit:GetAbsOrigin() - point):Length2D() + 100
-    local time = distanceToTarget/speed
+    local offset = 64
+    local lock = true
+    local distanceToTarget = unit:GetAttackRange() * 1.5
+    local origin = unit:GetAbsOrigin() + Vector(0,0,64)
+    local direction = (Vector(keys.target_points[1].x, keys.target_points[1].y, 0) 
+      - Vector(origin.x, origin.y, 0)):Normalized()
+    local point = unit:GetAbsOrigin() + ((keys.target_points[1] - origin):Normalized() * distanceToTarget)
+    if math.abs(origin.z - keys.target_points[1].z) < 128 then --
+      point.z = unit:GetAbsOrigin().z + offset 
+      lock = false
+    end
+    local time = (point - origin):Length2D()/speed
 
     local projectile = {
-      vSpawnOrigin = unit:GetAttachmentOrigin(unit:ScriptLookupAttachment("attach_attack1")),
+      vSpawnOrigin = origin,
       fStartRadius = 64,
       fEndRadius = 64,
       Source = unit,
       fExpireTime = 8.0,
-      UnitBehavior = PROJECTILES_DESTROY,
+      UnitBehavior = PROJECTILES_NOTHING,
       bMultipleHits = false,
       bIgnoreSource = true,
       TreeBehavior = PROJECTILES_NOTHING,
       bCutTrees = false,
       bTreeFullCollision = false,
       WallBehavior = PROJECTILES_NOTHING,
-      GroundBehavior = PROJECTILES_NOTHING,
-      fGroundOffset = 64,
+      GroundBehavior = PROJECTILES_DESROY,
+      fGroundOffset = offset,
       nChangeMax = 1,
       bRecreateOnChange = true,
       bZCheck = false,
-      bGroundLock = false,
+      bGroundLock = lock,
       bProvidesVision = false,
       fVisionTickTime = .1,
       fVisionLingerDuration = 0.5,
@@ -68,13 +81,13 @@ function SimulateRangeAttack( keys  )
       DealDamage(unit, target, unit:GetAverageTrueAttackDamage() * damage_amp, DAMAGE_TYPE_PHYSICAL)
     end)
 
-    projectile.fDistance = distanceToTarget
-    projectile.vVelocity = (unit:GetAttachmentOrigin(unit:ScriptLookupAttachment("attach_attack1")) - point):Normalized() * speed * -1.1 
+    projectile.fDistance = (point - origin):Length2D()
+    projectile.vVelocity = direction * speed * 1.1 
 
     Projectiles:CreateProjectile(projectile)
 
     local projectileFX = ParticleManager:CreateParticle(keys.effect, PATTACH_CUSTOMORIGIN, unit)
-    ParticleManager:SetParticleControl(projectileFX, 0, unit:GetAttachmentOrigin(unit:ScriptLookupAttachment("attach_attack1")))
+    ParticleManager:SetParticleControl(projectileFX, 0, origin)
     ParticleManager:SetParticleControl(projectileFX, 1, point)
     ParticleManager:SetParticleControl(projectileFX, 2, Vector(speed, 0, 0))
     ParticleManager:SetParticleControl(projectileFX, 3, point)
