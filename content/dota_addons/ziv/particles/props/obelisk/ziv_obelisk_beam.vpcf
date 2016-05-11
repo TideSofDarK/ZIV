@@ -1,0 +1,148 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 32
+	m_flConstantRadius = 100.000000
+	m_ConstantColor =
+	[
+		116,
+		64,
+		19,
+		255,
+	]
+	m_Renderers =
+	[
+		{
+			_class = "C_OP_RenderTrails"
+			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
+			m_bAdditive = true
+			m_flOverbrightFactor = 2.000000
+			m_hTexture = resource:"materials/particle/ancient_beamfx/radiant_groundend_beams.vtex"
+			m_flMinLength = 1000.000000
+			m_bIgnoreDT = true
+			m_flAnimationRate = 0.500000
+			m_flMaxLength = 5000.000000
+			m_flRadiusScale = 0.500000
+			m_flFinalTextureScaleV = -1.000000
+			m_flFinalTextureOffsetV = 1.000000
+			m_vEndTrailTintFactor =
+			[
+				1.000000,
+				1.000000,
+				1.000000,
+				0.000000,
+			]
+		},
+	]
+	m_Operators =
+	[
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+		},
+		{
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade =
+			[
+				41,
+				76,
+				25,
+				255,
+			]
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.750000
+		},
+		{
+			_class = "C_OP_RampScalarLinear"
+			m_nField = 10
+			m_RateMin = 75.000000
+			m_RateMax = 120.000000
+			m_flEndTime_min = 0.150000
+			m_flEndTime_max = 0.200000
+		},
+		{
+			_class = "C_OP_VectorNoise"
+			m_fl4NoiseScale = 1000.000000
+			m_nFieldOutput = 2
+			m_vecOutputMin =
+			[
+				0.000000,
+				0.000000,
+				25.000000,
+			]
+			m_vecOutputMax =
+			[
+				0.000000,
+				0.000000,
+				50.000000,
+			]
+			m_bAdditive = true
+		},
+		{
+			_class = "C_OP_RampScalarLinear"
+			m_nField = 10
+			m_RateMin = -10.000000
+			m_RateMax = -20.000000
+			m_flStartTime_min = 0.500000
+			m_flStartTime_max = 0.500000
+		},
+	]
+	m_Initializers =
+	[
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMax = 2.000000
+			m_fLifetimeMin = 1.000000
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 75.000000
+			m_flRadiusMax = 100.000000
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin =
+			[
+				59,
+				117,
+				73,
+				255,
+			]
+			m_ColorMax =
+			[
+				34,
+				81,
+				64,
+				255,
+			]
+		},
+		{
+			_class = "C_INIT_RingWave"
+			m_flInitialRadius = 2.000000
+			m_flThickness = 3.000000
+			m_flInitialSpeedMin = 12.000000
+			m_flInitialSpeedMax = 15.000000
+			m_flRoll = 12.000000
+			m_flPitch = 123.000000
+			m_flYaw = 2.000000
+			m_bEvenDistribution = true
+		},
+	]
+	m_Emitters =
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 30
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_ContinuousEmitter"
+		},
+	]
+	m_flCullRadius = -1.000000
+}

@@ -1278,4 +1278,50 @@
 	        "DisableClumpingBehavior"   "1"
 	    }
 	} 
+	"npc_temple_obelisk"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/props/obelisk.vmdl"
+		"deathsim" "particles/props/obelisk/ziv_obelisk_ondeath.vpcf"
+		"deathsound"	"Building_DireTower.Destruction"
+		"SoundSet"					"Tower.Fire"
+		"ModelScale"				"2.0"
+		"Level"						"10"
+		"IsSummoned"				"1"
+		"IsAncient"					"0"
+		"IsOther"					"1"
+		
+		"Ability1"					"ziv_temple_obelisk"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+		"Ability5"					""
+		"Ability6"					""
+		"Ability7"					""
+		"Ability8"					""
+	
+		"ArmorPhysical"				"5"
+		"MagicalResistance"				"33"
+	
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+	
+		"BountyXP"					"0"
+		"BountyGoldMin"				"125"
+		"BountyGoldMax"				"125"
+	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"HealthBarOffset"			"290"
+	
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+	
+		"StatusHealth"				"100"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+	}
 }

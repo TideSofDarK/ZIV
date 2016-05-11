@@ -300,6 +300,19 @@ function ZIV:OnEntityKilled( keys )
     end
   end
 
+  local kv = ZIV.UnitKVs[killedUnit:GetUnitName()]
+
+  if kv then
+    if kv["deathsim"] then
+      killedUnit:AddNoDraw()
+      TimedEffect( kv["deathsim"], killedUnit, 4.0, 0 )
+      Timers:CreateTimer(4.0, function (  )
+      end)
+    end
+    if kv["deathsound"] then
+      EmitSoundOnLocationWithCaster(killedUnit:GetAbsOrigin(),"Building_DireTower.Destruction",killerEntity)
+    end
+  end
   -- Put code here to handle when an entity gets killed
 end
 

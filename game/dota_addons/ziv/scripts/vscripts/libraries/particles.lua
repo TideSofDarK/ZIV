@@ -22,3 +22,13 @@ function ReleaseChildParticles( caster )
     ParticleManager:DestroyParticle(v, false)
   end
 end
+
+function AttachParticleKV( keys )
+	local caster = keys.caster
+	local particle_name = keys.particle
+
+	local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, caster)
+    ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
+
+    AddChildParticle( caster, particle )
+end

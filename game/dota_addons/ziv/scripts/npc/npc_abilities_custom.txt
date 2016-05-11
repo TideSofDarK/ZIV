@@ -6169,8 +6169,8 @@
 	      {
 	        "RunScript"
 	        {
-	          "ScriptFile"  "abilities/modifiers/generic_modifier.lua"
-	          "Function"    "AttachParticle"
+	          "ScriptFile"  "libraries/particles.lua"
+	          "Function"    "AttachParticleKV"
 	          "particle"  "particles/ziv_creep_lord_modifier_regen_aura.vpcf"
 	        }
 	      }
@@ -6423,6 +6423,50 @@
 	      "States"
 	      {
 	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	  }
+	}
+	"ziv_temple_obelisk"
+	{
+	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	  "BaseClass"           "ability_datadriven"
+	  "MaxLevel" "1"
+	  "AbilityTextureName"      ""
+	
+	  "precache"
+	  {
+	    "particle"  "particles/props/obelisk/ziv_obelisk_beam.vpcf"
+	    // "soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_temple_obelisk"
+	    {
+	      "Passive"     "1"
+	      "IsHidden"      "1"
+	      "Attributes" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
+	      "States"
+	      {
+	        "MODIFIER_STATE_ROOTED"   "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+	        "MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "1"
+	        "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "0.1"
+	      }
+	
+	      "OnCreated"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "libraries/particles.lua"
+	          "Function"    "AttachParticleKV"
+	          "particle"  "particles/props/obelisk/ziv_obelisk_beam.vpcf"
+	        }
 	      }
 	    }
 	  }

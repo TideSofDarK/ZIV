@@ -38,8 +38,8 @@
       {
         "RunScript"
         {
-          "ScriptFile"  "abilities/modifiers/generic_modifier.lua"
-          "Function"    "AttachParticle"
+          "ScriptFile"  "libraries/particles.lua"
+          "Function"    "AttachParticleKV"
           "particle"  "particles/ziv_creep_lord_modifier_regen_aura.vpcf"
         }
       }
