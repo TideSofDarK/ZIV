@@ -159,7 +159,8 @@
 	m_Children =
 	[
 		{
-			m_ChildRef = resource:"particles/ziv_chest_light_legendary_a.vpcf"
+			m_ChildRef = resource:"particles/items/ziv_chest_light_legendary_a.vpcf"
 		},
 	]
+	m_flCullRadius = -1.000000
 }

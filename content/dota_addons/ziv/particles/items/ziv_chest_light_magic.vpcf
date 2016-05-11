@@ -155,4 +155,5 @@
 			m_flStartTime = 1.750000
 		},
 	]
+	m_flCullRadius = -1.000000
 }

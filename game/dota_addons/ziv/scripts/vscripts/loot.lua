@@ -40,10 +40,12 @@ function Loot:CreateChest( pos, rarity )
 
 	chest:SetAngles(0, math.random(0, 360), 0)
 	print(rarity, Loot.RARITY_PARTICLES[chest.rarity])
-	local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[chest.rarity], PATTACH_ABSORIGIN_FOLLOW, chest)
-	ParticleManager:SetParticleControl(particle, 0, chest:GetAbsOrigin())
+	Timers:CreateTimer(function (  )
+		local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[chest.rarity], PATTACH_ABSORIGIN_FOLLOW, chest)
+		ParticleManager:SetParticleControl(particle, 0, chest:GetAbsOrigin())
 
-	AddChildParticle( chest, particle )
+		AddChildParticle( chest, particle )
+	end)
 end
 
 function Loot:GetLootTable( creep )
