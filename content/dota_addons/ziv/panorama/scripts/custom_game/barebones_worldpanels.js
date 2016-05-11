@@ -297,8 +297,9 @@ function RepositionItems()
         item.TopRow = positionPanels[0].Row;
         var offset = Math.floor(item.TopOffset + (item.Row - item.TopRow) * item.Height);
         offset = isNaN(offset) ? 0 : offset
+        var x = isNaN(item.X) ? 0 : item.X
 
-        item.style.position = parseInt(item.X) + "px " + parseInt(offset) + "px 0px;";
+        item.style.position = parseInt(x) + "px " + parseInt(offset) + "px 0px;";
         item.UpdateParams();
     });
 
