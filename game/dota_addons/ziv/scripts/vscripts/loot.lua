@@ -9,10 +9,10 @@ Loot.RARITY_EPIC = 3
 Loot.RARITY_LEGENDARY = 4
 
 Loot.RARITY_PARTICLES = {}
-Loot.RARITY_PARTICLES[Loot.RARITY_MAGIC] = "particles/ziv_chest_light_magic.vpcf"
-Loot.RARITY_PARTICLES[Loot.RARITY_RARE] = "particles/ziv_chest_light_rare.vpcf"
-Loot.RARITY_PARTICLES[Loot.RARITY_EPIC] = "particles/ziv_chest_light_epic.vpcf"
-Loot.RARITY_PARTICLES[Loot.RARITY_LEGENDARY] = "particles/ziv_chest_light_legendary.vpcf"
+Loot.RARITY_PARTICLES[Loot.RARITY_MAGIC] = "particles/items/ziv_chest_light_magic.vpcf"
+Loot.RARITY_PARTICLES[Loot.RARITY_RARE] = "particles/items/ziv_chest_light_rare.vpcf"
+Loot.RARITY_PARTICLES[Loot.RARITY_EPIC] = "particles/items/ziv_chest_light_epic.vpcf"
+Loot.RARITY_PARTICLES[Loot.RARITY_LEGENDARY] = "particles/items/ziv_chest_light_legendary.vpcf"
 
 Loot.CommonModifiers = {}
 Loot.RuneModifiers = {}
@@ -36,15 +36,14 @@ end
 function Loot:CreateChest( pos, rarity )
 	local chest = CreateItemOnPositionSync(pos, CreateItem("item_basic_chest", nil, nil))
 	CreateItemPanel( chest )
-	chest.particles = chest.particles or {}
 	chest.rarity = rarity or (math.random(0, 4))
 
 	chest:SetAngles(0, math.random(0, 360), 0)
-
+	print(rarity, Loot.RARITY_PARTICLES[chest.rarity])
 	local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[chest.rarity], PATTACH_ABSORIGIN_FOLLOW, chest)
 	ParticleManager:SetParticleControl(particle, 0, chest:GetAbsOrigin())
 
-	table.insert(chest.particles, particle)
+	AddChildParticle( chest, particle )
 end
 
 function Loot:GetLootTable( creep )

@@ -18,7 +18,7 @@ function Blink( keys )
 	end)
 
 	Timers:CreateTimer(0.49, function(  )
-		caster:SetAbsOrigin(target)
+		FindClearSpaceForUnit(caster,target,false)
 		EmitSoundOnLocationWithCaster(target,"Hero_QueenOfPain.Blink_in",caster)
 
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), target,  nil, 75 + GRMSC("ziv_huntress_blink_arrow_radius", caster), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)

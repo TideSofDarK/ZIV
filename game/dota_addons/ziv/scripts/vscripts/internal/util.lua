@@ -27,6 +27,26 @@ function GetRandomElement(list, checker)
   end
 end
 
+function Shuffle(list)
+    local indices = {}
+    for i = 1, #list do
+        indices[#indices+1] = i
+    end
+
+    local shuffled = {}
+    for i = 1, #list do
+        local index = math.random(#indices)
+
+        local value = list[indices[index]]
+
+        table.remove(indices, index)
+
+        shuffled[#shuffled+1] = value
+    end
+
+    return shuffled
+end
+
 function CreateItemPanel( item_container )
   item_container.worldPanel = WorldPanels:CreateWorldPanelForAll(
     {layout = "file://{resources}/layout/custom_game/worldpanels/item.xml",

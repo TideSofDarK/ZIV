@@ -29,17 +29,17 @@ function Director:Init()
 			Director.creep_list[k] = v
 		end
 	end
-
-	Director:SetupMap()
 end
 
 function Director:SetupMap()
-	local random_chests = Entities:FindAllByName("ziv_random_chest")
-	local chest_count = math.floor(GetTableLength(random_chests) * 0.75)
+	local random_chests = Shuffle(Entities:FindAllByName("ziv_random_chest"))
+	local chest_count = math.floor(GetTableLength(random_chests) * 0.5)
 
+	local i = 1
 	for k,v in pairs(random_chests) do
-		print(k, v)
-		Loot:CreateChest( v:GetAbsOrigin() )
+		if i >= chest_count then return end
+		Loot:CreateChest( v:GetAbsOrigin(), math.random(0, 4) )
+		i = i + 1
 	end
 end
 

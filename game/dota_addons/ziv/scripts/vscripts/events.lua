@@ -49,6 +49,10 @@ function ZIV:OnGameRulesStateChange(keys)
   ZIV:_OnGameRulesStateChange(keys)
 
   local newState = GameRules:State_Get()
+
+  if newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+    Director:SetupMap()
+  end
 end
 
 -- An NPC has spawned somewhere in game.  This includes heroes

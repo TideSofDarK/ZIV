@@ -260,6 +260,9 @@ function ZIV:InitZIV()
 
   ZIV:_InitZIV()
 
+  local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '0','')
+  math.randomseed(tonumber(timeTxt))
+
   Convars:RegisterCommand( "print_hero_stats", Dynamic_Wrap(ZIV, 'PrintHeroStats'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "ai", Dynamic_Wrap(ZIV, 'AddItemToContainer'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "sp", Dynamic_Wrap(ZIV, 'SpawnBasicPack'), "", FCVAR_CHEAT )
@@ -360,29 +363,7 @@ function ZIV:SpawnBasicDrop(rarity)
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
 
-      local enigma = CreateItemOnPositionSync(hero:GetAbsOrigin(), CreateItem("item_basic_chest", nil, nil))
-      CreateItemPanel( enigma )
-      enigma.particles = enigma.particles or {}
-      enigma.rarity = tonumber(rarity) or 0
-
-      Physics:Unit(enigma)
-
-      enigma:SetAbsOrigin(hero:GetAbsOrigin())
-
-      local seed = math.random(0, 360)
-
-      local boost = math.random(0,425)
-
-      local x = ((185 + boost) * math.cos(seed))
-      local y = ((185 + boost) * math.sin(seed))
-
-      enigma:AddPhysicsVelocity(Vector(x, y, 1100))
-      enigma:SetPhysicsAcceleration(Vector(0,0,-1700)) 
-
-      local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[tonumber(rarity)], PATTACH_ABSORIGIN_FOLLOW, enigma)
-      ParticleManager:SetParticleControl(particle, 0, enigma:GetAbsOrigin())
-
-      table.insert(enigma.particles, particle)
+      Loot:CreateChest( hero:GetAbsOrigin(), tonumber(rarity) )
     end
   end
 end
