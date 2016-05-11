@@ -291,7 +291,7 @@ GameUI.SetMouseCallback( function( eventName, arg ) {
 		// Right-click is use ability #2
 		if ( arg === 1 )
 		{
-			OnRightButtonPressed();
+			//OnRightButtonPressed();
 			return CONSUME_EVENT;
 		}
 
