@@ -80,28 +80,29 @@ function RemoveUnusedMarks( units )
 
 	for (var i = 0; i < count; i++) {
 		var childID = marksContainer.GetChild(i).id;
-		var entityID = childID.match(/[\d]+$/)[0];
+		var matches = childID.match(/[\d]+$/);
+		var entityID = matches && matches.length > 0 ? matches[0] : -1;
 
 		if (units.indexOf(Number(entityID)) == -1)
 			marksContainer.GetChild(i).DeleteAsync(0.1);
 	}
 }
 
-function SetEntityMapPostition( panel, entity )
+function SetMapPosByWorldPos( panel, pos )
 {
 	var size = GetPanelSize( panel );
 	var parentSize = GetPanelSize( $( "#MinimapImage" ) );
-	var relPos = GetRelativePosition( Entities.GetAbsOrigin(entity) );
+	var relPos = GetRelativePosition( pos );
 
 	var offset = {
-		x: parentSize.width * relPos[0] - size.width / 2,
-		y: parentSize.height / 2 - size.height / 2
+		x: parentSize.width * relPos[0]- size.width / 2,
+		y: parentSize.height * relPos[1] - size.height / 2
 	}
 
 	if (!isNaN(offset.x) && !isNaN(offset.y))
 	{
-		panel.style.marginLeft = parentSize.width * relPos[0] - size.width / 2 + "px;"
-		panel.style.marginTop =  parentSize.height * relPos[1] - size.height / 2 + "px;"
+		panel.style.marginLeft = offset.x + "px;"
+		panel.style.marginTop = offset.y + "px;"
 	}	
 }
 
@@ -151,7 +152,7 @@ function UpdateUnits( heroID )
 		if (!entPanel)
 			entPanel = CreateMarkPanel( ent );
 
-		SetEntityMapPostition( entPanel, ent );	
+		SetMapPosByWorldPos( entPanel, Entities.GetAbsOrigin(ent) );
 	}
 }
 
@@ -181,14 +182,21 @@ function MinimapClick()
 	var x = bounds["min"].x + (bounds["max"].x - bounds["min"].x) * offset.x;
 	var y = bounds["max"].y - (bounds["max"].y - bounds["min"].y) * offset.y;
 
-	var order = {
-		OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position : [x, y, 0],
-		Queue : false,
-		ShowEffects : false
-	};
+	// Minimap events
+	if (GameUI.IsAltDown())
+		GameEvents.SendCustomGameEventToServer( "set_minimap_event", { "type": "ping", "duration": 5, "pos": [ x, y ] } );
+	// Moving
+	else
+	{
+		var order = {
+			OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+			Position : [x, y, 0],
+			Queue : false,
+			ShowEffects : false
+		};
 
-	Game.PrepareUnitOrders( order );
+		Game.PrepareUnitOrders( order );
+	}
 }
 
 function SetWorldBounds( args ) 
@@ -206,24 +214,45 @@ function SetWorldBounds( args )
 	UpdateMinimap(); 
 }
 
+// Events handler
+function MinimapEvent( args )
+{
+	var panel = $.CreatePanel( "Panel", $( "#EventsMap" ), args["Type"] );
+	panel.BLoadLayout( marksPath + "events.xml", false, false );
+	panel.FormEvent( args.type, args.player, args.entity )
+
+	// Delay to calculate sizes
+	$.Schedule(0.1, function() {
+		SetMapPosByWorldPos( panel, [ args.pos[0], args.pos[1] ]);
+	});
+
+	panel.DeleteAsync( args.duration );
+}
+
 function ChangeMinimapMode()
 {
 	if ($.GetContextPanel().BHasClass("Hero"))
 	{
 		$.GetContextPanel().RemoveClass("Hero");
-		$.GetContextPanel().AddClass("TopRight")
+		$.GetContextPanel().AddClass("TopRight");
+
+		$( "#MinimapImage" ).hittest = true;
 	}
 	else
 	{
 		$.GetContextPanel().RemoveClass("TopRight");
-		$.GetContextPanel().AddClass("Hero")
+		$.GetContextPanel().AddClass("Hero");
+
+		$( "#MinimapImage" ).hittest = false;
 	}
 }
 
 (function()
 {
 	GameEvents.SendCustomGameEventToServer( "world_bounds_request", {} );
+
 	GameEvents.Subscribe("world_bounds", SetWorldBounds);
+	GameEvents.Subscribe("custom_minimap_event", MinimapEvent);
 	
 	if (!GameUI.CustomUIConfig().ChangeMinimapMode)
 	{

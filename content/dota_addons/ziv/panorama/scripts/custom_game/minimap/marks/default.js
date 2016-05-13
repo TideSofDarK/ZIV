@@ -22,13 +22,33 @@ function UpdateClass()
 
 function Click()
 {
-	var order = {
-		OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position : Entities.GetAbsOrigin($.GetContextPanel().entity),
-		Queue : false,
-		ShowEffects : false
-	};
-	Game.PrepareUnitOrders( order );
+	if (GameUI.IsAltDown())
+	{
+		var entity = $.GetContextPanel().entity;
+
+		var eventType = "";
+		if ( Entities.IsEnemy(entity) )
+			eventType = "attack";
+		else
+			if ( Entities.GetTeamNumber(entity) == Players.GetTeam( Players.GetLocalPlayer() ) )
+				eventType = "defend";
+
+		if (eventType)
+		{
+			var pos = Entities.GetAbsOrigin( entity );
+			GameEvents.SendCustomGameEventToServer( "set_minimap_event", { "type": eventType, "duration": 5, "pos": [ pos[0], pos[1] ] } );
+		}
+	}
+	else
+	{
+		var order = {
+			OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+			Position : Entities.GetAbsOrigin($.GetContextPanel().entity),
+			Queue : false,
+			ShowEffects : false
+		};
+		Game.PrepareUnitOrders( order );
+	}
 }
 
 function ShowEntityTooltip()

@@ -1,0 +1,19 @@
+.Event {
+    animation-duration: 0.7s;
+    animation-iteration-count: 999;
+    animation-timing-function: ease-in-out;
+    animation-name: Resizing;
+}
+
+@keyframes 'Resizing'
+{
+	50%
+    {
+ 		transform: scale3d( 0.5, 0.5, 1);
+    }
+    
+    100%
+    {
+		transform: scale3d( 1, 1, 1);
+    }
+}
