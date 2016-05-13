@@ -1,5 +1,5 @@
 ![ZiV](http://puu.sh/oAW5K/bc0f8bd2b4.jpg)
-# ZiV
+# ZiV ![This work is licensed under a Creative Commons Attribution-NonCommercial 3.0 United States License](https://i.creativecommons.org/l/by-nc/3.0/us/88x31.png)
  - aRPG game like PoE and Diablo made as a mod for Dota 2.
  - Character save/loading
  - Loot heaven
