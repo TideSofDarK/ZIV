@@ -85,14 +85,17 @@ function SetPortrait()
 
 function UpdateHPAndMP() 
 {
-	var queryUnit = Game.GetLocalPlayerInfo()["player_selected_hero_entity_index"];
-	if (!queryUnit || queryUnit == -1) $.Schedule( 0.1, UpdateHPAndMP );
+	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+	var heroKV = CustomNetTables.GetTableValue( "hero_kvs", Entities.GetUnitName( queryUnit )+"_ziv" );
+
+	if (!queryUnit || queryUnit == -1 || !heroKV) $.Schedule( 0.1, UpdateHPAndMP );
+
 	var hp = 	Entities.GetHealth( queryUnit )
 	var maxHP = 	Entities.GetMaxHealth( queryUnit )
 	var mp = 	Entities.GetMana( queryUnit )
 	var maxMP = 	Entities.GetMaxMana( queryUnit )
 
-	var heroKV = CustomNetTables.GetTableValue( "hero_kvs", Entities.GetUnitName( queryUnit )+"_ziv" );
+	
 	if (heroKV["UsesEnergy"]) 
 	{
 		$("#sp_bar").AddClass("EnergyBar")

@@ -69,6 +69,7 @@ LinkLuaModifier("modifier_custom_attack", "libraries/modifiers/modifier_custom_a
 LinkLuaModifier("modifier_fade_out", "libraries/modifiers/modifier_fade_out.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_transparent", "libraries/modifiers/modifier_transparent.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_disable_auto_attack", "libraries/modifiers/modifier_disable_auto_attack.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_smooth_floating", "libraries/modifiers/modifier_smooth_floating.lua", LUA_MODIFIER_MOTION_NONE)
 
 function ZIV:OpenInventory(args)
   local pid = args.PlayerID
@@ -201,7 +202,9 @@ function ZIV:OnHeroInGame(hero)
 
     local camera_target = CreateUnitByName("npc_dummy_unit",hero:GetAbsOrigin() + Vector(0,325,0),false,hero,hero,hero:GetTeamNumber())
     InitAbilities(camera_target)
+
     PlayerResource:SetCameraTarget(pid, camera_target)
+
     Timers:CreateTimer(function ()
       camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,-275,0))
       return 0.03
@@ -216,6 +219,8 @@ end
 ]]
 function ZIV:OnGameInProgress()
   DebugPrint("[ZIV] The game has officially begun")
+
+  Director.scenario:NextStage()
 
   Timers:CreateTimer( -- Start this timer 30 game-time seconds later
     function()
@@ -268,6 +273,7 @@ function ZIV:InitZIV()
   Convars:RegisterCommand( "sp", Dynamic_Wrap(ZIV, 'SpawnBasicPack'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "sbd", Dynamic_Wrap(ZIV, 'SpawnBasicDrop'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "mki", Dynamic_Wrap(ZIV, 'MakeHeroInvisible'), "", FCVAR_CHEAT )
+  Convars:RegisterCommand( "amth", Dynamic_Wrap(ZIV, 'AddModifierToHero'), "", FCVAR_CHEAT )
 
   GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( ZIV, "FilterExecuteOrder" ), self )
   GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( ZIV, "DamageFilter" ), self )
@@ -281,6 +287,17 @@ function ZIV:InitZIV()
 
   Director:Init()
   Loot:Init()
+end
+
+function ZIV:AddModifierToHero(modifier)
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+      local hero = cmdPlayer:GetAssignedHero()
+      hero:AddNewModifier(hero,nil,modifier,{})
+    end
+  end
 end
 
 function ZIV:MakeHeroInvisible()

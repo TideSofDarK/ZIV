@@ -39,7 +39,6 @@ function Loot:CreateChest( pos, rarity )
 	chest.rarity = rarity or (math.random(0, 4))
 
 	chest:SetAngles(0, math.random(0, 360), 0)
-	print(rarity, Loot.RARITY_PARTICLES[chest.rarity])
 	Timers:CreateTimer(function (  )
 		local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[chest.rarity], PATTACH_ABSORIGIN_FOLLOW, chest)
 		ParticleManager:SetParticleControl(particle, 0, chest:GetAbsOrigin())

@@ -3,7 +3,7 @@
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/development/invisiblebox.vmdl"
     "SoundSet"          "Creep_Good_Range"
-    "Level"           "0"
+    "Level"           "2"
     "UnitLabel"         "healing_ward"
     "Ability1"          "dummy_unit"
 
@@ -35,7 +35,7 @@
 
     "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"
 
-    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_FLY"
     "MovementSpeed"       "450"
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
@@ -50,8 +50,8 @@
     
     
 
-    "VisionDaytimeRange"    "0"
-    "VisionNighttimeRange"    "0"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 
     "AttackDesire"        "1.5"
 } 

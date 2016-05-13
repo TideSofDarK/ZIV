@@ -2,7 +2,7 @@
 {
 	"BaseClass"					"npc_dota_creature"
 	"Model"						"models/props/obelisk.vmdl"
-	
+
 	"deathsim" "particles/props/obelisk/ziv_obelisk_ondeath.vpcf"
 	"deathsound"	"Building_DireTower.Destruction"
 	"SoundSet"					"Tower.Fire"

@@ -1,6 +1,10 @@
+require('scenarios/temple')
+
 if Director == nil then
     _G.Director = class({})
 end
+
+Director.scenario = Temple
 
 Director.BASIC_PACK_COUNT = 12
 Director.BASIC_PACK_SPREAD = 820
@@ -29,11 +33,13 @@ function Director:Init()
 			Director.creep_list[k] = v
 		end
 	end
+
+	Director.scenario:Init()
 end
 
 function Director:SetupMap()
 	local random_chests = Shuffle(Entities:FindAllByName("ziv_random_chest"))
-	local chest_count = math.floor(GetTableLength(random_chests) * 0.5)
+	local chest_count = math.floor(GetTableLength(random_chests) * 0.3)
 
 	local i = 1
 	for k,v in pairs(random_chests) do
