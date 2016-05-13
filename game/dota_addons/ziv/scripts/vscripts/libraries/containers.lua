@@ -813,6 +813,8 @@ function Containers:OrderFilter(order)
               Loot:OpenChest( physItem, unit )
               physItem.opened = true
             elseif item and defInventory:AddItem(item) then
+              unit:EmitSound("Item.PickUpWorld")
+              unit:EmitSound("ui.inv_pickup_leather")
               physItem:RemoveSelf()
             end
           end
