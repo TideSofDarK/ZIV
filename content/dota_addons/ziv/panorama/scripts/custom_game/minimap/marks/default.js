@@ -27,6 +27,7 @@ function UpdateClass()
 	else
 		panel.AddClass("green");
 
+	$.Schedule(0.1, UpdateClass);	
 }
 
 function Click()
