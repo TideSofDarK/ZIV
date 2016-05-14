@@ -5,8 +5,16 @@ $.GetContextPanel().entity = -1;
 function UpdateClass()
 {
 	var entity = $.GetContextPanel().entity;
+	var panel = $.GetContextPanel();	
 
-	var panel = $.GetContextPanel();
+	if (Entities.IsHero(entity))
+	{
+		panel.AddClass("hero");
+		$("#Icon").SetImage( "file://{images}/heroes/icons/" + Entities.GetUnitName(entity) + ".png" );
+		$("#Icon").style.washColor = Entities.IsEnemy(entity) ? "#ff0000bb;" : "#00ff00bb;";
+		return;
+	}
+
 	panel.AddClass("square");
 
 	if (Entities.IsItemPhysical(entity))
@@ -18,6 +26,7 @@ function UpdateClass()
 		panel.AddClass("white");
 	else
 		panel.AddClass("green");
+
 }
 
 function Click()
@@ -36,7 +45,7 @@ function Click()
 		if (eventType)
 		{
 			var pos = Entities.GetAbsOrigin( entity );
-			GameEvents.SendCustomGameEventToServer( "set_minimap_event", { "type": eventType, "duration": 5, "pos": [ pos[0], pos[1] ] } );
+			GameEvents.SendCustomGameEventToServer( "set_minimap_event", { "type": eventType, "duration": 5, "pos": [ pos[0], pos[1] ], "entity": entity } );
 		}
 	}
 	else
@@ -64,4 +73,5 @@ function HideEntityTooltip()
 (function()
 { 
 	$.GetContextPanel().UpdateClass = UpdateClass;
+	UpdateClass();
 })();

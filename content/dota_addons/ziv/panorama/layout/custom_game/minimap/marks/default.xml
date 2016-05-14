@@ -9,6 +9,7 @@
 	<Panel class="Mark" 
 		onactivate="Click();" 
 		onmouseover="ShowEntityTooltip();"
-		onmouseout="HideEntityTooltip();"
-		/>
+		onmouseout="HideEntityTooltip();" >
+		<Image id="Icon" />
+	</Panel>
 </root>

@@ -6,6 +6,9 @@ var bounds = null;
 // Calculate relative image position
 function GetRelativePosition( pos )
 {
+	if (!pos)
+		return [0, 0];
+
 	var width = bounds["max"].x - bounds["min"].x;
 	var height = bounds["max"].y - bounds["min"].y;
 
@@ -91,8 +94,8 @@ function RemoveUnusedMarks( units )
 function SetMapPosByWorldPos( panel, pos )
 {
 	var size = GetPanelSize( panel );
-	var parentSize = GetPanelSize( $( "#MinimapImage" ) );
 	var relPos = GetRelativePosition( pos );
+	var parentSize = GetPanelSize( $( "#MinimapImage" ) );
 
 	var offset = {
 		x: parentSize.width * relPos[0]- size.width / 2,
@@ -123,7 +126,7 @@ function CreateMarkPanel( entity )
 
 	if (panel.UpdateClass)
 		panel.UpdateClass();
- 
+
 	return panel;
 } 
 
@@ -134,8 +137,8 @@ function FilterUnits( heroID )
 	return Entities.GetAllEntities().filter(function( entity ) {
 		return Entities.IsEntityInRange( heroID, entity, visionRange ) &&
 			!Entities.IsInvisible( entity ) && 
-			Entities.IsValidEntity( entity ) &&
-			Entities.IsHero( entity ) &&
+			//Entities.IsValidEntity( entity ) &&
+			//Entities.IsHero( entity ) &&
 			heroID != entity;
 	})
 }
@@ -148,12 +151,27 @@ function UpdateUnits( heroID )
 
 	for(var ent of rangeUnits)
 	{
-		var entPanel = $( "#MarksMap" ).FindChild("Entity_" + ent);
-		if (!entPanel)
-			entPanel = CreateMarkPanel( ent );
+		var panel = $( "#MarksMap" ).FindChild("Entity_" + ent);
+		if (!panel)
+			panel = CreateMarkPanel( ent );
 
-		SetMapPosByWorldPos( entPanel, Entities.GetAbsOrigin(ent) );
+		SetMapPosByWorldPos( panel, Entities.GetAbsOrigin(ent) );
 	}
+}
+
+// Update event position by attached entity
+function UpdateEvents()
+{
+	var marksContainer = $( "#EventsMap" );
+	var count = marksContainer.GetChildCount();
+
+	for (var i = 0; i < count; i++) {
+		var eventPanel = marksContainer.GetChild(i);
+		if (!eventPanel.entity || eventPanel.entity == -1)
+			continue;
+
+		SetMapPosByWorldPos( eventPanel, Entities.GetAbsOrigin( eventPanel.entity ));
+	}	
 }
 
 function UpdateMinimap()
@@ -164,8 +182,9 @@ function UpdateMinimap()
 	UpdateImagePosition( heroID );
 	UpdatePointerPosition( heroID );
 	UpdateUnits( heroID );
+	UpdateEvents();
 
-	$.Schedule(0.05, UpdateMinimap); 
+	$.Schedule(0.05, UpdateMinimap);
 }
 
 function MinimapClick()

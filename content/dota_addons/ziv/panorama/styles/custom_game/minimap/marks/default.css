@@ -2,14 +2,23 @@
 	width: 15px;
 	height: 15px;
 
-	border: 1px solid black;
-
 	z-index: 1;
 }
 
 .Mark:hover {
 	width: 30px;
 	height: 30px;
+}
+
+.hero {
+	width: 30px;
+	height: 30px;
+
+	z-index: 2;
+}
+
+.square {
+	border: 1px solid black;
 }
 
 .green {
