@@ -1,3 +1,5 @@
+"use strict";
+
 var heroFrames = [];
 
 var heroList;
@@ -87,7 +89,7 @@ function CreateFrames() {
 				newHeroFrame.heroName = hero;
 				newHeroFrame.heroesKVs = heroesKVs;
 
-				newHeroFrame.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection_frame.xml", false, false );
+				newHeroFrame.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_frame.xml", false, false );
 				
 				heroFrames.push(newHeroFrame);
 	    	}
@@ -150,9 +152,41 @@ function SetHeroesKVs(eventArgs) {
 	heroesKVs = eventArgs;
 }
 
+function LoadCharactersList( args )
+{
+	args = {
+		maxCount: 4,
+		heroList: [
+			{ name: "npc_dota_hero_drow_ranger"	},
+			{ name: "npc_dota_hero_windrunner"	},
+			{ name: "npc_dota_hero_invoker"	}
+		]
+	};
+
+	for(var hero of args.heroList)
+	{
+		var panel = $.CreatePanel( "Panel", $( "#LoadCharacterList" ), "Card_" + hero.name );
+		panel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_card.xml", false, false );
+		panel.UpdateCard(hero);
+	}
+
+	if (args.heroList.length < args.maxCount)
+	{
+		var panel = $.CreatePanel( "Panel", $( "#LoadCharacterList" ), "Card_default" );
+		panel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_card.xml", false, false );
+		panel.UpdateCard(null);
+
+		panel.SetPanelEvent("onmouseactivate", CreateCharacterButton);
+	}
+}
+
 (function () {
 	GameEvents.Subscribe( "ziv_set_herolist", SetHeroList );
 	GameEvents.Subscribe( "ziv_set_heroes_kvs", SetHeroesKVs );
+
+	GameEvents.Subscribe( "ziv_load_characters_list", LoadCharactersList );
+
+	LoadCharactersList( null );
 
 	// CreateFrames();
 

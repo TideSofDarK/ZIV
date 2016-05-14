@@ -1,7 +1,7 @@
 <root>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/material_design.css" />
-		<include src="file://{resources}/styles/custom_game/custom_character_selection.css" />	
+		<include src="file://{resources}/styles/custom_game/custom_character_selection/custom_character_selection.css" />	
 	</styles>
 	<scripts>
 	</scripts>

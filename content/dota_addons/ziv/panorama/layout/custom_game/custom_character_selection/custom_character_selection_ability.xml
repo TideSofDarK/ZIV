@@ -1,11 +1,11 @@
 <root>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/material_design.css" />
-		<include src="file://{resources}/styles/custom_game/custom_character_selection_ability.css" />	
+		<include src="file://{resources}/styles/custom_game/custom_character_selection/custom_character_selection_ability.css" />	
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/material_design.js" />
-		<include src="file://{resources}/scripts/custom_game/custom_character_selection_ability.js" />
+		<include src="file://{resources}/scripts/custom_game/custom_character_selection/custom_character_selection_ability.js" />
 	</scripts>
 	<Panel class="AbilityPanel">
 		<DOTAAbilityImage id="AbilityImage" abilityname=""/>

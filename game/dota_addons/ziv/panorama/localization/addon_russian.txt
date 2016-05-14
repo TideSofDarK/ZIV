@@ -43,6 +43,8 @@
 	"empty_gem_slot" "Пустой слот"
 
 	"level" "Уровень"
+	
+	"remove_hero" "Удалить героя"
 
 	"status_attr"	"Характеристики"
 	"status_status"	"Статус"

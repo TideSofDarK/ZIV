@@ -102,7 +102,7 @@ function UpdateSkills() {
 	for (var i = 0; i < GetSpellCount(stringLayout); i++) {
 		var abilityName = $.GetContextPanel().heroesKVs[$.GetContextPanel().heroName+"_ziv"]["Ability"+(i+1)];
 		var newChildPanel = $.CreatePanel( "Panel", root, abilityName );
-		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection_ability.xml", false, false );
+		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_ability.xml", false, false );
 
 		newChildPanel.FindChild("AbilityImage").abilityname = abilityName;
 

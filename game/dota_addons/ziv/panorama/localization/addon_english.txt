@@ -124,6 +124,8 @@
 
 	"level" "Level"
 
+	"remove_hero" "Remove hero"
+
 	"status_attr"	"Attributes"
 	"status_status"	"Status"
 	"status_hp"	"Health Points: "
