@@ -28,6 +28,8 @@
 			var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 			var buffSerial = $.GetContextPanel().m_BuffSerial;
 
+			if (!queryUnit || !buffSerial) return;
+
 			var isEnemy = Entities.IsEnemy( queryUnit );
 			$.DispatchEvent( "DOTAShowBuffTooltip", $.GetContextPanel(), queryUnit, buffSerial, false );
 		}
