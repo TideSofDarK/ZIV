@@ -11,7 +11,12 @@
 		<Image id="HeroImage" src="file://{images}/custom_game/heroes/default.png"/>
 		<Panel hittest="false" class="CharacterListOverlap" />
 
-		<Button  class="CloseButton" id="CloseButton" 
+		<Panel class="CardInfo">
+			<Label class="CardLabel" id="HeroNameLabel" />
+			<Label class="CardLabel" id="HeroLevel" />
+		</Panel>
+
+		<Button class="CloseButton" id="CloseButton" 
 			onactivate="DeleteCharacter()" 
 			onmouseover="ShowDeleteTooltip();"
 			onmouseout="HideDeleteTooltip();" />

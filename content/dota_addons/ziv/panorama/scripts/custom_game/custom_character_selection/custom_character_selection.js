@@ -157,9 +157,9 @@ function LoadCharactersList( args )
 	args = {
 		maxCount: 4,
 		heroList: [
-			{ name: "npc_dota_hero_drow_ranger"	},
-			{ name: "npc_dota_hero_windrunner"	},
-			{ name: "npc_dota_hero_invoker"	}
+			{ name: "npc_dota_hero_drow_ranger", level: 5 },
+			{ name: "npc_dota_hero_windrunner", level: 8 },
+			{ name: "npc_dota_hero_invoker", level: 1 }
 		]
 	};
 
