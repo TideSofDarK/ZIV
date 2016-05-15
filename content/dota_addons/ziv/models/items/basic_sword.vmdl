@@ -246,7 +246,7 @@
 		[
 			{
 				m_sSearchMaterial = "basic_sword.vmat"
-				m_sReplaceMaterial = "materials/models/basic_sword.vmat"
+				m_sReplaceMaterial = "materials/models/items/basic_sword.vmat"
 			},
 		]
 	}
