@@ -11,7 +11,8 @@
 			<Image class="MinimapMarks" id="PointerImage" src="file://{images}/custom_game/minimap/pointer.png" />			
 			<Image id="MinimapImage" src="file://{images}/custom_game/minimap/minimap.png" onactivate="MinimapClick()">
 				<Panel class="MarksContainer" id="MarksMap" />
-				<Panel hittest="false" class="EventsContainer" id="EventsMap" /> 
+				<Panel hittest="false" class="EventsContainer" id="EventsMap" />
+				<Panel hittest="false" class="FogContainer" id="FogMap" />
 			</Image>
 		</Panel>
 	</Panel>

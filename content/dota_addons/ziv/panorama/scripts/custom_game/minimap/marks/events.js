@@ -8,11 +8,32 @@ function GetPlayerColor( PlayerID )
 	return "#" + color + ";";
 }
 
+function EmitEventSournd( type )
+{
+	var soundFile = "General.PingWarning";
+
+	switch(type)
+	{
+		case "attack":
+			soundFile = "General.PingAttack";
+			break;
+
+		case "defend":
+			soundFile = "General.PingDefense";
+			break;
+	}
+
+	Game.EmitSound(soundFile);
+}
+
 function FormEvent( type, player, entity )
 {
 	$( "#Icon" ).SetImage( imagePath + type + ".png" );
 	$( "#Icon" ).style.washColor = GetPlayerColor( player );
+
 	$.GetContextPanel().entity = entity;
+
+	EmitEventSournd( type );
 }
 
 (function()
