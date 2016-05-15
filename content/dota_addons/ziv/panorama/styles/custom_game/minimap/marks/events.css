@@ -7,13 +7,17 @@
 
 @keyframes 'Resizing'
 {
+    0%
+    {
+        transform: scale3d( 2, 2, 1);
+    }    
 	50%
     {
- 		transform: scale3d( 0.5, 0.5, 1);
+ 		transform: scale3d( 0.2, 0.2, 1);
     }
     
     100%
     {
-		transform: scale3d( 1, 1, 1);
+		transform: scale3d( 2, 2, 1);
     }
 }

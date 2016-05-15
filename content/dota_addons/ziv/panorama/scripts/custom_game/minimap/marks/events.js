@@ -12,9 +12,11 @@ function FormEvent( type, player, entity )
 {
 	$( "#Icon" ).SetImage( imagePath + type + ".png" );
 	$( "#Icon" ).style.washColor = GetPlayerColor( player );
+	$.GetContextPanel().entity = entity;
 }
 
 (function()
 { 
+	$.GetContextPanel().entity = -1;
 	$.GetContextPanel().FormEvent = FormEvent;
 })();
