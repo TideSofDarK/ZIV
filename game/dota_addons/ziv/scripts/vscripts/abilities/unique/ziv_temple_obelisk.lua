@@ -14,6 +14,7 @@ function FallingRocks(keys)
 	local caster = keys.caster
 
 	local unit = CreateUnitByName("npc_dummy_unit",RandomPointOnMap(),true,nil,nil,caster:GetTeamNumber())
+	unit:SetMoveCapability(1)
 
 	local particle = ParticleManager:CreateParticle("particles/unique/temple/temple_falling_rocks.vpcf",PATTACH_ABSORIGIN,unit)
 

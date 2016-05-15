@@ -51,7 +51,10 @@ function Director:Init()
 	end
 	
 	Director.scenario = Director:FindMapScenario(GetMapName())
-	Director.scenario:Init()
+	
+	if Director.scenario then
+		Director.scenario:Init()
+	end
 end
 
 function Director:SetupMap()
