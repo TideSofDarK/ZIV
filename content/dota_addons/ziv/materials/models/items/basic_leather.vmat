@@ -11,9 +11,9 @@ Layer0
 	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
 	g_vTexCoordOffset "[0.000 0.000]"
 	g_vTexCoordScale "[1.000 1.000]"
-	TextureColor "materials/models/basic_leather.png"
+	TextureColor "textures/items/basic_leather.png"
 
 	//---- Translucent ----
 	g_flAlphaTestReference "0.700"
-	TextureTranslucency "materials/models/basic_leather_alpha.png"
+	TextureTranslucency "textures/items/basic_leather_alpha.png"
 }
