@@ -37,6 +37,11 @@
       {
         "RunScript"
         {
+          "ScriptFile"  "abilities/unique/ziv_temple_obelisk.lua"
+          "Function"    "Start"
+        }
+        "RunScript"
+        {
           "ScriptFile"  "libraries/particles.lua"
           "Function"    "AttachParticleKV"
           "particle"  "particles/props/obelisk/ziv_obelisk_beam.vpcf"

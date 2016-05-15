@@ -54,3 +54,18 @@
 
 	z-index: 100;
 }
+
+#FOGRoot
+{
+
+}
+
+.FOGSquare
+{
+	/*margin: 32px;*/
+	width: 48px;
+	height: 48px;
+	/*border-radius: 6px;*/
+	background-color: black;
+	opacity-mask: url("file://{images}/custom_game/minimap/fog_mask.png");
+}

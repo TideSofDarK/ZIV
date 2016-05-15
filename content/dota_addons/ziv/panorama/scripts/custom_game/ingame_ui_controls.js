@@ -54,8 +54,8 @@ function ZIVCastAbility(number, pressing) {
 		}
 		var order = {
 			AbilityIndex : ability,
-			Queue : OrderQueueBehavior_t.DOTA_ORDER_QUEUE_NEVER,
-			ShowEffects : false,
+			Queue : OrderQueueBehavior_t.DOTA_ORDER_QUEUE_DEFAULT,
+			ShowEffects : true,
 			OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_NO_TARGET
 		};
 		var abilityBehavior = Abilities.GetBehavior( order.AbilityIndex );
@@ -74,13 +74,13 @@ function ZIVCastAbility(number, pressing) {
 			}
 		}
 
-		if (Abilities.IsCooldownReady(ability) === true) {
+		if (Abilities.IsCooldownReady(ability) === true && Abilities.IsInAbilityPhase(ability) === false) {
 			Game.PrepareUnitOrders( order );
 		}
 
 		m_AbilityCasting[ability] = true;
 		
-		$.Schedule(Abilities.GetCooldownTimeRemaining( ability ), (function() {ZIVCastAbility(number, true)}) )
+		$.Schedule(Abilities.GetCooldownTimeRemaining( ability ) + 0.1, (function() {ZIVCastAbility(number, true)}) )
 	}
 }
 

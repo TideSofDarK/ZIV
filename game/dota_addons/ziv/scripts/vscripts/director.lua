@@ -4,7 +4,7 @@ if Director == nil then
     _G.Director = class({})
 end
 
-Director.scenario = Temple
+Director.scenario = nil
 
 Director.BASIC_PACK_COUNT = 12
 Director.BASIC_PACK_SPREAD = 820
@@ -14,6 +14,22 @@ Director.color_modifier_list = Director.color_modifier_list or {}
 Director.creep_modifier_list = Director.creep_modifier_list or {}
 Director.lord_modifier_list = Director.lord_modifier_list or {}
 Director.creep_list = Director.creep_list or {}
+
+function Director:FindMapScenario( string )
+	local scenario = string.gsub(" "..string.gsub(string, "ziv_", ""), "%W%l", string.upper):sub(2)
+	assert( type(scenario) == "string" )
+
+	local f = _G
+
+	for v in scenario:gmatch("[^%.]+") do
+		if type(f) ~= "table" then
+			return nil, "looking for '"..v.."' expected table, not "..type(f)
+		end
+		f = f[v]
+	end
+
+	return f
+end
 
 function Director:Init()
 	for k,v in pairs(ZIV.AbilityKVs) do
@@ -33,7 +49,8 @@ function Director:Init()
 			Director.creep_list[k] = v
 		end
 	end
-
+	
+	Director.scenario = Director:FindMapScenario(GetMapName())
 	Director.scenario:Init()
 end
 

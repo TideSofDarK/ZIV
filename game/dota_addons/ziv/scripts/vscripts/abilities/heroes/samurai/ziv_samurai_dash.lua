@@ -17,7 +17,7 @@ function Dash( keys )
 
 	ability.traveled = 0
 
-	caster:AddNewModifier( caster, nil, "modifier_disarmed", {duration=1.0} )
+	caster:AddNewModifier( caster, nil, "modifier_disarmed", {duration=0.25} )
 
 	caster:SetForwardVector(UnitLookAtPoint( caster, target ))
 	caster:Stop()

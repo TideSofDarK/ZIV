@@ -1,3 +1,26 @@
+function RandomPointOnMap(offset)
+  local offset = offset or 100
+
+  local worldX = math.random(GetWorldMinX() + offset, GetWorldMaxX() - offset)
+  local worldY = math.random(GetWorldMinY() + offset, GetWorldMaxY() - offset)
+
+  return Vector(worldX,worldY,0)
+end
+
+function DistributeUnits( points, unit_name, count, team )
+  if #points == 0 then return end
+  local random_points = Shuffle(points)
+
+  local units = {}
+
+  local i = 1
+  for k,v in pairs(random_points) do
+    if i >= count then return end 
+    table.insert(units, CreateUnitByName(unit_name, v:GetAbsOrigin(), false, nil, nil,team))
+    i = i + 1
+  end
+end
+
 function DoToAllHeroes(action)
   if not action then return end
   for playerID = 0, DOTA_MAX_PLAYERS do

@@ -2,6 +2,7 @@
 
 var marksPath = "file://{resources}/layout/custom_game/minimap/marks/";
 var bounds = null;
+var squares = {};
 
 // Calculate relative image position
 function GetRelativePosition( pos )
@@ -237,6 +238,7 @@ function ChangeMinimapMode()
 		$.GetContextPanel().AddClass("TopRight");
 
 		$( "#MinimapImage" ).hittest = true;
+		$( "#ImageContainer" ).hittest = true;
 	}
 	else
 	{
@@ -244,7 +246,59 @@ function ChangeMinimapMode()
 		$.GetContextPanel().AddClass("Hero");
 
 		$( "#MinimapImage" ).hittest = false;
+		$( "#ImageContainer" ).hittest = false;
 	}
+}
+
+function FOG() {
+	var rootPanel = $("#MinimapImage");
+	var fogRoot = rootPanel.FindChildTraverse("FOGRoot");
+	if (!fogRoot) {
+		var panel = $.CreatePanel( "Panel", rootPanel, "FOGRoot" );
+		squares = {}
+
+		for (var x = 0; x < 32; x++) {
+			squares[x] = {}
+			for (var y = 0; y < 32; y++) {
+				var square = $.CreatePanel( "Panel", panel, "FOGSquare_" + x + "x" + y );
+				square.AddClass("FOGSquare");
+				square.style.x = (x*32) + "px;";
+				square.style.y = (y*32) + "px;";
+				squares[x][y] = square;
+			}
+		}
+	}
+	else {
+		var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+		var positions = {}
+		var heroOrigin = Entities.GetAbsOrigin(queryUnit);
+
+		var width = bounds["max"].x - bounds["min"].x;
+		var height = bounds["max"].y - bounds["min"].y;
+
+		heroOrigin[0] -=  bounds["min"].x;
+		heroOrigin[1] -=  bounds["min"].y;
+
+		var x = Math.round(((heroOrigin[0] / width)) * 32);
+		var y = 32 - Math.round(((heroOrigin[1] / height)) * 32);
+
+		if (squares[x][y] && squares[x][y].BHasClass("FOGSquare")) {
+			squares[x][y].RemoveClass("FOGSquare");
+		}
+		if (squares[x+1] && squares[x+1][y] && squares[x+1][y].BHasClass("FOGSquare")) {
+			squares[x+1][y].RemoveClass("FOGSquare");
+		}
+		if (squares[x-1][y] && squares[x-1][y].BHasClass("FOGSquare")) {
+			squares[x-1][y].RemoveClass("FOGSquare");
+		}
+		if (squares[x] && squares[x][y+1] && squares[x][y+1].BHasClass("FOGSquare")) {
+			squares[x][y+1].RemoveClass("FOGSquare");
+		}
+		if (squares[x][y-1] && squares[x][y-1].BHasClass("FOGSquare")) {
+			squares[x][y-1].RemoveClass("FOGSquare");
+		}	
+	}
+	$.Schedule(0.1, FOG);
 }
 
 (function()
@@ -253,6 +307,8 @@ function ChangeMinimapMode()
 
 	GameEvents.Subscribe("world_bounds", SetWorldBounds);
 	GameEvents.Subscribe("custom_minimap_event", MinimapEvent);
+
+	FOG();
 	
 	if (!GameUI.CustomUIConfig().ChangeMinimapMode)
 	{

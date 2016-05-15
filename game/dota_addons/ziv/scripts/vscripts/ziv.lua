@@ -41,8 +41,9 @@ require('libraries/runes')
 require('libraries/abilities')
 -- AI
 require('libraries/ai')
-
+-- Items
 require('items/crafting')
+require('items/equipment')
 
 -- These internal libraries set up ziv's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/ziv')
@@ -54,8 +55,6 @@ require('settings')
 require('events')
 
 require('filters')
-
-require('items/equipment')
 
 require('director')
 require('loot')

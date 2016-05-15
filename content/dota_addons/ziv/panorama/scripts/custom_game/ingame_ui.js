@@ -24,7 +24,7 @@ function UpdateAbilityList()
 	if ( !abilityListPanel )
 		return;
 
-	var queryUnit = Game.GetLocalPlayerInfo()["player_selected_hero_entity_index"];
+	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 
 	// see if we can level up
 	var nRemainingPoints = Entities.GetAbilityPoints( queryUnit );

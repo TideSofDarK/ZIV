@@ -1,6 +1,4 @@
-if Temple == nil then
-    _G.Temple = class({})
-end
+Temple = {}
 
 Temple.STAGE_NO = -1
 Temple.STAGE_FIRST = 0
@@ -18,23 +16,6 @@ Temple.obelisks = {}
 
 function Temple:Init()
 	Temple.obelisks_positions = Entities:FindAllByName("ziv_temple_obelisk")
-
-	GameRules:GetGameModeEntity():SetFogOfWarDisabled(true)
-end
-
-function Temple:SpawnObelisks()
-	if #Temple.obelisks_positions == 0 then return end
-	local obelisks = Shuffle(Temple.obelisks_positions)
-	local obelisks_count = Temple.OBELISK_COUNT
-
-	Temple.obelisks = {}
-
-	local i = 1
-	for k,v in pairs(obelisks) do
-		if i >= obelisks_count then return end 
-		table.insert(Temple.obelisks, CreateUnitByName("npc_temple_obelisk", v:GetAbsOrigin(), false, nil, nil,DOTA_TEAM_NEUTRALS))
-		i = i + 1
-	end
 end
 
 function Temple:NextStage()
@@ -43,7 +24,7 @@ function Temple:NextStage()
 	if Temple.stage == Temple.STAGE_END then
 
 	else
-		Temple:SpawnObelisks()
+		DistributeUnits( Temple.obelisks_positions, "npc_temple_obelisk", Temple.OBELISK_COUNT, DOTA_TEAM_NEUTRALS )
 
 		if Temple.stage == Temple.STAGE_FIRST then
 			DoToAllHeroes(function ( hero )
