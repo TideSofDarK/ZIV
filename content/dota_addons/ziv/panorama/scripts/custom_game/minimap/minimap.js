@@ -257,7 +257,7 @@ function ChangeMinimapMode()
 		$.GetContextPanel().AddClass("TopRight");
 
 		$( "#MinimapImage" ).hittest = true;
-		$( "#ImageContainer" ).hittest = true;
+		// $( "#ImageContainer" ).hittest = true;
 	}
 	else
 	{
@@ -265,7 +265,7 @@ function ChangeMinimapMode()
 		$.GetContextPanel().AddClass("Hero");
 
 		$( "#MinimapImage" ).hittest = false;
-		$( "#ImageContainer" ).hittest = false;
+		// $( "#ImageContainer" ).hittest = false;
 	}
 }
 

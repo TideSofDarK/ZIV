@@ -58,7 +58,7 @@ end
 -- An NPC has spawned somewhere in game.  This includes heroes
 function ZIV:OnNPCSpawned(keys)
   DebugPrint("[ZIV] NPC Spawned")
-  PrintTable(keys)
+  DebugPrintTable(keys)
 
   -- This internal handling is used to set up main ziv functions
   ZIV:_OnNPCSpawned(keys)
