@@ -398,7 +398,7 @@
 		[
 			{
 				m_sSearchMaterial = "obelisk.vmat"
-				m_sReplaceMaterial = "materials/models/obelisk.vmat"
+				m_sReplaceMaterial = "materials/models/props/obelisk.vmat"
 			},
 		]
 	}
