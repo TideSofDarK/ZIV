@@ -3,13 +3,11 @@
 	_class = "CVModel"
 	m_meshList =
 	{
-		_class = "CVmeshList"
 		m_meshList =
 		[
 			{
-				_class = "CVmesh"
-				m_meshName = "topaz"
-				m_meshFile = "models/items/topaz.dmx"
+				m_meshName = "gem_malachite"
+				m_meshFile = "models/items/gem_malachite.fbx"
 				m_materialSearchPath = ""
 				m_bSkinParentedObjects = true
 				m_bLegacySkinParentedTransforms = false
@@ -42,7 +40,6 @@
 	}
 	m_physicsMeshList =
 	{
-		_class = "CVphysicsMeshList"
 		m_meshList =
 		[
 		]
@@ -59,31 +56,28 @@
 			_class = "CVhitBoxSetListReference"
 			m_pObject =
 			{
-				_class = "CVhitBoxSetList"
 				m_HitBoxSets =
 				[
 					{
-						_class = "CVhitBoxSet"
 						m_name = "default"
 						m_HitBoxes =
 						[
 							{
-								_class = "CVhitBox"
-								m_name = "Bone"
+								m_name = "AnimBone"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
-								m_sBoneName = "Bone"
+								m_sBoneName = "AnimBone"
 								m_vMinBounds =
 								[
-									-7.339507,
-									-17.537399,
-									-16.261547,
+									7.794189,
+									-18.899673,
+									-9.512470,
 								]
 								m_vMaxBounds =
 								[
-									7.083768,
-									18.865330,
-									16.468258,
+									40.903206,
+									24.087357,
+									15.430084,
 								]
 								m_bTranslationOnly = false
 								m_cRenderColor =
@@ -109,7 +103,6 @@
 		_class = "CVanimGroupReference"
 		m_pObject =
 		{
-			_class = "CVanimGroup"
 			m_Name = ""
 			m_pReferenceSkeleton =
 			{
@@ -132,15 +125,13 @@
 			m_Vanim =
 			[
 				{
-					_class = "CVanim"
-					m_Animationname = "topaz_idle"
-					m_Filepath = "models/items/anims/topaz_idle.dmx"
+					m_Animationname = "gem_malachite"
+					m_Filepath = "models/items/gem_malachite.fbx"
 					m_nStartframe = 0
-					m_nEndframe = 250
-					m_flFps = 100.000000
+					m_nEndframe = 100
+					m_flFps = 30.000000
 					m_Loop =
 					{
-						_class = "CAnimationLoop"
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
@@ -157,7 +148,6 @@
 					m_Activities =
 					[
 						{
-							_class = "CActivity"
 							m_Name = "ACT_DOTA_IDLE"
 							m_nWeight = 1
 						},
@@ -174,7 +164,6 @@
 					m_pAlignAnimation = null
 					m_adjustAnimation =
 					{
-						_class = "CAdjustAnimation"
 						m_translation =
 						[
 							0.000000,
@@ -193,7 +182,6 @@
 					]
 					m_sequenceParams =
 					{
-						_class = "CVAnimResourceSequenceParams"
 						m_flFadeInTime = 0.200000
 						m_flFadeOutTime = 0.200000
 					}
@@ -254,13 +242,11 @@
 	]
 	m_pMaterialRemapList =
 	{
-		_class = "CVMaterialRemapList"
 		m_vMaterialRemapList =
 		[
 			{
-				_class = "CVMaterialRemap"
-				m_sSearchMaterial = "topaz.vmat"
-				m_sReplaceMaterial = "materials/models/gem_topaz.vmat"
+				m_sSearchMaterial = "malachit.vmat"
+				m_sReplaceMaterial = "materials/models/items/gem_malachit.vmat"
 			},
 		]
 	}
@@ -280,7 +266,7 @@
 	m_nMaxClothVertsPerMesh = 2048
 	m_bBuildClothBoneHierarchy = false
 	m_nNavType = "AUTH_NAV_MESH"
-	m_bMakeUniqueVMeshes = true
+	m_bMakeUniqueVMeshes = false
 	m_bMakeImplicitBindPoseSequence = false
 	m_bAdjustSkeletonFromBoneFlags = false
 	m_pAnimGroups =

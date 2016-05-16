@@ -378,7 +378,7 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_gem_malachite"
-	  "Model"                   "models/items/malachite.vmdl" 
+	  "Model"                   "models/items/gem_malachite.vmdl" 
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
 	  "ItemStackable"         "1"
@@ -419,7 +419,7 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_gem_topaz"
-	  "Model"                   "models/items/topaz.vmdl"
+	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
 	  "ItemStackable"         "1"
