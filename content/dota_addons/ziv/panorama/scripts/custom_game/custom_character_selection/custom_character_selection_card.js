@@ -10,17 +10,24 @@ function DeleteCharacter()
 	$.Msg("Deleted!");
 }
 
-function UpdateCard( characterInfo )
+function UpdateCard( characterInfo, freeSlot )
 {
-	if (!characterInfo)
+	if (freeSlot == true) {
+		
+	}
+	else
 	{
-		$( "#CloseButton" ).visible = false;
-		return;
+		if (!characterInfo)
+		{
+			$( "#CloseButton" ).visible = false;
+			return;
+		}
+
+		$( "#HeroImage" ).SetImage( "file://{images}/custom_game/heroes/" + characterInfo.name + "_ziv.jpg" );
+		$( "#HeroNameLabel" ).text = $.Localize(characterInfo.name);
+		$( "#HeroLevel" ).text = $.Localize("level") + " " + characterInfo.level;
 	}
 
-	$( "#HeroImage" ).SetImage( "file://{images}/custom_game/heroes/" + characterInfo.name + "_ziv.jpg" );
-	$( "#HeroNameLabel" ).text = $.Localize(characterInfo.name);
-	$( "#HeroLevel" ).text = $.Localize("level") + " " + characterInfo.level;
 
 	$.GetContextPanel().SetPanelEvent("onmouseactivate", SelectCharacter);
 }

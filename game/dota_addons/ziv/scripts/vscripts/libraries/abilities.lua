@@ -21,8 +21,9 @@ function SimulateMeleeAttack( keys )
   local ability = keys.ability
 
   local activity = keys.activity or ACT_DOTA_ATTACK
-  local duration = keys.duration or 0.5
-  local rate = keys.rate or 2.2
+  local base_attack_time = (caster:GetBaseAttackTime() / caster:GetAttackSpeed())
+  local duration = keys.duration or (caster:GetAttackAnimationPoint() / caster:GetAttackSpeed())
+  local rate = keys.rate or caster:GetAttackSpeed()
 
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
   local aoe = GetSpecial(ability, "aoe") or 0
@@ -35,7 +36,7 @@ function SimulateMeleeAttack( keys )
     caster:EmitSound(attack_sound)
   end 
 
-  StartAnimation(caster, {duration=duration, activity=activity, rate=rate})
+  StartAnimation(caster, {duration=duration + base_attack_time, activity=activity, rate=rate})
 
   -- caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = duration})
   UnitLookAtPoint( caster, target )
@@ -73,9 +74,9 @@ function SimulateRangeAttack( keys )
 
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
 
-  ability:StartCooldown(caster:GetAttackAnimationPoint())
-
-  StartAnimation(caster, {duration=duration + base_attack_time, activity=ACT_DOTA_ATTACK, rate=1.0 * caster:GetAttackSpeed()})
+  ability:StartCooldown(duration + base_attack_time)
+  print(duration, base_attack_time, caster:GetAttackSpeed())
+  StartAnimation(caster, {duration=duration + base_attack_time, activity=ACT_DOTA_ATTACK, rate=caster:GetAttackSpeed()})
 
   caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = duration + base_attack_time})
 
@@ -87,7 +88,7 @@ function SimulateRangeAttack( keys )
 
   Timers:CreateTimer(duration, function()
     if caster:HasModifier("modifier_custom_attack") == false then
-      return
+      -- return
     end
 
     if keys.sound then

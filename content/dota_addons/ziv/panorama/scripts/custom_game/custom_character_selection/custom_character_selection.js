@@ -155,11 +155,11 @@ function SetHeroesKVs(eventArgs) {
 function LoadCharactersList( args )
 {
 	args = {
-		maxCount: 4,
+		minCount: 4,
 		heroList: [
-			{ name: "npc_dota_hero_drow_ranger", level: 5 },
-			{ name: "npc_dota_hero_windrunner", level: 8 },
-			{ name: "npc_dota_hero_invoker", level: 1 }
+			// { name: "npc_dota_hero_drow_ranger", level: 5 },
+			// { name: "npc_dota_hero_windrunner", level: 8 },
+			// { name: "npc_dota_hero_invoker", level: 1 }
 		]
 	};
 
@@ -170,13 +170,15 @@ function LoadCharactersList( args )
 		panel.UpdateCard(hero);
 	}
 
-	if (args.heroList.length < args.maxCount)
+	if (args.heroList.length < args.minCount)
 	{
-		var panel = $.CreatePanel( "Panel", $( "#LoadCharacterList" ), "Card_default" );
-		panel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_card.xml", false, false );
-		panel.UpdateCard(null);
+		for (var i = 0; i < args.minCount - args.heroList.length; i++) {
+			var panel = $.CreatePanel( "Panel", $( "#LoadCharacterList" ), "Card_default" );
+			panel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_card.xml", false, false );
+			panel.UpdateCard(null, true);
 
-		panel.SetPanelEvent("onmouseactivate", CreateCharacterButton);
+			panel.SetPanelEvent("onmouseactivate", CreateCharacterButton);
+		}
 	}
 }
 
