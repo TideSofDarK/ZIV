@@ -1,7 +1,7 @@
 "ziv_elementalist_dark_orb"
 {
 	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityTextureName"			"ziv_empty"
 
 	"AbilityCastRange" 	"900"
@@ -60,6 +60,10 @@
 
 			"OnOrbFire"
 			{
+				"SpendMana"
+				{
+					"Mana"		"%AbilityManaCost"
+				}
 				"FireSound"
 				{
 					"EffectName"	"Hero_Nevermore.Attack"

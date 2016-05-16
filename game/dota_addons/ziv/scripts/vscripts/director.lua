@@ -120,13 +120,18 @@ end
 -- LordSpread
 -- NoLoot
 -- Duration
+-- CheckHeight
 function Director:SpawnPack( pack_table )
-	local level = pack_table["Level"] or 1
-	local position = pack_table["Position"] or Vector(0,0,0)
-
 	if type(pack_table) == 'table' then
 		local spawn_basic = pack_table["SpawnBasic"] == true
 		local spawn_lord = pack_table["SpawnLord"] == true
+
+		local pack_table = pack_table
+
+		pack_table["Level"] = pack_table["Level"] or 1
+		pack_table["Position"] = pack_table["Position"] or Vector(0,0,0)
+		pack_table["NoLoot"] = pack_table["NoLoot"] or false
+		pack_table["Duration"] = pack_table["Duration"]
 
 		if spawn_basic then
 			local basic_modifier = pack_table["BasicModifier"]
@@ -137,15 +142,13 @@ function Director:SpawnPack( pack_table )
 				end
 			end
 
-			Director:SpawnCreeps({Count    			= pack_table["Count"] or Director.BASIC_PACK_COUNT, 
-								  RandomizeCount    	= pack_table["RandomizeCount"] or true, 
-								  Position 			= position,
-								  Level 				= level,
-								  BasicModifier 			= basic_modifier,
-								  Spread 				= pack_table["BasicSpread"],
-								  Type		= pack_table["Type"] or "creep",
-								  NoLoot = pack_table["NoLoot"],
-								  Duration = pack_table["Duration"] })
+			pack_table["Count"] = pack_table["Count"] or Director.BASIC_PACK_COUNT
+			pack_table["RandomizeCount"] = pack_table["RandomizeCount"] or true
+			pack_table["BasicModifier"] = basic_modifier
+			pack_table["Spread"] = pack_table["BasicSpread"]
+			pack_table["Type"] = pack_table["Type"] or "creep"
+
+			Director:SpawnCreeps(pack_table)
 		end
 
 		if spawn_lord then
@@ -157,15 +160,13 @@ function Director:SpawnPack( pack_table )
 				end
 			end
 
-			Director:SpawnCreeps({Count    	= pack_table["LordCount"] or 1, 
-								  Position	= position,
-								  Level	 	= level,
-								  LordModifier 	= lord_modifier,
-								  Spread 	= pack_table["LordSpread"] or Director.BASIC_LORD_SPREAD,
-								  Type		= pack_table["Type"] or "creep",
-								  Lord		= true,
-								  NoLoot = pack_table["NoLoot"],
-								  Duration = pack_table["Duration"] })
+			pack_table["Count"] = pack_table["LordCount"] or 1
+			pack_table["LordModifier"] = lord_modifier
+			pack_table["Spread"] = pack_table["LordSpread"] or Director.BASIC_LORD_SPREAD
+			pack_table["Type"] = pack_table["Type"] or "creep"
+			pack_table["Lord"] = true
+
+			Director:SpawnCreeps(pack_table)
 		end
 	end
 end
@@ -185,40 +186,51 @@ function Director:SpawnCreeps( spawn_table )
 			local creep_name = Director:GetRandomCreep(spawn_table["Type"], spawn_table["Level"], spawn_table["Level"])
 			local position = RandomPointInsideCircle(spawn_table["Position"][1], spawn_table["Position"][2], spawn_table["BasicSpread"] or Director.BASIC_PACK_SPREAD)
 
-			local creep = CreateUnitByName(creep_name, position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+			local spawn = true
 
-			if spawn_table["NoLoot"] == true then
-				creep.no_loot = true
-			end
-
-			if spawn_table["Duration"] == true then
-				creep:AddNewModifier(creep,nil,"modifier_kill",{duration=tonumber(spawn_table["Duration"])})
-			end
-			
-			creep:AddAbility("ziv_creep_normal_hpbar_behavior")
-
-			if spawn_table["Lord"] then
-				creep:SetModelScale(creep:GetModelScale() * 1.45)
-
-				creep:AddAbility(Director:GetRandomModifier(Director.color_modifier_list))
-
-				if lord_modifier then
-					creep:AddAbility(lord_modifier)
-				else
-					creep:AddAbility(Director:GetRandomModifier(Director.lord_modifier_list))
+			if spawn_table["CheckHeight"] then
+				local groundZ = GetGroundHeight(position, nil)
+				if math.abs(groundZ - spawn_table["Position"][3]) > 192 then
+					spawn = false
 				end
+			end
 
-				for i=1,level do
-					local new_modifier = Director:GetRandomModifier(Director.creep_modifier_list)
-					if not creep:FindAbilityByName(new_modifier) then
-						creep:AddAbility(new_modifier)
+			if spawn == true then
+				local creep = CreateUnitByNameAsync(creep_name, position, true, nil, nil, DOTA_TEAM_NEUTRALS, function ( creep )
+					if spawn_table["NoLoot"] == true then
+						creep.no_loot = true
 					end
-				end
-			elseif creep_modifier then
-				creep:AddAbility(creep_modifier)
-			end
 
-			InitAbilities(creep)
+					if spawn_table["Duration"] then
+						creep:AddNewModifier(creep,nil,"modifier_kill",{duration=tonumber(spawn_table["Duration"])})
+					end
+					
+					creep:AddAbility("ziv_creep_normal_hpbar_behavior")
+
+					if spawn_table["Lord"] then
+						creep:SetModelScale(creep:GetModelScale() * 1.45)
+
+						creep:AddAbility(Director:GetRandomModifier(Director.color_modifier_list))
+
+						if lord_modifier then
+							creep:AddAbility(lord_modifier)
+						else
+							creep:AddAbility(Director:GetRandomModifier(Director.lord_modifier_list))
+						end
+
+						for i=1,level do
+							local new_modifier = Director:GetRandomModifier(Director.creep_modifier_list)
+							if not creep:FindAbilityByName(new_modifier) then
+								creep:AddAbility(new_modifier)
+							end
+						end
+					elseif creep_modifier then
+						creep:AddAbility(creep_modifier)
+					end
+
+					InitAbilities(creep)
+				end)
+			end
 		end
 	end
 end

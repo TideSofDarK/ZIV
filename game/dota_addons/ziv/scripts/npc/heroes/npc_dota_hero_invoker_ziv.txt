@@ -4,7 +4,7 @@
 
     "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"
 
-    "ChooseLayout"  "2222"
+    "ChooseLayout"  "2221"
 
     "AbilityLayout"     "4"
 
@@ -15,7 +15,7 @@
     "Ability5"        "ziv_elementalist_cold_blast"
     "Ability6"        "ziv_elementalist_fire_blast"
     "Ability7"        "ziv_elementalist_overload"
-    "Ability8"        "ziv_empty7"
+    "Ability8"        ""
     "Ability9"        ""
     "Ability10"       ""
     "Ability11"       ""

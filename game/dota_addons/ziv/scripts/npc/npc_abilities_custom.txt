@@ -1129,15 +1129,12 @@
 	"ziv_beastmaster_cleave"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
 	
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastPoint"        "0.001"
-	  "AbilityCooldown"        "0.05"
+	  "AbilityCooldown"        "0.1"
 	  "AbilityCastRange"        "128"
 	
 	  "AbilityManaCost"       "12"
@@ -1163,10 +1160,16 @@
 	
 	  "OnSpellStart"
 	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_Ursa.Attack"
+	      "Target"     "CASTER"
+	    }
 	    "RunScript"
 	    {
 	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_cleave.lua"
 	      "Function"    "Cleave"
+	      "Target" "POINT"
 	    }
 	  }
 	
@@ -1730,7 +1733,7 @@
 	
 		"AbilityManaCost"	"25"
 		"AbilityCastPoint"        "0"
-		"AbilityCooldown"				"10.0"
+		"AbilityCooldown"				"3.0"
 	
 		"MaxLevel" "7"
 	
@@ -1916,13 +1919,13 @@
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"ziv_empty"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC"
 	
 		"AbilityCastRange"	"600"
 		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"4.0"
+		"AbilityCooldown"	"0.0"
 		"AbilityDamage"	"0"
 		"AbilityManaCost" "0"
 	
@@ -1955,34 +1958,29 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_amp"	"20"
+				"spirit_duration"	"5"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"spirit_duration"	"5"
+				"spirit_attackspeed"	"175"
 			}
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"spirit_attackspeed"	"175"
+				"spirit_min"	"1"
 			}
 			"06"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"spirit_min"	"1"
+				"spirit_max"	"4"
 			}
 			"07"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"spirit_max"	"4"
+				"var_type"	"FIELD_FLOAT"
+				"damage_amp"	"2.5"
 			}
 			"08"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"attack_damage_amp"	"2.5"
-			}
-			"09"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"energy_restored"	"1"
@@ -1994,7 +1992,11 @@
 			"RunScript"
 			{
 				"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
-				"Function"		"ToggleArrows"
+				"Function"		"FireArrow"
+				"effect" "particles/heroes/dark_goddess/dark_goddess_corrupted_arrow.vpcf"
+				"damage_amp" "%damage_amp"
+				"sound" "Hero_DrowRanger.FrostArrows"
+				"Target" "POINT"
 			}
 		}
 	
@@ -2022,16 +2024,6 @@
 	
 				"OnOrbImpact"
 				{
-					"SpendMana"
-					{
-						"Mana"		"%AbilityManaCost"
-					}
-					"ApplyModifier"
-					{
-						"Target"	"TARGET"
-						"ModifierName"	"modifier_corrupted_arrow_effect"
-						"Duration"	"%corruption_duration"
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
@@ -2444,7 +2436,7 @@
 	
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0"
-		"AbilityCooldown"				"5"
+		"AbilityCooldown"				"0.95"
 		"AbilityManaCost"				"20"
 	
 		"AbilityCastAnimation" "ACT_DOTA_CAST_DEAFENING_BLAST"
@@ -2551,7 +2543,7 @@
 	"ziv_elementalist_cold_orb"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"ziv_empty"
 	
 		"AbilityCastRange" 	"900"
@@ -2638,6 +2630,10 @@
 	
 				"OnOrbFire"
 				{
+					"SpendMana"
+					{
+						"Mana"		"%AbilityManaCost"
+					}
 					"FireSound"
 					{
 						"EffectName"	"Hero_Ancient_Apparition.IceVortexCast"
@@ -2780,7 +2776,7 @@
 	"ziv_elementalist_dark_orb"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"ziv_empty"
 	
 		"AbilityCastRange" 	"900"
@@ -2839,6 +2835,10 @@
 	
 				"OnOrbFire"
 				{
+					"SpendMana"
+					{
+						"Mana"		"%AbilityManaCost"
+					}
 					"FireSound"
 					{
 						"EffectName"	"Hero_Nevermore.Attack"
@@ -2873,7 +2873,7 @@
 	
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.15"
-		"AbilityCooldown"				"4.5"
+		"AbilityCooldown"				"0.9"
 		"AbilityManaCost"				"20"
 	
 		"AbilityCastAnimation" "ACT_DOTA_CAST_DEAFENING_BLAST"
@@ -6394,6 +6394,32 @@
 	        {
 	          "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
 	          "Target"     "CASTER"
+	        }
+	        "RemoveModifier"
+	        {
+	          "ModifierName"  "ziv_creep_normal_hpbar_behavior_aggro"
+	          "Target"     "CASTER"
+	        }
+	      }
+	    }
+	
+	    "ziv_creep_normal_hpbar_behavior_aggro"
+	    {
+	      "Passive"                        "1"
+	      "IsHidden"                        "1" 
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
+	      }
+	
+	      "ThinkInterval"  "1.0"
+	      "OnIntervalThink"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "libraries/abilities.lua"
+	          "Function"    "CreepAgression"
 	        }
 	      }
 	    }

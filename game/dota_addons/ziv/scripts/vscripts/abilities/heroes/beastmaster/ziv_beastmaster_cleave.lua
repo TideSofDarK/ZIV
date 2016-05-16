@@ -1,36 +1,35 @@
 function Cleave( keys )
+	local keys = keys
+
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
 
 	StartRuneCooldown(ability,"ziv_beastmaster_cleave_speed",caster)
 
-	caster:SetForwardVector((target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized())
-	caster:Stop()
-
-	local attack = ACT_DOTA_ATTACK
-	if math.random(0,1) == 0 then
-		attack = ACT_DOTA_ATTACK
+	ability.activity = ability.activity or ACT_DOTA_ATTACK_EVENT
+	if ability.activity == ACT_DOTA_ATTACK_EVENT then
+		ability.activity = ACT_DOTA_ATTACK2
+		keys.attack_particle = "particles/units/heroes/hero_ursa/ursa_claw_right.vpcf"
+	else
+		ability.activity = ACT_DOTA_ATTACK_EVENT
+		keys.attack_particle = "particles/units/heroes/hero_ursa/ursa_claw_left.vpcf"
 	end
 
-	local attack_particle = "particles/units/heroes/hero_ursa/ursa_claw_right.vpcf"
-	if math.random(0,1) == 0 then
-		attack_particle = "particles/units/heroes/hero_ursa/ursa_claw_left.vpcf"
-	end
-	ParticleManager:CreateParticle(attack_particle,PATTACH_ABSORIGIN,caster)
+	keys.activity = ability.activity
 
-	caster:EmitSound("Hero_Ursa.Attack")
+	keys.duration = 0.2
+	keys.rate = 3.0
 
-	DealDamage(caster,target,caster:GetAverageTrueAttackDamage()/2, DAMAGE_TYPE_PHYSICAL)
+	keys.attack_impact = (function ( caster )
+		local units = FindUnitsInCone(caster:GetAbsOrigin(), caster:GetForwardVector(), 300, 250 + GRMSC("ziv_beastmaster_cleave_aoe", caster), caster:GetTeamNumber(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER)
+		
+		for k,v in pairs(units) do
+			ParticleManager:CreateParticle("particles/units/heroes/hero_riki/riki_backstab_hit_blood.vpcf",PATTACH_ABSORIGIN,v)
+			ParticleManager:CreateParticle("particles/units/heroes/hero_dazzle/dazzle_poison_touch_blood.vpcf",PATTACH_ABSORIGIN,v)
+			DealDamage(caster,v,caster:GetAverageTrueAttackDamage(), DAMAGE_TYPE_PHYSICAL)
+		end
+	end)
 
-	local units = FindUnitsInCone(caster:GetAbsOrigin(), caster:GetForwardVector(), 300, 150 + GRMSC("ziv_beastmaster_cleave_aoe", caster), caster:GetTeamNumber(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER)
-	for k,v in pairs(units) do
-		ParticleManager:CreateParticle("particles/units/heroes/hero_riki/riki_backstab_hit_blood.vpcf",PATTACH_ABSORIGIN,v)
-		ParticleManager:CreateParticle("particles/units/heroes/hero_dazzle/dazzle_poison_touch_blood.vpcf",PATTACH_ABSORIGIN,v)
-		Timers:CreateTimer(0.06,function (  )
-			DealDamage(caster,v,caster:GetAverageTrueAttackDamage()/2, DAMAGE_TYPE_PHYSICAL)
-		end)
-	end
-
-	StartAnimation(caster, {duration=0.2, activity=attack, rate=3.0})
+	SimulateMeleeAttack( keys )
 end

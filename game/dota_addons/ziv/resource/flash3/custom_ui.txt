@@ -5,6 +5,11 @@
         "File"      "CustomUI" //for example: "UI1", if your swf file is called UI1.swf
         "Depth"     "51"
     }
+    "2"
+    {
+        "File"      "killcam_nuke"
+        "Depth"     "1"
+    }
 }
 // =============================================
 // Depths of base Dota UI elements

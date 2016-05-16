@@ -28,6 +28,32 @@
           "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
           "Target"     "CASTER"
         }
+        "RemoveModifier"
+        {
+          "ModifierName"  "ziv_creep_normal_hpbar_behavior_aggro"
+          "Target"     "CASTER"
+        }
+      }
+    }
+
+    "ziv_creep_normal_hpbar_behavior_aggro"
+    {
+      "Passive"                        "1"
+      "IsHidden"                        "1" 
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
+      }
+
+      "ThinkInterval"  "1.0"
+      "OnIntervalThink"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "libraries/abilities.lua"
+          "Function"    "CreepAgression"
+        }
       }
     }
     

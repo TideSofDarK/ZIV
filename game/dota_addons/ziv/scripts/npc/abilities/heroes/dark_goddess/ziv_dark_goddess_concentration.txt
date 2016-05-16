@@ -6,7 +6,7 @@
 
 	"AbilityManaCost"	"25"
 	"AbilityCastPoint"        "0"
-	"AbilityCooldown"				"10.0"
+	"AbilityCooldown"				"3.0"
 
 	"MaxLevel" "7"
 

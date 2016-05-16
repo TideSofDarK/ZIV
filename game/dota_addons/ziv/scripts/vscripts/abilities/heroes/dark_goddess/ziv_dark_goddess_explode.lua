@@ -31,5 +31,8 @@ function Explode( keys )
 				i = i + 1
 			end
 		end
+	else
+		ability:EndCooldown()
+		ability:RefundManaCost()
 	end
 end

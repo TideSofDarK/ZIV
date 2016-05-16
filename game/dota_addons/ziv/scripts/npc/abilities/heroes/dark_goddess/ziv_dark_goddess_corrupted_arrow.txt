@@ -2,13 +2,13 @@
 {
 	"BaseClass"	"ability_datadriven"
 	"AbilityTextureName"	"ziv_empty"
-	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC"
 
 	"AbilityCastRange"	"600"
 	"AbilityCastPoint"	"0.0"
-	"AbilityCooldown"	"4.0"
+	"AbilityCooldown"	"0.0"
 	"AbilityDamage"	"0"
 	"AbilityManaCost" "0"
 
@@ -41,34 +41,29 @@
 		"03"
 		{
 			"var_type"	"FIELD_INTEGER"
-			"damage_amp"	"20"
+			"spirit_duration"	"5"
 		}
 		"04"
 		{
 			"var_type"	"FIELD_INTEGER"
-			"spirit_duration"	"5"
+			"spirit_attackspeed"	"175"
 		}
 		"05"
 		{
 			"var_type"	"FIELD_INTEGER"
-			"spirit_attackspeed"	"175"
+			"spirit_min"	"1"
 		}
 		"06"
 		{
 			"var_type"	"FIELD_INTEGER"
-			"spirit_min"	"1"
+			"spirit_max"	"4"
 		}
 		"07"
 		{
-			"var_type"	"FIELD_INTEGER"
-			"spirit_max"	"4"
+			"var_type"	"FIELD_FLOAT"
+			"damage_amp"	"2.5"
 		}
 		"08"
-		{
-			"var_type"	"FIELD_FLOAT"
-			"attack_damage_amp"	"2.5"
-		}
-		"09"
 		{
 			"var_type"	"FIELD_INTEGER"
 			"energy_restored"	"1"
@@ -80,7 +75,11 @@
 		"RunScript"
 		{
 			"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
-			"Function"		"ToggleArrows"
+			"Function"		"FireArrow"
+			"effect" "particles/heroes/dark_goddess/dark_goddess_corrupted_arrow.vpcf"
+			"damage_amp" "%damage_amp"
+			"sound" "Hero_DrowRanger.FrostArrows"
+			"Target" "POINT"
 		}
 	}
 
@@ -108,16 +107,6 @@
 
 			"OnOrbImpact"
 			{
-				"SpendMana"
-				{
-					"Mana"		"%AbilityManaCost"
-				}
-				"ApplyModifier"
-				{
-					"Target"	"TARGET"
-					"ModifierName"	"modifier_corrupted_arrow_effect"
-					"Duration"	"%corruption_duration"
-				}
 				"RunScript"
 				{
 					"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"

@@ -1,6 +1,8 @@
 "npc_creep_undead_wraith"
 {
     "BaseClass"         "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+
     "HealthBarOffset"   "180"
     "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl"
     "ModelScale"    "1.1"
@@ -18,7 +20,7 @@
     "AttackAnimationPoint"    "0.5"
     "AttackRange"       "100"
 
-    "BountyXP"          "5"
+    "BountyXP"          "0"
     "BountyGoldMin"       "0"
     "BountyGoldMax"       "0"
 
@@ -34,8 +36,8 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "VisionDaytimeRange"    "800"
-    "VisionNighttimeRange"    "800"
+    "VisionDaytimeRange"    "525"
+    "VisionNighttimeRange"    "525"
 
     "Creature"
     {

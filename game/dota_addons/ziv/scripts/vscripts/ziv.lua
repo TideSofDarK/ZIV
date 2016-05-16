@@ -1,4 +1,4 @@
-ZIV_DEBUG_SPEW = true 
+ZIV_DEBUG_SPEW = false 
 
 if ZIV == nil then
     DebugPrint( '[ZIV] creating ziv game mode' )

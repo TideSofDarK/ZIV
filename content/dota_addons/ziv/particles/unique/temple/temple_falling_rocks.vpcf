@@ -63,6 +63,8 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 2.000000
+			m_flRadiusMax = 2.000000
 		},
 		{
 			_class = "C_INIT_RandomSequence"
@@ -94,6 +96,9 @@
 	[
 		{
 			m_ChildRef = resource:"particles/unique/temple/temple_falling_rocks_a.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/unique/temple/temple_falling_rocks_ping.vpcf"
 		},
 	]
 }

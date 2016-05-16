@@ -37,12 +37,6 @@ function DoToAllHeroes(action)
   end
 end
 
-function UnitLookAtPoint( unit, point )
-  local dir = (point - unit:GetAbsOrigin()):Normalized()
-  dir.z = 0
-  return dir
-end
-
 function GetRandomElement(list, checker)
   local new_table = {}
 

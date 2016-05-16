@@ -21,8 +21,8 @@
 			_class = "C_OP_BasicMovement"
 			m_Gravity =
 			[
-				55.000000,
-				55.000000,
+				0.000000,
+				0.000000,
 				222.000000,
 			]
 			m_fDrag = 0.075000
@@ -146,6 +146,7 @@
 				1.000000,
 			]
 			m_flNoiseScaleLoc = 0.500000
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_INIT_RandomColor"
