@@ -1,24 +1,12 @@
 modifier_smooth_floating = class({})
 
-if IsServer() then
-    function modifier_smooth_floating:OnCreated()
-        self:StartIntervalThink(.066)
-    end
+function modifier_smooth_floating:OnCreated()
+    self:StartIntervalThink(0.03)
+    self.time = 0.0
+end
 
-    function modifier_smooth_floating:OnIntervalThink()
-        local caster = self:GetParent()
-
-        local pos = caster:GetAbsOrigin()
-
-        if not caster.reserved_floating_z then
-            caster.reserved_floating_z = pos.z
-        end
-        pos.z = caster.reserved_floating_z + (math.abs(math.sin(ZIV.TRUE_TIME * 1.35)) * 50) + 80
-
-        caster:SetAngles(0, caster:GetAngles().y + 7, 0)
-
-        caster:SetAbsOrigin(pos)
-    end
+function modifier_smooth_floating:OnIntervalThink()
+    self.time = self.time + 0.03
 end
 
 function modifier_smooth_floating:OnDestroy()
@@ -44,9 +32,14 @@ function modifier_smooth_floating:IsStunDebuff()
     return true
 end
 
+function modifier_smooth_floating:GetVisualZDelta(params)
+    return (math.abs(math.sin(self.time * 1.35)) * 50) + 80
+end
+
 function modifier_smooth_floating:DeclareFunctions()
     local funcs = {
-        MODIFIER_PROPERTY_OVERRIDE_ANIMATION
+        MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+        MODIFIER_PROPERTY_VISUAL_Z_DELTA
     }
 
     return funcs

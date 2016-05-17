@@ -12,16 +12,16 @@ function DeleteCharacter()
 
 function UpdateCard( characterInfo, freeSlot )
 {
+	if (!characterInfo)
+	{
+		$( "#CloseButton" ).visible = false;
+		return;
+	}
 	if (freeSlot == true) {
 		
 	}
 	else
 	{
-		if (!characterInfo)
-		{
-			$( "#CloseButton" ).visible = false;
-			return;
-		}
 
 		$( "#HeroImage" ).SetImage( "file://{images}/custom_game/heroes/" + characterInfo.name + "_ziv.jpg" );
 		$( "#HeroNameLabel" ).text = $.Localize(characterInfo.name);

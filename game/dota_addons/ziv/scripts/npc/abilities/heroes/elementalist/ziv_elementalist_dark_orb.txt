@@ -1,7 +1,7 @@
 "ziv_elementalist_dark_orb"
 {
 	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 	"AbilityTextureName"			"ziv_empty"
 
 	"AbilityCastRange" 	"900"
@@ -40,7 +40,7 @@
 			"Function"		"SimulateRangeAttack"
 			"effect" "particles/heroes/elementalist/elementalist_dark_orb.vpcf"
 			"damage_amp" "%damage_amp"
-			"sound" "Hero_Nevermore.Attack"
+			"attack_sound" "Hero_Nevermore.Attack"
 			"Target" "POINT"
 		}
 	}

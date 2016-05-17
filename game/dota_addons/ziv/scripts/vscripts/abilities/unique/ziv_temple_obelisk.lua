@@ -28,6 +28,6 @@ function FallingRocks(keys)
 			end
 		end
 
-		-- DealDamage()
+		unit:ForceKill(false)
 	end)
 end

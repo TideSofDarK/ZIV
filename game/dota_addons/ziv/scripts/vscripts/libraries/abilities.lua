@@ -47,36 +47,47 @@ function SimulateMeleeAttack( keys )
     --   return
     -- end
 
-    if keys.attack_impact then
-      keys.attack_impact(caster)
+    if keys.on_impact then
+      keys.on_impact(caster)
     else
-      local units = FindUnitsInRadius(caster:GetTeamNumber(),target,nil,100,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
+      local units = FindUnitsInRadius(caster:GetTeamNumber(),target,nil,75,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
 
-      Timers:CreateTimer(duration, function()
-        if aoe ~= 0 then
-          for k,v in pairs(units) do
-            DealDamage(caster, v, caster:GetAverageTrueAttackDamage() * damage_amp, DAMAGE_TYPE_PHYSICAL)
-          end
+      for k,v in pairs(units) do
+        local new_keys = keys
+        if keys.on_hit then
+          new_keys.target = v
+          keys.on_hit(new_keys)
         else
-          DealDamage(caster, units[1], caster:GetAverageTrueAttackDamage() * damage_amp, DAMAGE_TYPE_PHYSICAL)
+          DealDamage(caster, v, caster:GetAverageTrueAttackDamage() * damage_amp, DAMAGE_TYPE_PHYSICAL)
         end
-        end)
+        if keys.on_kill and v:IsAlive() == false then
+          new_keys.unit = v
+          keys.on_kill(new_keys)
+        end
+
+        if aoe == 0 then break end
+      end
     end
+
     end)
 end
 
 function SimulateRangeAttack( keys )
   local caster = keys.caster
   local ability = keys.ability
+  local target = keys.target_points[1]
   local speed = caster:GetProjectileSpeed()
   local duration = caster:GetAttackAnimationPoint() / caster:GetAttackSpeed()
   local base_attack_time = caster:GetBaseAttackTime() / caster:GetAttackSpeed()
-
+  print(1.0 / caster:GetAttacksPerSecond(), caster:GetAttackSpeed())
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
 
-  ability:StartCooldown(duration + base_attack_time)
-  print(duration, base_attack_time, caster:GetAttackSpeed())
+  ability:EndCooldown()
+  ability:StartCooldown(1.0 / caster:GetAttacksPerSecond())
+  
   StartAnimation(caster, {duration=duration + base_attack_time, activity=ACT_DOTA_ATTACK, rate=caster:GetAttackSpeed()})
+  UnitLookAtPoint( caster, target )
+  caster:Stop()
 
   caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = duration + base_attack_time})
 
@@ -88,11 +99,11 @@ function SimulateRangeAttack( keys )
 
   Timers:CreateTimer(duration, function()
     if caster:HasModifier("modifier_custom_attack") == false then
-      -- return
+      return
     end
 
-    if keys.sound then
-      caster:EmitSound(keys.sound)
+    if keys.attack_sound then
+      caster:EmitSound(keys.attack_sound)
     end
 
     local offset = 64
@@ -142,9 +153,9 @@ function SimulateRangeAttack( keys )
           new_keys.target = target
           keys.on_hit(new_keys)
         end
-        if keys.on_kill then
+        if keys.on_kill and target:IsAlive() == false then
           new_keys.unit = target
-          keys.on_hit(new_keys)
+          keys.on_kill(new_keys)
         end
       end
     end)

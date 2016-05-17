@@ -21,7 +21,7 @@ function Cleave( keys )
 	keys.duration = 0.2
 	keys.rate = 3.0
 
-	keys.attack_impact = (function ( caster )
+	keys.on_impact = (function ( caster )
 		local units = FindUnitsInCone(caster:GetAbsOrigin(), caster:GetForwardVector(), 300, 250 + GRMSC("ziv_beastmaster_cleave_aoe", caster), caster:GetTeamNumber(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER)
 		
 		for k,v in pairs(units) do

@@ -104,7 +104,7 @@
 	"npc_beastmaster_bird"
 	{
 	    "BaseClass"         "npc_dota_creature"
-	    "Model"           "models/heroes/beastmaster/beastmaster_bird.vmdl"
+	    "Model"           "models/items/beastmaster/hawk/fotw_eagle/fotw_eagle.vmdl"
 	    "Level"           "1"
 	    
 	    "Ability1"          ""

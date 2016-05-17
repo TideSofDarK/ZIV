@@ -1,62 +1,79 @@
 function BirdHeal( keys )
 	local caster = keys.caster
-	local target = keys.target
 	local ability = keys.ability
 
-	local level = ability:GetLevel()
+	local hp_per_sec = GetSpecial(ability, "hp_per_sec") / 3
+	local sp_per_second = GetSpecial(ability, "sp_per_second") / 3
 
-	local hp_per_sec = ability:GetLevelSpecialValueFor("hp_per_sec", level-1)
+	if caster:GetMana() >= sp_per_second then
+		caster:Heal(hp_per_sec, caster)
+		caster:SpendMana(sp_per_second,ability)
+	else
+		KillBird( keys )
+		if ability:GetToggleState() == true then
+			ability:ToggleAbility()
+		end
+	end
+end
 
-	target:Heal(hp_per_sec, caster)
+function KillBird( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+
+	if ability.bird and ability.bird:IsNull() == false and ability.bird:IsAlive() then
+		ability.bird:ForceKill(false)
+	end
 end
 
 function Bird( keys )
 	local caster = keys.caster
-	local target = keys.target
 	local ability = keys.ability
 
-	local level = ability:GetLevel()
+	if ability:GetToggleState() == true then
+		KillBird( keys )
+	else
+		local bird = CreateUnitByName("npc_beastmaster_bird", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+		ability.bird = bird
+		ability:ApplyDataDrivenModifier(caster, bird, "modifier_bird", {})
 
-	local bird_duration = ability:GetSpecialValueFor("duration")
-	local hp_per_sec = ability:GetLevelSpecialValueFor("hp_per_sec", level-1)
+		local oldPos = caster:GetAbsOrigin()
+		oldPos.z = 100
+		oldPos.x = oldPos.x + 200
+		bird:SetAbsOrigin(oldPos)
 
-	local bird = CreateUnitByName("npc_beastmaster_bird", target:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
-	ability:ApplyDataDrivenModifier(caster, bird, "modifier_bird", {})
-	bird:AddNewModifier(bird, nil, "modifier_kill", {duration = bird_duration})
+		local particle
 
-	local oldPos = target:GetAbsOrigin()
-	oldPos.z = 100
-	oldPos.x = oldPos.x + 200
-	bird:SetAbsOrigin(oldPos)
+		Timers:CreateTimer(0.75, function (  )
+			particle = ParticleManager:CreateParticle("particles/heroes/beastmaster/beastmaster_bird_beam.vpcf", PATTACH_ABSORIGIN, bird)
+			AddChildParticle( bird, particle )
 
-	local particle
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_bird_heal", {})
+		end)
 
-	Timers:CreateTimer(0.75, function (  )
-		particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pugna/pugna_life_drain_beam.vpcf", PATTACH_ABSORIGIN, bird)
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_bird_heal", {})
-	end)
+		local t = 0
 
-    Timers:CreateTimer(function (  )
-		if bird:IsAlive() == true and target:IsAlive() == true then
-			local oldPos = target:GetAbsOrigin()
-			oldPos.z = 100
-			oldPos.x = oldPos.x + 200
+	    Timers:CreateTimer(function (  )
+	    	
 
-			local newPos = lerp_vector(bird:GetAbsOrigin(), oldPos, 0.03 * 3)
+			if bird:IsAlive() == true and caster:IsAlive() == true then
+				local new_pos = caster:GetAbsOrigin() + PointOnCircle(250, t)
+				bird:SetForwardVector(UnitLookAtPoint( bird, new_pos ))
+				bird:SetAbsOrigin(new_pos)
 
-			bird:SetAbsOrigin(newPos)
+				local z_delta = lerp(bird:GetModifierStackCount("modifier_bird",caster), 100, 0.03 * 3)
+				bird:SetModifierStackCount("modifier_bird",caster,z_delta)
 
-			bird:SetForwardVector((target:GetAbsOrigin() - bird:GetAbsOrigin()):Normalized())
+				if particle then
+					ParticleManager:SetParticleControl(particle, 0, bird:GetAttachmentOrigin(bird:ScriptLookupAttachment("attach_hitloc")) + Vector(0,0,z_delta))
+		    		ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin() + Vector(0,0,50))
+				end
 
-			if particle then
-				ParticleManager:SetParticleControl(particle, 0, newPos + Vector(0,0,250))
-	    		ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin() + Vector(0,0,50))
+				t = t + 2.75
+				if t > 360 then t = 360 - t end
+				return 0.03
 			end
+	    end)
+	end
 
-			return 0.03
-		else
-			target:RemoveModifierByName("modifier_bird_heal")
-			ParticleManager:DestroyParticle(particle, false)
-		end
-    end)
+	ability:ToggleAbility()
 end
