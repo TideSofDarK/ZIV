@@ -205,7 +205,7 @@ function Director:SpawnCreeps( spawn_table )
 						creep:AddNewModifier(creep,nil,"modifier_kill",{duration=tonumber(spawn_table["Duration"])})
 					end
 					
-					creep:AddAbility("ziv_creep_normal_hpbar_behavior")
+					creep:AddAbility("ziv_creep_normal_behavior")
 
 					if spawn_table["Lord"] then
 						creep:SetModelScale(creep:GetModelScale() * 1.45)

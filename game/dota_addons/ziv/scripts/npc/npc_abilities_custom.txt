@@ -861,7 +861,7 @@
 	    }
 	  }
 	}
-	"ziv_fortify_modifiers"
+	"ziv_passive_hero"
 	{
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	  "BaseClass"           "ability_datadriven"
@@ -6391,7 +6391,7 @@
 	    }
 	  }
 	}
-	"ziv_creep_normal_hpbar_behavior"
+	"ziv_creep_normal_behavior"
 	{
 	  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	  "BaseClass"           "ability_datadriven"
@@ -6400,7 +6400,7 @@
 	  
 	  "Modifiers"
 	  {
-	    "ziv_creep_normal_hpbar_behavior_logic"
+	    "ziv_creep_normal_behavior_logic"
 	    {
 	      "Passive"                        "1"
 	      "IsHidden"                        "1"    
@@ -6409,7 +6409,7 @@
 	      {
 	        "ApplyModifier"
 	        {
-	          "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
+	          "ModifierName"  "ziv_creep_normal_behavior_untouched"
 	          "Target"     "CASTER"
 	        }
 	      }
@@ -6418,18 +6418,18 @@
 	      {
 	        "RemoveModifier"
 	        {
-	          "ModifierName"  "ziv_creep_normal_hpbar_behavior_untouched"
+	          "ModifierName"  "ziv_creep_normal_behavior_untouched"
 	          "Target"     "CASTER"
 	        }
 	        "RemoveModifier"
 	        {
-	          "ModifierName"  "ziv_creep_normal_hpbar_behavior_aggro"
+	          "ModifierName"  "ziv_creep_normal_behavior_aggro"
 	          "Target"     "CASTER"
 	        }
 	      }
 	    }
 	
-	    "ziv_creep_normal_hpbar_behavior_aggro"
+	    "ziv_creep_normal_behavior_aggro"
 	    {
 	      "Passive"                        "1"
 	      "IsHidden"                        "1" 
@@ -6450,7 +6450,7 @@
 	      }
 	    }
 	    
-	    "ziv_creep_normal_hpbar_behavior_untouched"
+	    "ziv_creep_normal_behavior_untouched"
 	    {
 	      "Passive"                        "0"
 	      "IsHidden"                        "1"    

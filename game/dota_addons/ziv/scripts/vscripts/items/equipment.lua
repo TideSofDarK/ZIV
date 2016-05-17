@@ -26,12 +26,12 @@ function UnEquip( unit, buffName )
     	local new_item = CreateItem(itemName, unit, unit)
     	ZIV.pidInventory[unit:GetPlayerOwnerID()]:AddItem(new_item)
 
-    	if unit.fortify_modifiers and unit.fortify_modifiers[itemName] and unit:HasAbility("ziv_fortify_modifiers") then
+    	if unit.fortify_modifiers and unit.fortify_modifiers[itemName] and unit:HasAbility("ziv_passive_hero") then
 			for id,gem_table in pairs(unit.fortify_modifiers[itemName]) do
 				for k,v in pairs(gem_table) do
 					if unit:HasModifier(k) then
 						if unit:HasModifier(k) == false then
-							unit:FindAbilityByName("ziv_fortify_modifiers"):ApplyDataDrivenModifier(unit,unit,k,{})
+							unit:FindAbilityByName("ziv_passive_hero"):ApplyDataDrivenModifier(unit,unit,k,{})
 						end
 
 						local new_count = unit:GetModifierStackCount(k, unit) - v
@@ -71,8 +71,8 @@ function Equip( keys )
 		end
 	end
 
-	if ability.fortify_modifiers and caster:HasAbility("ziv_fortify_modifiers") then
-		local fortify_modifiers_ability = caster:FindAbilityByName("ziv_fortify_modifiers")
+	if ability.fortify_modifiers and caster:HasAbility("ziv_passive_hero") then
+		local fortify_modifiers_ability = caster:FindAbilityByName("ziv_passive_hero")
 
 		for id,gem_table in pairs(ability.fortify_modifiers) do
 			for k,v in pairs(gem_table) do

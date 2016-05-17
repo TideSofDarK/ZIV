@@ -1,4 +1,4 @@
-"ziv_fortify_modifiers"
+"ziv_passive_hero"
 {
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
   "BaseClass"           "ability_datadriven"

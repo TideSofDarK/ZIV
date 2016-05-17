@@ -24,7 +24,7 @@ function IsItemDropped( chance )
 end
 
 function Loot:Init()
-	for k,v in pairs(ZIV.AbilityKVs["ziv_fortify_modifiers"]["Modifiers"]) do
+	for k,v in pairs(ZIV.AbilityKVs["ziv_passive_hero"]["Modifiers"]) do
 		if string.match(k, "MODIFIER_PROPERTY") then
 			Loot.CommonModifiers[k] = v
 		elseif string.match(k, "ziv_") then

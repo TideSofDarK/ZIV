@@ -19,7 +19,7 @@ function ZIV:OnPlayerSelectedHero( args )
       hero:AddAbility(abilities[tostring(i)])
     end
 
-    hero:AddAbility("ziv_fortify_modifiers")
+    hero:AddAbility("ziv_passive_hero")
     hero:AddAbility("ziv_stats_bonus_fix")
     hero:AddAbility("ziv_hero_normal_hpbar_behavior")
 

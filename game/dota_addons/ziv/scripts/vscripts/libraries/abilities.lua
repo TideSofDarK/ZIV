@@ -79,17 +79,17 @@ function SimulateRangeAttack( keys )
   local speed = caster:GetProjectileSpeed()
   local duration = caster:GetAttackAnimationPoint() / caster:GetAttackSpeed()
   local base_attack_time = caster:GetBaseAttackTime() / caster:GetAttackSpeed()
-  print(1.0 / caster:GetAttacksPerSecond(), caster:GetAttackSpeed())
+
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
 
   ability:EndCooldown()
-  ability:StartCooldown(1.0 / caster:GetAttacksPerSecond())
+  ability:StartCooldown( (1/caster:GetAttacksPerSecond()) - duration)
   
   StartAnimation(caster, {duration=duration + base_attack_time, activity=ACT_DOTA_ATTACK, rate=caster:GetAttackSpeed()})
   UnitLookAtPoint( caster, target )
   caster:Stop()
 
-  caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = duration + base_attack_time})
+  caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = 1.0 / caster:GetAttacksPerSecond()})
 
   local units = FindUnitsInRadius(caster:GetTeamNumber(),keys.target_points[1],nil,200,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
 
@@ -208,13 +208,13 @@ function CreepAgression( keys )
     for k,v in pairs(heroes) do
       local path = GridNav:FindPathLength(v:GetAbsOrigin(), caster:GetAbsOrigin())
       if path <= 800 and path > 0 then 
-        caster:RemoveModifierByName("ziv_creep_normal_hpbar_behavior_aggro")
+        caster:RemoveModifierByName("ziv_creep_normal_behavior_aggro")
         
         local creeps = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),nil,800,DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
         for k2,v2 in pairs(creeps) do
           local path = GridNav:FindPathLength(v:GetAbsOrigin(), caster:GetAbsOrigin())
           if path <= 800 and path > 0 then 
-            v:RemoveModifierByName("ziv_creep_normal_hpbar_behavior_aggro")
+            v:RemoveModifierByName("ziv_creep_normal_behavior_aggro")
           end
         end
         break
