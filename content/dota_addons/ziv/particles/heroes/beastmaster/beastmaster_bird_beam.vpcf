@@ -159,6 +159,7 @@
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/beastmaster/beastmaster_bird_beam_e.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/beastmaster/beastmaster_bird_beam_f.vpcf"

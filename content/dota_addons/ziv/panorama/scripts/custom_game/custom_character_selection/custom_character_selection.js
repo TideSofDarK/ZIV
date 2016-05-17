@@ -122,6 +122,8 @@ function UpdateFrames() {
 
         heroFrames[i].SetHasClass( "unselectedLeft", i < currentCharacter );
         heroFrames[i].SetHasClass( "unselectedRight", i > currentCharacter );
+
+        heroFrames[i].style.visibility = Math.abs(i - currentCharacter) > 1 ? "collapse;" : "visible;";
     }
  
     // $.Schedule(0.01, UpdateFrames)

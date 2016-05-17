@@ -39,7 +39,7 @@ function SimulateMeleeAttack( keys )
   StartAnimation(caster, {duration=duration + base_attack_time, activity=activity, rate=rate})
 
   -- caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = duration})
-  UnitLookAtPoint( caster, target )
+  caster:SetForwardVector(UnitLookAtPoint( caster, target ))
   caster:Stop()
 
   Timers:CreateTimer(duration, function()

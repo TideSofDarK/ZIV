@@ -1062,7 +1062,7 @@
 	  "precache"
 	  {
 	    "particle"  "particles/heroes/beastmaster/beastmaster_bird_beam.vpcf"
-	    "particle"  "particles/heroes/beastmaster/beastmaster_bird_laser.vpcf"
+	    "particle"  "particles/heroes/beastmaster/beastmaster_bird_attack.vpcf"
 	  }
 	
 	  "AbilitySpecial"
@@ -1082,6 +1082,11 @@
 	      "var_type"            "FIELD_FLOAT"
 	      "sp_per_second"            "14"
 	    }
+	    "4"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bird_radius"            "200"
+	    }
 	  }
 	
 	  "OnSpellStart"
@@ -1090,6 +1095,16 @@
 	    {
 	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_bird.lua"
 	      "Function"    "Bird"
+	    }
+	  }
+	
+	  "OnProjectileHitUnit"
+	  {
+	    "DeleteOnHit"  "1"
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_bird.lua"
+	      "Function"    "BirdDamage"
 	    }
 	  }
 	
@@ -1125,9 +1140,14 @@
 	        "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
 	      }
 	
-	      "Properties"
+	      "ThinkInterval"  "0.5"
+	      "OnIntervalThink"
 	      {
-	        "MODIFIER_PROPERTY_VISUAL_Z_DELTA" "1"
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_bird.lua"
+	          "Function"    "BirdAttack"
+	        }
 	      }
 	    }
 	  }

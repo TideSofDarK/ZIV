@@ -16,6 +16,42 @@ function BirdHeal( keys )
 	end
 end
 
+function BirdDamage( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+
+	DealDamage(caster, target, caster:GetAverageTrueAttackDamage() * GetSpecial(ability, "damage_amp"), DAMAGE_TYPE_PHYSICAL)
+end
+
+function BirdAttack( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+
+	if ability.bird and ability.bird:IsNull() == false and ability.bird:IsAlive() then
+		local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, GetSpecial(ability, "bird_radius") * 2, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+
+		local seed = math.random(1, #units)
+
+		if #units > 0 then 
+			local projectile_info = 
+		    {
+		        EffectName = "particles/heroes/beastmaster/beastmaster_bird_attack.vpcf",
+		        Ability = ability,
+		        Target =  units[seed],
+		        Source = ability.bird,
+		        bHasFrontalCone = false,
+		        iMoveSpeed = 1300,
+		        bReplaceExisting = false,
+		        bProvidesVision = false,
+		        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION
+		    }
+
+			ProjectileManager:CreateTrackingProjectile(projectile_info)
+		end
+	end
+end
+
 function KillBird( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -44,7 +80,7 @@ function Bird( keys )
 		local particle
 
 		Timers:CreateTimer(0.75, function (  )
-			particle = ParticleManager:CreateParticle("particles/heroes/beastmaster/beastmaster_bird_beam.vpcf", PATTACH_ABSORIGIN, bird)
+			particle = ParticleManager:CreateParticle("particles/heroes/beastmaster/beastmaster_bird_beam.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			AddChildParticle( bird, particle )
 
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_bird_heal", {})
@@ -56,19 +92,16 @@ function Bird( keys )
 	    	
 
 			if bird:IsAlive() == true and caster:IsAlive() == true then
-				local new_pos = caster:GetAbsOrigin() + PointOnCircle(250, t)
-				bird:SetForwardVector(UnitLookAtPoint( bird, new_pos ))
-				bird:SetAbsOrigin(new_pos)
-
-				local z_delta = lerp(bird:GetModifierStackCount("modifier_bird",caster), 100, 0.03 * 3)
-				bird:SetModifierStackCount("modifier_bird",caster,z_delta)
+				local new_pos = caster:GetAbsOrigin() + PointOnCircle(GetSpecial(ability, "bird_radius"), t)
+				bird:SetForwardVector(lerp_vector(bird:GetForwardVector(), UnitLookAtPoint( bird, new_pos + Vector(0,0,100) ), 0.03 * 10)) 
+				bird:SetAbsOrigin(new_pos + Vector(0,0,100))
 
 				if particle then
-					ParticleManager:SetParticleControl(particle, 0, bird:GetAttachmentOrigin(bird:ScriptLookupAttachment("attach_hitloc")) + Vector(0,0,z_delta))
-		    		ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin() + Vector(0,0,50))
+					ParticleManager:SetParticleControlEnt(particle, 0, bird, PATTACH_POINT_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
+		    		ParticleManager:SetParticleControl(particle, 1, caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_hitloc")))
 				end
 
-				t = t + 2.75
+				t = t + 3.0
 				if t > 360 then t = 360 - t end
 				return 0.03
 			end

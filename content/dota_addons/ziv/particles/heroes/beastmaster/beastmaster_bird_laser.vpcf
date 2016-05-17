@@ -26,6 +26,7 @@
 			m_flTextureVWorldSize = 999.999939
 			m_nMaxTesselation = 3
 			m_nMinTesselation = 3
+			m_nOrientationType = 2
 		},
 	]
 	m_Operators =
@@ -53,13 +54,13 @@
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.500000
+			m_flFadeOutTime = 0.100000
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
 			m_flBias = 0.150000
-			m_flStartScale = 0.500000
-			m_flStartTime = 0.500000
+			m_flStartScale = 0.400000
+			m_flStartTime = 0.400000
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
@@ -87,6 +88,7 @@
 			{
 				m_nEndControlPointNumber = 1
 				m_nStartControlPointNumber = 9
+				m_flMidPoint = 0.300000
 			}
 		},
 		{
@@ -100,6 +102,11 @@
 		{
 			_class = "C_OP_InstantaneousEmitter"
 			m_nParticlesToEmit = 16
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmissionDuration = 0.400000
 		},
 	]
 	m_Children =
