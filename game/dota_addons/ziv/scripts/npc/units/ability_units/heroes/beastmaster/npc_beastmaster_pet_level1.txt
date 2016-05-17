@@ -2,6 +2,8 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
+    "SoundSet"                  "Beastmaster_Boar"
+    "IsSummoned"                "1"
     "Level"           "1"
     
     "Ability1"          ""
@@ -36,9 +38,6 @@
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
-
-    
-    
 
     "VisionDaytimeRange"    "0"
     "VisionNighttimeRange"    "0"
@@ -48,7 +47,9 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "Level"           "1"
+    "SoundSet"                  "Beastmaster_Boar"
+    "IsSummoned"                "1"
+    "Level"           "2"
     
     "Ability1"          ""
     "Ability2"          ""
@@ -82,9 +83,6 @@
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
-
-    
-    
 
     "VisionDaytimeRange"    "0"
     "VisionNighttimeRange"    "0"
@@ -94,7 +92,9 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "Level"           "1"
+    "SoundSet"                  "Beastmaster_Boar"
+    "IsSummoned"                "1"
+    "Level"           "3"
     
     "Ability1"          ""
     "Ability2"          ""
@@ -128,9 +128,6 @@
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
-
-    
-    
 
     "VisionDaytimeRange"    "0"
     "VisionNighttimeRange"    "0"
@@ -140,7 +137,9 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "Level"           "1"
+    "SoundSet"                  "Beastmaster_Boar"
+    "IsSummoned"                "1"
+    "Level"           "4"
     
     "Ability1"          ""
     "Ability2"          ""
@@ -174,9 +173,6 @@
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
-
-    
-    
 
     "VisionDaytimeRange"    "0"
     "VisionNighttimeRange"    "0"
@@ -186,7 +182,9 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "Level"           "1"
+    "SoundSet"                  "Beastmaster_Boar"
+    "IsSummoned"                "1"
+    "Level"           "5"
     
     "Ability1"          ""
     "Ability2"          ""
@@ -220,9 +218,6 @@
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
-
-    
-    
 
     "VisionDaytimeRange"    "0"
     "VisionNighttimeRange"    "0"
@@ -232,7 +227,9 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "Level"           "1"
+    "SoundSet"                  "Beastmaster_Boar"
+    "IsSummoned"                "1"
+    "Level"           "6"
     
     "Ability1"          ""
     "Ability2"          ""
@@ -266,9 +263,6 @@
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
-
-    
-    
 
     "VisionDaytimeRange"    "0"
     "VisionNighttimeRange"    "0"
@@ -278,7 +272,9 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "Level"           "1"
+    "SoundSet"                  "Beastmaster_Boar"
+    "IsSummoned"                "1"
+    "Level"           "7"
     
     "Ability1"          ""
     "Ability2"          ""
@@ -312,9 +308,6 @@
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
-
-    
-    
 
     "VisionDaytimeRange"    "0"
     "VisionNighttimeRange"    "0"

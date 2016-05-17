@@ -18,11 +18,12 @@ function Cleave( keys )
 
 	keys.activity = ability.activity
 
-	keys.duration = 0.2
+	keys.duration = 0.1
 	keys.rate = 3.0
+	keys.base_attack_time = 0.25
 
 	keys.on_impact = (function ( caster )
-		local units = FindUnitsInCone(caster:GetAbsOrigin(), caster:GetForwardVector(), 300, 250 + GRMSC("ziv_beastmaster_cleave_aoe", caster), caster:GetTeamNumber(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER)
+		local units = FindUnitsInCone(caster:GetAbsOrigin(), caster:GetForwardVector(), 300, 300 + GRMSC("ziv_beastmaster_cleave_aoe", caster), caster:GetTeamNumber(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER)
 		
 		for k,v in pairs(units) do
 			ParticleManager:CreateParticle("particles/units/heroes/hero_riki/riki_backstab_hit_blood.vpcf",PATTACH_ABSORIGIN,v)

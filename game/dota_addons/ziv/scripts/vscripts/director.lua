@@ -204,6 +204,8 @@ function Director:SpawnCreeps( spawn_table )
 					if spawn_table["Duration"] then
 						creep:AddNewModifier(creep,nil,"modifier_kill",{duration=tonumber(spawn_table["Duration"])})
 					end
+
+					creep:SetAngles(0, math.random(0, 360), 0)
 					
 					creep:AddAbility("ziv_creep_normal_behavior")
 

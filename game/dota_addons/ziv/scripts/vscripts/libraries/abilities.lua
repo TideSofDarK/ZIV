@@ -21,12 +21,15 @@ function SimulateMeleeAttack( keys )
   local ability = keys.ability
 
   local activity = keys.activity or ACT_DOTA_ATTACK
-  local base_attack_time = (caster:GetBaseAttackTime() / caster:GetAttackSpeed())
+  local base_attack_time = keys.base_attack_time or (1 / caster:GetAttacksPerSecond())
   local duration = keys.duration or (caster:GetAttackAnimationPoint() / caster:GetAttackSpeed())
   local rate = keys.rate or caster:GetAttackSpeed()
 
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
   local aoe = GetSpecial(ability, "aoe") or 0
+
+  ability:EndCooldown()
+  ability:StartCooldown( base_attack_time - duration)
 
   if keys.attack_particle then
     ParticleManager:CreateParticle(keys.attack_particle,PATTACH_ABSORIGIN,caster)
@@ -36,7 +39,7 @@ function SimulateMeleeAttack( keys )
     caster:EmitSound(attack_sound)
   end 
 
-  StartAnimation(caster, {duration=duration + base_attack_time, activity=activity, rate=rate})
+  StartAnimation(caster, {duration=base_attack_time, activity=activity, rate=rate})
 
   -- caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = duration})
   caster:SetForwardVector(UnitLookAtPoint( caster, target ))

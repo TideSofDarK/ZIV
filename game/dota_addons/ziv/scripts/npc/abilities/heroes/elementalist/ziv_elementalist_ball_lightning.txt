@@ -7,7 +7,7 @@
 	"AbilityTextureName"			"ziv_empty"
 
 	"AbilityCastRange"        "700"
-	"AbilityCastPoint"				"0.11"
+	"AbilityCastPoint"				"0.05"
 	"AbilityCooldown"				"5.0"
 	
 	"AbilityManaCost"				"15"
@@ -19,12 +19,12 @@
 		"01"
 		{
 			"var_type"							"FIELD_INTEGER"
-			"ball_lightning_move_speed"			"1250 1875 2500"		
+			"ball_lightning_move_speed"			"325"		
 		}
 		"02"
 		{
 			"var_type"							"FIELD_INTEGER"
-			"ball_lightning_aoe"				"125 200 275"		
+			"ball_lightning_aoe"				"200"		
 		}
 	}
 

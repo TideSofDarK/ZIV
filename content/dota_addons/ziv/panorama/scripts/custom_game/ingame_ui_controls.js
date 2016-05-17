@@ -59,15 +59,27 @@ function ZIVCastAbility(number, pressing) {
 			OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_NO_TARGET
 		};
 		var abilityBehavior = Abilities.GetBehavior( order.AbilityIndex );
-		if ( abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT )
-		{
-			order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION;
-			order.Position = GetMouseCastPosition( order.AbilityIndex );
+		var target = GetMouseCastTarget();
+
+		if ( abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT ) {
+			if (abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET && target != -1) {
+				order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET;
+				order.TargetIndex = target;
+				order.Position = GetMouseCastPosition( order.AbilityIndex );
+			}
+			else {
+				order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION;
+				order.Position = GetMouseCastPosition( order.AbilityIndex );
+			}
 		}
 		if ( abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET )
 		{
-			var target = GetMouseCastTarget();
-			if (target !== -1) 
+			if (abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT && target == -1) {
+				order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION;
+				order.Position = GetMouseCastPosition( order.AbilityIndex );
+				$.Msg("dick");
+			}
+			else if (target !== -1) 
 			{
 				order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET;
 				order.TargetIndex = GetMouseCastTarget();
