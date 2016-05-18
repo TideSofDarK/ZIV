@@ -29,6 +29,7 @@ function SpawnGlaive( keys )
     glaive:SetPhysicsVelocityMax(5000)
     glaive:SetPhysicsFriction (0.15)
     glaive:Slide(true)
+    glaive:Hibernate(false) 
 	glaive:PreventDI()
 
 	local state = GLAIVE_STATE_ATTACK
@@ -38,6 +39,9 @@ function SpawnGlaive( keys )
 	local point1 = RotatePosition(midpoint, QAngle(0,50,0), target)
 	local point2 = target
 	local point3 = RotatePosition(midpoint, QAngle(0,-50,0), target)
+
+	local max_point_time = 1.5
+	local time = 0.0
 
 	local distance = point1 - glaive:GetAbsOrigin()
 	local direction = distance:Normalized()
@@ -49,7 +53,8 @@ function SpawnGlaive( keys )
 			direction = distance:Normalized()
 			glaive:SetPhysicsAcceleration(direction * projectile_speed)
 			
-			if distance:Length() < 50 then
+			if distance:Length() < 50 or time > max_point_time then
+				time = 0.0
 				state = GLAIVE_STATE_DECAY
 			end
 		elseif state == GLAIVE_STATE_DECAY then
@@ -57,7 +62,8 @@ function SpawnGlaive( keys )
 			direction = distance:Normalized()
 			glaive:SetPhysicsAcceleration(direction * projectile_speed)
 
-			if distance:Length() < 50 then
+			if distance:Length() < 50 or time > max_point_time then
+				time = 0.0
 				state = GLAIVE_STATE_SUSTAIN
 			end
 		elseif state == GLAIVE_STATE_SUSTAIN then
@@ -65,7 +71,8 @@ function SpawnGlaive( keys )
 			direction = distance:Normalized()
 			glaive:SetPhysicsAcceleration(direction * projectile_speed)
 
-			if distance:Length() < 25 then
+			if distance:Length() < 25 or time > max_point_time then
+				time = 0.0
 				state = GLAIVE_STATE_RELEASE
 			end
 		else
@@ -73,11 +80,11 @@ function SpawnGlaive( keys )
 			direction = distance:Normalized()
 			glaive:SetPhysicsAcceleration(direction * projectile_speed)
 
-			if distance:Length() < 100 then
+			if distance:Length() < 100 or time > max_point_time then
 			    caster:EmitSound("Hero_Luna.MoonGlaive.Impact")
 			end
 
-			if distance:Length() < 75 then
+			if distance:Length() < 75 or time > max_point_time then
 			    glaive:SetPhysicsAcceleration(Vector(0,0,0))
 			    glaive:SetPhysicsVelocity(Vector(0,0,0))
 			    glaive:OnPhysicsFrame(nil)
@@ -86,6 +93,7 @@ function SpawnGlaive( keys )
 				ParticleManager:DestroyParticle(particle,false)
 			end
 		end
+		time = time + 0.03
 	end)
 end
 

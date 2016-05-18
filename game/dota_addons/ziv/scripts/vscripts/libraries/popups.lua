@@ -1,5 +1,3 @@
-local popup = {}
- 
 POPUP_SYMBOL_PRE_PLUS = 0
 POPUP_SYMBOL_PRE_MINUS = 1
 POPUP_SYMBOL_PRE_SADFACE = 2
@@ -24,11 +22,6 @@ POPUP_SYMBOL_POST_POINTFIVE = 8
 -- e.g. when healed by an ability
 function PopupHealing(target, amount)
     PopupNumbers(target, "heal", Vector(0, 255, 0), 1.0, amount, POPUP_SYMBOL_PRE_PLUS, nil)
-end
-
--- e.g. the popup you get when you suddenly take a large portion of your health pool in damage at once
-function PopupDamage(target, amount)
-    PopupNumbers(target, "damage", Vector(255, 0, 0), 1.0, amount, nil, POPUP_SYMBOL_POST_DROP)
 end
 
 -- e.g. when dealing critical damage
@@ -113,4 +106,31 @@ function PopupNumbers(target, pfx, color, lifetime, number, presymbol, postsymbo
     ParticleManager:SetParticleControl(pidx, 3, color)
 end
 
-return popups
+-- Damage
+function PopupDamage(target, number)
+    local pidx = 0
+
+    local digits = 1
+
+    local final_number = number
+    local number = 1
+
+    local tick = 1.0 / final_number
+
+    Timers:CreateTimer(function (  )
+        digits = #tostring(round(tonumber(number)))
+
+        ParticleManager:DestroyParticle(pidx, true)
+        
+        pidx = ParticleManager:CreateParticle("particles/ziv_damage.vpcf", PATTACH_ABSORIGIN_FOLLOW, target) -- target:GetOwner()
+        
+        ParticleManager:SetParticleControl(pidx, 1, Vector(0, round(tonumber(number)), 0))
+        ParticleManager:SetParticleControl(pidx, 2, Vector(1.0, 0, 0))
+        ParticleManager:SetParticleControl(pidx, 3, Vector(255,255,255))
+        ParticleManager:SetParticleControl(pidx, 4, Vector(digits, 0, 0))
+
+        number = number + tick
+
+        if number < final_number then return 0.1 end
+    end)
+end

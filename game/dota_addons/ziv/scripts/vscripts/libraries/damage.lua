@@ -37,4 +37,6 @@ function DealDamage( _attacker, _victim, _damage, _type )
 	end
 	
 	ApplyDamage(damageTable)
+	PopupDamage(_victim, math.ceil(_damage))
+	-- PopupExperience(_victim, math.ceil(_damage))
 end

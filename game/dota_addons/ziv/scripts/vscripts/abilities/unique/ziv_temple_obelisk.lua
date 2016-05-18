@@ -16,7 +16,9 @@ function FallingRocks(keys)
 	local unit = CreateUnitByName("npc_dummy_unit",RandomPointOnMap(),true,nil,nil,caster:GetTeamNumber())
 	unit:SetMoveCapability(1)
 
-	local particle = ParticleManager:CreateParticle("particles/unique/temple/temple_falling_rocks.vpcf",PATTACH_ABSORIGIN,unit)
+	local particle = ParticleManager:CreateParticle("particles/unique/temple/temple_falling_rocks.vpcf",PATTACH_ABSORIGIN_FOLLOW,unit)
+  	ParticleManager:SetParticleControl(particle, 1, Vector(255,255,0))
+  	ParticleManager:ReleaseParticleIndex(particle)
 	
 	EmitSoundOnLocationWithCaster(unit:GetAbsOrigin(), "tutorial_rockslide", unit)
 
@@ -28,6 +30,7 @@ function FallingRocks(keys)
 			end
 		end
 
+		ParticleManager:DestroyParticle(particle,false)
 		unit:ForceKill(false)
 	end)
 end

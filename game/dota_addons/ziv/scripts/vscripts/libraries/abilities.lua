@@ -79,16 +79,18 @@ function SimulateRangeAttack( keys )
   local caster = keys.caster
   local ability = keys.ability
   local target = keys.target_points[1]
-  local speed = caster:GetProjectileSpeed()
-  local duration = caster:GetAttackAnimationPoint() / caster:GetAttackSpeed()
-  local base_attack_time = caster:GetBaseAttackTime() / caster:GetAttackSpeed()
+
+  local speed = tonumber(keys.projectile_speed) or caster:GetProjectileSpeed()
+  local duration = keys.duration or (caster:GetAttackAnimationPoint() / caster:GetAttackSpeed())
+  local base_attack_time = keys.base_attack_time or (1 / caster:GetAttacksPerSecond())
+  local rate = keys.rate or caster:GetAttackSpeed()
 
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
 
   ability:EndCooldown()
-  ability:StartCooldown( (1/caster:GetAttacksPerSecond()) - duration)
+  ability:StartCooldown( base_attack_time - duration)
   
-  StartAnimation(caster, {duration=duration + base_attack_time, activity=ACT_DOTA_ATTACK, rate=caster:GetAttackSpeed()})
+  StartAnimation(caster, {duration=duration + base_attack_time, activity=ACT_DOTA_ATTACK, rate=rate})
   UnitLookAtPoint( caster, target )
   caster:Stop()
 
@@ -101,7 +103,7 @@ function SimulateRangeAttack( keys )
   end
 
   Timers:CreateTimer(duration, function()
-    if caster:HasModifier("modifier_custom_attack") == false then
+    if caster:HasModifier("modifier_custom_attack") == false and keys.interruptable ~= false then
       return
     end
 
@@ -147,6 +149,10 @@ function SimulateRangeAttack( keys )
       draw = true,
       UnitTest = function(self, target) return target:GetUnitName() ~= "npc_dummy_unit" and caster:GetTeamNumber() ~= target:GetTeamNumber() end,
     }
+
+    if keys.on_impact then
+      keys.on_impact(caster)
+    end
 
     projectile.OnUnitHit = (function(self, target)
       if target then

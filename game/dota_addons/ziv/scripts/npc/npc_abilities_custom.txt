@@ -3097,11 +3097,11 @@
 	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT"
 	  "AbilityTextureName"            "ziv_empty"
 	  
-	  "AbilityCastAnimation"      ""
+	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
 	  
 	  "AbilityCastRange"        "1100"
 	  "AbilityManaCost"         "60"
-	  "AbilityCastPoint"        "0.09"
+	  "AbilityCastPoint"        "0.2"
 	  "AbilityChannelTime"      "1.0"
 	  "AbilityCooldown"         "4"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
@@ -3276,7 +3276,7 @@
 	"ziv_huntress_focus_fire"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET" //DOTA_ABILITY_BEHAVIOR_IMMEDIATE
+	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT" //DOTA_ABILITY_BEHAVIOR_IMMEDIATE
 	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
@@ -3286,9 +3286,9 @@
 	  "AbilityCastAnimation"      ""
 	  
 	  "AbilityCastRange"        "1100"
-	  "AbilityManaCost"         "30"
+	  "AbilityManaCost"         "3"
 	  "AbilityCastPoint"        "0.001"
-	  "AbilityCooldown"         "0.6"
+	  "AbilityCooldown"         "0.0"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	  
 	  "MaxLevel"          "7"
@@ -3305,7 +3305,7 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_FLOAT"
-	      "damage_amp"            "0.1"
+	      "damage_amp"            "1.1"
 	    }
 	  }
 	  
@@ -3315,6 +3315,7 @@
 	    {
 	      "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_focus_fire.lua"
 	      "Function"    "StartBarrage"
+	      "Target" "POINT"
 	    }
 	  }
 	
@@ -3336,15 +3337,6 @@
 	      "Passive"      "0"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
-	
-	      "OnOrder"
-	      {
-	        "RemoveModifier"
-	        {
-	          "ModifierName"  "modifier_focus_fire"
-	          "Target"     "CASTER"
-	        }
-	      }
 	    }
 	  }
 	}
