@@ -776,9 +776,9 @@
 	"npc_witch_doctor_skeleton"
 	{
 	    "BaseClass"         "npc_dota_creature"
+	    "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
 	    "SoundSet"  "n_creep_skeleton_melee"
 	    
-	    "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
 	    "ModelScale"    "1.2"
 	    "HealthBarOffset"   "150"
 	    "Level"           "1"
@@ -941,9 +941,9 @@
 	"npc_witch_doctor_zombie"
 	{
 	    "BaseClass"         "npc_dota_creature"
+	    "Model"           "models/heroes/undying/undying_minion_torso.vmdl"
 	    "SoundSet"                  "Undying_Zombie"
 	    
-	    "Model"           "models/heroes/undying/undying_minion_torso.vmdl"
 	    "HealthBarOffset"   "110"
 	    "Level"           "1"
 	    
@@ -1303,8 +1303,8 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 	
 		"BountyXP"					"0"
-		"BountyGoldMin"				"125"
-		"BountyGoldMax"				"125"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
 	
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		"HealthBarOffset"			"290"

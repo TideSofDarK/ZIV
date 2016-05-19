@@ -5,7 +5,6 @@
 
 # Compiled formats
 *.vpcf_c
-*.vtex_c
 *.vsndevts_c
 *.vsnd_c
 *.vmat_c

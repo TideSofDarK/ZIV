@@ -1,9 +1,9 @@
 "npc_witch_doctor_zombie"
 {
     "BaseClass"         "npc_dota_creature"
+    "Model"           "models/heroes/undying/undying_minion_torso.vmdl"
     "SoundSet"                  "Undying_Zombie"
     
-    "Model"           "models/heroes/undying/undying_minion_torso.vmdl"
     "HealthBarOffset"   "110"
     "Level"           "1"
     

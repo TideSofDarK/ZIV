@@ -28,8 +28,8 @@
 	"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 
 	"BountyXP"					"0"
-	"BountyGoldMin"				"125"
-	"BountyGoldMax"				"125"
+	"BountyGoldMin"				"0"
+	"BountyGoldMax"				"0"
 
 	"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 	"HealthBarOffset"			"290"

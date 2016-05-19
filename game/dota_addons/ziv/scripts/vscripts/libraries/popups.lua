@@ -107,30 +107,24 @@ function PopupNumbers(target, pfx, color, lifetime, number, presymbol, postsymbo
 end
 
 -- Damage
-function PopupDamage(target, number)
-    local pidx = 0
-
-    local digits = 1
-
+function PopupDamage(player, target, number, coef)
     local final_number = number
-    local number = 1
 
-    local tick = 1.0 / final_number
+    local offset = Vector(math.random(-35,35), math.random(-35,35), math.random(0,45))
 
-    Timers:CreateTimer(function (  )
-        digits = #tostring(round(tonumber(number)))
+    local digits = #tostring(round(tonumber(final_number)))
 
-        ParticleManager:DestroyParticle(pidx, true)
+    local color = Vector(255,255,255)
+    print(coef)
+    if coef > 0.95 then
+        color = Vector(255,245,0)
+    end
+
+    local pidx = ParticleManager:CreateParticleForPlayer("particles/ziv_damage_alt.vpcf", PATTACH_ABSORIGIN, target, player) -- target:GetOwner()
         
-        pidx = ParticleManager:CreateParticle("particles/ziv_damage.vpcf", PATTACH_ABSORIGIN_FOLLOW, target) -- target:GetOwner()
-        
-        ParticleManager:SetParticleControl(pidx, 1, Vector(0, round(tonumber(number)), 0))
-        ParticleManager:SetParticleControl(pidx, 2, Vector(1.0, 0, 0))
-        ParticleManager:SetParticleControl(pidx, 3, Vector(255,255,255))
-        ParticleManager:SetParticleControl(pidx, 4, Vector(digits, 0, 0))
-
-        number = number + tick
-
-        if number < final_number then return 0.1 end
-    end)
+    ParticleManager:SetParticleControl(pidx, 0, target:GetAbsOrigin() + offset)
+    ParticleManager:SetParticleControl(pidx, 1, Vector(digits, 0, 0))
+    ParticleManager:SetParticleControl(pidx, 2, Vector(round(tonumber(final_number)), 0, 0))
+    ParticleManager:SetParticleControl(pidx, 3, Vector(5 + (12 * coef), 0, 0)) 
+    ParticleManager:SetParticleControl(pidx, 4, color)  
 end

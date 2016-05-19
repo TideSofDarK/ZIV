@@ -25,6 +25,12 @@ function DealDamage( _attacker, _victim, _damage, _type )
 		_type = DAMAGE_TYPE_MAGICAL
 	end
 
+	local min_damage = _damage * 0.75
+	local max_damage = _damage * 1.25
+	local coef = max_damage - _damage
+
+	_damage = math.random(min_damage, max_damage)
+
 	local damageTable = {
 		victim = _victim,
 		attacker = _attacker,
@@ -37,6 +43,6 @@ function DealDamage( _attacker, _victim, _damage, _type )
 	end
 	
 	ApplyDamage(damageTable)
-	PopupDamage(_victim, math.ceil(_damage))
+	PopupDamage(_attacker:GetPlayerOwner(), _victim, math.ceil(_damage), clamp(_damage / max_damage, 0, 1))
 	-- PopupExperience(_victim, math.ceil(_damage))
 end

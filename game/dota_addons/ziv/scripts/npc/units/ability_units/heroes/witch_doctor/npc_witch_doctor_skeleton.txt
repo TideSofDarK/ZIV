@@ -1,9 +1,9 @@
 "npc_witch_doctor_skeleton"
 {
     "BaseClass"         "npc_dota_creature"
+    "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
     "SoundSet"  "n_creep_skeleton_melee"
     
-    "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
     "ModelScale"    "1.2"
     "HealthBarOffset"   "150"
     "Level"           "1"
