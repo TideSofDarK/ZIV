@@ -146,19 +146,19 @@ function SetFortifyButton() {
 }
 
 function OpenEquipment() {
-	GameEvents.SendEventClientSide( "ziv_open_equipment", {} )
+	GameEvents.SendEventClientSide( "ziv_open_equipment", {} );
 }
 
 function OpenFortifyWindow() {
-	GameEvents.SendEventClientSide( "ziv_open_fortify", {} )
+	GameEvents.SendEventClientSide( "ziv_open_fortify", {} );
 }
 
 function OpenCraftingWindow() {
-	GameEvents.SendEventClientSide( "ziv_open_crafting", {} )
+	GameEvents.SendEventClientSide( "ziv_open_crafting", {} );
 }
 
 function OpenStatusWindow() {
-	GameEvents.SendEventClientSide( "ziv_open_status", {} )
+	GameEvents.SendEventClientSide( "ziv_open_status", {} );
 }
 
 function OpenInventoryWindow() {
@@ -166,7 +166,11 @@ function OpenInventoryWindow() {
 }
 
 function OpenCraftingWindow() {
-	GameEvents.SendEventClientSide( "ziv_open_crafting", null )
+	GameEvents.SendEventClientSide( "ziv_open_crafting", {} );
+}
+
+function OpenSettingsWindow() {
+	GameEvents.SendEventClientSide( "ziv_open_settings", {} );
 }
 
 (function()
