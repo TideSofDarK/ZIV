@@ -1,0 +1,26 @@
+<root>
+	<styles>
+		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_settings.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/ingame_ui_settings.js" />
+		<include src="file://{resources}/scripts/containers/draggable.js" />
+	</scripts>
+	<Panel class="SettingsRoot Hide BasicShadow" hittest="true" draggable="true">
+		<Panel class="GenericBackground" id="Background"/>
+
+		<Button onactivate="CloseButton()" class="CloseButton" />
+
+		<DOTASettingsCheckbox id="CustomSetting1" text="#MyCustomSetting1" />
+		<!--
+		<Panel class="TextBlock" id="FortifyTextBlock">
+			<Label id="FortifyTextBlockLabel" class="TextBlockLabel" text="#dragfortify"/>
+		</Panel>
+
+		<Button onactivate="OKButton()" class="OKButton" id="FortifyOKButton">
+			<Label id="FortifyOKButtonLabel" class="WindowLabel" text="#fortify_button"/>
+		</Button> -->
+	</Panel>
+</root>

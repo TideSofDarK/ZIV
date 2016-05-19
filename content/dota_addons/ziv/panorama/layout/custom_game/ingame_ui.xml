@@ -41,7 +41,7 @@
 				<Button id="fortify_button" class="BottomButton" onactivate="OpenFortifyWindow()" />
 				<Button id="character_button" class="BottomButton" onactivate="OpenStatusWindow()" />
 				<Button id="inventory_button" class="BottomButton" onactivate="OpenInventoryWindow()" />
-				<Button id="help_button" class="BottomButton" onactivate="" />
+				<Button id="help_button" class="BottomButton" onactivate="OpenSettingsWindow()" />
 			</Panel>
 		</Panel>
 		<!-- <Panel class="GenericBackground" id="LeftBottomGfx" hittest="false"/> -->
