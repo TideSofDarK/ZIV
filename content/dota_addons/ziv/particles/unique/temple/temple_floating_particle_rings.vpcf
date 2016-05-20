@@ -125,6 +125,7 @@
 		{
 			_class = "C_OP_ContinuousEmitter"
 			m_flEmitRate = 20.000000
+			m_flEmissionDuration = 20.000000
 		},
 		{
 			_class = "C_OP_InstantaneousEmitter"

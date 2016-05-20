@@ -1059,80 +1059,41 @@
 	    "SoundSet"          "Creep_Good_Range"          // Name of sound set.
 	    "Level"           "1"
 	
-	    // Abilities
-	    //----------------------------------------------------------------
+	    "Ability1"          "dummy_unit"
 	
-	    "Ability1"          "dummy_unit"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
-	    "Ability3"          ""      // Ability 3.
-	    "Ability4"          ""      // Ability 4.
-	    "Ability5"          ""      // Ability 5.
-	    "Ability6"          ""      // Ability 6 - Extra.
-	    "Ability7"          ""      // Ability 7 - Extra.
-	    "Ability8"          ""      // Ability 8 - Extra.
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
 	
-	    // Armor
-	    //----------------------------------------------------------------
-	    "ArmorPhysical"       "0"     // Physical protection.
-	    "MagicalResistance"       "0"     // Magical protection.
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
 	
-	    // Attack
-	    //----------------------------------------------------------------
-	    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
-	    "AttackDamageMin"     "0"     // Damage range min.
-	    "AttackDamageMax"     "0"     // Damage range max.
-	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
-	    "AttackRate"        "1"     // Speed of attack.
-	    "AttackAnimationPoint"    "0.5"   // Normalized time in animation cycle to attack.
-	    "AttackAcquisitionRange"  "800"   // Range within a target can be acquired.
-	    "AttackRange"       "500"   // Range within a target can be attacked.
-	    "ProjectileModel"     "" // Particle system model for projectile.
-	    "ProjectileSpeed"     "900"   // Speed of projectile.
-	
-	    // Attributes
-	    //----------------------------------------------------------------
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-	    "AttributeBaseStrength"   "0"     // Base strength
-	    "AttributeStrengthGain"   "0"     // Strength bonus per level.
-	    "AttributeBaseIntelligence" "0"     // Base intelligence
-	    "AttributeIntelligenceGain" "0"     // Intelligence bonus per level.
-	    "AttributeBaseAgility"    "0"     // Base agility
-	    "AttributeAgilityGain"    "0"     // Agility bonus per level.
+	    "AttributeBaseStrength"   "0"
+	    "AttributeStrengthGain"   "0"
+	    "AttributeBaseIntelligence" "0"
+	    "AttributeIntelligenceGain" "0"
+	    "AttributeBaseAgility"    "0"
+	    "AttributeAgilityGain"    "0"
 	
-	    // Bounty
-	    //----------------------------------------------------------------
-	    "BountyXP"          "0"     // Experience earn.
-	    "BountyGoldMin"       "0"     // Gold earned min.
-	    "BountyGoldMax"       "0"     // Gold earned max.
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
 	
-	    // Bounds
-	    //----------------------------------------------------------------
-	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"
 	
-	    // Movement
-	    //----------------------------------------------------------------
-	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
-	    "MovementSpeed"       "450"   // Speed
-	    "MovementTurnRate"      "1.0"   // Turning rate.
-	    "FollowRange"       "250"   // Distance to keep when following
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "450"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
 	
-	    // Status
-	    //----------------------------------------------------------------
-	    "StatusHealth"        "100"     // Base health.
-	    "StatusHealthRegen"     "0"     // Health regeneration rate.
-	    "StatusMana"        "1"     // Base mana.
-	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "1"
+	    "StatusManaRegen"     "0"
 	
-	    // Team
-	    //----------------------------------------------------------------
-	    "TeamName"          "DOTA_TEAM_GOODGUYS"      // Team name.
-	    
-	    
+	    "TeamName"          "DOTA_TEAM_GOODGUYS"
 	
-	    // Vision
-	    //----------------------------------------------------------------
-	    "VisionDaytimeRange"    "0"   // Range of vision during day light.
-	    "VisionNighttimeRange"    "0"   // Range of vision at night time.
+	    "VisionDaytimeRange"    "0"
+	    "VisionNighttimeRange"    "0"
 	} 
 	"npc_creep_undead_skeleton"
 	{

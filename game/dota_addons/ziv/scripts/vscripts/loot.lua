@@ -14,6 +14,12 @@ Loot.RARITY_PARTICLES[Loot.RARITY_RARE] = "particles/items/ziv_chest_light_rare.
 Loot.RARITY_PARTICLES[Loot.RARITY_EPIC] = "particles/items/ziv_chest_light_epic.vpcf"
 Loot.RARITY_PARTICLES[Loot.RARITY_LEGENDARY] = "particles/items/ziv_chest_light_legendary.vpcf"
 
+Loot.CHEST_MODELS = {}
+Loot.CHEST_MODELS[1] = "item_basic_chest_lockjaw"
+Loot.CHEST_MODELS[2] = "item_basic_chest_flopjaw"
+Loot.CHEST_MODELS[3] = "item_basic_chest_mechjaw"
+Loot.CHEST_MODELS[4] = "item_basic_chest_trapjaw"
+
 Loot.CommonModifiers = {}
 Loot.RuneModifiers = {}
 
@@ -34,7 +40,7 @@ function Loot:Init()
 end
 
 function Loot:CreateChest( pos, rarity )
-	local chest = CreateItemOnPositionSync(pos, CreateItem("item_basic_chest", nil, nil))
+	local chest = CreateItemOnPositionSync(pos, CreateItem(Loot.CHEST_MODELS[math.random(1, GetTableLength(Loot.CHEST_MODELS))], nil, nil))
 	CreateItemPanel( chest )
 	chest.rarity = rarity or (math.random(0, 4))
 
@@ -180,6 +186,10 @@ end
 
 function Loot:OpenChest( chest, unit )
 	local chest_unit = CreateUnitByName("npc_basic_chest",chest:GetAbsOrigin(),false,nil,nil,unit:GetTeamNumber())
+
+	chest_unit:SetModel(ZIV.ItemKVs[chest:GetContainedItem():GetName()]["Model"])
+	chest_unit:SetOriginalModel(ZIV.ItemKVs[chest:GetContainedItem():GetName()]["Model"])
+
 	InitAbilities(chest_unit)
 	chest:RemoveSelf()
 
@@ -193,7 +203,7 @@ function Loot:OpenChest( chest, unit )
 	local i = 1
   
 	Timers:CreateTimer(function ()
-		if i < count then
+		if i <= count then
 			i = i + 1
 
 			Loot:SpawnPhysicalItem(Loot:RandomItemFromLootTable( lootTable, chest_unit, nil ))

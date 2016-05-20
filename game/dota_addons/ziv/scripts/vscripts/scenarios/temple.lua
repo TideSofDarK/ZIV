@@ -41,11 +41,42 @@ function Temple:NextStage()
 			Temple:SetupMap()
 
 			if Temple.stage == Temple.STAGE_PREGAME then
-				local duration = 20.0
+				local duration = 5.0
 
 				DoToAllHeroes(function ( hero )
 					hero:AddNewModifier(hero,nil,"modifier_smooth_floating",{duration = duration})
 					TimedEffect( "particles/unique/temple/temple_floating_particle.vpcf", hero, duration, 0 )
+
+					Physics:Unit(hero)
+					hero:FollowNavMesh(false)
+
+					local collider = hero:AddColliderFromProfile("gravity")
+					collider.filter = heroes
+					collider.radius = 200
+					collider.fullRadius = 0
+					collider.minRadius = 0
+					collider.force = 8000
+					collider.linear = false
+					collider.test = function(self, collider, collided)
+						return IsPhysicsUnit(collided)
+					end
+
+					Timers:CreateTimer(duration, function (  )
+				        local seed = (math.random(1, 4) * 90) + 35
+
+				        local point = PointOnCircle(7085, seed)
+
+				        hero:AddPhysicsVelocity(Vector(point.x, point.y, 1750))
+				        hero:SetPhysicsAcceleration(Vector(0,0,-1400))
+
+				        StartAnimation(hero, {duration=3.5, activity=ACT_DOTA_FLAIL, rate=1.0})
+				        Timers:CreateTimer(3.5, function (  )
+				        	hero:RemoveCollider()
+				        	hero:StopPhysicsSimulation ()
+
+				        	hero.GetPhysicsVelocity = nil
+				        end)
+					end)
 				end)
 
 				Timers:CreateTimer(duration, function (  )

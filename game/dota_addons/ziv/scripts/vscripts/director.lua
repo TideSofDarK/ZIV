@@ -184,7 +184,7 @@ end
 
 function Director:SpawnCreeps( spawn_table )
 	local spawn_table = DeepCopy(spawn_table)
-	print(spawn_table["Lord"])
+
 	if spawn_table then
 		local count = spawn_table["Count"]
 		if spawn_table["RandomizeCount"] == true then
@@ -225,7 +225,6 @@ function Director:SpawnCreeps( spawn_table )
 					creep:SetAngles(0, math.random(0, 360), 0)
 
 					if spawn_table["Lord"] == true then
-						print("dick")
 						creep:AddAbility("ziv_unique_hpbar")
 
 						creep:SetModelScale(creep:GetModelScale() * 1.65)
@@ -244,10 +243,9 @@ function Director:SpawnCreeps( spawn_table )
 								creep:AddAbility(new_modifier)
 							end
 						end
-					else
-						print("dick1")
-						creep:AddAbility("ziv_creep_normal_behavior")
 					end
+
+					creep:AddAbility("ziv_creep_normal_behavior")
 
 					if creep_modifier then
 						creep:AddAbility(creep_modifier)

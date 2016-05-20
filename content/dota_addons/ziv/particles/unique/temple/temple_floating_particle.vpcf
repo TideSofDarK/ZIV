@@ -100,13 +100,16 @@
 			m_flOutput = 0.000000
 			m_nFieldOutput = 7
 			m_flLerpTime = 2.000000
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.100000
 		},
 		{
 			_class = "C_OP_StopAfterCPDuration"
-			m_flDuration = 10.000000
+			m_flDuration = 20.000000
+			m_bDisableOperator = true
 		},
 	]
 	m_Initializers =

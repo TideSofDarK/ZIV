@@ -19,17 +19,6 @@
 			m_bAnimated = true
 			m_nLOD = 1
 		},
-		{
-			_class = "C_OP_RenderScreenShake"
-			m_flDurationScale = 2.000000
-			m_flRadiusScale = 50.000000
-			m_flFrequencyScale = 50.000000
-			m_flAmplitudeScale = 50.000000
-			m_nDurationField = 3
-			m_nFrequencyField = 3
-			m_nAmplitudeField = 3
-			m_nFilterCP = -1
-		},
 	]
 	m_Operators =
 	[

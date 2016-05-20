@@ -6458,6 +6458,8 @@
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
 	
+	      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
+	
 	      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
 	
 	      "OnCreated"

@@ -1,11 +1,131 @@
 "DOTAAbilities"
 {
-	"item_basic_chest"
+	"item_basic_chest_lockjaw"
 	{
 	  "BaseClass"               "item_datadriven"
 	  "ID"		"1011"
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	  "Model"                   "models/courier/lockjaw/lockjaw.vmdl" 
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "AbilityCastPoint"      "0"
+	  "AbilityCooldown"       "0"
+	  "AbilityManaCost"       "0"
+	  
+	  "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+	  "ItemShopTags"        "consumable"
+	  "ItemQuality"         "consumable"
+	  "ItemPermanent"         "0"
+	  "ItemSellable"          "0"
+	  "ItemKillable"          "1"
+	  "ItemPurchasable"       "0"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	  "ItemInitialCharges" "1"
+	  "ItemDisplayCharges" "1"
+	  "ItemRequiresCharges" "1"
+	  "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
+	  "ItemCastOnPickup"    "1"
+	
+	  "OnSpellStart"
+	  {    
+	    "SpendCharge" 
+	    {}
+	    "RunScript"
+	    {
+	      "ScriptFile"  "items/chests.lua"
+	      "Function"    "Pickup"
+	    }
+	  }
+	}
+	
+	"item_basic_chest_flopjaw"
+	{
+	  "BaseClass"               "item_datadriven"
+	  "ID"    "1012"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "Model"                   "models/courier/flopjaw/flopjaw.vmdl" 
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "AbilityCastPoint"      "0"
+	  "AbilityCooldown"       "0"
+	  "AbilityManaCost"       "0"
+	  
+	  "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+	  "ItemShopTags"        "consumable"
+	  "ItemQuality"         "consumable"
+	  "ItemPermanent"         "0"
+	  "ItemSellable"          "0"
+	  "ItemKillable"          "1"
+	  "ItemPurchasable"       "0"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	  "ItemInitialCharges" "1"
+	  "ItemDisplayCharges" "1"
+	  "ItemRequiresCharges" "1"
+	  "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
+	  "ItemCastOnPickup"    "1"
+	
+	  "OnSpellStart"
+	  {    
+	    "SpendCharge" 
+	    {}
+	    "RunScript"
+	    {
+	      "ScriptFile"  "items/chests.lua"
+	      "Function"    "Pickup"
+	    }
+	  }
+	}
+	
+	"item_basic_chest_mechjaw"
+	{
+	  "BaseClass"               "item_datadriven"
+	  "ID"    "1013"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "Model"                   "models/courier/mechjaw/mechjaw.vmdl" 
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "AbilityCastPoint"      "0"
+	  "AbilityCooldown"       "0"
+	  "AbilityManaCost"       "0"
+	  
+	  "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+	  "ItemShopTags"        "consumable"
+	  "ItemQuality"         "consumable"
+	  "ItemPermanent"         "0"
+	  "ItemSellable"          "0"
+	  "ItemKillable"          "1"
+	  "ItemPurchasable"       "0"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	  "ItemInitialCharges" "1"
+	  "ItemDisplayCharges" "1"
+	  "ItemRequiresCharges" "1"
+	  "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
+	  "ItemCastOnPickup"    "1"
+	
+	  "OnSpellStart"
+	  {    
+	    "SpendCharge" 
+	    {}
+	    "RunScript"
+	    {
+	      "ScriptFile"  "items/chests.lua"
+	      "Function"    "Pickup"
+	    }
+	  }
+	}
+	
+	"item_basic_chest_trapjaw"
+	{
+	  "BaseClass"               "item_datadriven"
+	  "ID"    "1014"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "Model"                   "models/courier/trapjaw/trapjaw.vmdl" 
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
 	  "AbilityCastPoint"      "0"
