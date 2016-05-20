@@ -191,5 +191,7 @@ function OpenSettingsWindow() {
 
 	SetPortrait();
 
+	GameUI.CustomUIConfig().ingame_ui = $.GetContextPanel();
+
 	// GameUI.CustomUIConfig().hudRoot.FindChildTraverse("RadarButton").DeleteAsync(0.0);
 })();

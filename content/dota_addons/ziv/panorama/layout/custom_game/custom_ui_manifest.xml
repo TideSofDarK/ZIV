@@ -52,6 +52,25 @@
     (function()
     {
         GameEvents.Subscribe( "ziv_set_recipes_kvs", SetRecipesList );
+
+        GameUI.CustomUIConfig().customPanels = [];
+
+        GameEvents.Subscribe( "ziv_custom_ui_open", (function CustomUIOpen(args) {
+            if (!GameUI.CustomUIConfig().ingame_ui) {
+                $.Schedule(0.1, (function () {
+                    CustomUIOpen(args);
+                }));
+                return;
+            }
+            var map = args["map"];
+            var panelName = args["name"];
+
+            $.Msg("file://{resources}/layout/custom_game/unique/" + map + "/" + panelName  + ".xml");
+
+            var panel = $.CreatePanel( "Panel", GameUI.CustomUIConfig().ingame_ui, "" );
+            panel.BLoadLayout( "file://{resources}/layout/custom_game/unique/" + map + "/" + panelName  + ".xml", false, false );
+            GameUI.CustomUIConfig().customPanels.push( panel );
+        }));
     })();
 
     var parent = $.GetContextPanel().GetParent();
@@ -77,13 +96,12 @@
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/containers/container_base.xml" />
 
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/equip_list.xml" />
-
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_fortify.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_status.xml"/>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_side_item_description.xml"/>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_trade.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_equip_list.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_settings.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/crafting/crafting.xml" />
 

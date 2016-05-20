@@ -1,14 +1,14 @@
 <root>
 	<styles>
 		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
-		<include src="file://{resources}/styles/custom_game/equip_list.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_equip_list.css" />
 		
 		<include src="file://{resources}/styles/custom_game/ingame_ui.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_inventory.css" />
 	</styles>
 	<scripts>
-		<include src="file://{resources}/scripts/custom_game/equip_list.js" />
+		<include src="file://{resources}/scripts/custom_game/ingame_ui_equip_list.js" />
 	</scripts>
 	<Panel class="BuffListRoot" hittest="false">
 		<Panel id="equip_list" hittest="false">

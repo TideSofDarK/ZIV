@@ -77,7 +77,6 @@ function ZIVCastAbility(number, pressing) {
 			if (abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT && target == -1) {
 				order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION;
 				order.Position = GetMouseCastPosition( order.AbilityIndex );
-				$.Msg("dick");
 			}
 			else if (target !== -1) 
 			{

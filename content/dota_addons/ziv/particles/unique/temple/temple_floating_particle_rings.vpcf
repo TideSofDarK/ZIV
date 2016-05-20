@@ -132,4 +132,5 @@
 			m_bDisableOperator = true
 		},
 	]
+	m_flConstantLifespan = 20.000000
 }

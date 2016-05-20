@@ -1,4 +1,4 @@
-"ziv_boss_hpbar"
+"ziv_unique_hpbar"
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -8,7 +8,7 @@
 
   "Modifiers"
   {
-    "modifier_boss_hpbar"
+    "modifier_unique_hpbar"
     {
       "Passive"      "1"
       "IsHidden"      "1"
@@ -21,7 +21,7 @@
         "RunScript"
         {
           "ScriptFile"  "director.lua"
-          "Function"    "CreateBossHPBar"
+          "Function"    "CreateUniqueHPBar"
         }
       }
 

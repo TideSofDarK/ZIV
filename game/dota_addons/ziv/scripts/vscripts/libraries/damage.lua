@@ -43,6 +43,6 @@ function DealDamage( _attacker, _victim, _damage, _type )
 	end
 	
 	ApplyDamage(damageTable)
-	PopupDamage(_attacker:GetPlayerOwner(), _victim, math.ceil(_damage), clamp(_damage / max_damage, 0, 1))
+	PopupDamage(_attacker:GetPlayerOwner(), _victim, round(_damage), clamp(_damage / max_damage, 0, 1))
 	-- PopupExperience(_victim, math.ceil(_damage))
 end

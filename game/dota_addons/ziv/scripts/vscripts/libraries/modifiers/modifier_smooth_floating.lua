@@ -3,10 +3,18 @@ modifier_smooth_floating = class({})
 function modifier_smooth_floating:OnCreated()
     self:StartIntervalThink(0.03)
     self.time = 0.0
+
+    if IsServer() then
+        self:GetParent():SetAngles(0, math.random(0, 360), 0)
+    end
 end
 
 function modifier_smooth_floating:OnIntervalThink()
     self.time = self.time + 0.03
+
+    if IsServer() then
+        self:GetParent():SetAngles(0, self:GetParent():GetAngles().y + 1.2, 0)
+    end
 end
 
 function modifier_smooth_floating:OnDestroy()

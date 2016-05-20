@@ -1,0 +1,19 @@
+.ObeliskCountRoot {
+	width: 430px;
+	height: 1080px;
+
+	vertical-align: top;
+	horizontal-align: left;
+
+	flow-children: none;
+}
+
+#ObeliskMap {
+	horizontal-align: right;	
+	vertical-align: top;
+
+	margin-top: -40px;
+
+	width: 155px;
+	height: 200px;
+}

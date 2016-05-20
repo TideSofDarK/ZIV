@@ -22,7 +22,8 @@ function UpdateCard( characterInfo, freeSlot )
 	}
 	else
 	{
-
+		$( "#FreeSlotLabel" ).visible = false;
+		
 		$( "#HeroImage" ).SetImage( "file://{images}/custom_game/heroes/" + characterInfo.name + "_ziv.jpg" );
 		$( "#HeroNameLabel" ).text = $.Localize(characterInfo.name);
 		$( "#HeroLevel" ).text = $.Localize("level") + " " + characterInfo.level;

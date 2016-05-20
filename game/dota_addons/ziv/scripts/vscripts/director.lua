@@ -8,7 +8,7 @@ Director.scenario = nil
 
 Director.BASIC_PACK_COUNT = 12
 Director.BASIC_PACK_SPREAD = 820
-Director.BASIC_LORD_SPREAD = 135
+Director.BASIC_LORD_SPREAD = 485
 
 Director.color_modifier_list = Director.color_modifier_list or {}
 Director.creep_modifier_list = Director.creep_modifier_list or {}
@@ -54,6 +54,16 @@ function Director:Init()
 	
 	if Director.scenario then
 		Director.scenario:Init()
+	end
+end
+
+function Director:SetupCustomUI( name, pID )
+	local args = { map = string.gsub(GetMapName(), "ziv_", ""), name = name }
+
+	if pID then
+		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID or 0), "ziv_custom_ui_open", args )
+	else
+		CustomGameEventManager:Send_ServerToAllClients( "ziv_custom_ui_open", args )
 	end
 end
 
@@ -147,6 +157,7 @@ function Director:SpawnPack( pack_table )
 			pack_table["BasicModifier"] = basic_modifier
 			pack_table["Spread"] = pack_table["BasicSpread"]
 			pack_table["Type"] = pack_table["Type"] or "creep"
+			pack_table["Lord"] = false
 
 			Director:SpawnCreeps(pack_table)
 		end
@@ -172,6 +183,8 @@ function Director:SpawnPack( pack_table )
 end
 
 function Director:SpawnCreeps( spawn_table )
+	local spawn_table = DeepCopy(spawn_table)
+	print(spawn_table["Lord"])
 	if spawn_table then
 		local count = spawn_table["Count"]
 		if spawn_table["RandomizeCount"] == true then
@@ -195,6 +208,10 @@ function Director:SpawnCreeps( spawn_table )
 				end
 			end
 
+			if GridNav:IsBlocked(position) == true or GridNav:CanFindPath(position, GetGroundPosition(Vector(0,0,0), nil)) == false then
+				spawn = false
+			end
+
 			if spawn == true then
 				local creep = CreateUnitByNameAsync(creep_name, position, true, nil, nil, DOTA_TEAM_NEUTRALS, function ( creep )
 					if spawn_table["NoLoot"] == true then
@@ -206,11 +223,12 @@ function Director:SpawnCreeps( spawn_table )
 					end
 
 					creep:SetAngles(0, math.random(0, 360), 0)
-					
-					creep:AddAbility("ziv_creep_normal_behavior")
 
-					if spawn_table["Lord"] then
-						creep:SetModelScale(creep:GetModelScale() * 1.45)
+					if spawn_table["Lord"] == true then
+						print("dick")
+						creep:AddAbility("ziv_unique_hpbar")
+
+						creep:SetModelScale(creep:GetModelScale() * 1.65)
 
 						creep:AddAbility(Director:GetRandomModifier(Director.color_modifier_list))
 
@@ -226,7 +244,12 @@ function Director:SpawnCreeps( spawn_table )
 								creep:AddAbility(new_modifier)
 							end
 						end
-					elseif creep_modifier then
+					else
+						print("dick1")
+						creep:AddAbility("ziv_creep_normal_behavior")
+					end
+
+					if creep_modifier then
 						creep:AddAbility(creep_modifier)
 					end
 
@@ -238,9 +261,8 @@ function Director:SpawnCreeps( spawn_table )
 end
 
 -- Misc functions
-function CreateBossHPBar( keys )
+function CreateUniqueHPBar( keys )
 	local caster = keys.caster
-	local ability = keys.ability
 
 	if not caster.worldPanel then
 		caster.worldPanel = WorldPanels:CreateWorldPanelForAll(

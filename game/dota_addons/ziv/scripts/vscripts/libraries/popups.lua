@@ -115,9 +115,11 @@ function PopupDamage(player, target, number, coef)
     local digits = #tostring(round(tonumber(final_number)))
 
     local color = Vector(255,255,255)
-    print(coef)
+
     if coef > 0.95 then
         color = Vector(255,245,0)
+    elseif coef < 0.2 then
+        return
     end
 
     local pidx = ParticleManager:CreateParticleForPlayer("particles/ziv_damage_alt.vpcf", PATTACH_ABSORIGIN, target, player) -- target:GetOwner()

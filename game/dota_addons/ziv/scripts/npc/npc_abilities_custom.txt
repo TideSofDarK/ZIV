@@ -328,40 +328,6 @@
 	
 		"AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-	"ziv_boss_hpbar"
-	{
-	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-	  "AbilityTextureName"            "ziv_empty"
-	
-	  "MaxLevel"  "1"
-	
-	  "Modifiers"
-	  {
-	    "modifier_boss_hpbar"
-	    {
-	      "Passive"      "1"
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	
-	      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
-	
-	      "OnCreated"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "director.lua"
-	          "Function"    "CreateBossHPBar"
-	        }
-	      }
-	
-	      "States"
-	      {
-	        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
-	      }
-	    }
-	  }
-	}
 	"ziv_undying_attack"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -6305,7 +6271,7 @@
 	
 	  "Modifiers"
 	  {
-	    "modifier_creep_frenzy"
+	    "modifier_creep_tanky"
 	    {
 	      "Passive" "1"
 	      "IsHidden"      "0"
@@ -6316,7 +6282,7 @@
 	
 	      "Properties"
 	      {
-	        "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%bonus_hp"
+	        "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE" "%bonus_hp"
 	      }
 	    }
 	  }
@@ -6476,6 +6442,40 @@
 	    }
 	  }
 	}
+	"ziv_unique_hpbar"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "MaxLevel"  "1"
+	
+	  "Modifiers"
+	  {
+	    "modifier_unique_hpbar"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "OnCreated"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "director.lua"
+	          "Function"    "CreateUniqueHPBar"
+	        }
+	      }
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	  }
+	}
 	"ziv_temple_boss_rays"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -6602,11 +6602,6 @@
 	
 	      "OnCreated"
 	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "abilities/unique/ziv_temple_obelisk.lua"
-	          "Function"    "Start"
-	        }
 	        "RunScript"
 	        {
 	          "ScriptFile"  "libraries/particles.lua"

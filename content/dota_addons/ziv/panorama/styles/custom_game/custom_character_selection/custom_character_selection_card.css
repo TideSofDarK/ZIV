@@ -49,6 +49,13 @@
 	font-size: 20px;
 }
 
+#FreeSlotLabel {
+	align: center center;
+	font-size: 30px;
+
+	/*visibility: collapse;*/
+}
+
 #HeroLevel {
 	font-size: 14px;
 

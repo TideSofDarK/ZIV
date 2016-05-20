@@ -1,0 +1,21 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/ingame_ui_scenarios.css" />
+		<include src="file://{resources}/styles/custom_game/unique/temple/temple.css" />	
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/unique/temple/temple.js" />
+	</scripts>
+	<Panel hittest="false" class="ObeliskCountRoot">
+		<DOTAScenePanel id="ObeliskMap" map="ui_obelisk" camera="camera_1"/>
+		<Panel class="Objectives" >
+			<Label class="ObjectiveHeadline" text="#objectives" />
+			<Panel class="CBR" />
+			<Label class="Objective" id="objective1" text="#temple_obelisks" />
+		</Panel>
+
+
+		
+		<!-- <Label class="Headline1" id="ObeliskCountLabel" text="x20" /> -->
+	</Panel>
+</root>

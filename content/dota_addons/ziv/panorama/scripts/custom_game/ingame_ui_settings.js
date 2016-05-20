@@ -13,7 +13,7 @@ function Open() {
 (function() {
 	GameEvents.Subscribe( "ziv_open_settings", Open );
 
-	$("#FortifyTextBlockLabel").html = true;
+	// $("#FortifyTextBlockLabel").html = true;
 
 	$.GetContextPanel().SetDraggable( true );
 })();

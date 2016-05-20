@@ -5,6 +5,7 @@
     "containers_lua",
     "hero_kvs",
     "item_kvs",
-    "hero_status"
+    "hero_status",
+    "scenario"
   ]
 }

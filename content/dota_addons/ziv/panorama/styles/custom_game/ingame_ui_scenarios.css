@@ -1,0 +1,48 @@
+.ObjectiveHeadline {
+	text-shadow: 1px 1px 14px black;
+	text-align: center;
+	text-transform: uppercase;
+	text-overflow: clip;
+
+	font-weight: bold;
+	font-size: 30px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color: #ffffffcc;
+
+	horizontal-align: center;
+}
+
+.Objectives {
+	margin: 60px;
+	
+	flow-children: down;
+}
+
+.Objective
+{
+	background-color: transparent;
+
+	text-shadow: -1px -1px 0px 0.0 #ffffffff;
+	text-align: center;
+
+	box-shadow: #000000ff -1px -1px -1px;
+
+	font-weight: normal;
+	font-size: 20px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	color: #ffffffcc;
+
+	horizontal-align: center;
+}
+
+.CBR {
+	horizontal-align: center;
+	width: 90%;
+	height: 1px;
+
+	/*border-top: 1px solid #ffffff44;*/
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #ffffff00 ), color-stop( 0.4, #ffffff ), color-stop( 0.6, #ffffff ), to( #ffffff00 ) );
+
+	margin-bottom: 14px;
+	margin-top: 6px;
+}

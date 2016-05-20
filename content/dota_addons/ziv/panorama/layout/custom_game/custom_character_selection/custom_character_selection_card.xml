@@ -9,11 +9,15 @@
 	</scripts>
 	<Panel class="CardRoot" hittestchildren="true" >
 		<Image id="HeroImage" src="file://{images}/custom_game/heroes/default.png"/>
-		<Panel hittest="false" class="CharacterListOverlap" />
+		<Panel hittest="false" class="CharacterListOverlap" >
+
+		</Panel>
 
 		<Panel class="CardInfo">
 			<Label class="CardLabel" id="HeroNameLabel" />
 			<Label class="CardLabel" id="HeroLevel" />
+
+			<Label class="CardLabel" id="FreeSlotLabel" text="#free_slot" />
 		</Panel>
 
 		<Button class="CloseButton" id="CloseButton" 

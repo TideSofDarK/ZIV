@@ -28,6 +28,14 @@
 	"abilities"										"Abilities"
 	"lockin"										"Lock-In"
 	"lockedin"										"Waiting for start"
+	"free_slot"										"Free Slot"
+
+	// Scenarios
+	"objectives" "Objectives"
+	"kill_boss" "Kill miniboss: "
+
+	"temple_obelisks" "Find and destroy obelisks: "
+	"temple_kill_oath" "Kill Oath"
 
 	// Common modifiers
 

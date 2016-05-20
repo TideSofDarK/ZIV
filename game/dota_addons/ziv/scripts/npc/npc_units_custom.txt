@@ -1007,7 +1007,7 @@
 	    "Ability4"                  "ziv_undying_consume"
 	    "Ability5"                  "ziv_undying_form"
 	    "Ability6"                  "ziv_undying_passive"
-	    "Ability7"                  "ziv_boss_hpbar"
+	    "Ability7"                  "ziv_unique_hpbar"
 	
 	    "ArmorPhysical"             "0"
 	    "MagicalResistance"         "0"

@@ -294,6 +294,8 @@ function ZIV:OnEntityKilled( keys )
     Loot:Generate( killedUnit, attackerUnit )
   end
 
+  if killedUnit.on_kill then killedUnit:on_kill() end
+
   if killedUnit.particles then
     for k,v in pairs(killedUnit.particles) do
       ParticleManager:DestroyParticle(v, false)

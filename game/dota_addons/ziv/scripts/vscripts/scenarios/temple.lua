@@ -1,11 +1,12 @@
 Temple = {}
 
 Temple.STAGE_NO = -1
-Temple.STAGE_FIRST = 0
-Temple.STAGE_SECOND = 1
-Temple.STAGE_THIRD = 2
-Temple.STAGE_BOSS = 3
-Temple.STAGE_END = 4
+Temple.STAGE_PREGAME = 0
+Temple.STAGE_FIRST = 1
+Temple.STAGE_SECOND = 2
+Temple.STAGE_THIRD = 3
+Temple.STAGE_BOSS = 4
+Temple.STAGE_END = 5
 
 Temple.stage = Temple.STAGE_NO
 
@@ -20,43 +21,115 @@ function Temple:Init()
 	Temple.creeps_positions = Entities:FindAllByName("ziv_basic_creep_spawner")
 end
 
+function Temple:SetObelisksCount()
+	CustomNetTables:SetTableValue( "scenario", "obelisks", {count = GetTableLength(Temple.obelisks), max = Temple.OBELISK_COUNT} )
+end
+
 function Temple:NextStage()
 	Temple.stage = Temple.stage + 1
 
 	if Temple.stage == Temple.STAGE_END then
 
 	else
-		DistributeUnits( Temple.obelisks_positions, "npc_temple_obelisk", Temple.OBELISK_COUNT, DOTA_TEAM_NEUTRALS )
-		Temple:SpawnCreeps()
-
 		if Temple.stage == Temple.STAGE_FIRST then
-			DoToAllHeroes(function ( hero )
-				local duration = 10.0
+			Director:SetupCustomUI( "temple_objectives" )
 
-				hero:AddNewModifier(hero,nil,"modifier_smooth_floating",{duration = duration})
-				TimedEffect( "particles/unique/temple/temple_floating_particle.vpcf", hero, duration, 0 )
-
-			end)
-		elseif Temple.stage == Temple.STAGE_SECOND then
-
-		elseif Temple.stage == Temple.STAGE_THIRD then
-
+			Temple:FallingRocks()
 		elseif Temple.stage == Temple.STAGE_BOSS then
 
-		end
+		else
+			Temple:SetupMap()
+
+			if Temple.stage == Temple.STAGE_PREGAME then
+				local duration = 20.0
+
+				DoToAllHeroes(function ( hero )
+					hero:AddNewModifier(hero,nil,"modifier_smooth_floating",{duration = duration})
+					TimedEffect( "particles/unique/temple/temple_floating_particle.vpcf", hero, duration, 0 )
+				end)
+
+				Timers:CreateTimer(duration, function (  )
+					Temple:NextStage()
+				end)
+			elseif Temple.stage == Temple.STAGE_SECOND then
+
+			elseif Temple.stage == Temple.STAGE_THIRD then
+
+			end
+		end	
 	end
 end
 
+function Temple:FallingRocks()
+	local start_stage = Temple.stage
+
+	DoToAllHeroes(function ( hero )
+		Timers:CreateTimer(function (  )
+			position = hero:GetAbsOrigin() + Vector(math.random(-800, 800), math.random(-800, 800), 0)
+
+			if GridNav:IsBlocked(position) == false then
+				local unit = CreateUnitByNameAsync("npc_dummy_unit",position,true,nil,nil,DOTA_TEAM_NEUTRALS, function (unit)
+					unit:SetMoveCapability(1)
+
+					local particle = ParticleManager:CreateParticle("particles/unique/temple/temple_falling_rocks.vpcf",PATTACH_ABSORIGIN_FOLLOW,unit)
+				  	ParticleManager:SetParticleControl(particle, 1, Vector(255,0,0))
+				  	ParticleManager:ReleaseParticleIndex(particle)
+
+					EmitSoundOnLocationWithCaster(unit:GetAbsOrigin(), "General.Ping", unit)
+					EmitSoundOnLocationWithCaster(unit:GetAbsOrigin(), "tutorial_rockslide", unit)
+
+					local timer = 0.0
+
+					Timers:CreateTimer(2.0, function ()
+						local units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+						for k,v in pairs(units) do
+							if v ~= unit then
+								DealDamage( unit, v, v:GetMaxHealth()/50, DAMAGE_TYPE_PHYSICAL ) 
+								v:EmitSound("Creep_Good_Melee_Mega.Attack")
+							end
+						end
+
+						timer = timer + 0.1
+						if timer < 1.0 then return 0.1 
+						else 
+							ParticleManager:DestroyParticle(particle,false)
+							unit:ForceKill(false)
+						end
+					end)
+				end)
+				return math.random(3.0, 7.0)
+			end
+			return math.random(0.0, 2.0)
+		end)
+	end)
+end
+
+function Temple:SetupMap()
+	Temple.obelisks = DistributeUnits( Temple.obelisks_positions, "npc_temple_obelisk", Temple.OBELISK_COUNT, DOTA_TEAM_NEUTRALS, function (obelisk)
+		for i=#Temple.obelisks,1,-1 do
+		    if Temple.obelisks[i] == obelisk then
+		        table.remove(Temple.obelisks, i)
+		        Temple:SetObelisksCount()
+		    end
+		end
+	end )
+	Temple:SetObelisksCount()
+
+	Temple:SpawnCreeps()
+end
+
 function Temple:SpawnCreeps()
+	local i = 1
 	for k,v in pairs(Temple.creeps_positions) do
 		Director:SpawnPack(
 	    {
 	        Level = 1,
 	        SpawnBasic = true,
-	        Count = math.random(8, 16),
+	        Count = math.random(10, 25),
 	        Position = v:GetAbsOrigin(),
 	        CheckHeight = true,
-	        SpawnLord = math.random(0, 3) == 1
+	        SpawnLord = i % 3 == 0
 	    })
+	    i = i + 1
 	end
 end

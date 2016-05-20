@@ -113,8 +113,8 @@
 	[
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 10.000000
-			m_fLifetimeMax = 10.000000
+			m_fLifetimeMin = 20.000000
+			m_fLifetimeMax = 20.000000
 		},
 		{
 			_class = "C_INIT_CreateWithinSphere"
@@ -203,4 +203,5 @@
 			m_ChildRef = resource:"particles/unique/temple/temple_floating_particle_rings.vpcf"
 		},
 	]
+	m_flConstantLifespan = 20.000000
 }

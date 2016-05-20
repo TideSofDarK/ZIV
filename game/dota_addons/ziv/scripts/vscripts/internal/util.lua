@@ -1,3 +1,18 @@
+function DeepCopy(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in next, orig, nil do
+            copy[DeepCopy(orig_key)] = DeepCopy(orig_value)
+        end
+        setmetatable(copy, DeepCopy(getmetatable(orig)))
+    else -- number, string, boolean, etc
+        copy = orig
+    end
+    return copy
+end
+
 function RandomPointOnMap(offset)
   local offset = offset or 100
 
@@ -7,7 +22,7 @@ function RandomPointOnMap(offset)
   return Vector(worldX,worldY,0)
 end
 
-function DistributeUnits( points, unit_name, count, team )
+function DistributeUnits( points, unit_name, count, team, on_kill )
   if #points == 0 then return end
   local random_points = Shuffle(points)
 
@@ -15,10 +30,14 @@ function DistributeUnits( points, unit_name, count, team )
 
   local i = 1
   for k,v in pairs(random_points) do
-    if i >= count then return end 
-    table.insert(units, CreateUnitByName(unit_name, v:GetAbsOrigin(), false, nil, nil,team))
+    if i > count then break end 
+    local unit = CreateUnitByName(unit_name, v:GetAbsOrigin(), false, nil, nil,team)
+    unit.on_kill = on_kill
+    table.insert(units, unit)
     i = i + 1
   end
+
+  return units
 end
 
 function DoToAllHeroes(action)
@@ -51,7 +70,7 @@ function GetRandomElement(list, checker)
   local count = GetTableLength(new_table)
   local seed = math.random(1, count)
   local i = 1
-  -- print("dick", count)
+  
   for k,v in pairs(new_table) do
     if i == seed then
       return v

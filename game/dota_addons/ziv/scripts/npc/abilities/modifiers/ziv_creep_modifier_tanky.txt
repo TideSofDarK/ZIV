@@ -22,7 +22,7 @@
 
   "Modifiers"
   {
-    "modifier_creep_frenzy"
+    "modifier_creep_tanky"
     {
       "Passive" "1"
       "IsHidden"      "0"
@@ -33,7 +33,7 @@
 
       "Properties"
       {
-        "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%bonus_hp"
+        "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE" "%bonus_hp"
       }
     }
   }
