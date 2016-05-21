@@ -17,7 +17,7 @@
 	"DOTA_Custom8"    								"Purple Horse"
 	
 	"addonname"										"ZIV"
-	"addoninfo"										"ZIV 0.01 (Alpha), 2016"
+	"addoninfo"										"ZIV 0.1 (Alpha), 2016"
 
 	"equipment"										"Equipment"
 
@@ -29,6 +29,12 @@
 	"lockin"										"Lock-In"
 	"lockedin"										"Waiting for start"
 	"free_slot"										"Free Slot"
+
+	// Settings
+	"settings_damage" "Popup damage numbers"
+	"settings_autoequip" "Auto equip better items"
+	"settings_show_tooltip" "Show item tooltip when its on the ground"
+	"settings_controls" "Dota 2-like controls style(deprecated)"
 
 	// Scenarios
 	"objectives" "Objectives"

@@ -3,6 +3,9 @@ ToggleButton, DOTASettingsCheckbox {
 	padding: 1px 4px;
 	color: white;
 
+	margin-top: 20px;
+	margin-left: 10px;
+
 	transition-property: background-color, box-shadow, color;
 	transition-duration: 0.25s;
 	transition-timing-function: ease-in-out;
@@ -31,28 +34,37 @@ ToggleButton:selected .TickBox, DOTASettingsCheckbox:selected .TickBox {
 }
 
 .CheckBox .TickBox {
-	width: 18px;
-	height: 18px;
+	width: 30px;
+	height: 30px;
 }
 
 ToggleButton Label, DOTASettingsCheckbox Label {
 	margin-top: 4px;
 	margin-left: 8px;
-	font-size: 16px;
+	font-size: 18px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 }
 
 .SettingsRoot {
 	align: center center;
 
-	width: 544px;
-	height: 419px;
+	width: 432px;
+	height: 579px;
+}
 
-	background-color: green;
+#Checkboxes {
+	margin: 30px;
+	flow-children: down;
 }
 
 #Background {
-	width: 544px;
-	height: 419px;
+	width: 432px;
+	height: 579px;
 
+	background-image: url('file://{images}/custom_game/ingame_ui/settings_bg.png');
+}
 
+#CloseButton {
+	width: 74px;
+	height: 74px;
 }

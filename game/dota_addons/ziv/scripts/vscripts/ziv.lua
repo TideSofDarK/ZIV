@@ -119,8 +119,17 @@ end
 ]]
 function ZIV:OnAllPlayersLoaded()
   DebugPrint("[ZIV] All Players have loaded into the game")
+  
   Timers:CreateTimer(1.0, function ()
-    
+    DoToAllPlayers(function ( player )
+      CustomNetTables:SetTableValue( "settings", tostring(player:GetPlayerID()), {
+        CustomSettingDamage = ZIV_CustomSettingDamage_DEFAULT, 
+        CustomSettingAutoEquip = ZIV_CustomSettingAutoEquip_DEFAULT,
+        CustomSettingShowTooltip = ZIV_CustomSettingShowTooltip_DEFAULT,
+        CustomSettingControls = ZIV_CustomSettingControls_DEFAULT
+        })
+    end)
+
     for k,v in pairs(ZIV.HeroesKVs) do
       CustomNetTables:SetTableValue("hero_kvs", k, v)
       -- DeepPrintTable(CustomNetTables:GetTableValue("hero_kvs", k))

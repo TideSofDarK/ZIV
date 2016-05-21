@@ -439,3 +439,11 @@ function ZIV:OnItemTooltipGetModifiers( keys )
     end
   end
 end
+
+function ZIV:WriteToNettable( keys )
+  local name = keys.name
+  local key = keys.key
+  local value = keys.value
+
+  CustomNetTables:SetTableValue( name, key, value )
+end

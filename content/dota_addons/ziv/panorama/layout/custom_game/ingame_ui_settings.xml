@@ -11,9 +11,15 @@
 	<Panel class="SettingsRoot Hide BasicShadow" hittest="true" draggable="true">
 		<Panel class="GenericBackground" id="Background"/>
 
-		<Button onactivate="CloseButton()" class="CloseButton" />
+		<Button onactivate="CloseButton()" class="CloseButton" id="CloseButton" />
 
-		<DOTASettingsCheckbox id="CustomSetting1" text="#MyCustomSetting1" />
+		<Panel id="Checkboxes">
+			<DOTASettingsCheckbox id="CustomSettingDamage" text="#settings_damage" onactivate="CustomSettingDamage()" />
+			<DOTASettingsCheckbox id="CustomSettingAutoEquip" text="#settings_autoequip" onactivate="CustomSettingAutoEquip()" />
+			<DOTASettingsCheckbox id="CustomSettingShowTooltip" text="#settings_show_tooltip" onactivate="CustomSettingShowTooltip()" />
+			<DOTASettingsCheckbox id="CustomSettingControls" text="#settings_controls" onactivate="CustomSettingControls()" />
+		</Panel>
+
 		<!--
 		<Panel class="TextBlock" id="FortifyTextBlock">
 			<Label id="FortifyTextBlockLabel" class="TextBlockLabel" text="#dragfortify"/>
