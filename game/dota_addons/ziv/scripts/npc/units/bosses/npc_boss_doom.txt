@@ -1,0 +1,68 @@
+"npc_boss_doom"
+{
+    "BaseClass"                 "npc_dota_creature"
+    "Model"                     "models/heroes/doom/doom.vmdl"
+    "ModelScale"                "1.5"
+    "Level"                     "20"
+    "HealthBarOffset"           "310"
+
+    "SoundSet"      "Hero_DoomBringer"
+    "IdleSoundLoop"     "Hero_DoomBringer.IdleLoop"
+    "particle_folder"       "particles/units/heroes/hero_doom_bringer"
+    "GameSoundsFile"        "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
+    "VoiceFile"     "soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts"
+    
+    "Ability1"                  "ziv_doom_attack"
+    "Ability2"                  "ziv_doom_rush"
+    "Ability3"                  "ziv_doom_circles"
+    "Ability4"                  "ziv_doom_rain"
+    "Ability5"                  "ziv_doom_passive"
+    "Ability6"                  "ziv_unique_hpbar"
+
+    "ArmorPhysical"             "0"
+    "MagicalResistance"         "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+    "AttackDamageMin"     "10"
+    "AttackDamageMax"     "10"
+    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"        "1"
+    "AttackAnimationPoint"    "0.5"
+    "AttackAcquisitionRange"  "800"
+    "AttackRange"       "0"
+    "ProjectileModel"     ""
+    "ProjectileSpeed"     "900"
+
+    "BountyGoldMin"             "0"
+    "BountyGoldMax"             "0"
+
+    "BoundsHullName"            "DOTA_HULL_SIZE_HUGE"
+    "RingRadius"    "-1"
+
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "150"
+    "MovementTurnRate"          "0.6"
+
+    "StatusHealth"              "10000"
+    "StatusHealthRegen"         "0.50"
+    "StatusMana"              "100"
+    "StatusManaRegen"         "10"
+
+    "VisionDaytimeRange"        "1000"
+    "VisionNighttimeRange"      "1000"
+
+    "Creature"
+    {
+        "DisableClumpingBehavior"   "1"
+        "AttachWearables"
+        {
+            "1" { "ItemDef" "6102" }
+            "2" { "ItemDef" "6097" }
+            "3" { "ItemDef" "6098" }
+            "4" { "ItemDef" "6100" }
+            "5" { "ItemDef" "6095" }
+            "6" { "ItemDef" "6101" }
+            "7" { "ItemDef" "6096" }
+        }
+    }
+}

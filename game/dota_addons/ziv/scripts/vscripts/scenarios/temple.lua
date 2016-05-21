@@ -64,7 +64,7 @@ function Temple:NextStage()
 					Timers:CreateTimer(duration, function (  )
 				        local seed = (math.random(1, 4) * 90) + 35
 
-				        local point = PointOnCircle(7085, seed)
+				        local point = PointOnCircle(6585, seed)
 
 				        hero:AddPhysicsVelocity(Vector(point.x, point.y, 1750))
 				        hero:SetPhysicsAcceleration(Vector(0,0,-1400))
