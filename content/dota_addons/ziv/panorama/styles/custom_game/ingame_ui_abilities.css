@@ -9,18 +9,18 @@ DOTAAbilityImage {
 	horizontal-align: center;
 	vertical-align: bottom;
 	flow-children: right;
+
+	margin-right: 270px;
 }
 
-#ability_list
+#AbilityList
 {
 	flow-children: right;
-
-	margin-left: -23px;
 }
 
 .AbilityPanel
 {
-	margin-left: 28px;
+	margin-left: -2px;
 	margin-bottom: 8px;
 }
 
@@ -31,8 +31,8 @@ DOTAAbilityImage {
 
 #AbilityButton
 {
-	width: 86px;
-	height: 86px;
+	width: 84px;
+	height: 84px;
 	/*border: 2px solid transparent;*/
 }
 

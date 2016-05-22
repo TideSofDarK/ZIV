@@ -53,6 +53,9 @@
 			m_flRemapTime = 11.600000
 			m_bDisableOperator = true
 		},
+		{
+			_class = "C_OP_FadeOutSimple"
+		},
 	]
 	m_Initializers =
 	[

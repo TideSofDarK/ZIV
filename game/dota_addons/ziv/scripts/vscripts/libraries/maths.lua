@@ -65,8 +65,8 @@ function smallestAngleDiff( target, source )
    return a
 end
 
-function randomf( min, max )
-  return math.random() + math.random(min, max)
+function randomf(lower, greater)
+    return lower + math.random()  * (greater - lower);
 end
 
 function lerp_vector(a, b, t)

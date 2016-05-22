@@ -212,7 +212,7 @@ function ZIV:OnHeroInGame(hero)
     InitAbilities(camera_target)
 
     Timers:CreateTimer(function ()
-      if GetZIVSpecificSetting(pid, "Controls") then
+      if GetZIVSpecificSetting(pid, "Controls") == false then
         PlayerResource:SetCameraTarget(pid, camera_target)
       else
         PlayerResource:SetCameraTarget(pid, nil)

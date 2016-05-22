@@ -13,28 +13,36 @@
 	<Panel class="InGameUIRoot" hittest="false">
 		<Panel class="GenericBackground" id="BottomGfx" hittest="false"/>
 		<Panel class="Bottom MidBottom" hittest="false">
-			<Panel hittest="false" id="Portait">
-				<DOTAHeroMovie id="PortaitImage" heroname="npc_dota_hero_dragon_knight" />
-			</Panel>
 			<Panel class="Bars" hittest="false">
-				<Panel class="BarBackground HealthPoints">
-					<Panel class="Bar" id="hp_bar"/>
-					<Label text="100/100" class="ValueLabel" id="hp" />
+				<Panel class="BarBackground" id="HealthPoints">
+					<Panel class="Bar" id="HPBar">
+						<Panel class="BarElement" id="HPBar1"/>
+						<Panel class="BarElement" id="HPBar2"/>
+						<Panel class="BarElement" id="HPBar3"/>
+					</Panel>
+					<!-- <Label text="100/100" class="ValueLabel" id="hp" /> -->
 				</Panel>
-				<Panel class="BarBackground ManaPoints">
-					<Panel class="Bar" id="sp_bar"/>
-					<Label text="100/100" class="ValueLabel" id="sp" />
+				<Panel class="BarBackground" id="SPPoints">
+					<Panel class="Bar" id="SPBar">
+						<Panel class="BarElement" id="SPBar1"/>
+						<Panel class="BarElement" id="SPBar2"/>
+						<Panel class="BarElement" id="SPBar3"/>
+					</Panel>
+
+					<!-- <Label text="100/100" class="ValueLabel" id="sp" /> -->
 				</Panel>
 			</Panel>
 			<Panel class="AbilityOverlayRoot">
-				<Panel id="ability_list" />
+				<Panel id="AbilityList" />
 			</Panel>
 			<Panel hittest="false" id="EquipList">
 			</Panel>
 
-			<Button id="equipment_button" class="OKButton" onactivate="OpenEquipment()" >
-				<Label text="#equipment" class="WindowButtonLabel" />
-			</Button>
+<!-- 			<Button id="EquipmentButton" class="OKButton" onactivate="OpenEquipment()" >
+				<Label text="#equipment" id="EquipmentButtonLabel" class="WindowButtonLabel" />
+			</Button> -->
+
+			<Panel class="GenericBackground" id="Separator" hittest="false"/>
 
 			<Panel id="SideButtons" hittest="false">
 				<Button id="craft_button" class="BottomButton" onactivate="OpenCraftingWindow()" />

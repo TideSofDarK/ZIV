@@ -1,3 +1,57 @@
+@keyframes 'bar_first'
+{
+  0%
+  {
+	transform: rotateY( 0deg ) rotateZ( 0deg ) rotateX( 0deg );
+  }
+
+  50%
+  {
+	transform: rotateY( 0deg ) rotateZ( 180deg ) rotateX( 0deg );
+  }
+
+  100%
+  {
+	transform: rotateY( 0deg ) rotateZ( 360deg ) rotateX( 0deg );
+  }
+}
+
+@keyframes 'bar_second'
+{
+  0%
+  {
+	transform: rotateY( 0deg ) rotateZ( 0deg ) rotateX( 0deg );
+  }
+
+  50%
+  {
+	transform: rotateY( 0deg ) rotateZ( 180deg ) rotateX( 0deg );
+  }
+
+  100%
+  {
+	transform: rotateY( 0deg ) rotateZ( 360deg ) rotateX( 0deg );
+  }
+}
+
+@keyframes 'bar_third'
+{
+  0%
+  {
+	transform: rotateY( 0deg ) rotateZ( 360deg ) rotateX( 0deg );
+  }
+
+  50%
+  {
+	transform: rotateY( 0deg ) rotateZ( 180deg ) rotateX( 0deg );
+  }
+
+  100%
+  {
+	transform: rotateY( 0deg ) rotateZ( 0deg ) rotateX( 0deg );
+  }
+}
+
 .InGameUIRoot {
 	width: 1920px;
 	height: 1080px;
@@ -23,16 +77,6 @@
 	horizontal-align: center;
 	height: 200px;
 	width: 1074px;
-
-	margin-left: 20px;
-}
-
-.Bars {
-	horizontal-align: center;
-	vertical-align: top;
-	flow-children: down;
-
-	margin-top: 4px;
 }
 
 #BottomRoot {
@@ -54,26 +98,30 @@
 	background-color: #ffffff00;
 }
 
+.Bars {
+	horizontal-align: center;
+	vertical-align: bottom;
+
+	width: 100%;
+	height: 100%;
+}
+
 .BarBackground {
-	margin-left: 1px;
+	width: 160px;
+	height: 160px;
 
-	width: 591px;
+	vertical-align: bottom;
 
-	margin-bottom: -2px;
-
-	border-radius: 4px;
+	margin: 7px;
+	margin-bottom: 8px;
 }
 
-.HealthPoints {
-	height: 45px;
-
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #00000033 ), to( #00000044 ) );
+#HealthPoints {
+	horizontal-align: left;
 }
 
-.ManaPoints {
-	height: 31px;
-
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #00000033 ), to( #00000044 ) );
+#SPPoints {
+	horizontal-align: right;
 }
 
 .ValueLabel {
@@ -91,27 +139,75 @@
 }
 
 .Bar {
-	height: 100%;
-/*	transition-property: width;
-	transition-duration: .3s;
-	transition-timing-function: ease-in-out, linear;*/
+	vertical-align: bottom;
+	pre-transform-scale2d: -1.0;
 
-	box-shadow: inset #333333ff 0px 1px 4px 0px;
+	transition-property: height;
+	transition-duration: 0.1s;
+	transition-timing-function: linear;
 
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #3F51B5ff ), to( #212a5eff ) );
+	overflow: clip clip;
 }
 
-#hp {
-	line-height: 36px;
+.BarElement {
+	opacity-mask: url("file://{images}/custom_game/ingame_ui/button_mask.png");
+	background-repeat: repeat;
+
+	-s2-mix-blend-mode: screen;
+
+	animation-delay: 0s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	opacity: 0.3;
+
+	width: 160px;
+	height: 160px;
 }
 
-#hp_bar {
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #b53f51 ), to( #b53f51 ) );
+#HPBar1 {
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/hp_1.png");
+
+	opacity: 0.5;
+
+	animation-name: bar_first;
+	animation-duration: 12.0s;
+}
+#HPBar2 {
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/hp_2.png");
+
+	animation-name: bar_second;
+	animation-duration: 14.0s;
+}
+#HPBar3 {
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/hp_3.png");
+
+	animation-name: bar_third;
+	animation-duration: 16.0s;
 }
 
-#sp {
-	font-size: 17px;
-	line-height: 27px;
+#SPBar1 {
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/mana_1.png");
+
+	opacity: 0.5;
+
+	animation-name: bar_first;
+	animation-delay: 0s;
+	animation-duration: 15.0s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+#SPBar2 {
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/mana_2.png");
+
+	animation-name: bar_second;
+	animation-duration: 14.0s;
+}
+#SPBar3 {
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/mana_3.png");
+
+	animation-name: bar_third;
+	animation-duration: 16.0s;
 }
 
 .EnergyBar {
@@ -120,27 +216,19 @@
 
 #SideButtons {
 	vertical-align: bottom;
-	horizontal-align: right;
+	horizontal-align: center;
 	flow-children: right;
-	margin-right: -1px;
-	margin-bottom: 17px;
+	margin-left: 410px;
+	margin-bottom: 13px;
 }
 
 .BottomButton {
-	/*opacity: 0.99;*/
+	margin-left: 10px;
 	
-	margin-left: 4px;
-	
-    width: 55px;
-    height: 101px;
+    width: 50px;
+    height: 90px;
 
     background-size: 100% 100%;
-
-/*    overflow: squish;*/
-
-/*    transition-property: background-color;
-	transition-duration: .2s;
-	transition-timing-function: ease-in-out, linear;*/
 }
 
 .Grayout {
@@ -184,86 +272,41 @@
 	background-image: url('file://{images}/custom_game/ingame_ui/help.png');
 }
 
-#equipment_button {
-	horizontal-align: right;
-	width: 107px;
-	height: 24px; 
+#EquipmentButton {
+	horizontal-align: center;
+	width: 128px;
+	height: 26px; 
 
-	border-radius: 6px;
+	border-radius: 4px;
 
-	margin-top: 24px;
-	margin-right: 66px;
-}
-
-#EquipList
-{
-	
-}
-
-#Portait {
-	width: 120px;
-	height: 160px;
-
-	vertical-align: top;
-
-	z-index: 0;
-
-	background-color: #111111FF;
-
-/*	border: 15px solid #111111FF;
-	border-top-right-radius: 6px;
-	border-left-width: 0px;
-	border-bottom-width: 20px;
-	border-top-width: 30px;*/
-
-	margin-left: 108px;
-	margin-top: 25px;
-
-	/*transform: translate3d( -2px, 0px, 0px );*/
-}
-
-#PortaitImage {
-	vertical-align: center;
-	vertical-align: center;
-
-	width: 100%;
-	height: 100%;
+	margin-top: 22px;
 }
 
 #BottomGfx {
-	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom.png');
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom_4.png');
 
-	width: 1920px;
-	height: 310px;
+	width: 1095px;
+	height: 195px;
 
 	vertical-align: bottom;
 }
 
 #BottomForegroundGfx {
-	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom_a.png');
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom_4_foreground.png');
 
-	width: 1920px;
-	height: 310px;
+	width: 1095px;
+	height: 195px;
 
 	vertical-align: bottom;
 }
 
-#LeftBottomGfx {
-	background-image: url('file://{images}/custom_game/ingame_ui/ui_left_corner.png');
+#Separator {
+	background-image: url('file://{images}/custom_game/ingame_ui/separator.png');
 
-	width: 515px;
-	height: 339px;
+	width: 7px;
+	height: 125px;
 
-	vertical-align: bottom;
-	horizontal-align: left;
-}
-
-#RightBottomGfx {
-	background-image: url('file://{images}/custom_game/ingame_ui/ui_right_corner.png');
-
-	width: 319px;
-	height: 248px;
+	margin-left: 150px;
 
 	vertical-align: bottom;
-	horizontal-align: right;
 }

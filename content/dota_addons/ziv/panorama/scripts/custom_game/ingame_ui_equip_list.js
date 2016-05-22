@@ -52,6 +52,12 @@ function UpdateBuffs()
 	if ( !buffsListPanel )
 		return;
 
+	var children = buffsListPanel.Children();
+
+	for (var i = 0; i < children.length; i++) {
+		children[i].DeleteAsync(0.0);
+	}
+
 	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 
 	var heroKV = CustomNetTables.GetTableValue( "hero_kvs", Entities.GetUnitName( queryUnit )+"_ziv" );
@@ -103,8 +109,8 @@ function Open()
 {
 	String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
 
-	GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateBuffs );
-	GameEvents.Subscribe( "dota_player_update_query_unit", UpdateBuffs );
+	// GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateBuffs );
+	// GameEvents.Subscribe( "dota_player_update_query_unit", UpdateBuffs );
 
 	GameEvents.Subscribe( "ziv_open_equipment", Open );
 	

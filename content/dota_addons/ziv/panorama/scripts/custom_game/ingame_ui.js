@@ -20,7 +20,7 @@ function OnAbilityLearnModeToggled( bEnabled )
 
 function UpdateAbilityList()
 {
-	var abilityListPanel = $( "#ability_list" );
+	var abilityListPanel = $( "#AbilityList" );
 	if ( !abilityListPanel )
 		return;
 
@@ -91,9 +91,9 @@ function UpdateHPAndMP()
 	if (!queryUnit || queryUnit == -1 || !heroKV) $.Schedule( 0.1, UpdateHPAndMP );
 
 	var hp = 	Entities.GetHealth( queryUnit )
-	var maxHP = 	Entities.GetMaxHealth( queryUnit )
+	var maxHP = 	Entities.GetMaxHealth( queryUnit ) * 1.0
 	var mp = 	Entities.GetMana( queryUnit )
-	var maxMP = 	Entities.GetMaxMana( queryUnit )
+	var maxMP = 	Entities.GetMaxMana( queryUnit ) * 1.0
 
 	
 	if (heroKV["UsesEnergy"]) 
@@ -101,17 +101,17 @@ function UpdateHPAndMP()
 		$("#sp_bar").AddClass("EnergyBar")
 	}
 
-	$("#hp").text = hp + "/" + maxHP;
-	$("#sp").text = mp + "/" + maxMP;
+	// $("#hp").text = hp + "/" + maxHP;
+	// $("#sp").text = mp + "/" + maxMP;
 
 	if (hp) {
-		var hpPercentage = Math.ceil(hp / maxHP * 100);
-		$("#hp_bar").style.width = hpPercentage + "%;";
+		var hpPercentage = (hp / maxHP * 100);
+		$("#HPBar").style.height = hpPercentage + "%;";
 	}
 
 	if (mp) {
-		var mpPercentage = Math.ceil(mp / maxMP * 100);
-		$("#sp_bar").style.width = mpPercentage + "%;";
+		var mpPercentage = mp / maxMP * 100.0;
+		$("#SPBar").style.height = mpPercentage + "%;";
 	}
 
 	if (maxMP == 0) {
