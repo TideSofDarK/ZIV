@@ -211,9 +211,13 @@ function ZIV:OnHeroInGame(hero)
     local camera_target = CreateUnitByName("npc_dummy_unit",hero:GetAbsOrigin() + Vector(0,325,0),false,hero,hero,hero:GetTeamNumber())
     InitAbilities(camera_target)
 
-    PlayerResource:SetCameraTarget(pid, camera_target)
-
     Timers:CreateTimer(function ()
+      if GetZIVSpecificSetting(pid, "Controls") then
+        PlayerResource:SetCameraTarget(pid, camera_target)
+      else
+        PlayerResource:SetCameraTarget(pid, nil)
+      end
+      
       camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,-275,0))
       return 0.03
     end)

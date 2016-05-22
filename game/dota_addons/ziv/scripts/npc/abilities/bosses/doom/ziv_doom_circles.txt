@@ -1,0 +1,92 @@
+"ziv_doom_circles"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "AbilityTextureName"            "ziv_empty"
+
+  "AbilityCastPoint"        "0.5"
+  "AbilityCastRange"        "550"
+  "AbilityCooldown"       "13"
+  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_6"
+
+  "AbilityManaCost"       "0"
+
+  "MaxLevel"  "1"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
+    "particle"      "particles/units/heroes/hero_doom_bringer/doom_bringer_doom_ring.vpcf"
+    "particle"      "particles/status_fx/status_effect_doom.vpcf"
+  }
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "circles_count"      "6"
+    }
+    "02"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "tick"      "0.3"
+    }
+    "03"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "damage_percent"      "0.05"
+    }
+    "04"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "duration"      "6"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "FireSound"
+    {
+      "EffectName"  "Hero_DoomBringer.Doom"
+      "Target"     "CASTER"
+    }
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/bosses/doom/ziv_doom_circles.lua"
+      "Function"    "Circles"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_doom_circle"
+    {
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "ThinkInterval"  "%tick"
+      "OnIntervalThink"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/bosses/doom/ziv_doom_circles.lua"
+          "Function"    "CircleThink"
+        }
+      }
+    }
+
+    "modifier_doom_circle_damage"
+    {
+      "Duration" "0.3"
+
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+    
+      "StatusEffectName"     "particles/status_fx/status_effect_doom.vpcf"      
+      "StatusEffectPriority"  "2"
+    }
+  }
+}

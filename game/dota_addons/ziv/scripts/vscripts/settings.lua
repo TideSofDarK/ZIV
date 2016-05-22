@@ -114,3 +114,7 @@ ZIV_CustomSettingDamage_DEFAULT = 1
 ZIV_CustomSettingAutoEquip_DEFAULT = 1
 ZIV_CustomSettingShowTooltip_DEFAULT = 1
 ZIV_CustomSettingControls_DEFAULT = 0
+
+function GetZIVSpecificSetting(pID, setting) 
+	return CustomNetTables:GetTableValue("settings", tostring(pID))["CustomSetting"..setting] == 1
+end

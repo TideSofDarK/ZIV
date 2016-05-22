@@ -65,6 +65,10 @@ function smallestAngleDiff( target, source )
    return a
 end
 
+function randomf( min, max )
+  return math.random() + math.random(min, max)
+end
+
 function lerp_vector(a, b, t)
   local newVector = Vector(0,0,0)
   for i=1,3 do

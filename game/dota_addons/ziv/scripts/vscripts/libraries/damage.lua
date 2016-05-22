@@ -45,7 +45,7 @@ function DealDamage( _attacker, _victim, _damage, _type )
 	ApplyDamage(damageTable)
 	if _attacker.GetPlayerOwnerID and 
 		_attacker:GetPlayerOwnerID() >= 0 and 
-		CustomNetTables:GetTableValue("settings", tostring(_attacker:GetPlayerOwnerID()))["CustomSettingDamage"] == 1 then 
+		GetZIVSpecificSetting(_attacker:GetPlayerOwnerID(), "Damage") then 
 		PopupDamage(_attacker:GetPlayerOwner(), _victim, round(_damage), clamp(_damage / max_damage, 0, 1))
 	end
 	-- PopupExperience(_victim, math.ceil(_damage))
