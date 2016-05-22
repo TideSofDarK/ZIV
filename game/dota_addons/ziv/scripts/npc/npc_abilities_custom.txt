@@ -328,6 +328,82 @@
 	
 		"AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
+	"ziv_doom_attack"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AOERadius" "300"
+	
+	  "AbilityCastRange"        "228"
+	  "AbilityCastPoint"        "0.8"
+	  "AbilityCooldown"       "2.0"
+	  "AbilityCastAnimation"      ""
+	
+	  "AbilityManaCost"       "0"
+	
+	  "MaxLevel"  "1"
+	
+	  "precache"
+	  {
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+	    "particle"    "particles/generic_gameplay/generic_stunned.vpcf"
+	    "particle"    "particles/units/heroes/hero_doom_bringer/doom_infernal_blade.vpcf"
+	    "particle"    "particles/units/heroes/hero_doom_bringer/doom_infernal_blade_debuff.vpcf"
+	    "particle"    "particles/units/heroes/hero_doom_bringer/doom_infernal_blade_impact.vpcf"
+	  }
+	
+	  "OnAbilityPhaseStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/bosses/doom/ziv_doom_attack.lua"
+	      "Function"    "Attack"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_DoomBringer.InfernalBlade"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/bosses/doom/ziv_doom_attack.lua"
+	      "Function"    "AttackParticle"
+	      "Target"  "POINT"
+	    }
+	    "ActOnTargets"
+	    {
+	      "Target"
+	      {
+	        "Center"    "POINT"
+	        "Radius"   "300"
+	        "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	        "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	      }
+	    
+	      "Action"    
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/bosses/undying/ziv_undying_attack.lua"
+	          "Function"    "AttackImpact"
+	          "Target"       "TARGET"
+	        }
+	      }
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	
+	  }
+	}
 	"ziv_undying_attack"
 	{
 	  "BaseClass"           "ability_datadriven"
