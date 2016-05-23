@@ -209,7 +209,8 @@
 .GlassOrb {
 	width: 160px;
 	height: 160px;
-	opacity: 0.2;
+	opacity: 0.3;
+	brightness: 0.4;
 	background-image: url("file://{images}/custom_game/ingame_ui/spheres/glass.png");
 }
 
@@ -248,7 +249,7 @@
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 
-	opacity: 0.3;
+	opacity: 0.8;
 
 	width: 160px;
 	height: 160px;
@@ -260,47 +261,63 @@
 	opacity: 0.5;
 
 	animation-name: bar_first;
-	animation-duration: 12.0s;
+	animation-duration: 21.0s;
 }
 #HPBar2 {
 	background-image: url("file://{images}/custom_game/ingame_ui/spheres/hp_2.png");
 
 	animation-name: bar_second;
-	animation-duration: 14.0s;
+	animation-duration: 16.0s;
 }
 #HPBar3 {
 	background-image: url("file://{images}/custom_game/ingame_ui/spheres/hp_3.png");
 
 	animation-name: bar_third;
-	animation-duration: 16.0s;
+	animation-timing-function: ease-in-out;
+	animation-duration: 19.0s;
 }
 
 #SPBar1 {
-	background-image: url("file://{images}/custom_game/ingame_ui/spheres/mana_1.png");
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/sp_1.png");
 
 	opacity: 0.5;
 
 	animation-name: bar_first;
 	animation-delay: 0s;
-	animation-duration: 15.0s;
+	animation-duration: 21.0s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 }
 #SPBar2 {
-	background-image: url("file://{images}/custom_game/ingame_ui/spheres/mana_2.png");
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/sp_2.png");
 
 	animation-name: bar_second;
-	animation-duration: 14.0s;
+	animation-duration: 17.0s;
 }
 #SPBar3 {
-	background-image: url("file://{images}/custom_game/ingame_ui/spheres/mana_3.png");
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/sp_3.png");
+
+	opacity: 0.3;
 
 	animation-name: bar_third;
-	animation-duration: 16.0s;
+	animation-timing-function: ease-in-out;
+	animation-duration: 19.0s;
 }
 
-.EnergyBar {
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #b5a33fff ), to( #c1af4dff ) );
+.DarkEnergy {
+	saturation: 0.9;
+	brightness: 0.5;
+	hue-rotation: 40deg;
+}
+
+.Energy {
+	saturation: 1.1;
+	hue-rotation: 190deg;
+}
+
+.Mana {
+	/*saturation: 0.2;*/
+	/*color: #ff0000;*/
 }
 
 #SideButtons {

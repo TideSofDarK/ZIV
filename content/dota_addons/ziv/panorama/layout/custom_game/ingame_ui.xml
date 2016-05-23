@@ -30,9 +30,9 @@
 				</Panel>
 				<Panel class="BarBackground" id="SPPoints">
 					<Panel class="Bar" id="SPBar">
-						<Panel class="BarElement" id="SPBar1"/>
-						<Panel class="BarElement" id="SPBar2"/>
-						<Panel class="BarElement" id="SPBar3"/>
+						<Panel class="BarElement Mana" id="SPBar1"/>
+						<Panel class="BarElement Mana" id="SPBar2"/>
+						<Panel class="BarElement Mana" id="SPBar3"/>
 					</Panel>
 					<Panel class="GlassOrb"/>
 					<!-- <Label text="100/100" class="ValueLabel" id="sp" /> -->

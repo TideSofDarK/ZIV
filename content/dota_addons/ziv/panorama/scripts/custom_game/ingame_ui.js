@@ -92,9 +92,18 @@ function UpdateHPAndMP()
 	var xp = 	Entities.GetCurrentXP( queryUnit );
 	var maxXP = 	Entities.GetNeededXPToLevel( queryUnit );
 
-	if (heroKV["UsesEnergy"]) 
+	if (heroKV["UsesEnergy"] && $("#SPBar1").BHasClass("Energy") == false) 
 	{
-		$("#sp_bar").AddClass("EnergyBar")
+		if (heroKV["DarkEnergy"]) {
+			$("#SPBar1").SwitchClass("Mana", "DarkEnergy");
+			$("#SPBar2").SwitchClass("Mana", "DarkEnergy");
+			$("#SPBar3").SwitchClass("Mana", "DarkEnergy");
+		}
+		else {
+			$("#SPBar1").SwitchClass("Mana", "Energy");
+			$("#SPBar2").SwitchClass("Mana", "Energy");
+			$("#SPBar3").SwitchClass("Mana", "Energy");
+		}
 	}
 
 	// $("#hp").text = hp + "/" + maxHP;
@@ -116,7 +125,10 @@ function UpdateHPAndMP()
 
 	if (xp != NaN && maxXP != NaN) {
 		var xpPercentage = xp / maxXP;
-		$("#XPBarRoot").style.width = (xpPercentage * 700) + "px;";
+		var value = (xpPercentage * 700);
+		if (value != NaN) {
+			$("#XPBarRoot").style.width = value + "px;";
+		}
 	}
 
 	$.Schedule( 0.1, UpdateHPAndMP );

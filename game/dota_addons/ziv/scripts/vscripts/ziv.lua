@@ -35,7 +35,7 @@ require('libraries/particles')
 require('libraries/damage')
 -- Random
 require('libraries/random')
-require('PseudoRNG')
+require('libraries/PseudoRNG')
 -- Runes
 require('libraries/runes')
 -- Abilities
@@ -69,6 +69,9 @@ require('libraries/containers')
 -- Balance variables
 require('balance')
 
+-- Debug commands
+require('debug')
+
 LinkLuaModifier("modifier_custom_attack", "libraries/modifiers/modifier_custom_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_fade_out", "libraries/modifiers/modifier_fade_out.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_transparent", "libraries/modifiers/modifier_transparent.lua", LUA_MODIFIER_MOTION_NONE)
@@ -77,7 +80,7 @@ LinkLuaModifier("modifier_smooth_floating", "libraries/modifiers/modifier_smooth
 
 function ZIV:OpenInventory(args)
   local pid = args.PlayerID
-  ZIV.pidInventory[pid]:Open(pid)
+  ZIV.INVENTORY[pid]:Open(pid)
 end
 
 --[[
@@ -190,7 +193,7 @@ function ZIV:OnHeroInGame(hero)
       OnDragWorld = true
     })
 
-    ZIV.pidInventory[pid] = c
+    ZIV.INVENTORY[pid] = c
 
     local item = CreateItem("item_gem_malachite", hero, hero)
     c:AddItem(item)
@@ -311,102 +314,6 @@ function ZIV:InitZIV()
   Loot:Init()
 end
 
-function ZIV:AddModifierToHero(modifier)
-  local cmdPlayer = Convars:GetCommandClient()
-  if cmdPlayer then
-    local playerID = cmdPlayer:GetPlayerID()
-    if playerID ~= nil and playerID ~= -1 then
-      local hero = cmdPlayer:GetAssignedHero()
-      hero:AddNewModifier(hero,nil,modifier,{})
-    end
-  end
-end
-
-function ZIV:MakeHeroInvisible()
-  local cmdPlayer = Convars:GetCommandClient()
-  if cmdPlayer then
-    local playerID = cmdPlayer:GetPlayerID()
-    if playerID ~= nil and playerID ~= -1 then
-      local hero = cmdPlayer:GetAssignedHero()
-      hero:AddNewModifier(hero,nil,"modifier_persistent_invisibility",{})
-    end
-  end
-end
-
-function ZIV:PrintHeroStats()
-  local cmdPlayer = Convars:GetCommandClient()
-  if cmdPlayer then
-    local playerID = cmdPlayer:GetPlayerID()
-    if playerID ~= nil and playerID ~= -1 then
-      local hero = cmdPlayer:GetAssignedHero()
-      print("MR: "..tostring(hero:GetMagicalArmorValue()))
-      print("FR: "..tostring(hero:GetModifierStackCount("modifier_fire_resistance",nil)))
-      print("CR: "..tostring(hero:GetModifierStackCount("modifier_cold_resistance",nil)))
-      print("LR: "..tostring(hero:GetModifierStackCount("modifier_lightning_resistance",nil)))
-      print("DR: "..tostring(hero:GetModifierStackCount("modifier_dark_resistance",nil)))
-
-      print("STR: "..tostring(hero:GetStrength()))
-      print("AGI: "..tostring(hero:GetAgility()))
-      print("INT: "..tostring(hero:GetIntellect()))
-      print("AS: "..tostring(hero:GetAttackSpeed()))
-      for i=0,hero:GetModifierCount() do
-        print(hero:GetModifierNameByIndex(i), hero:GetModifierStackCount(hero:GetModifierNameByIndex(i), hero))
-      end
-      for i=0,16 do
-        local abil = hero:GetAbilityByIndex(i)
-        if abil then
-          print(abil:GetName())
-        end
-      end
-    end
-  end
-end
-
-function ZIV:AddItemToContainer(item, count)
-  local cmdPlayer = Convars:GetCommandClient()
-  if cmdPlayer then
-    local playerID = cmdPlayer:GetPlayerID()
-    if playerID ~= nil and playerID ~= -1 then
-      local hero = cmdPlayer:GetAssignedHero()
-      local item = CreateItem(item, hero, hero)
-      ZIV.pidInventory[playerID]:AddItem(item, tonumber(count) or nil)
-    end
-  end
-end
-
-function ZIV:SpawnBasicPack(count)
-  local cmdPlayer = Convars:GetCommandClient()
-  if cmdPlayer then
-    local playerID = cmdPlayer:GetPlayerID()
-    if playerID ~= nil and playerID ~= -1 then
-      local hero = cmdPlayer:GetAssignedHero()
-      
-      Director:SpawnPack(
-        {
-          Level = 1,
-          SpawnBasic = true,
-          Count = tonumber(count) or 10,
-          Position = hero:GetAbsOrigin(),
-          LordModifier = "ziv_creep_lord_modifier_regen_aura",
-          SpawnLord = true
-        }
-      )
-    end
-  end
-end
-
-function ZIV:SpawnBasicDrop(rarity)
-  local cmdPlayer = Convars:GetCommandClient()
-  if cmdPlayer then
-    local playerID = cmdPlayer:GetPlayerID()
-    if playerID ~= nil and playerID ~= -1 then
-      local hero = cmdPlayer:GetAssignedHero()
-
-      Loot:CreateChest( hero:GetAbsOrigin(), tonumber(rarity) )
-    end
-  end
-end
-
 if LOADED then
   return
 end
@@ -414,7 +321,7 @@ LOADED = true
 
 ZIV.TRUE_TIME = 0
 
-ZIV.pidInventory = {}
+ZIV.INVENTORY = {}
 lootSpawns = nil
 itemDrops = nil
 privateBankEnt = nil

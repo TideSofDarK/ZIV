@@ -61,9 +61,14 @@
 		"07"
 		{
 			"var_type"	"FIELD_FLOAT"
-			"damage_amp"	"2.5"
+			"damage_amp"	"2.0"
 		}
 		"08"
+		{
+			"var_type"	"FIELD_INTEGER"
+			"aoe_radius"	"400"
+		}
+		"09"
 		{
 			"var_type"	"FIELD_INTEGER"
 			"energy_restored"	"1"
@@ -78,7 +83,7 @@
 			"Function"		"FireArrow"
 			"effect" "particles/heroes/dark_goddess/dark_goddess_corrupted_arrow.vpcf"
 			"damage_amp" "%damage_amp"
-			"sound" "Hero_DrowRanger.FrostArrows"
+			"attack_sound" "Hero_DrowRanger.FrostArrows"
 			"Target" "POINT"
 		}
 	}

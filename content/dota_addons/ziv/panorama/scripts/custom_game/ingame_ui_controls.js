@@ -85,8 +85,9 @@ function ZIVCastAbility(number, pressing) {
 			}
 		}
 
-		if (Abilities.IsCooldownReady(ability) === true && Abilities.IsInAbilityPhase(ability) === false) {
-			Game.PrepareUnitOrders( order );
+		if (Abilities.IsCooldownReady(ability) === true && Abilities.IsInAbilityPhase(ability) === false && Abilities.GetCooldownTimeRemaining(ability) === 0.0) {
+			// Game.PrepareUnitOrders( order );
+			Abilities.ExecuteAbility( ability, Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), true );
 		}
 
 		m_AbilityCasting[ability] = true;

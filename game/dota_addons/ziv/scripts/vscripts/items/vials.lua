@@ -22,12 +22,18 @@ function ActivateVial( vial, caster )
 		local particle = ParticleManager:CreateParticle("particles/props/vials/hp_vial.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
 		ParticleManager:SetParticleControl(particle,1,caster:GetAbsOrigin() + Vector(0,0,64))
 
-		caster:Heal(caster:GetMaxHealth() * randomf(0.1,0.15),nil)
+		caster:Heal(caster:GetMaxHealth() * randomf(ZIV_HP_VIAL_HEAL_MIN,ZIV_HP_VIAL_HEAL_MAX),nil)
 		caster:EmitSound("DOTA_Item.Mango.Activate")
 	elseif vial == "item_mp_vial" then
-		caster:GiveMana(caster:GetMaxMana() * randomf(0.1,0.15))
+		local particle = ParticleManager:CreateParticle("particles/items3_fx/mango_active.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
+
+		caster:GiveMana(caster:GetMaxMana() * randomf(ZIV_MP_VIAL_MANA_MIN,ZIV_MP_VIAL_MANA_MAX))
+		caster:EmitSound("Bottle.Drink")
 	else
-		caster:GiveMana(caster:GetMaxMana() * randomf(0.1,0.15))
+		local particle = ParticleManager:CreateParticle("particles/props/vials/ep_vial.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
+
+		caster:GiveMana(caster:GetMaxMana() * randomf(ZIV_EP_VIAL_ENERGY_MIN,ZIV_EP_VIAL_ENERGY_MAX))
+		caster:EmitSound("Greevil.Purification")
 	end
 end
 

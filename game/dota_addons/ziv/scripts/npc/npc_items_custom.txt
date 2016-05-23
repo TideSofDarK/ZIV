@@ -2193,6 +2193,11 @@
 	  "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
 	  "ItemCastOnPickup"    "1"
 	
+	  "precache"
+	  {
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+	  }
+	
 	  "OnSpellStart"
 	  {    
 	    "SpendCharge" 
