@@ -69,6 +69,14 @@ function DoToAllHeroes(action)
   end
 end
 
+function DoToUnitsInRadius( caster, position, radius, target_team, target_type, target_flags, action )
+  local units = FindUnitsInRadius(caster:GetTeamNumber(),position,nil,radius,target_team or DOTA_UNIT_TARGET_TEAM_ENEMY, target_type or DOTA_UNIT_TARGET_ALL, target_flags or DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+
+  for k,v in pairs(units) do
+    action(v)
+  end
+end
+
 function GetRandomElement(list, checker)
   local new_table = {}
 

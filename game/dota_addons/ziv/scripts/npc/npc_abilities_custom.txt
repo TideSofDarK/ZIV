@@ -476,7 +476,7 @@
 	    "01"
 	    {
 	      "var_type"      "FIELD_INTEGER"
-	      "circles_count"      "6"
+	      "circles_count"      "5"
 	    }
 	    "02"
 	    {
@@ -544,13 +544,14 @@
 	"ziv_doom_rain"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 	  "AbilityTextureName"            "ziv_empty"
 	
-	  "AbilityCastPoint"        "0.5"
-	  "AbilityCastRange"        "550"
-	  "AbilityCooldown"       "13"
-	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_6"
+	  "AbilityCastPoint"        "0.3"
+	  "AbilityCastRange"        "800"
+	  "AbilityCooldown"       "19"
+	  "AbilityChannelTime" "8.0"
+	  "AbilityCastAnimation"      "ACT_DOTA_TELEPORT"
 	
 	  "AbilityManaCost"       "0"
 	
@@ -559,78 +560,37 @@
 	  "precache"
 	  {
 	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
-	    "particle"      "particles/units/heroes/hero_doom_bringer/doom_bringer_doom_ring.vpcf"
-	    "particle"      "particles/status_fx/status_effect_doom.vpcf"
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+	    "particle"      "particles/bosses/doom/doom_explosion.vpcf"
 	  }
 	
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "circles_count"      "6"
+	      "var_type"      "FIELD_FLOAT"
+	      "tick"      "1.0"
 	    }
 	    "02"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "tick"      "0.3"
-	    }
-	    "03"
-	    {
-	      "var_type"      "FIELD_FLOAT"
-	      "damage_percent"      "0.05"
-	    }
-	    "04"
-	    {
-	      "var_type"      "FIELD_FLOAT"
-	      "duration"      "6"
+	      "damage_percent"      "0.1"
 	    }
 	  }
 	
 	  "OnSpellStart"
 	  {
-	    "FireSound"
-	    {
-	      "EffectName"  "Hero_DoomBringer.Doom"
-	      "Target"     "CASTER"
-	    }
 	    "RunScript"
 	    {
-	      "ScriptFile"  "abilities/bosses/doom/ziv_doom_circles.lua"
-	      "Function"    "Circles"
+	      "ScriptFile"  "abilities/bosses/doom/ziv_doom_rain.lua"
+	      "Function"    "Rain"
 	    }
 	  }
 	
 	  "Modifiers"
 	  {
-	    "modifier_doom_circle"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
 	
-	      "ThinkInterval"  "%tick"
-	      "OnIntervalThink"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "abilities/bosses/doom/ziv_doom_circles.lua"
-	          "Function"    "CircleThink"
-	        }
-	      }
-	    }
-	
-	    "modifier_doom_circle_damage"
-	    {
-	      "Duration" "0.3"
-	
-	      "Passive"      "0"
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
-	    
-	      "StatusEffectName"     "particles/status_fx/status_effect_doom.vpcf"      
-	      "StatusEffectPriority"  "2"
-	    }
 	  }
 	}
 	"ziv_undying_attack"

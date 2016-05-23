@@ -25,7 +25,7 @@
     "01"
     {
       "var_type"      "FIELD_INTEGER"
-      "circles_count"      "6"
+      "circles_count"      "5"
     }
     "02"
     {
