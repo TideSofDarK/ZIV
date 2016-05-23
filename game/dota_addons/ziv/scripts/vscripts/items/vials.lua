@@ -11,6 +11,7 @@ function PrepareVial( container )
       return collided.IsHero and collided:IsHero() == true
     end
     collider.postaction = function ( colliderTable, colliderUnit, collidedUnit )
+    	container:RemoveCollider()
     	PickupVial( container, collidedUnit )
     end
 end
@@ -19,7 +20,7 @@ function ActivateHPVial( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
-	ParticeManager:CreateParticle("particles/heroes/dark_goddess/dark_goddess_concentration_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
+	ParticleManager:CreateParticle("particles/heroes/dark_goddess/dark_goddess_concentration_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
 
 	caster:Heal(caster:GetMaxHealth() * randomf(0.1,0.15),ability)
 end
@@ -39,7 +40,7 @@ function ActivateEPVial( keys )
 end
 
 function PickupVial( container, hero )
-	hero:PickupDroppedItem(container:GetContainedItem())
+	hero:PickupDroppedItem(container)
 	UTIL_Remove(container)
 end
 
