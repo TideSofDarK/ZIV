@@ -4,7 +4,7 @@
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
   "AbilityTextureName"            "ziv_empty"
 
-  "AbilityCastPoint"        "0.3"
+  "AbilityCastPoint"        "0.1"
   "AbilityCastRange"        "800"
   "AbilityCooldown"       "19"
   "AbilityChannelTime" "8.0"
