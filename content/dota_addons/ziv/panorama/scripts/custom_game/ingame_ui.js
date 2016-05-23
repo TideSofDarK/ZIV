@@ -77,12 +77,6 @@ function UpdateAbilityList()
 	}
 }
 
-function SetPortrait() 
-{
-	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
-	$("#PortaitImage").heroname = Entities.GetUnitName(queryUnit);
-}
-
 function UpdateHPAndMP() 
 {
 	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
@@ -95,7 +89,9 @@ function UpdateHPAndMP()
 	var mp = 	Entities.GetMana( queryUnit )
 	var maxMP = 	Entities.GetMaxMana( queryUnit ) * 1.0
 
-	
+	var xp = 	Entities.GetCurrentXP( queryUnit );
+	var maxXP = 	Entities.GetNeededXPToLevel( queryUnit );
+
 	if (heroKV["UsesEnergy"]) 
 	{
 		$("#sp_bar").AddClass("EnergyBar")
@@ -104,18 +100,23 @@ function UpdateHPAndMP()
 	// $("#hp").text = hp + "/" + maxHP;
 	// $("#sp").text = mp + "/" + maxMP;
 
-	if (hp) {
+	if (hp != NaN) {
 		var hpPercentage = (hp / maxHP * 100);
 		$("#HPBar").style.height = hpPercentage + "%;";
 	}
 
-	if (mp) {
+	if (mp != NaN) {
 		var mpPercentage = mp / maxMP * 100.0;
 		$("#SPBar").style.height = mpPercentage + "%;";
 	}
 
 	if (maxMP == 0) {
 		$("#sp").text = "";
+	}
+
+	if (xp != NaN) {
+		var xpPercentage = xp / maxXP;
+		$("#XPBarRoot").style.width = (xpPercentage * 700) + "px;";
 	}
 
 	$.Schedule( 0.1, UpdateHPAndMP );
@@ -188,8 +189,6 @@ function OpenSettingsWindow() {
 	UpdateAbilityList(); // initial update
 	
 	UpdateHPAndMP();
-
-	SetPortrait();
 
 	GameUI.CustomUIConfig().ingame_ui = $.GetContextPanel();
 

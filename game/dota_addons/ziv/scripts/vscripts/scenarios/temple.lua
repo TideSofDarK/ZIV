@@ -8,6 +8,11 @@ Temple.STAGE_THIRD = 3
 Temple.STAGE_BOSS = 4
 Temple.STAGE_END = 5
 
+Temple.ROCKS_DELAY = 2.0
+Temple.ROCKS_TICK = 0.1
+Temple.ROCKS_DAMAGE = 0.05
+Temple.ROCKS_DURATION = 1.5
+
 Temple.stage = Temple.STAGE_NO
 
 Temple.OBELISK_COUNT = 20
@@ -111,17 +116,18 @@ function Temple:FallingRocks()
 
 					local timer = 0.0
 
-					Timers:CreateTimer(2.0, function ()
-						local units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+					Timers:CreateTimer(Temple.ROCKS_DELAY, function ()
+						local units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 						for k,v in pairs(units) do
 							if v ~= unit then
-								DealDamage( unit, v, v:GetMaxHealth()/50, DAMAGE_TYPE_PHYSICAL ) 
+								DealDamage( unit, v, v:GetMaxHealth() * Temple.ROCKS_DAMAGE, DAMAGE_TYPE_PHYSICAL ) 
 								v:EmitSound("Creep_Good_Melee_Mega.Attack")
+								v:AddNewModifier(unit,nil,"modifier_stunned",{duration=0.03})
 							end
 						end
 
-						timer = timer + 0.1
-						if timer < 1.0 then return 0.1 
+						timer = timer + Temple.ROCKS_TICK
+						if timer < Temple.ROCKS_DURATION then return Temple.ROCKS_TICK 
 						else 
 							ParticleManager:DestroyParticle(particle,false)
 							unit:ForceKill(false)

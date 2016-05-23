@@ -14,6 +14,11 @@
 		<Panel class="GenericBackground" id="BottomGfx" hittest="false"/>
 		<Panel class="Bottom MidBottom" hittest="false">
 			<Panel class="Bars" hittest="false">
+				<Panel id="XPBarRoot">
+					<Panel class="XPBarElement" id="XPBar1"/>
+					<Panel class="XPBarElement" id="XPBar2"/>
+					<Panel class="XPBarElement" id="XPBar3"/>
+				</Panel>
 				<Panel class="BarBackground" id="HealthPoints">
 					<Panel class="Bar" id="HPBar">
 						<Panel class="BarElement" id="HPBar1"/>
