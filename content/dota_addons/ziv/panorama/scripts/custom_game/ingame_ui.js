@@ -92,17 +92,17 @@ function UpdateHPAndMP()
 	var xp = 	Entities.GetCurrentXP( queryUnit );
 	var maxXP = 	Entities.GetNeededXPToLevel( queryUnit );
 
-	if (heroKV["UsesEnergy"] && $("#SPBar1").BHasClass("Energy") == false) 
+	if (heroKV["UsesEnergy"]) 
 	{
 		if (heroKV["DarkEnergy"]) {
-			$("#SPBar1").SwitchClass("Mana", "DarkEnergy");
-			$("#SPBar2").SwitchClass("Mana", "DarkEnergy");
-			$("#SPBar3").SwitchClass("Mana", "DarkEnergy");
+			$("#SPOrb1").SwitchClass("Mana", "DarkEnergy");
+			$("#SPOrb2").SwitchClass("Mana", "DarkEnergy");
+			$("#SPOrb3").SwitchClass("Mana", "DarkEnergy");
 		}
 		else {
-			$("#SPBar1").SwitchClass("Mana", "Energy");
-			$("#SPBar2").SwitchClass("Mana", "Energy");
-			$("#SPBar3").SwitchClass("Mana", "Energy");
+			$("#SPOrb1").SwitchClass("Mana", "Energy");
+			$("#SPOrb2").SwitchClass("Mana", "Energy");
+			$("#SPOrb3").SwitchClass("Mana", "Energy");
 		}
 	}
 
@@ -111,17 +111,17 @@ function UpdateHPAndMP()
 
 	if (hp != NaN) {
 		var hpPercentage = (hp / maxHP * 100);
-		$("#HPBar").style.height = hpPercentage + "%;";
+		$("#HPOrb").style.height = hpPercentage + "%;";
 	}
 
 	if (mp != NaN) {
 		var mpPercentage = mp / maxMP * 100.0;
-		$("#SPBar").style.height = mpPercentage + "%;";
+		$("#SPOrb").style.height = mpPercentage + "%;";
 	}
 
-	if (maxMP == 0) {
-		$("#sp").text = "";
-	}
+	// if (maxMP == 0) {
+	// 	$("#sp").text = "";
+	// }
 
 	if (xp != NaN && maxXP != NaN) {
 		var xpPercentage = xp / maxXP;

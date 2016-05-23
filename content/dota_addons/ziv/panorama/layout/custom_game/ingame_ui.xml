@@ -19,20 +19,20 @@
 					<Panel class="XPBarElement" id="XPBar2"/>
 					<Panel class="XPBarElement" id="XPBar3"/>
 				</Panel>
-				<Panel class="BarBackground" id="HealthPoints">
-					<Panel class="Bar" id="HPBar">
-						<Panel class="BarElement" id="HPBar1"/>
-						<Panel class="BarElement" id="HPBar2"/>
-						<Panel class="BarElement" id="HPBar3"/>
+				<Panel class="OrbRoot" id="HealthPoints">
+					<Panel class="Orb" id="HPOrb">
+						<Panel class="OrbElement" id="HPOrb1"/>
+						<Panel class="OrbElement" id="HPOrb2"/>
+						<Panel class="OrbElement" id="HPOrb3"/>
 					</Panel>
 					<Panel class="GlassOrb"/>
 					<!-- <Label text="100/100" class="ValueLabel" id="hp" /> -->
 				</Panel>
-				<Panel class="BarBackground" id="SPPoints">
-					<Panel class="Bar" id="SPBar">
-						<Panel class="BarElement Mana" id="SPBar1"/>
-						<Panel class="BarElement Mana" id="SPBar2"/>
-						<Panel class="BarElement Mana" id="SPBar3"/>
+				<Panel class="OrbRoot" id="SkillPoints">
+					<Panel class="Orb" id="SPOrb">
+						<Panel class="OrbElement Mana" id="SPOrb1"/>
+						<Panel class="OrbElement Mana" id="SPOrb2"/>
+						<Panel class="OrbElement Mana" id="SPOrb3"/>
 					</Panel>
 					<Panel class="GlassOrb"/>
 					<!-- <Label text="100/100" class="ValueLabel" id="sp" /> -->
