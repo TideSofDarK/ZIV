@@ -114,7 +114,7 @@ function UpdateHPAndMP()
 		$("#sp").text = "";
 	}
 
-	if (xp != NaN) {
+	if (xp != NaN && maxXP != NaN) {
 		var xpPercentage = xp / maxXP;
 		$("#XPBarRoot").style.width = (xpPercentage * 700) + "px;";
 	}

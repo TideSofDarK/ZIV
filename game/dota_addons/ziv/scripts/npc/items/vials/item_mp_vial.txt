@@ -30,10 +30,5 @@
   {    
     "SpendCharge" 
     {}
-    "RunScript"
-    {
-      "ScriptFile"  "items/vials.lua"
-      "Function"    "ActivateMPVial"
-    }
   }
 }

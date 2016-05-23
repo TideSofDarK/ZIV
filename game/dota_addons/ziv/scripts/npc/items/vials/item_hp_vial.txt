@@ -28,17 +28,12 @@
 
   "precache"
   {
-    "particle"  "particles/heroes/dark_goddess/dark_goddess_concentration_lifesteal.vpcf"
+    "particle"  "particles/props/vials/hp_vial.vpcf"
   }
 
   "OnSpellStart"
   {    
     "SpendCharge" 
     {}
-    "RunScript"
-    {
-      "ScriptFile"  "items/vials.lua"
-      "Function"    "ActivateHPVial"
-    }
   }
 }

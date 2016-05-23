@@ -75,6 +75,12 @@ function Loot:Generate( creep, killer )
     		Loot:CreepDrops( Loot.Table[lootTable.Preset], creep, killer ) 
     	end
 	end
+
+	local vial = CreateVial( killer, creep:GetAbsOrigin() + Vector(math.random(-20,20),math.random(-20,20), 0) )
+
+	if vial then
+		PrepareVial( vial )
+	end
 end
 
 function Loot:AddModifiers(item)
@@ -188,13 +194,6 @@ function Loot:CreepDrops( lootTable, creep, killer )
 			return math.random(0.21, 0.41)
 		end
 	end)
-
-	local vial = CreateVial( killer, creep:GetAbsOrigin() )
-
-	if vial then
-		Loot:SpawnPhysicalItem(vial, true)
-		PrepareVial( vial )
-	end
 end
 
 function Loot:OpenChest( chest, unit )
