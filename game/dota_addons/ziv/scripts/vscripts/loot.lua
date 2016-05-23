@@ -57,7 +57,6 @@ function Loot:GetLootTable( creep )
   if Loot.Table == nil then
     return nil
   end
-  
   -- Get loot table
   return Loot.Table[creep:GetUnitName()]
 end
@@ -123,7 +122,7 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
   	local rarity = nil
   	local items = nil
 
-	if type(lootTable) == "table" then
+	if type(lootTable) == "table" and lootTable.Loot then
 	  	-- Random rarity
 	  	local num = 0
 	  	for k,v in pairs(lootTable.Loot) do
@@ -141,11 +140,15 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
 		itemName = lootTable
 	end
 
-  	local item = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), CreateItem(itemName, owner, owner))
+	if not itemName or type(itemName) ~= "string" then return nil end
+
+	local item = CreateItem(itemName, owner, owner)
+
+  	local container = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), item)
   
   	-- Random item rotation
-  	item:SetAngles(0, math.random(0, 360), 0)
-  	local new_item = item:GetContainedItem()
+  	container:SetAngles(0, math.random(0, 360), 0)
+  	local new_item = container:GetContainedItem()
 
   	new_item.rarity = 0
 
@@ -160,13 +163,13 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
     if new_item.rarity > 0 then 
       	Loot:AddModifiers(new_item)
 
-      	local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[new_item.rarity], PATTACH_ABSORIGIN_FOLLOW, item)
-      	ParticleManager:SetParticleControl(particle, 0, item:GetAbsOrigin())
-      	item.particles = {}
-      	table.insert(item.particles, particle)
+      	local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[new_item.rarity], PATTACH_ABSORIGIN_FOLLOW, container)
+      	ParticleManager:SetParticleControl(particle, 0, container:GetAbsOrigin())
+      	container.particles = {}
+      	table.insert(container.particles, particle)
  	end
   
-  	return item
+  	return container
 end
 
 function Loot:CreepDrops( lootTable, creep, killer )
@@ -177,11 +180,21 @@ function Loot:CreepDrops( lootTable, creep, killer )
 		if i < count then
 			i = i + 1
 
-			Loot:SpawnPhysicalItem(Loot:RandomItemFromLootTable( lootTable, creep, killer ))
+			local item = Loot:RandomItemFromLootTable( lootTable, creep, killer )
+			if item then
+				Loot:SpawnPhysicalItem(item)
+			end
 
-			return math.random(0.31, 0.41)
+			return math.random(0.21, 0.41)
 		end
-	end)   
+	end)
+
+	local vial = CreateVial( killer, creep:GetAbsOrigin() )
+
+	if vial then
+		Loot:SpawnPhysicalItem(vial, true)
+		PrepareVial( vial )
+	end
 end
 
 function Loot:OpenChest( chest, unit )
@@ -219,8 +232,8 @@ function Loot:OpenChest( chest, unit )
 	end) 
 end
 
-function Loot:SpawnPhysicalItem(new_item_c)
-	CreateItemPanel( new_item_c )
+function Loot:SpawnPhysicalItem(new_item_c, no_panel)
+	if not no_panel then CreateItemPanel( new_item_c ) end
 
 	Physics:Unit(new_item_c)
 

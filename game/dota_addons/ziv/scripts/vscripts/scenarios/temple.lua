@@ -51,37 +51,6 @@ function Temple:NextStage()
 				DoToAllHeroes(function ( hero )
 					hero:AddNewModifier(hero,nil,"modifier_smooth_floating",{duration = duration})
 					TimedEffect( "particles/unique/temple/temple_floating_particle.vpcf", hero, duration, 0 )
-
-					Physics:Unit(hero)
-					hero:FollowNavMesh(false)
-
-					local collider = hero:AddColliderFromProfile("gravity")
-					collider.filter = heroes
-					collider.radius = 200
-					collider.fullRadius = 0
-					collider.minRadius = 0
-					collider.force = 8000
-					collider.linear = false
-					collider.test = function(self, collider, collided)
-						return IsPhysicsUnit(collided)
-					end
-
-					Timers:CreateTimer(duration, function (  )
-				        local seed = (math.random(1, 4) * 90) + 35
-
-				        local point = PointOnCircle(6585, seed)
-
-				        hero:AddPhysicsVelocity(Vector(point.x, point.y, 1750))
-				        hero:SetPhysicsAcceleration(Vector(0,0,-1400))
-
-				        StartAnimation(hero, {duration=3.5, activity=ACT_DOTA_FLAIL, rate=1.0})
-				        Timers:CreateTimer(3.5, function (  )
-				        	hero:RemoveCollider()
-				        	hero:StopPhysicsSimulation ()
-
-				        	hero.GetPhysicsVelocity = nil
-				        end)
-					end)
 				end)
 
 				Timers:CreateTimer(duration, function (  )
@@ -122,7 +91,7 @@ function Temple:FallingRocks()
 							if v ~= unit then
 								DealDamage( unit, v, v:GetMaxHealth() * Temple.ROCKS_DAMAGE, DAMAGE_TYPE_PHYSICAL ) 
 								v:EmitSound("Creep_Good_Melee_Mega.Attack")
-								v:AddNewModifier(unit,nil,"modifier_stunned",{duration=0.03})
+								-- v:AddNewModifier(unit,nil,"modifier_stunned",{duration=0.03})
 							end
 						end
 
