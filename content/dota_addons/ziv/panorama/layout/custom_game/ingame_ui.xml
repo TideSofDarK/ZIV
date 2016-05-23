@@ -25,6 +25,7 @@
 						<Panel class="BarElement" id="HPBar2"/>
 						<Panel class="BarElement" id="HPBar3"/>
 					</Panel>
+					<Panel class="GlassOrb"/>
 					<!-- <Label text="100/100" class="ValueLabel" id="hp" /> -->
 				</Panel>
 				<Panel class="BarBackground" id="SPPoints">
@@ -33,7 +34,7 @@
 						<Panel class="BarElement" id="SPBar2"/>
 						<Panel class="BarElement" id="SPBar3"/>
 					</Panel>
-
+					<Panel class="GlassOrb"/>
 					<!-- <Label text="100/100" class="ValueLabel" id="sp" /> -->
 				</Panel>
 			</Panel>

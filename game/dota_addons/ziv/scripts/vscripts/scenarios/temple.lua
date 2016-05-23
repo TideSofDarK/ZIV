@@ -10,7 +10,7 @@ Temple.STAGE_END = 5
 
 Temple.ROCKS_DELAY = 2.0
 Temple.ROCKS_TICK = 0.1
-Temple.ROCKS_DAMAGE = 0.05
+Temple.ROCKS_DAMAGE = 0.04
 Temple.ROCKS_DURATION = 1.5
 
 Temple.stage = Temple.STAGE_NO

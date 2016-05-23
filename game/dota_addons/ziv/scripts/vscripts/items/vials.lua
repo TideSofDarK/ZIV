@@ -19,7 +19,8 @@ end
 
 function ActivateVial( vial, caster )
 	if vial == "item_hp_vial" then
-		ParticleManager:CreateParticle("particles/props/vials/hp_vial.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
+		local particle = ParticleManager:CreateParticle("particles/props/vials/hp_vial.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
+		ParticleManager:SetParticleControl(particle,1,caster:GetAbsOrigin() + Vector(0,0,64))
 
 		caster:Heal(caster:GetMaxHealth() * randomf(0.1,0.15),nil)
 		caster:EmitSound("DOTA_Item.Mango.Activate")

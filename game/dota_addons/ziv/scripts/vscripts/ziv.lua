@@ -66,6 +66,9 @@ require('minimap')
 -- Containers
 require('libraries/containers')
 
+-- Balance variables
+require('balance')
+
 LinkLuaModifier("modifier_custom_attack", "libraries/modifiers/modifier_custom_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_fade_out", "libraries/modifiers/modifier_fade_out.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_transparent", "libraries/modifiers/modifier_transparent.lua", LUA_MODIFIER_MOTION_NONE)
@@ -224,8 +227,8 @@ function ZIV:OnHeroInGame(hero)
       return 0.03
     end)
 
-    hero.vial_rng = PseudoRNG.create( 0.25 )
-    hero.vial_choice_rng = ChoicePseudoRNG.create( {0.6, 0.4} )
+    hero.vial_rng = PseudoRNG.create( ZIV_VIAL_CHANCE )
+    hero.vial_choice_rng = ChoicePseudoRNG.create( {ZIV_HP_VIAL_CHANCE, ZIV_SP_VIAL_CHANCE} )
   end)
 end
 

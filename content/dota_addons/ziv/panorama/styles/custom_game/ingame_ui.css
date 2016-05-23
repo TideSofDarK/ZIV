@@ -206,6 +206,13 @@
 	horizontal-align: right;
 }
 
+.GlassOrb {
+	width: 160px;
+	height: 160px;
+	opacity: 0.2;
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/glass.png");
+}
+
 .ValueLabel {
 	width: 100%;
 	height: 100%;
