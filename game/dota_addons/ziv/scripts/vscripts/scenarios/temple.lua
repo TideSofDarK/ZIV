@@ -23,7 +23,7 @@ Temple.obelisks = {}
 
 function Temple:Init()
 	Temple.obelisks_positions = Entities:FindAllByName("ziv_temple_obelisk")
-	Temple.creeps_positions = Entities:FindAllByName("ziv_basic_creep_spawner")
+	Temple.creeps_positions = Entities:FindAllByName("ziv_temple_obelisk") --ziv_basic_creep_spawner
 end
 
 function Temple:SetObelisksCount()
@@ -131,7 +131,7 @@ function Temple:SpawnCreeps()
 	    {
 	        Level = 1,
 	        SpawnBasic = true,
-	        Count = math.random(10, 25),
+	        Count = math.random(20, 36),
 	        Position = v:GetAbsOrigin(),
 	        CheckHeight = true,
 	        SpawnLord = i % 3 == 0

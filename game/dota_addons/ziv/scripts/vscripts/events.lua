@@ -68,6 +68,10 @@ function ZIV:OnNPCSpawned(keys)
   if npc.IsHero and not string.match(npc:GetUnitName(), "dummy") and not npc.worldPanel then
 
   end
+
+  if npc.GetAbsOrigin then
+    npc.initial_origin = npc:GetAbsOrigin()
+  end
 end
 
 -- An entity somewhere has been hurt.  This event fires very often with many units so don't do too many expensive

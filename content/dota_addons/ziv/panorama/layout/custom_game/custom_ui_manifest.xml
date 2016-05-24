@@ -65,10 +65,10 @@
             var map = args["map"];
             var panelName = args["name"];
 
-            $.Msg("file://{resources}/layout/custom_game/unique/" + map + "/" + panelName  + ".xml");
-
             var panel = $.CreatePanel( "Panel", GameUI.CustomUIConfig().ingame_ui, "" );
+            panel.BLoadLayout( "file://{resources}/layout/custom_game/unique/" + panelName  + ".xml", false, false );
             panel.BLoadLayout( "file://{resources}/layout/custom_game/unique/" + map + "/" + panelName  + ".xml", false, false );
+
             GameUI.CustomUIConfig().customPanels.push( panel );
         }));
     })();

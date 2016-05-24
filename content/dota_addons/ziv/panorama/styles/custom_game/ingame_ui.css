@@ -3,16 +3,19 @@
   0%
   {
 	transform: translateX(0px);
+	opacity: 0.8;
   }
 
   50%
   {
 	transform: translateX(128px);
+	opacity: 0.5;
   }
 
   100%
   {
 	transform: translateX(0px);
+	opacity: 0.7;
   }
 }
 
@@ -21,19 +24,39 @@
   0%
   {
 	transform: translateX(0px);
+	opacity: 0.8;
   }
 
   50%
   {
 	transform: translateX(-128px);
+	opacity: 0.5;
   }
 
   100%
   {
 	transform: translateX(0px);
+	opacity: 0.7;
   }
 }
 
+@keyframes 'bar_vertical'
+{
+  0%
+  {
+	transform: translateY(0px);
+  }
+
+  50%
+  {
+	transform: translateY(128px);
+  }
+
+  100%
+  {
+	transform: translateY(0px);
+  }
+}
 
 @keyframes 'bar_first'
 {
@@ -327,14 +350,14 @@
 	horizontal-align: center;
 	flow-children: right;
 	margin-left: 410px;
-	margin-bottom: 13px;
+	margin-bottom: 17px;
 }
 
 .BottomButton {
-	margin-left: 10px;
+	margin-left: 14px;
 	
-    width: 50px;
-    height: 90px;
+    width: 47px;
+    height: 84px;
 
     background-size: 100% 100%;
 }

@@ -46,3 +46,78 @@
 	margin-bottom: 14px;
 	margin-top: 6px;
 }
+
+/* Boss HP Bar */
+
+.BossHPRoot {
+	vertical-align: top;
+	horizontal-align: center;
+
+	margin-top: 50px;
+
+	width: 1000px;
+	height: 100px;
+}
+
+.BossHPBar {
+	width: 1000px;
+	height: 50px;
+
+	border: 3px solid #222222FF;
+	border-radius: 2px;
+
+	vertical-align: bottom;
+	horizontal-align: left;
+
+	overflow: clip clip;
+}
+
+.HPBarElement {
+	-s2-mix-blend-mode: screen;
+	background-repeat: repeat repeat;
+
+	horizontal-align: center;
+
+	animation-delay: 0.0s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	width: 1256px;
+	height: 256px;
+
+	opacity: 0.5;
+}
+
+#BossHPLabel {
+	vertical-align: bottom;
+	margin-bottom: 14px;
+
+	font-size: 20px;
+}
+
+#BossName {
+	text-shadow: 0px 0px 8px 3.0 #333333b0;
+
+	font-size: 40px;
+}
+
+#HPBar1 {
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/hp_1.png");
+
+	opacity: 1.0;
+
+	animation-name: bar_horizontal;
+	animation-duration: 10.0s;
+}
+#HPBar2 {
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/hp_2.png");
+
+	animation-name: bar_horizontal_back;
+	animation-duration: 20.0s;
+}
+#HPBar3 {
+	background-image: url("file://{images}/custom_game/ingame_ui/spheres/hp_3.png");
+
+	animation-name: bar_horizontal;
+	animation-duration: 15.0s;
+}

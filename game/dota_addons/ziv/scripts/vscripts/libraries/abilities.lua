@@ -146,7 +146,7 @@ function SimulateRangeAttack( keys )
       bProvidesVision = false,
       fVisionTickTime = .1,
       fVisionLingerDuration = 0.5,
-      draw = true,
+      draw = false,
       UnitTest = function(self, target) return target:GetUnitName() ~= "npc_dummy_unit" and caster:GetTeamNumber() ~= target:GetTeamNumber() end,
     }
 

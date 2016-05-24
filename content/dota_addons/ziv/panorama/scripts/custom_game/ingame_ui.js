@@ -126,7 +126,7 @@ function UpdateHPAndMP()
 	if (xp != NaN && maxXP != NaN) {
 		var xpPercentage = xp / maxXP;
 		var value = (xpPercentage * 700);
-		if (value != NaN) {
+		if (value != NaN && value != Infinity) {
 			$("#XPBarRoot").style.width = value + "px;";
 		}
 	}

@@ -1,0 +1,18 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/ingame_ui.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_scenarios.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/unique/boss_hpbar.js" />
+	</scripts>
+	<Panel hittest="false" class="BossHPRoot">
+		<Label text="Oath" class="ObjectiveHeadline" id="BossName" />
+		<Panel class="BossHPBar" id="BossHPBar" >
+			<Panel class="HPBarElement" id="HPBar1"/>
+			<Panel class="HPBarElement" id="HPBar2"/>
+			<Panel class="HPBarElement" id="HPBar3"/>
+		</Panel>
+		<Label text="20000/20000" class="ObjectiveHeadline" id="BossHPLabel" />
+	</Panel>
+</root>
