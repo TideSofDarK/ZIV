@@ -1008,7 +1008,8 @@
 	    "Ability3"                  "ziv_doom_circles"
 	    "Ability4"                  "ziv_doom_rain"
 	    "Ability5"                  "ziv_doom_passive"
-	    "Ability6"                  "ziv_unique_hpbar"
+	    "Ability6"                  "mud_golem_rock_destroy"
+	    "Ability7"                  "ziv_unique_hpbar"
 	
 	    "ArmorPhysical"             "0"
 	    "MagicalResistance"         "0"

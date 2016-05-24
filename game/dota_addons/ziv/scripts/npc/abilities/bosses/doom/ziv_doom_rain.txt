@@ -5,12 +5,12 @@
   "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastPoint"        "0.1"
-  "AbilityCastRange"        "800"
+  "AbilityCastRange"        "700"
   "AbilityCooldown"       "19"
   "AbilityChannelTime" "8.0"
   "AbilityCastAnimation"      "ACT_DOTA_TELEPORT"
 
-  "AbilityManaCost"       "0"
+  "AbilityManaCost"       "20"
 
   "MaxLevel"  "1"
 

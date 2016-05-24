@@ -1,0 +1,38 @@
+"ziv_doom_passive"
+{
+	"BaseClass"           "ability_datadriven"
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"AbilityTextureName"            "ziv_empty"
+
+	"MaxLevel"  "1"
+
+	"Modifiers"
+	{
+		"modifier_doom_passive"
+		{
+			"Passive"			"1"
+			"IsHidden"			"0"
+  			"IsDebuff"			"0"
+  	
+  			"OnCreated"
+  			{
+			    "RunScript"
+			    {
+			      	"ScriptFile"  "abilities/bosses/doom/ziv_doom_passive.lua"
+			      	"Function"    "Start"
+			      	"size" "40"
+			    }
+  			}
+
+  			"OnDeath"
+  			{
+			    "RunScript"
+			    {
+			      	"ScriptFile"  "abilities/bosses/doom/ziv_doom_passive.lua"
+			      	"Function"    "Divide"
+			      	"size" "20"
+			    }
+  			}
+  		}
+  	}
+}

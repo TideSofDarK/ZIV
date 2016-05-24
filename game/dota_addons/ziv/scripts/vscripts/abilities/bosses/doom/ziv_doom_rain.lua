@@ -7,7 +7,7 @@ function Rain( keys )
 	Timers:CreateTimer(function ()
 		TimedEffect("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_death.vpcf", caster, 1.0, 1)
 
-		local position = RandomPointInsideCircle(caster:GetAbsOrigin().x, caster:GetAbsOrigin().y, ability:GetCastRange(), ability:GetCastRange() / 2)
+		local position = RandomPointInsideCircle(caster:GetAbsOrigin().x, caster:GetAbsOrigin().y, ability:GetCastRange(), ability:GetCastRange() / 3)
 
 		position.z = GetGroundHeight(position,caster)
 

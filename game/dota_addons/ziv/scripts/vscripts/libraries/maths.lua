@@ -27,6 +27,30 @@ function RandomPointInsideCircle(x, y, radius, min_length)
   return Vector(x + randX, y + randY, 0)
 end
 
+function RandomPointsInsideCircleUniform( pos, radius, count, uniform )
+  local points = {}
+
+  check_point = function ( v )
+    for i=1,#points do
+      if (points[i] - v):Length2D() < uniform then return false end
+    end
+    return true
+  end
+
+  for i=1,count do
+    local point
+    repeat 
+      point = RandomPointInsideCircle(pos.x, pos.y, radius)
+    until check_point(point)
+
+    point.z = pos.z
+
+    table.insert(points, point)
+  end
+
+  return points
+end
+
 function RandomPointOnCircle(radius)
     local angle = math.random(0,math.pi * 2)
     local x = radius * math.cos(angle)

@@ -5,8 +5,10 @@ function Circles( keys )
 	local count = GetSpecial(ability, "circles_count")
 	local duration = GetSpecial(ability, "duration")
 
+	local points = RandomPointsInsideCircleUniform( caster:GetAbsOrigin(), ability:GetCastRange(), count, 210 )
+
 	for i=1,count do
-		local position = RandomPointInsideCircle(caster:GetAbsOrigin().x, caster:GetAbsOrigin().y, ability:GetCastRange())
+		local position = points[i]
 		position.z = GetGroundHeight(position,caster)
 
 		ability:ApplyDataDrivenThinker(caster,position,"modifier_doom_circle",{duration=duration})
