@@ -2,7 +2,13 @@ function Smoke( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
+	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_TAUNT, rate=1.0, translate="sharp_blade"})
+
 	ability:ApplyDataDrivenThinker(caster,caster:GetAbsOrigin(),"modifier_samurai_smoke",{duration = GetSpecial(ability, "duration")})
+
+	Timers:CreateTimer(0.25, function (  )
+		EndAnimation(caster)
+	end)
 end
 
 function SmokeParticle( keys )
