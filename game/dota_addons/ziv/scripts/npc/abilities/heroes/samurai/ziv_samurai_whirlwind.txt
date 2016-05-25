@@ -84,7 +84,7 @@
       "IsHidden"      "0"
       "IsDebuff"      "0"
 
-      "ThinkInterval"  "0.15"
+      "ThinkInterval"  "0.3"
       "OnIntervalThink"
       {
         "RunScript"
@@ -97,6 +97,7 @@
       "States"
       {
         "MODIFIER_STATE_NO_UNIT_COLLISION"    "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_DISARMED"    "MODIFIER_STATE_VALUE_ENABLED"
       }
   
       "Properties"

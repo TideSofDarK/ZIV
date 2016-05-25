@@ -31,6 +31,7 @@ function ActivateVial( vial, caster )
 		caster:EmitSound("Bottle.Drink")
 	else
 		local particle = ParticleManager:CreateParticle("particles/props/vials/ep_vial.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
+		ParticleManager:SetParticleControl(particle, 1, Vector(200,0,0))
 
 		caster:GiveMana(caster:GetMaxMana() * randomf(ZIV_EP_VIAL_ENERGY_MIN,ZIV_EP_VIAL_ENERGY_MAX))
 		caster:EmitSound("Greevil.Purification")

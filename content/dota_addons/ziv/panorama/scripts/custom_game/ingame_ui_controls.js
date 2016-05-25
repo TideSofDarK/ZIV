@@ -92,7 +92,7 @@ function ZIVCastAbility(number, pressing) {
 
 		m_AbilityCasting[ability] = true;
 		
-		$.Schedule(Abilities.GetCooldownTimeRemaining( ability ) + 0.08, (function() {ZIVCastAbility(number, true)}) )
+		$.Schedule(Abilities.GetCooldownTimeRemaining( ability ) + 0.06, (function() {ZIVCastAbility(number, true)}) )
 	}
 }
 

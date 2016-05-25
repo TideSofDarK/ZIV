@@ -10,7 +10,12 @@ function StartWhirlwind( keys )
 
 	if caster:HasModifier("modifier_animation") == false then
 		StartAnimation(caster, {duration=-1, activity=ACT_DOTA_OVERRIDE_ABILITY_1, rate=1.25})
-		caster:EmitSound("Greevil.BladeFuryStart")
+		-- caster:EmitSound()
+		ability.sound = ability.sound or false
+		if ability.sound == false then
+			StartSoundEvent("Greevil.BladeFuryStart", caster)
+			ability.sound = true
+		end
 	end
 
 	if not caster.whirlwind_particle then
@@ -31,8 +36,12 @@ function StartWhirlwind( keys )
 				ParticleManager:DestroyParticle(caster.whirlwind_particle, false)
 				caster.whirlwind_particle = nil
 				EndAnimation(caster)
-				-- StopSoundEvent(, caster)
-				StopSoundOn("Greevil.BladeFuryStart", caster)
+
+				if ability.sound == true then
+					StopSoundEvent("Greevil.BladeFuryStart", caster)
+					ability.sound = false
+				end
+
 				caster:EmitSound("Hero_Juggernaut.BladeFuryStop")
 			else
 				return 0.3
@@ -68,6 +77,6 @@ function DamageTick( keys )
 			damage_type = DAMAGE_TYPE_COLD
 		end
 
-		DealDamage( caster, target, GetRuneDamage("ziv_samurai_whirlwind_damage",caster) / 3, damage_type )
+		DealDamage( caster, target, GetRuneDamage("ziv_samurai_whirlwind_damage",caster) / 1.5, damage_type )
 	end
 end

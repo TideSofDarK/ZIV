@@ -5050,6 +5050,107 @@
 	    }
 	  }
 	}
+	"ziv_samurai_smoke"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AbilityCastPoint"        "0.3"
+	  "AbilityCooldown"         "14"
+	
+	  "AbilityManaCost"       "10"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/heroes/samurai/samurai_smoke.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+	  }
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type" "FIELD_FLOAT"
+	      "duration" "8.0"
+	    }
+	    "02"
+	    {
+	      "var_type" "FIELD_INTEGER"
+	      "movespeed_reduction" "-50"
+	    }
+	    "03"
+	    {
+	      "var_type" "FIELD_INTEGER"
+	      "miss_chance" "35"
+	    }
+	    "04"
+	    {
+	      "var_type" "FIELD_INTEGER"
+	      "radius" "350"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "DOTA_Item.SmokeOfDeceit.Activate"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_smoke.lua"
+	      "Function"    "Smoke"
+	      "Target"      "POINT"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_samurai_smoke_slow"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "1"
+	    
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_reduction" 
+	        "MODIFIER_PROPERTY_MISS_PERCENTAGE"  "%miss_chance" 
+	      }
+	    }
+	    "modifier_samurai_smoke"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "ThinkInterval"  "0.5"
+	      "OnIntervalThink"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_smoke.lua"
+	          "Function"    "SmokeSlow"
+	        }
+	      }
+	    
+	      "OnCreated"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_smoke.lua"
+	          "Function"    "SmokeParticle"
+	          "Target"      "POINT"
+	        }
+	      }
+	    }
+	  }
+	}    
+	  
 	"ziv_samurai_whirlwind"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -5136,7 +5237,7 @@
 	      "IsHidden"      "0"
 	      "IsDebuff"      "0"
 	
-	      "ThinkInterval"  "0.15"
+	      "ThinkInterval"  "0.3"
 	      "OnIntervalThink"
 	      {
 	        "RunScript"
@@ -5149,6 +5250,7 @@
 	      "States"
 	      {
 	        "MODIFIER_STATE_NO_UNIT_COLLISION"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_DISARMED"    "MODIFIER_STATE_VALUE_ENABLED"
 	      }
 	  
 	      "Properties"

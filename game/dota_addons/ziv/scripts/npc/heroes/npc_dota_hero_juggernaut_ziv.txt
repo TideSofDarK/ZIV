@@ -5,16 +5,16 @@
 
     "EquipmentSlots" "torso;sword;gloves;ring;pants;boots"
 
-    "ChooseLayout"  "2111"
+    "ChooseLayout"  "2112"
 
     "AbilityLayout"     "4"
 
     "Ability1"        "ziv_samurai_whirlwind" 
     "Ability2"        "ziv_samurai_execution" 
     "Ability3"        "ziv_samurai_dash" 
-    "Ability4"        "ziv_samurai_cold_touch"
+    "Ability4"        "ziv_samurai_smoke"
     "Ability5"        "ziv_samurai_reign_of_fire"
-    "Ability6"        ""
+    "Ability6"        "ziv_samurai_cold_touch"
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""
