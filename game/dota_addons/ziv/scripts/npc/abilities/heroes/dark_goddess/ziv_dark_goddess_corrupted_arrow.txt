@@ -2,11 +2,11 @@
 {
 	"BaseClass"	"ability_datadriven"
 	"AbilityTextureName"	"ziv_empty"
-	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC"
 
-	"AbilityCastRange"	"600"
+	"AbilityCastRange"	"1300"
 	"AbilityCastPoint"	"0.0"
 	"AbilityCooldown"	"0.0"
 	"AbilityDamage"	"0"

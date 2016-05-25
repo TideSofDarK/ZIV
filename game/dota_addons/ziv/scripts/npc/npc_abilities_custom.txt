@@ -2322,11 +2322,11 @@
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"ziv_empty"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC"
 	
-		"AbilityCastRange"	"600"
+		"AbilityCastRange"	"1300"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"0.0"
 		"AbilityDamage"	"0"
@@ -2732,7 +2732,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"ziv_empty"
 	
-		"AbilityCastRange"        "700"
+		"AbilityCastRange"        "900"
 		"AbilityCastPoint"				"0.05"
 		"AbilityCooldown"				"5.0"
 		
@@ -2954,7 +2954,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityTextureName"			"ziv_empty"
 	
-		"AbilityCastRange" 	"900"
+		"AbilityCastRange" 	"1600"
 		"AbilityManaCost"	"25"
 		"AbilityCastPoint"        "0.0"
 		"AbilityCooldown"				"0.0"
@@ -2973,8 +2973,8 @@
 		{
 			"01"
 			{
-				"var_type" "FIELD_INTEGER"
-				"damage_amp" "2.3"
+				"var_type" "FIELD_FLOAT"
+				"damage_amp" "1.5"
 			}
 			"02"
 			{
@@ -2997,11 +2997,11 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"libraries/abilities.lua"
-				"Function"		"SimulateRangeAttack"
+				"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_cold_orb.lua"
+				"Function"		"FireOrb"
 				"effect" "particles/heroes/elementalist/elementalist_cold_orb.vpcf"
 				"damage_amp" "%damage_amp"
-				"attack_sound" "Hero_Ancient_Apparition.IceVortexCast"
+				"attack_sound" "Hero_Ancient_Apparition.Attack"
 				"Target" "POINT"
 			}
 		}
@@ -3041,11 +3041,6 @@
 					"SpendMana"
 					{
 						"Mana"		"%AbilityManaCost"
-					}
-					"FireSound"
-					{
-						"EffectName"	"Hero_Ancient_Apparition.IceVortexCast"
-						"Target" 		"CASTER"
 					}
 				}
 	
@@ -3187,7 +3182,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityTextureName"			"ziv_empty"
 	
-		"AbilityCastRange" 	"900"
+		"AbilityCastRange" 	"1600"
 		"AbilityManaCost"	"25"
 		"AbilityCastPoint"        "0.0"
 		"AbilityCooldown"				"0.0"
@@ -3205,8 +3200,8 @@
 		{
 			"01"
 			{
-				"var_type" "FIELD_INTEGER"
-				"damage_amp" "2.3"
+				"var_type" "FIELD_FLOAT"
+				"damage_amp" "1.7"
 			}
 			"02"
 			{
@@ -3219,8 +3214,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"libraries/abilities.lua"
-				"Function"		"SimulateRangeAttack"
+				"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_dark_orb.lua"
+				"Function"		"FireOrb"
 				"effect" "particles/heroes/elementalist/elementalist_dark_orb.vpcf"
 				"damage_amp" "%damage_amp"
 				"attack_sound" "Hero_Nevermore.Attack"

@@ -324,5 +324,6 @@ GameUI.SetMouseCallback( function( eventName, arg ) {
 } );
 
 GameUI.SetCameraPitchMax( 55 );
+GameUI.SetCameraYaw( 45 );
 // GameUI.SetCameraDistance( 900 );
 GameUI.SetCameraLookAtPositionHeightOffset(Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2]); 

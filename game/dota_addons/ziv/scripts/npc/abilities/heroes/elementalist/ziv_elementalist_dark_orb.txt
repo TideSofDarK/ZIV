@@ -4,7 +4,7 @@
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 	"AbilityTextureName"			"ziv_empty"
 
-	"AbilityCastRange" 	"900"
+	"AbilityCastRange" 	"1600"
 	"AbilityManaCost"	"25"
 	"AbilityCastPoint"        "0.0"
 	"AbilityCooldown"				"0.0"
@@ -22,8 +22,8 @@
 	{
 		"01"
 		{
-			"var_type" "FIELD_INTEGER"
-			"damage_amp" "2.3"
+			"var_type" "FIELD_FLOAT"
+			"damage_amp" "1.7"
 		}
 		"02"
 		{
@@ -36,8 +36,8 @@
 	{
 		"RunScript"
 		{
-			"ScriptFile"	"libraries/abilities.lua"
-			"Function"		"SimulateRangeAttack"
+			"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_dark_orb.lua"
+			"Function"		"FireOrb"
 			"effect" "particles/heroes/elementalist/elementalist_dark_orb.vpcf"
 			"damage_amp" "%damage_amp"
 			"attack_sound" "Hero_Nevermore.Attack"

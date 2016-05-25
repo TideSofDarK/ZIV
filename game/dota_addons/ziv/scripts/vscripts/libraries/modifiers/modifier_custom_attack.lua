@@ -15,6 +15,14 @@ function modifier_custom_attack:OnOrder( params )
     end
 end
 
+function modifier_custom_attack:CheckState()
+    local state = {
+        [MODIFIER_STATE_DISARMED] = true
+    }
+
+    return state
+end
+
 function modifier_custom_attack:IsHidden()
     return true
 end

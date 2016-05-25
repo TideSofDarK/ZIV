@@ -6,7 +6,7 @@
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 	"AbilityTextureName"			"ziv_empty"
 
-	"AbilityCastRange"        "700"
+	"AbilityCastRange"        "900"
 	"AbilityCastPoint"				"0.05"
 	"AbilityCooldown"				"5.0"
 	

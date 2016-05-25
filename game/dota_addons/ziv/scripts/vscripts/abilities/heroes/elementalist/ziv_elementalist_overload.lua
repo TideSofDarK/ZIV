@@ -32,16 +32,16 @@ function Overload( keys )
 
 			ability:ApplyDataDrivenModifier(caster,v,"modifier_overload_frozen",{})
 
-			v:EmitSound("Hero_Zuus.GodsWrath.Target")
-			v:EmitSound("Item.Maelstrom.Chain_Lightning.Jump")
+			-- v:EmitSound("Hero_Zuus.GodsWrath.Target")
+			
 
 			Timers:CreateTimer(((caster:GetAbsOrigin() - v:GetAbsOrigin()):Length2D() / speed) + 0.2, function (  )
 				local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_overload_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
 				DealDamage(caster, v, GetRunePercentIncrease(damage/3,"ziv_elementalist_overload_fire_damage",caster), DAMAGE_TYPE_FIRE)
 
 				ability:ApplyDataDrivenModifier(caster,v,"modifier_overload_burn",{})
-
-				v:EmitSound("Hero_SkeletonKing.Hellfire_BlastImpact")
+				v:EmitSound("Item.Maelstrom.Chain_Lightning.Jump")
+				-- v:EmitSound("Hero_SkeletonKing.Hellfire_BlastImpact")
 			end)
 			i = i + 1
 		end
