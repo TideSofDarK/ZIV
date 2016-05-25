@@ -43,10 +43,10 @@
 
       "Properties"
       {
-        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
+        // "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
       }
 
-      "ThinkInterval"  "1.0"
+      "ThinkInterval"  "0.03"
       "OnIntervalThink"
       {
         "RunScript"
@@ -54,6 +54,17 @@
           "ScriptFile"  "libraries/abilities.lua"
           "Function"    "CreepAgression"
         }
+      }
+    }
+
+    "ziv_creep_normal_behavior_disable_autoattack"
+    {
+      "Passive"                        "0"
+      "IsHidden"                        "1" 
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
       }
     }
     

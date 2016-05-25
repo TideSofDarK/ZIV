@@ -7,12 +7,15 @@
 		<include src="file://{resources}/scripts/custom_game/unique/boss_hpbar.js" />
 	</scripts>
 	<Panel hittest="false" class="BossHPRoot">
-		<Label text="Oath" class="ObjectiveHeadline" id="BossName" />
 		<Panel class="BossHPBar" id="BossHPBar" >
 			<Panel class="HPBarElement" id="HPBar1"/>
 			<Panel class="HPBarElement" id="HPBar2"/>
 			<Panel class="HPBarElement" id="HPBar3"/>
 		</Panel>
+		
+		<Panel id="HPBarForeground"/>
+
+		<Label text="Oath" class="ObjectiveHeadline" id="BossName" />
 		<Label text="20000/20000" class="ObjectiveHeadline" id="BossHPLabel" />
 	</Panel>
 </root>

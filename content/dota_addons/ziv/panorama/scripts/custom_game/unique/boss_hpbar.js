@@ -29,6 +29,8 @@ function OnScenarioChanged(args) {
 	hpLabel = $("#BossHPLabel");
 	nameLabel = $("#BossName");
 
+	$("#HPBarForeground").AddClass("BossHPBackground"+(Math.floor(Math.random() * (3 - 1 + 1)) + 1));
+
 	OnScenarioChanged("scenario");
 	
 	CustomNetTables.SubscribeNetTableListener( "scenario", OnScenarioChanged );

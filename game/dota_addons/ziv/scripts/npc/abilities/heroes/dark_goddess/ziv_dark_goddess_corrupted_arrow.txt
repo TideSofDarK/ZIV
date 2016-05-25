@@ -51,12 +51,12 @@
 		"05"
 		{
 			"var_type"	"FIELD_INTEGER"
-			"spirit_min"	"1"
+			"spirit_min"	"0"
 		}
 		"06"
 		{
 			"var_type"	"FIELD_INTEGER"
-			"spirit_max"	"4"
+			"spirit_max"	"2"
 		}
 		"07"
 		{

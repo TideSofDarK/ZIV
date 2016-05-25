@@ -13,6 +13,9 @@ Temple.ROCKS_TICK = 0.1
 Temple.ROCKS_DAMAGE = 0.04
 Temple.ROCKS_DURATION = 1.5
 
+Temple.SPAWN_THRESHOLD = 2300
+Temple.SPAWN_SPREAD = 1500
+
 Temple.stage = Temple.STAGE_NO
 
 Temple.OBELISK_COUNT = 20
@@ -125,17 +128,36 @@ function Temple:SetupMap()
 end
 
 function Temple:SpawnCreeps()
-	local i = 1
 	for k,v in pairs(Temple.creeps_positions) do
-		Director:SpawnPack(
-	    {
-	        Level = 1,
-	        SpawnBasic = true,
-	        Count = math.random(20, 36),
-	        Position = v:GetAbsOrigin(),
-	        CheckHeight = true,
-	        SpawnLord = i % 3 == 0
-	    })
-	    i = i + 1
+		if v.creeps then
+			for k2,v2 in pairs(Temple.creeps_positions) do
+				v:ForceKill(false)
+			end
+		end
+		v.creeps = nil
 	end
+
+	Timers:CreateTimer(function (  )
+		DoToAllHeroes(function ( hero )
+			for k,v in pairs(Temple.creeps_positions) do
+				if (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() < Temple.SPAWN_THRESHOLD and (not v.creeps) then
+					v.creeps = {}
+
+					Director:SpawnPack(
+				    {
+				        Level = 1,
+				        SpawnBasic = true,
+				        Count = math.random(30, 40),
+				        Position = v:GetAbsOrigin(),
+				        CheckHeight = true,
+				        Spread = Temple.SPAWN_SPREAD,
+				        SpawnLord = math.random(1,4) == 1,
+				        Table = v.creeps
+				    })
+				end
+			end
+		end)
+
+		return 1.0
+	end)
 end

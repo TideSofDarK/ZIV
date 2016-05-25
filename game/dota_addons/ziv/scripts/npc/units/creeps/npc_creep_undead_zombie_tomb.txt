@@ -1,0 +1,187 @@
+"npc_creep_undead_zombie_tomb"
+{
+    "BaseClass"         "npc_dota_creature"
+    "SoundSet"                  "Undying_Zombie"
+    
+    "HealthBarOffset"   "155"
+    "Model"           "models/items/undying/idol_of_ruination/ruin_wight_minion_gold.vmdl"
+    "ModelScale"    "0.855"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "2"
+    "AttackDamageMax"     "4"
+    "AttackRate"        "1"
+    "AttackAnimationPoint"    "0.5"
+    "AttackRange"       "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "330"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "100"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "525"
+    "VisionNighttimeRange"    "525"
+
+    "Creature"
+    {
+        "DisableClumpingBehavior"   "1"
+    }
+} 
+
+"npc_creep_undead_zombie_tomb_a"
+{
+    "BaseClass"         "npc_dota_creature"
+    "SoundSet"                  "Undying_Zombie"
+    
+    "HealthBarOffset"   "155"
+    "Model"           "models/items/undying/idol_of_ruination/ruin_wight_minion_torso.vmdl"
+    "ModelScale"    "0.855"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "2"
+    "AttackDamageMax"     "4"
+    "AttackRate"        "1"
+    "AttackAnimationPoint"    "0.5"
+    "AttackRange"       "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "330"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "100"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "525"
+    "VisionNighttimeRange"    "525"
+
+    "Creature"
+    {
+        "DisableClumpingBehavior"   "1"
+    }
+} 
+
+"npc_creep_undead_zombie_tomb_b"
+{
+    "BaseClass"         "npc_dota_creature"
+    "SoundSet"                  "Undying_Zombie"
+    
+    "HealthBarOffset"   "155"
+    "Model"           "models/items/undying/idol_of_ruination/ruin_wight_minion.vmdl"
+    "ModelScale"    "0.855"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "2"
+    "AttackDamageMax"     "4"
+    "AttackRate"        "1"
+    "AttackAnimationPoint"    "0.5"
+    "AttackRange"       "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "330"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "100"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "525"
+    "VisionNighttimeRange"    "525"
+
+    "Creature"
+    {
+        "DisableClumpingBehavior"   "1"
+    }
+} 
+
+"npc_creep_undead_zombie_tomb_c"
+{
+    "BaseClass"         "npc_dota_creature"
+    "SoundSet"                  "Undying_Zombie"
+    
+    "HealthBarOffset"   "155"
+    "Model"           "models/items/undying/idol_of_ruination/ruin_wight_minion_torso_gold.vmdl"
+    "ModelScale"    "0.855"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "2"
+    "AttackDamageMax"     "4"
+    "AttackRate"        "1"
+    "AttackAnimationPoint"    "0.5"
+    "AttackRange"       "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "330"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "100"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "525"
+    "VisionNighttimeRange"    "525"
+
+    "Creature"
+    {
+        "DisableClumpingBehavior"   "1"
+    }
+} 

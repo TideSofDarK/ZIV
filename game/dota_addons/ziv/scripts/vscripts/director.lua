@@ -131,6 +131,7 @@ end
 -- NoLoot
 -- Duration
 -- CheckHeight
+-- Table
 function Director:SpawnPack( pack_table )
 	if type(pack_table) == 'table' then
 		local spawn_basic = pack_table["SpawnBasic"] == true
@@ -252,6 +253,10 @@ function Director:SpawnCreeps( spawn_table )
 					end
 
 					InitAbilities(creep)
+
+					if spawn_table["Table"] and type(spawn_table["Table"]) == "table" then
+						table.insert(spawn_table["Table"], creep)
+					end
 				end)
 			end
 		end
