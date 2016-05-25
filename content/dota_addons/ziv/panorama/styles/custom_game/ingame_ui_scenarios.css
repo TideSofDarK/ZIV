@@ -1,3 +1,47 @@
+@keyframes 'bar_horizontal'
+{
+  0%
+  {
+	transform: translateX(0px);
+  }
+
+  100%
+  {
+	transform: translateX(-1000px);
+  }
+}
+
+@keyframes 'bar_horizontal_back'
+{
+  0%
+  {
+	transform: translateX(0px);
+  }
+
+  100%
+  {
+	transform: translateX(1000px);
+  }
+}
+
+@keyframes 'bar_vertical'
+{
+  0%
+  {
+	transform: translateY(0px);
+  }
+
+  50%
+  {
+	transform: translateY(128px);
+  }
+
+  100%
+  {
+	transform: translateY(0px);
+  }
+}
+
 .ObjectiveHeadline {
 	text-shadow: 1px 1px 14px black;
 	text-align: center;
@@ -57,6 +101,8 @@
 
 	width: 1059px;
 	height: 118px;
+
+	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_bg.png");
 }
 
 #HPBarForeground {
@@ -87,8 +133,8 @@
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 
-	width: 1256px;
-	height: 256px;
+	width: 4000px;
+	height: 50px;
 
 	opacity: 0.5;
 }
@@ -109,32 +155,38 @@
 }
 
 #HPBar1 {
-	background-image: url("file://{images}/custom_game/ingame_ui/spheres/hp_1.png");
+	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_a.jpg");
+	animation-name: bar_horizontal;
+	animation-duration: 25.0s;
 
 	opacity: 1.0;
-
-	animation-name: bar_horizontal;
-	animation-duration: 10.0s;
 }
 #HPBar2 {
-	background-image: url("file://{images}/custom_game/ingame_ui/spheres/hp_2.png");
+	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_a.jpg");
 
 	animation-name: bar_horizontal_back;
-	animation-duration: 20.0s;
+	animation-duration: 35.0s;
 }
 #HPBar3 {
-	background-image: url("file://{images}/custom_game/ingame_ui/spheres/hp_3.png");
+	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_a.jpg");
 
 	animation-name: bar_horizontal;
-	animation-duration: 15.0s;
+	animation-duration: 45.0s;
+}
+#HPBar4 {
+	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_c.jpg");
+	opacity: 0.2;
+
+	animation-name: bar_horizontal;
+	animation-duration: 100.0s;
 }
 
 .BossHPBackground1 {
-	background-image: url("file://{images}/custom_game/ingame_ui/boss_hpbar_bg_a.png");
+	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_fg_a.png");
 }
 .BossHPBackground2 {
-	background-image: url("file://{images}/custom_game/ingame_ui/boss_hpbar_bg_b.png");
+	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_fg_b.png");
 }
 .BossHPBackground3 {
-	background-image: url("file://{images}/custom_game/ingame_ui/boss_hpbar_bg_c.png");
+	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_fg_c.png");
 }
