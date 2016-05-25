@@ -110,6 +110,8 @@ CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_7] = 1
 CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_8] = 1
 
 -- ZIV Specific Settings
+ZIV_CameraZValue = 128
+
 ZIV_CustomSettingDamage_DEFAULT = 1
 ZIV_CustomSettingAutoEquip_DEFAULT = 1
 ZIV_CustomSettingShowTooltip_DEFAULT = 1

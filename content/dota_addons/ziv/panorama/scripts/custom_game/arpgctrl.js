@@ -6,6 +6,9 @@ Left click moves or trigger ability 1.
 Right click triggers ability 2.
 */
 
+var heightOffset = 300;
+var clampOffset = 200;
+
 function DoesPlayerUnitHaveBuff(buffName){
 	var localHeroIndex = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 	for(var i = 0; i < Entities.GetNumBuffs(localHeroIndex); i++){
@@ -188,7 +191,8 @@ var offset = 0;
 {
 	$.Schedule( 1.0/60.0, SmoothCameraZ );
 	var minStep = 0.5;
-	var target = Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2] - 250;
+	var target = Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2] - heightOffset;
+	target = Math.max(0, Math.min(clampOffset, target));
 	var delta = ( target - offset );
 	if ( Math.abs( delta ) < minStep )
 	{
@@ -298,8 +302,6 @@ GameUI.SetMouseCallback( function( eventName, arg ) {
 		// Middle-click is reset yaw.
 		if ( arg === 2 )
 		{
-			g_targetYaw = 0;
-			g_yaw = g_targetYaw;
 			return CONSUME_EVENT;
 		}
 	}
@@ -322,5 +324,5 @@ GameUI.SetMouseCallback( function( eventName, arg ) {
 } );
 
 GameUI.SetCameraPitchMax( 55 );
-GameUI.SetCameraDistance( 900 );
+// GameUI.SetCameraDistance( 900 );
 GameUI.SetCameraLookAtPositionHeightOffset(Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2]); 

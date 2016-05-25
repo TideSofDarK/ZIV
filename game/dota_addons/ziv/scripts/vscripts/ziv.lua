@@ -226,7 +226,8 @@ function ZIV:OnHeroInGame(hero)
         PlayerResource:SetCameraTarget(pid, nil)
       end
       
-      camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,-275,0))
+      local heroZ = hero:GetAbsOrigin().z
+      camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,((heroZ-ZIV_CameraZValue) / (ZIV_CameraZValue*2)) * -(ZIV_CameraZValue/2),0))
       return 0.03
     end)
 
