@@ -6,7 +6,7 @@ function Leap( keys )
 
 	StartRuneCooldown(ability,"ziv_beastmaster_leap_cd",caster)
 
-	caster:SetForwardVector((target - caster:GetAbsOrigin()):Normalized())
+	caster:SetForwardVector(UnitLookAtPoint( caster, (target - caster:GetAbsOrigin()) ))
 	caster:Stop()
 
 	ProjectileManager:ProjectileDodge(caster)

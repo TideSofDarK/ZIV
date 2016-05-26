@@ -26,12 +26,14 @@ function ZIV:DamageFilter( filterTable )
         damage_type = DAMAGE_TYPE_PURE
     end
 
-    -- if _victim:IsHero() and _attacker:IsHero() == false then
-    --     local damage = (_victim:GetMaxHealth() / 100) * _attacker:GetAverageTrueAttackDamage()
-    --     _victim:SetHealth(_victim:GetHealth() - damage)
+    if _victim:IsHero() == false and _attacker:IsHero() == false then
+        if _attacker:GetPlayerOwnerID() >= 0 then
+            _attacker = PlayerResource:GetPlayer(_attacker:GetPlayerOwnerID()):GetAssignedHero()
+            DealDamage( _attacker, _victim, damage, damage_type )
+        end
 
-    --     return false
-    -- end
+        return false
+    end
 
     return true
 end

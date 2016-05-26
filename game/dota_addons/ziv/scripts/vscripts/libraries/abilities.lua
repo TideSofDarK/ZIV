@@ -6,6 +6,7 @@ end
 function UnitLookAtPoint( unit, point )
   local dir = (point - unit:GetAbsOrigin()):Normalized()
   dir.z = 0
+  if dir == Vector(0,0,0) then return unit:GetForwardVector() end
   return dir
 end
 

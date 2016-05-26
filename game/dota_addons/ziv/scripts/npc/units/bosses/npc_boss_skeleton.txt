@@ -1,0 +1,51 @@
+"npc_boss_skeleton"
+{
+    "BaseClass"                 "npc_dota_creature"
+    "Model"                     "models/heroes/skeleton_king/skeleton_king.vmdl"
+    "ModelScale"                "2.2"
+    "Level"                     "20"
+    "BoundsHullName"            "DOTA_HULL_SIZE_HUGE"
+    "HealthBarOffset"           "280"
+    "SoundSet"		"Hero_SkeletonKing"
+	"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+	"VoiceFile"		"soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts"
+    
+    "Ability1"                  ""
+
+    "ArmorPhysical"             "0"
+    "MagicalResistance"         "0"
+    
+    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+    
+    "BountyGoldMin"             "5.0"
+    "BountyGoldMax"             "5.0"
+    
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "150"
+    "MovementTurnRate"          "0.6"
+    
+    "StatusHealth"              "20000"
+    "StatusHealthRegen"         "0.50"
+    
+    "VisionDaytimeRange"        "1000"
+    "VisionNighttimeRange"      "1000"
+    
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
+    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationShipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    
+    "Creature"
+    {
+        "DisableClumpingBehavior"   "1"
+        "AttachWearables"
+        {
+            "Wearable1"     {   "ItemDef"       "149"     } //models/heroes/wraith_king/wraith_king_weapon.vmdl
+            "Wearable2"     {   "ItemDef"       "150"     } //models/heroes/wraith_king/wraith_king_shoulder.vmdl
+            "Wearable3"     {   "ItemDef"       "151"     } //models/heroes/wraith_king/wraith_king_gauntlet.vmdl
+            "Wearable4"     {   "ItemDef"       "152"     } //models/heroes/wraith_king/wraith_king_cape.vmdl
+            "Wearable5"     {   "ItemDef"       "500"     } //models/heroes/wraith_king/wraith_king_chest.vmdl
+            "Wearable6"     {   "ItemDef"       "148"     } //models/heroes/wraith_king/wraith_king_head.vmdl
+        }
+    }
+}
