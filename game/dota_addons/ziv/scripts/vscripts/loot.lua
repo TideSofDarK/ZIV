@@ -223,9 +223,9 @@ function Loot:OpenChest( chest, unit )
 			return math.random(0.31, 0.41)
 		else
 			Timers:CreateTimer(0.3, function (  )
-				chest_unit:RemoveModifierByName("dummy_unit")
-				chest_unit:RemoveAbility("dummy_unit")
-				DestroyEntityBasedOnHealth(chest_unit, chest_unit)
+				-- chest_unit:RemoveModifierByName("dummy_unit")
+				-- chest_unit:RemoveAbility("dummy_unit")
+				chest_unit:ForceKill(false)
 			end)
 		end
 	end) 

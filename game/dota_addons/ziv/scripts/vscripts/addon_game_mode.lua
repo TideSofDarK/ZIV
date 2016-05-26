@@ -22,6 +22,11 @@ function Precache( context )
   PrecacheResource("particle", "particles/ziv_creep_lord_modifier_regen_aura.vpcf", context)
   PrecacheResource("particle_folder", "particles/items", context)
 
+  PrecacheResource("particle_folder", "particles/econ/courier/courier_flopjaw", context)
+  PrecacheResource("particle_folder", "particles/econ/courier/courier_lockjaw", context)
+  PrecacheResource("particle_folder", "particles/econ/courier/courier_mechjaw", context)
+  PrecacheResource("particle_folder", "particles/econ/courier/courier_trapjaw", context)
+
   -- Models can also be precached by folder or individually
   -- PrecacheModel should generally used over PrecacheResource for individual models
   PrecacheResource("model_folder", "particles/heroes/antimage", context)

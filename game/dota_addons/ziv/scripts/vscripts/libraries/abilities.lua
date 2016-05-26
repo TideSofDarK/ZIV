@@ -29,6 +29,8 @@ function SimulateMeleeAttack( keys )
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
   local aoe = GetSpecial(ability, "aoe") or 0
 
+  local kv = ZIV.HeroesKVs[caster:GetUnitName().."_ziv"]
+
   ability:EndCooldown()
   ability:StartCooldown( base_attack_time - duration)
 
@@ -36,20 +38,23 @@ function SimulateMeleeAttack( keys )
     ParticleManager:CreateParticle(keys.attack_particle,PATTACH_ABSORIGIN,caster)
   end 
 
-  if keys.attack_sound then
-    caster:EmitSound(attack_sound)
-  end 
-
   StartAnimation(caster, {duration=base_attack_time, activity=activity, rate=rate})
 
-  -- caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = duration})
   caster:SetForwardVector(UnitLookAtPoint( caster, target ))
   caster:Stop()
 
+  if keys.pre_attack_sound then
+    caster:EmitSound(keys.pre_attack_sound)
+  elseif kv["SoundSet"] then
+    caster:EmitSound(kv["SoundSet"]..".PreAttack")
+  end
+
   Timers:CreateTimer(duration, function()
-    -- if caster:HasModifier("modifier_custom_attack") == false then
-    --   return
-    -- end
+    if keys.attack_sound then
+      caster:EmitSound(keys.attack_sound)
+    elseif kv["SoundSet"] then
+      caster:EmitSound(kv["SoundSet"]..".Attack")
+    end
 
     if keys.on_impact then
       keys.on_impact(caster)
@@ -57,7 +62,14 @@ function SimulateMeleeAttack( keys )
       local units = FindUnitsInRadius(caster:GetTeamNumber(),target,nil,75,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
 
       for k,v in pairs(units) do
+        if keys.impact_sound then
+          caster:EmitSound(keys.impact_sound)
+        elseif kv["SoundSet"] then
+          caster:EmitSound(kv["SoundSet"]..".Attack.Impact")
+        end
+
         local new_keys = keys
+
         if keys.on_hit then
           new_keys.target = v
           keys.on_hit(new_keys)
@@ -88,6 +100,8 @@ function SimulateRangeAttack( keys )
 
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
 
+  local kv = ZIV.HeroesKVs[caster:GetUnitName().."_ziv"]
+
   ability:EndCooldown()
   ability:StartCooldown( base_attack_time)
   
@@ -102,6 +116,12 @@ function SimulateRangeAttack( keys )
   if #units > 0 then
     keys.target_points[1] = units[1]:GetAbsOrigin() + Vector(0,0,64)
   end
+  
+  if keys.pre_attack_sound then
+    caster:EmitSound(keys.pre_attack_sound)
+  elseif kv["SoundSet"] then
+    caster:EmitSound(kv["SoundSet"]..".PreAttack")
+  end
 
   Timers:CreateTimer(duration, function()
     if caster:HasModifier("modifier_custom_attack") == false and keys.interruptable ~= false then
@@ -110,12 +130,14 @@ function SimulateRangeAttack( keys )
 
     if keys.attack_sound then
       caster:EmitSound(keys.attack_sound)
+    elseif kv["SoundSet"] then
+      caster:EmitSound(kv["SoundSet"]..".Attack")
     end
 
     local offset = 64
     local lock = true
     local distanceToTarget = caster:GetAttackRange() * 2.0
-    local origin = caster:GetAbsOrigin() + Vector(0,0,offset)
+    local origin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack1")) or (caster:GetAbsOrigin() + Vector(0,0,offset))
     local direction = (Vector(keys.target_points[1].x, keys.target_points[1].y, 0) 
       - Vector(origin.x, origin.y, 0)):Normalized()
     local point = caster:GetAbsOrigin() + ((keys.target_points[1] - origin):Normalized() * distanceToTarget)
@@ -131,13 +153,19 @@ function SimulateRangeAttack( keys )
       lock = false
     end
 
+    local unit_behavior = PROJECTILES_DESTROY
+    local pierce_count = 0
+    if keys.pierce then
+      unit_behavior = PROJECTILES_NOTHING
+    end
+
     local projectile = {
       vSpawnOrigin = origin,
       fStartRadius = 64,
-      fEndRadius = 64,
+      fEndRadius = 48,
       Source = caster,
       fExpireTime = time,
-      UnitBehavior = PROJECTILES_NOTHING,
+      UnitBehavior = unit_behavior,
       bMultipleHits = false,
       bIgnoreSource = true,
       TreeBehavior = PROJECTILES_NOTHING,
@@ -157,12 +185,28 @@ function SimulateRangeAttack( keys )
       UnitTest = function(self, target) return target:GetUnitName() ~= "npc_dummy_unit" and caster:GetTeamNumber() ~= target:GetTeamNumber() end,
     }
 
+    local projectileFX = nil
+
     if keys.on_impact then
       keys.on_impact(caster)
     end
 
     projectile.OnUnitHit = (function(self, target)
       if IsValidEntity(target) then
+        if pierce_count >= (keys.pierce or 1) then
+          return false
+        end 
+
+        if unit_behavior == PROJECTILES_DESTROY then
+          ParticleManager:DestroyParticle(projectileFX, true)
+        end
+
+        if keys.impact_sound then
+          caster:EmitSound(keys.impact_sound)
+        elseif kv["SoundSet"] then
+          caster:EmitSound(kv["SoundSet"]..".ProjectileImpact")
+        end
+
         local new_keys = keys
         if keys.on_hit then
           new_keys.target = target
@@ -174,13 +218,15 @@ function SimulateRangeAttack( keys )
           new_keys.unit = target
           keys.on_kill(new_keys)
         end
+
+        pierce_count = pierce_count + 1
       end
     end)
 
     projectile.fDistance = (point - origin):Length2D()
     projectile.vVelocity = direction * speed * 1.1 
 
-    local projectileFX = ParticleManager:CreateParticle(keys.effect, PATTACH_CUSTOMORIGIN, caster)
+    projectileFX = ParticleManager:CreateParticle(keys.effect, PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl(projectileFX, 0, origin)
     ParticleManager:SetParticleControl(projectileFX, 1, point)
     ParticleManager:SetParticleControl(projectileFX, 2, Vector(speed, 0, 0))

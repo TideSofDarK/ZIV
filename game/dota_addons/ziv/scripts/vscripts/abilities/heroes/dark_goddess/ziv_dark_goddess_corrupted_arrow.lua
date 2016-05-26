@@ -75,19 +75,19 @@ function AdditionalDamage( keys )
 
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_corrupted_arrow_effect",{duration = GetSpecial(ability, "corruption_duration")})
 
-	caster:SpendMana(ability:GetManaCost(ability:GetLevel()),ability)
-
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, GetSpecial(ability, "aoe_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	for k,v in pairs(units) do
-		local particle = ParticleManager:CreateParticle("particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_dispersion.vpcf", PATTACH_CUSTOMORIGIN, target)
+		if v ~= target then
+			local particle = ParticleManager:CreateParticle("particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_dispersion.vpcf", PATTACH_CUSTOMORIGIN, target)
 
-    	ParticleManager:SetParticleControlEnt(particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin() + Vector(0,0,16), true)
-    	ParticleManager:SetParticleControlEnt(particle, 1, v, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin() + Vector(0,0,16), true)
+	    	ParticleManager:SetParticleControlEnt(particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin() + Vector(0,0,16), true)
+	    	ParticleManager:SetParticleControlEnt(particle, 1, v, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin() + Vector(0,0,16), true)
 
-		DealDamage(caster, v, (ability:GetSpecialValueFor("damage_amp") * caster:GetAverageTrueAttackDamage()) / 3, DAMAGE_TYPE_DARK)
-		v:EmitSound("Hero_Spectre.PreAttack")
+			DealDamage(caster, v, (ability:GetSpecialValueFor("damage_amp") * caster:GetAverageTrueAttackDamage()) / 3, DAMAGE_TYPE_DARK)
+			v:EmitSound("Hero_Spectre.PreAttack")
 
-		ability:ApplyDataDrivenModifier(caster,v,"modifier_corrupted_arrow_effect",{})
+			ability:ApplyDataDrivenModifier(caster,v,"modifier_corrupted_arrow_effect",{})
+		end
 	end
 
 	DealDamage(caster, target, ability:GetSpecialValueFor("damage_amp") * caster:GetAverageTrueAttackDamage(), DAMAGE_TYPE_DARK)

@@ -2,7 +2,7 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "SoundSet"                  "Beastmaster_Boar"
+    "SoundSet"                  "Lycan_Wolf"
     "IsSummoned"                "1"
     "Level"           "1"
     
@@ -47,7 +47,7 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "SoundSet"                  "Beastmaster_Boar"
+    "SoundSet"                  "Lycan_Wolf"
     "IsSummoned"                "1"
     "Level"           "2"
     
@@ -92,7 +92,7 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "SoundSet"                  "Beastmaster_Boar"
+    "SoundSet"                  "Lycan_Wolf"
     "IsSummoned"                "1"
     "Level"           "3"
     
@@ -137,7 +137,7 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "SoundSet"                  "Beastmaster_Boar"
+    "SoundSet"                  "Lycan_Wolf"
     "IsSummoned"                "1"
     "Level"           "4"
     
@@ -182,7 +182,7 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "SoundSet"                  "Beastmaster_Boar"
+    "SoundSet"                  "Lycan_Wolf"
     "IsSummoned"                "1"
     "Level"           "5"
     
@@ -227,7 +227,7 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "SoundSet"                  "Beastmaster_Boar"
+    "SoundSet"                  "Lycan_Wolf"
     "IsSummoned"                "1"
     "Level"           "6"
     
@@ -272,7 +272,7 @@
 {
     "BaseClass"         "npc_dota_creature"
     "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
-    "SoundSet"                  "Beastmaster_Boar"
+    "SoundSet"                  "Lycan_Wolf"
     "IsSummoned"                "1"
     "Level"           "7"
     

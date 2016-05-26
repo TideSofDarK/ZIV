@@ -1,6 +1,8 @@
 "npc_dota_hero_invoker_ziv"
 {
     "override_hero"     "npc_dota_hero_invoker"
+    "SoundSet"      "Hero_Invoker"
+    "IdleSoundLoop"     "Hero_Invoker.IdleLoop"
 
     "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"
 

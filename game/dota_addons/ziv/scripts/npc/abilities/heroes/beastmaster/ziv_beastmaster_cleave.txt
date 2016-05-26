@@ -35,11 +35,6 @@
 
   "OnSpellStart"
   {
-    "FireSound"
-    {
-      "EffectName"  "Hero_Ursa.Attack"
-      "Target"     "CASTER"
-    }
     "RunScript"
     {
       "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_cleave.lua"
