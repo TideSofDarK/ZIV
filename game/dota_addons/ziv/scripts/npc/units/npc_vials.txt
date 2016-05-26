@@ -1,0 +1,55 @@
+"npc_hp_vial"
+{
+    "BaseClass"         "npc_dota_creature"
+    "Model"           "models/props_gameplay/clarity.vmdl"
+    "Level"           "10"
+
+    "Ability1"          "ziv_generic_vial"
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"
+
+    "StatusHealth"        "100"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "1"
+    "StatusManaRegen"     "0"
+
+    "TeamName"          "DOTA_TEAM_GOODGUYS"
+
+    "VisionDaytimeRange"    "0"
+    "VisionNighttimeRange"    "0"
+} 
+
+"npc_mp_vial"
+{
+    "BaseClass"         "npc_dota_creature"
+    "Model"           "models/props_gameplay/salve_blue.vmdl"
+    "Level"           "10"
+
+    "Ability1"          "ziv_generic_vial"
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"
+
+    "StatusHealth"        "100"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "1"
+    "StatusManaRegen"     "0"
+
+    "TeamName"          "DOTA_TEAM_GOODGUYS"
+
+    "VisionDaytimeRange"    "0"
+    "VisionNighttimeRange"    "0"
+} 

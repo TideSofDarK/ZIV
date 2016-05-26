@@ -1,0 +1,44 @@
+"ziv_skeleton_passive"
+{
+	"BaseClass"           "ability_datadriven"
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"AbilityTextureName"            "ziv_empty"
+
+	"MaxLevel"  "1"
+
+	"precache"
+	{
+		"particle"  "particles/units/heroes/hero_skeletonking/skeletonking_eyes.vpcf"
+	}
+
+	"Modifiers"
+	{
+		"modifier_skeleton_passive"
+		{
+			"Passive"			"1"
+			"IsHidden"			"0"
+  			"IsDebuff"			"0"
+  	
+  			"OnCreated"
+  			{
+  				"AttachEffect"
+                {
+                    "EffectName"        "particles/units/heroes/hero_skeletonking/skeletonking_eyes.vpcf"
+                    "EffectAttachType"  "attach_customorigin"
+                    "Target"            "TARGET"
+                    "ControlPointEntities"
+                    {
+                        "CASTER"    "attach_eyeL"
+                        "CASTER"    "attach_eyeR"
+                    }
+                }
+			    "RunScript"
+			    {
+			      	"ScriptFile"  "abilities/bosses/skeleton/ziv_skeleton_passive.lua"
+			      	"Function"    "Start"
+			      	"size" "40"
+			    }
+  			}
+  		}
+  	}
+}

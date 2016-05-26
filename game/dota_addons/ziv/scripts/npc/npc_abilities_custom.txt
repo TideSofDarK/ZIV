@@ -321,6 +321,48 @@
 		"BaseClass"           "ability_datadriven"
 		"AbilityTextureName"            "ziv_empty"
 	}
+	"ziv_generic_vial"
+	{
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"            "1"
+		"BaseClass"           "ability_datadriven"
+		"AbilityTextureName"            "ziv_empty"
+	
+		"Modifiers"
+		{
+		    "modifier_generic_vial"
+		    {
+				"Passive"     "1"
+				"IsHidden"      "1"
+				"Attributes" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
+	
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"   "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"   "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+				}
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+					"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "1"
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "0.1"
+				}
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/vials.lua"
+						"Function"		"VialSpawned"
+					}
+				}
+		    }
+		}
+	}
 	"ziv_stats_bonus_fix"
 	{
 		"BaseClass"			"ability_lua" 
@@ -735,6 +777,50 @@
 	      }
 	    }
 	  }
+	}
+	"ziv_skeleton_passive"
+	{
+		"BaseClass"           "ability_datadriven"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"            "ziv_empty"
+	
+		"MaxLevel"  "1"
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_skeletonking/skeletonking_eyes.vpcf"
+		}
+	
+		"Modifiers"
+		{
+			"modifier_skeleton_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+	  			"IsDebuff"			"0"
+	  	
+	  			"OnCreated"
+	  			{
+	  				"AttachEffect"
+	                {
+	                    "EffectName"        "particles/units/heroes/hero_skeletonking/skeletonking_eyes.vpcf"
+	                    "EffectAttachType"  "attach_customorigin"
+	                    "Target"            "TARGET"
+	                    "ControlPointEntities"
+	                    {
+	                        "CASTER"    "attach_eyeL"
+	                        "CASTER"    "attach_eyeR"
+	                    }
+	                }
+				    "RunScript"
+				    {
+				      	"ScriptFile"  "abilities/bosses/skeleton/ziv_skeleton_passive.lua"
+				      	"Function"    "Start"
+				      	"size" "40"
+				    }
+	  			}
+	  		}
+	  	}
 	}
 	"ziv_undying_attack"
 	{

@@ -255,9 +255,6 @@ function ZIV:InitZIV()
 
   ZIV:_InitZIV()
 
-  local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '0','')
-  math.randomseed(tonumber(timeTxt))
-
   Convars:RegisterCommand( "print_hero_stats", Dynamic_Wrap(ZIV, 'PrintHeroStats'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "ai",   Dynamic_Wrap(ZIV, 'AddItemToContainer'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "sp",   Dynamic_Wrap(ZIV, 'SpawnBasicPack'), "", FCVAR_CHEAT )
