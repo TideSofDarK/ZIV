@@ -5,9 +5,9 @@
 	m_nMaxParticles = 32
 	m_ConstantColor =
 	[
+		79,
 		255,
-		37,
-		106,
+		123,
 		255,
 	]
 	m_flMaxRecreationTime = -1.000000
@@ -73,16 +73,16 @@
 			_class = "C_INIT_RandomColor"
 			m_ColorMin =
 			[
+				24,
 				148,
-				17,
-				80,
+				69,
 				255,
 			]
 			m_ColorMax =
 			[
+				38,
 				185,
-				8,
-				49,
+				85,
 				255,
 			]
 		},

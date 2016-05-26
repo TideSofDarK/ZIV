@@ -1,6 +1,7 @@
 "npc_dota_hero_beastmaster_ziv"
 {
     "override_hero"     "npc_dota_hero_beastmaster"
+    "UsesEnergy"    "1"
 
     "EquipmentSlots" "torso;axe;gloves;axe;pants;boots"
 

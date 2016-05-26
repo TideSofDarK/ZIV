@@ -14,6 +14,8 @@
 
   "precache"
   {
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_beastmaster.vsndevts"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
     "particle"  "particles/heroes/beastmaster/beastmaster_bird_beam.vpcf"
     "particle"  "particles/heroes/beastmaster/beastmaster_bird_attack.vpcf"
   }
@@ -58,6 +60,11 @@
     {
       "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_bird.lua"
       "Function"    "BirdDamage"
+    }
+    "FireSound"
+    {
+      "EffectName"  "Hero_ShadowShaman.ProjectileImpact"
+      "Target"     "TARGET"
     }
   }
 

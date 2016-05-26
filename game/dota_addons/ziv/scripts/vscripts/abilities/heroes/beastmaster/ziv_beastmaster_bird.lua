@@ -47,6 +47,8 @@ function BirdAttack( keys )
 		        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION
 		    }
 
+		    ability.bird:EmitSound("Hero_ShadowShaman.Attack")
+
 			ProjectileManager:CreateTrackingProjectile(projectile_info)
 		end
 	end
@@ -58,6 +60,8 @@ function KillBird( keys )
 
 	if ability.bird and ability.bird:IsNull() == false and ability.bird:IsAlive() then
 		ability.bird:ForceKill(false)
+
+		caster:EmitSound("Hero_Beastmaster_Bird.Death")
 	end
 end
 
@@ -71,6 +75,8 @@ function Bird( keys )
 		local bird = CreateUnitByName("npc_beastmaster_bird", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
 		ability.bird = bird
 		ability:ApplyDataDrivenModifier(caster, bird, "modifier_bird", {})
+
+		caster:EmitSound("Hero_Beastmaster.Call.Hawk")
 
 		local oldPos = caster:GetAbsOrigin()
 		oldPos.z = 100
