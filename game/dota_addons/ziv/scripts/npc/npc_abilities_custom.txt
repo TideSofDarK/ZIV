@@ -2039,7 +2039,7 @@
 	    {
 	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
 	      "Function"    "SpawnPet"
-	      "model" "models/items/lone_druid/bear/dark_wood_bear/dark_wood_bear.vmdl"
+	      "unit" "npc_beastmaster_pet2"
 	      "respawn_pet" "1"
 	    }
 	  }
@@ -2055,7 +2055,7 @@
 	    {
 	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
 	      "Function"    "SpawnPet"
-	      "model" "models/items/lone_druid/bear/dark_wood_bear/dark_wood_bear.vmdl"
+	      "unit" "npc_beastmaster_pet2"
 	    }
 	  }
 	
@@ -2082,7 +2082,7 @@
 	        {
 	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
 	          "Function"    "SpawnPet"
-	          "model" "models/items/lone_druid/bear/dark_wood_bear/dark_wood_bear.vmdl"
+	          "unit" "npc_beastmaster_pet2"
 	        }
 	      }
 	    }

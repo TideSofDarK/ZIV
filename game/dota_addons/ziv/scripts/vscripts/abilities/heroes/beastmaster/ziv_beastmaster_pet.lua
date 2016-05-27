@@ -10,13 +10,8 @@ function SpawnPet( keys )
 		if keys.respawn_pet then
 			KillPet( keys )
 		end
-		caster.pet = CreateUnitByName("npc_beastmaster_pet_level"..tostring(level), caster:GetAbsOrigin() + RandomPointOnCircle(75), false, caster, caster, caster:GetTeamNumber())
+		caster.pet = CreateUnitByName(keys.unit or "npc_beastmaster_pet1", caster:GetAbsOrigin() + RandomPointOnCircle(75), false, caster, caster, caster:GetTeamNumber())
 		ability:ApplyDataDrivenModifier(caster, caster.pet, "modifier_beastmaster_pet", {})
-
-		if keys.model then
-			caster.pet:SetModel(keys.model)
-			caster.pet:SetOriginalModel(keys.model)
-		end
 
 		caster:EmitSound("Hero_Beastmaster.Call.Boar")
 
