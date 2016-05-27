@@ -2,7 +2,7 @@ function Animation( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
-	StartAnimation(caster, {duration=GetRunePercentDecrease(1.0,"ziv_dark_goddess_transform_speed",caster), activity=ACT_DOTA_SPAWN, rate=1.3})
+	StartAnimation(caster, {duration=GetRunePercentDecrease(1.0,"ziv_dark_goddess_transform_speed",caster), activity=ACT_DOTA_SPAWN, rate=GetRunePercentIncrease(1.3,"ziv_dark_goddess_transform_speed",caster)})
 
 	caster:EmitSound("Hero_DrowRanger.Transform")
 
@@ -58,7 +58,7 @@ function TransformPosition( caster, ability, position )
 
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_dark_goddess_transform",{duration=GetRunePercentDecrease(0.5,"ziv_dark_goddess_transform_speed",caster) })
 
-	Timers:CreateTimer(0.1, function (  )
+	Timers:CreateTimer(GetRunePercentDecrease(0.1,"ziv_dark_goddess_transform_speed",caster), function (  )
 		if caster:HasModifier("modifier_dark_goddess_transform") then
 			FindClearSpaceForUnit(caster,position,false)
 
