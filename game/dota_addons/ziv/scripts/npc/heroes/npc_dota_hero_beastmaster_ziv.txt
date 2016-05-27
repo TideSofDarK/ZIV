@@ -6,9 +6,9 @@
 
     "EquipmentSlots" "torso;axe;gloves;axe;pants;boots"
 
-    "ChooseLayout"  "2111"
+    "ChooseLayout"  "21111"
 
-    "AbilityLayout"     "4"
+    "AbilityLayout"     "5"
 
     "Ability1"        "ziv_beastmaster_pet" 
     "Ability2"        "ziv_beastmaster_pet2" 

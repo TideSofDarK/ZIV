@@ -7,7 +7,7 @@
 
   100%
   {
-	transform: translateX(-700px);
+	transform: translateX(-1000px);
   }
 }
 
@@ -20,7 +20,7 @@
 
   100%
   {
-	transform: translateX(700px);
+	transform: translateX(1000px);
   }
 }
 
@@ -87,41 +87,10 @@
 	vertical-align: bottom;
 }
 
-.LeftBottom {
-	horizontal-align: left;
-	flow-children: right;
-}
-
-.RightBottom {
-	horizontal-align: right;
-	flow-children: down;
-
-	height: 255px;
-}
-
 .MidBottom {
 	horizontal-align: center;
 	height: 200px;
-	width: 1074px;
-}
-
-#BottomRoot {
-	width: 1630px;
-	height: 15px;
-
-	/*background-color: #111111FF;*/
-}
-
-#MinimapBorder {
-	width: 293px;
-	height: 340px;
-
-/*	border: 15px solid #111111FF;
-	border-top-right-radius: 6px;
-	border-bottom-width: 0px;
-	border-top-width: 60px;*/
-
-	background-color: #ffffff00;
+	width: 1188px;
 }
 
 .Bars {
@@ -133,7 +102,7 @@
 }
 
 #XPBarRoot {
-	width: 700px;
+	width: 789px;
 
 	horizontal-align: left;
 	margin-top: 70px;
@@ -143,7 +112,7 @@
 }
 
 .XPBarElement {
-	width: 2800px;
+	width: 4000px;
 	height: 15px;
 
 	horizontal-align: center;
@@ -191,10 +160,12 @@
 
 #HealthPoints {
 	horizontal-align: left;
+	margin-left: 18px;
 }
 
 #SkillPoints {
 	horizontal-align: right;
+	margin-right: 18px;
 }
 
 .GlassOrb {
@@ -317,7 +288,7 @@
 	vertical-align: bottom;
 	horizontal-align: center;
 	flow-children: right;
-	margin-left: 410px;
+	margin-left: 500px;
 	margin-bottom: 17px;
 }
 
@@ -382,18 +353,18 @@
 }
 
 #BottomGfx {
-	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom_4.png');
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom_5.png');
 
-	width: 1095px;
+	width: 1188px;
 	height: 195px;
 
 	vertical-align: bottom;
 }
 
 #BottomForegroundGfx {
-	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom_4_foreground.png');
+	background-image: url('file://{images}/custom_game/ingame_ui/ui_bottom_5_foreground.png');
 
-	width: 1095px;
+	width: 1188px;
 	height: 195px;
 
 	vertical-align: bottom;
@@ -405,7 +376,7 @@
 	width: 7px;
 	height: 125px;
 
-	margin-left: 150px;
+	margin-left: 245px;
 
 	vertical-align: bottom;
 }

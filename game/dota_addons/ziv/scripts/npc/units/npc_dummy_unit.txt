@@ -35,7 +35,7 @@
 
     "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"
 
-    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_FLY"
+    // "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_FLY"
     "MovementSpeed"       "450"
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"

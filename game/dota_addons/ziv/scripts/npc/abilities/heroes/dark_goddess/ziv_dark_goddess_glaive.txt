@@ -2,12 +2,11 @@
 {
 	"BaseClass"				"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-	"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	"AbilityTextureName"            "ziv_empty"
 
-	"AbilityManaCost"	"45"
+	"AbilityManaCost"	"95"
 	"AbilityCastPoint"        "0.35"
-	"AbilityCooldown"				"5.0"
+	"AbilityCooldown"				"7.0"
 	"AbilityCastRange"				"1200"
 
 	"precache"
@@ -24,17 +23,17 @@
 		"01"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"damage_amp"			"2.5"
+			"damage_amp"			"1.1"
 		}
 		"02"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"bleeding_damage_amp"			"0.7"
+			"bleeding_damage_amp"			"0.25"
 		}
 		"03"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"bleeding_slow"			"-20"
+			"bleeding_slow"			"-15"
 		}
 		"04"
 		{
@@ -94,6 +93,15 @@
 						}
 					}
 				}
+			}
+
+			"States"
+			{
+				"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
 			}
 		}
 

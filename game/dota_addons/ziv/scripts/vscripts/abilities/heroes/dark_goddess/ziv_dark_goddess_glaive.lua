@@ -15,7 +15,12 @@ function SpawnGlaive( keys )
 	end
 
 	local glaive = CreateUnitByName("npc_dummy_unit",caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_mom_r")),false,caster,caster,caster:GetTeamNumber())
-	InitAbilities(glaive)
+	glaive:RemoveAbility("dummy_unit")
+	glaive:RemoveModifierByName("dummy_unit")
+	glaive:SetMoveCapability(2)
+	-- glaive:SetModel(caster:GetModelName())
+
+	AddChildEntity( caster, glaive )
 
 	ability:ApplyDataDrivenModifier(caster,	glaive,	"modifier_glaive_unit",{})
 	glaive:AddNewModifier(glaive,nil,"modifier_phased",{})
@@ -25,6 +30,16 @@ function SpawnGlaive( keys )
 	local projectile_speed = 4540
 
 	Physics:Unit(glaive)
+
+	glaive:RemoveCollider()
+    local collider = glaive:AddColliderFromProfile("gravity")
+    collider.radius = 715
+    collider.fullRadius = 0
+    collider.force = 0
+    collider.linear = false
+    collider.test = function(self, collider, collided)
+    	return false
+    end
 
     glaive:SetPhysicsVelocityMax(5000)
     glaive:SetPhysicsFriction (0.15)
@@ -40,7 +55,7 @@ function SpawnGlaive( keys )
 	local point2 = target
 	local point3 = RotatePosition(midpoint, QAngle(0,-50,0), target)
 
-	local max_point_time = 1.5
+	local max_point_time = 1.75
 	local time = 0.0
 
 	local distance = point1 - glaive:GetAbsOrigin()
@@ -53,7 +68,7 @@ function SpawnGlaive( keys )
 			direction = distance:Normalized()
 			glaive:SetPhysicsAcceleration(direction * projectile_speed)
 			
-			if distance:Length() < 50 or time > max_point_time then
+			if distance:Length2D() < 50 or time > max_point_time then
 				time = 0.0
 				state = GLAIVE_STATE_DECAY
 			end
@@ -62,7 +77,7 @@ function SpawnGlaive( keys )
 			direction = distance:Normalized()
 			glaive:SetPhysicsAcceleration(direction * projectile_speed)
 
-			if distance:Length() < 50 or time > max_point_time then
+			if distance:Length2D() < 50 or time > max_point_time then
 				time = 0.0
 				state = GLAIVE_STATE_SUSTAIN
 			end
@@ -71,7 +86,7 @@ function SpawnGlaive( keys )
 			direction = distance:Normalized()
 			glaive:SetPhysicsAcceleration(direction * projectile_speed)
 
-			if distance:Length() < 25 or time > max_point_time then
+			if distance:Length2D() < 25 or time > max_point_time then
 				time = 0.0
 				state = GLAIVE_STATE_RELEASE
 			end
@@ -80,16 +95,14 @@ function SpawnGlaive( keys )
 			direction = distance:Normalized()
 			glaive:SetPhysicsAcceleration(direction * projectile_speed)
 
-			if distance:Length() < 100 or time > max_point_time then
-			    caster:EmitSound("Hero_Luna.MoonGlaive.Impact")
-			end
+			if distance:Length2D() < 25 or time > max_point_time then
+				caster:EmitSound("Hero_Luna.MoonGlaive.Impact")
 
-			if distance:Length() < 75 or time > max_point_time then
 			    glaive:SetPhysicsAcceleration(Vector(0,0,0))
 			    glaive:SetPhysicsVelocity(Vector(0,0,0))
 			    glaive:OnPhysicsFrame(nil)
 
-			    UTIL_Remove(glaive)
+			    glaive:ForceKill(false)
 				ParticleManager:DestroyParticle(particle,false)
 			end
 		end

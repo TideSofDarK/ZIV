@@ -3,10 +3,13 @@ function AddChildParticle( unit, particle )
   table.insert(unit.particles, particle)
 end
 
-function TimedEffect( effect, unit, duration, point )
-	local particle = ParticleManager:CreateParticle(effect,PATTACH_ABSORIGIN,unit)
+function TimedEffect( effect, unit, duration, point, method )
+	local particle = ParticleManager:CreateParticle(effect,method or PATTACH_ABSORIGIN,unit)
 	if point then
 		ParticleManager:SetParticleControl(particle,point,unit:GetAbsOrigin())
+		if method then
+			ParticleManager:SetParticleControlEnt(particle,point,unit,method,"attach_hitloc",unit:GetAbsOrigin(),false)
+		end
 	end
 	Timers:CreateTimer(duration, function(  )
 		ParticleManager:DestroyParticle(particle,false)

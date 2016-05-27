@@ -15,6 +15,10 @@ function GetRunePercentIncrease(value,name,caster)
 	return ((GRMSC(name,caster) / 100) + 1) * value
 end
 
+function GetRunePercentDecrease(value,name,caster)
+	return (1 - (GRMSC(name,caster) / 100)) * value
+end
+
 function GetRuneChance(name,caster)
 	return math.random(0, 100) > (100 - GRMSC(name,caster))
 end

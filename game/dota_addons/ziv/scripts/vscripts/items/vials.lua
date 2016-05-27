@@ -4,7 +4,7 @@ function PrepareVial( container )
 	local vial = container:GetUnitName()
 
 	container:RemoveCollider()
-    collider = container:AddColliderFromProfile("delete")
+    local collider = container:AddColliderFromProfile("delete")
     collider.radius = 75
     collider.fullRadius = 0
     collider.force = 0

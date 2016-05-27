@@ -4,7 +4,7 @@
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityTextureName"			"ziv_empty"
 
-	"AbilityManaCost"	"25"
+	"AbilityManaCost"	"5"
 	"AbilityCastPoint"        "0"
 	"AbilityCooldown"				"3.0"
 
@@ -37,7 +37,7 @@
 		"04"
 		{
 			"var_type" "FIELD_INTEGER"
-			"bonus_movespeed" "45"
+			"bonus_movespeed" "65"
 		}
 		"05"
         {
@@ -47,7 +47,7 @@
         "06"
         {
         	"var_type"	"FIELD_INTEGER"
-        	"mana_cost"	"2"
+        	"mana_cost"	"5"
         }
 	}
 

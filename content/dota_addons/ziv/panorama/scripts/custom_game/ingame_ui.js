@@ -58,7 +58,7 @@ function UpdateAbilityList()
 			m_AbilityPanels.push( abilityPanel );
 
 			if (abilityLayout == 5) {
-				abilityPanel.AddClass("Layout5");
+				// abilityPanel.AddClass("Layout5");
 			}
 		}
 

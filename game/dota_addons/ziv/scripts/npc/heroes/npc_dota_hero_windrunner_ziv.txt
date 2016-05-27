@@ -5,9 +5,9 @@
 
     "EquipmentSlots" "torso;bow;gloves;ammo;pants;boots"
 
-    "ChooseLayout"  "2112"
+    "ChooseLayout"  "21121"
 
-    "AbilityLayout"     "4"
+    "AbilityLayout"     "5"
 
     "Ability1"        "ziv_huntress_ballista" 
     "Ability2"        "ziv_huntress_volley" 
@@ -15,7 +15,7 @@
     "Ability4"        "ziv_huntress_blink_arrow"
     "Ability5"        "ziv_huntress_trap"
     "Ability6"        "ziv_huntress_passives"
-    "Ability7"        ""
+    "Ability7"        "ziv_empty1"
     "Ability8"        ""
     "Ability9"        ""
     "Ability10"       ""

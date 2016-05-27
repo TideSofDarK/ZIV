@@ -75,11 +75,12 @@
 	          "IsHidden"                        "1"    
 	          "States"
 	          {
-	              "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-	              "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
-	              "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
-	              "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
-	              "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"  "MODIFIER_STATE_VALUE_ENABLED"
+	            "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+	            "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	            "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+	            "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+	            "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	            "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"  "MODIFIER_STATE_VALUE_ENABLED"
 	          }
 	      }
 	    }
@@ -2153,7 +2154,7 @@
 	  "AbilityCooldown"         "4.55"
 	  "AbilityCastAnimation"    "ACT_DOTA_IDLE"
 	
-	  "AbilityManaCost"         "35"
+	  "AbilityManaCost"         "45"
 	
 	  "MaxLevel"                "7"
 	
@@ -2222,7 +2223,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"ziv_empty"
 	
-		"AbilityManaCost"	"25"
+		"AbilityManaCost"	"5"
 		"AbilityCastPoint"        "0"
 		"AbilityCooldown"				"3.0"
 	
@@ -2255,7 +2256,7 @@
 			"04"
 			{
 				"var_type" "FIELD_INTEGER"
-				"bonus_movespeed" "45"
+				"bonus_movespeed" "65"
 			}
 			"05"
 	        {
@@ -2265,7 +2266,7 @@
 	        "06"
 	        {
 	        	"var_type"	"FIELD_INTEGER"
-	        	"mana_cost"	"2"
+	        	"mana_cost"	"5"
 	        }
 		}
 	
@@ -2420,6 +2421,8 @@
 		"AbilityDamage"	"0"
 		"AbilityManaCost" "0"
 	
+		"AbilityCastAnimation"    "ACT_DOTA_IDLE"
+	
 		"MaxLevel" "7"
 	
 		"precache"
@@ -2459,12 +2462,12 @@
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"spirit_min"	"0"
+				"pierce"	"2"
 			}
 			"06"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"spirit_max"	"2"
+				"spirits_count"	"1"
 			}
 			"07"
 			{
@@ -2479,7 +2482,7 @@
 			"09"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"energy_restored"	"1"
+				"energy_restored"	"3"
 			}
 		}
 	
@@ -2630,7 +2633,7 @@
 	  "AbilityCooldown"         "4.55"
 	  "AbilityCastAnimation"    "ACT_DOTA_IDLE"
 	
-	  "AbilityManaCost"         "35"
+	  "AbilityManaCost"         "45"
 	
 	  "MaxLevel"                "7"
 	
@@ -2679,12 +2682,11 @@
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName"            "ziv_empty"
 	
-		"AbilityManaCost"	"45"
+		"AbilityManaCost"	"95"
 		"AbilityCastPoint"        "0.35"
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"7.0"
 		"AbilityCastRange"				"1200"
 	
 		"precache"
@@ -2701,17 +2703,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_amp"			"2.5"
+				"damage_amp"			"1.1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bleeding_damage_amp"			"0.7"
+				"bleeding_damage_amp"			"0.25"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleeding_slow"			"-20"
+				"bleeding_slow"			"-15"
 			}
 			"04"
 			{
@@ -2772,6 +2774,15 @@
 						}
 					}
 				}
+	
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 	
 			"modifier_glaive_bleeding"
@@ -2811,6 +2822,68 @@
 				}
 			}
 		}
+	}
+	"ziv_dark_goddess_transform"
+	{
+	  "BaseClass"               "ability_datadriven"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+	  "AbilityTextureName"      "ziv_empty"
+	
+	  "AbilityCastPoint"        "0.1"
+	  "AbilityCooldown"         "6.5"
+	  "AbilityCastAnimation"    "ACT_DOTA_SPAWN"
+	
+	  "AbilityManaCost"         "45"
+	
+	  "MaxLevel"                "7"
+	
+	  "precache"
+	  {
+	    "particle" "particles/units/heroes/hero_drow/drow_silence_wave_ground_pnt.vpcf"
+	    "particle" "particles/econ/items/drow/drow_bow_monarch/drow_frost_arrow_launch_monarch.vpcf"
+	  }
+	
+	  "OnAbilityPhaseStart"
+	  {
+	
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"    "abilities/heroes/dark_goddess/ziv_dark_goddess_transform.lua"
+	      "Function"      "Animation"
+	      "Target"        "POINT"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_dark_goddess_transform"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	  
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+	        "MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "1"
+	        "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "0.1"
+	      }
+	
+	      "OnOrder"
+	      {
+	        "RemoveModifier"
+	        {
+	          "ModifierName"  "modifier_dark_goddess_transform"
+	          "Target"     "CASTER"
+	        }
+	      }
+	    }
+	  }
 	}
 	"ziv_elementalist_ball_lightning"
 	{

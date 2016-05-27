@@ -8,9 +8,9 @@
 	
 	    "EquipmentSlots" "torso;axe;gloves;axe;pants;boots"
 	
-	    "ChooseLayout"  "2111"
+	    "ChooseLayout"  "21111"
 	
-	    "AbilityLayout"     "4"
+	    "AbilityLayout"     "5"
 	
 	    "Ability1"        "ziv_beastmaster_pet" 
 	    "Ability2"        "ziv_beastmaster_pet2" 
@@ -69,16 +69,16 @@
 	
 	    "EquipmentSlots" "torso;sword;gloves;shield;pants;boots"
 	
-	    "ChooseLayout"  "1121"
+	    "ChooseLayout"  "11211"
 	
-	    "AbilityLayout"     "4"
+	    "AbilityLayout"     "5"
 	
 	    "Ability1"        "ziv_knight_dash" 
 	    "Ability2"        "ziv_knight_parry" 
 	    "Ability3"        "ziv_knight_stone_form" 
 	    "Ability4"        "ziv_knight_taunt"
 	    "Ability5"        "ziv_knight_ult"
-	    "Ability6"        ""
+	    "Ability6"        "ziv_empty1"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -132,16 +132,16 @@
 	
 	    "EquipmentSlots" "torso;bow;gloves;ring;pants;boots"
 	
-	    "ChooseLayout"  "1121"
+	    "ChooseLayout"  "11211"
 	
-	    "AbilityLayout"     "4"
+	    "AbilityLayout"     "5"
 	
 	    "Ability1"        "ziv_dark_goddess_corrupted_arrow" 
 	    "Ability2"        "ziv_dark_goddess_concentration" 
 	    "Ability3"        "ziv_dark_goddess_explode" 
 	    "Ability4"        "ziv_dark_goddess_combine"
 	    "Ability5"        "ziv_dark_goddess_glaive"
-	    "Ability6"        ""
+	    "Ability6"        "ziv_dark_goddess_transform"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -180,8 +180,8 @@
 	
 	    "StatusHealth"        "1000"
 	    "StatusHealthRegen"     "1.0"
-	    "StatusMana"        "100"
-	    "StatusManaRegen"     "50.0"
+	    "StatusMana"        "200"
+	    "StatusManaRegen"     "1.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -194,9 +194,9 @@
 	
 	    "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"
 	
-	    "ChooseLayout"  "2221"
+	    "ChooseLayout"  "22211"
 	
-	    "AbilityLayout"     "4"
+	    "AbilityLayout"     "5"
 	
 	    "Ability1"        "ziv_elementalist_dark_orb" 
 	    "Ability2"        "ziv_elementalist_cold_orb" 
@@ -205,7 +205,7 @@
 	    "Ability5"        "ziv_elementalist_cold_blast"
 	    "Ability6"        "ziv_elementalist_fire_blast"
 	    "Ability7"        "ziv_elementalist_overload"
-	    "Ability8"        ""
+	    "Ability8"        "ziv_empty1"
 	    "Ability9"        ""
 	    "Ability10"       ""
 	    "Ability11"       ""
@@ -257,9 +257,9 @@
 	
 	    "EquipmentSlots" "torso;sword;gloves;ring;pants;boots"
 	
-	    "ChooseLayout"  "2112"
+	    "ChooseLayout"  "21111"
 	
-	    "AbilityLayout"     "4"
+	    "AbilityLayout"     "5"
 	
 	    "Ability1"        "ziv_samurai_whirlwind" 
 	    "Ability2"        "ziv_samurai_execution" 
@@ -318,9 +318,9 @@
 	
 	    "EquipmentSlots" "torso;gun;gloves;ring;pants;boots"
 	
-	    "ChooseLayout"  "1112"
+	    "ChooseLayout"  "11121"
 	
-	    "AbilityLayout"     "4"
+	    "AbilityLayout"     "5"
 	    
 	    "Ability1"        "ziv_sniper_empty1" 
 	    "Ability2"        "ziv_sniper_empty2" 
@@ -379,9 +379,9 @@
 	
 	    "EquipmentSlots" "torso;bow;gloves;ammo;pants;boots"
 	
-	    "ChooseLayout"  "2112"
+	    "ChooseLayout"  "21121"
 	
-	    "AbilityLayout"     "4"
+	    "AbilityLayout"     "5"
 	
 	    "Ability1"        "ziv_huntress_ballista" 
 	    "Ability2"        "ziv_huntress_volley" 
@@ -389,7 +389,7 @@
 	    "Ability4"        "ziv_huntress_blink_arrow"
 	    "Ability5"        "ziv_huntress_trap"
 	    "Ability6"        "ziv_huntress_passives"
-	    "Ability7"        ""
+	    "Ability7"        "ziv_empty1"
 	    "Ability8"        ""
 	    "Ability9"        ""
 	    "Ability10"       ""

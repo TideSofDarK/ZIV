@@ -5,9 +5,9 @@
 
     "EquipmentSlots" "torso;gun;gloves;ring;pants;boots"
 
-    "ChooseLayout"  "1112"
+    "ChooseLayout"  "11121"
 
-    "AbilityLayout"     "4"
+    "AbilityLayout"     "5"
     
     "Ability1"        "ziv_sniper_empty1" 
     "Ability2"        "ziv_sniper_empty2" 

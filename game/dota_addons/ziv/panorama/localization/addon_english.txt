@@ -97,6 +97,8 @@
 	"ziv_dark_goddess_combine_targets"	"additional Combine targets"
 	"ziv_dark_goddess_concentration_ms"	"to Concentration move speed"
 	"ziv_dark_goddess_concentration_cost"	"reduction of Concentration energy cost"
+	"ziv_dark_goddess_transform_cd"	"percent reduction of Transform cooldown"
+	"ziv_dark_goddess_transform_speed"	"percent reduction of Transform cast time"
 
 	"ziv_witch_doctor_blink_heal"	"additional heal after blink"
 	"ziv_witch_doctor_curse_duration"	"to Curse duration"

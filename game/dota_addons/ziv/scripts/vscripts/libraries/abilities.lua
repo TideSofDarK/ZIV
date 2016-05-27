@@ -1,3 +1,8 @@
+function AddChildEntity( caster, entity )
+  caster.child_entities = caster.child_entities or {}
+  table.insert(caster.child_entities, entity) 
+end
+
 function SetHull( keys )
   local caster = keys.caster
   caster:SetHullRadius(tonumber(keys.size))
@@ -106,12 +111,13 @@ function SimulateRangeAttack( keys )
   ability:StartCooldown( base_attack_time)
   
   StartAnimation(caster, {duration=duration + base_attack_time, activity=ACT_DOTA_ATTACK, rate=rate})
+  
   UnitLookAtPoint( caster, target )
   caster:Stop()
 
   caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = 1.0 / caster:GetAttacksPerSecond()})
 
-  local units = FindUnitsInRadius(caster:GetTeamNumber(),keys.target_points[1],nil,200,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
+  local units = FindUnitsInRadius(caster:GetTeamNumber(),keys.target_points[1],nil,75,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
 
   if #units > 0 then
     keys.target_points[1] = units[1]:GetAbsOrigin() + Vector(0,0,64)
@@ -122,6 +128,9 @@ function SimulateRangeAttack( keys )
   elseif kv["SoundSet"] then
     caster:EmitSound(kv["SoundSet"]..".PreAttack")
   end
+
+  local projectile
+  local projectileFX
 
   Timers:CreateTimer(duration, function()
     if caster:HasModifier("modifier_custom_attack") == false and keys.interruptable ~= false then
@@ -137,7 +146,7 @@ function SimulateRangeAttack( keys )
     local offset = 64
     local lock = true
     local distanceToTarget = caster:GetAttackRange() * 2.0
-    local origin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack1")) or (caster:GetAbsOrigin() + Vector(0,0,offset))
+    local origin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment(keys.attachment or "attach_attack1")) or (caster:GetAbsOrigin() + Vector(0,0,offset))
     local direction = (Vector(keys.target_points[1].x, keys.target_points[1].y, 0) 
       - Vector(origin.x, origin.y, 0)):Normalized()
     local point = caster:GetAbsOrigin() + ((keys.target_points[1] - origin):Normalized() * distanceToTarget)
@@ -159,7 +168,7 @@ function SimulateRangeAttack( keys )
       unit_behavior = PROJECTILES_NOTHING
     end
 
-    local projectile = {
+    projectile = {
       vSpawnOrigin = origin,
       fStartRadius = 64,
       fEndRadius = 48,
@@ -185,26 +194,26 @@ function SimulateRangeAttack( keys )
       UnitTest = function(self, target) return target:GetUnitName() ~= "npc_dummy_unit" and caster:GetTeamNumber() ~= target:GetTeamNumber() end,
     }
 
-    local projectileFX = nil
-
     if keys.on_impact then
       keys.on_impact(caster)
     end
 
     projectile.OnUnitHit = (function(self, target)
       if IsValidEntity(target) then
-        if pierce_count >= (keys.pierce or 1) then
+        if pierce_count >= (keys.pierce or 1) or unit_behavior == PROJECTILES_DESTROY then
+          projectile:Destroy()
+          ParticleManager:DestroyParticle(projectileFX, true)
           return false
         end 
-
-        if unit_behavior == PROJECTILES_DESTROY then
-          ParticleManager:DestroyParticle(projectileFX, true)
-        end
 
         if keys.impact_sound then
           caster:EmitSound(keys.impact_sound)
         elseif kv["SoundSet"] then
           caster:EmitSound(kv["SoundSet"]..".ProjectileImpact")
+        end
+
+        if keys.impact_effect then
+          TimedEffect(keys.impact_effect, target, 2.0, 3, PATTACH_POINT_FOLLOW)
         end
 
         local new_keys = keys
@@ -214,7 +223,7 @@ function SimulateRangeAttack( keys )
         else
           DealDamage(caster, target, caster:GetAverageTrueAttackDamage() * damage_amp, DAMAGE_TYPE_PHYSICAL)
         end
-        if keys.on_kill and target:IsAlive() == false then
+        if keys.on_kill and (target:IsAlive() == false or target:GetHealth() <= 0) then
           new_keys.unit = target
           keys.on_kill(new_keys)
         end
@@ -237,6 +246,14 @@ function SimulateRangeAttack( keys )
     end)
 
     Projectiles:CreateProjectile(projectile)
+
+    projectile.Destroy = function (  )
+      ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
+      Projectiles:RemoveTimer(projectile.ProjectileTimerName)
+      ParticleManager:DestroyParticle(projectileFX, true)
+    end
+
+    AddChildEntity(caster,projectile)
   end)
 end
 
