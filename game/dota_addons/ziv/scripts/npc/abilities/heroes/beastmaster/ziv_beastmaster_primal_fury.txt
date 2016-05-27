@@ -1,0 +1,69 @@
+"ziv_beastmaster_primal_fury"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+  
+  "AbilityTextureName"            "ziv_empty"
+
+  "precache"
+  {
+  }
+
+  "MaxLevel"  "7"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "damage_per_stack"    "0.5"
+    }
+    "02"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "armor_per_stack"    "0.1"
+    }
+    "03"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "max_stacks"    "20"
+    }
+    "04"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "duration"    "8"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_primal_fury"
+    {
+      "Passive"      "1"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "OnTakeDamage"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_primal_fury.lua"
+          "Function"    "OnTakeDamage"
+        }
+      }
+    }
+    "modifier_primal_fury_stacks"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_per_stack"
+        "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%damage_per_stack" 
+      }
+    }
+  }
+}

@@ -1,3 +1,22 @@
+function AddStackableModifierWithDuration(caster, target, ability, modifierName, time, maxStacks)
+  local modifier = target:FindModifierByName(modifierName)
+  if modifier then
+    local stackCount = target:GetModifierStackCount(modifierName, caster)
+
+    target:RemoveModifierByName(modifierName)
+    ability:ApplyDataDrivenModifier(caster, target, modifierName, {duration=time})
+
+    if (stackCount + 1) <= maxStacks then
+      target:SetModifierStackCount(modifierName, caster, stackCount + 1)
+    else
+      target:SetModifierStackCount(modifierName, caster, stackCount)
+    end
+  else
+    ability:ApplyDataDrivenModifier(caster, target, modifierName, {duration=time})
+    target:SetModifierStackCount(modifierName, caster, 1)
+  end
+end
+
 function AddChildEntity( caster, entity )
   caster.child_entities = caster.child_entities or {}
   table.insert(caster.child_entities, entity) 

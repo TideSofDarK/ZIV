@@ -6,16 +6,16 @@
 
     "EquipmentSlots" "torso;axe;gloves;axe;pants;boots"
 
-    "ChooseLayout"  "21111"
+    "ChooseLayout"  "12111"
 
     "AbilityLayout"     "5"
 
-    "Ability1"        "ziv_beastmaster_pet" 
-    "Ability2"        "ziv_beastmaster_pet2" 
-    "Ability3"        "ziv_beastmaster_cleave" 
-    "Ability4"        "ziv_beastmaster_bird"
-    "Ability5"        "ziv_beastmaster_leap"
-    "Ability6"        "ziv_empty6"
+    "Ability1"        "ziv_beastmaster_cleave" 
+    "Ability2"        "ziv_beastmaster_pet" 
+    "Ability3"        "ziv_beastmaster_pet2" 
+    "Ability4"        "ziv_beastmaster_leap"
+    "Ability5"        "ziv_beastmaster_bird"
+    "Ability6"        "ziv_beastmaster_primal_fury"
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""

@@ -266,8 +266,8 @@
 	    "AttackDamageMin"        "15"
 	    "AttackDamageMax"        "20"
 	
-	    "AttackRate"        "1.5"
-	    "AttackAnimationPoint"        "0.27"
+	    "AttackRate"                "1.75"
+	    "AttackAnimationPoint"      "0.43"  
 	
 	    "BountyXP"          "0"
 	    "BountyGoldMin"       "0"
@@ -311,8 +311,8 @@
 	    "AttackDamageMin"        "15"
 	    "AttackDamageMax"        "20"
 	
-	    "AttackRate"        "1.5"
-	    "AttackAnimationPoint"        "0.27"
+	    "AttackRate"        "1.75"
+	    "AttackAnimationPoint"        "0.43"
 	
 	    "BountyXP"          "0"
 	    "BountyGoldMin"       "0"
@@ -356,8 +356,8 @@
 	    "AttackDamageMin"        "15"
 	    "AttackDamageMax"        "20"
 	
-	    "AttackRate"        "1.5"
-	    "AttackAnimationPoint"        "0.27"
+	    "AttackRate"        "1.75"
+	    "AttackAnimationPoint"        "0.43"
 	
 	    "BountyXP"          "0"
 	    "BountyGoldMin"       "0"
@@ -401,8 +401,8 @@
 	    "AttackDamageMin"        "15"
 	    "AttackDamageMax"        "20"
 	
-	    "AttackRate"        "1.5"
-	    "AttackAnimationPoint"        "0.27"
+	    "AttackRate"        "1.75"
+	    "AttackAnimationPoint"        "0.43"
 	
 	    "BountyXP"          "0"
 	    "BountyGoldMin"       "0"
@@ -446,8 +446,8 @@
 	    "AttackDamageMin"        "15"
 	    "AttackDamageMax"        "20"
 	
-	    "AttackRate"        "1.5"
-	    "AttackAnimationPoint"        "0.27"
+	    "AttackRate"        "1.75"
+	    "AttackAnimationPoint"        "0.43"
 	
 	    "BountyXP"          "0"
 	    "BountyGoldMin"       "0"
@@ -491,8 +491,8 @@
 	    "AttackDamageMin"        "15"
 	    "AttackDamageMax"        "20"
 	
-	    "AttackRate"        "1.5"
-	    "AttackAnimationPoint"        "0.27"
+	    "AttackRate"        "1.75"
+	    "AttackAnimationPoint"        "0.43"
 	
 	    "BountyXP"          "0"
 	    "BountyGoldMin"       "0"
@@ -536,8 +536,8 @@
 	    "AttackDamageMin"        "15"
 	    "AttackDamageMax"        "20"
 	
-	    "AttackRate"        "1.5"
-	    "AttackAnimationPoint"        "0.27"
+	    "AttackRate"        "1.75"
+	    "AttackAnimationPoint"        "0.43"
 	
 	    "BountyXP"          "0"
 	    "BountyGoldMin"       "0"

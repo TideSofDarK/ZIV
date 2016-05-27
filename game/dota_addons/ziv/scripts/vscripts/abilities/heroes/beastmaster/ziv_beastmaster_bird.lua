@@ -86,8 +86,8 @@ function Bird( keys )
 		local particle
 
 		Timers:CreateTimer(0.75, function (  )
-			particle = ParticleManager:CreateParticle("particles/heroes/beastmaster/beastmaster_bird_beam.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
-			AddChildParticle( bird, particle )
+			-- particle = ParticleManager:CreateParticle("particles/heroes/beastmaster/beastmaster_bird_beam.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
+			-- AddChildParticle( bird, particle )
 
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_bird_heal", {})
 		end)
