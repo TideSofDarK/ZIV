@@ -87,10 +87,15 @@
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/knight/knight_orb_attack_k.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/knight/knight_orb_attack_l.vpcf"
 			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/knight/knight_orb_attack_m.vpcf"
+			m_bEndCap = true
 		},
 	]
 	m_ForceGenerators =

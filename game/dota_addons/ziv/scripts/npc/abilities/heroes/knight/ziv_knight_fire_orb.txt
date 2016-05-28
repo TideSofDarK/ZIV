@@ -1,4 +1,4 @@
-"ziv_knight_orb"
+"ziv_knight_fire_orb"
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
@@ -8,12 +8,11 @@
 
   "AbilityTextureName"            "ziv_empty"
 
-  "AbilityCastPoint"        "0.3"
-  "AbilityCooldown"        "1.0"
-  "AbilityCastRange"        "1200"
-  "AbilityCastAnimation" "ACT_DOTA_ATTACK"
-
-  "AbilityManaCost"       "12"
+  "AbilityCastRange"  "1600"
+  "AbilityManaCost" "15"
+  "AbilityCastPoint"        "0.0"
+  "AbilityCooldown"       "0.0"
+  "AbilityCastAnimation"    "ACT_DOTA_IDLE"
   
   "MaxLevel"          "7"
 
@@ -24,12 +23,33 @@
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
   }
 
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "explosion_radius"      "325"
+    }
+    "02"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "damage_amp"    "1.5"
+    }
+    "03"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "projectile_speed"      "700"
+    }
+  }
+
   "OnSpellStart"
   {
     "RunScript"
     {
       "ScriptFile"  "abilities/heroes/knight/ziv_knight_orb.lua"
       "Function"    "LaunchOrb"
+      "effect" "particles/heroes/knight/knight_orb_attack.vpcf"
+      "impact_effect" "particles/heroes/knight/knight_orb_attack_m.vpcf"
       "Target"  "POINT"
     }
   }

@@ -3,24 +3,13 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 4
-	m_flConstantRadius = 80.000000
-	m_ConstantColor =
-	[
-		213,
-		213,
-		213,
-		255,
-	]
-	m_nConstantSequenceNumber = 1
+	m_flConstantRadius = 10.000000
 	m_Renderers =
 	[
 		{
 			_class = "C_OP_RenderSprites"
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
-			m_bAdditive = true
-			m_flOverbrightFactor = 8.000000
-			m_bBlendFramesSeq0 = false
-			m_hTexture = resource:"materials/particle/lens_flare/lens_flare.vtex"
+			m_hTexture = resource:"materials/particle/elliptical.vtex"
 		},
 	]
 	m_Operators =
@@ -33,7 +22,6 @@
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.500000
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
@@ -47,51 +35,59 @@
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flBias = 0.950000
+			m_flBias = 0.750000
 			m_flStartScale = 0.000000
-			m_flEndScale = 0.400000
+			m_flEndTime = 0.250000
 		},
 	]
 	m_Initializers =
 	[
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMax = 2.000000
-			m_fLifetimeMin = 0.750000
+			m_fLifetimeMin = 0.800000
+			m_fLifetimeMax = 1.000000
 		},
 		{
 			_class = "C_INIT_CreateWithinSphere"
+			m_fRadiusMax = 1.000000
 			m_nControlPointNumber = 3
-			m_fRadiusMax = 0.500000
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax =
-			[
-				255,
-				208,
-				44,
-				255,
-			]
 			m_ColorMin =
 			[
+				98,
+				34,
+				34,
 				255,
-				129,
-				55,
+			]
+			m_ColorMax =
+			[
+				92,
+				63,
+				33,
 				255,
 			]
 		},
 		{
-			_class = "C_INIT_RandomRotation"
-			m_flDegreesMax = 20.000000
-			m_flDegrees = 90.000000
+			_class = "C_INIT_RandomAlpha"
 		},
 	]
 	m_Emitters =
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 1.000000
+			m_flStartTime = 0.125000
+			m_flEmitRate = 4.000000
+		},
+	]
+	m_ForceGenerators =
+	[
+		{
+			_class = "C_OP_AttractToControlPoint"
+			m_fForceAmount = 600.000000
+			m_fFalloffPower = -0.200000
+			m_nControlPointNumber = 3
 		},
 	]
 }

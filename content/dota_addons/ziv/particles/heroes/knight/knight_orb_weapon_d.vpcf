@@ -66,8 +66,9 @@
 		{
 			_class = "C_OP_InterpolateRadius"
 			m_flEndTime = 0.140000
-			m_flStartScale = 0.000000
+			m_flStartScale = 2.000000
 			m_flBias = 0.950000
+			m_flEndScale = 2.000000
 		},
 		{
 			_class = "C_OP_RampScalarLinearSimple"
@@ -161,6 +162,15 @@
 		{
 			_class = "C_OP_ContinuousEmitter"
 			m_flEmitRate = 10.000000
+		},
+	]
+	m_ForceGenerators =
+	[
+		{
+			_class = "C_OP_AttractToControlPoint"
+			m_fForceAmount = 600.000000
+			m_fFalloffPower = -0.200000
+			m_nControlPointNumber = 3
 		},
 	]
 }

@@ -117,4 +117,13 @@
 			m_flEmitRate = 6.000000
 		},
 	]
+	m_ForceGenerators =
+	[
+		{
+			_class = "C_OP_AttractToControlPoint"
+			m_fForceAmount = 600.000000
+			m_fFalloffPower = -0.200000
+			m_nControlPointNumber = 3
+		},
+	]
 }

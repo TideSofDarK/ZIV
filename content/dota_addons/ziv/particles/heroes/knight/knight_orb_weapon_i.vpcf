@@ -2,39 +2,30 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 8
-	m_flConstantRadius = 50.000000
-	m_ConstantColor =
-	[
-		154,
-		65,
-		0,
-		255,
-	]
+	m_nMaxParticles = 10
+	m_flConstantRadius = 20.000000
 	m_Renderers =
 	[
 		{
 			_class = "C_OP_RenderSprites"
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
-			m_bAdditive = true
-			m_flOverbrightFactor = 5.000000
-			m_hTexture = resource:"materials/particle/elliptical_flare.vtex"
+			m_bMod2X = true
+			m_hTexture = resource:"materials/particle/particle_modulate_02a.vtex"
 		},
 	]
 	m_Operators =
 	[
 		{
-			_class = "C_OP_Decay"
+			_class = "C_OP_BasicMovement"
 		},
 		{
-			_class = "C_OP_BasicMovement"
+			_class = "C_OP_Decay"
 		},
 		{
 			_class = "C_OP_FadeInSimple"
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.750000
 		},
 		{
 			_class = "C_OP_PositionLock"
@@ -44,38 +35,22 @@
 			_class = "C_OP_EndCapTimedDecay"
 		},
 		{
-			_class = "C_OP_ColorInterpolate"
-			m_ColorFade =
-			[
-				255,
-				79,
-				0,
-				255,
-			]
-		},
-		{
-			_class = "C_OP_InterpolateRadius"
-			m_flBias = 0.950000
-			m_flStartScale = 0.000000
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nField = 12
+			m_Rate = 2.000000
 		},
 	]
 	m_Initializers =
 	[
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 1.000000
-			m_fLifetimeMax = 1.250000
+			m_fLifetimeMax = 1.000000
+			m_fLifetimeMin = 0.800000
 		},
 		{
 			_class = "C_INIT_CreateWithinSphere"
-			m_vecDistanceBias =
-			[
-				1.000000,
-				1.000000,
-				0.000000,
-			]
-			m_fRadiusMax = 2.000000
 			m_nControlPointNumber = 3
+			m_fRadiusMax = 0.500000
 		},
 		{
 			_class = "C_INIT_RemapScalar"
@@ -85,31 +60,32 @@
 			m_flStartTime = 0.000000
 		},
 		{
-			_class = "C_INIT_RandomColor"
-			m_ColorMin =
-			[
-				255,
-				230,
-				64,
-				255,
-			]
-			m_ColorMax =
-			[
-				80,
-				47,
-				0,
-				255,
-			]
+			_class = "C_INIT_RandomYaw"
 		},
 		{
-			_class = "C_INIT_RandomYawFlip"
+			_class = "C_INIT_RandomRotation"
+			m_flDegreesMax = 90.000000
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 20.000000
+			m_flRadiusMax = 21.000000
 		},
 	]
 	m_Emitters =
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 6.000000
+			m_flEmitRate = 10.000000
+		},
+	]
+	m_ForceGenerators =
+	[
+		{
+			_class = "C_OP_AttractToControlPoint"
+			m_fForceAmount = 600.000000
+			m_fFalloffPower = -0.200000
+			m_nControlPointNumber = 3
 		},
 	]
 }

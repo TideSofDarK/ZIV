@@ -1339,6 +1339,11 @@
 	      "IsDebuff"      "0"
 	
 	      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_DISARMED"    "MODIFIER_STATE_VALUE_ENABLED"
+	      }
 	    
 	      "Properties"
 	      {
@@ -4415,6 +4420,81 @@
 	    }
 	  }
 	}
+	"ziv_knight_fire_orb"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
+	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+	
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AbilityCastRange"  "1600"
+	  "AbilityManaCost" "15"
+	  "AbilityCastPoint"        "0.0"
+	  "AbilityCooldown"       "0.0"
+	  "AbilityCastAnimation"    "ACT_DOTA_IDLE"
+	  
+	  "MaxLevel"          "7"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/heroes/knight/knight_slash_orb.vpcf"
+	    "particle"  "particles/heroes/knight/knight_orb_attack.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+	  }
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "explosion_radius"      "325"
+	    }
+	    "02"
+	    {
+	      "var_type"      "FIELD_FLOAT"
+	      "damage_amp"    "1.5"
+	    }
+	    "03"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "projectile_speed"      "700"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_orb.lua"
+	      "Function"    "LaunchOrb"
+	      "effect" "particles/heroes/knight/knight_orb_attack.vpcf"
+	      "impact_effect" "particles/heroes/knight/knight_orb_attack_m.vpcf"
+	      "Target"  "POINT"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_knight_orb"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	    
+	      "OnCreated"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/knight/ziv_knight_orb.lua"
+	          "Function"    "NewOrb"
+	        }
+	      }
+	    }
+	  }
+	}
 	"ziv_knight_flee"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -4494,61 +4574,6 @@
 	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"  "%minus_armor"
 	        "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%bonus_resist"
 	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"  "%bonus_movespeed"
-	      }
-	    }
-	  }
-	}
-	"ziv_knight_orb"
-	{
-	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
-	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-	
-	  "AbilityTextureName"            "ziv_empty"
-	
-	  "AbilityCastPoint"        "0.3"
-	  "AbilityCooldown"        "1.0"
-	  "AbilityCastRange"        "1200"
-	  "AbilityCastAnimation" "ACT_DOTA_ATTACK"
-	
-	  "AbilityManaCost"       "12"
-	  
-	  "MaxLevel"          "7"
-	
-	  "precache"
-	  {
-	    "particle"  "particles/heroes/knight/knight_slash_orb.vpcf"
-	    "particle"  "particles/heroes/knight/knight_orb_attack.vpcf"
-	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
-	  }
-	
-	  "OnSpellStart"
-	  {
-	    "RunScript"
-	    {
-	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_orb.lua"
-	      "Function"    "LaunchOrb"
-	      "Target"  "POINT"
-	    }
-	  }
-	
-	  "Modifiers"
-	  {
-	    "modifier_knight_orb"
-	    {
-	      "Passive"      "1"
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
-	    
-	      "OnCreated"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "abilities/heroes/knight/ziv_knight_orb.lua"
-	          "Function"    "NewOrb"
-	        }
 	      }
 	    }
 	  }

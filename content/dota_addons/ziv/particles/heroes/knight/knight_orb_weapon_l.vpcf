@@ -61,6 +61,10 @@
 			_class = "C_OP_FadeOutSimple"
 			m_flFadeOutTime = 0.750000
 		},
+		{
+			_class = "C_OP_PositionLock"
+			m_nControlPointNumber = 3
+		},
 	]
 	m_Initializers =
 	[
@@ -68,9 +72,6 @@
 			_class = "C_INIT_RandomLifeTime"
 			m_fLifetimeMin = 0.300000
 			m_fLifetimeMax = 0.400000
-		},
-		{
-			_class = "C_INIT_CreateFromParentParticles"
 		},
 		{
 			_class = "C_INIT_RandomRadius"
@@ -97,12 +98,24 @@
 		{
 			_class = "C_INIT_RandomRotation"
 		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+		},
 	]
 	m_Emitters =
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
 			m_flEmissionDuration = 0.200000
+		},
+	]
+	m_ForceGenerators =
+	[
+		{
+			_class = "C_OP_AttractToControlPoint"
+			m_fForceAmount = 600.000000
+			m_fFalloffPower = -0.200000
+			m_nControlPointNumber = 3
 		},
 	]
 }

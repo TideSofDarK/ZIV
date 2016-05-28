@@ -45,7 +45,6 @@
 		{
 			_class = "C_OP_InterpolateRadius"
 			m_flBias = 0.950000
-			m_flStartScale = 0.000000
 		},
 	]
 	m_Initializers =
@@ -66,6 +65,7 @@
 			m_flInputMax = 0.600000
 			m_flEndTime = 0.600000
 			m_flStartTime = 0.000000
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_INIT_RandomYaw"
@@ -101,7 +101,7 @@
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 4.000000
+			m_flEmitRate = 134.000000
 		},
 	]
 	m_ForceGenerators =

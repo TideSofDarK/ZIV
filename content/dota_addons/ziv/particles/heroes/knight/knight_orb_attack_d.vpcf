@@ -66,7 +66,7 @@
 		{
 			_class = "C_OP_InterpolateRadius"
 			m_flEndTime = 0.140000
-			m_flStartScale = 0.000000
+			m_flStartScale = 2.000000
 			m_flBias = 0.950000
 			m_flEndScale = 2.000000
 		},
@@ -151,6 +151,7 @@
 			m_flEndTime = 0.600000
 			m_flInputMax = 0.600000
 			m_bScaleInitialRange = true
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_INIT_RandomSequence"

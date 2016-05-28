@@ -169,10 +169,11 @@ function SimulateRangeAttack( keys )
     local direction = (Vector(keys.target_points[1].x, keys.target_points[1].y, 0) 
       - Vector(origin.x, origin.y, 0)):Normalized()
     local point = caster:GetAbsOrigin() + ((keys.target_points[1] - origin):Normalized() * distanceToTarget)
+
     local time = (target - origin):Length2D()/speed
 
     if math.abs(origin.z - keys.target_points[1].z) < 128 then
-      point.z = caster:GetAbsOrigin().z + offset 
+      point.z = origin.z
       time = 8.0
       lock = false
     elseif keys.target_points[1].z - origin.z >= 128 then
@@ -219,20 +220,15 @@ function SimulateRangeAttack( keys )
 
     projectile.OnUnitHit = (function(self, target)
       if IsValidEntity(target) then
-        if pierce_count >= (keys.pierce or 1) or unit_behavior == PROJECTILES_DESTROY then
-          projectile:Destroy()
-          ParticleManager:DestroyParticle(projectileFX, true)
-          return false
-        end 
-
-        if keys.impact_sound then
-          caster:EmitSound(keys.impact_sound)
-        elseif kv["SoundSet"] then
-          caster:EmitSound(kv["SoundSet"]..".ProjectileImpact")
-        end
+        -- if keys.impact_sound then
+        --   caster:EmitSound(keys.impact_sound)
+        -- elseif kv["SoundSet"] then
+        --   caster:EmitSound(kv["SoundSet"]..".ProjectileImpact")
+        -- end
 
         if keys.impact_effect then
-          TimedEffect(keys.impact_effect, target, 2.0, 3, PATTACH_POINT_FOLLOW)
+          local endcap = TimedEffect(keys.impact_effect, target, 2.0, 3, PATTACH_POINT_FOLLOW)
+          ParticleManager:SetParticleControlEnt(endcap,1,target,PATTACH_POINT_FOLLOW,"attach_hitloc",target:GetAbsOrigin(),false)
         end
 
         local new_keys = keys
@@ -248,6 +244,19 @@ function SimulateRangeAttack( keys )
         end
 
         pierce_count = pierce_count + 1
+
+        if pierce_count >= (keys.pierce or 1) or unit_behavior == PROJECTILES_DESTROY then
+          projectile:Destroy()
+          return false
+        else
+          if keys.pierce then
+            if keys.impact_sound then
+              caster:EmitSound(keys.impact_sound)
+            elseif kv["SoundSet"] then
+              caster:EmitSound(kv["SoundSet"]..".ProjectileImpact")
+            end
+          end
+        end 
       end
     end)
 
@@ -262,6 +271,12 @@ function SimulateRangeAttack( keys )
 
     projectile.OnFinish = (function(self, target)
       ParticleManager:DestroyParticle(projectileFX, false)
+
+      if keys.impact_sound then
+        caster:EmitSound(keys.impact_sound)
+      elseif kv["SoundSet"] then
+        caster:EmitSound(kv["SoundSet"]..".ProjectileImpact")
+      end
     end)
 
     Projectiles:CreateProjectile(projectile)
