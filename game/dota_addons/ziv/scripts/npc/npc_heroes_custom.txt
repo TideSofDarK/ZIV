@@ -69,16 +69,16 @@
 	
 	    "EquipmentSlots" "torso;sword;gloves;shield;pants;boots"
 	
-	    "ChooseLayout"  "11211"
+	    "ChooseLayout"  "11112"
 	
 	    "AbilityLayout"     "5"
 	
-	    "Ability1"        "ziv_knight_dash" 
+	    "Ability1"        "ziv_knight_orb" 
 	    "Ability2"        "ziv_knight_parry" 
 	    "Ability3"        "ziv_knight_stone_form" 
-	    "Ability4"        "ziv_knight_taunt"
+	    "Ability4"        "ziv_knight_dash"
 	    "Ability5"        "ziv_knight_ult"
-	    "Ability6"        "ziv_empty1"
+	    "Ability6"        "ziv_knight_taunt"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -93,8 +93,16 @@
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
 	    "AttackDamageMin"     "10"
 	    "AttackDamageMax"     "15"
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "1.700000"
+	    "AttackAnimationPoint"      "0.500000"
+	    "AttackAcquisitionRange"  "800"
+	    "AttackRange"       "600"
+	    "ProjectileModel"     "particles/heroes/knight/knight_orb_attack.vpcf"
+	    "ProjectileSpeed"     "600"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
 	    "AttributeBaseStrength"   "7"

@@ -1,9 +1,7 @@
 "ziv_knight_flee"
 {
   "BaseClass"           "ability_datadriven"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-  "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-  "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastRange"        "0"
@@ -54,6 +52,7 @@
     {
       "ScriptFile"  "abilities/heroes/knight/ziv_knight_flee.lua"
       "Function"    "Flee"
+      "Target" "CASTER"
     }
   }
 
