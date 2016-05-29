@@ -162,25 +162,20 @@ function SimulateRangeAttack( keys )
       caster:EmitSound(kv["SoundSet"]..".Attack")
     end
 
-    local offset = 64
     local lock = true
     local distanceToTarget = caster:GetAttackRange() * 2.0
-    local origin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment(keys.attachment or "attach_attack1")) or (caster:GetAbsOrigin() + Vector(0,0,offset))
+    local origin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment(keys.attachment or "attach_attack1")) or (caster:GetAbsOrigin())
     local direction = (Vector(keys.target_points[1].x, keys.target_points[1].y, 0) 
       - Vector(origin.x, origin.y, 0)):Normalized()
-    local point = caster:GetAbsOrigin() + ((keys.target_points[1] - origin):Normalized() * distanceToTarget)
+    local point = origin + (((keys.target_points[1] - origin):Normalized() * Vector(1,1,0)) * distanceToTarget)
 
-    local time = (target - origin):Length2D()/speed
-
-    if math.abs(origin.z - keys.target_points[1].z) < 128 then
-      point.z = origin.z
-      time = 8.0
-      lock = false
-    elseif keys.target_points[1].z - origin.z >= 128 then
-      point.z = keys.target_points[1].z + (offset * 4) 
-      time = 8.0
-      lock = false
+    if math.abs(target.z - caster:GetAbsOrigin().z) >= 32 then
+      if math.abs(GridNav:FindPathLength(caster:GetAbsOrigin(),target) - (target - caster:GetAbsOrigin()):Length2D()) < 128 then
+        point = keys.target_points[1]
+      end
     end
+
+    local time = (point - origin):Length2D()/speed
 
     local unit_behavior = PROJECTILES_DESTROY
     local pierce_count = 0
@@ -190,8 +185,8 @@ function SimulateRangeAttack( keys )
 
     projectile = {
       vSpawnOrigin = origin,
-      fStartRadius = 64,
-      fEndRadius = 48,
+      fStartRadius = 48,
+      fEndRadius = 64,
       Source = caster,
       fExpireTime = time,
       UnitBehavior = unit_behavior,

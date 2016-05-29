@@ -10,6 +10,7 @@ function StoneFormStart( keys )
 		FreezeAnimation(caster)
 	end)
 
+	ability.scale = caster:GetModelScale()
 	caster:SetModelScale(1.25)
 end
 
@@ -43,11 +44,12 @@ function StoneFormEnd( keys )
 	TimedEffect( "particles/units/heroes/hero_visage/visage_stone_form.vpcf", caster, 2.0 )
 
 	caster:RemoveModifierByName("modifier_stone_form_stacks")
+	caster:RemoveModifierByName("modifier_stone_form")
 
 	UnfreezeAnimation(caster)
 	EndAnimation(caster)
 
-	caster:SetModelScale(1)
+	caster:SetModelScale(ability.scale)
 end
 
 function OnAttacked( keys )
