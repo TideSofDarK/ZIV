@@ -74,13 +74,23 @@
 
 	vertical-align: center;
 	horizontal-align: center;
+
+	width: 100%;
+	height: 100%;
 }
 
-#SelectionRoot {
+#CreationRoot {
 	horizontal-align: center;
-	vertical-align: bottom;
+	vertical-align: center;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/character_creation.png');
+
+	width: 85%;
+	height: 85%;
 
 	visibility: collapse;
+
+	flow-children: down;
 }
 
 #Logo {
@@ -177,14 +187,6 @@
 	vertical-align: bottom;
 }
 
-#HeroFrames {
-	vertical-align: center;
-	horizontal-align: center;
-
-	width: 1920px;
-	height: 1080px;
-}
-
 #Background {
 	width: 1920px;
 	height: 1080px;
@@ -192,60 +194,43 @@
 	background-color: Grey900;
 }
 
-.HeroFrame {
-	box-shadow: #000000ff 0px 0px 10px 0px;
+#HeroIcons {
+	width: 100%;
+	height: 100%;
 
-	vertical-align: center;
+	flow-children: down;
+
+	margin-top: 160px;
+}
+
+.HeroListHorizontal {
+	flow-children: right;
+
 	horizontal-align: center;
-
-	width: 1200px;
-	height: 900px;
-
-	border-radius: 10px;
-	background-color: Grey700;
-
-	transition-property: transform, brightness, position;
-	transition-duration: .3s;
-	transition-timing-function: ease-in-out, linear;
-
-	z-index: 1;
 }
 
-#hires
-{
-	background-image: url("s2r://panorama/images/custom_game/heroes/npc_dota_hero_dragon_knight_ziv.jpg");
+.HeroIcon {
+	width: 164px;
+	height: 96px;
 }
 
-.HeroFrame.unselectedLeft {
-	brightness: 0.6;
-	blur: gaussian( 11.9 );
+.HeroIconForeground {
+	width: 164px;
+	height: 96px;
 
-	transform: rotateY( 90deg ) rotateZ( 0deg ) rotateX( 0deg );
-
-	z-index: 1;
-}
-
-.HeroFrame.unselectedRight {
-	brightness: 0.6;
-	blur: gaussian( 11.9 );
-
-	transform: rotateY( -90deg ) rotateZ( 0deg ) rotateX( 0deg );
-
-	z-index: 1;
-}
-
-.HeroFrame.Top {
-	height: 50%;
-
-	position: 0px -225px 0px;
-
-	box-shadow: #ffffff00 4px 4px 8px 0px;
-
-	border-radius: 0px;
-
+	background-image: url('file://{images}/custom_game/ingame_ui/hero_icon_border.png');
+	background-size: 137px 78px;
+	background-position: 50% 50%;
 	background-repeat: no-repeat;
-	background-size: 1200px 675px;
-	background-position: center top;
+}
+
+.HeroIconButton {
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.HeroIconButton:hover {
+	wash-color: #bbbbbb;
 }
 
 .CharacterNameLabel {

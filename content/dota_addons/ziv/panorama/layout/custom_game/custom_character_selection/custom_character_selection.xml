@@ -12,28 +12,24 @@
 		<Label class="Headline3" text="#addoninfo" />	
 		<Panel class="GenericBackground" id="Logo">
 		</Panel>
-		<Panel id="HeroFrames">
-		</Panel>
 		<Panel class="GenericBackground FlippedA" id="CharacterList">
 		</Panel>
 		<Panel class="GenericBackground" id="Menu">
 			<Panel class="CharacterListCard" id="LoadCharacterList" />
 			<Panel hittest="false" class="CharacterListOverlap" />
 		</Panel>
-		<Panel id="SelectionRoot">
-			<Button class="GenericButton ChooseButton" id="ChooseButton" MaterialStyle="ChooseButton"
-							onactivate="LockIn()"
-							>
-				<Label class="ChooseButtonLabel Headline1" MaterialStyle="ChooseButton" id="LockInLabel" text="#lockin" />
-			</Button>
-			<Button class="GenericButton DirButton Left" id="DirButtonLeft"
-								onactivate="LeftButton()"
-								>
-			</Button>
-			<Button class="GenericButton DirButton Right" id="DirButtonRight"
-								onactivate="RightButton()"
-								>
-			</Button>
+		<Panel id="CreationRoot" class="GenericBackground">
+			<Panel id="HeroIcons">
+				<Panel id="HeroList1" class="HeroListHorizontal">
+					
+				</Panel>
+				<Panel id="HeroList2" class="HeroListHorizontal">
+
+				</Panel>
+				<Panel id="HeroList3" class="HeroListHorizontal">
+					
+				</Panel>
+			</Panel>
 		</Panel>
 	</Panel>
 </root>

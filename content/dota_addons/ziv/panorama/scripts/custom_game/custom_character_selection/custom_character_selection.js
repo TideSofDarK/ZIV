@@ -1,6 +1,6 @@
 "use strict";
 
-var heroFrames = [];
+var heroIcons = [];
 
 var heroList;
 var heroesKVs;
@@ -24,27 +24,11 @@ function SimpleLerp(a, b, t) {
 	return a + (b - a) * t;
 }
 
-function LeftButton() {
-	if ( currentCharacter > 0 && lockedIn == false)
-	{
-		currentCharacter--;
-	}
-	UpdateFrames();
-}
-
-function RightButton() {
-	if ( currentCharacter < heroFrames.length-1 && lockedIn == false)
-	{
-		currentCharacter++;
-	}
-	UpdateFrames();
-}
-
 function LockIn() {
 	if (lockedIn == false) {
 		lockedIn = true;
 
-		heroFrames[currentCharacter].AddClass( "selected" );
+		heroIcons[currentCharacter].AddClass( "selected" );
 
 		$("#ChooseButton").SetHasClass( "selected", true );
 		$("#LockInLabel").text = $.Localize("lockedin");
@@ -55,7 +39,7 @@ function LockIn() {
 }
 
 function CreateHero() {
-	var abilities = heroFrames[currentCharacter].FindChildTraverse("AbilitiesPanel");
+	var abilities = heroIcons[currentCharacter].FindChildTraverse("AbilitiesPanel");
 	var selected_abilities = [];
 	if (abilities) {
 		for (var i = 0; i < abilities.GetChildCount(); i++) {
@@ -67,73 +51,57 @@ function CreateHero() {
 			}
 		}
 	}
-	GameEvents.SendCustomGameEventToServer( "ziv_choose_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroFrames[currentCharacter].heroName, "abilities" : selected_abilities } );
+	GameEvents.SendCustomGameEventToServer( "ziv_choose_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroIcons[currentCharacter].heroName, "abilities" : selected_abilities } );
 }
 
-function CreateFrames() {
+function SetupCreation() {
 	if (heroList == undefined || heroesKVs == undefined) {
 		
-		$.Schedule(0.1, CreateFrames);
+		$.Schedule(0.1, SetupCreation);
 	}
 	else {
-		var _root = $("#HeroFrames");
+		var count1 = 3;
+		var count2 = 2;
+		var count3 = 3;
+
+		var i = 1;
 
 		for (var hero in heroList) {
 	    	var value = heroList[hero];
 
 	    	if (value == "1") {
-				var newHeroFrame = $.CreatePanel( "Panel", _root, "HeroFrame_" + hero  );
+	    		var heroListPanel;
+	    		if (i < count1) {
+	    			heroListPanel = $("#HeroList1");
+	    		}
+	    		else if (i > count1 && i <= (count1 + count2)) {
+	    			heroListPanel = $("#HeroList2");
+	    		}
+				else if (i >= (count2 + count3)) {
+	    			heroListPanel = $("#HeroList3");
+	    		}
 
-				newHeroFrame.abilityPanels = [];
+				var newHeroIcon = $.CreatePanel( "Panel", heroListPanel, "HeroIcon_" + hero  );
+				newHeroIcon.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_icon.xml", false, false );
 
-				newHeroFrame.heroName = hero;
-				newHeroFrame.heroesKVs = heroesKVs;
+				newHeroIcon.abilityPanels = [];
 
-				newHeroFrame.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_frame.xml", false, false );
+				newHeroIcon.heroName = hero;
+				newHeroIcon.heroKV = value;
+
+				newHeroIcon.SetHero(hero)
 				
-				heroFrames.push(newHeroFrame);
+				heroIcons.push(newHeroIcon);
+
+				i++;
 	    	}
 		}
-
-		UpdateFrames();
 	}
-}
-
-function UpdateFrames() {
-    for (var i = heroFrames.length-1; i >= 0; i--) {
-        var lockedInOffset = 0;
-        var scrollOffset = 1;
-
-        if (lockedIn && currentCharacter != i) {
-            lockedInOffset = i < currentCharacter ? -3000 : 3000;
-            scrollOffset = 0.275;
-        }
-
-        var sign = i < currentCharacter
-            ? -1
-            : i > currentCharacter ? 1 : 0;
-        heroFrames[i].style.x = (1000 * sign + lockedInOffset + (( (i - currentCharacter) * marginX ) ) + "px 0px;") + "px;";
-        heroFrames[i].style.y = "-45px;";
-        heroFrames[i].style.zIndex = i < currentCharacter
-            ? (heroFrames.length - currentCharacter)
-            : i > currentCharacter
-                ? (heroFrames.length - i - currentCharacter)
-                : 10;
-
-        heroFrames[i].SetHasClass( "unselectedLeft", i < currentCharacter );
-        heroFrames[i].SetHasClass( "unselectedRight", i > currentCharacter );
-
-        heroFrames[i].style.visibility = Math.abs(i - currentCharacter) > 1 ? "collapse;" : "visible;";
-    }
- 
-    // $.Schedule(0.01, UpdateFrames)
 }
 
 function CreateCharacterButton() {
 	$("#Menu").style.visibility = "collapse;";
-	$("#SelectionRoot").style.visibility = "visible;";
-
-	CreateFrames();
+	$("#CreationRoot").style.visibility = "visible;";
 }
 
 function LoadCharacterButton() {
@@ -192,7 +160,7 @@ function LoadCharactersList( args )
 
 	LoadCharactersList( null );
 
-	// CreateFrames();
+	SetupCreation();
 
 	GameUI.SetMouseCallback( function( eventName, arg ) {
 		var CONSUME_EVENT = true;
@@ -210,7 +178,7 @@ function LoadCharactersList( args )
 			{
 				currentCharacter--;
 			}
-			else if ( arg < 0 && currentCharacter < heroFrames.length-1 )
+			else if ( arg < 0 && currentCharacter < heroIcons.length-1 )
 			{
 				currentCharacter++;
 			}
