@@ -5,16 +5,16 @@
 
     "EquipmentSlots" "torso;gun;gloves;ring;pants;boots"
 
-    "ChooseLayout"  "11121"
+    "ChooseLayout"  "21111"
 
     "AbilityLayout"     "5"
     
-    "Ability1"        "ziv_sniper_empty1" 
-    "Ability2"        "ziv_sniper_empty2" 
+    "Ability1"        "ziv_sniper_explosive_trap"
+    "Ability2"        "ziv_sniper_thunder_trap"
     "Ability3"        "ziv_sniper_trueshot_aura" 
-    "Ability4"        "ziv_sniper_explosive_trap"
-    "Ability5"        "ziv_sniper_thunder_trap"
-    "Ability6"        "ziv_empty6"
+    "Ability4"        "ziv_empty6"
+    "Ability5"        "ziv_sniper_empty1" 
+    "Ability6"        "ziv_sniper_empty2" 
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""

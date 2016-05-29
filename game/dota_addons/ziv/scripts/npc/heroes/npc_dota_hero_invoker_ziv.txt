@@ -6,18 +6,18 @@
 
     "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"
 
-    "ChooseLayout"  "22211"
+    "ChooseLayout"  "21122"
 
     "AbilityLayout"     "5"
 
-    "Ability1"        "ziv_elementalist_dark_orb" 
-    "Ability2"        "ziv_elementalist_cold_orb" 
-    "Ability3"        "ziv_elementalist_ball_lightning" 
-    "Ability4"        "ziv_elementalist_dark_illusion"
-    "Ability5"        "ziv_elementalist_cold_blast"
-    "Ability6"        "ziv_elementalist_fire_blast"
-    "Ability7"        "ziv_elementalist_overload"
-    "Ability8"        "ziv_empty1"
+    "Ability1"        "ziv_elementalist_cold_blast"
+    "Ability2"        "ziv_elementalist_fire_blast"
+    "Ability3"        "ziv_elementalist_overload"
+    "Ability4"        "ziv_empty1"
+    "Ability5"        "ziv_elementalist_dark_orb" 
+    "Ability6"        "ziv_elementalist_cold_orb" 
+    "Ability7"        "ziv_elementalist_ball_lightning" 
+    "Ability8"        "ziv_elementalist_dark_illusion"
     "Ability9"        ""
     "Ability10"       ""
     "Ability11"       ""

@@ -1,32 +1,47 @@
 <root>
 	<styles>
-		<include src="file://{resources}/styles/custom_game/material_design.css" />
-		<include src="file://{resources}/styles/custom_game/custom_character_selection/custom_character_selection.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+		<include src="file://{resources}/styles/custom_game/custom_character_selection/custom_character_selection.css" />
+		<include src="file://{resources}/styles/custom_game/custom_character_selection/custom_character_selection_ability.css" />
 	</styles>
 	<scripts>
-		<include src="file://{resources}/scripts/custom_game/material_design.js" />
 		<include src="file://{resources}/scripts/custom_game/custom_character_selection/custom_character_selection.js" />
 	</scripts>
 	<Panel hittest="false" class="Root">
-		<Label class="Headline3" text="#addoninfo" />	
+		<Label id="GameInfo" class="CCSHeadline" text="#addoninfo" />	
 		<Panel class="GenericBackground" id="Logo">
 		</Panel>
-		<Panel class="GenericBackground FlippedA" id="CharacterList">
+		<Panel class="GenericBackground" id="CharacterList">
 		</Panel>
 		<Panel class="GenericBackground" id="Menu">
 			<Panel class="CharacterListCard" id="LoadCharacterList" />
 			<Panel hittest="false" class="CharacterListOverlap" />
 		</Panel>
 		<Panel id="CreationRoot" class="GenericBackground">
-			<Panel id="HeroIcons">
-				<Panel id="HeroList1" class="HeroListHorizontal">
-					
-				</Panel>
-				<Panel id="HeroList2" class="HeroListHorizontal">
+			<Panel id="CreationTop">
+				<Label class="CCSHeadline Headline1" id="CreateCharacterLabel" text="#create_character" />	
 
+				<Button onactivate="BackButton()" class="CloseButton BackButton" id="BackButton">
+				</Button>
+			</Panel>
+
+			<Panel id="CreationMiddle" hittest="false">
+				<DOTASettingsCheckbox id="HighlightEasyCharacters" text="#highlight_easy_caharacters" onactivate="HighlightEasyCharacters()" />
+				<Panel id="HeroList" hittest="false">
+					<Panel id="HeroList1" class="HeroListHorizontal">
+						
+					</Panel>
+					<Panel id="HeroList2" class="HeroListHorizontal">
+
+					</Panel>
+					<Panel id="HeroList3" class="HeroListHorizontal">
+						
+					</Panel>
 				</Panel>
-				<Panel id="HeroList3" class="HeroListHorizontal">
+			</Panel>
+
+			<Panel id="CreationBottom">
+				<Panel id="Abilities">
 					
 				</Panel>
 			</Panel>

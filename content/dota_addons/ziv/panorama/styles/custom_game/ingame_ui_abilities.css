@@ -171,7 +171,7 @@ DOTAAbilityImage {
 
 	vertical-align: top;
 	horizontal-align: left;
-	min-width: 18px;
+	min-width: 22px;
 	min-height: 18px;
 
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #393939 ), to( #414849 ) );
@@ -183,11 +183,12 @@ DOTAAbilityImage {
 {
 	color: #bba995;
  	text-shadow: 1px 1px 2px 2 #000000;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 	vertical-align: center;
 	text-align: center;
+	text-transform: uppercase;
 	width: 100%;
 	margin: 0px;
 }
@@ -201,3 +202,17 @@ DOTAAbilityImage {
 	visibility: collapse;
 }
 
+.MouseIcon {
+	background-image: url('file://{images}/custom_game/ingame_ui/mouse_icon.png');
+	background-size: 80% 80%;
+
+	saturation: 1.5;
+}
+
+.LMB {
+
+}
+
+.RMB {
+	pre-transform-scale2d: -1.0, 1.0;
+}

@@ -1,27 +1,68 @@
 <root>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/custom_character_selection/custom_character_selection.css" />
-		<include src="file://{resources}/styles/custom_game/material_design.css" />
 	</styles>
 	<script>
-		function HeroSelect() {
-
+		function SelectHero() {
+			$.GetContextPanel().SelectHero();
 		}
 
-		function SetHero(name) {
+		function SetHero(name, kv, id) {
 			$("#HeroImage").heroname = name;
+			$.GetContextPanel().heroKV = kv;
+			$.GetContextPanel().heroID = id;
+		}
+
+		// This function converts layout string (e.g. "1122") to group like that [0],[1],[2,3],[2,3],[4,5],[4,5]
+		function GetAbilityGroups() {
+			var layout = $.GetContextPanel().heroKV["ChooseLayout"].toString();
+			var abilityGroups = [];
+
+			var strDigits = layout.split("");
+
+			var currentAbility = 0;
+
+			for (var i = 0; i < strDigits.length; i++) {
+				abilityGroups.push([]);
+				
+				for (var z = 0; z < parseInt(strDigits[i]); z++) {
+					abilityGroups[abilityGroups.length-1].push(currentAbility + z);
+				}
+				for (var z = 0; z < parseInt(strDigits[i]) - 1; z++) {
+					abilityGroups.push(abilityGroups[abilityGroups.length-1]);
+					currentAbility++;
+				}
+				currentAbility++;
+			}
+
+			return abilityGroups;
+		}
+
+		function GetSpellCount()
+		{
+			var layout = $.GetContextPanel().heroKV["ChooseLayout"].toString();
+			var strDigits = layout.split("");
+			var number = 0;
+
+			for (var i = 0; i < strDigits.length; i++) {
+				number = number + parseInt(strDigits[i]);
+			}
+
+			return number;
 		}
 
 		(function () {
 			$.GetContextPanel().SetHero = SetHero;
+			$.GetContextPanel().GetSpellCount = GetSpellCount;
+			$.GetContextPanel().GetAbilityGroups = GetAbilityGroups;
 		})();
 	</script>
 	<Panel hittest="false" class="HeroIcon">
-		<Button class="HeroIconButton" onactivate="HeroSelect()">
+		<Button class="HeroIconButton" onactivate="SelectHero()">
 			<DOTAHeroImage id="HeroImage" heroname="npc_dota_hero_pudge" heroimagestyle="landscape" />
 		</Button>
 
-		<Panel class="HeroIconForeground" hittest="false">
+		<Panel class="HeroIcon HeroIconForeground" hittest="false">
 
 		</Panel>
 	</Panel>

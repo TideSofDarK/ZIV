@@ -10,12 +10,12 @@
 
     "AbilityLayout"     "5"
 
-    "Ability1"        "ziv_beastmaster_cleave" 
+    "Ability1"        "ziv_beastmaster_bird" 
     "Ability2"        "ziv_beastmaster_pet" 
     "Ability3"        "ziv_beastmaster_pet2" 
-    "Ability4"        "ziv_beastmaster_leap"
-    "Ability5"        "ziv_beastmaster_bird"
-    "Ability6"        "ziv_beastmaster_primal_fury"
+    "Ability4"        "ziv_beastmaster_primal_fury"
+    "Ability5"        "ziv_beastmaster_cleave"
+    "Ability6"        "ziv_beastmaster_leap"
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""

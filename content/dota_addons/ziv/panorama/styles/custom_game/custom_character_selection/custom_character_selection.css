@@ -1,3 +1,39 @@
+@define Primary50: #E8EAF6;
+@define Primary100: #C5CAE9;
+@define Primary200: #9FA8DA;
+@define Primary300: #7986CB;
+@define Primary400: #5C6BC0;
+@define Primary500: #3F51B5;
+@define PrimaryR500: #b53f51;
+@define PrimaryG500: #3fb568;
+@define Primary600: #3949AB;
+@define Primary700: #303F9F;
+@define Primary800: #283593;
+@define Primary900: #1A237E;
+
+@define AccentsA100: #8C9EFF;
+@define AccentsA200: #536DFE;
+@define AccentsA400: #3D5AFE;
+@define AccentsA700: #0304FF;
+
+// Grey palette
+@define Grey50: #FAFAFA;
+@define Grey100: #F5F5F5;
+@define Grey200: #EEEEEE;
+@define Grey300: #E0E0E0;
+@define Grey400: #BDBDBD;
+@define Grey500: #9E9E9E;
+@define Grey600: #757575;
+@define Grey700: #616161;
+@define Grey800: #424242;
+@define Grey900: #021212;
+
+// Simple colors
+@define White: #FFFFFF;
+@define Black: #000000;
+
+@define BACKGROUND_COLOR_WHITE: #FFFFFF28;
+
 .SimpleText
 {
 	box-shadow: 0px 0px 0px 0px;
@@ -17,57 +53,57 @@
 	color: White;
 }
 
-.Headline1 {
+.CCSHeadline {
+	background-color: transparent;
+
 	text-shadow: 1px 1px 1px black;
 	text-align: center;
 	text-transform: uppercase;
 	text-overflow: clip;
 
-	box-shadow: #000000ff 0px 0px 8px 0.3;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 
 	font-weight: bold;
-	font-size: 33px;
-	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	color: White;
+}
+
+.Headline1 {
+	font-size: 33px;
 }
 
 .Headline2 {
-	vertical-align: center;
-	horizontal-align: center;
-
-	text-shadow: 1px 1px 1px black;
-	text-align: center;
-	text-transform: uppercase;
-	text-overflow: clip;
-
-	box-shadow: #000000ff 0px 0px 8px 0.3;
-
-	font-weight: bold;
 	font-size: 20px;
-	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
-	color: White;
 }
 
-.Headline3 {
+#GameInfo {
 	vertical-align: bottom;
 	horizontal-align: left;
 
-	text-shadow: 1px 1px 1px black;
 	text-align: left;
-	text-overflow: clip;
-
-	box-shadow: #000000ff 0px 0px 8px 0.3;
 
 	font-weight: normal;
 	font-size: 18px;
-	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	color: #ffffff88;
 
 	margin: 5px;
 }
 
 /*
-*/
+ * Some common stuff
+ */
+
+
+
+/*
+ * Roots
+ */
+
+#Background {
+	width: 1920px;
+	height: 1080px;
+
+	background-color: Grey900;
+}
 
 .Root {
 	z-index: 1;
@@ -78,6 +114,60 @@
 	width: 100%;
 	height: 100%;
 }
+
+#Logo {
+	margin-top: 60px;
+	vertical-align: top;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/logo.png');
+
+	width: 352px;
+	height: 430px;
+}
+
+/*
+ * Here comes character cards
+ */
+
+#Menu {
+	margin-top: 445px;
+
+	width: 1400px;
+	height: 521px;
+
+	transition-property: transform;
+	transition-duration: 0.4s;
+	transition-timing-function: ease-in-out, linear;
+}
+
+#CharacterList {
+	margin-top: 445px;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/hero_loading.png');
+
+	width: 1400px;
+	height: 435px;
+}
+
+.CharacterListCard {
+	width: 1160px;
+	height: 430px;
+
+	padding: 2px;
+	align: center center;
+
+	overflow: scroll squish;
+
+	flow-children: right;
+}
+
+#LoadCharacterButton {
+	vertical-align: bottom;
+}
+
+/*
+ * Here comes "create new character" window
+ */
 
 #CreationRoot {
 	horizontal-align: center;
@@ -93,114 +183,59 @@
 	flow-children: down;
 }
 
-#Logo {
-	margin-top: 60px;
-	vertical-align: top;
-
-	background-image: url('file://{images}/custom_game/ingame_ui/logo.png');
-
-	width: 352px;
-	height: 430px;
-}
-
-#Menu {
-	margin-top: 445px;
-
-	width: 1400px;
-	height: 521px;
-
-	transition-property: transform;
-	transition-duration: 0.4s;
-	transition-timing-function: ease-in-out, linear;
-}
-
-.CharacterListOverlap {
-	width: 100%;
-	height: 100%;
-
-	background-image: url('file://{images}/custom_game/ingame_ui/hero_loading.png');
-	background-repeat: no-repeat round;
-	background-size: 100% 100%;
-}
-
-.CharacterListCard {
-	width: 1160px;
-	height: 430px;
-
-	padding: 2px;
-	align: center center;
-
-	overflow: scroll squish;
-
-	flow-children: right;
-}
-
-#CharacterList {
-	margin-top: 475px;
-
-	background-image: url('file://{images}/custom_game/ingame_ui/hero_loading.png');
-
-	height: 411px;
-	width: 724px;
-
-	transition-property: transform;
-	transition-duration: 0.4s;
-	transition-timing-function: ease-in-out, linear;
-
-	visibility: collapse;
-}
-
-.FlippedB {
-	transform: rotateY( 90deg ) rotateZ( 0deg ) rotateX( 0deg );
-}
-
-.FlippedA {
-	transform: rotateY( -90deg ) rotateZ( 0deg ) rotateX( 0deg );
-}
-
-.MenuButton {
+#CreateCharacterLabel {
 	horizontal-align: center;
-
-	background-image: url('file://{images}/custom_game/ingame_ui/ui_red_button.png');
-	background-size: 100% 100%;
-
-	width: 285px;
-	height: 45px;
-
-	border-radius: 1px;
-
-	margin-top: 110px;
-	margin-bottom: 110px;
+	margin-top: 40px;
 }
 
-.MenuButton:disabled 
-{
-	wash-color: #999999;
+#BackButton {
+	width: 78px;
+	height: 78px;
+
+	margin: 0px;
+	margin-top: 6px;
+	margin-right: 6px;
 }
 
-.MenuButton:hover
-{
-	wash-color: #bbbbbb;
-}
-
-#LoadCharacterButton {
-	vertical-align: bottom;
-}
-
-#Background {
-	width: 1920px;
-	height: 1080px;
-
-	background-color: Grey900;
-}
-
-#HeroIcons {
+#CreationTop {
 	width: 100%;
-	height: 100%;
+	height: 10%;
+}
+
+#CreationMiddle {
+	width: 100%;
+	height: 57%;
+}
+
+#HeroList {
+	vertical-align: middle;
+
+	width: 100%;
+	height: 65%;
 
 	flow-children: down;
+}
 
-	margin-top: 160px;
+#CreationBottom {
+	width: 100%;
+	height: 40%;
+}
+
+#Abilities {
+	width: 50%;
+	height: 80%;
+
+	flow-children: right;
+
+	align: right center;
+
+	margin-right: 100px;
+	margin-bottom: 10px;
+}
+
+#HighlightEasyCharacters {
+	margin-top: 12px;
+	margin-left: 36px;
 }
 
 .HeroListHorizontal {
@@ -210,14 +245,11 @@
 }
 
 .HeroIcon {
-	width: 164px;
-	height: 96px;
+	width: 180px;
+	height: 100px;
 }
 
 .HeroIconForeground {
-	width: 164px;
-	height: 96px;
-
 	background-image: url('file://{images}/custom_game/ingame_ui/hero_icon_border.png');
 	background-size: 137px 78px;
 	background-position: 50% 50%;
@@ -231,6 +263,8 @@
 
 .HeroIconButton:hover {
 	wash-color: #bbbbbb;
+	sound: "whoosh_in";
+	sound-out: "whoosh_out";
 }
 
 .CharacterNameLabel {
@@ -253,46 +287,9 @@
 	text-shadow: 0px 0px 20px 10.0 #000000ff;
 }
 
-.HeroFrame.Bot {
-	height: 50%;
-
-	position: 0px 225px 0px;
-
-	background-color: Grey800;
-
-	box-shadow: #000000ff 2px 2px 9px 5px;
-	/*border-top: 1px solid #68686866;*/
-
-	border-radius: 0px;
-
-	border-radius: 0px;
-}
-
-.HeroFrame.Bot.Left {
-	height: 100%;
-	width: 50%;
-
-	position: 0px 0px 0px;
-
-	vertical-align: bottom;
-	horizontal-align: left;
-}
-
-.HeroFrame.Bot.Right {
-	height: 100%;
-	width: 50%;
-
-	position: 0px 0px 0px;
-
-	vertical-align: top;
-	horizontal-align: right;
-}
-
 .CharacterInfo {
 	horizontal-align: center;
 	vertical-align: top;
-
-	
 
 	margin-right: 0px;
 	margin-top: 0px;

@@ -1,9 +1,8 @@
-.AbilityPanel
-{
+.CCSAbilityPanel {
 	vertical-align: center;
 
-	width: 70px;
-	height: 70px;
+	width: 128px;
+	height: 128px;
 
 	margin-left: 8px;
 	margin-right: 8px;
@@ -11,8 +10,7 @@
 	margin-bottom: 4px;
 }
 
-.AbilityPanel.selected
-{
+.CCSAbilityPanel.selected {
 	border-top: 4px solid #b5a33fff;
 	border-right: 4px solid #b5a33fff;
 	border-left: 4px solid #b5a33fff;
@@ -21,9 +19,13 @@
 	border-radius: 5px;
 }
 
-#AbilityButton
-{
-	width: 80px;
-	height: 80px;
+#CCSAbilityButton {
+	width: 128px;
+	height: 128px;
 	border: 2px solid transparent;
+}
+
+#CCSAbilityImage {
+	width: 120px;
+	height: 120px;
 }

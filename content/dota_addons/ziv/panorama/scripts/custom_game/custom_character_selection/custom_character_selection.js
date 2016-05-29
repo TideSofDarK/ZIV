@@ -1,24 +1,24 @@
 "use strict";
 
+var KEYBINDS = {
+	0: "q",
+	1: "w",
+	2: "e",
+	3: "LMB",
+	4: "RMB"
+};
+
+var ABILITY_COUNT = 5;
+var MAXIMUM_ABILITY_ALTERNATIVES = 2;
+
 var heroIcons = [];
+var abilities = [];
 
 var heroList;
 var heroesKVs;
 
-var currentCharacter = 2;
+var currentCharacter = -1;
 var lockedIn = false;
-
-var marginX = 0;
-var marginY = -145;
-
-function GetVectorFromStylePosition(posString) {
-	var splitted = posString.split(" ");
-	var vector = []
-	for (var i = 0; i < splitted.length; i++) {
-		vector[i] = parseInt(splitted[i]);
-	}
-	return vector
-}
 
 function SimpleLerp(a, b, t) {
 	return a + (b - a) * t;
@@ -27,14 +27,6 @@ function SimpleLerp(a, b, t) {
 function LockIn() {
 	if (lockedIn == false) {
 		lockedIn = true;
-
-		heroIcons[currentCharacter].AddClass( "selected" );
-
-		$("#ChooseButton").SetHasClass( "selected", true );
-		$("#LockInLabel").text = $.Localize("lockedin");
-		$("#DirButtonLeft").AddClass( "disabled" );
-		$("#DirButtonRight").AddClass( "disabled" );
-		$.Schedule(2.0, CreateHero);
 	}
 }
 
@@ -52,6 +44,25 @@ function CreateHero() {
 		}
 	}
 	GameEvents.SendCustomGameEventToServer( "ziv_choose_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroIcons[currentCharacter].heroName, "abilities" : selected_abilities } );
+}
+
+function SelectHero(hero) {
+	var abilityLayout = hero.heroKV["AbilityLayout"];
+	var chooseLayout = hero.heroKV["ChooseLayout"];
+
+	var spellCount = hero.GetSpellCount();
+	var abilityGroups = hero.GetAbilityGroups();
+
+	var z = 0;
+	for (var i = 0; i < abilityLayout; i++) {
+		$.Msg(z+1);
+		abilities[i].SetAbility(hero.heroKV["Ability"+(z+1)]);
+		
+		if (abilityGroups[z].length > 1) {
+			z += abilityGroups[z].length - 1;
+		}
+		z++;
+	}
 }
 
 function SetupCreation() {
@@ -86,15 +97,36 @@ function SetupCreation() {
 
 				newHeroIcon.abilityPanels = [];
 
-				newHeroIcon.heroName = hero;
-				newHeroIcon.heroKV = value;
-
-				newHeroIcon.SetHero(hero)
+				newHeroIcon.SetHero(hero, heroesKVs[hero+"_ziv"], i-1)
 				
 				heroIcons.push(newHeroIcon);
 
+				newHeroIcon.SelectHero = (function() {
+					SelectHero(this)
+				});
+
 				i++;
 	    	}
+		}
+
+		var panelCount = ABILITY_COUNT;
+		var abilityRoot = $("#Abilities");
+
+		for (var i = 0; i < panelCount; i++) {
+			var newAbility = $.CreatePanel( "Panel", abilityRoot, "CCSAbility_" + i  );
+			newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_ability.xml", false, false );
+			var hotkey = newAbility.FindChildTraverse("HotkeyText");
+			if (KEYBINDS[i].length == 1) {
+				hotkey.text = KEYBINDS[i];
+			}
+			else {
+				hotkey.text = " ";
+
+				hotkey.AddClass("MouseIcon");
+				hotkey.AddClass(KEYBINDS[i]);
+			}
+
+			abilities.push(newAbility);
 		}
 	}
 }
@@ -161,28 +193,4 @@ function LoadCharactersList( args )
 	LoadCharactersList( null );
 
 	SetupCreation();
-
-	GameUI.SetMouseCallback( function( eventName, arg ) {
-		var CONSUME_EVENT = true;
-		var CONTINUE_PROCESSING_EVENT = false;
-
-		if ( GameUI.GetClickBehaviors() !== CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE )
-			return CONTINUE_PROCESSING_EVENT;
-
-		if ( eventName == "pressed" )
-		{
-		}
-		else if ( eventName === "wheeled" )
-		{
-			if ( arg > 0 && currentCharacter > 0 )
-			{
-				currentCharacter--;
-			}
-			else if ( arg < 0 && currentCharacter < heroIcons.length-1 )
-			{
-				currentCharacter++;
-			}
-		}
-		return CONTINUE_PROCESSING_EVENT;
-	} );
 })();

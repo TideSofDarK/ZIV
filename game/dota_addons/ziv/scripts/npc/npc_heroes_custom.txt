@@ -12,12 +12,12 @@
 	
 	    "AbilityLayout"     "5"
 	
-	    "Ability1"        "ziv_beastmaster_cleave" 
+	    "Ability1"        "ziv_beastmaster_bird" 
 	    "Ability2"        "ziv_beastmaster_pet" 
 	    "Ability3"        "ziv_beastmaster_pet2" 
-	    "Ability4"        "ziv_beastmaster_leap"
-	    "Ability5"        "ziv_beastmaster_bird"
-	    "Ability6"        "ziv_beastmaster_primal_fury"
+	    "Ability4"        "ziv_beastmaster_primal_fury"
+	    "Ability5"        "ziv_beastmaster_cleave"
+	    "Ability6"        "ziv_beastmaster_leap"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -69,16 +69,16 @@
 	
 	    "EquipmentSlots" "torso;sword;gloves;shield;pants;boots"
 	
-	    "ChooseLayout"  "11112"
+	    "ChooseLayout"  "11211"
 	
 	    "AbilityLayout"     "5"
 	
-	    "Ability1"        "ziv_knight_fire_orb" 
+	    "Ability1"        "ziv_knight_ult" 
 	    "Ability2"        "ziv_knight_parry" 
 	    "Ability3"        "ziv_knight_stone_form" 
-	    "Ability4"        "ziv_knight_dash"
-	    "Ability5"        "ziv_knight_ult"
-	    "Ability6"        "ziv_knight_taunt"
+	    "Ability4"        "ziv_knight_taunt"
+	    "Ability5"        "ziv_knight_fire_orb"
+	    "Ability6"        "ziv_knight_dash"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -144,11 +144,11 @@
 	
 	    "AbilityLayout"     "5"
 	
-	    "Ability1"        "ziv_dark_goddess_corrupted_arrow" 
+	    "Ability1"        "ziv_dark_goddess_glaive" 
 	    "Ability2"        "ziv_dark_goddess_concentration" 
 	    "Ability3"        "ziv_dark_goddess_explode" 
 	    "Ability4"        "ziv_dark_goddess_combine"
-	    "Ability5"        "ziv_dark_goddess_glaive"
+	    "Ability5"        "ziv_dark_goddess_corrupted_arrow"
 	    "Ability6"        "ziv_dark_goddess_transform"
 	    "Ability7"        ""
 	    "Ability8"        ""
@@ -202,18 +202,18 @@
 	
 	    "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"
 	
-	    "ChooseLayout"  "22211"
+	    "ChooseLayout"  "21122"
 	
 	    "AbilityLayout"     "5"
 	
-	    "Ability1"        "ziv_elementalist_dark_orb" 
-	    "Ability2"        "ziv_elementalist_cold_orb" 
-	    "Ability3"        "ziv_elementalist_ball_lightning" 
-	    "Ability4"        "ziv_elementalist_dark_illusion"
-	    "Ability5"        "ziv_elementalist_cold_blast"
-	    "Ability6"        "ziv_elementalist_fire_blast"
-	    "Ability7"        "ziv_elementalist_overload"
-	    "Ability8"        "ziv_empty1"
+	    "Ability1"        "ziv_elementalist_cold_blast"
+	    "Ability2"        "ziv_elementalist_fire_blast"
+	    "Ability3"        "ziv_elementalist_overload"
+	    "Ability4"        "ziv_empty1"
+	    "Ability5"        "ziv_elementalist_dark_orb" 
+	    "Ability6"        "ziv_elementalist_cold_orb" 
+	    "Ability7"        "ziv_elementalist_ball_lightning" 
+	    "Ability8"        "ziv_elementalist_dark_illusion"
 	    "Ability9"        ""
 	    "Ability10"       ""
 	    "Ability11"       ""
@@ -265,16 +265,16 @@
 	
 	    "EquipmentSlots" "torso;sword;gloves;ring;pants;boots"
 	
-	    "ChooseLayout"  "21111"
+	    "ChooseLayout"  "11121"
 	
 	    "AbilityLayout"     "5"
 	
-	    "Ability1"        "ziv_samurai_whirlwind" 
-	    "Ability2"        "ziv_samurai_execution" 
-	    "Ability3"        "ziv_samurai_dash" 
-	    "Ability4"        "ziv_samurai_smoke"
-	    "Ability5"        "ziv_samurai_reign_of_fire"
-	    "Ability6"        "ziv_samurai_cold_touch"
+	    "Ability1"        "ziv_samurai_smoke"
+	    "Ability2"        "ziv_samurai_reign_of_fire"
+	    "Ability3"        "ziv_samurai_cold_touch"
+	    "Ability4"        "ziv_samurai_whirlwind" 
+	    "Ability5"        "ziv_samurai_execution" 
+	    "Ability6"        "ziv_samurai_dash" 
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -326,16 +326,16 @@
 	
 	    "EquipmentSlots" "torso;gun;gloves;ring;pants;boots"
 	
-	    "ChooseLayout"  "11121"
+	    "ChooseLayout"  "21111"
 	
 	    "AbilityLayout"     "5"
 	    
-	    "Ability1"        "ziv_sniper_empty1" 
-	    "Ability2"        "ziv_sniper_empty2" 
+	    "Ability1"        "ziv_sniper_explosive_trap"
+	    "Ability2"        "ziv_sniper_thunder_trap"
 	    "Ability3"        "ziv_sniper_trueshot_aura" 
-	    "Ability4"        "ziv_sniper_explosive_trap"
-	    "Ability5"        "ziv_sniper_thunder_trap"
-	    "Ability6"        "ziv_empty6"
+	    "Ability4"        "ziv_empty6"
+	    "Ability5"        "ziv_sniper_empty1" 
+	    "Ability6"        "ziv_sniper_empty2" 
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -387,17 +387,17 @@
 	
 	    "EquipmentSlots" "torso;bow;gloves;ammo;pants;boots"
 	
-	    "ChooseLayout"  "21121"
+	    "ChooseLayout"  "22111"
 	
 	    "AbilityLayout"     "5"
 	
 	    "Ability1"        "ziv_huntress_ballista" 
-	    "Ability2"        "ziv_huntress_volley" 
-	    "Ability3"        "ziv_huntress_focus_fire" 
-	    "Ability4"        "ziv_huntress_blink_arrow"
-	    "Ability5"        "ziv_huntress_trap"
-	    "Ability6"        "ziv_huntress_passives"
-	    "Ability7"        "ziv_empty1"
+	    "Ability2"        "ziv_huntress_volley"     
+	    "Ability3"        "ziv_huntress_trap"
+	    "Ability4"        "ziv_huntress_passives"
+	    "Ability5"        "ziv_empty1"
+	    "Ability6"        "ziv_huntress_focus_fire" 
+	    "Ability7"        "ziv_huntress_blink_arrow"
 	    "Ability8"        ""
 	    "Ability9"        ""
 	    "Ability10"       ""
@@ -448,17 +448,17 @@
 	
 	    "EquipmentSlots" "torso;staff;gloves;ring;pants;boots"
 	
-	    "ChooseLayout"  "21121"
+	    "ChooseLayout"  "22111"
 	
 	    "AbilityLayout"     "5"
 	
 	    "Ability1"        "ziv_witch_doctor_totem" 
 	    "Ability2"        "ziv_witch_doctor_totem2" 
-	    "Ability3"        "ziv_witch_doctor_blink" 
-	    "Ability4"        "ziv_witch_doctor_curse"
-	    "Ability5"        "ziv_witch_doctor_spawn"
-	    "Ability6"        "ziv_witch_doctor_spawn2"
-	    "Ability7"        "ziv_witch_doctor_lifesteal"
+	    "Ability3"        "ziv_witch_doctor_spawn"
+	    "Ability4"        "ziv_witch_doctor_spawn2"
+	    "Ability5"        "ziv_witch_doctor_lifesteal"
+	    "Ability6"        "ziv_witch_doctor_curse"
+	    "Ability7"        "ziv_witch_doctor_blink"
 	    "Ability8"        ""
 	    "Ability9"        ""
 	    "Ability10"       ""
