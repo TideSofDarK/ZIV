@@ -8,7 +8,7 @@
 		}
 
 		function SetHero(name, kv, id) {
-			$("#HeroImage").heroname = name;
+			$.GetContextPanel().heroname = $("#HeroImage").heroname = name;
 			$.GetContextPanel().heroKV = kv;
 			$.GetContextPanel().heroID = id;
 		}

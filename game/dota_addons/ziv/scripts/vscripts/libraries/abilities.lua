@@ -53,7 +53,7 @@ function SimulateMeleeAttack( keys )
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
   local aoe = GetSpecial(ability, "aoe") or 0
 
-  local kv = ZIV.HeroesKVs[caster:GetUnitName().."_ziv"]
+  local kv = ZIV.HeroesKVs[caster:GetUnitName()]
 
   ability:EndCooldown()
   ability:StartCooldown( base_attack_time - duration)
@@ -124,7 +124,7 @@ function SimulateRangeAttack( keys )
 
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
 
-  local kv = ZIV.HeroesKVs[caster:GetUnitName().."_ziv"]
+  local kv = ZIV.HeroesKVs[caster:GetUnitName()]
 
   ability:EndCooldown()
   ability:StartCooldown( base_attack_time)

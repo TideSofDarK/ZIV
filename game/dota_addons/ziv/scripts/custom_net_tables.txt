@@ -3,8 +3,7 @@
   custom_net_tables =
   [
     "containers_lua",
-    "hero_kvs",
-    "item_kvs",
+    "kvs",
     "hero_status",
     "scenario",
     "settings"

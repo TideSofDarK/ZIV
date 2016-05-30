@@ -1,5 +1,7 @@
 "use strict";
 
+var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+
 var m_BuffPanels = []; // created up to a high-water mark, but reused
 
 function UpdateBuff( buffPanel )
@@ -60,7 +62,8 @@ function UpdateBuffs()
 
 	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 
-	var heroKV = CustomNetTables.GetTableValue( "hero_kvs", Entities.GetUnitName( queryUnit )+"_ziv" );
+	var heroKV = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName( queryUnit )];
+	
 	var slots = heroKV["EquipmentSlots"].split(';');
 	
 	var nBuffs = Entities.GetNumBuffs( queryUnit );

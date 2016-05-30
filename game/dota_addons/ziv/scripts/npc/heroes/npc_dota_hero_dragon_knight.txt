@@ -1,7 +1,9 @@
-"npc_dota_hero_dragon_knight_ziv"
+"npc_dota_hero_dragon_knight"
   {
     "override_hero"     "npc_dota_hero_dragon_knight"
     "SoundSet"      "Hero_DragonKnight"
+
+    "CreationSound" "dragon_knight_drag_spawn_04"
 
     "EquipmentSlots" "torso;sword;gloves;shield;pants;boots"
 

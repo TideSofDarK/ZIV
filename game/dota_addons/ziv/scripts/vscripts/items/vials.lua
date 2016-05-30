@@ -14,7 +14,7 @@ function PrepareVial( container )
     		if vial == "npc_hp_vial" then
     			return true
 			elseif vial == "npc_mp_vial" then
-				return not ZIV.HeroesKVs[collided:GetUnitName().."_ziv"]["UsesEnergy"]
+				return not ZIV.HeroesKVs[collided:GetUnitName()]["UsesEnergy"]
 			elseif vial == "npc_ep_vial" then
 				return false
 			end
@@ -57,7 +57,7 @@ function CreateVial( hero, position )
 			if result == 2 then
 				vial_name = "npc_mp_vial"
 
-				if ZIV.HeroesKVs[hero:GetUnitName().."_ziv"]["UsesEnergy"] then
+				if ZIV.HeroesKVs[hero:GetUnitName()]["UsesEnergy"] then
 					-- vial_name = "npc_ep_vial"
 					return nil
 				end

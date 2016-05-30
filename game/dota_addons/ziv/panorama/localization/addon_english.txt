@@ -134,6 +134,10 @@
 	"ziv_knight_stone_form_damage"	"to Stone Form explosion damage"
 	"ziv_knight_stone_form_reduction"	"percent reduction of Stone Form duration"
 
+	// Leagues
+	"league_standard" "Standard"
+	"league_competitive" "Competitive"
+
 	// UI
 
 	"empty_gem_slot" "Empty Slot"
@@ -143,6 +147,11 @@
 	"remove_hero" "Remove hero"
 	"create_character" "Create new Character"
 	"highlight_easy_caharacters" "Highlight Characters for new players"
+	"pick_character" "Pick character to customize it"
+	"character_name" "Character Name"
+	"character_color"	"Color Scheme"
+	"character_league"	"Character League"
+	"create_hero" "Submit"
 
 	"status_attr"	"Attributes"
 	"status_status"	"Status"

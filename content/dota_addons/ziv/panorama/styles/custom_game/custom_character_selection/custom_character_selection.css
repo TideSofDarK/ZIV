@@ -40,17 +40,17 @@
 
 	background-color: transparent;
 
-	line-height: 19px;
-
-	text-shadow: -1px -1px 0px 0.0 #ffffffff;
 	text-align: center;
 
-	box-shadow: #000000ff -1px -1px -1px;
+	box-shadow: #00000000 -1px -1px -1px;
 
 	font-weight: normal;
-	font-size: 20px;
+	font-size: 18px;
+	line-height: 14px;
 	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 	color: White;
+
+	margin: 0px;
 }
 
 .CCSHeadline {
@@ -58,21 +58,22 @@
 
 	text-shadow: 1px 1px 1px black;
 	text-align: center;
-	text-transform: uppercase;
+
 	text-overflow: clip;
 
-	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
-
-	font-weight: bold;
 	color: White;
+
+	margin: 0px;
 }
 
 .Headline1 {
 	font-size: 33px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 }
 
 .Headline2 {
-	font-size: 20px;
+	font-size: 29px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 }
 
 #GameInfo {
@@ -92,7 +93,9 @@
  * Some common stuff
  */
 
-
+ RadioButton Label {
+ 	font-size: 18px;
+ }
 
 /*
  * Roots
@@ -216,21 +219,161 @@
 	flow-children: down;
 }
 
+#HeroRoot {
+	vertical-align: middle;
+
+	width: 100%;
+	height: 100%;
+
+	visibility: collapse;
+}
+
+#HeroPreview {
+	width: 100%;
+	height: 100%;
+
+	margin-bottom: 60px;
+}
+
+.MiddleBlock {
+	width: 30%;
+	height: 65%;
+
+	transition-property: position, opacity;
+	transition-duration: 0.3s, .3s;
+	transition-timing-function: linear, ease-in-out;
+
+	flow-children: down;
+}
+
+#Bio {
+	align: left center;
+	width: 37%;
+}
+
+#BioLabel {
+	width: 100%;
+	height: 500px;
+
+	horizontal-align: left;
+	text-align: left;
+	margin-left: 100px;
+	margin-top: 0px;
+}
+
+#NameColorLeague {
+	align: right center;
+}
+
+.OpacityPositionTransitionRight {
+	x: 60px;
+	opacity: 0.0;
+}
+
+.OpacityPositionTransitionLeft {
+	x: -60px;
+	opacity: 0.0;
+}
+
+#ColorSchemes {
+	flow-children: right;
+	margin-bottom: 25px;
+}
+
+TextEntry {
+	height: 40px;
+	font-size: 20px;
+}
+
+TextEntry #PlaceholderText {
+	font-size: 20px;
+	margin-top: 0px;
+}
+
+RadioButton.ColorScheme .RadioBox,
+RadioButton.ColorScheme:selected .RadioBox,
+RadioButton.ColorScheme:hover .RadioBox,
+ {
+	background-image: none;
+	background-color: transparent;
+	border-width: 0px;
+	box-shadow: #ffffff00 0px 0px 0px 0px;
+}
+
+.ColorScheme {
+	width: 35px;
+	height: 35px;
+
+	/*margin-right: 4px;*/
+
+	background-size: 10px 10px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+.ColorScheme:selected {
+	border: 2px solid #ffffff;
+}
+
+#ColorScheme1 {
+	background-color: #4444ff44;
+}	
+
+#ColorScheme2 {
+	background-color: #4444ff88;
+}
+
+#ColorScheme3 {
+	background-color: #4444ffbb;
+}
+
+#ColorScheme4 {
+	background-color: #4444ffff;
+}
+
+#CharacterNameEntry {
+	width: 210px;
+	margin-bottom: 25px;
+}
+
+#Leagues {
+	flow-children: right;
+	margin-bottom: 35px;
+}
+
+RadioButton.League {
+	padding-right: 10px;
+}
+
+#CreateHeroButton {
+	horizontal-align: left;
+	width: 200px;
+}
+
+#CreateHeroButtonLabel {
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
 #CreationBottom {
 	width: 100%;
 	height: 40%;
 }
 
 #Abilities {
-	width: 50%;
+	width: 45%;
 	height: 80%;
 
 	flow-children: right;
 
-	align: right center;
+	align: center center;
 
-	margin-right: 100px;
 	margin-bottom: 10px;
+
+	line-height: 120px;
+}
+
+.NoLabel {
+	font-size: 0px;
 }
 
 #HighlightEasyCharacters {
@@ -263,8 +406,12 @@
 
 .HeroIconButton:hover {
 	wash-color: #bbbbbb;
-	sound: "whoosh_in";
+	
 	sound-out: "whoosh_out";
+}
+
+.HeroIconButton:active {
+	sound: "General.SelectAction";
 }
 
 .CharacterNameLabel {

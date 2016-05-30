@@ -1,20 +1,23 @@
-"npc_dota_hero_sniper_ziv"
-  {
-    "override_hero"     "npc_dota_hero_sniper"
-    "SoundSet"      "Hero_Sniper"
+"npc_dota_hero_juggernaut"
+{
+    "override_hero"     "npc_dota_hero_juggernaut"
+    "UsesEnergy"    "1"
+    "SoundSet"      "Hero_Juggernaut"
 
-    "EquipmentSlots" "torso;gun;gloves;ring;pants;boots"
+    "CreationSound" "juggernaut_jugg_set_complete_01"
 
-    "ChooseLayout"  "21111"
+    "EquipmentSlots" "torso;sword;gloves;ring;pants;boots"
+
+    "ChooseLayout"  "11121"
 
     "AbilityLayout"     "5"
-    
-    "Ability1"        "ziv_sniper_explosive_trap"
-    "Ability2"        "ziv_sniper_thunder_trap"
-    "Ability3"        "ziv_sniper_trueshot_aura" 
-    "Ability4"        "ziv_empty6"
-    "Ability5"        "ziv_sniper_empty1" 
-    "Ability6"        "ziv_sniper_empty2" 
+
+    "Ability1"        "ziv_samurai_smoke"
+    "Ability2"        "ziv_samurai_reign_of_fire"
+    "Ability3"        "ziv_samurai_cold_touch"
+    "Ability4"        "ziv_samurai_whirlwind" 
+    "Ability5"        "ziv_samurai_execution" 
+    "Ability6"        "ziv_samurai_dash" 
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""
@@ -33,9 +36,9 @@
     "AttackDamageMax"     "15"
 
     "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-    "AttributeBaseStrength"   "4"
+    "AttributeBaseStrength"   "5"
     "AttributeStrengthGain"   "0"
-    "AttributeBaseIntelligence" "3"
+    "AttributeBaseIntelligence" "2"
     "AttributeIntelligenceGain" "0"
     "AttributeBaseAgility"    "7"
     "AttributeAgilityGain"    "0"
@@ -45,16 +48,16 @@
     "BountyGoldMax"       "0"
 
     //"BoundsHullName"      "DOTA_HULL_SIZE_HERO"
-    //"RingRadius"        "70"
+    "RingRadius"        "0"
 
     "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"       "360"
+    "MovementSpeed"       "365"
     "MovementTurnRate"      "4.0"
 
     "StatusHealth"        "1000"
     "StatusHealthRegen"     "1.0"
     "StatusMana"        "100"
-    "StatusManaRegen"     "50.0"
+    "StatusManaRegen"     "40.0"
 
     "VisionDaytimeRange"    "1300"
     "VisionNighttimeRange"    "1300"

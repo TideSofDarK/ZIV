@@ -1,9 +1,11 @@
+var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+
 function OnDragDrop(panelId, draggedPanel) {
 	var itemIndex = draggedPanel["contextEntityIndex"];
 	var itemName = Abilities.GetAbilityName(itemIndex);
 	draggedPanel.m_DragCompleted = true;
 
-	var itemKV = CustomNetTables.GetTableValue( "item_kvs", itemName );
+	var itemKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
 
 	if (itemName.indexOf( "item_gem_" ) === -1 &&
 		(itemName.indexOf( "item_rune_" ) === -1 && $("#FortifyItem").currentItem == undefined) ||
@@ -20,7 +22,7 @@ function OnDragDrop(panelId, draggedPanel) {
 
 		Game.EmitSound( "ui.inv_equip_bone" )
 	} else {
-		var itemKV = CustomNetTables.GetTableValue( "item_kvs", itemName );
+		var itemKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
 		if (itemKV) {
 			var plus = "+" + itemKV["FortifyModifiersCount"] + " " + $.Localize(itemName + "_fortify_string");
 			if (itemName.indexOf( "item_rune_" ) !== -1) {

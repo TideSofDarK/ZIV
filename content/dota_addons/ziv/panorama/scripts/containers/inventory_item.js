@@ -97,7 +97,7 @@ function UpdateItem()
 	if (m_Container)
 		$.GetContextPanel().SetHasClass( "is_active", (Abilities.GetLocalPlayerActiveAbility() == m_Item));
 	
-	var itemKV = CustomNetTables.GetTableValue( "item_kvs", itemName );
+	var itemKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
 	var itemImageName = itemName;
 	if (itemKV) {
 		itemImageName = itemKV["AbilityTextureName"] ? itemKV["AbilityTextureName"] : itemName;
@@ -380,7 +380,7 @@ function OnDragStart( panelId, dragCallbacks )
 
 	GameUI.CustomUIConfig().ItemHideTooltip($.GetContextPanel(), m_Item);
 
-	var itemKV = CustomNetTables.GetTableValue( "item_kvs", itemName );
+	var itemKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
 
 	// create a temp panel that will be dragged around
 	var displayPanel = $.CreatePanel( "DOTAItemImage", $.GetContextPanel(), "dragImage" );

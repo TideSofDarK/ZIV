@@ -1,8 +1,10 @@
 <root>
 	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 		<include src="file://{resources}/styles/custom_game/custom_character_selection/custom_character_selection.css" />
 		<include src="file://{resources}/styles/custom_game/custom_character_selection/custom_character_selection_ability.css" />
+
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/custom_character_selection/custom_character_selection.js" />
@@ -38,12 +40,38 @@
 						
 					</Panel>
 				</Panel>
+				<Panel id="HeroRoot" hittest="false">
+					<Panel id="HeroPreview" hittest="false">
+					</Panel>
+					<Panel id="Bio" class="MiddleBlock OpacityPositionTransitionLeft">
+						<Label id="BioLabel" class="SimpleText" text=""/>
+					</Panel>
+					<Panel id="NameColorLeague" class="MiddleBlock OpacityPositionTransitionRight">
+						<Label class="CCSHeadline Headline2" id="CharacterNameLabel" text="#character_name" />
+						<TextEntry id="CharacterNameEntry" maxchars="16" placeholder="Enter name..." />
+						<Label class="CCSHeadline Headline2" id="CharacterColorLabel" text="#character_color" />
+						<Panel id="ColorSchemes">
+							<RadioButton group="ColorSchemes" class="ColorScheme" id="ColorScheme1" text=""/>
+							<RadioButton group="ColorSchemes" class="ColorScheme" id="ColorScheme2" text=""/>
+							<RadioButton group="ColorSchemes" class="ColorScheme" id="ColorScheme3" text=""/>
+							<RadioButton checked="checked" group="ColorSchemes" class="ColorScheme" id="ColorScheme4" text=""/>
+						</Panel>
+						<Label class="CCSHeadline Headline2" id="CharacterLeagueLabel" text="#character_league" />
+						<Panel id="Leagues">
+							<RadioButton group="Leagues" class="League" id="League1" text="#league_standard"/>
+							<RadioButton checked="checked" group="Leagues" class="League" id="League2" text="#league_competitive"/>
+						</Panel>
+						<Button onactivate="CreateHeroButton()" class="OKButton" id="CreateHeroButton">
+							<Label id="CreateHeroButtonLabel" class="WindowLabel" text="#create_hero"/>
+						</Button>
+					</Panel>
+				</Panel>
 			</Panel>
 
 			<Panel id="CreationBottom">
-				<Panel id="Abilities">
+				<Label id="Abilities" class="CCSHeadline Headline1" text="#pick_character">
 					
-				</Panel>
+				</Label>
 			</Panel>
 		</Panel>
 	</Panel>

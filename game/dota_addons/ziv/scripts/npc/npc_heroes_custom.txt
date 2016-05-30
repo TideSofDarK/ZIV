@@ -1,10 +1,12 @@
 "DOTAHeroes"
 {
-	"npc_dota_hero_beastmaster_ziv"
+	"npc_dota_hero_beastmaster"
 	{
 	    "override_hero"     "npc_dota_hero_beastmaster"
 	    "UsesEnergy"    "1"
 	    "SoundSet"      "Hero_Beastmaster"
+	
+	    "CreationSound" "beastmaster_beas_spawn_05"
 	
 	    "EquipmentSlots" "torso;axe;gloves;axe;pants;boots"
 	
@@ -62,10 +64,12 @@
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
 	}
-	"npc_dota_hero_dragon_knight_ziv"
+	"npc_dota_hero_dragon_knight"
 	  {
 	    "override_hero"     "npc_dota_hero_dragon_knight"
 	    "SoundSet"      "Hero_DragonKnight"
+	
+	    "CreationSound" "dragon_knight_drag_spawn_04"
 	
 	    "EquipmentSlots" "torso;sword;gloves;shield;pants;boots"
 	
@@ -131,12 +135,14 @@
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
 	  }
-	"npc_dota_hero_drow_ranger_ziv"
+	"npc_dota_hero_drow_ranger"
 	{
 	    "override_hero"     "npc_dota_hero_drow_ranger"
 	    "UsesEnergy"    "1"
 	    "DarkEnergy"    "1"
 	    "SoundSet"      "Hero_DrowRanger"
+	
+	    "CreationSound" "drowranger_drow_deny_17"
 	
 	    "EquipmentSlots" "torso;bow;gloves;ring;pants;boots"
 	
@@ -194,11 +200,13 @@
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
 	}
-	"npc_dota_hero_invoker_ziv"
+	"npc_dota_hero_invoker"
 	{
 	    "override_hero"     "npc_dota_hero_invoker"
 	    "SoundSet"      "Hero_Invoker"
 	    "IdleSoundLoop"     "Hero_Invoker.IdleLoop"
+	
+	    "CreationSound" "invoker_invo_begin_01"
 	
 	    "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"
 	
@@ -257,11 +265,13 @@
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
 	}
-	"npc_dota_hero_juggernaut_ziv"
+	"npc_dota_hero_juggernaut"
 	{
 	    "override_hero"     "npc_dota_hero_juggernaut"
 	    "UsesEnergy"    "1"
 	    "SoundSet"      "Hero_Juggernaut"
+	
+	    "CreationSound" "juggernaut_jugg_set_complete_01"
 	
 	    "EquipmentSlots" "torso;sword;gloves;ring;pants;boots"
 	
@@ -319,10 +329,12 @@
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
 	}
-	"npc_dota_hero_sniper_ziv"
+	"npc_dota_hero_sniper"
 	  {
 	    "override_hero"     "npc_dota_hero_sniper"
 	    "SoundSet"      "Hero_Sniper"
+	
+	    "CreationSound" "sniper_snip_move_03"
 	
 	    "EquipmentSlots" "torso;gun;gloves;ring;pants;boots"
 	
@@ -380,10 +392,12 @@
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
 	}
-	"npc_dota_hero_windrunner_ziv"
+	"npc_dota_hero_windrunner"
 	{
 	    "override_hero"     "npc_dota_hero_windrunner"
 	    "SoundSet"      "Hero_Windrunner"
+	
+	    "CreationSound" "windrunner_wind_spawn_07"
 	
 	    "EquipmentSlots" "torso;bow;gloves;ammo;pants;boots"
 	
@@ -441,10 +455,12 @@
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
 	}
-	"npc_dota_hero_witch_doctor_ziv"
+	"npc_dota_hero_witch_doctor"
 	{
 	    "override_hero"     "npc_dota_hero_witch_doctor"
 	    "SoundSet"      "Hero_WitchDoctor"
+	
+	    "CreationSound" "witchdoctor_wdoc_ability_maledict_02"
 	
 	    "EquipmentSlots" "torso;staff;gloves;ring;pants;boots"
 	

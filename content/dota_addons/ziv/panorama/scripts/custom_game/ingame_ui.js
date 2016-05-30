@@ -1,5 +1,7 @@
 "use strict";
 
+var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+
 var m_AbilityPanels = []; // created up to a high-water mark, but reused when selection changes
 
 var m_InventoryPanels = []
@@ -32,7 +34,7 @@ function UpdateAbilityList()
 	var bControlsUnit = Entities.IsControllableByPlayer( queryUnit, Game.GetLocalPlayerID() );
 	$.GetContextPanel().SetHasClass( "could_level_up", ( bControlsUnit && bPointsToSpend ) );
 
-	var heroKV = CustomNetTables.GetTableValue( "hero_kvs", Entities.GetUnitName( queryUnit )+"_ziv" );
+	var heroKV = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName( queryUnit )];
 
 	var abilityLayout = 0
 	if (heroKV) {
@@ -80,7 +82,7 @@ function UpdateAbilityList()
 function UpdateHPAndMP() 
 {
 	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
-	var heroKV = CustomNetTables.GetTableValue( "hero_kvs", Entities.GetUnitName( queryUnit )+"_ziv" );
+	var heroKV = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName( queryUnit )];
 
 	if (!queryUnit || queryUnit == -1 || !heroKV) $.Schedule( 0.1, UpdateHPAndMP );
 

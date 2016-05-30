@@ -1,22 +1,25 @@
-"npc_dota_hero_windrunner_ziv"
+"npc_dota_hero_invoker"
 {
-    "override_hero"     "npc_dota_hero_windrunner"
-    "SoundSet"      "Hero_Windrunner"
+    "override_hero"     "npc_dota_hero_invoker"
+    "SoundSet"      "Hero_Invoker"
+    "IdleSoundLoop"     "Hero_Invoker.IdleLoop"
 
-    "EquipmentSlots" "torso;bow;gloves;ammo;pants;boots"
+    "CreationSound" "invoker_invo_begin_01"
 
-    "ChooseLayout"  "22111"
+    "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"
+
+    "ChooseLayout"  "21122"
 
     "AbilityLayout"     "5"
 
-    "Ability1"        "ziv_huntress_ballista" 
-    "Ability2"        "ziv_huntress_volley"     
-    "Ability3"        "ziv_huntress_trap"
-    "Ability4"        "ziv_huntress_passives"
-    "Ability5"        "ziv_empty1"
-    "Ability6"        "ziv_huntress_focus_fire" 
-    "Ability7"        "ziv_huntress_blink_arrow"
-    "Ability8"        ""
+    "Ability1"        "ziv_elementalist_cold_blast"
+    "Ability2"        "ziv_elementalist_fire_blast"
+    "Ability3"        "ziv_elementalist_overload"
+    "Ability4"        "ziv_empty1"
+    "Ability5"        "ziv_elementalist_dark_orb" 
+    "Ability6"        "ziv_elementalist_cold_orb" 
+    "Ability7"        "ziv_elementalist_ball_lightning" 
+    "Ability8"        "ziv_elementalist_dark_illusion"
     "Ability9"        ""
     "Ability10"       ""
     "Ability11"       ""
@@ -31,13 +34,14 @@
 
     "AttackDamageMin"     "10"
     "AttackDamageMax"     "15"
+    "ProjectileSpeed"     "1150"
 
-    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-    "AttributeBaseStrength"   "4"
+    "AttributePrimary"      "DOTA_ATTRIBUTE_INTELLECT"
+    "AttributeBaseStrength"   "5"
     "AttributeStrengthGain"   "0"
-    "AttributeBaseIntelligence" "4"
+    "AttributeBaseIntelligence" "5"
     "AttributeIntelligenceGain" "0"
-    "AttributeBaseAgility"    "7"
+    "AttributeBaseAgility"    "5"
     "AttributeAgilityGain"    "0"
 
     "BountyXP"          "0"

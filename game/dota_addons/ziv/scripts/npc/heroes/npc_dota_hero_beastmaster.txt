@@ -1,8 +1,10 @@
-"npc_dota_hero_beastmaster_ziv"
+"npc_dota_hero_beastmaster"
 {
     "override_hero"     "npc_dota_hero_beastmaster"
     "UsesEnergy"    "1"
     "SoundSet"      "Hero_Beastmaster"
+
+    "CreationSound" "beastmaster_beas_spawn_05"
 
     "EquipmentSlots" "torso;axe;gloves;axe;pants;boots"
 

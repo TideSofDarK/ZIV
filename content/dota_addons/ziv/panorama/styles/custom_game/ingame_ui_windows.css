@@ -60,6 +60,8 @@
 
 	margin: 4px;
 
+	wash-color: #ffffff;
+
 /*	border-left-color: #55441166;
 	border-left-style: solid;
 	border-left-width: 2px;*/
@@ -70,6 +72,10 @@
 	background-position: 50% 50%;
 
 	horizontal-align: right;
+}
+
+.CloseButton:active {
+	sound: "General.SelectAction";
 }
 
 .BackButton {
