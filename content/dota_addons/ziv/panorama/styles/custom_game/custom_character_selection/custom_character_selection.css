@@ -246,6 +246,10 @@
 	flow-children: down;
 }
 
+.SelectAbility {
+	flow-children: down;
+}
+
 #Bio {
 	align: left center;
 	width: 37%;

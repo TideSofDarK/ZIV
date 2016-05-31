@@ -1,0 +1,36 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+		<include src="file://{resources}/styles/custom_game/custom_character_selection/character_creation_ability.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
+	</styles>
+	<script>
+		function SetAbilities(abilities, abilityPanel)
+		{
+			var panel = $.GetContextPanel();
+			for (var i = 0; i < abilities.length; i++) {
+				var newAbility = $.CreatePanel( "Panel", panel, "CCSSelectAbility_" + abilities[i]  );
+				newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability.xml", false, false );
+
+				newAbility.SetAbility(abilities[i], abilities);
+				newAbility.FindChildTraverse("CCSAbilityButton").oncontextmenu = "";
+				newAbility.FindChildTraverse("Hotkey").visible = false;
+			}
+
+			panel.SelectAbility = (function (newAbility) {
+				abilityPanel.SetAbility(newAbility.abilityname, newAbility.abilitygroup);
+				$.DispatchEvent( "DismissAllContextMenus" );
+			});
+		}
+
+		(function () {
+			$.GetContextPanel().SetAbilities = SetAbilities;
+		})();
+	</script>
+	<Panel class="Dick" style="flow-children: down;">
+
+	</Panel>
+</root>
+
+

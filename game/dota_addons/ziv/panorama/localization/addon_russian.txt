@@ -15,8 +15,6 @@
 	"DOTA_Custom6"    								"Cyan Boar"
 	"DOTA_Custom7"    								"Olive Snake"
 	"DOTA_Custom8"    								"Purple Horse"
-	
-	"addonname"										"Зомби в деревне"
 
 	"equipment"										"Снаряжение"
 

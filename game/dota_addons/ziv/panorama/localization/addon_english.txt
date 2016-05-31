@@ -17,7 +17,7 @@
 	"DOTA_Custom8"    								"Purple Horse"
 	
 	"addonname"										"ZIV"
-	"addoninfo"										"ZIV 0.1 (Alpha), 2016"
+	"addoninfo"										"ZIV 0.2 (Alpha), 2016"
 
 	"equipment"										"Equipment"
 

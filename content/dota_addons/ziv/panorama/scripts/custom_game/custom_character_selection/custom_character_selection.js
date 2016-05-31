@@ -99,7 +99,12 @@ function SelectHero(hero) {
 
 	var z = 0;
 	for (var i = 0; i < abilityLayout; i++) {
-		abilities[i].SetAbility(hero.heroKV["Ability"+(z+1)]);
+		var group = [];
+		for (var x = 0; x < abilityGroups[z].length; x++) {
+			group.push(hero.heroKV["Ability"+(abilityGroups[z][x]+1)] );
+		}
+
+		abilities[i].SetAbility(hero.heroKV["Ability"+(z+1)], group.length > 1 ? group : []);
 		
 		if (abilityGroups[z].length > 1) {
 			z += abilityGroups[z].length - 1;
@@ -178,7 +183,7 @@ function SetupCreation() {
 
 	for (var i = 0; i < panelCount; i++) {
 		var newAbility = $.CreatePanel( "Panel", abilityRoot, "CCSAbility_" + i  );
-		newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_ability.xml", false, false );
+		newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability.xml", false, false );
 		var hotkey = newAbility.FindChildTraverse("HotkeyText");
 		if (KEYBINDS[i].length == 1) {
 			hotkey.text = KEYBINDS[i];

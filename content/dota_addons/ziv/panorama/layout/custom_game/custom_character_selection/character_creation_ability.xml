@@ -1,0 +1,69 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+		<include src="file://{resources}/styles/custom_game/custom_character_selection/character_creation_ability.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
+	</styles>
+	<script>
+		function AbilityShowTooltip()
+		{
+			$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $( "#CCSAbilityButton" ), $( "#CCSAbilityImage" ).abilityname, 0 );
+		}
+
+		function AbilityHideTooltip()
+		{
+			var abilityButton = $( "#CCSAbilityButton" );
+			$.DispatchEvent( "DOTAHideAbilityTooltip", abilityButton );
+		}
+
+		function SelectAbility()
+		{
+			var panel = $.GetContextPanel();
+			var contextMenu = panel.GetParent();
+			if (contextMenu.id == "Contents") {
+				contextMenu.SelectAbility(panel, contextMenu);
+			}
+		}
+
+		function OpenAbilityContextMenu() 
+		{
+			var panel = $.GetContextPanel();
+			if (panel.abilitygroup && panel.abilitygroup.length > 1) {
+				var contextMenu = $.CreatePanel( "ContextMenuScript", panel, "" );
+				contextMenu.AddClass( "ContextMenu_NoArrow" );
+				contextMenu.AddClass( "ContextMenu_NoBorder" );
+				contextMenu.GetContentsPanel().BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability_context_menu.xml", false, false );
+				contextMenu.GetContentsPanel().SetAbilities(panel.abilitygroup, panel);
+				contextMenu.GetContentsPanel().SetFocus();
+			}
+		}
+
+		function SetAbility(name, group)
+		{
+			$.GetContextPanel().abilityname = $("#CCSAbilityImage").abilityname = name;
+			$.GetContextPanel().abilitygroup = group;
+		}
+
+		(function () {
+			$.GetContextPanel().SetAbility = SetAbility;
+			$.GetContextPanel().SelectAbility = SelectAbility;
+		})();
+	</script>
+	<Panel class="CCSAbilityPanel">
+		
+		<Button id="CCSAbilityButton"
+							onmouseover="AbilityShowTooltip()"
+							onmouseout="AbilityHideTooltip()"
+							onactivate="SelectAbility()"
+							oncontextmenu="OpenAbilityContextMenu()"
+							>
+			<DOTAAbilityImage id="CCSAbilityImage" abilityname="ziv_empty1"/>
+		</Button>
+		<Panel id="Hotkey">
+			<Label id="HotkeyText" class="GenericBackground"/>
+		</Panel>
+	</Panel>
+</root>
+
+
