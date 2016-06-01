@@ -4,6 +4,8 @@
     "UsesEnergy"    "1"
     "SoundSet"      "Hero_Juggernaut"
 
+    "Playstyle" "nobrain"
+    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
     "CreationSound" "juggernaut_jugg_set_complete_01"
 
     "EquipmentSlots" "torso;sword;gloves;ring;pants;boots"
@@ -32,6 +34,7 @@
     "ArmorPhysical"       "0"
     "MagicalResistance"       "0"
 
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"     "10"
     "AttackDamageMax"     "15"
 

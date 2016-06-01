@@ -76,7 +76,7 @@ function BackButton() {
 		$("#CreateCharacterLabel").text = $.Localize("create_character");
 
 		$("#NameRunesLeague").ToggleClass("OpacityPositionTransitionRight");
-		$("#Bio").ToggleClass("OpacityPositionTransitionLeft");
+		$("#HeroInfo").ToggleClass("OpacityPositionTransitionLeft");
 
 		$("#HighlightEasyCharacters").visible = true;
 	}
@@ -117,8 +117,37 @@ function SelectHero(hero) {
 	$("#CreateCharacterLabel").text = $.Localize(hero.heroname);
 
 	$("#NameRunesLeague").ToggleClass("OpacityPositionTransitionRight");
-	$("#Bio").ToggleClass("OpacityPositionTransitionLeft");
+	$("#HeroInfo").ToggleClass("OpacityPositionTransitionLeft");
 	$("#BioLabel").text = $.Localize(hero.heroname+"_bio");
+
+	// Default checked radio buttons
+	$("#HeroOptionTab1").checked = true;
+	$("#RuneSet1").checked = true;
+	$("#League2").checked = true;
+
+	$("#DOTA_ATTRIBUTE_STRENGTH").RemoveClass("MainAttribute");
+	$("#DOTA_ATTRIBUTE_AGILITY").RemoveClass("MainAttribute");
+	$("#DOTA_ATTRIBUTE_INTELLECT").RemoveClass("MainAttribute");
+	$("#DOTA_ATTRIBUTE_STRENGTH").text = hero.heroKV["AttributeBaseStrength"];
+	$("#DOTA_ATTRIBUTE_AGILITY").text = hero.heroKV["AttributeBaseAgility"];
+	$("#DOTA_ATTRIBUTE_INTELLECT").text = hero.heroKV["AttributeBaseIntelligence"];
+	$("#"+hero.heroKV["AttributePrimary"]).AddClass("MainAttribute");
+
+	var playstyle = $("#CharacterPlaystyleLabel");
+	playstyle.html = true;
+	playstyle.text = $.Localize("character_playstyle") + ": <span class=\"" + hero.heroKV["Playstyle"] + "\">" + $.Localize(hero.heroKV["Playstyle"]) + "</span>";
+
+	var attackType = $("#CharacterAttackTypeLabel");
+	attackType.html = true;
+	attackType.text = $.Localize("character_attack_type") + ": <span class=\"" + hero.heroKV["AttackCapabilities"] + "\">" + $.Localize(hero.heroKV["AttackCapabilities"]) + "</span>";
+
+	var movespeed = $("#CharacterMovespeedLabel");
+	movespeed.html = true;
+	movespeed.text = $.Localize("character_movespeed") + ": <span class=\"" + "Movespeed" + "\">" + hero.heroKV["MovementSpeed"] + "</span>";
+
+	var damageType = $("#CharacterDamageTypeLabel");
+	damageType.html = true;
+	damageType.text = $.Localize("character_damage_type") + ": <span class=\"" + hero.heroKV["PrimaryDamageType"] + "\">" + $.Localize(hero.heroKV["PrimaryDamageType"]) + "</span>";
 
 	$("#HighlightEasyCharacters").visible = false;
 
@@ -128,66 +157,68 @@ function SelectHero(hero) {
 }
 
 function SetupCreation() {
-	var heroList = PlayerTables.GetTableValue("kvs", "heroes");
+	if (abilities.length == 0) {
+		var heroList = PlayerTables.GetTableValue("kvs", "heroes");
 
-	var count1 = 3;
-	var count2 = 2;
-	var count3 = 3;
+		var count1 = 3;
+		var count2 = 2;
+		var count3 = 3;
 
-	var i = 1;
+		var i = 1;
 
-	GameUI.CustomUIConfig().ClearPanel($("#HeroList1"));
-	GameUI.CustomUIConfig().ClearPanel($("#HeroList2"));
-	GameUI.CustomUIConfig().ClearPanel($("#HeroList3"));
-	GameUI.CustomUIConfig().ClearPanel(abilityRoot);
+		GameUI.CustomUIConfig().ClearPanel($("#HeroList1"));
+		GameUI.CustomUIConfig().ClearPanel($("#HeroList2"));
+		GameUI.CustomUIConfig().ClearPanel($("#HeroList3"));
+		GameUI.CustomUIConfig().ClearPanel(abilityRoot);
 
-	for (var hero in heroList) {
-    	var kv = heroList[hero];
+		for (var hero in heroList) {
+	    	var kv = heroList[hero];
 
-		var heroListPanel;
-		if (i < count1) {
-			heroListPanel = $("#HeroList1");
-		}
-		else if (i > count1 && i <= (count1 + count2)) {
-			heroListPanel = $("#HeroList2");
-		}
-		else if (i >= (count2 + count3)) {
-			heroListPanel = $("#HeroList3");
-		}
+			var heroListPanel;
+			if (i < count1) {
+				heroListPanel = $("#HeroList1");
+			}
+			else if (i > count1 && i <= (count1 + count2)) {
+				heroListPanel = $("#HeroList2");
+			}
+			else if (i >= (count2 + count3)) {
+				heroListPanel = $("#HeroList3");
+			}
 
-		var newHeroIcon = $.CreatePanel( "Panel", heroListPanel, "HeroIcon_" + hero  );
-		newHeroIcon.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_icon.xml", false, false );
+			var newHeroIcon = $.CreatePanel( "Panel", heroListPanel, "HeroIcon_" + hero  );
+			newHeroIcon.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_icon.xml", false, false );
 
-		newHeroIcon.SetHero(hero, kv, i-1)
-		
-		heroIcons.push(newHeroIcon);
+			newHeroIcon.SetHero(hero, kv, i-1)
+			
+			heroIcons.push(newHeroIcon);
 
-		newHeroIcon.SelectHero = (function() {
-			SelectHero(this)
-		});
+			newHeroIcon.SelectHero = (function() {
+				SelectHero(this)
+			});
 
-		i++;
-	}
-
-	var panelCount = ABILITY_COUNT;
-
-	for (var i = 0; i < panelCount; i++) {
-		var newAbility = $.CreatePanel( "Panel", abilityRoot, "CCSAbility_" + i  );
-		newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability.xml", false, false );
-		var hotkey = newAbility.FindChildTraverse("HotkeyText");
-		if (KEYBINDS[i].length == 1) {
-			hotkey.text = KEYBINDS[i];
-		}
-		else {
-			hotkey.text = " ";
-
-			hotkey.AddClass("MouseIcon");
-			hotkey.AddClass(KEYBINDS[i]);
+			i++;
 		}
 
-		newAbility.visible = false;
+		var panelCount = ABILITY_COUNT;
 
-		abilities.push(newAbility);
+		for (var i = 0; i < panelCount; i++) {
+			var newAbility = $.CreatePanel( "Panel", abilityRoot, "CCSAbility_" + i  );
+			newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability.xml", false, false );
+			var hotkey = newAbility.FindChildTraverse("HotkeyText");
+			if (KEYBINDS[i].length == 1) {
+				hotkey.text = KEYBINDS[i];
+			}
+			else {
+				hotkey.text = " ";
+
+				hotkey.AddClass("MouseIcon");
+				hotkey.AddClass(KEYBINDS[i]);
+			}
+
+			newAbility.visible = false;
+
+			abilities.push(newAbility);
+		}
 	}
 }
 

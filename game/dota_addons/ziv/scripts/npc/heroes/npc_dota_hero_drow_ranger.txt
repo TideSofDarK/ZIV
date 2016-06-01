@@ -5,6 +5,8 @@
     "DarkEnergy"    "1"
     "SoundSet"      "Hero_DrowRanger"
 
+    "Playstyle" "hitnrun"
+    "PrimaryDamageType" "DAMAGE_TYPE_DARK"
     "CreationSound" "drowranger_drow_deny_17"
 
     "EquipmentSlots" "torso;bow;gloves;ring;pants;boots"
@@ -33,6 +35,7 @@
     "ArmorPhysical"       "0"
     "MagicalResistance"       "0"
 
+    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"     "10"
     "AttackDamageMax"     "15"
 

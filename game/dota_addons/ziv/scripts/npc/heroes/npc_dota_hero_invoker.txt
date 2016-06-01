@@ -4,6 +4,8 @@
     "SoundSet"      "Hero_Invoker"
     "IdleSoundLoop"     "Hero_Invoker.IdleLoop"
 
+    "Playstyle" "hitnrun"
+    "PrimaryDamageType" "DAMAGE_TYPE_MAGICAL"
     "CreationSound" "invoker_invo_begin_01"
 
     "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"
@@ -32,6 +34,7 @@
     "ArmorPhysical"       "0"
     "MagicalResistance"       "0"
 
+    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"     "10"
     "AttackDamageMax"     "15"
     "ProjectileSpeed"     "1150"

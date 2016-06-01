@@ -144,15 +144,35 @@
 
 	"level" "Level"
 
+	"DOTA_UNIT_CAP_MELEE_ATTACK" "Melee"
+	"DOTA_UNIT_CAP_RANGED_ATTACK" "Ranged"
+
+	"DAMAGE_TYPE_PHYSICAL" "Physical"
+	"DAMAGE_TYPE_MAGICAL" "Magical"
+	"DAMAGE_TYPE_FIRE" "Fire"
+	"DAMAGE_TYPE_COLD" "Ice"
+	"DAMAGE_TYPE_DARK" "Dark"
+
+	"nobrain" "Nobrainer"
+	"summoner" "Summoner"
+	"hitnrun" "Hit'n'run"
+
 	"remove_hero" "Remove hero"
 	"create_character" "Create new Character"
 	"highlight_easy_caharacters" "Highlight Characters for new players"
 	"pick_character" "Pick character to customize it"
+	"character_attack_type" "Attack Type"
+	"character_playstyle" "Playstyle"
+	"character_movespeed" "Movement Speed"
+	"character_damage_type" "Primary Damage"
 	"character_name" "Character Name"
 	"character_color"	"Color Scheme"
 	"character_runes"	"Rune Set"
 	"character_league"	"Character League"
 	"create_hero" "Submit"
+
+	"tab_battle_info" "Summary"
+	"tab_bio" "Biography"
 
 	"status_attr"	"Attributes"
 	"status_status"	"Status"

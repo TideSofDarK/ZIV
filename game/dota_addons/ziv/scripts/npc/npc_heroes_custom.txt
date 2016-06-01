@@ -6,6 +6,8 @@
 	    "UsesEnergy"    "1"
 	    "SoundSet"      "Hero_Beastmaster"
 	
+	    "Playstyle" "nobrain"
+	    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
 	    "CreationSound" "beastmaster_beas_spawn_05"
 	
 	    "EquipmentSlots" "torso;axe;gloves;axe;pants;boots"
@@ -34,6 +36,7 @@
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
 	    "AttackDamageMin"     "10"
 	    "AttackDamageMax"     "15"
 	
@@ -69,6 +72,8 @@
 	    "override_hero"     "npc_dota_hero_dragon_knight"
 	    "SoundSet"      "Hero_DragonKnight"
 	
+	    "Playstyle" "hitnrun"
+	    "PrimaryDamageType" "DAMAGE_TYPE_MAGICAL"
 	    "CreationSound" "dragon_knight_drag_spawn_04"
 	
 	    "EquipmentSlots" "torso;sword;gloves;shield;pants;boots"
@@ -142,6 +147,8 @@
 	    "DarkEnergy"    "1"
 	    "SoundSet"      "Hero_DrowRanger"
 	
+	    "Playstyle" "hitnrun"
+	    "PrimaryDamageType" "DAMAGE_TYPE_DARK"
 	    "CreationSound" "drowranger_drow_deny_17"
 	
 	    "EquipmentSlots" "torso;bow;gloves;ring;pants;boots"
@@ -170,6 +177,7 @@
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
 	    "AttackDamageMin"     "10"
 	    "AttackDamageMax"     "15"
 	
@@ -206,6 +214,8 @@
 	    "SoundSet"      "Hero_Invoker"
 	    "IdleSoundLoop"     "Hero_Invoker.IdleLoop"
 	
+	    "Playstyle" "hitnrun"
+	    "PrimaryDamageType" "DAMAGE_TYPE_MAGICAL"
 	    "CreationSound" "invoker_invo_begin_01"
 	
 	    "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"
@@ -234,6 +244,7 @@
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
 	    "AttackDamageMin"     "10"
 	    "AttackDamageMax"     "15"
 	    "ProjectileSpeed"     "1150"
@@ -271,6 +282,8 @@
 	    "UsesEnergy"    "1"
 	    "SoundSet"      "Hero_Juggernaut"
 	
+	    "Playstyle" "nobrain"
+	    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
 	    "CreationSound" "juggernaut_jugg_set_complete_01"
 	
 	    "EquipmentSlots" "torso;sword;gloves;ring;pants;boots"
@@ -299,6 +312,7 @@
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
 	    "AttackDamageMin"     "10"
 	    "AttackDamageMax"     "15"
 	
@@ -334,6 +348,8 @@
 	    "override_hero"     "npc_dota_hero_sniper"
 	    "SoundSet"      "Hero_Sniper"
 	
+	    "Playstyle" "hitnrun"
+	    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
 	    "CreationSound" "sniper_snip_move_03"
 	
 	    "EquipmentSlots" "torso;gun;gloves;ring;pants;boots"
@@ -397,6 +413,8 @@
 	    "override_hero"     "npc_dota_hero_windrunner"
 	    "SoundSet"      "Hero_Windrunner"
 	
+	    "Playstyle" "hitnrun"
+	    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
 	    "CreationSound" "windrunner_wind_spawn_07"
 	
 	    "EquipmentSlots" "torso;bow;gloves;ammo;pants;boots"
@@ -425,6 +443,7 @@
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
 	    "AttackDamageMin"     "10"
 	    "AttackDamageMax"     "15"
 	
@@ -460,6 +479,8 @@
 	    "override_hero"     "npc_dota_hero_witch_doctor"
 	    "SoundSet"      "Hero_WitchDoctor"
 	
+	    "Playstyle" "summoner"
+	    "PrimaryDamageType" "DAMAGE_TYPE_MAGICAL"
 	    "CreationSound" "witchdoctor_wdoc_ability_maledict_02"
 	
 	    "EquipmentSlots" "torso;staff;gloves;ring;pants;boots"
@@ -488,6 +509,7 @@
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
 	    "AttackDamageMin"     "10"
 	    "AttackDamageMax"     "15"
 	

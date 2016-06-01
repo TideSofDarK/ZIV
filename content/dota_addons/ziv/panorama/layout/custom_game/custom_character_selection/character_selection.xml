@@ -8,7 +8,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/custom_character_selection/character_selection.js" />
 	</scripts>
-	<Panel hittest="false" class="Root">
+	<Panel class="Root">
 		<Label id="GameInfo" class="CCSHeadline" text="#addoninfo" />	
 		<Panel class="GenericBackground" id="Logo">
 		</Panel>
@@ -16,7 +16,7 @@
 		</Panel>
 		<Panel class="GenericBackground" id="Menu">
 			<Panel class="CharacterListCard" id="LoadCharacterList" />
-			<Panel hittest="false" class="CharacterListOverlap" />
+			<Panel class="CharacterListOverlap" />
 		</Panel>
 		<Panel id="CreationRoot" class="GenericBackground">
 			<Panel id="CreationTop">
@@ -26,24 +26,44 @@
 				</Button>
 			</Panel>
 
-			<Panel id="CreationMiddle" hittest="false">
+			<Panel id="CreationMiddle">
 				<DOTASettingsCheckbox id="HighlightEasyCharacters" text="#highlight_easy_caharacters" onactivate="HighlightEasyCharacters()" />
-				<Panel id="HeroList" hittest="false">
-					<Panel id="HeroList1" class="HeroListHorizontal" hittest="false">
+				<Panel id="HeroList">
+					<Panel id="HeroList1" class="HeroListHorizontal">
 						
 					</Panel>
-					<Panel id="HeroList2" class="HeroListHorizontal" hittest="false">
+					<Panel id="HeroList2" class="HeroListHorizontal">
 
 					</Panel>
-					<Panel id="HeroList3" class="HeroListHorizontal" hittest="false">
+					<Panel id="HeroList3" class="HeroListHorizontal">
 						
 					</Panel>
 				</Panel>
-				<Panel id="HeroRoot" hittest="false">
-					<Panel id="HeroPreview" hittest="false">
+				<Panel id="HeroRoot">
+					<Panel id="HeroPreview">
 					</Panel>
-					<Panel id="Bio" class="MiddleBlock OpacityPositionTransitionLeft">
-						<Label id="BioLabel" class="SimpleText" text=""/>
+					<Panel id="HeroInfo" class="MiddleBlock OpacityPositionTransitionLeft">
+						<Panel id="HeroOptionsTabs">
+							<RadioButton group="HeroOptionsTabs" class="CCSHeadline Headline2 HeroOptionTab Activated" id="HeroOptionTab1" text="#tab_battle_info"/>
+							<Label class="HeroOptionsTabSeparator Headline2" tabindex="auto" text="/" />
+							<RadioButton group="HeroOptionsTabs" class="CCSHeadline Headline2 HeroOptionTab" id="HeroOptionTab2" text="#tab_bio"/>
+						</Panel>
+						<Panel class="CBR" />
+						<Panel id="HeroBio" class="HeroInfoBlock">
+							<Label id="BioLabel" class="SimpleText" text=""/>
+						</Panel>
+						<Panel id="HeroBattleInfo" class="HeroInfoBlock">
+							<Panel id="HeroAttributes">
+								<Label id="DOTA_ATTRIBUTE_STRENGTH" class="CCSHeadline HeroAttribute" text="3"/>
+								<Label id="DOTA_ATTRIBUTE_AGILITY" class="CCSHeadline HeroAttribute" text="2"/>
+								<Label id="DOTA_ATTRIBUTE_INTELLECT" class="CCSHeadline HeroAttribute" text="2"/>
+							</Panel>
+							<Panel class="CBR" />
+							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterPlaystyleLabel" text="#character_playstyle" />
+							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterAttackTypeLabel" text="#character_attack_type" />
+							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterDamageTypeLabel" text="#character_damage_type" />
+							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterMovespeedLabel" text="#character_movespeed" />
+						</Panel>
 					</Panel>
 					<Panel id="NameRunesLeague" class="MiddleBlock OpacityPositionTransitionRight">
 						<Label class="CCSHeadline Headline2" id="CharacterNameLabel" text="#character_name" />
@@ -52,12 +72,12 @@
 						<Panel id="RuneSets">
 							<RadioButton group="RuneSets" class="League" id="RuneSet1" text="Rune Set A"/>
 							<RadioButton group="RuneSets" class="League" id="RuneSet2" text="Rune Set B"/>
-							<RadioButton checked="checked" group="RuneSets" class="League" id="RuneSet3" text="Rune Set C"/>
+							<RadioButton group="RuneSets" class="League" id="RuneSet3" text="Rune Set C"/>
 						</Panel>
 						<Label class="CCSHeadline Headline2" id="CharacterLeagueLabel" text="#character_league" />
 						<Panel id="Leagues">
 							<RadioButton group="Leagues" class="League" id="League1" text="#league_standard"/>
-							<RadioButton checked="checked" group="Leagues" class="League" id="League2" text="#league_competitive"/>
+							<RadioButton group="Leagues" class="League" id="League2" text="#league_competitive"/>
 						</Panel>
 						<Button onactivate="CreateHeroButton()" class="OKButton" id="CreateHeroButton">
 							<Label id="CreateHeroButtonLabel" class="WindowLabel" text="#create_hero"/>

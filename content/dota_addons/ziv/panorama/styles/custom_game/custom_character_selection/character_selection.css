@@ -237,7 +237,7 @@
 
 .MiddleBlock {
 	width: 30%;
-	height: 65%;
+	height: 75%;
 
 	transition-property: position, opacity;
 	transition-duration: 0.3s, .3s;
@@ -250,9 +250,11 @@
 	flow-children: down;
 }
 
-#Bio {
+#HeroInfo {
 	align: left center;
-	width: 37%;
+	width: 27%;
+
+	margin-left: 200px;
 }
 
 #BioLabel {
@@ -263,6 +265,160 @@
 	text-align: left;
 	margin-left: 100px;
 	margin-top: 0px;
+}
+
+#HeroBio {
+	visibility: collapse;
+}
+
+#HeroOptionsTabs {
+	width: 300px;
+	height: 50px;
+
+	flow-children: right;
+}
+
+.HeroOptionsTabSeparator{
+	margin-right: 11px;
+	margin-left: 22px;
+}
+
+RadioButton.HeroOptionTab .RadioBox,
+RadioButton.HeroOptionTab:selected .RadioBox,
+RadioButton.HeroOptionTab:hover .RadioBox,
+ {
+	background-image: none;
+	background-color: transparent;
+	border-width: 0px;
+	box-shadow: #ffffff00 0px 0px 0px 0px;
+	min-width: 0px;
+	min-height: 0px;
+	opacity: 0.0;
+	visibility: collapse;
+}
+
+RadioButton.HeroOptionTab Label,
+RadioButton.HeroOptionTab:selected Label,
+RadioButton.HeroOptionTab:hover Label,
+{
+	font-size: 29px;
+}
+
+.HeroInfoBlock {
+	width: 70%;
+	height: 400px;
+
+	flow-children: down;
+}
+
+.CBR {
+	horizontal-align: left;
+	width: 65%;
+	height: 1px;
+
+	/*border-top: 1px solid #ffffff44;*/
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #ffffff00 ), color-stop( 0.4, #ffffff ), color-stop( 0.6, #ffffff ), to( #ffffff00 ) );
+
+	margin-bottom: 14px;
+	margin-top: 6px;
+}
+
+#HeroBattleInfo {
+	width: 100%;
+}
+
+#HeroAttributes {
+	width: 100%;
+	height: 100px;
+	align: left top;
+
+	flow-children: right;
+}
+
+.HeroAttribute {
+	margin-top: 2px;
+	margin-left: 0px;
+
+	horizontal-align: left;
+
+	width: 95px;
+	height: 75px;
+
+	font-size: 24px;
+	line-height: 80px;
+
+	background-color: transparent;
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex");
+	background-repeat: no-repeat; 
+	background-position: 50% 8%;
+	background-size: 34px 34px;
+
+	box-shadow: #00000000 -1px -1px 0px 0.0;
+	text-shadow: 0px 0px 40px 110.0 #00000024;
+}
+
+.MainAttribute {
+	background-position: 50% -8%;
+	background-size: 45px 45px;
+}
+
+#DOTA_ATTRIBUTE_AGILITY {
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex");
+}
+
+#DOTA_ATTRIBUTE_INTELLECT {
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex");
+}
+
+.HeroInfoLabel {
+	line-height: 0px;
+	font-size: 20px;
+	margin-top: -2px;
+	color: #A5ADA2;
+}
+
+.nobrain {
+	color: #DD5283;
+}
+
+.summoner {
+	color: #E08841;
+}
+
+.hitnrun {
+	color: #7ADBB6;
+}
+
+.DOTA_UNIT_CAP_MELEE_ATTACK {
+	color: #ffffffbb;
+}
+
+.DOTA_UNIT_CAP_RANGED_ATTACK {
+	color: #ffffffbb;
+}
+
+.Movespeed {
+	color: #ffffffbb;
+}
+
+.DAMAGE_TYPE_PHYSICAL {
+	color: #71A9EA;
+}
+
+.DAMAGE_TYPE_MAGICAL {
+	color: #BBB3D8;
+}
+
+.DAMAGE_TYPE_FIRE {
+	color: #ff4444;
+}
+
+.DAMAGE_TYPE_COLD {
+	color: #4444bb;
+}
+
+.DAMAGE_TYPE_DARK {
+	color: #4553B7;
 }
 
 #NameRunesLeague {
@@ -356,6 +512,7 @@ RadioButton.League {
 
 #CreateHeroButtonLabel {
 	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	line-height: 0px;
 }
 
 #CreationBottom {
@@ -416,207 +573,4 @@ RadioButton.League {
 
 .HeroIconButton:active {
 	sound: "General.SelectAction";
-}
-
-.CharacterNameLabel {
-	padding-left: 55px;
-	margin-bottom: 20px;
-	margin-left: 40px;
-
-	vertical-align: bottom;
-	horizontal-align: left;	
-
-	font-size: 54px;
-	text-align: left;
-
-	background-color: transparent;
-	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex");
-	background-repeat: no-repeat; 
-	background-position: left 0px center -20px;
-
-	box-shadow: #00000000 -1px -1px 0px 0.0;
-	text-shadow: 0px 0px 20px 10.0 #000000ff;
-}
-
-.CharacterInfo {
-	horizontal-align: center;
-	vertical-align: top;
-
-	margin-right: 0px;
-	margin-top: 0px;
-}
-
-.CharacterInfo.Attribute {
-	padding-top: 2px;
-	padding-left: 20px;
-	margin-top: 110px;
-
-	horizontal-align: center;
-
-	width: 100px;
-	height: 50px;
-
-	font-size: 24px;
-
-	background-color: transparent;
-	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex");
-	background-repeat: no-repeat; 
-	background-position: left 2px center -25px;
-	background-size: 37px 37px;
-
-	box-shadow: #00000000 -1px -1px 0px 0.0;
-	text-shadow: 0px 0px 40px 110.0 #00000024;
-}
-
-.CharacterInfo.Attribute.Agi {
-	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex");
-	margin-left: 205px;
-}
-
-.CharacterInfo.Attribute.Int {
-	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex");
-	margin-right: 205px;
-}
-
-.CharacterInfo.CharacterBioLabel {
-	width: 410px;
-	/*height: 50px;*/
-
-	background-color: Primary500;
-
-	horizontal-align: left;
-	margin-left: 100px;
-	margin-top: 50px;
-}
-
-.CharacterInfo.CharacterDescrLabel {
-	horizontal-align: left;
-	margin-left: 110px;
-	margin-top: 165px;
-
-	width: 400px;
-}
-		
-.CharacterInfo.CharacterAbilitiesLabel {
-	width: 410px;
-
-	horizontal-align: right;
-	vertical-align: top;
-	margin-right: 100px;
-	margin-top: 50px;
-
-	background-color: PrimaryR500;
-}
-
-.Abilities {
-	vertical-align: bottom;
-	horizontal-align: right;
-
-	height: 220px;
-	width: 500px;
-
-	margin-right: 55px;
-	margin-bottom: 100px;
-
-	box-shadow: #000000ff 0px 0px 0px 0.0;
-
-	background-color: #292929;
-
-	border-radius: 20px;
-	border-top: 1px solid #00000088;
-	border-right: 1px solid #00000088;
-	border-left: 1px solid #00000088;
-	border-bottom: 1px solid #00000088;
-
-	/*flow-children: right;*/
-}
-
-.GenericButton {
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #5A615Ecc ), to( #879695cc ));
-	background-image: url("s2r://panorama/images/backgrounds/background_play_button_2x_png.vtex");
-	background-size: 328px 75px;   
-
-	box-shadow: -1px -1px -1px #000;
-	border-top: 1px solid #ffffff44;
-	border-right: 1px solid #00000088;
-	border-left: 1px solid #ffffff44;
-	border-bottom: 1px solid #00000088;
-
-	border-radius: 10px;
-
-	margin-bottom: 33px;
-	
-	transition-property: background-color;
-	transition-duration: .2s;
-
-	z-index: 3;
-}
-
-.GenericButton.deactivated
-{
-	brightness: 0.5;
-}
-
-.ChooseButton {
-	height: 75px;
-	width: 300px;
-
-	horizontal-align: center;
-	vertical-align: bottom;
-
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #5e842c ), to( #3fb568 ) );
-}
-
-.ChooseButton:hover {
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #9eb46c ), to( #60823d ) );
-}
-
-.ChooseButton.selected {
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #65a9db ), to( #2b4b75 ) );
-}
-
-.ChooseButtonLabel {
-	vertical-align: center;
-	horizontal-align: center;
-
-	box-shadow: -1px -1px -1px #000;
-	text-shadow: 1px 1px 1px black;
-
-	text-align: center;
-	color: #d5d7d7;
-
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 32px;
-}
-
-.DirButton {
-	height: 75px;
-	width: 75px;
-
-	horizontal-align: center;
-	vertical-align: bottom;
-
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	
-	wash-color: #ffffff;
-}
-
-.DirButton.Left {
-	margin-right: 405px;
-	background-image: url("s2r://panorama/images/control_icons/arrow_solid_left_png.vtex");
-}
-.DirButton.Right {
-	margin-left: 405px;
-	background-image: url("s2r://panorama/images/control_icons/arrow_solid_right_png.vtex");
-}
-
-.DirButton:hover {
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #5f6663 ), to( #b4c2c1 ));
-}
-
-.DirButton.disabled {
-	brightness: 0.5;
 }

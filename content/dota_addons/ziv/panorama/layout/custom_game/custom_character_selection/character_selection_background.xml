@@ -5,6 +5,6 @@
 	<scripts>
 	</scripts>
 	<Panel hittest="false" class="Root">
-		<DOTAScenePanel id="Background" map="hero_selection" camera="camera_1"/>
+		<DOTAScenePanel id="Background" map="hero_selection" camera="camera_1" hittest="false"/>
 	</Panel>
 </root>
