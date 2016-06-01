@@ -86,6 +86,14 @@
         parent = parent.GetParent();
 
     GameUI.CustomUIConfig().hudRoot = parent;
+
+    GameUI.CustomUIConfig().KEYBINDS = {
+        0: "q",
+        1: "w",
+        2: "e",
+        3: "LMB",
+        4: "RMB"
+    };
   </script>
 
   <Panel>

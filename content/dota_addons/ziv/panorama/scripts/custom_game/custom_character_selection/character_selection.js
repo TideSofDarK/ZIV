@@ -2,14 +2,6 @@
 
 var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 
-var KEYBINDS = {
-	0: "q",
-	1: "w",
-	2: "e",
-	3: "LMB",
-	4: "RMB"
-};
-
 var ABILITY_COUNT = 5;
 var MAXIMUM_ABILITY_ALTERNATIVES = 2;
 
@@ -205,14 +197,14 @@ function SetupCreation() {
 			var newAbility = $.CreatePanel( "Panel", abilityRoot, "CCSAbility_" + i  );
 			newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability.xml", false, false );
 			var hotkey = newAbility.FindChildTraverse("HotkeyText");
-			if (KEYBINDS[i].length == 1) {
-				hotkey.text = KEYBINDS[i];
+			if (GameUI.CustomUIConfig().KEYBINDS[i].length == 1) {
+				hotkey.text = GameUI.CustomUIConfig().KEYBINDS[i];
 			}
 			else {
 				hotkey.text = " ";
 
 				hotkey.AddClass("MouseIcon");
-				hotkey.AddClass(KEYBINDS[i]);
+				hotkey.AddClass(GameUI.CustomUIConfig().KEYBINDS[i]);
 			}
 
 			newAbility.visible = false;

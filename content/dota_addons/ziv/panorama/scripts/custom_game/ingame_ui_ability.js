@@ -4,7 +4,7 @@ var m_Ability = -1;
 var m_QueryUnit = -1;
 var m_bInLevelUp = false;
 
-function SetAbility( ability, queryUnit, bInLevelUp )
+function SetAbility( ability, queryUnit, keybind, bInLevelUp )
 {
 	var bChanged = ( ability !== m_Ability || queryUnit !== m_QueryUnit );
 	m_Ability = ability;
@@ -16,6 +16,8 @@ function SetAbility( ability, queryUnit, bInLevelUp )
 	
 	$.GetContextPanel().SetHasClass( "no_ability", ( ability == -1 ) );
 	$.GetContextPanel().SetHasClass( "learnable_ability", bInLevelUp && canUpgrade );
+
+	$.GetContextPanel().keybindID = keybind;
 
 	UpdateAbility();
 }
@@ -34,7 +36,6 @@ function UpdateAbility()
 	var noLevel =( 0 == Abilities.GetLevel( m_Ability ) );
 	var isCastable = !Abilities.IsPassive( m_Ability ) && !noLevel;
 	var manaCost = Abilities.GetManaCost( m_Ability );
-	var hotkey = Abilities.GetKeybind( m_Ability, m_QueryUnit );
 	var unitMana = Entities.GetMana( m_QueryUnit );
 
 	$.GetContextPanel().SetHasClass( "no_level", noLevel );
@@ -47,7 +48,16 @@ function UpdateAbility()
 
 	abilityButton.enabled = ( isCastable || m_bInLevelUp );
 	
-	$( "#HotkeyText" ).text = hotkey;
+	var hotkey = $( "#HotkeyText" );
+	if (GameUI.CustomUIConfig().KEYBINDS[$.GetContextPanel().keybindID].length == 1) {
+		hotkey.text = GameUI.CustomUIConfig().KEYBINDS[$.GetContextPanel().keybindID];
+	}
+	else {
+		hotkey.text = " ";
+
+		hotkey.AddClass("MouseIcon");
+		hotkey.AddClass(GameUI.CustomUIConfig().KEYBINDS[$.GetContextPanel().keybindID]);
+	}
 	
 	$( "#AbilityImage" ).abilityname = abilityName;
 	$( "#AbilityImage" ).contextEntityIndex = m_Ability;

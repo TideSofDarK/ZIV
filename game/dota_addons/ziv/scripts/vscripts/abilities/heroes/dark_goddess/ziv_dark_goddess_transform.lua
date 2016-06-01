@@ -25,7 +25,7 @@ function Transform( keys )
 			if v:HasModifier("modifier_glaive_unit") == true or v:HasModifier("modifier_corrupted_spirit") == true then
 				TransformPosition( caster, ability, v:GetAbsOrigin() )
 
-				Timers:CreateTimer(function (  )
+				Timers:CreateTimer(0.1, function (  )
 					caster:EmitSound("Hero_Luna.MoonGlaive.Impact")
 					UTIL_Remove(v)
 				end)
@@ -38,7 +38,7 @@ function Transform( keys )
 				if not v.IsNull and Projectiles.timers[v.ProjectileTimerName] ~= nil then
 					TransformPosition( caster, ability, v:GetPosition() )
 
-					Timers:CreateTimer(function (  )
+					Timers:CreateTimer(0.1, function (  )
 						v:Destroy()
 					end)
 					return

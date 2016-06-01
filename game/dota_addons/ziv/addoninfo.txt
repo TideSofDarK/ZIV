@@ -34,13 +34,13 @@
 	    "04"
 	    {
 	        "Key"       "d"
-	        "Command"   "+ZIVCastAbility4"
+	        "Command"   "+ZIVCastAbilityNull"
 	        "Name"      "Cast Ability 4"
 	    }
 	   	"05"
 	    {
 	        "Key"       "r"
-	        "Command"   "+ZIVCastAbility5"
+	        "Command"   "+ZIVCastAbilityNull"
 	        "Name"      "Cast Ability 5"
 	    }
 	    "06"
