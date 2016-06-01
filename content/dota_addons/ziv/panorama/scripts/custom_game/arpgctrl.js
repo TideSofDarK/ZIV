@@ -1,23 +1,13 @@
 "use strict";
 
-/* Action-RPG style input handling by @Arhowk
+/* Action-RPG style input handling based on @Arhowk's code
 
-Left click moves or trigger ability 1.
-Right click triggers ability 2.
+Left click moves or trigger ability 4.
+Right click triggers ability 5.
 */
 
 var heightOffset = 300;
 var clampOffset = 200;
-
-function DoesPlayerUnitHaveBuff(buffName){
-	var localHeroIndex = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
-	for(var i = 0; i < Entities.GetNumBuffs(localHeroIndex); i++){
-		if(Buffs.GetName(localHeroIndex, Entities.GetBuff(localHeroIndex,i)) == buffName){
-			return true;
-		}
-	}
-	return false;
-}
 
 function GetMouseCastTarget()
 {
@@ -55,115 +45,6 @@ function GetMouseCastPosition( abilityIndex )
 	return position;
 }
 
-//Tracks when the left mouse button is following a target
-function BeginAttackState(targetEntity){
-	var order = {
-		OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_ATTACK_MOVE,
-		Position : [0, 0, 0],
-		QueueBehavior : OrderQueueBehavior_t.DOTA_ORDER_QUEUE_NEVER,
-		ShowEffects : true
-	};
-	
-	if(targetEntity && targetEntity !== -1){
-		order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_ATTACK_TARGET;
-		order.TargetIndex = targetEntity
-		Game.PrepareUnitOrders(order)
-
-		if (GameUI.CustomUIConfig().LMBPressed == true) {
-			$.Schedule(0.4, OnLeftButtonPressed);
-
-		}
-		return
-	}
-	/*
-	(function tic()
-	{
-		if ( GameUI.IsMouseDown( 0 ) )
-		{
-			$.Schedule( 1.0/30.0, tic );
-			var mouseWorldPos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
-			if ( mouseWorldPos !== null )
-			{
-				if ( GameUI.IsMouseDown( 1 ) || GameUI.IsMouseDown( 2 ) )
-				{
-					return;
-				}			
-				order.Position = mouseWorldPos;
-				Game.PrepareUnitOrders( order );
-			}
-		}
-	})();*/
-}
-
-// Tracks the right-button is following a target or QWERT
-function BeginSpellState( nMouseButton, abilityIndex, targetEntityIndex )
-{
-	var order = {
-		AbilityIndex : abilityIndex,
-		QueueBehavior : OrderQueueBehavior_t.DOTA_ORDER_QUEUE_NEVER,
-		ShowEffects : false
-	};
-
-	var abilityBehavior = Abilities.GetBehavior( abilityIndex );
-	if ( abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT )
-	{
-		order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION;
-		order.Position = GetMouseCastPosition( abilityIndex );
-	}
-
-
-	if ( ( abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET ) && ( targetEntityIndex !== -1 ) )
-	{
-		// If shift is held down and we've a valid point target order and our unit target is out of range,
-		// just use the point target.
-		if ( ! ( GameUI.IsShiftDown() 
-				&& order.OrderType !== undefined 
-				&& !Entities.IsEntityInRange( Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), targetEntityIndex, abilityRange ) ) )
-		{
-			order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET;
-			order.TargetIndex = targetEntityIndex;
-		}
-	}
-
-	if ( abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_NO_TARGET )
-	{
-		order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_NO_TARGET
-	}
-
-	if ( order.OrderType === undefined )
-		return;
-
-	(function tic()
-	{
-		if ( GameUI.IsMouseDown( nMouseButton ) )
-		{
-			if ( order.TargetIndex !== undefined )
-			{
-				if ( Entities.GetTeamNumber( order.TargetIndex ) === DOTATeam_t.DOTA_TEAM_GOODGUYS )
-				{
-					return;
-				}
-				if ( !Entities.IsAlive( order.TargetIndex) )
-				{
-					return;
-				}
-			}
-	
-			if ( order.TargetIndex === undefined && GameUI.IsShiftDown() )
-			{
-				order.Position = GetMouseCastPosition( abilityIndex );
-			}
-
-			if ( Abilities.IsCooldownReady( order.AbilityIndex ) && !Abilities.IsInAbilityPhase( order.AbilityIndex ) )
-			{
-				Game.PrepareUnitOrders( order );
-			}
-			$.Schedule( 1.0/30.0, tic );
-		}	
-	})();
-}
-
-// Tracks the left-button helf when picking up an item.
 function BeginPickUpState( targetEntIndex )
 {
 	var order = {
@@ -215,7 +96,6 @@ var offset = 0;
 	return;
 })();
 
-// Tracks the left-button held state when moving.
 function BeginMoveState()
 {
 	var order = {
@@ -226,22 +106,23 @@ function BeginMoveState()
 	};
 	(function tic()
 	{
-		if ( GameUI.IsMouseDown( 0 ) || GameUI.IsMouseDown(1) )
+		if ( GameUI.IsMouseDown( 0 ) )
 		{
 			$.Schedule( 1.0/30.0, tic );
-			var mouseWorldPos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
-			if ( mouseWorldPos !== null )
-			{
-				if (GameUI.IsMouseDown( 2 ) )
-				{
-					return;
-				}			
-				order.Position = mouseWorldPos;
-				Game.PrepareUnitOrders( order );
+			if (GetMouseCastTarget() != -1) {
+				GameUI.CustomUIConfig().ZIVCastAbility(4, false, true);
 			}
-		}else{
-			if(DoesPlayerUnitHaveBuff("modifier_berserker_whirlwind")){
-				GameEvents.SendCustomGameEventToServer("whirlwind_cancel", {});
+			else {
+				var mouseWorldPos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
+				if ( mouseWorldPos !== null )
+				{
+					if (GameUI.IsMouseDown( 2 ) )
+					{
+						return;
+					}			
+					order.Position = mouseWorldPos;
+					Game.PrepareUnitOrders( order );
+				}
 			}
 		}
 	})();
@@ -249,27 +130,25 @@ function BeginMoveState()
 
 function OnLeftButtonPressed()
 {
+	var targetIndex = GetMouseCastTarget();
+	if ( targetIndex === -1 )
 	{
-		var targetIndex = GetMouseCastTarget();
-		if ( targetIndex === -1 )
+		if ( GameUI.IsShiftDown() )
 		{
-			if ( GameUI.IsShiftDown() )
-			{
-				GameUI.SelectUnit( targetIndex, false )
-			}
-			else
-			{
-				BeginMoveState();
-			}
-		}
-		else if ( Entities.IsItemPhysical( targetIndex ) )
-		{
-			BeginPickUpState( targetIndex );
+			GameUI.CustomUIConfig().ZIVCastAbility(4, false, true);
 		}
 		else
 		{
-			BeginAttackState(targetIndex);
+			BeginMoveState();
 		}
+	}
+	else if ( Entities.IsItemPhysical( targetIndex ) )
+	{
+		BeginPickUpState( targetIndex );
+	}
+	else
+	{
+		BeginMoveState();
 	}
 }
 
@@ -283,23 +162,19 @@ GameUI.SetMouseCallback( function( eventName, arg ) {
 
 	if ( eventName === "pressed" )
 	{
-		// Left-click is move to position or attack
 		if ( arg === 0 )
 		{
-			GameUI.CustomUIConfig().LMBPressed = true;
 			OnLeftButtonPressed();
 			
 			return CONSUME_EVENT;
 		}
 
-		// Right-click is use ability #2
 		if ( arg === 1 )
 		{
+			GameUI.CustomUIConfig().ZIVCastAbility(5, false, true);
 			return CONSUME_EVENT;
-			OnRightButtonPressed();
 		}
 
-		// Middle-click is reset yaw.
 		if ( arg === 2 )
 		{
 			return CONSUME_EVENT;
@@ -308,10 +183,9 @@ GameUI.SetMouseCallback( function( eventName, arg ) {
 
 	if ( eventName === "released" )
 	{
-		// Left-click is move to position or attack
 		if ( arg === 0 )
 		{
-			GameUI.CustomUIConfig().LMBPressed = false;
+			GameUI.CustomUIConfig().ZIVStopAbility4();
 			return CONSUME_EVENT;
 		}
 	}

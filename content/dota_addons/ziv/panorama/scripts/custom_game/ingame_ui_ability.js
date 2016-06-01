@@ -48,17 +48,20 @@ function UpdateAbility()
 
 	abilityButton.enabled = ( isCastable || m_bInLevelUp );
 	
-	var hotkey = $( "#HotkeyText" );
-	if (GameUI.CustomUIConfig().KEYBINDS[$.GetContextPanel().keybindID].length == 1) {
-		hotkey.text = GameUI.CustomUIConfig().KEYBINDS[$.GetContextPanel().keybindID];
-	}
-	else {
-		hotkey.text = " ";
+	if (GameUI.CustomUIConfig().KEYBINDS[$.GetContextPanel().keybindID])
+	{
+		var hotkey = $( "#HotkeyText" );
+		if (GameUI.CustomUIConfig().KEYBINDS[$.GetContextPanel().keybindID].length == 1) {
+			hotkey.text = GameUI.CustomUIConfig().KEYBINDS[$.GetContextPanel().keybindID];
+		}
+		else {
+			hotkey.text = " ";
 
-		hotkey.AddClass("MouseIcon");
-		hotkey.AddClass(GameUI.CustomUIConfig().KEYBINDS[$.GetContextPanel().keybindID]);
+			hotkey.AddClass("MouseIcon");
+			hotkey.AddClass(GameUI.CustomUIConfig().KEYBINDS[$.GetContextPanel().keybindID]);
+		}
 	}
-	
+
 	$( "#AbilityImage" ).abilityname = abilityName;
 	$( "#AbilityImage" ).contextEntityIndex = m_Ability;
 	

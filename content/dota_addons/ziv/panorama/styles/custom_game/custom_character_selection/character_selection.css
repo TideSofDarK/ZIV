@@ -426,12 +426,12 @@ RadioButton.HeroOptionTab:hover Label,
 }
 
 .OpacityPositionTransitionRight {
-	x: 60px;
+	x: 80px;
 	opacity: 0.0;
 }
 
 .OpacityPositionTransitionLeft {
-	x: -60px;
+	x: -80px;
 	opacity: 0.0;
 }
 

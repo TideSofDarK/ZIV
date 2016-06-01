@@ -45,7 +45,7 @@ function ZIVStopAbility(number) {
 	}
 }
 
-function ZIVCastAbility(number, pressing) { 
+function ZIVCastAbility(number, pressing, single) { 
 	var ability = Entities.GetAbility( Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), number-1 ); 
 
 	if (ability !== -1) {
@@ -90,9 +90,13 @@ function ZIVCastAbility(number, pressing) {
 			Abilities.ExecuteAbility( ability, Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), true );
 		}
 
-		m_AbilityCasting[ability] = true;
-		
-		$.Schedule(Abilities.GetCooldownTimeRemaining( ability ) + 0.06, (function() {ZIVCastAbility(number, true)}) )
+		if (!single) {
+			m_AbilityCasting[ability] = true;
+				
+			var tic = Abilities.GetCooldownTimeRemaining( ability ) + 0.06;
+			$.Schedule(tic, (function() {ZIVCastAbility(number, true)}) );
+			return tic;
+		}
 	}
 }
 
