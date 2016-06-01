@@ -1,6 +1,6 @@
 <root>
 	<styles>
-		<include src="file://{resources}/styles/custom_game/custom_character_selection/custom_character_selection.css" />
+		<include src="file://{resources}/styles/custom_game/custom_character_selection/character_selection.css" />
 	</styles>
 	<script>
 		function SelectHero() {

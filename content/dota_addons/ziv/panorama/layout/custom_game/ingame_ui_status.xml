@@ -2,7 +2,6 @@
 	<styles>
 		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
-		<include src="file://{resources}/styles/custom_game/material_design.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_status.css" />
 	</styles>
 	<scripts>

@@ -9,6 +9,9 @@
 		function SetAbilities(abilities, abilityPanel)
 		{
 			var panel = $.GetContextPanel();
+
+			panel.style.height = (128 * abilities.length) + "px;";
+
 			for (var i = 0; i < abilities.length; i++) {
 				var newAbility = $.CreatePanel( "Panel", panel, "CCSSelectAbility_" + abilities[i]  );
 				newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability.xml", false, false );
@@ -16,11 +19,31 @@
 				newAbility.SetAbility(abilities[i], abilities);
 				newAbility.FindChildTraverse("CCSAbilityButton").oncontextmenu = "";
 				newAbility.FindChildTraverse("Hotkey").visible = false;
+				newAbility.AddClass("ContextMenuAbility");
+
+				var y;
+
+				if (abilities.length % 2 == 0) {
+					y = 58 * ((i+1 <= (abilities.length / 2)) ? -1 : 1);
+				}
+
+				newAbility.style.y = y + "px;";
 			}
 
 			panel.SelectAbility = (function (newAbility) {
+				abilityPanel.FindChildTraverse("CCSAbilityButton").RemoveClass("HideAbility");
+
 				abilityPanel.SetAbility(newAbility.abilityname, newAbility.abilitygroup);
-				$.DispatchEvent( "DismissAllContextMenus" );
+
+				var children = $.GetContextPanel().Children();
+				for (var i = 0; i < children.length; i++) { 
+					children[i].AddClass("HideAbility");
+					children[i].style.y = "0px;";
+				}
+
+				$.GetContextPanel().DeleteAsync(1.0);
+
+				Game.EmitSound( "ui.click_back" );
 			});
 		}
 
@@ -28,7 +51,7 @@
 			$.GetContextPanel().SetAbilities = SetAbilities;
 		})();
 	</script>
-	<Panel class="Dick" style="flow-children: down;">
+	<Panel class="AbilityContextMenu" onmouseout="">
 
 	</Panel>
 </root>

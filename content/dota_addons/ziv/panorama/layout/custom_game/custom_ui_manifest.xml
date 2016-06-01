@@ -86,7 +86,6 @@
         parent = parent.GetParent();
 
     GameUI.CustomUIConfig().hudRoot = parent;
-
   </script>
 
   <Panel>
@@ -99,8 +98,8 @@
 
 	<!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/dummy.xml" />  -->
 
-    <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_background.xml" />
-    <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection.xml" />
+    <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection/character_selection_background.xml" />
+    <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection/character_selection.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/containers/container_base.xml" />
 

@@ -150,6 +150,7 @@
 	"pick_character" "Pick character to customize it"
 	"character_name" "Character Name"
 	"character_color"	"Color Scheme"
+	"character_runes"	"Rune Set"
 	"character_league"	"Character League"
 	"create_hero" "Submit"
 

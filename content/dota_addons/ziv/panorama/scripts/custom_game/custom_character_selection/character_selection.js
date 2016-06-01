@@ -45,24 +45,16 @@ function DeleteHeroPreview() {
         heroPreview.RemoveAndDeleteChildren();
 
         heroPreview = $.CreatePanel("Panel", heroRoot, "HeroPreview");
-	    heroRoot.MoveChildAfter(heroPreview, $("#NameColorLeague"));
+	    heroRoot.MoveChildAfter(heroPreview, $("#NameRunesLeague"));
     }
 }
 
-function CreateHero() {
-	var abilities = heroIcons[currentCharacter].FindChildTraverse("AbilitiesPanel");
+function CreateHeroButton() {
 	var selected_abilities = [];
-	if (abilities) {
-		for (var i = 0; i < abilities.GetChildCount(); i++) {
-			var ability = abilities.GetChild( i );
-			if (ability) {
-				if (ability.BHasClass("selected")) {
-					selected_abilities.push(ability.id);
-				}
-			}
-		}
+	for (var i = 0; i < abilities.length; i++) {
+		selected_abilities.push(abilities[i].abilityname);
 	}
-	GameEvents.SendCustomGameEventToServer( "ziv_choose_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroIcons[currentCharacter].heroName, "abilities" : selected_abilities } );
+	GameEvents.SendCustomGameEventToServer( "ziv_choose_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroIcons[currentCharacter].heroname, "abilities" : selected_abilities } );
 }
 
 function BackButton() {
@@ -83,7 +75,7 @@ function BackButton() {
 		currentCharacter = -1;
 		$("#CreateCharacterLabel").text = $.Localize("create_character");
 
-		$("#NameColorLeague").ToggleClass("OpacityPositionTransitionRight");
+		$("#NameRunesLeague").ToggleClass("OpacityPositionTransitionRight");
 		$("#Bio").ToggleClass("OpacityPositionTransitionLeft");
 
 		$("#HighlightEasyCharacters").visible = true;
@@ -124,7 +116,7 @@ function SelectHero(hero) {
 
 	$("#CreateCharacterLabel").text = $.Localize(hero.heroname);
 
-	$("#NameColorLeague").ToggleClass("OpacityPositionTransitionRight");
+	$("#NameRunesLeague").ToggleClass("OpacityPositionTransitionRight");
 	$("#Bio").ToggleClass("OpacityPositionTransitionLeft");
 	$("#BioLabel").text = $.Localize(hero.heroname+"_bio");
 
@@ -132,7 +124,7 @@ function SelectHero(hero) {
 
 	Game.EmitSound( hero.heroKV["CreationSound"]);
 
-	currentCharacter = hero.unitID;
+	currentCharacter = hero.heroID;
 }
 
 function SetupCreation() {
@@ -165,8 +157,6 @@ function SetupCreation() {
 
 		var newHeroIcon = $.CreatePanel( "Panel", heroListPanel, "HeroIcon_" + hero  );
 		newHeroIcon.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_icon.xml", false, false );
-
-		newHeroIcon.abilityPanels = [];
 
 		newHeroIcon.SetHero(hero, kv, i-1)
 		
@@ -232,7 +222,7 @@ function LoadCharactersList( args )
 	for(var hero of args.heroList)
 	{
 		var panel = $.CreatePanel( "Panel", $( "#LoadCharacterList" ), "Card_" + hero.name );
-		panel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_card.xml", false, false );
+		panel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_selection_card.xml", false, false );
 		panel.UpdateCard(hero);
 	}
 
@@ -240,7 +230,7 @@ function LoadCharactersList( args )
 	{
 		for (var i = 0; i < args.minCount - args.heroList.length; i++) {
 			var panel = $.CreatePanel( "Panel", $( "#LoadCharacterList" ), "Card_default" );
-			panel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/custom_character_selection_card.xml", false, false );
+			panel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_selection_card.xml", false, false );
 			panel.UpdateCard(null, true);
 
 			panel.SetPanelEvent("onmouseactivate", CreateCharacterButton);

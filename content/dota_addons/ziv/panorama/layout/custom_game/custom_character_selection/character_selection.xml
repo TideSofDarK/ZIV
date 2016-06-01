@@ -2,11 +2,11 @@
 	<styles>
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
-		<include src="file://{resources}/styles/custom_game/custom_character_selection/custom_character_selection.css" />
+		<include src="file://{resources}/styles/custom_game/custom_character_selection/character_selection.css" />
 		<include src="file://{resources}/styles/custom_game/custom_character_selection/character_creation_ability.css" />
 	</styles>
 	<scripts>
-		<include src="file://{resources}/scripts/custom_game/custom_character_selection/custom_character_selection.js" />
+		<include src="file://{resources}/scripts/custom_game/custom_character_selection/character_selection.js" />
 	</scripts>
 	<Panel hittest="false" class="Root">
 		<Label id="GameInfo" class="CCSHeadline" text="#addoninfo" />	
@@ -29,13 +29,13 @@
 			<Panel id="CreationMiddle" hittest="false">
 				<DOTASettingsCheckbox id="HighlightEasyCharacters" text="#highlight_easy_caharacters" onactivate="HighlightEasyCharacters()" />
 				<Panel id="HeroList" hittest="false">
-					<Panel id="HeroList1" class="HeroListHorizontal">
+					<Panel id="HeroList1" class="HeroListHorizontal" hittest="false">
 						
 					</Panel>
-					<Panel id="HeroList2" class="HeroListHorizontal">
+					<Panel id="HeroList2" class="HeroListHorizontal" hittest="false">
 
 					</Panel>
-					<Panel id="HeroList3" class="HeroListHorizontal">
+					<Panel id="HeroList3" class="HeroListHorizontal" hittest="false">
 						
 					</Panel>
 				</Panel>
@@ -45,15 +45,14 @@
 					<Panel id="Bio" class="MiddleBlock OpacityPositionTransitionLeft">
 						<Label id="BioLabel" class="SimpleText" text=""/>
 					</Panel>
-					<Panel id="NameColorLeague" class="MiddleBlock OpacityPositionTransitionRight">
+					<Panel id="NameRunesLeague" class="MiddleBlock OpacityPositionTransitionRight">
 						<Label class="CCSHeadline Headline2" id="CharacterNameLabel" text="#character_name" />
 						<TextEntry id="CharacterNameEntry" maxchars="16" placeholder="Enter name..." />
-						<Label class="CCSHeadline Headline2" id="CharacterColorLabel" text="#character_color" />
-						<Panel id="ColorSchemes">
-							<RadioButton group="ColorSchemes" class="ColorScheme" id="ColorScheme1" text=""/>
-							<RadioButton group="ColorSchemes" class="ColorScheme" id="ColorScheme2" text=""/>
-							<RadioButton group="ColorSchemes" class="ColorScheme" id="ColorScheme3" text=""/>
-							<RadioButton checked="checked" group="ColorSchemes" class="ColorScheme" id="ColorScheme4" text=""/>
+						<Label class="CCSHeadline Headline2" id="CharacterRunesLabel" text="#character_runes" />
+						<Panel id="RuneSets">
+							<RadioButton group="RuneSets" class="League" id="RuneSet1" text="Rune Set A"/>
+							<RadioButton group="RuneSets" class="League" id="RuneSet2" text="Rune Set B"/>
+							<RadioButton checked="checked" group="RuneSets" class="League" id="RuneSet3" text="Rune Set C"/>
 						</Panel>
 						<Label class="CCSHeadline Headline2" id="CharacterLeagueLabel" text="#character_league" />
 						<Panel id="Leagues">
