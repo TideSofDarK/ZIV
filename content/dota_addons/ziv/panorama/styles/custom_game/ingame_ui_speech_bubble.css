@@ -1,0 +1,43 @@
+.BubbleRoot {
+	margin-bottom: 100px;
+
+	align: right bottom; 
+	flow-children: down;
+
+	z-index: 100;	
+}
+
+.face {
+	width: 100px;
+	height: 100px;
+
+	horizontal-align: right;
+	background-color: blue;
+}
+
+.bubble {
+	width: 625px;
+	height: 305px;
+
+	margin-right: 10px;
+}
+
+.text-container {
+	width: 550px;
+
+	margin-bottom: 50px;
+
+	align: center center;
+	overflow: clip scroll;
+}
+
+.bubble Label {
+	font-size: 20px;
+	font-weight: bold;
+	color: #a0a0a0;
+
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	line-height: 18px;
+}
+
+
