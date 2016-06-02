@@ -1,6 +1,7 @@
 function StartWhirlwind( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+	local target = keys.target_points[1]
 
 	local _duration = ability:GetSpecialValueFor("duration")
 
@@ -50,6 +51,8 @@ function StartWhirlwind( keys )
 	else
 
 	end
+
+	caster:MoveToPosition(target)
 end
 
 function DamageTick( keys )

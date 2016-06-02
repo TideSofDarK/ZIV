@@ -1,10 +1,11 @@
 "ziv_samurai_whirlwind"
 {
   "BaseClass"           "ability_datadriven"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
   "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastPoint"        "0"
+  "AbilityCastRange" "250"
   "AbilityCooldown"         "0.195"
 
   "AbilityManaCost"       "10"
@@ -45,6 +46,7 @@
     {
       "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
       "Function"    "StartWhirlwind"
+      "Target" "POINT"
     }
   }
 

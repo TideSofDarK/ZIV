@@ -43,6 +43,21 @@ function StartAttack( keys )
 		caster:EmitSound("Hero_EarthShaker.Attack")
 
     	for k,v in pairs(units) do
+    		
+    		if GetRuneChance("ziv_samurai_execution_knockback_chance",caster) then
+    			local knockbackModifierTable =
+			    {
+			        should_stun = 0,
+			        knockback_duration = 0.5,
+			        duration = 0.5,
+			        knockback_distance = 64,
+			        knockback_height = 32,
+			        center_x = target.x,
+			        center_y = target.y,
+			        center_z = target.z
+			    }
+				v:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
+			end
 		    DealDamage( caster, v, caster:GetAverageTrueAttackDamage(), damage_type )
     	end
 

@@ -33,12 +33,15 @@ function LeapHorizonal( keys )
 		ability.leap_traveled = ability.leap_traveled + ability.leap_speed
 	else
 		Timers:CreateTimer(function (  )
-			ParticleManager:CreateParticle("particles/units/heroes/hero_ursa/ursa_earthshock.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
+			local point = caster:GetAbsOrigin() + (caster:GetForwardVector() * 64)
+
+			local ground = ParticleManager:CreateParticle("particles/units/heroes/hero_ursa/ursa_earthshock.vpcf",PATTACH_ABSORIGIN,caster)
+			ParticleManager:SetParticleControl(ground,0,point)
 			caster:EmitSound("Hero_EarthShaker.Fissure.Cast")
 
 			ParticleManager:DestroyParticle(ability.trail_particle,false)
 
-			local units_in_burn_radius = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),  nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			local units_in_burn_radius = FindUnitsInRadius(caster:GetTeamNumber(), point,  nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 			for k,v in pairs(units_in_burn_radius) do
 		    	local knockbackModifierTable =
 			    {
@@ -47,9 +50,9 @@ function LeapHorizonal( keys )
 			        duration = 1.0,
 			        knockback_distance = 75 + GRMSC("ziv_beastmaster_leap_force",caster),
 			        knockback_height = 80,
-			        center_x = caster:GetAbsOrigin().x,
-			        center_y = caster:GetAbsOrigin().y,
-			        center_z = caster:GetAbsOrigin().z
+			        center_x = point.x,
+			        center_y = point.y,
+			        center_z = point.z
 			    }
 				v:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
 

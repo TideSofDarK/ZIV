@@ -3,7 +3,7 @@
 	"BaseClass"				"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 
-	"AbilityTextureName"	"ziv_empty"
+	"AbilityTextureName"	"ziv_beastmaster_leap"
 
 	"precache"
 	{
@@ -24,7 +24,7 @@
 		"01"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"leap_distance"			"800"
+			"leap_distance"			"500"
 		}
 		"02"
 		{

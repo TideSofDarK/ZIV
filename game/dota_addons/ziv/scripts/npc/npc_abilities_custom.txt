@@ -1633,7 +1633,7 @@
 	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 	
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_beastmaster_cleave"
 	
 	  "AbilityCastPoint"        "0.001"
 	  "AbilityCooldown"        "0.0"
@@ -1679,7 +1679,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 	
-		"AbilityTextureName"	"ziv_empty"
+		"AbilityTextureName"	"ziv_beastmaster_leap"
 	
 		"precache"
 		{
@@ -1700,7 +1700,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"leap_distance"			"800"
+				"leap_distance"			"500"
 			}
 			"02"
 			{
@@ -5482,10 +5482,11 @@
 	"ziv_samurai_whirlwind"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastPoint"        "0"
+	  "AbilityCastRange" "250"
 	  "AbilityCooldown"         "0.195"
 	
 	  "AbilityManaCost"       "10"
@@ -5526,6 +5527,7 @@
 	    {
 	      "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_whirlwind.lua"
 	      "Function"    "StartWhirlwind"
+	      "Target" "POINT"
 	    }
 	  }
 	
