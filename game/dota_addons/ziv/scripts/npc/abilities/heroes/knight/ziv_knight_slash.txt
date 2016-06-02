@@ -17,6 +17,13 @@
   
   "MaxLevel"          "1"
 
+  "CustomCreationOptions"
+  {
+    "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
+    "Playstyle" "nobrain"
+  }
+
   "precache"
   {
     "particle"  "particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire_explosion_c.vpcf"

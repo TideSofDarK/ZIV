@@ -5,7 +5,7 @@
     "IdleSoundLoop"     "Hero_Invoker.IdleLoop"
 
     "Playstyle" "hitnrun"
-    "PrimaryDamageType" "DAMAGE_TYPE_MAGICAL"
+    "PrimaryDamageType" "DAMAGE_TYPE_DARK"
     "CreationSound" "invoker_invo_begin_01"
 
     "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"

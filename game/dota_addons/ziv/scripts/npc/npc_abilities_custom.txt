@@ -3193,7 +3193,12 @@
 		"AbilityCastPoint"        "0.0"
 		"AbilityCooldown"				"0.0"
 	
-		"MaxLevel" "7"
+		"MaxLevel" "1"
+	
+		"CustomCreationOptions"
+		{
+			"PrimaryDamageType" "DAMAGE_TYPE_COLD"
+		}
 	
 		"precache"
 		{
@@ -3421,7 +3426,12 @@
 		"AbilityCastPoint"        "0.0"
 		"AbilityCooldown"				"0.0"
 	
-		"MaxLevel" "7"
+		"MaxLevel" "1"
+	
+		"CustomCreationOptions"
+		{
+			"PrimaryDamageType" "DAMAGE_TYPE_DARK"
+		}
 	
 		"precache"
 		{
@@ -4448,10 +4458,18 @@
 	  
 	  "MaxLevel"          "7"
 	
+	  "CustomCreationOptions"
+	  {
+	    "AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
+	    "PrimaryDamageType" "DAMAGE_TYPE_FIRE"
+	    "Playstyle" "hitnrun"
+	  }
+	
 	  "precache"
 	  {
 	    "particle"  "particles/heroes/knight/knight_slash_orb.vpcf"
 	    "particle"  "particles/heroes/knight/knight_orb_attack.vpcf"
+	    "particle"  "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
 	  }
 	
@@ -4488,6 +4506,29 @@
 	
 	  "Modifiers"
 	  {
+	    "modifier_knight_orb_burn"
+	    {
+	      "Duration" "0.3"
+	
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "1"
+	    
+	      "OnCreated"
+	      {
+	        "AttachEffect"
+	        {
+	          "EffectName"    "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+	          "EffectAttachType"  "follow_overhead"
+	          "Target"      "TARGET"
+	        }
+	      }
+	    
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70" 
+	      }
+	    }
 	    "modifier_knight_orb"
 	    {
 	      "Passive"      "1"
@@ -4501,89 +4542,6 @@
 	          "ScriptFile"  "abilities/heroes/knight/ziv_knight_orb.lua"
 	          "Function"    "NewOrb"
 	        }
-	      }
-	    }
-	  }
-	}
-	"ziv_knight_flee"
-	{
-	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	  "AbilityTextureName"            "ziv_empty"
-	
-	  "AbilityCastRange"        "0"
-	  "AbilityCastPoint"        "0.1"
-	  "AbilityCooldown"         "10"
-	
-	  "AbilityManaCost"       "70"
-	  
-	  "MaxLevel"          "7"
-	
-	  "precache"
-	  {
-	    "particle"          "particles/units/heroes/hero_morphling/morphling_morph_str.vpcf"
-	  }
-	  
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "duration"            "7"
-	    }
-	    "02"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "base_regen"            "40 50 60 70 80 90 100"
-	    }
-	    "03"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "minus_armor"            "-1 -2 -3 -4 -5 -6 -7"
-	    }
-	    "04"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_resist"            "5 10 15 20 25 30 35"
-	    }
-	    "05"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_movespeed"            "30"
-	    }
-	  }
-	
-	  "OnSpellStart"
-	  {
-	    "RunScript"
-	    {
-	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_flee.lua"
-	      "Function"    "Flee"
-	      "Target" "CASTER"
-	    }
-	  }
-	
-	  "Modifiers"
-	  {
-	    "modifier_frenzy_tooltip"
-	    {
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
-	    }
-	    "modifier_frenzy"
-	    {
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	
-	      "EffectName"            "particles/units/heroes/hero_morphling/morphling_morph_str.vpcf"
-	      "EffectAttachType"      "follow_origin"
-	
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.1"
-	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"  "%minus_armor"
-	        "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%bonus_resist"
-	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"  "%bonus_movespeed"
 	      }
 	    }
 	  }
@@ -4672,6 +4630,13 @@
 	  "AbilityManaCost"       "10"
 	  
 	  "MaxLevel"          "1"
+	
+	  "CustomCreationOptions"
+	  {
+	    "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
+	    "Playstyle" "nobrain"
+	  }
 	
 	  "precache"
 	  {

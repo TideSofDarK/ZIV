@@ -1,0 +1,31 @@
+.DOTA_UNIT_CAP_MELEE_ATTACK {
+	color: #ffffffbb;
+}
+
+.DOTA_UNIT_CAP_RANGED_ATTACK {
+	color: #ffffffbb;
+}
+
+.Movespeed {
+	color: #ffffffbb;
+}
+
+.DAMAGE_TYPE_PHYSICAL {
+	color: #71A9EA;
+}
+
+.DAMAGE_TYPE_MAGICAL {
+	color: #BBB3D8;
+}
+
+.DAMAGE_TYPE_FIRE {
+	color: #ff4444;
+}
+
+.DAMAGE_TYPE_COLD {
+	color: #4444bb;
+}
+
+.DAMAGE_TYPE_DARK {
+	color: #4553B7;
+}

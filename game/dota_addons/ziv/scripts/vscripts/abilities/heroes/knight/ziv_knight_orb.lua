@@ -20,10 +20,10 @@ function LaunchOrb( keys )
 	local target = keys.target_points[1]
 	local ability = keys.ability
 
-	keys.projectile_speed = GetSpecial(ability, "projectile_speed")
-	-- keys.duration = 0.1
-	-- keys.rate = 3.0
-	-- keys.base_attack_time = 0.15
+	keys.cooldown_modifier = GRMSC("ziv_knight_orb_cd", caster) / 100
+
+	keys.projectile_speed = GetSpecial(ability, "projectile_speed") + GRMSC("ziv_knight_orb_projectile_speed", caster)
+
 	keys.attachment = "attach_attack1"
 	keys.interruptable = false
 	keys.on_impact = (function ( caster )
@@ -35,7 +35,6 @@ function LaunchOrb( keys )
 	end)
 	keys.on_hit = OrbOnHit
 
-
 	SimulateRangeAttack(keys)
 end
 
@@ -45,6 +44,10 @@ function OrbOnHit( keys )
 	local ability = keys.ability
 
 	DoToUnitsInRadius( caster, target:GetAbsOrigin(), GetSpecial(ability, "explosion_radius"), nil, nil, nil, function ( v )
-		DealDamage(caster, v, GetRuneDamage("ziv_knight_fire_orb_damage",caster) * GetSpecial(ability,"damage_amp"), DAMAGE_TYPE_FIRE)
+		if GetRuneChance("ziv_knight_orb_burn_chance",caster) then
+			ability:ApplyDataDrivenModifier(caster,v,"modifier_knight_orb_burn",{})
+		end
+
+		DealDamage(caster, v, GetRuneDamage("ziv_knight_orb_damage",caster) * GetSpecial(ability,"damage_amp"), DAMAGE_TYPE_FIRE)
 	end)
 end

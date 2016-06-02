@@ -127,19 +127,24 @@
 
 	"ziv_knight_dragon_cd"	"percent reduction of Dragon cooldown"
 	"ziv_knight_dragon_radius"	"to Dragon explosion radius"
-	"ziv_knight_flee_ms"	"to Flee move speed"
 	"ziv_knight_dash_force"	"to Dash knockback force"
 	"ziv_knight_parry_cd"	"percent reduction of Parry cooldown"
 	"ziv_knight_parry_force"	"to Parry knockback force"
 	"ziv_knight_stone_form_damage"	"to Stone Form explosion damage"
 	"ziv_knight_stone_form_reduction"	"percent reduction of Stone Form duration"
+	"ziv_knight_slash_aoe_chance"	"chance of dealing AOE damage with Slash"
+	"ziv_knight_slash_damage"	"to Slash damage"
+	"ziv_knight_slash_stun_chance"	"chance of stun with Slash"
+	"ziv_knight_orb_burn_chance"	"chance of aplying Burn(-60% to movement speed) with Fire Orb"
+	"ziv_knight_orb_cd"	"percent reduction of Fire Orb cooldown"
+	"ziv_knight_orb_damage"	"to Fire Orb damage"
+	"ziv_knight_orb_projectile_speed"	"to Fire Orb projectile speed"
 
 	// Leagues
 	"league_standard" "Standard"
 	"league_competitive" "Competitive"
 
 	// UI
-
 	"empty_gem_slot" "Empty Slot"
 
 	"level" "Level"

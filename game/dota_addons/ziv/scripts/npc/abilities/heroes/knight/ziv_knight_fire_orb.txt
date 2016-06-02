@@ -16,10 +16,18 @@
   
   "MaxLevel"          "7"
 
+  "CustomCreationOptions"
+  {
+    "AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "PrimaryDamageType" "DAMAGE_TYPE_FIRE"
+    "Playstyle" "hitnrun"
+  }
+
   "precache"
   {
     "particle"  "particles/heroes/knight/knight_slash_orb.vpcf"
     "particle"  "particles/heroes/knight/knight_orb_attack.vpcf"
+    "particle"  "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
   }
 
@@ -56,6 +64,29 @@
 
   "Modifiers"
   {
+    "modifier_knight_orb_burn"
+    {
+      "Duration" "0.3"
+
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "1"
+    
+      "OnCreated"
+      {
+        "AttachEffect"
+        {
+          "EffectName"    "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+          "EffectAttachType"  "follow_overhead"
+          "Target"      "TARGET"
+        }
+      }
+    
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70" 
+      }
+    }
     "modifier_knight_orb"
     {
       "Passive"      "1"

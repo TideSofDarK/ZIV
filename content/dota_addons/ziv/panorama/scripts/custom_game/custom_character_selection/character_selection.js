@@ -21,6 +21,11 @@ var listRoot = $("#HeroList");
 
 var heroPreview = $("#HeroPreview");
 
+var damageType = $("#CharacterDamageTypeLabel");
+var movespeed = $("#CharacterMovespeedLabel");
+var attackType = $("#CharacterAttackTypeLabel");
+var playstyle = $("#CharacterPlaystyleLabel");
+
 function SimpleLerp(a, b, t) {
 	return a + (b - a) * t;
 }
@@ -74,12 +79,29 @@ function BackButton() {
 	}
 }
 
+function SetCreationOptions(table) {
+	if (table["Playstyle"]) {
+		playstyle.text = $.Localize("character_playstyle") + ": <span class=\"" + table["Playstyle"] + "\">" + $.Localize(table["Playstyle"]) + "</span>";
+	}
+	if (table["AttackCapabilities"]) {
+		attackType.text = $.Localize("character_attack_type") + ": <span class=\"" + table["AttackCapabilities"] + "\">" + $.Localize(table["AttackCapabilities"]) + "</span>";
+	}
+	if (table["PrimaryDamageType"]) {
+		damageType.text = $.Localize("character_damage_type") + ": <span class=\"" + table["PrimaryDamageType"] + "\">" + $.Localize(table["PrimaryDamageType"]) + "</span>";
+	}
+	if (table["MovementSpeed"]) {
+		movespeed.text = $.Localize("character_movespeed") + ": <span class=\"" + "Movespeed" + "\">" + table["MovementSpeed"] + "</span>";
+	}	
+}
+
 function SelectHero(hero) {
 	var abilityLayout = hero.heroKV["AbilityLayout"];
 	var chooseLayout = hero.heroKV["ChooseLayout"];
 
 	var spellCount = hero.GetSpellCount();
 	var abilityGroups = hero.GetAbilityGroups();
+
+	SetCreationOptions(hero.heroKV);
 
 	var z = 0;
 	for (var i = 0; i < abilityLayout; i++) {
@@ -124,22 +146,6 @@ function SelectHero(hero) {
 	$("#DOTA_ATTRIBUTE_AGILITY").text = hero.heroKV["AttributeBaseAgility"];
 	$("#DOTA_ATTRIBUTE_INTELLECT").text = hero.heroKV["AttributeBaseIntelligence"];
 	$("#"+hero.heroKV["AttributePrimary"]).AddClass("MainAttribute");
-
-	var playstyle = $("#CharacterPlaystyleLabel");
-	playstyle.html = true;
-	playstyle.text = $.Localize("character_playstyle") + ": <span class=\"" + hero.heroKV["Playstyle"] + "\">" + $.Localize(hero.heroKV["Playstyle"]) + "</span>";
-
-	var attackType = $("#CharacterAttackTypeLabel");
-	attackType.html = true;
-	attackType.text = $.Localize("character_attack_type") + ": <span class=\"" + hero.heroKV["AttackCapabilities"] + "\">" + $.Localize(hero.heroKV["AttackCapabilities"]) + "</span>";
-
-	var movespeed = $("#CharacterMovespeedLabel");
-	movespeed.html = true;
-	movespeed.text = $.Localize("character_movespeed") + ": <span class=\"" + "Movespeed" + "\">" + hero.heroKV["MovementSpeed"] + "</span>";
-
-	var damageType = $("#CharacterDamageTypeLabel");
-	damageType.html = true;
-	damageType.text = $.Localize("character_damage_type") + ": <span class=\"" + hero.heroKV["PrimaryDamageType"] + "\">" + $.Localize(hero.heroKV["PrimaryDamageType"]) + "</span>";
 
 	$("#HighlightEasyCharacters").visible = false;
 
@@ -207,6 +213,8 @@ function SetupCreation() {
 				hotkey.AddClass(GameUI.CustomUIConfig().KEYBINDS[i]);
 			}
 
+			newAbility.SetCreationOptions = SetCreationOptions;
+
 			newAbility.visible = false;
 
 			abilities.push(newAbility);
@@ -263,6 +271,11 @@ function LoadCharactersList( args )
 
 (function () {
 	GameEvents.Subscribe( "ziv_load_characters_list", LoadCharactersList );
+
+	damageType.html = true;
+	movespeed.html = true;
+	attackType.html = true;
+	playstyle.html = true;
 
 	LoadCharactersList( null );
 })();

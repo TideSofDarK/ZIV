@@ -16,14 +16,14 @@ function Slash( keys )
 
 		TimedEffect("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire_explosion_c.vpcf", target, 1.0, 3)
 
-		if GetRuneChance("item_rune_knight_slash_aoe_chance",caster) then
+		if GetRuneChance("ziv_knight_slash_aoe_chance",caster) then
 			TimedEffect("particles/heroes/knight/knight_slash_ring.vpcf", target, 1.0)
 			DoToUnitsInRadius( caster, target:GetAbsOrigin(), 300, target_team, target_type, target_flags, function ( v )
-				DealDamage(caster,v,GetRuneDamage("item_rune_knight_slash_damage",caster), DAMAGE_TYPE_PHYSICAL)
+				DealDamage(caster,v,GetRuneDamage("ziv_knight_slash_damage",caster), DAMAGE_TYPE_PHYSICAL)
 			end )
 		else
-			DealDamage(caster,target,GetRuneDamage("item_rune_knight_slash_damage",caster), DAMAGE_TYPE_PHYSICAL)
-			if GetRuneChance("item_rune_knight_slash_stun_chance",caster) then
+			DealDamage(caster,target,GetRuneDamage("ziv_knight_slash_damage",caster), DAMAGE_TYPE_PHYSICAL)
+			if GetRuneChance("ziv_knight_slash_stun_chance",caster) then
 				target:AddNewModifier(caster,ability,"modifier_stunned",{duration = 0.2})
 			end
 		end

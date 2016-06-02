@@ -6,6 +6,8 @@
 		<include src="file://{resources}/styles/custom_game/custom_character_selection/character_creation_ability.css" />
 	</styles>
 	<script>
+		var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+
 		function AbilityShowTooltip()
 		{
 			$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $( "#CCSAbilityButton" ), $( "#CCSAbilityImage" ).abilityname, 0 );
@@ -44,8 +46,15 @@
 
 		function SetAbility(name, group)
 		{
-			$.GetContextPanel().abilityname = $("#CCSAbilityImage").abilityname = name;
-			$.GetContextPanel().abilitygroup = group;
+			var panel = $.GetContextPanel();
+			panel.abilityname = $("#CCSAbilityImage").abilityname = name;
+			panel.abilitygroup = group;
+
+			var customCreationOptions = PlayerTables.GetTableValue("kvs", "abilities")[panel.abilityname]["CustomCreationOptions"];
+
+			if (panel.SetCreationOptions && customCreationOptions) {
+				panel.SetCreationOptions(customCreationOptions);
+			}
 		}
 
 		(function () {

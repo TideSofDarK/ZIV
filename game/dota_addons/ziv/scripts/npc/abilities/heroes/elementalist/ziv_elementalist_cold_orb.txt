@@ -9,7 +9,12 @@
 	"AbilityCastPoint"        "0.0"
 	"AbilityCooldown"				"0.0"
 
-	"MaxLevel" "7"
+	"MaxLevel" "1"
+
+	"CustomCreationOptions"
+	{
+		"PrimaryDamageType" "DAMAGE_TYPE_COLD"
+	}
 
 	"precache"
 	{
