@@ -21,6 +21,10 @@
 	
 	}
 
+	"ziv_add_bubble_text"
+	{
+	
+	}
 
 	"ziv_open_side_item_desc"
 	{

@@ -1,0 +1,15 @@
+<root> 
+  <styles>
+	<include src="file://{resources}/styles/custom_game/ingame_ui_speech_bubble.css" />
+	<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/ingame_ui_speech_bubble.js" /> 
+  </scripts>
+  <Panel class="BubbleRoot"  >
+  	<Image class="bubble" src="file://{images}/custom_game/ingame_ui/speech_bubble.png" id="Bubble" visible="false">
+    	<Label class="text-container" id="Text" />
+	</Image>
+    <Panel class="face" onactivate="AddText();"></Panel>
+  </Panel>
+</root>
