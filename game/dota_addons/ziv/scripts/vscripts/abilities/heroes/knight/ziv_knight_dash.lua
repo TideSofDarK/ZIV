@@ -10,24 +10,41 @@ function Dash( keys )
 
 	StartAnimation(caster, {duration=0.44, activity=ACT_DOTA_RUN, rate=2.3})
 
-	Timers:CreateTimer(0.44, function (  )
-		StartAnimation(caster, {duration=1.2, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.7})
-	end)
-
 	ability.direction = (target - caster:GetAbsOrigin()):Normalized()
 
-	ability.distance = ability:GetCastRange()
+	ability.distance = math.max(GetSpecial(ability, "minimum_distance"), math.min(GetSpecial(ability, "maximum_distance"), (caster:GetAbsOrigin() - target):Length2D()))
 
-	ability.speed = ability:GetLevelSpecialValueFor("dash_speed", ability_level)
+	ability.speed = GetSpecial(ability, "dash_speed")
+	ability.move_tick = GetSpecial(ability, "dash_speed") / 30
+	ability.duration = ability.distance/ability.speed
 
 	ability.traveled = 0
 
-	caster:AddNewModifier( caster, nil, "modifier_disarmed", {duration=1.0} )
+	caster:AddNewModifier( caster, nil, "modifier_disarmed", {duration=ability.duration} )
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_dash_running",{duration=ability.duration})
 
 	ability.particle = ParticleManager:CreateParticle("particles/heroes/knight/knight_dash.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 
-	Timers:CreateTimer(1.0, function (  )
+	Timers:CreateTimer(ability.duration, function (  )
 		ParticleManager:DestroyParticle(ability.particle, false)
+	end)
+
+	Timers:CreateTimer(ability.duration / 1.5, function (  )
+		StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.1, translate="iron"})
+		
+		Timers:CreateTimer(0.2, function (  )
+			caster:EmitSound("Hero_EarthShaker.IdleSlam")
+		end)
+		Timers:CreateTimer(0.3, function (  )
+			local ground = TimedEffect( "particles/units/heroes/hero_lone_druid/lone_druid_bear_entangle_ground_rocks.vpcf", caster, 1.0, 5 )
+			local rocks = TimedEffect( "particles/units/heroes/hero_visage/visage_stone_form.vpcf", caster, 0.5 )
+
+			ParticleManager:SetParticleControlEnt(ground, 5, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(rocks, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
+		end)
+		Timers:CreateTimer(0.4, function (  )
+			FreezeAnimation(caster, 0.15)
+		end)
 	end)
 end
 
@@ -36,10 +53,10 @@ function DashHorizontal( keys )
 	local ability = keys.ability
 
 	if ability.traveled < ability.distance then
-		ability.speed = ability.speed + 2
-		caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.direction * ability.speed)
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.direction * ability.move_tick)
+		caster:EmitSound("Hero_WarlockGolem.Footsteps")
 
-		ability.traveled = ability.traveled + ability.speed
+		ability.traveled = ability.traveled + ability.move_tick
 	else
 		caster:InterruptMotionControllers(true)
 	end

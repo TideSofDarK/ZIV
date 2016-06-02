@@ -30,9 +30,9 @@ function Parry( keys )
     {
         should_stun = 1,
         knockback_duration = 1,
-        duration = 0.7,
-        knockback_distance = 150 + GRMSC("ziv_knight_parry_force", caster),
-        knockback_height = 50,
+        duration = 0.4,
+        knockback_distance = 100 + GRMSC("ziv_knight_parry_force", caster),
+        knockback_height = 25,
         center_x = caster:GetAbsOrigin().x,
         center_y = caster:GetAbsOrigin().y,
         center_z = caster:GetAbsOrigin().z

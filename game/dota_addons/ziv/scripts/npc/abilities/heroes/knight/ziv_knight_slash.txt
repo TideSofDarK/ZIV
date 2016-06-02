@@ -1,4 +1,4 @@
-"ziv_beastmaster_cleave"
+"ziv_knight_slash"
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -11,17 +11,17 @@
   "AbilityCastPoint"        "0.001"
   "AbilityCooldown"        "0.0"
   "AbilityCastRange"        "150"
+  "AbilityCastAnimation"    "ACT_DOTA_IDLE"
 
-  "AbilityManaCost"       "12"
+  "AbilityManaCost"       "10"
   
-  "MaxLevel"          "7"
+  "MaxLevel"          "1"
 
   "precache"
   {
-    "particle"  "particles/units/heroes/hero_ursa/ursa_claw_left.vpcf"
-    "particle"  "particles/units/heroes/hero_ursa/ursa_claw_right.vpcf"
-    "particle"  "particles/items_fx/battlefury_cleave.vpcf"
-    "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
+    "particle"  "particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire_explosion_c.vpcf"
+    "particle"  "particles/heroes/knight/knight_slash_ring.vpcf"
+    "particle"  "particles/heroes/knight/knight_slash_trail.vpcf"
   }
 
   "AbilitySpecial"
@@ -29,7 +29,7 @@
     "01"
     {
       "var_type" "FIELD_FLOAT"
-      "bonus_attack_speed" "100"
+      "damage_amp" "2.3"
     }
   }
 
@@ -37,8 +37,8 @@
   {
     "RunScript"
     {
-      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_cleave.lua"
-      "Function"    "Cleave"
+      "ScriptFile"  "abilities/heroes/knight/ziv_knight_slash.lua"
+      "Function"    "Slash"
       "Target" "POINT"
     }
   }

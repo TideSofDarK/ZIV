@@ -5,7 +5,7 @@
   "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastRange"        "600"
-  "AbilityCastPoint"        "0.05"
+  "AbilityCastPoint"        "0.01"
   "AbilityCooldown"         "13"
   "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 
@@ -16,7 +16,10 @@
   "precache"
   {
     "particle"  "particles/heroes/knight/knight_dash.vpcf"
-    "soundfile" "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
+    "particle"  "particles/units/heroes/hero_lone_druid/lone_druid_bear_entangle_ground_rocks.vpcf"
+    "particle"  "particles/units/heroes/hero_visage/visage_stone_form.vpcf"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_spirit_earthshaker.vsndevts"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
   }
   
   "AbilitySpecial"
@@ -29,17 +32,22 @@
     "02"
     {
       "var_type"            "FIELD_INTEGER"
-      "dash_speed"            "20"
+      "dash_speed"            "1000"
+    }
+    "03"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "minimum_distance"            "300"
+    }
+    "04"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "maximum_distance"            "600"
     }
   }
 
   "OnSpellStart"
   {
-    "FireSound"
-    {
-      "EffectName"  "Hero_Spirit_Breaker.ChargeOfDarkness"
-      "Target"     "CASTER"
-    }
     "RunScript"
     {
       "ScriptFile"        "abilities/heroes/knight/ziv_knight_dash.lua"
@@ -52,11 +60,6 @@
       "ScriptFile"    "abilities/heroes/knight/ziv_knight_dash.lua"
       "HorizontalControlFunction" "DashHorizontal"        
     }
-    "ApplyModifier"
-    {
-      "ModifierName"  "modifier_dash_running"
-      "Target"     "CASTER"
-    }
   }
 
   "Modifiers"
@@ -67,6 +70,13 @@
       "IsDebuff"      "0"
 
       "Duration"  "1.0"
+
+      "States"
+      {
+        "MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"    "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_DISARMED" "MODIFIER_STATE_VALUE_ENABLED"
+      }
 
       "ThinkInterval"  "0.03"
       "OnIntervalThink"

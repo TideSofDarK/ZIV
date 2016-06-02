@@ -55,8 +55,12 @@ function SimulateMeleeAttack( keys )
 
   local kv = ZIV.HeroesKVs[caster:GetUnitName()]
 
-  ability:EndCooldown()
-  ability:StartCooldown( base_attack_time - duration)
+  if keys.cooldown_modifier and keys.cooldown_modifier ~= 0 then
+    ability:StartCooldown( (base_attack_time - duration) * keys.cooldown_modifier)
+  else
+    ability:EndCooldown()
+    ability:StartCooldown( base_attack_time - duration)
+  end
 
   if keys.attack_particle then
     ParticleManager:CreateParticle(keys.attack_particle,PATTACH_ABSORIGIN,caster)

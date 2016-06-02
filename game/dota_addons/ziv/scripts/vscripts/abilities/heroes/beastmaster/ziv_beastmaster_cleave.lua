@@ -5,8 +5,6 @@ function Cleave( keys )
 	local target = keys.target
 	local ability = keys.ability
 
-	StartRuneCooldown(ability,"ziv_beastmaster_cleave_speed",caster)
-
 	ability.activity = ability.activity or ACT_DOTA_ATTACK_EVENT
 	if ability.activity == ACT_DOTA_ATTACK_EVENT then
 		ability.activity = ACT_DOTA_ATTACK2
@@ -17,6 +15,8 @@ function Cleave( keys )
 	end
 
 	keys.activity = ability.activity
+
+	keys.cooldown_modifier = GRMSC("ziv_beastmaster_cleave_speed", caster) / 100
 
 	keys.duration = 0.1
 	keys.rate = 3.0
