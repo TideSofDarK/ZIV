@@ -110,7 +110,9 @@ function SelectHero(hero) {
 			group.push(hero.heroKV["Ability"+(abilityGroups[z][x]+1)] );
 		}
 
-		abilities[i].SetAbility(hero.heroKV["Ability"+(z+1)], group.length > 1 ? group : []);
+		var abilityname = hero.heroKV["Ability"+(z+1)];
+
+		abilities[i].SetAbility(abilityname, group.length > 1 ? group : []);
 		
 		if (abilityGroups[z].length > 1) {
 			z += abilityGroups[z].length - 1;
@@ -118,6 +120,8 @@ function SelectHero(hero) {
 		z++;
 
 		abilities[i].visible = true;
+
+		abilities[i].FindChildTraverse("Hotkey").visible = PlayerTables.GetTableValue("kvs", "abilities")[abilityname]["AbilityBehavior"].indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE") == -1;
 	}
 	abilityRoot.visible = true;
 	abilityRoot.ToggleClass("NoLabel");

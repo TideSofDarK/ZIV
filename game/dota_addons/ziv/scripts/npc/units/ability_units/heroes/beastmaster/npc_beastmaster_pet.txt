@@ -17,8 +17,8 @@
     "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackRange"        "128"
     
-    "AttackDamageMin"        "15"
-    "AttackDamageMax"        "20"
+    "AttackDamageMin"        "0"
+    "AttackDamageMax"        "0"
 
     "AttackRate"                "1.75"
     "AttackAnimationPoint"      "0.43"  
@@ -62,8 +62,8 @@
     "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackRange"        "128"
     
-    "AttackDamageMin"        "15"
-    "AttackDamageMax"        "20"
+    "AttackDamageMin"        "0"
+    "AttackDamageMax"        "0"
 
     "AttackRate"        "1.75"
     "AttackAnimationPoint"        "0.43"

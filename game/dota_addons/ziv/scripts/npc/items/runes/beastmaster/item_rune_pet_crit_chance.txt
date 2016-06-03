@@ -1,4 +1,4 @@
-"item_rune_pet_ms"
+"item_rune_pet_crit_chance"
 {
   "ID"		"1513"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -17,10 +17,10 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_beastmaster_pet_ms"
+    "ziv_beastmaster_pet_crit_chance"
     {
       "min" "5"
-      "max" "40"
+      "max" "20"
     }
   }
 }

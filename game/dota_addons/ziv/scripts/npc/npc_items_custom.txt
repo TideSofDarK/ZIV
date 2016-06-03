@@ -709,6 +709,58 @@
 	    }
 	  }
 	}
+	"item_rune_pet2_as"
+	{
+	  "ID"		"1513"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_beastmaster_pet2_as"
+	    {
+	      "min" "5"
+	      "max" "80"
+	    }
+	  }
+	}
+	"item_rune_pet2_stun_chance"
+	{
+	  "ID"		"1513"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_beastmaster_pet2_stun_chance"
+	    {
+	      "min" "5"
+	      "max" "20"
+	    }
+	  }
+	}
 	"item_rune_pet_as"
 	{
 	  "ID"		"1513"
@@ -735,7 +787,7 @@
 	    }
 	  }
 	}
-	"item_rune_pet_ms"
+	"item_rune_pet_crit_chance"
 	{
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -754,10 +806,10 @@
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
-	    "ziv_beastmaster_pet_ms"
+	    "ziv_beastmaster_pet_crit_chance"
 	    {
 	      "min" "5"
-	      "max" "40"
+	      "max" "20"
 	    }
 	  }
 	}
@@ -2061,6 +2113,32 @@
 	    }
 	  }
 	}
+	"item_rune_explosive_trap_delay"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_explosive_trap_delay"
+	    {
+	      "min" "5"
+	      "max" "27"
+	    }
+	  }
+	}
 	"item_rune_shotgun_special_damage"
 	{
 	  "ID"		"1656"
@@ -2188,6 +2266,32 @@
 	    {
 	      "min" "1"
 	      "max" "10"
+	    }
+	  }
+	}
+	"item_rune_thunder_trap_delay"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_thunder_trap_delay"
+	    {
+	      "min" "5"
+	      "max" "27"
 	    }
 	  }
 	}

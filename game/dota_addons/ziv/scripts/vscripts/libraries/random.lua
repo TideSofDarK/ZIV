@@ -11,3 +11,7 @@ function GetRandomNumberBasedOnLevel(min, max, level, coef, float)
 		return round(c) 
 	end
 end
+
+function GetChance(chance)
+	return math.random(0, 100) > (100 - chance)
+end

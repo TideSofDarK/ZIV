@@ -55,16 +55,34 @@ function PetAI( keys )
 	end
 end
 
-function Crit( keys )
+function WolfAttack( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+	local target = keys.target
 
-	ability:ApplyDataDrivenModifier(caster, caster.pet, "modifier_wolf_crit", {})
+	local damage = caster:GetAverageTrueAttackDamage() * GetSpecial(ability, "wolf_damage_amp")
+
+	if GetChance(GetSpecial(ability, "wolf_crit_chance") + GRMSC("ziv_beastmaster_pet_crit_chance", caster)) then
+		StartSoundEvent('Hero_PhantomAssassin.CoupDeGrace', target)
+ 		local particle = ParticleManager:CreateParticle('particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf', PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
+		ParticleManager:SetParticleControlOrientation(particle, 1, caster.pet:GetForwardVector() * -1, Vector(0, 1, 0), Vector(0, 0, 1))
+
+		damage = damage * ((GetSpecial(ability, "wolf_crit_damage") + GRMSC("ziv_beastmaster_pet1_crit_damage", caster)) / 100)
+	end
+
+	DealDamage(caster,target,damage, DAMAGE_TYPE_PHYSICAL)
 end
 
-function EndCrit( keys )
+function BearAttack( keys )
 	local caster = keys.caster
-	local ability = keys.ability
+	local ability = keys.ablity
+	local target = keys.target
 
-	caster.pet:RemoveModifierByName("modifier_wolf_crit")
+	if GetChance(GetSpecial(ability, "bear_stun_chance") + GRMSC("ziv_beastmaster_pet2_stun_chance", caster)) then
+		target:AddNewModifier(caster,ability,"modifier_stunned",{duration = GetSpecial(ability, "bear_stun_duration")})
+	end
+
+	DealDamage(caster,target,caster:GetAverageTrueAttackDamage() * GetSpecial(ability, "bear_damage_amp"),DAMAGE_TYPE_PHYSICAL)
 end

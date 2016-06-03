@@ -32,8 +32,6 @@ function SpawnSpirit( keys )
 					i = i + 1
 				end
 			end
-
-			-- caster:EmitSound("Hero_Enigma.Demonic_Conversion")
 		end
 	end, pID)
 end
