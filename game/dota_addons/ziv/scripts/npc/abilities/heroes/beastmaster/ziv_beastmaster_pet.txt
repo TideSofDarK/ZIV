@@ -2,7 +2,7 @@
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE" //DOTA_ABILITY_BEHAVIOR_PASSIVE
-  "AbilityTextureName"            "ziv_empty"
+  "AbilityTextureName"            "ziv_beastmaster_pet"
 
   "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
 

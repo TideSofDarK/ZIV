@@ -1,4 +1,4 @@
-"item_rune_witch_doctor_curse_duration"
+"item_rune_witch_doctor_curse_slow"
 {
   "ID"		"1609"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -17,10 +17,10 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_witch_doctor_curse_duration"
+    "ziv_witch_doctor_curse_slow"
     {
-      "min" "1"
-      "max" "4"
+      "min" "5"
+      "max" "25"
     }
   }
 }

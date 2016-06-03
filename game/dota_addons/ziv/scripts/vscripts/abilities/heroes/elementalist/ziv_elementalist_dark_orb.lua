@@ -1,5 +1,6 @@
 function FireOrb( keys )
 	keys.on_hit = DarkOrbOnHit
+	keys.dont_destroy_fx = true
 	SimulateRangeAttack(keys)
 end
 

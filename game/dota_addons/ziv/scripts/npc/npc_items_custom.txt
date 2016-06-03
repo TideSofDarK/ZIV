@@ -2217,6 +2217,32 @@
 	    }
 	  }
 	}
+	"item_rune_witch_doctor_curse_damage"
+	{
+	  "ID"		"1609"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_witch_doctor_curse_damage"
+	    {
+	      "min" "3"
+	      "max" "12"
+	    }
+	  }
+	}
 	"item_rune_witch_doctor_curse_duration"
 	{
 	  "ID"		"1609"
@@ -2239,7 +2265,33 @@
 	    "ziv_witch_doctor_curse_duration"
 	    {
 	      "min" "1"
-	      "max" "5"
+	      "max" "4"
+	    }
+	  }
+	}
+	"item_rune_witch_doctor_curse_slow"
+	{
+	  "ID"		"1609"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_witch_doctor_curse_slow"
+	    {
+	      "min" "5"
+	      "max" "25"
 	    }
 	  }
 	}

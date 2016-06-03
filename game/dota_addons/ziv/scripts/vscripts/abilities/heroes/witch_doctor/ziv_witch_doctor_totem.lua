@@ -16,6 +16,7 @@ function CreateTotem( keys )
 	Timers:CreateTimer(0.6, function (  )
 		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf",PATTACH_POINT,totem)
 		ParticleManager:SetParticleControlEnt(particle, 0, totem, PATTACH_POINT_FOLLOW, "attach_attack1", totem:GetAbsOrigin(), false)
+		ParticleManager:SetParticleControlEnt(particle, 2, totem, PATTACH_POINT_FOLLOW, "attach_attack1", totem:GetAbsOrigin(), false)
 
 		AddChildParticle( totem, particle )
 	end)
@@ -51,7 +52,7 @@ function RemoveTotem( keys )
 	if string.match(caster:GetUnitName(), "npc_witch_doctor_totem") then
 		StopSoundEvent("Hero_WitchDoctor.Death_WardBuild",caster)
 		caster:RemoveModifierByName("dummy_unit")
-		caster:Kill(keys.ability, keys.caster)
+		caster:ForceKill(false)
 	end
 end
 
@@ -97,7 +98,7 @@ function SplitShotImpact( keys )
 
     local damage_amp = ability:GetSpecialValueFor("damage_amp")
 
-    DealDamage( caster, target, caster:GetAverageTrueAttackDamage() * damage_amp, DAMAGE_TYPE_PHYSICAL )
+    DealDamage( caster, target, caster:GetAverageTrueAttackDamage() * damage_amp, DAMAGE_TYPE_DARK )
 end
 
 function Pulling( keys )

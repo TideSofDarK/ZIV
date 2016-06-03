@@ -1,11 +1,11 @@
 "AddonInfo"
 {
 	"TeamCount" "1"
-	"maps"      "ziv_temple"
+	"maps"      "ziv_temple ziv_debug"
 	"IsPlayable"  "1"
-	"template_map"
+	"ziv_debug"
 	{
-		"MaxPlayers"                    "8"
+		"MaxPlayers"                    "1"
 	}
 	"ziv_temple"
 	{

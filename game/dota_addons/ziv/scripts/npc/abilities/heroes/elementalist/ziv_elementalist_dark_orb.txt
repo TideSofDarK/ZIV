@@ -1,7 +1,10 @@
 "ziv_elementalist_dark_orb"
 {
 	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
+	"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+  	"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+  	"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 	"AbilityTextureName"			"ziv_empty"
 
 	"AbilityCastRange" 	"1600"

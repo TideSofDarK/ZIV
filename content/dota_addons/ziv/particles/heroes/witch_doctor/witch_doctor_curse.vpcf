@@ -92,8 +92,8 @@
 	[
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMax = 80.000000
-			m_flRadiusMin = 60.000000
+			m_flRadiusMax = 40.000000
+			m_flRadiusMin = 30.000000
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"
@@ -213,7 +213,7 @@
 	m_Children =
 	[
 		{
-			m_ChildRef = resource:"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_green_goo04.vpcf"
+			m_ChildRef = resource:"particles/heroes/witch_doctor/witch_doctor_curse_a.vpcf"
 		},
 	]
 }

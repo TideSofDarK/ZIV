@@ -1,3 +1,14 @@
+function ZIV:PrintCreepCount()
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+      local hero = cmdPlayer:GetAssignedHero()
+      print(Director.current_session_creep_count)
+    end
+  end
+end
+
 function ZIV:AddModifierToHero(modifier)
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then

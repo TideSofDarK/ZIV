@@ -2,7 +2,8 @@ function FireArrow( keys )
 	keys.on_hit = AdditionalDamage
 	keys.on_kill = SpawnSpirit
 	keys.pierce = GetSpecial(keys.ability, "pierce")
-	keys.attachment = "bow_mid"
+	keys.attachment = "attach_hitloc"
+	keys.translate = "frost_arrow"
 	keys.impact_effect = "particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_g.vpcf"
 	SimulateRangeAttack(keys)
 end

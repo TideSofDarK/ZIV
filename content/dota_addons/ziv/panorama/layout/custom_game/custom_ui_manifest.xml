@@ -88,9 +88,9 @@
     GameUI.CustomUIConfig().hudRoot = parent;
 
     GameUI.CustomUIConfig().KEYBINDS = {
-        0: "q",
-        1: "w",
-        2: "e",
+        0: "Q",
+        1: "W",
+        2: "E",
         3: "LMB",
         4: "RMB"
     };
@@ -120,7 +120,7 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_settings.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/crafting/crafting.xml" />
 
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_speech_bubble.xml" />
+    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_speech_bubble.xml" /> -->
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/minimap/minimap.xml" /> -->
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/scoreboard/scoreboard.xml" />

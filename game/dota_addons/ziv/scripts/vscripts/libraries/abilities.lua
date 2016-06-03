@@ -120,6 +120,8 @@ function SimulateRangeAttack( keys )
   local caster = keys.caster
   local ability = keys.ability
   local target = keys.target_points[1]
+  local unit_target = keys.target
+  keys.standard_targeting = keys.standard_targeting or (unit_target and keys.dont_destroy_fx)
 
   local speed = tonumber(keys.projectile_speed) or caster:GetProjectileSpeed()
   local duration = keys.duration or (caster:GetAttackAnimationPoint() / caster:GetAttackSpeed())
@@ -137,7 +139,7 @@ function SimulateRangeAttack( keys )
     ability:StartCooldown( base_attack_time)
   end
   
-  StartAnimation(caster, {duration=duration + base_attack_time, activity=ACT_DOTA_ATTACK, rate=rate})
+  StartAnimation(caster, {duration=duration + base_attack_time, activity=ACT_DOTA_ATTACK, rate=rate, translate=keys.translate})
   
   UnitLookAtPoint( caster, target )
   caster:Stop()
@@ -181,6 +183,10 @@ function SimulateRangeAttack( keys )
       if math.abs(GridNav:FindPathLength(caster:GetAbsOrigin(),target) - (target - caster:GetAbsOrigin()):Length2D()) < 128 then
         point = keys.target_points[1]
       end
+    end
+
+    if keys.standard_targeting then
+      point = unit_target:GetAttachmentOrigin(unit_target:ScriptLookupAttachment("attach_hitloc"))
     end
 
     local time = (point - origin):Length2D()/speed
@@ -287,7 +293,9 @@ function SimulateRangeAttack( keys )
     projectile.Destroy = function (  )
       ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
       Projectiles:RemoveTimer(projectile.ProjectileTimerName)
-      ParticleManager:DestroyParticle(projectileFX, true)
+      if not keys.dont_destroy_fx then
+        ParticleManager:DestroyParticle(projectileFX, false)
+      end
     end
 
     AddChildEntity(caster,projectile)

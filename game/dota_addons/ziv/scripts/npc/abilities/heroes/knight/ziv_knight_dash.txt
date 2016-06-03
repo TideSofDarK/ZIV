@@ -18,7 +18,7 @@
     "particle"  "particles/heroes/knight/knight_dash.vpcf"
     "particle"  "particles/units/heroes/hero_lone_druid/lone_druid_bear_entangle_ground_rocks.vpcf"
     "particle"  "particles/units/heroes/hero_visage/visage_stone_form.vpcf"
-    "soundfile" "soundevents/game_sounds_heroes/game_sounds_spirit_earthshaker.vsndevts"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
   }
   

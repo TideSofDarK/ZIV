@@ -47,6 +47,7 @@
 		},
 		{
 			m_ChildRef = resource:"particles/econ/items/windrunner/windrunner_cape_cascade/windrunner_windrun_start_cascade.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/econ/items/windrunner/windrunner_cape_cascade/windrunner_feet_effects_cascade.vpcf"

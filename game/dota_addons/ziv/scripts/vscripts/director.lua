@@ -15,6 +15,8 @@ Director.creep_modifier_list = Director.creep_modifier_list or {}
 Director.lord_modifier_list = Director.lord_modifier_list or {}
 Director.creep_list = Director.creep_list or {}
 
+Director.current_session_creep_count = 0
+
 function Director:FindMapScenario( string )
 	local scenario = string.gsub(" "..string.gsub(string, "ziv_", ""), "%W%l", string.upper):sub(2)
 	assert( type(scenario) == "string" )
@@ -215,6 +217,8 @@ function Director:SpawnCreeps( spawn_table )
 
 			if spawn == true then
 				local creep = CreateUnitByNameAsync(creep_name, position, true, nil, nil, DOTA_TEAM_NEUTRALS, function ( creep )
+					Director.current_session_creep_count = Director.current_session_creep_count + 1
+
 					if spawn_table["NoLoot"] == true then
 						creep.no_loot = true
 					end

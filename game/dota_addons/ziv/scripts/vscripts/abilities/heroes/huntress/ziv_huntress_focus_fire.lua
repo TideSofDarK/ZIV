@@ -1,15 +1,20 @@
 function StartBarrage( keys )
+	local keys = keys
+
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
 
 	keys.effect = "particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
-	keys.projectile_speed = 3000
+	keys.attachment = "bowstring"
+	keys.translate = 'focusfire'
+	keys.projectile_speed = 2100
 	keys.duration = 0.1
-	keys.rate = 3.0
+	keys.rate = 2.35
 	keys.base_attack_time = 0.15
 	keys.attack_sound = "Hero_DrowRanger.Attack"
 	keys.interruptable = false
+	keys.dont_destroy_fx = true
 	keys.on_impact = (function ( caster )
 		Timers:CreateTimer(keys.duration, function (  )
 			if caster:HasModifier("modifier_focus_fire") == false then
