@@ -7,7 +7,7 @@
   "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
 
   "AbilityCastPoint"  "0.3"
-  "AbilityCooldown"        "1.0"
+  "AbilityCooldown"        "2.0"
   "AbilityManaCost"        "0"
 
   "MaxLevel"  "7"
@@ -16,8 +16,10 @@
   {
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_beastmaster.vsndevts"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
     "particle"  "particles/heroes/beastmaster/beastmaster_bird_beam.vpcf"
     "particle"  "particles/heroes/beastmaster/beastmaster_bird_attack.vpcf"
+    "particle"  "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
   }
 
   "AbilitySpecial"
@@ -70,6 +72,22 @@
 
   "Modifiers"
   {
+    "modifier_bird_blindness"
+    {
+      "Duration" "3"
+
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsDebuff"      "1"
+    
+      "EffectName"    "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
+      "EffectAttachType"  "follow_origin"
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_MISS_PERCENTAGE" "50" 
+      } 
+    }
     "modifier_bird_heal"
     {
       "Passive"      "0"

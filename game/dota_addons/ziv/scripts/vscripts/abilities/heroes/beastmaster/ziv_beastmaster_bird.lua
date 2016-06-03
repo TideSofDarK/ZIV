@@ -3,7 +3,7 @@ function BirdHeal( keys )
 	local ability = keys.ability
 
 	local hp_per_sec = GetSpecial(ability, "hp_per_sec") / 3
-	local sp_per_second = GetSpecial(ability, "sp_per_second") / 3
+	local sp_per_second = GetRunePercentDecrease((GetSpecial(ability, "sp_per_second") / 3),"ziv_beastmaster_bird_manacost",caster)
 
 	if caster:GetMana() >= sp_per_second then
 		caster:Heal(hp_per_sec, caster)
@@ -21,7 +21,12 @@ function BirdDamage( keys )
 	local ability = keys.ability
 	local target = keys.target
 
-	DealDamage(caster, target, caster:GetAverageTrueAttackDamage() * GetSpecial(ability, "damage_amp"), DAMAGE_TYPE_PHYSICAL)
+	DealDamage(caster, target, GetRuneDamage("ziv_beastmaster_bird_damage",caster) * GetSpecial(ability, "damage_amp"), DAMAGE_TYPE_PHYSICAL)
+
+	if GetRuneChance("ziv_beastmaster_bird_blind_chance",caster) then
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_bird_blindness",{})
+		target:EmitSound("Hero_Antimage.ManaBreak")
+	end
 end
 
 function BirdAttack( keys )

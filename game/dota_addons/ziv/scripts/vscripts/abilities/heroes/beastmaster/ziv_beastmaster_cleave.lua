@@ -29,6 +29,10 @@ function Cleave( keys )
 			ParticleManager:CreateParticle("particles/units/heroes/hero_riki/riki_backstab_hit_blood.vpcf",PATTACH_ABSORIGIN,v)
 			ParticleManager:CreateParticle("particles/units/heroes/hero_dazzle/dazzle_poison_touch_blood.vpcf",PATTACH_ABSORIGIN,v)
 			DealDamage(caster,v,caster:GetAverageTrueAttackDamage(), DAMAGE_TYPE_PHYSICAL)
+
+			if GetRuneChance("ziv_beastmaster_cleave_stun_chance",caster) then
+				v:AddNewModifier(caster,ability,"modifier_stunned",{duration = 0.1})
+			end
 		end
 	end)
 
