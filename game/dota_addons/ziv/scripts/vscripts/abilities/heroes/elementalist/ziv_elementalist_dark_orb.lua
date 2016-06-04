@@ -1,6 +1,6 @@
 function FireOrb( keys )
 	keys.on_hit = DarkOrbOnHit
-	keys.dont_destroy_fx = true
+	keys.standard_targeting = true
 	SimulateRangeAttack(keys)
 end
 
@@ -9,7 +9,7 @@ function DarkOrbOnHit( keys )
 	local target = keys.target
 	local ability = keys.ability
 	local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_dark_orb_explosion.vpcf",PATTACH_ABSORIGIN,target)
-	ParticleManager:SetParticleControl(particle,3,target:GetAbsOrigin())
+	ParticleManager:SetParticleControl(particle,3,target:GetAttachmentOrigin(target:ScriptLookupAttachment(keys.attachment or "attach_hitloc")))
 
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),target:GetAbsOrigin(),nil,ability:GetSpecialValueFor("radius"),DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
 

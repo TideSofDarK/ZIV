@@ -46,8 +46,9 @@
         "DisableClumpingBehavior"   "1"
         "AttachWearables"
         {
-            "Wearable1"     {   "ItemDef"       "392"     } //models/heroes/undying/undying_helmet.vmdl
-            "Wearable2"     {   "ItemDef"       "393"     } //models/heroes/undying/undying_armor.vmdl
+            "Wearable1"     {   "ItemDef"       "7960"     }
+            "Wearable2"     {   "ItemDef"       "7961"     }
+            "Wearable2"     {   "ItemDef"       "7973"     }
         }
     }
 }

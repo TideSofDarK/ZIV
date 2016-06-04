@@ -1,3 +1,11 @@
+function GetModifierCount( unit, modifier_name )
+  local count = 0
+  for i=1,unit:GetModifierCount() do
+    if unit:GetModifierNameByIndex(i) == modifier_name then count = count + 1 end
+  end
+  return count
+end
+
 function AddStackableModifierWithDuration(caster, target, ability, modifierName, time, maxStacks)
   local modifier = target:FindModifierByName(modifierName)
   if modifier then
@@ -121,7 +129,7 @@ function SimulateRangeAttack( keys )
   local ability = keys.ability
   local target = keys.target_points[1]
   local unit_target = keys.target
-  keys.standard_targeting = keys.standard_targeting or (unit_target and keys.dont_destroy_fx)
+  keys.standard_targeting = keys.standard_targeting and unit_target
 
   local speed = tonumber(keys.projectile_speed) or caster:GetProjectileSpeed()
   local duration = keys.duration or (caster:GetAttackAnimationPoint() / caster:GetAttackSpeed())
@@ -187,9 +195,23 @@ function SimulateRangeAttack( keys )
 
     if keys.standard_targeting then
       point = unit_target:GetAttachmentOrigin(unit_target:ScriptLookupAttachment("attach_hitloc"))
+      if keys.ignore_z then
+        point.z = unit_target:GetAbsOrigin().z + (origin.z-128)
+      end
     end
 
-    local time = (point - origin):Length2D()/speed
+    if keys.spread then
+      local shift_dir = Vector(math.random(-keys.spread, keys.spread), math.random(-keys.spread, keys.spread), math.random(-keys.spread / 10, keys.spread / 10))
+      local prev_dir = point - origin
+      if dotProduct(prev_dir, shift_dir) < 0 then
+        shift_dir = shift_dir * -1
+      end
+      point = point + shift_dir
+    end
+
+    direction = (point - origin):Normalized()
+
+    local time = (point - origin):Length()/speed
 
     local unit_behavior = PROJECTILES_DESTROY
     local pierce_count = 0
@@ -200,7 +222,7 @@ function SimulateRangeAttack( keys )
     projectile = {
       vSpawnOrigin = origin,
       fStartRadius = 48,
-      fEndRadius = 64,
+      fEndRadius = 48,
       Source = caster,
       fExpireTime = time,
       UnitBehavior = unit_behavior,
@@ -217,8 +239,6 @@ function SimulateRangeAttack( keys )
       bZCheck = false,
       bGroundLock = lock,
       bProvidesVision = false,
-      fVisionTickTime = .1,
-      fVisionLingerDuration = 0.5,
       draw = false,
       UnitTest = function(self, target) return target:GetUnitName() ~= "npc_dummy_unit" and caster:GetTeamNumber() ~= target:GetTeamNumber() end,
     }
@@ -258,7 +278,7 @@ function SimulateRangeAttack( keys )
           projectile:Destroy()
           return false
         else
-          if keys.pierce then
+          if keys.pierce and pierce_count > 0 then
             if keys.impact_sound then
               caster:EmitSound(keys.impact_sound)
             elseif kv["SoundSet"] then
@@ -270,7 +290,7 @@ function SimulateRangeAttack( keys )
     end)
 
     projectile.fDistance = (point - origin):Length2D()
-    projectile.vVelocity = direction * speed * 1.1 
+    projectile.vVelocity = direction * speed * 1 
 
     projectileFX = ParticleManager:CreateParticle(keys.effect, PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl(projectileFX, 0, origin)
@@ -293,7 +313,7 @@ function SimulateRangeAttack( keys )
     projectile.Destroy = function (  )
       ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
       Projectiles:RemoveTimer(projectile.ProjectileTimerName)
-      if not keys.dont_destroy_fx then
+      if not keys.standard_targeting then
         ParticleManager:DestroyParticle(projectileFX, false)
       end
     end

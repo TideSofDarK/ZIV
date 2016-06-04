@@ -89,8 +89,12 @@ function smallestAngleDiff( target, source )
    return a
 end
 
+function dotProduct(a, b)
+  return a.x*b.x + a.y*b.y + (a.z or 0)*(b.z or 0)
+end
+
 function randomf(lower, greater)
-    return lower + math.random()  * (greater - lower);
+  return lower + math.random()  * (greater - lower);
 end
 
 function lerp_vector(a, b, t)

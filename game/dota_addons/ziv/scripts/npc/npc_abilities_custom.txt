@@ -5912,24 +5912,27 @@
 	"ziv_sniper_smg_special"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
+	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+	
 	  "AbilityTextureName"            "ziv_empty"
 	
-	  "AbilityCastRange"        "1100"
-	  "AbilityManaCost"         "60"
-	  "AbilityCastPoint"        "0.25"
-	  "AbilityChannelTime"      "1.2"
-	  "AbilityCooldown"         "21 19 17 15 13 11 9"
-	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+	  "AbilityCastRange"        "1200"
+	  "AbilityCastPoint"        "0.001"
+	  "AbilityCooldown"         "0"
+	  "AbilityCastAnimation"    "ACT_DOTA_ATTACK"
 	
-	  "AbilityManaCost"       "120"
+	  "AbilityManaCost"       "5"
 	  
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "precache"
 	  {
 	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"    
-	    "particle"           "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_base_attack.vpcf"
+	    "particle"      "particles/heroes/sniper/sniper_smg_special_projectile.vpcf"
+	    "particle"      "particles/heroes/sniper/sniper_smg_special_gunsmoke.vpcf"
 	  }
 	  
 	  "AbilitySpecial"
@@ -5937,7 +5940,7 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_FLOAT"
-	      "damage_amp"            "2.3"
+	      "damage_amp"            "1.5"
 	    }
 	    "02"
 	    {
@@ -5950,60 +5953,30 @@
 	  {
 	    "RunScript"
 	    {
-	      "ScriptFile"        "abilities/heroes/sniper/ziv_sniper_volley.lua"
-	      "Function"          "Volley"
+	      "ScriptFile"        "abilities/heroes/sniper/ziv_sniper_smg_special.lua"
+	      "Function"          "SMGSpecial"
 	      "Target"            "POINT"
-	      "FixedDistance"                                     "1200"
-	      "EffectName"                    "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_base_attack.vpcf"
-	      "MoveSpeed"                             "2300"
-	      "StartRadius"                   "16"
-	      "EndRadius"                             "16"
-	      "TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	      "TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-	      "HasFrontalCone"                "1"
-	      "ProvidesVision"                "1"
-	      "VisionRadius"                  "400"
-	    }
-	  }
-	
-	  "OnProjectileHitUnit"
-	  {
-	    "DeleteOnHit"   "1"
-	
-	    "Damage"
-	    {
-	      "Target"    "TARGET"
-	      "Type"      "DAMAGE_TYPE_PHYSICAL"
-	      "Damage"    "%bonus_damage"
 	    }
 	  }
 	
 	  "Modifiers"
 	  {
-	    "modifier_passive_smg_stuns"
+	    "modifier_smg_special_spread"
 	    {
-	      "Passive"      "1"
-	      "IsHidden"      "1"
+	      "Duration" "3.85"
+	
+	      "Passive"      "0"
+	      "IsHidden"      "0"
 	      "IsDebuff"      "0"
+	    
+	      "Attributes"    "MODIFIER_ATTRIBUTE_MULTIPLE"
 	
-	      "OnAttackStart"
+	      "OnDestroy"
 	      {
-	        "Random"
+	        "RunScript"
 	        {
-	          "Chance"      "%bash_chance"
-	          "OnSuccess"
-	          {
-	            "ApplyModifier"
-	            {
-	              "ModifierName"  "modifier_stunned"
-	              "Target"     "TARGET"
-	              "Duration"    "0.30"
-	            }
-	          }
-	          "OnFailure"
-	          {
-	
-	          }
+	          "ScriptFile"        "abilities/heroes/sniper/ziv_sniper_smg_special.lua"
+	          "Function"          "EndSpreadStack"
 	        }
 	      }
 	    }

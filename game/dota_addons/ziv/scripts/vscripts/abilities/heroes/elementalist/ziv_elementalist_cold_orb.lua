@@ -1,6 +1,7 @@
 function FireOrb( keys )
 	keys.on_hit = ColdOrbOnHit
-	keys.dont_destroy_fx = true
+	keys.standard_targeting = true
+	keys.impact_sound = "Hero_Ancient_Apparition.ProjectileImpact"
 	SimulateRangeAttack(keys)
 end
 
@@ -8,7 +9,6 @@ function ColdOrbOnHit( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	target:EmitSound("Hero_Ancient_Apparition.ProjectileImpact")
 
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),target:GetAbsOrigin(),nil,ability:GetSpecialValueFor("radius"),DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
 

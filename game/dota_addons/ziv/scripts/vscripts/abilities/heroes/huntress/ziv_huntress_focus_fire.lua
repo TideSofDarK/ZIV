@@ -14,7 +14,7 @@ function StartBarrage( keys )
 	keys.base_attack_time = 0.15
 	keys.attack_sound = "Hero_DrowRanger.Attack"
 	keys.interruptable = false
-	keys.dont_destroy_fx = true
+	keys.standard_targeting = true
 	keys.on_impact = (function ( caster )
 		Timers:CreateTimer(keys.duration, function (  )
 			if caster:HasModifier("modifier_focus_fire") == false then

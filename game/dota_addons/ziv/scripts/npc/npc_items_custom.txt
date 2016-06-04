@@ -2744,8 +2744,14 @@
 	  "AbilityTextureName"      "item_basic_shotgun"
 	
 	  "Slot"  "gun"
-	  "CustomSkill1"  "ziv_sniper_shotgun_special"
-	  "CustomSkill2"  "ziv_sniper_shotgun_passive"
+	  "CustomSkill1"  
+	  {
+	    "ziv_sniper_empty1" "ziv_sniper_shotgun_special"
+	  }
+	  "CustomSkill2"  
+	  {
+	    "ziv_sniper_empty2" "ziv_sniper_shotgun_passive"
+	  }
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"
@@ -2795,11 +2801,17 @@
 	  "ID"		"1006"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_pers"
+	  "AbilityTextureName"      "item_basic_smg"
 	
 	  "Slot"  "gun"
-	  "CustomSkill1"  "ziv_sniper_smg_special"
-	  "CustomSkill2"  "ziv_sniper_smg_rush"
+	  "CustomSkill1"  
+	  {
+	    "ziv_sniper_empty1" "ziv_sniper_smg_special"
+	  }
+	  "CustomSkill2"  
+	  {
+	    "ziv_sniper_empty2" "ziv_sniper_smg_rush"
+	  }
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"

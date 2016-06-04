@@ -60,14 +60,10 @@ function Equip( keys )
 	for i=1,2 do
 		local custom_skill = ZIV.ItemKVs[itemName]["CustomSkill"..tostring(i)]
 		if custom_skill then
-
-			caster.ability_levels = caster.ability_levels or {}
-			caster.ability_levels[i] = caster:GetAbilityByIndex(i-1):GetLevel()
-			
-			caster:RemoveAbility(caster:GetAbilityByIndex(i-1):GetName())
-			caster:AddAbility(custom_skill)
-
-			caster:FindAbilityByName(custom_skill):SetLevel(caster.ability_levels[i])
+			for k,v in pairs(custom_skill) do
+				caster:RemoveAbility(k)
+				caster:AddAbility(v):UpgradeAbility(true)
+			end
 		end
 	end
 
