@@ -64,6 +64,51 @@ function PointOnCircle(radius, angle)
     return Vector(x,y,0) 
 end
 
+function Distance(a, b)
+  if not a.x then
+    a = a:GetAbsOrigin()
+  end
+  if not b.x then
+    b = b:GetAbsOrigin()
+  end
+  return (a - b):Length()
+end
+
+function MoveTowards(unit, dest, speed, callback, look)
+  local tick = (1.0/30.0)
+  local t = tick
+  local speed = speed/30.0
+
+  Timers:CreateTimer(function (  )
+    local delta = 25
+
+    local diff
+
+    if dest.GetAbsOrigin then
+      diff = (dest:GetAbsOrigin() - unit:GetAbsOrigin()):Normalized()
+    else
+      diff = (dest - unit:GetAbsOrigin()):Normalized()
+    end
+
+    local distance = Distance(unit, dest)
+    
+    if distance <= delta or distance == 0 then
+      callback()
+    else
+      local new_pos = unit:GetAbsOrigin() + (diff * speed)
+
+      if look then
+        unit:SetForwardVector(UnitLookAtPoint(unit, new_pos))
+      end
+
+      unit:SetAbsOrigin(new_pos)
+
+      t = t + tick
+      return tick
+    end
+  end)
+end
+
 function angleOfPoint( pt )
    local x, y = pt.x, pt.y
    local radian = math.atan2(y,x)
@@ -97,17 +142,18 @@ function randomf(lower, greater)
   return lower + math.random()  * (greater - lower);
 end
 
+function lerp(a,b,t) return (1-t)*a + t*b end
+
+function lerp2(a,b,t) return a+(b-a)*t end
+
 function lerp_vector(a, b, t)
   local newVector = Vector(0,0,0)
   for i=1,3 do
     local cs = tostring(i)
-    newVector[cs] = a[cs] + (b[cs] - a[cs]) * t
+
+    newVector[cs] = ((1-t)*a[cs]) + (t*b[cs])
   end
   return newVector
-end
-
-function lerp(a, b, t)
-  return a + (b - a) * t
 end
 
 function clamp(val, lower, upper)

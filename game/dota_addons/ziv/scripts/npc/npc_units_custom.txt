@@ -590,6 +590,35 @@
 	
 	    "AttackDesire"        "1.5"
 	} 
+	"npc_smg_backup"
+	{
+	    "BaseClass"         "npc_dota_creature"
+	    "Model"           "models/heroes/gyro/gyro.vmdl"
+	    "ModelScale"        "0.82"
+	    "SoundSet"      "Hero_Gyrocopter"
+	    "IdleSoundLoop"     "Hero_Gyrocopter.IdleLoop"
+	    "GameSoundsFile"        "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+	    "Level"           "10"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	
+	    "VisionDaytimeRange"    "0"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "0"   // Range of vision at night time.
+	
+	    "Creature"
+	    {
+	        "AttachWearables"
+	        {
+	            "1" { "ItemDef" "6898" }
+	            "2" { "ItemDef" "7121" }
+	            "3" { "ItemDef" "6903" }
+	            "4" { "ItemDef" "6897" }
+	            "5" { "ItemDef" "6899" }
+	        }
+	    }
+	} 
 	"npc_thunder_trap"
 	{
 	    "BaseClass"         "npc_dota_creature"

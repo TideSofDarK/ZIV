@@ -2810,7 +2810,7 @@
 	  }
 	  "CustomSkill2"  
 	  {
-	    "ziv_sniper_empty2" "ziv_sniper_smg_rush"
+	    "ziv_sniper_empty2" "ziv_sniper_smg_backup"
 	  }
 	
 	  "ItemStackable" "0"

@@ -5801,41 +5801,52 @@
 	    }
 	  }
 	}
-	"ziv_sniper_smg_rush"
+	"ziv_sniper_smg_backup"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 	  "AbilityTextureName"            "ziv_empty"
 	
-	  "AbilityCastPoint"        "0.25"
-	  "AbilityCooldown"         "21 19 17 15 13 11 9"
+	  "AbilityCastRange"        "600"
+	  "AbilityCastPoint"        "0"
+	  "AbilityCooldown"         "13"
+	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 	
-	  "AbilityManaCost"       "75"
+	  "AbilityManaCost"       "50"
 	  
 	  "MaxLevel"          "7"
 	
 	  "precache"
 	  {
-	    "particle"  "particles/items2_fx/mask_of_madness.vpcf"
-	    "particle"  "particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
+	    "model" "models/items/dragon_knight/fireborn_dragon/fireborn_dragon.vmdl"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+	    "soundfile" "soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts"
+	    "particle"  "particles/phoenix_supernova_reborn.vpcf"
+	    "particle"  "particles/units/heroes/hero_jakiro/jakiro_macropyre.vpcf"
 	  }
 	  
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "attack_speed"            "70 80 90 100 110 120 130"
+	      "var_type"            "FIELD_FLOAT"
+	      "explosion_damage_amp"            "3.0"
 	    }
 	    "02"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "duration"            "10"
+	      "spawn_height"            "1000"
 	    }
 	    "03"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "da_chance"            "20"
+	      "spawn_radius"            "1000"
+	    }
+	    "04"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "hero_offset"            "128"
 	    }
 	  }
 	
@@ -5843,68 +5854,31 @@
 	  {
 	    "RunScript"
 	    {
-	      "ScriptFile"  "abilities/heroes/sniper/ziv_sniper_rush.lua"
-	      "Function"    "SMGRush"
-	    }
-	    "FireSound"
-	    {
-	        "EffectName"        "DOTA_Item.MaskOfMadness.Activate"
-	        "Target"            "CASTER"
-	    }
-	  }
-	
-	  "OnProjectileHitUnit"
-	  {
-	    "DeleteOnHit"   "1"
-	      
-	    "RunScript"
-	    {
-	      "ScriptFile"  "abilities/heroes/sniper/ziv_sniper_rush.lua"
-	      "Function"    "DoubleAttackDamage"
+	      "ScriptFile"  "abilities/heroes/sniper/ziv_sniper_smg_backup.lua"
+	      "Function"    "SMGBackup"
+	      "Target"    "POINT"
 	    }
 	  }
 	
 	  "Modifiers"
 	  {
-	    "modifier_smg_rush_active"
+	    "modifier_gyro"
 	    {
 	      "Passive"      "0"
-	      "IsHidden"      "0"
-	      "IsBuff"      "1"
-	    
-	      "EffectName"            "particles/items2_fx/mask_of_madness.vpcf"
-	      "EffectAttachType"      "follow_origin"
-	    
+	      "IsHidden"      "1"
+	
 	      "Properties"
 	      {
-	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
+	        "MODIFIER_PROPERTY_VISUAL_Z_DELTA" "0"
 	      }
-	    }
-	    "modifier_smg_rush_passive"
-	    {
-	      "Passive"      "1"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
 	    
-	      "OnAttackStart"
+	      "States"
 	      {
-	        "Random"
-	        {
-	          "Chance"      "%da_chance"
-	          "OnSuccess"
-	          {
-	            "RunScript"
-	            {
-	              "ScriptFile"  "abilities/heroes/sniper/ziv_sniper_rush.lua"
-	              "Function"    "DoubleAttack"
-	              "Target"  "TARGET"
-	              "base_attack_particle" "particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
-	            }
-	          }
-	          "OnFailure"
-	          {
-	          }
-	        }
+	        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_DISARMED"  "MODIFIER_STATE_VALUE_ENABLED"
+	        // "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"  "MODIFIER_STATE_VALUE_ENABLED"
 	      }
 	    }
 	  }
