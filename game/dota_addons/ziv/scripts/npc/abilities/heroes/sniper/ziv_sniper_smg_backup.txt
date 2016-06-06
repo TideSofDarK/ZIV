@@ -6,7 +6,7 @@
   "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastRange"        "600"
-  "AbilityCastPoint"        "0"
+  "AbilityCastPoint"        "1.2"
   "AbilityCooldown"         "13"
   "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 
@@ -26,8 +26,8 @@
   {
     "01"
     {
-      "var_type"            "FIELD_FLOAT"
-      "explosion_damage_amp"            "3.0"
+      "var_type"            "FIELD_INTEGER"
+      "damage_reduction"            "-50"
     }
     "02"
     {
@@ -37,7 +37,7 @@
     "03"
     {
       "var_type"            "FIELD_INTEGER"
-      "spawn_radius"            "1000"
+      "spawn_radius"            "800"
     }
     "04"
     {
@@ -46,7 +46,7 @@
     }
   }
 
-  "OnSpellStart"
+  "OnAbilityPhaseStart"
   {
     "RunScript"
     {
@@ -63,6 +63,11 @@
       "Passive"      "0"
       "IsHidden"      "1"
 
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduction"
+      }
+
       "States"
       {
         "MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
@@ -75,7 +80,7 @@
 
       "Properties"
       {
-        "MODIFIER_PROPERTY_VISUAL_Z_DELTA" "0"
+        "MODIFIER_PROPERTY_VISUAL_Z_DELTA" "10"
       }
     
       "States"

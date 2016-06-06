@@ -53,6 +53,7 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_dota_hero_windrunner", context)
   PrecacheUnitByNameSync("npc_dota_hero_sniper", context)
   PrecacheUnitByNameSync("npc_dota_hero_drow_ranger", context)
+  PrecacheUnitByNameSync("npc_dota_hero_sniper", context)
 
   PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_luna.vsndevts",context)
   PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_treant.vsndevts",context)
@@ -68,6 +69,7 @@ function Precache( context )
   PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts",context)
   PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts",context)
   PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_rattletrap.vsndevts",context)
+  PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts",context)
   PrecacheResource("soundfile","soundevents/game_sounds.vsndevts",context)
 end
 

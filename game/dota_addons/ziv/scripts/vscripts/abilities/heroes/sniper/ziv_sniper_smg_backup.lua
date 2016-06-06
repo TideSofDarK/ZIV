@@ -8,10 +8,13 @@ function SMGBackup( keys )
     local offset = GetSpecial(ability, "hero_offset")
     local speed = 700
 
+    StartAnimation(caster, {duration=-1, activity=ACT_DOTA_TELEPORT, rate=1.0})
+
     local gyro = CreateUnitByNameAsync("npc_smg_backup", target, false, nil, caster:GetPlayerOwner(), caster:GetTeamNumber(), function ( gyro )
         ability:ApplyDataDrivenModifier(caster, gyro, "modifier_gyro", {})
 
         local start_point = caster:GetAbsOrigin() + ((target - caster:GetAbsOrigin()):Normalized() * -radius)
+        local end_point = caster:GetAbsOrigin() + ((target - caster:GetAbsOrigin()):Normalized() * radius * 2) + Vector(0,0,height)
         start_point.z = height
 
         gyro:SetAbsOrigin(start_point)
@@ -19,6 +22,8 @@ function SMGBackup( keys )
         gyro:EmitSound("gyrocopter_gyro_laugh_02")
 
         Attachments:AttachProp(gyro, "attach_homing_missile", "models/heroes/rattletrap/rattletrap_weapon.vmdl")
+
+        StartSoundEvent("Hero_Gyrocopter.IdleLoop",caster)
 
         local t = 0
 
@@ -31,14 +36,14 @@ function SMGBackup( keys )
         MoveTowards(gyro, caster, 700, function (  )
             ability:ApplyDataDrivenModifier(caster, caster, "modifier_smg_backup", {})
             gyro:SetForwardVector(UnitLookAtPoint( gyro, target ))
-            StartAnimation(caster, {duration=-1, activity=ACT_DOTA_TELEPORT, rate=1.0})
+            StartAnimation(caster, {duration=-1, activity=ACT_DOTA_FLAIL, rate=1.0})
 
             caster:EmitSound("Hero_Rattletrap.Hookshot.Damage")
             gyro:EmitSound("gyrocopter_gyro_move_29")
 
             MoveTowards(gyro, target, 700, function (  )
-                local flee = start_point
-                MoveTowards(gyro, flee, 700, function (  )
+                MoveTowards(gyro, end_point, 700, function (  )
+                    StopSoundEvent("Hero_Gyrocopter.IdleLoop",caster)
                     gyro:ForceKill(false)
                 end, true)
             end)
