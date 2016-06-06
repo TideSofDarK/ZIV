@@ -140,49 +140,6 @@ function ZIV:OnHeroInGame(hero)
     local pid = hero:GetPlayerID()
     local player = PlayerResource:GetPlayer(pid)
 
-    -- local c = Containers:CreateContainer({
-    --   layout =      {3,3,3,3,3},
-    --   skins =       {}, --
-    --   headerText =  "Bag",
-    --   pids =        {pid},
-    --   entity =      hero,
-    --   closeOnOrder = false,
-    --   position =    "1200px 600px 0px",
-    --   OnDragWorld = true,
-    -- })
-
-    local c = Containers:CreateContainer({
-      layout =      {3,3,3,3,3},
-      skins =       {"Hourglass"},
-      headerText =  "Bag",
-      pids =        {pid},
-      entity =      hero,
-      closeOnOrder =false,
-      position =    "75% 25%",
-      OnDragWorld = true
-    })
-
-    ZIV.INVENTORY[pid] = c
-
-    local item = CreateItem("item_gem_malachite", hero, hero)
-    c:AddItem(item)
-
-    item = CreateItem("item_gem_topaz", hero, hero)
-    c:AddItem(item)
-
-    item = CreateItem("item_basic_parts", hero, hero)
-    c:AddItem(item)
-
-    item = CreateItem("item_basic_leather", hero, hero)
-    c:AddItem(item, 3)
-
-    defaultInventory[pid] = true
-    Containers:SetDefaultInventory(hero, c)
-
-    local pack = CreateItem("item_containers_lua_pack", hero, hero)
-    pack.container = c
-    hero:AddItem(pack)
-
     local hero_name = hero:GetUnitName()
 
     local camera_target = CreateUnitByName("npc_dummy_unit",hero:GetAbsOrigin() + Vector(0,325,0),false,hero,hero,hero:GetTeamNumber())

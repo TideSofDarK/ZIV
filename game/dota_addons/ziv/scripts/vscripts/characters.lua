@@ -6,7 +6,7 @@ function Characters:OnPlayerCreatedHero( args )
   local pID = tonumber(args.pID)
   local player = PlayerResource:GetPlayer(pID)
   local hero_name = args.hero_name
-  local preset = args.preset
+  local preset = ZIV.PresetsKVs[hero_name][args.preset]
 
   local abilities = args.abilities
 
@@ -22,6 +22,31 @@ function Characters:OnPlayerCreatedHero( args )
     
     for i=0,GetTableLength(abilities) do
       hero:AddAbility(abilities[tostring(i)])
+    end
+
+    local inventory = Containers:CreateContainer({
+      layout =      {3,3,3,3,3},
+      skins =       {"Hourglass"},
+      headerText =  "Bag",
+      pids =        {pID},
+      entity =      hero,
+      closeOnOrder =false,
+      position =    "75% 25%",
+      OnDragWorld = true
+    })
+
+    ZIV.INVENTORY[pID] = inventory
+
+    Containers:SetDefaultInventory(hero, inventory)
+
+    if preset then
+      Timers:CreateTimer(function (  )
+        for k,v in pairs(preset) do
+          local item = CreateItem(v, hero, hero)
+          ZIV.INVENTORY[pID]:AddItem(item)
+          ZIV.INVENTORY[pID]:ActivateItem(hero, item, pID)
+        end
+      end)
     end
 
     Characters:InitHero( hero )
