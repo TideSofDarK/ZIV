@@ -46,8 +46,11 @@ function DeleteHeroPreview() {
     if (heroPreview) {
         heroPreview.visible = false;
         heroPreview.RemoveAndDeleteChildren();
+        heroPreview.DeleteAsync(0.0);
 
         heroPreview = $.CreatePanel("Panel", heroRoot, "HeroPreview");
+        heroPreview.hittest=false;
+        heroPreview.hittestchildren=false;
 	    heroRoot.MoveChildAfter(heroPreview, $("#NameRunesLeague"));
     }
 }
@@ -90,6 +93,8 @@ function BackButton() {
 		$("#HeroInfo").ToggleClass("OpacityPositionTransitionLeft");
 
 		$("#HighlightEasyCharacters").visible = true;
+
+		heroRoot.visible = false;
 	}
 }
 
@@ -169,6 +174,7 @@ function SelectHero(hero) {
 			for (var c = 0; c < panel.Children().length; c++) {
 				if (panel.Children()[c].text) {
 					panel.Children()[c].text = $.Localize(key);
+					GameUI.CustomUIConfig().AddTooltip(panel.Children()[c], key+"_Tooltip");
 				}
 			}
 			panel.preset = key;

@@ -24,7 +24,7 @@
 			<Panel id="CreationTop">
 				<Label class="CCSHeadline Headline1" id="CreateCharacterLabel" text="#create_character" />	
 
-				<Button onactivate="BackButton()" class="CloseButton BackButton" id="BackButton" tooltip="back">
+				<Button onactivate="BackButton()" class="CloseButton BackButton" id="BackButton">
 				</Button>
 			</Panel>
 
@@ -41,7 +41,7 @@
 						
 					</Panel>
 				</Panel>
-				<Panel id="HeroRoot">
+				<Panel id="HeroRoot" hittest="false">
 					<Panel id="HeroPreview">
 					</Panel>
 					<Panel id="HeroInfo" class="MiddleBlock OpacityPositionTransitionLeft">
@@ -61,7 +61,7 @@
 								<Label id="DOTA_ATTRIBUTE_INTELLECT" class="CCSHeadline HeroAttribute" text="2"/>
 							</Panel>
 							<Panel class="CBR" />
-							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterPlaystyleLabel" text="#character_playstyle" />
+							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterPlaystyleLabel" text="#character_playstyle" tooltip="character_playstyle_Tooltip"/>
 							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterAttackTypeLabel" text="#character_attack_type" />
 							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterDamageTypeLabel" text="#character_damage_type" />
 							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterMovespeedLabel" text="#character_movespeed" />
@@ -78,8 +78,8 @@
 						</Panel>
 						<Label class="CCSHeadline Headline2" id="CharacterLeagueLabel" text="#character_league" />
 						<Panel id="Leagues">
-							<RadioButton group="Leagues" class="League" id="League1" text="#league_standard"/>
-							<RadioButton group="Leagues" class="League" id="League2" text="#league_competitive"/>
+							<RadioButton group="Leagues" class="League" id="League1" text="#league_standard" tooltip="league_standard_Tooltip"/>
+							<RadioButton group="Leagues" class="League" id="League2" text="#league_competitive" tooltip="league_competitive_Tooltip"/>
 						</Panel>
 						<Button onactivate="CreateHeroButton()" class="OKButton" id="CreateHeroButton">
 							<Label id="CreateHeroButtonLabel" class="WindowLabel" text="#create_hero"/>

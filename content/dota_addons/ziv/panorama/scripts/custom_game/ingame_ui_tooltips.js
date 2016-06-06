@@ -27,4 +27,5 @@ function InitTooltip( panel )
 
 (function () {
 	InitTooltip( $.GetContextPanel() );
+	GameUI.CustomUIConfig().AddTooltip = AddTooltip;
 })();

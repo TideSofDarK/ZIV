@@ -151,13 +151,15 @@
 
 	// Character presets
 	"mercenary_preset_a" "SMG"
-	"mercenary_preset_a_Description" "Equipped with SMG and basic SMG rune set"
+	"mercenary_preset_a_Tooltip" "Equipped with SMG and basic SMG rune set"
 	"mercenary_preset_b" "Shotgun"
-	"mercenary_preset_b_Description" "Equipped with Shotgun and basic Shotgun rune set"
+	"mercenary_preset_b_Tooltip" "Equipped with Shotgun and basic Shotgun rune set"
 
 	// Leagues
 	"league_standard" "Standard"
+	"league_standard_Tooltip" "<b>Standard</b> league is permanent. Your characters and items will never expire."
 	"league_competitive" "Competitive"
+	"league_competitive_Tooltip" "<b>Competetive</b> league start of 1st of each month. Every month new runes and items are added to the this league. Expired character are transfered to Standard league."
 
 	// UI
 	"empty_gem_slot" "Empty Slot"
@@ -183,6 +185,7 @@
 	"pick_character" "Pick character to customize it"
 	"character_attack_type" "Attack Type"
 	"character_playstyle" "Playstyle"
+	"character_playstyle_Tooltip" "<b>Nobrainer</b> - hero with melee attack who never scared of jumping into hordes of monsters<br><b>Hit'n'run</b> - usually ranged hero with relatively weak defensive abilities<br><b>Summoner</b> - most damage goes not from hero but from summoned minions"
 	"character_movespeed" "Movement Speed"
 	"character_damage_type" "Primary Damage"
 	"character_name" "Name"
