@@ -36,8 +36,6 @@ require('libraries/damage')
 -- Random
 require('libraries/random')
 require('libraries/PseudoRNG')
--- Runes
-require('libraries/runes')
 -- Abilities
 require('libraries/abilities')
 -- AI
@@ -46,6 +44,10 @@ require('libraries/ai')
 require('items/crafting')
 require('items/equipment')
 require('items/vials')
+require('items/runes')
+
+-- Character management
+require('characters')
 
 -- These internal libraries set up ziv's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/ziv')
@@ -198,9 +200,6 @@ function ZIV:OnHeroInGame(hero)
       camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(-offset,offset,0))
       return 0.03
     end)
-
-    hero.vial_rng = PseudoRNG.create( ZIV_VIAL_CHANCE )
-    hero.vial_choice_rng = ChoicePseudoRNG.create( {ZIV_HP_VIAL_CHANCE, ZIV_SP_VIAL_CHANCE} )
   end)
 end
 

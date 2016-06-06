@@ -52,12 +52,20 @@ function DeleteHeroPreview() {
     }
 }
 
+function GetSelectedPreset() {
+	for (var preset in presets) {
+		if (presets[preset].IsSelected()) {
+			return presets[preset].preset;
+		}
+	}
+}
+
 function CreateHeroButton() {
 	var selected_abilities = [];
 	for (var i = 0; i < abilities.length; i++) {
 		selected_abilities.push(abilities[i].abilityname);
 	}
-	GameEvents.SendCustomGameEventToServer( "ziv_choose_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroIcons[currentCharacter].heroname, "abilities" : selected_abilities } );
+	GameEvents.SendCustomGameEventToServer( "ziv_create_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroIcons[currentCharacter].heroname, "abilities" : selected_abilities, "preset" : GetSelectedPreset() } );
 }
 
 function BackButton() {
@@ -163,6 +171,7 @@ function SelectHero(hero) {
 					panel.Children()[c].text = $.Localize(key);
 				}
 			}
+			panel.preset = key;
 			panel.visible=true;
 			i++;
 		}

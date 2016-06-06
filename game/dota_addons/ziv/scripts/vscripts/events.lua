@@ -1,34 +1,3 @@
-function ZIV:OnPlayerSelectedHero( args )
-  local pID = tonumber(args.pID)
-  local player = PlayerResource:GetPlayer(pID)
-  local hero_name = args.hero_name
-
-  local abilities = args.abilities
-
-  PrecacheUnitByNameAsync(hero_name, function (  )
-    local hero = CreateHeroForPlayer(hero_name, player)
-
-    for i=0,16 do
-      local abil = hero:GetAbilityByIndex(i)
-      if abil and abil:GetName() then
-        hero:RemoveAbility(abil:GetName())
-      end
-    end
-    
-    for i=0,GetTableLength(abilities) do
-      hero:AddAbility(abilities[tostring(i)])
-    end
-
-    hero:AddAbility("ziv_passive_hero")
-    hero:AddAbility("ziv_stats_bonus_fix")
-    hero:AddAbility("ziv_hero_normal_hpbar_behavior")
-
-    InitAbilities(hero)
-
-    hero:AddNewModifier(hero,nil,"modifier_disable_auto_attack",{})
-  end, pID)
-end
-
 function ZIV:OnDisconnect(keys)
   DebugPrint('[ZIV] Player Disconnected ' .. tostring(keys.userid))
   DebugPrintTable(keys)

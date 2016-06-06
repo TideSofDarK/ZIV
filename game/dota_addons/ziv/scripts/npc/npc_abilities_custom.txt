@@ -5542,14 +5542,14 @@
 	  
 	"ziv_sniper_empty1"
 	{
-		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"MaxLevel"            "7"
 		"BaseClass"           "ability_datadriven"
 		"AbilityTextureName"            "ziv_empty"
 	}
 	"ziv_sniper_empty2"
 	{
-		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"MaxLevel"            "7"
 		"BaseClass"           "ability_datadriven"
 		"AbilityTextureName"            "ziv_empty"
