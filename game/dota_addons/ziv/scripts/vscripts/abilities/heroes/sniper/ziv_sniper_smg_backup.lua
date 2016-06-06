@@ -6,7 +6,7 @@ function SMGBackup( keys )
     local height = GetSpecial(ability, "spawn_height")
     local radius = GetSpecial(ability, "spawn_radius")
     local offset = GetSpecial(ability, "hero_offset")
-    local speed = 700
+    local speed = 700 + GRMSC("ziv_sniper_smg_backup_speed", caster)
 
     StartAnimation(caster, {duration=-1, activity=ACT_DOTA_TELEPORT, rate=1.0})
 

@@ -2295,7 +2295,7 @@
 	    }
 	  }
 	}
-	"item_rune_smg_rush_duration"
+	"item_rune_smg_backup_speed"
 	{
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -2314,10 +2314,10 @@
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
-	    "ziv_sniper_smg_rush_duration"
+	    "ziv_sniper_smg_backup_speed"
 	    {
-	      "min" "1"
-	      "max" "6"
+	      "min" "50"
+	      "max" "200"
 	    }
 	  }
 	}

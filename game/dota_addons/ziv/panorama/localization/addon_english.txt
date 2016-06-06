@@ -117,8 +117,8 @@
 	"ziv_sniper_thunder_trap_delay"		"percent reduction of Thunder trap delay"
 	"ziv_sniper_shotgun_special_damage"	"to Shotgun Active damage"
 	"ziv_sniper_shotgun_special_force"	"to Shotgun Active force"
-	"ziv_sniper_smg_rush_duration"		"to SMG Rush duration"
-	"ziv_sniper_smg_special_damage"		"to SMG Special damage"
+	"ziv_sniper_smg_backup_speed"		"to Backup speed"
+	"ziv_sniper_smg_special_damage"		"to SMG damage"
 
 	"ziv_beastmaster_bird_damage"	"to Bird damage"
 	"ziv_beastmaster_bird_manacost"	"percent reduction of Bird energy cost"
