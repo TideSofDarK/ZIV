@@ -26,6 +26,12 @@ var movespeed = $("#CharacterMovespeedLabel");
 var attackType = $("#CharacterAttackTypeLabel");
 var playstyle = $("#CharacterPlaystyleLabel");
 
+var presets = [
+	$("#Preset1"),
+	$("#Preset2"),
+	$("#Preset3")
+]
+
 function SimpleLerp(a, b, t) {
 	return a + (b - a) * t;
 }
@@ -101,6 +107,8 @@ function SelectHero(hero) {
 	var spellCount = hero.GetSpellCount();
 	var abilityGroups = hero.GetAbilityGroups();
 
+	var heroPresets = PlayerTables.GetTableValue("kvs", "presets")[hero.heroname];
+
 	SetCreationOptions(hero.heroKV);
 
 	var z = 0;
@@ -140,8 +148,25 @@ function SelectHero(hero) {
 
 	// Default checked radio buttons
 	$("#HeroOptionTab1").checked = true;
-	$("#RuneSet1").checked = true;
+	$("#Preset1").checked = true;
 	$("#League2").checked = true;
+
+	for (var preset in presets) {
+		presets[preset].visible = false;
+	}
+	if (heroPresets) {
+		var i = 0;
+		for (var key in heroPresets) {
+			var panel = presets[i];
+			for (var c = 0; c < panel.Children().length; c++) {
+				if (panel.Children()[c].text) {
+					panel.Children()[c].text = $.Localize(key);
+				}
+			}
+			panel.visible=true;
+			i++;
+		}
+	}
 
 	$("#DOTA_ATTRIBUTE_STRENGTH").RemoveClass("MainAttribute");
 	$("#DOTA_ATTRIBUTE_AGILITY").RemoveClass("MainAttribute");

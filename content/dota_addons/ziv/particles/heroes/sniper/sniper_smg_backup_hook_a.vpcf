@@ -97,6 +97,7 @@
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/sniper/sniper_smg_backup_hook_c.vpcf"
+			m_bDisableChild = true
 		},
 	]
 }

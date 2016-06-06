@@ -78,7 +78,7 @@ function MoveTowards(unit, dest, speed, callback, look)
   local tick = (1.0/30.0)
   local t = tick
   local speed = speed/30.0
-
+  print(dest)
   Timers:CreateTimer(function (  )
     local delta = 25
 

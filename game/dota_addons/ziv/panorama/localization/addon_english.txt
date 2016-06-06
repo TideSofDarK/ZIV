@@ -149,6 +149,12 @@
 	"ziv_knight_orb_damage"	"to Fire Orb damage"
 	"ziv_knight_orb_projectile_speed"	"to Fire Orb projectile speed"
 
+	// Character presets
+	"mercenary_preset_a" "SMG"
+	"mercenary_preset_a_Description" "Equipped with SMG and basic SMG rune set"
+	"mercenary_preset_b" "Shotgun"
+	"mercenary_preset_b_Description" "Equipped with Shotgun and basic Shotgun rune set"
+
 	// Leagues
 	"league_standard" "Standard"
 	"league_competitive" "Competitive"
@@ -179,10 +185,10 @@
 	"character_playstyle" "Playstyle"
 	"character_movespeed" "Movement Speed"
 	"character_damage_type" "Primary Damage"
-	"character_name" "Character Name"
+	"character_name" "Name"
 	"character_color"	"Color Scheme"
-	"character_runes"	"Rune Set"
-	"character_league"	"Character League"
+	"character_presets"	"Presets"
+	"character_league"	"League"
 	"create_hero" "Submit"
 
 	"tab_battle_info" "Summary"

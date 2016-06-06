@@ -5819,11 +5819,10 @@
 	
 	  "precache"
 	  {
-	    "model" "models/items/dragon_knight/fireborn_dragon/fireborn_dragon.vmdl"
-	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
-	    "soundfile" "soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts"
-	    "particle"  "particles/phoenix_supernova_reborn.vpcf"
-	    "particle"  "particles/units/heroes/hero_jakiro/jakiro_macropyre.vpcf"
+	    "model" "models/heroes/rattletrap/rattletrap_weapon.vmdl"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_rattletrap.vsndevts"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+	    "soundfile" "soundevents/voscripts/game_sounds_vo_gyrocopter.vsndevts"
 	  }
 	  
 	  "AbilitySpecial"
@@ -5862,6 +5861,16 @@
 	
 	  "Modifiers"
 	  {
+	    "modifier_smg_backup"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
 	    "modifier_gyro"
 	    {
 	      "Passive"      "0"

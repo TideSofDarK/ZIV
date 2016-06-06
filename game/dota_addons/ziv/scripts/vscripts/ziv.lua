@@ -119,7 +119,8 @@ function ZIV:OnAllPlayersLoaded()
       items = DeepCopy(ZIV.ItemKVs),
       heroes = DeepCopy(ZIV.HeroesKVs),
       abilities = DeepCopy(ZIV.AbilityKVs),
-      units = DeepCopy(ZIV.UnitKVs)
+      units = DeepCopy(ZIV.UnitKVs),
+      presets = DeepCopy(ZIV.PresetsKVs)
      }, true)
 
     CustomGameEventManager:Send_ServerToAllClients( "ziv_set_recipes_kvs", ZIV.RecipesKVs )
@@ -268,6 +269,7 @@ function ZIV:InitZIV()
   ZIV.HeroesKVs = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
   ZIV.HerolistKVs = LoadKeyValues("scripts/npc/herolist.txt")
   ZIV.RecipesKVs = LoadKeyValues("scripts/kv/Recipes.kv")
+  ZIV.PresetsKVs = LoadKeyValues("scripts/kv/CharacterPresets.kv")
 
   Director:Init()
   Loot:Init()

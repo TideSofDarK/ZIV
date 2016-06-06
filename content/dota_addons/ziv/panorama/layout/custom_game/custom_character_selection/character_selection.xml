@@ -69,11 +69,11 @@
 					<Panel id="NameRunesLeague" class="MiddleBlock OpacityPositionTransitionRight">
 						<Label class="CCSHeadline Headline2" id="CharacterNameLabel" text="#character_name" />
 						<TextEntry id="CharacterNameEntry" maxchars="16" placeholder="Enter name..." />
-						<Label class="CCSHeadline Headline2" id="CharacterRunesLabel" text="#character_runes" />
-						<Panel id="RuneSets">
-							<RadioButton group="RuneSets" class="League" id="RuneSet1" text="Rune Set A"/>
-							<RadioButton group="RuneSets" class="League" id="RuneSet2" text="Rune Set B"/>
-							<RadioButton group="RuneSets" class="League" id="RuneSet3" text="Rune Set C"/>
+						<Label class="CCSHeadline Headline2" id="CharacterPresetsLabel" text="#character_presets" />
+						<Panel id="Presets">
+							<RadioButton group="Presets" class="League" id="Preset1" text="Preset A"/>
+							<RadioButton group="Presets" class="League" id="Preset2" text="Preset B"/>
+							<RadioButton group="Presets" class="League" id="Preset3" text="Preset C"/>
 						</Panel>
 						<Label class="CCSHeadline Headline2" id="CharacterLeagueLabel" text="#character_league" />
 						<Panel id="Leagues">

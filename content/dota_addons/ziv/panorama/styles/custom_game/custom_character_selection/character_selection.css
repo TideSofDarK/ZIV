@@ -403,7 +403,7 @@ RadioButton.HeroOptionTab:hover Label,
 	opacity: 0.0;
 }
 
-#RuneSets {
+#Presets {
 	flow-children: right;
 	margin-bottom: 25px;
 }

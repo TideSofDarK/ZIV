@@ -611,11 +611,13 @@
 	    {
 	        "AttachWearables"
 	        {
-	            "1" { "ItemDef" "6898" }
-	            "2" { "ItemDef" "7121" }
-	            "3" { "ItemDef" "6903" }
-	            "4" { "ItemDef" "6897" }
-	            "5" { "ItemDef" "6899" }
+	            "1" { "ItemDef" "527" }
+	            "2" { "ItemDef" "131" }
+	            "3" { "ItemDef" "6898" }
+	            "4" { "ItemDef" "7121" }
+	            "5" { "ItemDef" "6903" }
+	            "6" { "ItemDef" "6897" }
+	            "7" { "ItemDef" "6899" }
 	        }
 	    }
 	} 
