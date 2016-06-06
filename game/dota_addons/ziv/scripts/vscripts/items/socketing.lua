@@ -7,9 +7,12 @@ function Socketing:OnFortify( keys )
   	local playerID = keys.pID
   	local item = EntIndexToHScript(keys.item)
   	local tool = EntIndexToHScript(keys.tool)
+  	if keys.seed then
+  		math.randomseed(keys.seed)
+  	end
 
   	local toolKV = ZIV.ItemKVs[tool:GetName()]
-
+  	
   	item.fortify_modifiers = item.fortify_modifiers or {}
 
   	local new_modifiers = Socketing:GetRandomFortifyModifiers( toolKV["FortifyModifiers"], tonumber(toolKV["FortifyModifiersCount"]) or 0 )
@@ -34,6 +37,8 @@ function Socketing:OnFortify( keys )
 
 	  	Crafting:UsePart( tool, 1, tonumber(playerID) )
   	end
+
+  	ResetRandomSeed()
 end
 
 function Socketing:OnFortifyGetModifiers( keys )

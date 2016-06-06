@@ -24,6 +24,37 @@ function Characters:OnPlayerCreatedHero( args )
       hero:AddAbility(abilities[tostring(i)])
     end
 
+    Characters:CreateHeroInventory( pID, hero )
+
+    if preset then
+      Timers:CreateTimer(function (  )
+        for item_name,sockets in pairs(preset) do
+          local item = CreateItem(item_name, hero, hero)
+
+          if GetTableLength(sockets) > 0 then
+            print("dicks")
+            for seed,tool_name in pairs(sockets) do
+              local tool = CreateItem(tool_name, hero, hero)
+              Socketing:OnFortify( {
+                pID=-1,
+                item=item:entindex(),
+                tool=tool:entindex(),
+                seed=seed
+                } )
+            end
+          end
+
+          ZIV.INVENTORY[pID]:AddItem(item)
+          ZIV.INVENTORY[pID]:ActivateItem(hero, item, pID)
+        end
+      end)
+    end
+
+    Characters:InitHero( hero )
+  end, pID)
+end
+
+function Characters:CreateHeroInventory( pID, hero )
     local inventory = Containers:CreateContainer({
       layout =      {3,3,3,3,3},
       skins =       {"Hourglass"},
@@ -38,32 +69,6 @@ function Characters:OnPlayerCreatedHero( args )
     ZIV.INVENTORY[pID] = inventory
 
     Containers:SetDefaultInventory(hero, inventory)
-
-    if preset then
-      Timers:CreateTimer(function (  )
-        for item_name,sockets in pairs(preset) do
-          local item = CreateItem(item_name, hero, hero)
-
-          if GetTableLength(sockets) > 0 then
-            print("dicks")
-            for _,tool_name in pairs(sockets) do
-              local tool = CreateItem(tool_name, hero, hero)
-              Socketing:OnFortify( {
-                pID=-1,
-                item=item:entindex(),
-                tool=tool:entindex()
-                } )
-            end
-          end
-
-          ZIV.INVENTORY[pID]:AddItem(item)
-          ZIV.INVENTORY[pID]:ActivateItem(hero, item, pID)
-        end
-      end)
-    end
-
-    Characters:InitHero( hero )
-  end, pID)
 end
 
 function Characters:InitHero( hero )

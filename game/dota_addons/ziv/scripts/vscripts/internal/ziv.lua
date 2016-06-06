@@ -128,9 +128,7 @@ function ZIV:_InitZIV()
   end
   --Convars:RegisterConvar('ziv_spew', tostring(spew), 'Set to 1 to start spewing ziv debug info.  Set to 0 to disable.', 0)
 
-  -- Change random seed
-  local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '0','')
-  math.randomseed(tonumber(timeTxt))
+  ResetRandomSeed()
 
   -- Initialized tables for tracking state
   self.bSeenWaitForPlayers = false

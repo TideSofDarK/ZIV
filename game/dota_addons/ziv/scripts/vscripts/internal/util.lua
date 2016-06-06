@@ -213,6 +213,12 @@ function PrintTable(t, indent, done)
   end
 end
 
+function ResetRandomSeed()
+  -- Change random seed
+  local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '0','')
+  math.randomseed(tonumber(timeTxt))
+end
+
 -- Colors
 COLOR_NONE = '\x06'
 COLOR_GRAY = '\x06'
