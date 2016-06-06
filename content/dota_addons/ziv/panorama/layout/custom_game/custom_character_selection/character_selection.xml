@@ -7,6 +7,7 @@
 		<include src="file://{resources}/styles/custom_game/custom_character_selection/character_creation_ability.css" />
 	</styles>
 	<scripts>
+		<include src="file://{resources}/scripts/custom_game/ingame_ui_tooltips.js" />
 		<include src="file://{resources}/scripts/custom_game/custom_character_selection/character_selection.js" />
 	</scripts>
 	<Panel class="Root">
@@ -23,7 +24,7 @@
 			<Panel id="CreationTop">
 				<Label class="CCSHeadline Headline1" id="CreateCharacterLabel" text="#create_character" />	
 
-				<Button onactivate="BackButton()" class="CloseButton BackButton" id="BackButton">
+				<Button onactivate="BackButton()" class="CloseButton BackButton" id="BackButton" tooltip="back">
 				</Button>
 			</Panel>
 
