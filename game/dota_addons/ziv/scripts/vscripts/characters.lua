@@ -32,7 +32,6 @@ function Characters:OnPlayerCreatedHero( args )
           local item = CreateItem(item_name, hero, hero)
 
           if GetTableLength(sockets) > 0 then
-            print("dicks")
             for seed,tool_name in pairs(sockets) do
               local tool = CreateItem(tool_name, hero, hero)
               Socketing:OnFortify( {
