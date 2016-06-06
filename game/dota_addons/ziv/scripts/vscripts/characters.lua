@@ -41,8 +41,21 @@ function Characters:OnPlayerCreatedHero( args )
 
     if preset then
       Timers:CreateTimer(function (  )
-        for k,v in pairs(preset) do
-          local item = CreateItem(v, hero, hero)
+        for item_name,sockets in pairs(preset) do
+          local item = CreateItem(item_name, hero, hero)
+
+          if GetTableLength(sockets) > 0 then
+            print("dicks")
+            for _,tool_name in pairs(sockets) do
+              local tool = CreateItem(tool_name, hero, hero)
+              Socketing:OnFortify( {
+                pID=-1,
+                item=item:entindex(),
+                tool=tool:entindex()
+                } )
+            end
+          end
+
           ZIV.INVENTORY[pID]:AddItem(item)
           ZIV.INVENTORY[pID]:ActivateItem(hero, item, pID)
         end

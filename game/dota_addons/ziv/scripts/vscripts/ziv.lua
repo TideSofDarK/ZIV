@@ -41,6 +41,7 @@ require('libraries/abilities')
 -- AI
 require('libraries/ai')
 -- Items
+require('items/socketing')
 require('items/crafting')
 require('items/equipment')
 require('items/vials')

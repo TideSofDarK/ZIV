@@ -92,76 +92,21 @@ function Equip( keys )
     end)
 end
 
--- Equipping
+function ZIV:OnItemTooltipGetModifiers( keys )
+  local pID = keys.pID
+  local itemID = keys.item
+  if tonumber(itemID) then
+    local item = EntIndexToHScript(tonumber(itemID))
+    if item then
+      CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_item_tooltip_send_modifiers", { rarity = item.rarity or 0, fortify_modifiers = (item.fortify_modifiers or {}), built_in_modifiers = (item.built_in_modifiers or {})} )
+    end
+  end
+end
+
 function ZIV:OnBuffClicked(keys)
   	local playerID = keys.pID
   	local unit = EntIndexToHScript(keys.entityID)
   	local buffName = keys.buffName
 
-  	UnEquip( unit, buffName )
-end
-
--- Fortifying equipment
-function ZIV:OnFortify( keys )
-  	local playerID = keys.pID
-  	local item = EntIndexToHScript(keys.item)
-  	local tool = EntIndexToHScript(keys.tool)
-
-  	local toolKV = ZIV.ItemKVs[tool:GetName()]
-
-  	item.fortify_modifiers = item.fortify_modifiers or {}
-
-  	local new_modifiers = GetRandomFortifyModifiers( toolKV["FortifyModifiers"], tonumber(toolKV["FortifyModifiersCount"]) or 0 )
-  	new_modifiers["gem"] = tool:GetName()
-  	
-  	if string.match(tool:GetName(), "rune") and tool.fortify_modifiers then
-  		for k,v in pairs(tool.fortify_modifiers) do
-  			for k2,v2 in pairs(v) do
-  				if k2 ~= "gem" then
-  					new_modifiers[k2] = (new_modifiers[k2] or 0) + v2
-  				end
-  			end
-  		end
-  	end
-
-  	table.insert(item.fortify_modifiers, new_modifiers)
-
-  	PrintTable(item.fortify_modifiers)
-
-  	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ziv_fortify_item_result", { item = keys.item, modifiers = new_modifiers } )
-
-  	Crafting:UsePart( tool, 1, tonumber(playerID) )
-end
-
-function ZIV:OnFortifyGetModifiers( keys )
-  	local playerID = keys.pID
-  	local item = EntIndexToHScript(keys.item)
-
-  	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ziv_fortify_get_modifiers", { item = keys.item, modifiers = (item.fortify_modifiers or {}) } )
-end
-
-function GetRandomFortifyModifiers( modifiers_kv, count )
-	local modifiers = {}
-
-	if not modifiers_kv or not count then return modifiers end
-
-	for i=1,count do
-		local modifier = ""
-		local value = 0
-		local seed = math.random(1, GetTableLength(modifiers_kv))
-
-		local x = 1
-		for modifier_name,modifier_values in pairs(modifiers_kv) do
-			if x == seed then
-				modifier = modifier_name
-				value = math.random(tonumber(modifier_values["min"]), tonumber(modifier_values["max"]))
-				break
-			end
-			x = x + 1
-		end
-		
-		modifiers[modifier] = value
-	end
-
-	return modifiers
+  	-- UnEquip( unit, buffName )
 end
