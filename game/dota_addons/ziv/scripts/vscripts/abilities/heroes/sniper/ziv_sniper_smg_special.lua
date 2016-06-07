@@ -13,15 +13,33 @@ function SMGSpecial(keys)
 	keys.rate = 3.0
 	keys.base_attack_time = 0.1
 	keys.ignore_z = true
-	keys.spread = spread * 4
+	keys.spread = spread * 4.5
 	keys.interruptable = false
 	keys.standard_targeting = true
 	keys.on_impact = (function ( caster )
-		ability:ApplyDataDrivenModifier(caster,caster,"modifier_smg_special_spread",{})
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_smg_special_spread",{
+			duration = GetRunePercentDecrease(GetSpecial(ability, "spread_stack_duration"),"ziv_sniper_smg_special_reduce_spread",caster)})
 		EmitGunsmoke( keys )
 		if spread > 20 then
 			local sparks = TimedEffect("particles/heroes/sniper/sniper_smg_special_sparks.vpcf", caster, 1.0, 3)
 			ParticleManager:SetParticleControlEnt(sparks, 3, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+		end
+	end)
+	keys.on_hit = (function ( keys )
+		DealDamage(caster, keys.target, caster:GetAverageTrueAttackDamage() * GetSpecial(ability,"damage_amp"), DAMAGE_TYPE_PHYSICAL)
+		if GetRuneChance("ziv_sniper_smg_special_knockback_chance", caster) then 
+			local knockbackModifierTable =
+		    {
+		        should_stun = 0,
+		        knockback_duration = 0.3,
+		        duration = 0.3,
+		        knockback_distance = 50,
+		        knockback_height = 25,
+		        center_x = caster:GetAbsOrigin().x,
+		        center_y = caster:GetAbsOrigin().y,
+		        center_z = caster:GetAbsOrigin().z
+		    }
+			keys.target:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
 		end
 	end)
 

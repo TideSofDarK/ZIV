@@ -201,7 +201,10 @@ function SimulateRangeAttack( keys )
     end
 
     if keys.spread then
-      local shift_dir = Vector(math.random(-keys.spread, keys.spread), math.random(-keys.spread, keys.spread), math.random(-keys.spread / 10, keys.spread / 10))
+      local shift_dir = Vector(math.random(-keys.spread, keys.spread), math.random(-keys.spread, keys.spread), 0)
+      if keys.spread_z then
+        shift_dir.z = math.random(-keys.spread, keys.spread)
+      end
       local prev_dir = point - origin
       if dotProduct(prev_dir, shift_dir) < 0 then
         shift_dir = shift_dir * -1

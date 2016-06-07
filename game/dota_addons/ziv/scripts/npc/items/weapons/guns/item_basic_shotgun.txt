@@ -12,7 +12,7 @@
   }
   "CustomSkill2"  
   {
-    "ziv_sniper_empty2" "ziv_sniper_shotgun_passive"
+    "ziv_sniper_empty2" "ziv_sniper_shotgun_dash"
   }
 
   "ItemStackable" "0"

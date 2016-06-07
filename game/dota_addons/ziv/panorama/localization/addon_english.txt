@@ -185,7 +185,7 @@
 	"pick_character" "Pick character to customize it"
 	"character_attack_type" "Attack Type"
 	"character_playstyle" "Playstyle"
-	"character_playstyle_Tooltip" "<b>Nobrainer</b> - hero with melee attack who never scared of jumping into hordes of monsters<br><b>Hit'n'run</b> - usually ranged hero with relatively weak defensive abilities<br><b>Summoner</b> - most damage goes not from hero but from summoned minions"
+	"character_playstyle_Tooltip" "<font color=\"#DD5283\"><b>Nobrainer</b></font> - hero with melee attack who never scared of jumping into hordes of monsters<br><font color=\"#7ADBB6\"><b>Hit'n'run</b></font> - usually ranged hero with relatively weak defensive abilities<br><font color=\"#E08841\"><b>Summoner</b></font> - most damage goes not from hero but from summoned minions"
 	"character_movespeed" "Movement Speed"
 	"character_damage_type" "Primary Damage"
 	"character_name" "Name"

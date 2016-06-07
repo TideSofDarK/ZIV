@@ -2243,6 +2243,84 @@
 	    }
 	  }
 	}
+	"item_rune_shotgun_dash_cd"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_shotgun_dash_cd"
+	    {
+	      "min" "7"
+	      "max" "17"
+	    }
+	  }
+	}
+	"item_rune_shotgun_dash_range"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_shotgun_dash_range"
+	    {
+	      "min" "50"
+	      "max" "165"
+	    }
+	  }
+	}
+	"item_rune_shotgun_dash_speed"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_shotgun_dash_speed"
+	    {
+	      "min" "75"
+	      "max" "300"
+	    }
+	  }
+	}
 	"item_rune_shotgun_special_damage"
 	{
 	  "ID"		"1656"
@@ -2290,8 +2368,112 @@
 	  {
 	    "ziv_sniper_shotgun_special_force"
 	    {
-	      "min" "1"
-	      "max" "100"
+	      "min" "10"
+	      "max" "40"
+	    }
+	  }
+	}
+	"item_rune_shotgun_special_speed"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_shotgun_special_speed"
+	    {
+	      "min" "7"
+	      "max" "17"
+	    }
+	  }
+	}
+	"item_rune_shotgun_special_spread"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_shotgun_special_spread"
+	    {
+	      "min" "5"
+	      "max" "35"
+	    }
+	  }
+	}
+	"item_rune_smg_backup_damage_reduction"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_smg_backup_damage_reduction"
+	    {
+	      "min" "5"
+	      "max" "35"
+	    }
+	  }
+	}
+	"item_rune_smg_backup_explosion_chance"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_smg_backup_explosion_chance"
+	    {
+	      "min" "5"
+	      "max" "30"
 	    }
 	  }
 	}
@@ -2344,6 +2526,58 @@
 	    {
 	      "min" "1"
 	      "max" "17"
+	    }
+	  }
+	}
+	"item_rune_smg_special_knockback_chance"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_smg_special_knockback_chance"
+	    {
+	      "min" "4"
+	      "max" "13"
+	    }
+	  }
+	}
+	"item_rune_smg_special_reduce_spread"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_smg_special_reduce_spread"
+	    {
+	      "min" "4"
+	      "max" "15"
 	    }
 	  }
 	}
@@ -2750,7 +2984,7 @@
 	  }
 	  "CustomSkill2"  
 	  {
-	    "ziv_sniper_empty2" "ziv_sniper_shotgun_passive"
+	    "ziv_sniper_empty2" "ziv_sniper_shotgun_dash"
 	  }
 	
 	  "ItemStackable" "0"

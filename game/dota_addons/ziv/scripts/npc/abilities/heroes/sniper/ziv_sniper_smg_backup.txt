@@ -17,6 +17,8 @@
   "precache"
   {
     "model" "models/heroes/rattletrap/rattletrap_weapon.vmdl"
+    "particle"  "particles/heroes/sniper/sniper_smg_backup_explosion.vpcf"
+    "particle"  "particles/heroes/sniper/sniper_smg_backup_explosion_ground.vpcf"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_rattletrap.vsndevts"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
     "soundfile" "soundevents/voscripts/game_sounds_vo_gyrocopter.vsndevts"
@@ -27,7 +29,7 @@
     "01"
     {
       "var_type"            "FIELD_INTEGER"
-      "damage_reduction"            "-50"
+      "damage_reduction"            "50"
     }
     "02"
     {
@@ -43,6 +45,11 @@
     {
       "var_type"            "FIELD_INTEGER"
       "hero_offset"            "128"
+    }
+    "05"
+    {
+      "var_type"            "FIELD_FLOAT"
+      "explosion_damage_amp"            "1.1"
     }
   }
 
@@ -65,7 +72,7 @@
 
       "Properties"
       {
-        "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduction"
+        "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-1"
       }
 
       "States"

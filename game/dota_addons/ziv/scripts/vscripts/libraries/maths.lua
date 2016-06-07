@@ -78,7 +78,7 @@ function MoveTowards(unit, dest, speed, callback, look)
   local tick = (1.0/30.0)
   local t = tick
   local speed = speed/30.0
-  print(dest)
+
   Timers:CreateTimer(function (  )
     local delta = 25
 
@@ -95,7 +95,7 @@ function MoveTowards(unit, dest, speed, callback, look)
     if distance <= delta or distance == 0 then
       callback()
     else
-      local new_pos = unit:GetAbsOrigin() + (diff * speed)
+      local new_pos = unit:GetAbsOrigin() + (diff * math.min(speed, distance))
 
       if look then
         unit:SetForwardVector(UnitLookAtPoint(unit, new_pos))

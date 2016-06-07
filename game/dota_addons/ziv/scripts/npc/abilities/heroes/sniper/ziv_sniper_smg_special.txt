@@ -36,6 +36,11 @@
       "var_type"            "FIELD_INTEGER"
       "bash_chance"            "10"
     }
+    "03"
+    {
+      "var_type"            "FIELD_FLOAT"
+      "spread_stack_duration"            "3.85"
+    }
   }
 
   "OnSpellStart"
@@ -52,8 +57,6 @@
   {
     "modifier_smg_special_spread"
     {
-      "Duration" "3.85"
-
       "Passive"      "0"
       "IsHidden"      "0"
       "IsDebuff"      "0"

@@ -1,4 +1,4 @@
-"item_rune_shotgun_special_force"
+"item_rune_smg_backup_damage_reduction"
 {
   "ID"		"1656"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -17,10 +17,10 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_sniper_shotgun_special_force"
+    "ziv_sniper_smg_backup_damage_reduction"
     {
-      "min" "10"
-      "max" "40"
+      "min" "5"
+      "max" "35"
     }
   }
 }
