@@ -1,0 +1,48 @@
+"ziv_oath_passive"
+{
+	"BaseClass"           "ability_datadriven"
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"AbilityTextureName"            "ziv_empty"
+
+	"MaxLevel"  "1"
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"intro_duration"		"2.5"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_oath_invu"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+  			"IsDebuff"			"0"
+  	
+  			"States"
+  			{
+  				"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+  			}
+  		}
+		"modifier_oath_passive"
+		{
+			"Passive"			"1"
+			"IsHidden"			"0"
+  			"IsDebuff"			"0"
+  	
+  			"OnCreated"
+  			{
+			    "RunScript"
+			    {
+			      	"ScriptFile"  "abilities/bosses/oath/ziv_oath_passive.lua"
+			      	"Function"    "Start"
+			      	"size" "50"
+			    }
+  			}
+  		}
+  	}
+}

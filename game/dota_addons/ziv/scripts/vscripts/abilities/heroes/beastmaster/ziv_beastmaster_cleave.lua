@@ -26,8 +26,9 @@ function Cleave( keys )
 		local units = FindUnitsInCone(caster:GetAbsOrigin(), caster:GetForwardVector(), 300, 300 + GRMSC("ziv_beastmaster_cleave_aoe", caster), caster:GetTeamNumber(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER)
 		
 		for k,v in pairs(units) do
-			ParticleManager:CreateParticle("particles/units/heroes/hero_riki/riki_backstab_hit_blood.vpcf",PATTACH_ABSORIGIN,v)
-			ParticleManager:CreateParticle("particles/units/heroes/hero_dazzle/dazzle_poison_touch_blood.vpcf",PATTACH_ABSORIGIN,v)
+			TimedEffect("particles/units/heroes/hero_riki/riki_backstab_hit_blood.vpcf", v, 1.0, 0, PATTACH_POINT_FOLLOW)
+			TimedEffect("particles/units/heroes/hero_dazzle/dazzle_poison_touch_blood.vpcf", v, 1.0, 0, PATTACH_POINT_FOLLOW)
+
 			DealDamage(caster,v,caster:GetAverageTrueAttackDamage(), DAMAGE_TYPE_PHYSICAL)
 
 			if GetRuneChance("ziv_beastmaster_cleave_stun_chance",caster) then

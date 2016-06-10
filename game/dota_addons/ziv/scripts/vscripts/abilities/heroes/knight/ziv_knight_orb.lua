@@ -26,7 +26,7 @@ function LaunchOrb( keys )
 
 	keys.attachment = "attach_attack1"
 	keys.interruptable = false
-	keys.dont_destroy_fx = true
+	keys.standard_targeting = true
 	keys.on_impact = (function ( caster )
 		ParticleManager:DestroyParticle(ability.orbs[#ability.orbs], true)
 

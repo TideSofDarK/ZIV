@@ -4,9 +4,8 @@ Temple.STAGE_NO = -1
 Temple.STAGE_PREGAME = 0
 Temple.STAGE_FIRST = 1
 Temple.STAGE_SECOND = 2
-Temple.STAGE_THIRD = 3
-Temple.STAGE_BOSS = 4
-Temple.STAGE_END = 5
+Temple.STAGE_BOSS = 3
+Temple.STAGE_END = 4
 
 Temple.ROCKS_DELAY = 2.0
 Temple.ROCKS_TICK = 0.1
@@ -44,7 +43,7 @@ function Temple:NextStage()
 
 			Temple:FallingRocks()
 		elseif Temple.stage == Temple.STAGE_BOSS then
-
+			
 		else
 			Temple:SetupMap()
 
@@ -60,8 +59,6 @@ function Temple:NextStage()
 					Temple:NextStage()
 				end)
 			elseif Temple.stage == Temple.STAGE_SECOND then
-
-			elseif Temple.stage == Temple.STAGE_THIRD then
 
 			end
 		end	

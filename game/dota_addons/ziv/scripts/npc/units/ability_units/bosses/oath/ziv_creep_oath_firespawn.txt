@@ -1,0 +1,26 @@
+"ziv_creep_oath_firespawn"
+{
+	"BaseClass"										"npc_dota_creature"
+	"Model"											"models/items/invoker/forge_spirit/grievous_ingots/grievous_ingots.vmdl"
+	"SoundSet"										"n_creep_Ranged"
+	"GameSoundsFile"								"soundevents/game_sounds_creeps.vsndevts"
+	"Level"											"1"
+	"ModelScale" 									"1.1"
+	"HealthBarOffset"								"250"
+
+	"AttackDamageMin"								"15"
+	"AttackDamageMax"								"25"
+	"AttackRate"									"0.7"
+	"AttackAnimationPoint"							"0.3"
+	"AttackAcquisitionRange"						"1200"
+	"AttackRange"									"1000"
+	"ProjectileModel"								"particles/units/heroes/hero_batrider/batrider_base_attack.vpcf"
+	"ProjectileSpeed"								"1200"
+
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"									"522"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+}

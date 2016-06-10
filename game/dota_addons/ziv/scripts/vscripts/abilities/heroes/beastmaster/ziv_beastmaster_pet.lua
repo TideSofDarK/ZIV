@@ -65,8 +65,8 @@ function WolfAttack( keys )
 	if GetChance(GetSpecial(ability, "wolf_crit_chance") + GRMSC("ziv_beastmaster_pet_crit_chance", caster)) then
 		StartSoundEvent('Hero_PhantomAssassin.CoupDeGrace', target)
  		local particle = ParticleManager:CreateParticle('particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf', PATTACH_CUSTOMORIGIN, nil)
-		ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
-		ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
+		ParticleManager:SetParticleControlEnt(particle,0,target,PATTACH_POINT,"attach_hitloc",target:GetAbsOrigin(),false)
+		ParticleManager:SetParticleControlEnt(particle,1,target,PATTACH_POINT,"attach_hitloc",target:GetAbsOrigin(),false)
 		ParticleManager:SetParticleControlOrientation(particle, 1, caster.pet:GetForwardVector() * -1, Vector(0, 1, 0), Vector(0, 0, 1))
 
 		damage = damage * ((GetSpecial(ability, "wolf_crit_damage") + GRMSC("ziv_beastmaster_pet1_crit_damage", caster)) / 100)

@@ -146,7 +146,7 @@
       {
         "RunScript"
         {
-          "ScriptFile"  "libraries/runes.lua"
+          "ScriptFile"  "items/runes.lua"
           "rune_modifier"     "ziv_beastmaster_pet2_as"
           "modifier_name"     "modifier_pet2_as_rune"
           "pet_key"     "pet"

@@ -1,3 +1,21 @@
+@keyframes 'boss_hpbar_intro'
+{
+  0%
+  {
+	transform: rotateX( 0deg ) translate3d( 0px, 0px, 500px );
+  }
+
+  30%
+  {
+  	transform: translate3d( 0px, 0px, 0px );
+  }
+
+  100%
+  {
+	transform: rotateX( 0deg );
+  }
+}
+
 @keyframes 'bar_horizontal'
 {
   0%
@@ -94,10 +112,16 @@
 /* Boss HP Bar */
 
 .BossHPRoot {
+	transform-origin: 50% 50%;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+	animation-name: boss_hpbar_intro;
+	animation-duration: 1.8s;
+
 	vertical-align: top;
 	horizontal-align: center;
 
-	margin-top: 50px;
+	margin-top: 25px;
 
 	width: 1059px;
 	height: 118px;

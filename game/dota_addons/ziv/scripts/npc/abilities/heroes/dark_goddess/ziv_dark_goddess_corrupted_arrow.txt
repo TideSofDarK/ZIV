@@ -202,7 +202,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"libraries/runes.lua"
+					"ScriptFile"	"items/runes.lua"
 					"rune_modifier" "ziv_dark_goddess_corrupted_arrow_as"
 					"modifier_name" "modifier_corrupted_arrow_as_rune"
 					"Function"		"BasicPropertyRune"

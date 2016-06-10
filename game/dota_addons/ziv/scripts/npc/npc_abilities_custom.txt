@@ -779,6 +779,305 @@
 	    }
 	  }
 	}
+	"ziv_oath_attack"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AOERadius" "200"
+	
+	  "AbilityCastRange"        "525"
+	  "AbilityCastPoint"        "0.67"
+	  "AbilityCooldown"       "2.0"
+	  "AbilityCastAnimation"      "ACT_DOTA_IDLE"
+	
+	  "AbilityManaCost"       "20"
+	
+	  "MaxLevel"  "1"
+	
+	  "precache"
+	  {
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+	    "particle"  "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf"
+	  }
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"      "FIELD_FLOAT"
+	      "damage_percent"      "0.1"
+	    }
+	  }
+	
+	  "OnAbilityPhaseStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/bosses/oath/ziv_oath_attack.lua"
+	      "Function"    "Attack"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_Nevermore.Shadowraze"
+	      "Target"     "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/bosses/oath/ziv_oath_attack.lua"
+	      "Function"    "AttackParticle"
+	      "Target"       "POINT"
+	    }
+	    "ActOnTargets"
+	    {
+	      "Target"
+	      {
+	        "Center"    "POINT"
+	        "Radius"   "200"
+	        "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	        "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	      }
+	    
+	      "Action"    
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/bosses/oath/ziv_oath_attack.lua"
+	          "Function"    "AttackImpact"
+	          "Target"       "TARGET"
+	        }
+	      }
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	
+	  }
+	}
+	"ziv_oath_explode"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AbilityCastPoint"        "0.1"
+	  "AbilityCastRange"        "800"
+	  "AbilityCooldown"       "20"
+	  "AbilityChannelTime" "10.0"
+	  "AbilityCastAnimation"      "ACT_DOTA_IDLE"
+	
+	  "AbilityManaCost"       "50"
+	
+	  "MaxLevel"  "1"
+	
+	  "HPThreshold"       "70"
+	
+	  "precache"
+	  {
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
+	    "particle"      "particles/units/heroes/hero_chaos_knight/chaos_knight_chaos_bolt_explosion.vpcf"
+	    "particle"      "particles/bosses/oath/oath_explode.vpcf"
+	  }
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"      "FIELD_FLOAT"
+	      "damage_percent"      "0.08"
+	    }
+	    "02"
+	    {
+	      "var_type"      "FIELD_FLOAT"
+	      "delay"      "2.5"
+	    }
+	    "03"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "explosion_radius"    "300"
+	    }
+	    "04"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "min_radius"    "300"
+	    }
+	    "05"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "max_radius"    "800"
+	    }
+	  }
+	
+	  "OnAbilityPhaseStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/bosses/oath/ziv_oath_explode.lua"
+	      "Function"    "ExplodeStart"
+	    }
+	  }
+	
+	  "OnChannelInterrupted"
+	  {
+	    "RemoveModifier"
+	    {
+	      "ModifierName"  "modifier_oath_exploding"
+	      "Target"     "CASTER"
+	    }
+	  }
+	
+	  "OnChannelSucceeded"
+	  {
+	    "RemoveModifier"
+	    {
+	      "ModifierName"  "modifier_oath_exploding"
+	      "Target"     "CASTER"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_oath_exploding"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "ThinkInterval"  "1.0"
+	      "OnIntervalThink"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/bosses/oath/ziv_oath_explode.lua"
+	          "Function"    "Explode"
+	        }
+	      }
+	    
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "50"
+	      }
+	    }
+	  }
+	}
+	"ziv_oath_passive"
+	{
+		"BaseClass"           "ability_datadriven"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"            "ziv_empty"
+	
+		"MaxLevel"  "1"
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"intro_duration"		"2.5"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_oath_invu"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+	  			"IsDebuff"			"0"
+	  	
+	  			"States"
+	  			{
+	  				"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+	  			}
+	  		}
+			"modifier_oath_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+	  			"IsDebuff"			"0"
+	  	
+	  			"OnCreated"
+	  			{
+				    "RunScript"
+				    {
+				      	"ScriptFile"  "abilities/bosses/oath/ziv_oath_passive.lua"
+				      	"Function"    "Start"
+				      	"size" "50"
+				    }
+	  			}
+	  		}
+	  	}
+	}
+	"ziv_oath_spawner"
+	{
+		"BaseClass"           "ability_datadriven"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"            "ziv_empty"
+	
+		"AbilityCastPoint"        "0.5"
+		"AbilityCooldown"       "3.5"
+		"AbilityCastAnimation"      "ACT_DOTA_RAZE_1"
+	
+		"AbilityManaCost"       "30"
+	
+		"MaxLevel"  "1"
+	
+		"precache"
+		{
+			"particle"  "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_requiemofsouls_head.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spawn_count"		"3"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spawn_min_radius"		"400"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spawn_max_radius"		"700"
+			}
+		}
+	
+		// "OnAbilityPhaseStart"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"  "abilities/bosses/oath/ziv_oath_spawner.lua"
+		// 		"Function"    "SpawnAnimation"
+		// 	}
+		// }
+	
+		"OnSpellStart"
+		{
+		    "RunScript"
+		    {
+		   		"ScriptFile"  "abilities/bosses/oath/ziv_oath_spawner.lua"
+		    	"Function"    "Spawn"
+		    }
+		}
+	
+		"Modifiers"
+		{
+	
+	  	}
+	}
 	"ziv_skeleton_passive"
 	{
 		"BaseClass"           "ability_datadriven"
@@ -1142,6 +1441,7 @@
 	    "particle"      "particles/units/heroes/hero_undying/undying_loadout.vpcf"
 	    "particle"  "particles/status_fx/status_effect_dark_seer_illusion.vpcf"
 	    "particle"  "particles/units/heroes/hero_undying/t_r.vpcf"
+	    "particle"  "particles/units/heroes/hero_undying/undying_fg_transform.vpcf"
 	    "model" "models/heroes/undying/undying_flesh_golem.vmdl"
 	  }
 	
@@ -1559,6 +1859,15 @@
 	    }
 	  }
 	
+	  "OnOwnerDied"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_bird.lua"
+	      "Function"    "KillBird"
+	    }
+	  }
+	
 	  "OnSpellStart"
 	  {
 	    "RunScript"
@@ -1921,7 +2230,7 @@
 	      {
 	        "RunScript"
 	        {
-	          "ScriptFile"  "libraries/runes.lua"
+	          "ScriptFile"  "items/runes.lua"
 	          "rune_modifier"     "ziv_beastmaster_pet_as"
 	          "modifier_name"     "modifier_pet_as_rune"
 	          "pet_key"     "pet"
@@ -2079,7 +2388,7 @@
 	      {
 	        "RunScript"
 	        {
-	          "ScriptFile"  "libraries/runes.lua"
+	          "ScriptFile"  "items/runes.lua"
 	          "rune_modifier"     "ziv_beastmaster_pet2_as"
 	          "modifier_name"     "modifier_pet2_as_rune"
 	          "pet_key"     "pet"
@@ -2388,7 +2697,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"libraries/runes.lua"
+						"ScriptFile"			"items/runes.lua"
 						"rune_modifier" 		"ziv_dark_goddess_concentration_cost"
 						"modifier_name" 		"modifier_concentration_cost_rune"
 						"check_modifier" 		"modifier_concentration"
@@ -2414,7 +2723,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"libraries/runes.lua"
+						"ScriptFile"	"items/runes.lua"
 						"rune_modifier" "ziv_dark_goddess_concentration_ms"
 						"modifier_name" "modifier_concentration_ms_rune"
 						"Function"		"BasicPropertyRune"
@@ -2627,7 +2936,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"libraries/runes.lua"
+						"ScriptFile"	"items/runes.lua"
 						"rune_modifier" "ziv_dark_goddess_corrupted_arrow_as"
 						"modifier_name" "modifier_corrupted_arrow_as_rune"
 						"Function"		"BasicPropertyRune"
@@ -5499,7 +5808,7 @@
 	      {
 	        "RunScript"
 	        {
-	          "ScriptFile"      "libraries/runes.lua"
+	          "ScriptFile"      "items/runes.lua"
 	          "rune_modifier"     "ziv_samurai_whirlwind_ms"
 	          "modifier_name"     "modifier_whirlwind_ms_rune"
 	          "check_modifier"    "modifier_whirlwind"
@@ -7083,6 +7392,48 @@
 	    }
 	  }
 	}
+	"ziv_boss_hpbar"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "MaxLevel"  "1"
+	
+	  "Modifiers"
+	  {
+	    "modifier_boss_hpbar"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
+	
+	      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "States"
+	      {
+	        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	    "modifier_boss_hpbar_panel_spawner"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "OnDestroy"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "director.lua"
+	          "Function"    "SetupBossHPBar"
+	        }
+	      }
+	    }
+	  }
+	}
 	"ziv_creep_normal_behavior"
 	{
 	  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -7164,6 +7515,16 @@
 	    }
 	  }
 	}
+	"ziv_disable_autoattack"
+	{
+	  "BaseClass"           "ability_lua"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "MaxLevel"          "1"
+	
+	  "ScriptFile"                  "abilities/tools/ziv_disable_autoattack.lua"
+	}
 	"ziv_hero_normal_hpbar_behavior"
 	{
 	  "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -7216,95 +7577,6 @@
 	      "States"
 	      {
 	        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
-	      }
-	    }
-	  }
-	}
-	"ziv_temple_boss_rays"
-	{
-	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	  "AbilityTextureName"            "ziv_empty"
-	
-	  "AbilityCastPoint"        "0.3"
-	  "AbilityCooldown"       "15"
-	  "AbilityCastAnimation"      "ACT_DOTA_UNDYING_TOMBSTONE"
-	
-	  "AbilityManaCost"       "0"
-	
-	  "MaxLevel"  "1"
-	
-	  "precache"
-	  {
-	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
-	    "particle"      "particles/units/heroes/hero_undying/undying_loadout.vpcf"
-	    "particle"  "particles/status_fx/status_effect_dark_seer_illusion.vpcf"
-	    "particle"  "particles/units/heroes/hero_undying/t_r.vpcf"
-	  }
-	
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "tombs_number"      "3"
-	    }
-	    "02"
-	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "creeps_min"      "5"
-	    }
-	    "03"
-	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "creeps_max"      "9"
-	    }
-	  }
-	
-	  "OnSpellStart"
-	  {
-	    "FireSound"
-	    {
-	      "EffectName"  "Hero_Undying.Tombstone"
-	      "Target"     "CASTER"
-	    }
-	    "RunScript"
-	    {
-	      "ScriptFile"  "abilities/bosses/undying/ziv_undying_tombs.lua"
-	      "Function"    "SpawnTombs"
-	    }
-	  }
-	
-	  "Modifiers"
-	  {
-	    "modifier_undying_tomb"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
-	
-	      "States"
-	      {
-	        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
-	      }
-	
-	      "ThinkInterval"  "4.0"
-	      "OnIntervalThink"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "abilities/bosses/undying/ziv_undying_tombs.lua"
-	          "Function"    "OnTombSpawned"
-	        }
-	      }
-	
-	      "OnCreated"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "abilities/bosses/undying/ziv_undying_tombs.lua"
-	          "Function"    "OnTombSpawned"
-	        }
 	      }
 	    }
 	  }

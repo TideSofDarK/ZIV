@@ -16,6 +16,10 @@ function modifier_disable_auto_attack:DeclareFunctions()
     return funcs
 end
 
+function modifier_disable_auto_attack:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT
+end
+
 function modifier_disable_auto_attack:OnAttack( params )
     if not IsServer() then return end
     if params.attacker ~= self:GetParent() then return end

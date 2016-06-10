@@ -59,8 +59,10 @@ function Director:Init()
 	end
 end
 
-function Director:SetupCustomUI( name, pID )
-	local args = { map = string.gsub(GetMapName(), "ziv_", ""), name = name }
+function Director:SetupCustomUI( name, args, pID )
+	local args = args
+	args.map = string.gsub(GetMapName(), "ziv_", "")
+	args.name = name
 
 	if pID then
 		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID or 0), "ziv_custom_ui_open", args )
@@ -278,4 +280,10 @@ function CreateUniqueHPBar( keys )
 			entityHeight = 325,
 			})
 	end
+end
+
+function SetupBossHPBar( keys )
+	local caster = keys.caster
+
+	Director:SetupCustomUI( "boss_hpbar", { boss = caster:entindex() } )
 end

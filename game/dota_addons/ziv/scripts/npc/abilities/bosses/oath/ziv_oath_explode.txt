@@ -1,0 +1,107 @@
+"ziv_oath_explode"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+  "AbilityTextureName"            "ziv_empty"
+
+  "AbilityCastPoint"        "0.1"
+  "AbilityCastRange"        "800"
+  "AbilityCooldown"       "20"
+  "AbilityChannelTime" "10.0"
+  "AbilityCastAnimation"      "ACT_DOTA_IDLE"
+
+  "AbilityManaCost"       "50"
+
+  "MaxLevel"  "1"
+
+  "HPThreshold"       "70"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
+    "particle"      "particles/units/heroes/hero_chaos_knight/chaos_knight_chaos_bolt_explosion.vpcf"
+    "particle"      "particles/bosses/oath/oath_explode.vpcf"
+  }
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "damage_percent"      "0.08"
+    }
+    "02"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "delay"      "2.5"
+    }
+    "03"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "explosion_radius"    "300"
+    }
+    "04"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "min_radius"    "300"
+    }
+    "05"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "max_radius"    "800"
+    }
+  }
+
+  "OnAbilityPhaseStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/bosses/oath/ziv_oath_explode.lua"
+      "Function"    "ExplodeStart"
+    }
+  }
+
+  "OnChannelInterrupted"
+  {
+    "RemoveModifier"
+    {
+      "ModifierName"  "modifier_oath_exploding"
+      "Target"     "CASTER"
+    }
+  }
+
+  "OnChannelSucceeded"
+  {
+    "RemoveModifier"
+    {
+      "ModifierName"  "modifier_oath_exploding"
+      "Target"     "CASTER"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_oath_exploding"
+    {
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "ThinkInterval"  "1.0"
+      "OnIntervalThink"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/bosses/oath/ziv_oath_explode.lua"
+          "Function"    "Explode"
+        }
+      }
+    
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "50"
+      }
+    }
+  }
+}

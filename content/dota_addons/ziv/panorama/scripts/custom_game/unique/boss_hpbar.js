@@ -4,16 +4,17 @@ var hpBar;
 var hpLabel;
 var nameLabel;
 
-function OnScenarioChanged(args) {
-	var args = CustomNetTables.GetTableValue( args, "boss" );
+function UpdateBar() {
+	$.Schedule(0.1, UpdateBar);
 
+	var args = $.GetContextPanel().args;
 	if (!args) { return 0; }
-	
-	hpLabel.text = args["hp"] + "/" + args["maxHP"];
-	nameLabel.text = $.Localize(args["boss"]);
 
-	var hp = args["hp"];
-	var maxHP = args["maxHP"];
+	var hp = Entities.GetHealth(args.boss)
+	var maxHP = Entities.GetMaxHealth(args.boss)
+	
+	hpLabel.text = hp + "/" + maxHP;
+	nameLabel.text = $.Localize(Entities.GetUnitName(args.boss));
 
 	if (hp != NaN && maxHP != NaN) {
 		var hpPercentage = hp / maxHP;
@@ -31,7 +32,9 @@ function OnScenarioChanged(args) {
 
 	$("#HPBarForeground").AddClass("BossHPBackground"+(Math.floor(Math.random() * (3 - 1 + 1)) + 1));
 
-	OnScenarioChanged("scenario");
-	
-	CustomNetTables.SubscribeNetTableListener( "scenario", OnScenarioChanged );
+	$.Schedule(0.1, function () {
+		Game.EmitSound("ui.npe_objective_given");
+	});
+
+	UpdateBar();
 })();

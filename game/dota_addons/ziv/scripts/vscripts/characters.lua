@@ -6,7 +6,7 @@ function Characters:OnPlayerCreatedHero( args )
   local pID = tonumber(args.pID)
   local player = PlayerResource:GetPlayer(pID)
   local hero_name = args.hero_name
-  local preset = ZIV.PresetsKVs[hero_name][args.preset]
+  local preset = ZIV.PresetsKVs[hero_name]
 
   local abilities = args.abilities
 
@@ -26,7 +26,8 @@ function Characters:OnPlayerCreatedHero( args )
 
     Characters:CreateHeroInventory( pID, hero )
 
-    if preset then
+    if preset and preset[args.preset] then
+      preset = preset[args.preset]
       Timers:CreateTimer(function (  )
         for item_name,sockets in pairs(preset) do
           local item = CreateItem(item_name, hero, hero)

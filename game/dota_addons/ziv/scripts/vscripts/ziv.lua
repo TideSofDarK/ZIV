@@ -36,8 +36,10 @@ require('libraries/damage')
 -- Random
 require('libraries/random')
 require('libraries/PseudoRNG')
--- Abilities
+-- Ability-related stuff
 require('libraries/abilities')
+-- Keyvalues
+require('libraries/keyvalues')
 -- AI
 require('libraries/ai')
 -- Items
@@ -75,12 +77,12 @@ require('balance')
 -- Debug commands
 require('commands')
 
-LinkLuaModifier("modifier_custom_attack", "libraries/modifiers/modifier_custom_attack.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_fade_out_in", "libraries/modifiers/modifier_fade_out_in.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_fade_out", "libraries/modifiers/modifier_fade_out.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_transparent", "libraries/modifiers/modifier_transparent.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_disable_auto_attack", "libraries/modifiers/modifier_disable_auto_attack.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_smooth_floating", "libraries/modifiers/modifier_smooth_floating.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_custom_attack", "abilities/tools/modifier_custom_attack.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_fade_out_in", "abilities/tools/modifier_fade_out_in.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_fade_out", "abilities/tools/modifier_fade_out.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_transparent", "abilities/tools/modifier_transparent.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_disable_auto_attack", "abilities/tools/modifier_disable_auto_attack.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_smooth_floating", "abilities/tools/modifier_smooth_floating.lua", LUA_MODIFIER_MOTION_NONE)
 
 function ZIV:OpenInventory(args)
   local pid = args.PlayerID

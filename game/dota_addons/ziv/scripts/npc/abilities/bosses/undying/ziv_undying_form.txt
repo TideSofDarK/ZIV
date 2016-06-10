@@ -18,6 +18,7 @@
     "particle"      "particles/units/heroes/hero_undying/undying_loadout.vpcf"
     "particle"  "particles/status_fx/status_effect_dark_seer_illusion.vpcf"
     "particle"  "particles/units/heroes/hero_undying/t_r.vpcf"
+    "particle"  "particles/units/heroes/hero_undying/undying_fg_transform.vpcf"
     "model" "models/heroes/undying/undying_flesh_golem.vmdl"
   }
 

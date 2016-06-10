@@ -46,6 +46,15 @@
     }
   }
 
+  "OnOwnerDied"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_bird.lua"
+      "Function"    "KillBird"
+    }
+  }
+
   "OnSpellStart"
   {
     "RunScript"

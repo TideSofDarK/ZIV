@@ -1,0 +1,10 @@
+"ziv_disable_autoattack"
+{
+  "BaseClass"           "ability_lua"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+  "AbilityTextureName"            "ziv_empty"
+
+  "MaxLevel"          "1"
+
+  "ScriptFile"                  "abilities/tools/ziv_disable_autoattack.lua"
+}

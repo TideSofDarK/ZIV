@@ -77,6 +77,8 @@
             panel.BLoadLayout( "file://{resources}/layout/custom_game/unique/" + panelName  + ".xml", false, false );
             panel.BLoadLayout( "file://{resources}/layout/custom_game/unique/" + map + "/" + panelName  + ".xml", false, false );
 
+            panel.args = args;
+
             GameUI.CustomUIConfig().customPanels.push( panel );
         }));
     })();

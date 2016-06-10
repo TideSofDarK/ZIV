@@ -155,6 +155,32 @@
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
 	} 
+	"ziv_creep_oath_firespawn"
+	{
+		"BaseClass"										"npc_dota_creature"
+		"Model"											"models/items/invoker/forge_spirit/grievous_ingots/grievous_ingots.vmdl"
+		"SoundSet"										"n_creep_Ranged"
+		"GameSoundsFile"								"soundevents/game_sounds_creeps.vsndevts"
+		"Level"											"1"
+		"ModelScale" 									"1.1"
+		"HealthBarOffset"								"250"
+	
+		"AttackDamageMin"								"15"
+		"AttackDamageMax"								"25"
+		"AttackRate"									"0.7"
+		"AttackAnimationPoint"							"0.3"
+		"AttackAcquisitionRange"						"1200"
+		"AttackRange"									"1000"
+		"ProjectileModel"								"particles/units/heroes/hero_batrider/batrider_base_attack.vpcf"
+		"ProjectileSpeed"								"1200"
+	
+		"ArmorPhysical"									"0"
+		"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"									"522"
+		"StatusHealth"									"100"
+		"StatusHealthRegen"								"0.0"
+		"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+	}
 	"npc_undying_tomb"
 	{
 		"BaseClass"					"npc_dota_creep"
@@ -1069,7 +1095,8 @@
 	        {
 	            "Wearable1"     {   "ItemDef"       "7960"     }
 	            "Wearable2"     {   "ItemDef"       "7961"     }
-	            "Wearable2"     {   "ItemDef"       "7973"     }
+	            "Wearable3"     {   "ItemDef"       "7973"     }
+	            "Wearable4"     {   "ItemDef"       "542"      }
 	        }
 	    }
 	}
@@ -1443,6 +1470,64 @@
 	        "DisableClumpingBehavior"   "1"
 	    }
 	} 
+	"npc_temple_oath"
+	{
+	    "BaseClass"                 "npc_dota_creature"
+	    "Model"     "models/heroes/shadow_fiend/shadow_fiend_arcana.vmdl"
+	    "ModelScale"                "1.5"
+	    "Level"                     "50"
+	
+	    "SoundSet"      "Hero_Nevermore"
+	    "IdleSoundLoop"     "Hero_Nevermore.IdleLoop"
+	    "particle_folder"       "particles/units/heroes/hero_nevermore"
+	    "GameSoundsFile"        "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+	    "VoiceFile"     "soundevents/voscripts/game_sounds_vo_nevermore.vsndevts"
+	    
+	    // "Ability1"                  "ziv_undying_attack"
+	    // "Ability2"                  "ziv_undying_tombs"
+	    // "Ability3"                  "ziv_undying_curse"
+	    // "Ability4"                  "ziv_undying_consume"
+	    "Ability1"                  "ziv_oath_spawner"
+	    "Ability2"                  "ziv_oath_attack"
+	    "Ability3"                  "ziv_oath_explode"
+	    "Ability4"                  "ziv_oath_passive"
+	    "Ability5"                  "ziv_boss_hpbar"
+	    "Ability6"                  "ziv_disable_autoattack"
+	
+	    "ArmorPhysical"             "0"
+	    "MagicalResistance"         "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+	
+	    "BountyGoldMin"             "0"
+	    "BountyGoldMax"             "0"
+	
+	    "BoundsHullName"            "DOTA_HULL_SIZE_HUGE"
+	    "RingRadius"    "-1"
+	
+	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+	    "MovementSpeed"             "315"
+	    "MovementTurnRate"          "0.6"
+	
+	    "StatusHealth"              "10000"
+	    "StatusHealthRegen"         "0.50"
+	    "StatusMana"              "100"
+	    "StatusManaRegen"         "10"
+	
+	    "VisionDaytimeRange"        "1000"
+	    "VisionNighttimeRange"      "1000"
+	
+	    "Creature"
+	    {
+	        "AttachWearables"
+	        {
+	            "1" { "ItemDef" "7188" } // Shadow Fiend's Head
+	            "2" { "ItemDef" "509" } // Shadow Fiend's Ambient Effects
+	            "3" { "ItemDef" "7193" } // Shadow Fiend's Arms
+	            "4" { "ItemDef" "7279" }
+	        }
+	    }
+	}
 	"npc_temple_obelisk"
 	{
 		"BaseClass"					"npc_dota_creature"

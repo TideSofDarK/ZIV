@@ -10,6 +10,7 @@ function AI:BossStart( keys )
 	local caster = keys.caster
 
 	Timers:CreateTimer(function (  )
+		if IsValidEntity(caster) == false then return end
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, caster:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 		if #units > 0 then
@@ -26,7 +27,7 @@ function AI:BossStart( keys )
 			-- Timers:CreateTimer(math.random(0.0, 1.0), function (  )
 				AI:BossCasting( caster, units )
 			-- end)
-		else
+		elseif caster:IsChanneling() == false then
 			caster:Stop()
 			caster.state = BOSS_STATE_IDLE
 		end
@@ -45,7 +46,9 @@ function AI:BossCasting( unit, targets )
 		-- if ability and DOTA_ABILITY_BEHAVIOR_HIDDEN ~= bit.band( DOTA_ABILITY_BEHAVIOR_HIDDEN, ability:GetBehavior() ) and ability:IsCooldownReady() then abilities[ability] = ability:GetCastRange() end 
 		if ability 
 			and DOTA_ABILITY_BEHAVIOR_HIDDEN ~= bit.band( DOTA_ABILITY_BEHAVIOR_HIDDEN, ability:GetBehavior() ) 
-			and ability:IsFullyCastable() 
+			and ability:IsFullyCastable()
+			and (not ability:GetKeyValue("HPThreshold") or (unit:GetHealth() / unit:GetMaxHealth()) < (ability:GetKeyValue("HPThreshold") / 100))
+			and ability:IsInAbilityPhase() == false
 			and (ability:GetCastRange() >= (hero:GetAbsOrigin() - unit:GetAbsOrigin()):Length2D() or DOTA_ABILITY_BEHAVIOR_NO_TARGET == bit.band( DOTA_ABILITY_BEHAVIOR_NO_TARGET, ability:GetBehavior() ))
 			then table.insert(abilities, ability) end 
 	end
@@ -65,8 +68,11 @@ function AI:BossCasting( unit, targets )
 			-- print(next_ability:GetName())
 			-- next_ability:StartCooldown(next_ability:GetCooldown(0))
 			Timers:CreateTimer((next_ability:GetCastPoint() * 1.1) + next_ability:GetChannelTime(), function (  ) -- + next_ability:GetChannelTime()
-				
-				unit.state = BOSS_STATE_CHASING
+				if next_ability:IsInAbilityPhase() == true then
+					return 0.1
+				else
+					unit.state = BOSS_STATE_CHASING
+				end
 			end)
 		-- end)
 	end

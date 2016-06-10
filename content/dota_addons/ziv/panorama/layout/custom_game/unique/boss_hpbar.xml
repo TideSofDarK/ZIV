@@ -6,7 +6,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/unique/boss_hpbar.js" />
 	</scripts>
-	<Panel hittest="false" class="BossHPRoot">
+	<Panel class="BossHPRoot" hittest="false" hittestchildren="false">
 		<Panel class="BossHPBar" id="BossHPBar" >
 			<Panel class="HPBarElement" id="HPBar1"/>
 			<Panel class="HPBarElement" id="HPBar2"/>

@@ -3,7 +3,7 @@ DAMAGE_TYPE_COLD = 10
 DAMAGE_TYPE_LIGHTNING = 11
 DAMAGE_TYPE_DARK = 12
 
-function DealDamage( _attacker, _victim, _damage, _type )
+function DealDamage( _attacker, _victim, _damage, _type, no_popup)
 	local _type = _type
 	local _damage = _damage
 	if _type >= DAMAGE_TYPE_FIRE then
@@ -45,8 +45,11 @@ function DealDamage( _attacker, _victim, _damage, _type )
 	ApplyDamage(damageTable)
 	if _attacker.GetPlayerOwnerID and 
 		_attacker:GetPlayerOwnerID() >= 0 and 
-		GetZIVSpecificSetting(_attacker:GetPlayerOwnerID(), "Damage") then 
+		GetZIVSpecificSetting(_attacker:GetPlayerOwnerID(), "Damage") 
+		and not no_popup then 
 		PopupDamage(_attacker:GetPlayerOwner(), _victim, round(_damage), clamp(_damage / max_damage, 0, 1))
 	end
 	-- PopupExperience(_victim, math.ceil(_damage))
+
+	return round(_damage)
 end
