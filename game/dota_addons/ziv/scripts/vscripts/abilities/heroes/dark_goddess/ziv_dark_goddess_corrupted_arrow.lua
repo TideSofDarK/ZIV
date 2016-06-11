@@ -1,7 +1,7 @@
 function FireArrow( keys )
 	keys.on_hit = AdditionalDamage
 	keys.on_kill = SpawnSpirit
-	keys.pierce = GetSpecial(keys.ability, "pierce")
+	keys.pierce = GetSpecial(keys.ability, "pierce") + GRMSC("modifier_concentration_pierce_rune", keys.caster)
 	keys.attachment = "attach_hitloc"
 	keys.translate = "frost_arrow"
 	keys.impact_effect = "particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_g.vpcf"

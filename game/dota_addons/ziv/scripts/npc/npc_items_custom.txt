@@ -943,9 +943,9 @@
 	    }
 	  }
 	}
-	"item_rune_concentration_cost"
+	"item_rune_concentration_evasion"
 	{
-	  "ID"		"1513"
+	  "ID"		"1514"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_rune_dark_goddess"
@@ -962,10 +962,10 @@
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
-	    "ziv_dark_goddess_concentration_cost"
+	    "ziv_dark_goddess_concentration_evasion"
 	    {
 	      "min" "5"
-	      "max" "25"
+	      "max" "20"
 	    }
 	  }
 	}
@@ -992,6 +992,32 @@
 	    {
 	      "min" "15"
 	      "max" "50"
+	    }
+	  }
+	}
+	"item_rune_concentration_pierce"
+	{
+	  "ID"		"1513"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_dark_goddess_concentration_pierce"
+	    {
+	      "min" "1"
+	      "max" "3"
 	    }
 	  }
 	}

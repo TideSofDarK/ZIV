@@ -1,14 +1,14 @@
 "ziv_dark_goddess_concentration"
 {
 	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	"AbilityTextureName"			"ziv_empty"
 
-	"AbilityManaCost"	"5"
+	"AbilityManaCost"	"0"
 	"AbilityCastPoint"        "0"
 	"AbilityCooldown"				"3.0"
 
-	"MaxLevel" "7"
+	"MaxLevel" "1"
 
 	"precache"
 	{
@@ -22,89 +22,31 @@
 		"01"
 		{
 			"var_type" "FIELD_INTEGER"
-			"duration" "10"
+			"evasion" "30"
 		}
 		"02"
 		{
 			"var_type" "FIELD_INTEGER"
-			"evasion" "45"
-		}
-		"03"
-		{
-			"var_type" "FIELD_INTEGER"
-			"bonus_attackspeed" "50"
-		}
-		"04"
-		{
-			"var_type" "FIELD_INTEGER"
 			"bonus_movespeed" "65"
 		}
-		"05"
+		"03"
         {
             "var_type"              "FIELD_FLOAT"
             "lifesteal_percent"     "0.2"
         }
-        "06"
-        {
-        	"var_type"	"FIELD_INTEGER"
-        	"mana_cost"	"5"
-        }
-	}
-
-	"OnSpellStart"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_concentration.lua"
-			"Function"		"ToggleConcentration"
-		}
-		"FireEffect"
-		{
-			"EffectName"        "particles/items2_fx/teleport_end_dust.vpcf"
-			"EffectAttachType"  "follow_origin"
-			"Target"            "CASTER"
-		}
-		"FireSound"
-		{
-			"EffectName"	"Hero_ObsidianDestroyer.EssenceAura"
-			"Target" 		"CASTER"
-		}
 	}
 
 	"Modifiers"
 	{
 		"modifier_concentration"
 		{
-			"Passive"			"0"
+			"Passive"			"1"
 			"IsHidden"			"1"
 			"IsDebuff"			"0"
-		
-			"EffectName"		"particles/heroes/dark_goddess/dark_goddess_concentration.vpcf"
-			"EffectAttachType"	"follow_overhead"
-
-			"ThinkInterval"  "0.5"
-			"OnIntervalThink"
-			{
-				"SpendMana"
-				{
-					"Mana"		"%mana_cost"
-				}
-			}
-
-			"OnAttackLanded"
-			{
-				"ApplyModifier"
-				{
-					"ModifierName"	"modifier_concentration_lifesteal"
-					"Target" 		"CASTER"
-					"Duration"		"0.03"
-				}
-			}
 
 			"Properties"
 			{
 				"MODIFIER_PROPERTY_EVASION_CONSTANT" "%evasion"
-			    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed" 
 			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movespeed" 	
 			}
 		
@@ -116,7 +58,7 @@
 
 		"modifier_concentration_lifesteal"
         {
-            "Passive"           "0"
+            "Passive"           "1"
             "IsHidden"          "1"
             
             "OnDealDamage"
@@ -136,7 +78,27 @@
             }
         }
 
-		"modifier_concentration_cost_rune"
+        "modifier_concentration_pierce_rune"
+		{
+			"Passive"			"1"
+			"IsHidden"			"0"
+			"IsDebuff"			"0"
+
+			"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/runes.lua"
+					"rune_modifier" "ziv_dark_goddess_concentration_pierce"
+					"modifier_name" "modifier_concentration_pierce_rune"
+					"Function"		"BasicPropertyRune"
+				}
+			}
+		}
+
+		"modifier_concentration_evasion_rune"
 		{
 			"Passive"			"1"
 			"IsHidden"			"0"
@@ -146,18 +108,17 @@
 		
 			"Properties"
 			{
-				"MODIFIER_PROPERTY_MANACOST_PERCENTAGE" "1"
+				"MODIFIER_PROPERTY_EVASION_CONSTANT" "1"
 			}
 
 			"OnCreated"
 			{
 				"RunScript"
 				{
-					"ScriptFile"			"items/runes.lua"
-					"rune_modifier" 		"ziv_dark_goddess_concentration_cost"
-					"modifier_name" 		"modifier_concentration_cost_rune"
-					"check_modifier" 		"modifier_concentration"
-					"Function"				"BasicPropertyRune"
+					"ScriptFile"	"items/runes.lua"
+					"rune_modifier" "ziv_dark_goddess_concentration_evasion"
+					"modifier_name" "modifier_concentration_evasion_rune"
+					"Function"		"BasicPropertyRune"
 				}
 			}
 		}

@@ -97,7 +97,8 @@
 	"ziv_dark_goddess_explode_targets"	"additional Explode targets"
 	"ziv_dark_goddess_combine_targets"	"additional Combine targets"
 	"ziv_dark_goddess_concentration_ms"	"to Concentration move speed"
-	"ziv_dark_goddess_concentration_cost"	"reduction of Concentration energy cost"
+	"ziv_dark_goddess_concentration_pierce"	"additional pierce for Corrupted Arrow"
+	"ziv_dark_goddess_concentration_evasion"	"to Concentration evasion"
 	"ziv_dark_goddess_transform_cd"	"percent reduction of Transform cooldown"
 	"ziv_dark_goddess_transform_speed"	"percent reduction of Transform cast time"
 

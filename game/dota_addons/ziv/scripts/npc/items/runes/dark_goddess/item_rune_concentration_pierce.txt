@@ -1,4 +1,4 @@
-"item_rune_concentration_cost"
+"item_rune_concentration_pierce"
 {
   "ID"		"1513"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -17,10 +17,10 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_dark_goddess_concentration_cost"
+    "ziv_dark_goddess_concentration_pierce"
     {
-      "min" "5"
-      "max" "25"
+      "min" "1"
+      "max" "3"
     }
   }
 }
