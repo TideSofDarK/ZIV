@@ -18,7 +18,7 @@ function UpdateBar() {
 
 	if (hp != NaN && maxHP != NaN) {
 		var hpPercentage = hp / maxHP;
-		var value = (hpPercentage * 1000);
+		var value = (hpPercentage * 875);
 		if (value != NaN) {
 			hpBar.style.width = value + "px;";
 		}
@@ -30,7 +30,7 @@ function UpdateBar() {
 	hpLabel = $("#BossHPLabel");
 	nameLabel = $("#BossName");
 
-	$("#HPBarForeground").AddClass("BossHPBackground"+(Math.floor(Math.random() * (3 - 1 + 1)) + 1));
+	// $("#HPBarForeground").AddClass("BossHPBackground"+(Math.floor(Math.random() * (3 - 1 + 1)) + 1));
 
 	$.Schedule(0.1, function () {
 		Game.EmitSound("ui.npe_objective_given");

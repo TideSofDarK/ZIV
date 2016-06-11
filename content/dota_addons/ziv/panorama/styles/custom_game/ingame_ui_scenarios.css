@@ -25,7 +25,7 @@
 
   100%
   {
-	transform: translateX(-1000px);
+	transform: translateX(-1024px);
   }
 }
 
@@ -38,25 +38,7 @@
 
   100%
   {
-	transform: translateX(1000px);
-  }
-}
-
-@keyframes 'bar_vertical'
-{
-  0%
-  {
-	transform: translateY(0px);
-  }
-
-  50%
-  {
-	transform: translateY(128px);
-  }
-
-  100%
-  {
-	transform: translateY(0px);
+	transform: translateX(1024px);
   }
 }
 
@@ -121,27 +103,33 @@
 	vertical-align: top;
 	horizontal-align: center;
 
-	margin-top: 25px;
+	margin-top: 5px;
 
-	width: 1059px;
+	width: 1024px;
 	height: 118px;
 
-	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_bg.png");
+	/*background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_bg.png");*/
 }
 
 #HPBarForeground {
-	width: 1059px;
-	height: 118px;
+	width: 1024px;
+	height: 72px;
+
+	vertical-align: bottom;
+
+	background-repeat: no-repeat;
+
+	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_fg.png");
 }
 
 .BossHPBar {
-	width: 1035px;
-	height: 50px;
+	width: 875px;
+	height: 32px;
 
-	margin: 12px;
-	margin-bottom: 10px;
+	margin-left: 75px;
+	margin-top: 18px;
 
-	vertical-align: bottom;
+	vertical-align: center;
 	horizontal-align: left;
 
 	overflow: clip clip;
@@ -164,14 +152,14 @@
 }
 
 #BossHPLabel {
-	vertical-align: bottom;
-	margin-bottom: 20px;
+	vertical-align: center;
+	margin-top: 16px;
 
 	font-size: 20px;
 }
 
 #BossName {
-	margin-top: 7px;
+	margin-top: 0px;
 
 	text-shadow: 0px 0px 8px 3.0 #333333b0;
 
@@ -203,14 +191,4 @@
 
 	animation-name: bar_horizontal;
 	animation-duration: 100.0s;
-}
-
-.BossHPBackground1 {
-	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_fg_a.png");
-}
-.BossHPBackground2 {
-	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_fg_b.png");
-}
-.BossHPBackground3 {
-	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_fg_c.png");
 }

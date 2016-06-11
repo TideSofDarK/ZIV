@@ -83,6 +83,7 @@ LinkLuaModifier("modifier_fade_out", "abilities/tools/modifier_fade_out.lua", LU
 LinkLuaModifier("modifier_transparent", "abilities/tools/modifier_transparent.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_disable_auto_attack", "abilities/tools/modifier_disable_auto_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_smooth_floating", "abilities/tools/modifier_smooth_floating.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_ai", "abilities/tools/modifier_boss_ai.lua", LUA_MODIFIER_MOTION_NONE)
 
 function ZIV:OpenInventory(args)
   local pid = args.PlayerID
@@ -122,11 +123,11 @@ function ZIV:OnAllPlayersLoaded()
     end)
 
     PlayerTables:CreateTable("kvs", { 
-      items = DeepCopy(ZIV.ItemKVs),
-      heroes = DeepCopy(ZIV.HeroesKVs),
-      abilities = DeepCopy(ZIV.AbilityKVs),
-      units = DeepCopy(ZIV.UnitKVs),
-      presets = DeepCopy(ZIV.PresetsKVs)
+      items = ZIV.ItemKVs,
+      heroes = ZIV.HeroesKVs,
+      abilities = ZIV.AbilityKVs,
+      units = ZIV.UnitKVs,
+      presets = ZIV.PresetsKVs
      }, true)
 
     CustomGameEventManager:Send_ServerToAllClients( "ziv_set_recipes_kvs", ZIV.RecipesKVs )

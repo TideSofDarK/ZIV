@@ -60,7 +60,7 @@ function Director:Init()
 end
 
 function Director:SetupCustomUI( name, args, pID )
-	local args = args
+	local args = args or {}
 	args.map = string.gsub(GetMapName(), "ziv_", "")
 	args.name = name
 

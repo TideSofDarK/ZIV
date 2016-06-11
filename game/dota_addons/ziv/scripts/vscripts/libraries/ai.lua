@@ -9,6 +9,8 @@ BOSS_STATE_CASTING = 2
 function AI:BossStart( keys )
 	local caster = keys.caster
 
+	caster:AddNewModifier(caster,nil,"modifier_boss_ai",{})
+
 	Timers:CreateTimer(function (  )
 		if IsValidEntity(caster) == false then return end
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, caster:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
