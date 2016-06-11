@@ -16,6 +16,21 @@
   }
 }
 
+@keyframes 'boss_hpbar_outro'
+{
+  0%
+  {
+	transform: scale3d(1.0, 1.0, 1.0);
+	opacity: 1.0;
+  }
+
+  100%
+  {
+	transform: scale3d(1.5, 1.5, 1.5);
+	opacity: 0.0;
+  }
+}
+
 @keyframes 'bar_horizontal'
 {
   0%
@@ -111,6 +126,13 @@
 	/*background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_bg.png");*/
 }
 
+.BossHPRootOutro {
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+	animation-name: boss_hpbar_outro;
+	animation-duration: 1.5s;
+}
+
 #HPBarForeground {
 	width: 1024px;
 	height: 72px;
@@ -123,11 +145,11 @@
 }
 
 .BossHPBar {
-	width: 875px;
+	width: 876px;
 	height: 32px;
 
 	margin-left: 75px;
-	margin-top: 18px;
+	margin-top: 17px;
 
 	vertical-align: center;
 	horizontal-align: left;
@@ -151,9 +173,20 @@
 	opacity: 0.5;
 }
 
+.HPBarGlass {
+	width: 876px;
+	height: 31px;
+	margin-bottom: 0px;
+	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_glass.png");
+}
+
+.HPBarGlassBroken {
+	background-image: url("file://{images}/custom_game/ingame_ui/unique/boss_hpbar_glass_broken.png");
+}
+
 #BossHPLabel {
 	vertical-align: center;
-	margin-top: 16px;
+	margin-top: 10px;
 
 	font-size: 20px;
 }

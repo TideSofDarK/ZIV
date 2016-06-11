@@ -13,6 +13,15 @@ var m_StatusPanel;
 var m_FortifyPanel;
 var m_CraftingPanel;
 
+var SPOrb1 = $("#SPOrb1");
+var SPOrb2 = $("#SPOrb2");
+var SPOrb3 = $("#SPOrb3");
+
+var HPOrb = $("#HPOrb");
+var SPOrb = $("#SPOrb");
+
+var XPBar = $("#XPBarRoot");
+
 // var modelParticle;
 
 function OnAbilityLearnModeToggled( bEnabled )
@@ -97,14 +106,14 @@ function UpdateHPAndMP()
 	if (heroKV["UsesEnergy"]) 
 	{
 		if (heroKV["DarkEnergy"]) {
-			$("#SPOrb1").SwitchClass("Mana", "DarkEnergy");
-			$("#SPOrb2").SwitchClass("Mana", "DarkEnergy");
-			$("#SPOrb3").SwitchClass("Mana", "DarkEnergy");
+			SPOrb1.SwitchClass("Mana", "DarkEnergy");
+			SPOrb2.SwitchClass("Mana", "DarkEnergy");
+			SPOrb3.SwitchClass("Mana", "DarkEnergy");
 		}
 		else {
-			$("#SPOrb1").SwitchClass("Mana", "Energy");
-			$("#SPOrb2").SwitchClass("Mana", "Energy");
-			$("#SPOrb3").SwitchClass("Mana", "Energy");
+			SPOrb1.SwitchClass("Mana", "Energy");
+			SPOrb2.SwitchClass("Mana", "Energy");
+			SPOrb3.SwitchClass("Mana", "Energy");
 		}
 	}
 
@@ -113,12 +122,12 @@ function UpdateHPAndMP()
 
 	if (hp != NaN) {
 		var hpPercentage = (hp / maxHP * 100);
-		$("#HPOrb").style.height = hpPercentage + "%;";
+		HPOrb.style.height = hpPercentage + "%;";
 	}
 
 	if (mp != NaN) {
 		var mpPercentage = mp / maxMP * 100.0;
-		$("#SPOrb").style.height = mpPercentage + "%;";
+		SPOrb.style.height = mpPercentage + "%;";
 	}
 
 	// if (maxMP == 0) {
@@ -128,8 +137,8 @@ function UpdateHPAndMP()
 	if (xp != NaN && maxXP != NaN) {
 		var xpPercentage = xp / maxXP;
 		var value = (xpPercentage * 700);
-		if (value != NaN && value != Infinity) {
-			$("#XPBarRoot").style.width = value + "px;";
+		if (value != NaN && value != Infinity && XPBar) {
+			XPBar.style.width = value + "px;";
 		}
 	}
 

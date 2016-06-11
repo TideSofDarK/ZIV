@@ -106,7 +106,7 @@ function BeginMoveState()
 	};
 	(function tic()
 	{
-		if ( GameUI.IsMouseDown( 0 ) )
+		if ( GameUI.IsMouseDown( 0 ))
 		{
 			$.Schedule( 1.0/30.0, tic );
 			if (GetMouseCastTarget() != -1) {

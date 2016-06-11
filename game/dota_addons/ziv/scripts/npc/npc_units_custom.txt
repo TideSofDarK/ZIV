@@ -1144,14 +1144,108 @@
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
 	} 
+	"npc_creep_demon_greevil"
+	{
+	    "BaseClass"         "npc_dota_creature"
+	    "SoundSet"  "n_creep_skeleton_melee"
+	    
+	    "HealthBarOffset"   "200"
+	    "Model"           "models/creeps/lane_creeps/creep_dire_hulk/creep_dire_ancient_hulk.vmdl"
+	    "ModelScale"    "1.1"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "1"
+	    "AttackDamageMax"     "3"
+	    "AttackRate"                "1.35"
+	    "AttackAnimationPoint"      "0.3"
+	    "AttackAcquisitionRange"    "150"
+	    "AttackRange"   "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "320"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "525"
+	    "VisionNighttimeRange"    "525"
+	
+	    "Creature"
+	    {
+	        "DisableClumpingBehavior"   "1"
+	    }
+	} 
+	"npc_creep_demon_greevil"
+	{
+	    "BaseClass"         "npc_dota_creature"
+	    "SoundSet"  "n_creep_skeleton_melee"
+	    
+	    "HealthBarOffset"   "200"
+	    "Model"           "models/creeps/mega_greevil/mega_greevil.vmdl"
+	    "ModelScale"    "1.2"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "1"
+	    "AttackDamageMax"     "3"
+	    "AttackRate"                "0.9"
+	    "AttackAnimationPoint"      "0.33"
+	    "AttackAcquisitionRange"    "150"
+	    "AttackRange"   "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "360"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "525"
+	    "VisionNighttimeRange"    "525"
+	
+	    "Creature"
+	    {
+	        "DisableClumpingBehavior"   "1"
+	    }
+	} 
 	"npc_creep_undead_skeleton"
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"  "n_creep_skeleton_melee"
 	    
-	    "HealthBarOffset"   "160"
+	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
-	    "ModelScale"    "1"
+	    "ModelScale"    "1.2"
 	    "Level"           "1"
 	
 	    "Ability1"          ""
@@ -1196,9 +1290,9 @@
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"                  "n_creep_Melee"
 	
-	    "HealthBarOffset"   "180"
+	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl"
-	    "ModelScale"    "1.1"
+	    "ModelScale"    "1.3"
 	    "Level"           "1"
 	
 	    "Ability1"          ""
@@ -1237,14 +1331,108 @@
 	        "DisableClumpingBehavior"   "1"
 	    }
 	} 
+	
+	"npc_creep_undead_wraith_a"
+	{
+	    "BaseClass"         "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "HealthBarOffset"   "200"
+	    "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_frost.vmdl"
+	    "ModelScale"    "1.3"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "3"
+	    "AttackDamageMax"     "6"
+	    "AttackRate"        "1"
+	    "AttackAnimationPoint"    "0.5"
+	    "AttackRange"       "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "300"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "525"
+	    "VisionNighttimeRange"    "525"
+	
+	    "Creature"
+	    {
+	        "DisableClumpingBehavior"   "1"
+	    }
+	} 
+	
+	"npc_creep_undead_wraith_b"
+	{
+	    "BaseClass"         "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "HealthBarOffset"   "200"
+	    "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_red.vmdl"
+	    "ModelScale"    "1.3"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "3"
+	    "AttackDamageMax"     "4"
+	    "AttackRate"        "1"
+	    "AttackAnimationPoint"    "0.5"
+	    "AttackRange"       "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "360"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "525"
+	    "VisionNighttimeRange"    "525"
+	
+	    "Creature"
+	    {
+	        "DisableClumpingBehavior"   "1"
+	    }
+	} 
 	"npc_creep_undead_zombie"
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"                  "Undying_Zombie"
 	    
-	    "HealthBarOffset"   "155"
+	    "HealthBarOffset"   "205"
 	    "Model"           "models/heroes/undying/undying_minion.vmdl"
-	    "ModelScale"    "0.855"
+	    "ModelScale"    "1.1"
 	    "Level"           "1"
 	
 	    "Ability1"          ""
@@ -1288,9 +1476,9 @@
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"                  "Undying_Zombie"
 	    
-	    "HealthBarOffset"   "155"
+	    "HealthBarOffset"   "200"
 	    "Model"           "models/items/undying/idol_of_ruination/ruin_wight_minion_gold.vmdl"
-	    "ModelScale"    "0.855"
+	    "ModelScale"    "1.1"
 	    "Level"           "1"
 	
 	    "Ability1"          ""

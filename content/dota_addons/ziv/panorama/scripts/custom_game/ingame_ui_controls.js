@@ -49,7 +49,7 @@ function ZIVCastAbility(number, pressing, single) {
 	var ability = Entities.GetAbility( Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), number-1 ); 
 
 	if (ability !== -1) {
-		if (pressing && m_AbilityCasting[ability] == false) {
+		if (pressing && m_AbilityCasting[ability] == false || Entities.IsAlive(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() )) == false) {
 			return;
 		}
 		var order = {

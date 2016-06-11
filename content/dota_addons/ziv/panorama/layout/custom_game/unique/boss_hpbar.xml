@@ -12,6 +12,7 @@
 			<Panel class="HPBarElement" id="HPBar2"/>
 			<Panel class="HPBarElement" id="HPBar3"/>
 			<Panel class="HPBarElement" id="HPBar4"/>
+			<Panel class="HPBarGlass" id="HPBarGlass"/>
 		</Panel>
 		
 		<Panel id="HPBarForeground"/>

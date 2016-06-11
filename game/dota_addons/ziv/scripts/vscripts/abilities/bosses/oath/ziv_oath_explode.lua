@@ -33,7 +33,7 @@ function Explode( keys )
 		EmitSoundOnLocationWithCaster(position,"Hero_Invoker.ChaosMeteor.Impact",caster)
 
 		DoToUnitsInRadius( caster, position, GetSpecial(ability, "explosion_radius"), target_team, target_type, target_flags, function ( v )
-			DealDamage(caster, v, GetSpecial(ability, "damage_percent") * v:GetMaxHealth(), physical_damage)
+			DealDamage(caster, v, GetSpecial(ability, "damage_percent") * v:GetMaxHealth(), DAMAGE_TYPE_PHYSICAL)
 		end)
 	end)
 end
