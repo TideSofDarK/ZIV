@@ -1,11 +1,20 @@
 -----------------------------
--- Idle handlers
+-- Default state finite machine
 -----------------------------
-function Idle( caster )
-  caster:MoveToPosition(caster.ai.spawnPoint)
+
+if SFM == nil then
+    _G.SFM = class({})
 end
 
-function IdleChasingCond( caster ) 
+-----------------------------
+-- Idle handlers
+-----------------------------
+function SFM.Idle( caster )
+  caster:MoveToPosition(caster.ai.spawnPoint)
+  --caster.aggroTable = {}
+end
+
+function SFM.IdleChasingCond( caster ) 
   local hero = AI:GetMaxAggro( caster )
   if hero == nil then
     return false
@@ -18,7 +27,7 @@ function IdleChasingCond( caster )
   return false
 end
 
-function IdleCastingCond( caster )
+function SFM.IdleCastingCond( caster )
   local hero = AI:GetMaxAggro( caster )
   if hero == nil then
     return false
@@ -34,14 +43,14 @@ end
 -----------------------------
 -- Chasing handlers
 -----------------------------
-function Chasing( caster )
+function SFM.Chasing( caster )
   local hero = AI:GetMaxAggro( caster )
   if hero ~= nil then
     caster:MoveToTargetToAttack(hero)
   end
 end
 
-function ChasingIdleCond( caster )
+function SFM.ChasingIdleCond( caster )
   local hero = AI:GetMaxAggro( caster )
   if hero == nil then
     return true
@@ -55,7 +64,7 @@ function ChasingIdleCond( caster )
   return false
 end
 
-function ChasingCastingCond( caster )
+function SFM.ChasingCastingCond( caster )
   local hero = AI:GetMaxAggro( caster )
   
   if hero == nil then
@@ -71,10 +80,10 @@ end
 -----------------------------
 -- Casting handlers
 -----------------------------
-function Casting( caster )
+function SFM.Casting( caster )
   if AI:IsInAbilityPhase( caster ) then
     return
-  end  
+  end
   
 	local hero = AI:GetMaxAggro( caster )
   if hero == nil then
@@ -82,7 +91,7 @@ function Casting( caster )
   end
   
   local unit = caster
-  
+
 	local abilities = {}
 	for i=0,16 do
 		local ability = unit:GetAbilityByIndex(i)
@@ -111,7 +120,7 @@ function Casting( caster )
 	end  
 end
 
-function CastingChasingCond( caster )
+function SFM.CastingChasingCond( caster )
   local hero = AI:GetMaxAggro( caster )
   if hero == nil then
     return false
@@ -123,7 +132,7 @@ function CastingChasingCond( caster )
   end  
 end
 
-function CastingIdleCond( caster )
+function SFM.CastingIdleCond( caster )
   local hero = AI:GetMaxAggro( caster )
   if hero == nil then
     return true
@@ -134,29 +143,11 @@ function CastingIdleCond( caster )
   end  
 end
 
-local sfm = { 
+SFM.sfm = { 
   initial_state = 'idle',
   states = { 
-    idle = { funct = Idle, transitions = { chasing = IdleChasingCond, casting = IdleCastingCond } }, 
-    chasing = { funct = Chasing, transitions = { idle = ChasingIdleCond, casting = ChasingCastingCond } },
-    casting = { funct = Casting, transitions = { idle = CastingIdleCond, chasing = CastingChasingCond } }
+    idle = { funct = SFM.Idle, transitions = { chasing = SFM.IdleChasingCond, casting = SFM.IdleCastingCond } }, 
+    chasing = { funct = SFM.Chasing, transitions = { idle = SFM.ChasingIdleCond, casting = SFM.ChasingCastingCond } },
+    casting = { funct = SFM.Casting, transitions = { idle = SFM.CastingIdleCond, chasing = SFM.CastingChasingCond } }
   }
 }
-
-function Start( keys )
-	local caster = keys.caster
-	local ability = keys.ability
-
-	local intro_duration = GetSpecial(ability, "intro_duration")
-
-	AddAnimationTranslate(caster, "desolation")
-
-	ability:ApplyDataDrivenModifier(caster,caster,"modifier_oath_invu",{duration = intro_duration})
-
-	StartAnimation(caster, {duration=intro_duration, activity=ACT_DOTA_CAST_ABILITY_6, rate=1.0})
-
-	Timers:CreateTimer(intro_duration, function (  )
-		AI:BossStart( keys, sfm )
-		caster:RemoveModifierByName("modifier_boss_hpbar_panel_spawner")
-	end)
-end
