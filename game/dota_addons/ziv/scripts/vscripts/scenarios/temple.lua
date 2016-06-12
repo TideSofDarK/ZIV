@@ -7,12 +7,12 @@ Temple.STAGE_SECOND = 2
 Temple.STAGE_BOSS = 3
 Temple.STAGE_END = 4
 
-Temple.ROCKS_DELAY = 2.0
+Temple.ROCKS_DELAY = 4.0
 Temple.ROCKS_TICK = 0.1
 Temple.ROCKS_DAMAGE = 0.02
 Temple.ROCKS_DURATION = 1.5
 
-Temple.SPAWN_THRESHOLD = 2300
+Temple.SPAWN_THRESHOLD = 1600
 Temple.SPAWN_SPREAD = 1500
 
 Temple.stage = Temple.STAGE_NO
@@ -144,7 +144,7 @@ function Temple:SpawnCreeps()
 				    {
 				        Level = 1,
 				        SpawnBasic = true,
-				        Count = math.random(30, 40),
+				        Count = math.random(25, 35),
 				        Position = v:GetAbsOrigin(),
 				        CheckHeight = true,
 				        Spread = Temple.SPAWN_SPREAD,

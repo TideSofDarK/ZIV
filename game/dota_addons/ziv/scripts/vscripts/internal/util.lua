@@ -69,16 +69,9 @@ end
 
 function DoToAllHeroes(action)
   if not action then return end
-  for playerID = 0, DOTA_MAX_PLAYERS do
-    if PlayerResource:IsValidPlayerID(playerID) then
-      if not PlayerResource:IsBroadcaster(playerID) then
-        if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
-          local hero = PlayerResource:GetPlayer(playerID):GetAssignedHero()
-          if IsValidEntity(hero) == true then
-            action(hero)
-          end
-        end
-      end
+  for k,v in pairs(HeroList:GetAllHeroes()) do
+    if IsValidEntity(v) == true then
+      action(v)
     end
   end
 end

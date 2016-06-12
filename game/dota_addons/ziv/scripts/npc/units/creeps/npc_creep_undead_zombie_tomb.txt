@@ -41,10 +41,23 @@
 
     "Creature"
     {
+        "CanRespawn"                "0"
+        "States"
+        {
+            "Invade"
+            {
+                "Name"              "Invade"
+                "Aggression"        "100.0"
+                "Avoidance"         "0.0"
+                "Support"           "0.0"
+                "RoamDistance"      "200.0"
+            }
+        }
+        "DefaultState"              "Invade"
+
         "DisableClumpingBehavior"   "1"
     }
 } 
-
 "npc_creep_undead_zombie_tomb_a"
 {
     "BaseClass"         "npc_dota_creature"
@@ -88,6 +101,20 @@
 
     "Creature"
     {
+        "CanRespawn"                "0"
+        "States"
+        {
+            "Invade"
+            {
+                "Name"              "Invade"
+                "Aggression"        "100.0"
+                "Avoidance"         "0.0"
+                "Support"           "0.0"
+                "RoamDistance"      "200.0"
+            }
+        }
+        "DefaultState"              "Invade"
+
         "DisableClumpingBehavior"   "1"
     }
 } 
@@ -135,6 +162,20 @@
 
     "Creature"
     {
+        "CanRespawn"                "0"
+        "States"
+        {
+            "Invade"
+            {
+                "Name"              "Invade"
+                "Aggression"        "100.0"
+                "Avoidance"         "0.0"
+                "Support"           "0.0"
+                "RoamDistance"      "200.0"
+            }
+        }
+        "DefaultState"              "Invade"
+
         "DisableClumpingBehavior"   "1"
     }
 } 
@@ -182,6 +223,20 @@
 
     "Creature"
     {
+        "CanRespawn"                "0"
+        "States"
+        {
+            "Invade"
+            {
+                "Name"              "Invade"
+                "Aggression"        "100.0"
+                "Avoidance"         "0.0"
+                "Support"           "0.0"
+                "RoamDistance"      "200.0"
+            }
+        }
+        "DefaultState"              "Invade"
+
         "DisableClumpingBehavior"   "1"
     }
 } 

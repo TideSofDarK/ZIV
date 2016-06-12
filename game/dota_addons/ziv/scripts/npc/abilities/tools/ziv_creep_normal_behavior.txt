@@ -11,16 +11,7 @@
     {
       "Passive"                        "1"
       "IsHidden"                        "1"    
-
-      "OnCreated"
-      {
-        "ApplyModifier"
-        {
-          "ModifierName"  "ziv_creep_normal_behavior_untouched"
-          "Target"     "CASTER"
-        }
-      }
-
+      
       "OnTakeDamage"
       {
         "RemoveModifier"
@@ -30,36 +21,15 @@
         }
         "RemoveModifier"
         {
-          "ModifierName"  "ziv_creep_normal_behavior_aggro"
+          "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
           "Target"     "CASTER"
-        }
-      }
-    }
-
-    "ziv_creep_normal_behavior_aggro"
-    {
-      "Passive"                        "1"
-      "IsHidden"                        "1" 
-
-      "Properties"
-      {
-        // "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
-      }
-
-      "ThinkInterval"  "0.03"
-      "OnIntervalThink"
-      {
-        "RunScript"
-        {
-          "ScriptFile"  "libraries/abilities.lua"
-          "Function"    "CreepAgression"
         }
       }
     }
 
     "ziv_creep_normal_behavior_disable_autoattack"
     {
-      "Passive"                        "0"
+      "Passive"                        "1"
       "IsHidden"                        "1" 
 
       "Properties"
@@ -70,8 +40,9 @@
     
     "ziv_creep_normal_behavior_untouched"
     {
-      "Passive"                        "0"
+      "Passive"                        "1"
       "IsHidden"                        "1"    
+
       "States"
       {
         "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"

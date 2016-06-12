@@ -1629,9 +1629,49 @@
 	  "AbilityTextureName"      ""
 	
 	  "MaxLevel" "1"
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "aggro_radius"      "800"
+	    }
+	  }
 	  
 	  "Modifiers"
 	  {
+	    "modifier_agression"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    
+	      "ThinkInterval"  "0.5"
+	      "OnIntervalThink"
+	      {
+	        "ActOnTargets"
+	        {
+	          "Target"
+	          {
+	            "Center"    "CASTER"
+	            "Radius"   "%aggro_radius"
+	            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            "Types"   "DOTA_UNIT_TARGET_BASIC"
+	          }
+	        
+	          "Action"    
+	          {
+	            "RemoveModifier"
+	            {
+	              "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
+	              "Target"     "TARGET"
+	            }
+	          }
+	        }
+	      }
+	    }
+	
 	    "modifier_passive_attack_speed"
 	    {
 	      "Passive"      "1"
@@ -7408,16 +7448,7 @@
 	    {
 	      "Passive"                        "1"
 	      "IsHidden"                        "1"    
-	
-	      "OnCreated"
-	      {
-	        "ApplyModifier"
-	        {
-	          "ModifierName"  "ziv_creep_normal_behavior_untouched"
-	          "Target"     "CASTER"
-	        }
-	      }
-	
+	      
 	      "OnTakeDamage"
 	      {
 	        "RemoveModifier"
@@ -7427,36 +7458,15 @@
 	        }
 	        "RemoveModifier"
 	        {
-	          "ModifierName"  "ziv_creep_normal_behavior_aggro"
+	          "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
 	          "Target"     "CASTER"
-	        }
-	      }
-	    }
-	
-	    "ziv_creep_normal_behavior_aggro"
-	    {
-	      "Passive"                        "1"
-	      "IsHidden"                        "1" 
-	
-	      "Properties"
-	      {
-	        // "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
-	      }
-	
-	      "ThinkInterval"  "0.03"
-	      "OnIntervalThink"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "libraries/abilities.lua"
-	          "Function"    "CreepAgression"
 	        }
 	      }
 	    }
 	
 	    "ziv_creep_normal_behavior_disable_autoattack"
 	    {
-	      "Passive"                        "0"
+	      "Passive"                        "1"
 	      "IsHidden"                        "1" 
 	
 	      "Properties"
@@ -7467,8 +7477,9 @@
 	    
 	    "ziv_creep_normal_behavior_untouched"
 	    {
-	      "Passive"                        "0"
+	      "Passive"                        "1"
 	      "IsHidden"                        "1"    
+	
 	      "States"
 	      {
 	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"

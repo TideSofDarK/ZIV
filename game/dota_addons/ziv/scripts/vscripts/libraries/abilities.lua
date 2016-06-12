@@ -346,38 +346,3 @@ function AddAbilityAndUpgrade( unit, ability )
   unit:AddAbility(ability)
   unit:FindAbilityByName(ability):UpgradeAbility(false)
 end
-
-function CreepAgression( keys )
-  local caster = keys.caster
-  local ability = keys.ability
-
-  if caster:GetAggroTarget() ~= nil and math.abs(caster:GetAggroTarget():GetAbsOrigin().z - caster:GetAbsOrigin().z) > 128 then
-    caster:Stop()
-    caster:RemoveModifierByName("ziv_creep_normal_behavior_aggro")
-    ability:ApplyDataDrivenModifier(caster,caster,"ziv_creep_normal_behavior_disable_autoattack",{duration = 0.5})
-    Timers:CreateTimer(0.5, function (  )
-      ability:ApplyDataDrivenModifier(caster,caster,"ziv_creep_normal_behavior_aggro",{})
-      caster:RemoveModifierByName("ziv_creep_normal_behavior_disable_autoattack")
-    end)
-  end
-
-  -- local heroes = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),nil,800,DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-
-  -- if #heroes > 0 then
-  --   for k,v in pairs(heroes) do
-  --     local path = GridNav:FindPathLength(v:GetAbsOrigin(), caster:GetAbsOrigin())
-  --     if path <= 800 and path > 0 then 
-  --       caster:RemoveModifierByName("ziv_creep_normal_behavior_aggro")
-        
-  --       local creeps = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),nil,800,DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-  --       for k2,v2 in pairs(creeps) do
-  --         local path = GridNav:FindPathLength(v:GetAbsOrigin(), caster:GetAbsOrigin())
-  --         if path <= 800 and path > 0 then 
-  --           v:RemoveModifierByName("ziv_creep_normal_behavior_aggro")
-  --         end
-  --       end
-  --       break
-  --     end
-  --   end
-  -- end
-end

@@ -103,7 +103,6 @@ function ZIV:OnFirstPlayerLoaded()
   DebugPrint("[ZIV] First Player has loaded")
 
   CustomGameEventManager:RegisterListener("OpenInventory", Dynamic_Wrap(ZIV, "OpenInventory"))
-  CustomGameEventManager:RegisterListener("DefaultInventory", Dynamic_Wrap(ZIV, "DefaultInventory"))
 
   Containers:SetDisableItemLimit(true)
   Containers:UsePanoramaInventory(false)
@@ -244,18 +243,3 @@ LOADED = true
 ZIV.TRUE_TIME = 0
 
 ZIV.INVENTORY = {}
-lootSpawns = nil
-itemDrops = nil
-privateBankEnt = nil
-sharedBankEnt = nil
-contShopRadEnt = nil
-contShopDireEnt = nil
-itemShopEnt = nil
-
-contShopRad = nil
-contShopDire = nil
-itemShop = nil
-sharedBank = nil
-privateBank = {}
-
-defaultInventory = {}

@@ -5,9 +5,49 @@
   "AbilityTextureName"      ""
 
   "MaxLevel" "1"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "aggro_radius"      "800"
+    }
+  }
   
   "Modifiers"
   {
+    "modifier_agression"
+    {
+      "Passive"      "1"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+    
+      "ThinkInterval"  "0.5"
+      "OnIntervalThink"
+      {
+        "ActOnTargets"
+        {
+          "Target"
+          {
+            "Center"    "CASTER"
+            "Radius"   "%aggro_radius"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Types"   "DOTA_UNIT_TARGET_BASIC"
+          }
+        
+          "Action"    
+          {
+            "RemoveModifier"
+            {
+              "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
+              "Target"     "TARGET"
+            }
+          }
+        }
+      }
+    }
+
     "modifier_passive_attack_speed"
     {
       "Passive"      "1"

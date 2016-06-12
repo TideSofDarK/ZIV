@@ -93,7 +93,10 @@ function UpdateHPAndMP()
 	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 	var heroKV = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName( queryUnit )];
 
-	if (!queryUnit || queryUnit == -1 || !heroKV) $.Schedule( 0.1, UpdateHPAndMP );
+	if (!queryUnit || queryUnit == -1 || !heroKV) {
+		$.Schedule( 0.1, UpdateHPAndMP );
+		return;
+	}
 
 	var hp = 	Entities.GetHealth( queryUnit )
 	var maxHP = 	Entities.GetMaxHealth( queryUnit ) * 1.0
