@@ -67,6 +67,10 @@ function KillBird( keys )
 		ability.bird:ForceKill(false)
 
 		caster:EmitSound("Hero_Beastmaster_Bird.Death")
+
+		if ability:GetToggleState() == true then
+			ability:ToggleAbility()
+		end
 	end
 end
 

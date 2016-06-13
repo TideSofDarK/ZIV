@@ -1,6 +1,8 @@
 DOTAAbilityImage {
-	width: 100%;
-	height: 100%;
+	align: center center;
+
+	width: 85%;
+	height: 85%;
 	/*transform: scale3d( 1.14, 1.1, 0 );*/
 }
 
@@ -10,7 +12,7 @@ DOTAAbilityImage {
 	vertical-align: bottom;
 	flow-children: right;
 
-	margin-right: 270px;
+	margin-right: 260px;
 }
 
 #AbilityList
@@ -20,8 +22,19 @@ DOTAAbilityImage {
 
 .AbilityPanel
 {
-	margin-left: -2px;
+	margin-left: -10px;
 	margin-bottom: 8px;
+}
+
+#AbilityBorderInner {
+	width: 100%;
+	height: 100%;
+
+	align: center center;
+
+	background-image: url("file://{images}/custom_game/ingame_ui/ability_border_inner.png");
+	background-size: 100% 100%;
+	background-position: 50% 50%;
 }
 
 .AbilityPanel.no_ability
@@ -34,6 +47,7 @@ DOTAAbilityImage {
 	width: 84px;
 	height: 84px;
 	/*border: 2px solid transparent;*/
+	box-shadow: fill #00000080 0px 0px 12px 0px;
 }
 
 .Layout5
@@ -46,7 +60,7 @@ DOTAAbilityImage {
 
 .is_passive #AbilityButton
 {
-	border: 2px solid #00000000;
+	/*border: 2px solid #00000000;*/
 }
 
 #AbilityButton
@@ -62,7 +76,7 @@ DOTAAbilityImage {
 
 #AbilityButton:active
 {
-	border: 4px solid white;
+	hue-rotation: 10deg;
 }
 
 .insufficient_mana DOTAAbilityImage
@@ -148,15 +162,6 @@ DOTAAbilityImage {
 .no_mana_cost #ManaCost
 {
 	visibility: collapse;
-}
-
-#ActiveAbility
-{
-	width: 100%;
-	height: 100%;
-	background-color: gradient( radial, 50% -20%, 0% 0%, 80% 80%, from( #FFFFFF88 ), to( #FFFFFF00 ) );
-	/*border: 4px solid #FFFFFF40;*/
-	opacity: 0;
 }
 
 .is_active #ActiveAbility

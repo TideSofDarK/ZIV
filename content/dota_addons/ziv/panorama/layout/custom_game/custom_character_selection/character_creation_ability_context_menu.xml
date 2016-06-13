@@ -18,7 +18,6 @@
 
 				newAbility.SetAbility(abilities[i], abilities);
 				newAbility.FindChildTraverse("CCSAbilityButton").oncontextmenu = "";
-				newAbility.FindChildTraverse("Hotkey").visible = false;
 				newAbility.AddClass("ContextMenuAbility");
 
 				var y;

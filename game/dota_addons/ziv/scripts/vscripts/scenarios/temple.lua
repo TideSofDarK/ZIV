@@ -13,7 +13,10 @@ Temple.ROCKS_DAMAGE = 0.02
 Temple.ROCKS_DURATION = 1.5
 
 Temple.SPAWN_THRESHOLD = 1600
-Temple.SPAWN_SPREAD = 1500
+Temple.SPAWN_SPREAD = 1400
+Temple.SPAWN_MIN = 20
+Temple.SPAWN_MAX = 30
+Temple.SPAWN_GC_TIME = 8.0
 
 Temple.stage = Temple.STAGE_NO
 
@@ -126,12 +129,7 @@ end
 
 function Temple:SpawnCreeps()
 	for k,v in pairs(Temple.creeps_positions) do
-		if v.creeps then
-			for k2,v2 in pairs(Temple.creeps_positions) do
-				v:ForceKill(false)
-			end
-		end
-		v.creeps = nil
+		Temple:DestroyCreeps( v )
 	end
 
 	Timers:CreateTimer(function (  )
@@ -144,17 +142,42 @@ function Temple:SpawnCreeps()
 				    {
 				        Level = 1,
 				        SpawnBasic = true,
-				        Count = math.random(25, 35),
+				        Count = math.random(Temple.SPAWN_MIN, Temple.SPAWN_MAX),
 				        Position = v:GetAbsOrigin(),
 				        CheckHeight = true,
 				        Spread = Temple.SPAWN_SPREAD,
 				        SpawnLord = math.random(1,4) == 1,
-				        Table = v.creeps
+				        Table = v.creeps,
+
 				    })
+				elseif v.creeps then
+					if v.idle_count and v.idle_count > Temple.SPAWN_GC_TIME then
+						Temple:DestroyCreeps( v )
+					else
+						local idle = true
+						for k2,v2 in pairs(v.creeps) do
+							if v2:IsNull() == false and v2:IsAlive() == true and v2:IsIdle() == false and hero:CanEntityBeSeenByMyTeam(v2) == false then
+								idle = false
+								break
+							end
+						end
+						if idle == true then
+							v.idle_count = (v.idle_count or 0.0) + 1.0
+						end
+					end
 				end
 			end
 		end)
 
 		return 1.0
 	end)
+end
+
+function Temple:DestroyCreeps( v )
+	if v.creeps then
+		for k2,v2 in pairs(v.creeps) do
+			UTIL_Remove(v2)
+		end
+	end
+	v.creeps = nil
 end

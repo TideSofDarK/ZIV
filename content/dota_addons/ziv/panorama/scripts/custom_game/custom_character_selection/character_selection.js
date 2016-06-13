@@ -82,7 +82,7 @@ function BackButton() {
 		listRoot.visible = true;
 
 		for (var i = 0; i < abilities.length; i++) {
-			abilities[i].visible = false;
+			abilities[i].GetParent().visible = false;
 		}
 		abilityRoot.ToggleClass("NoLabel");
 
@@ -136,13 +136,16 @@ function SelectHero(hero) {
 		abilities[i].SetAbility(abilityname, group.length > 1 ? group : []);
 		
 		if (abilityGroups[z].length > 1) {
+			abilities[i].FindChildTraverse("CCSAbilityBorderInner").AddClass("CCSSelectableAbilityBorderInner");
 			z += abilityGroups[z].length - 1;
+		} else {
+			abilities[i].FindChildTraverse("CCSAbilityBorderInner").RemoveClass("CCSSelectableAbilityBorderInner");
 		}
 		z++;
 
-		abilities[i].visible = true;
+		abilities[i].GetParent().visible = true;
 
-		abilities[i].FindChildTraverse("Hotkey").visible = PlayerTables.GetTableValue("kvs", "abilities")[abilityname]["AbilityBehavior"].indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE") == -1;
+		abilities[i].GetParent().FindChildTraverse("Hotkey").visible = PlayerTables.GetTableValue("kvs", "abilities")[abilityname]["AbilityBehavior"].indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE") == -1;
 	}
 	abilityRoot.visible = true;
 	abilityRoot.ToggleClass("NoLabel");
@@ -244,9 +247,9 @@ function SetupCreation() {
 		var panelCount = ABILITY_COUNT;
 
 		for (var i = 0; i < panelCount; i++) {
-			var newAbility = $.CreatePanel( "Panel", abilityRoot, "CCSAbility_" + i  );
-			newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability.xml", false, false );
-			var hotkey = newAbility.FindChildTraverse("HotkeyText");
+			var selectionRoot = $.CreatePanel( "Panel", abilityRoot, "CCSAbilitySelection_" + i  );
+			selectionRoot.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability_selection.xml", false, false );
+			var hotkey = selectionRoot.FindChildTraverse("HotkeyText");
 			if (GameUI.CustomUIConfig().KEYBINDS[i].length == 1) {
 				hotkey.text = GameUI.CustomUIConfig().KEYBINDS[i];
 			}
@@ -257,9 +260,12 @@ function SetupCreation() {
 				hotkey.AddClass(GameUI.CustomUIConfig().KEYBINDS[i]);
 			}
 
+			var newAbility = $.CreatePanel( "Panel", selectionRoot, "CCSAbility_" + i  );
+			newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability.xml", false, false );
+
 			newAbility.SetCreationOptions = SetCreationOptions;
 
-			newAbility.visible = false;
+			newAbility.GetParent().visible = false;
 
 			abilities.push(newAbility);
 		}

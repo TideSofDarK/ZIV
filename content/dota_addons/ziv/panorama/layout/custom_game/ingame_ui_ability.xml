@@ -19,8 +19,9 @@
 				oncontextmenu="RightClickAbility()"
 				>
 			<DOTAAbilityImage id="AbilityImage" >
-				<Label id="ManaCost" />
+			<Label id="ManaCost" />
 			</DOTAAbilityImage>
+			<Panel id="AbilityBorderInner" hittest="false"/>
 			<Panel id="Cooldown">
 				<Label id="CooldownTimer" />
 				<Panel id="CooldownOverlay" />

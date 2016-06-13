@@ -260,8 +260,8 @@ function Director:SpawnCreeps( spawn_table )
 
 					InitAbilities(creep)
 
-					if spawn_table["Table"] and type(spawn_table["Table"]) == "table" then
-						table.insert(spawn_table["Table"], creep)
+					if spawn_table.Table then --and type(spawn_table["Table"]) == "table"
+						table.insert(spawn_table.Table, creep)
 					end
 				end)
 			end

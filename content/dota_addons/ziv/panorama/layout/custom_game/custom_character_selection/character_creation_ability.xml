@@ -67,7 +67,6 @@
 		})();
 	</script>
 	<Panel class="CCSAbilityPanel">
-		
 		<Button id="CCSAbilityButton"
 							onmouseover="AbilityShowTooltip()"
 							onmouseout="AbilityHideTooltip()"
@@ -75,10 +74,8 @@
 							oncontextmenu="OpenAbilityContextMenu()"
 							>
 			<DOTAAbilityImage id="CCSAbilityImage" abilityname="ziv_empty1"/>
+			<Panel id="CCSAbilityBorderInner" hittest="false"/>
 		</Button>
-		<Panel id="Hotkey">
-			<Label id="HotkeyText" class="GenericBackground"/>
-		</Panel>
 	</Panel>
 </root>
 

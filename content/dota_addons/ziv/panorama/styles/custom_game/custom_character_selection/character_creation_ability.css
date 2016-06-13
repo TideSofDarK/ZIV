@@ -1,4 +1,4 @@
-.CCSAbilityPanel {
+.CCSAbilitySelection {
 	vertical-align: center;
 
 	width: 128px;
@@ -8,10 +8,19 @@
 	margin-right: 8px;
 	margin-top: 4px;
 	margin-bottom: 4px;
+}
+
+.CCSAbilityPanel {
+	vertical-align: center;
+
+	width: 128px;
+	height: 128px;
 
 	transition-property: opacity, position;
 	transition-duration: 0.4s, 0.4s;
 	transition-timing-function: linear, ease-in-out;
+
+	box-shadow: fill #00000080 0px 0px 12px 0px;
 }
 
 .CCSAbilityPanel.selected {
@@ -23,12 +32,37 @@
 	border-radius: 5px;
 }
 
-#CCSAbilityButton {
-	vertical-align: center;
+#CCSAbilityBorderInner {
+	width: 100%;
+	height: 100%;
 
-	width: 128px;
-	height: 128px;
-	border: 2px solid transparent;
+	align: center center;
+
+	background-image: url("file://{images}/custom_game/ingame_ui/ability_border_inner.png");
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+}
+
+.CCSSelectableAbilityBorderInner {
+	hue-rotation: 200deg;
+}
+
+#CCSAbilityBorderOuter {
+	width: 100%;
+	height: 100%;
+
+	align: center center;
+
+	/*background-image: url("file://{images}/custom_game/ingame_ui/ability_border_outer.png");*/
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+}
+
+#CCSAbilityButton {
+	align: center center;
+
+	width: 100%;
+	height: 100%;
 
 	transition-property: opacity, position;
 	transition-duration: 0.4s, 0.4s;
@@ -36,8 +70,10 @@
 }
 
 #CCSAbilityImage {
-	width: 120px;
-	height: 120px;
+	align: center center;
+
+	width: 85%;
+	height: 85%;
 }
 
 .AbilityContextMenu {
@@ -52,8 +88,10 @@
 }
 
 .ContextMenuAbility {
-	width: 100%;
-	height: 128px;
+	align: center center;
+
+	width: 98px;
+	height: 98px;
 
 	position: 0px 0px 0px;
 
