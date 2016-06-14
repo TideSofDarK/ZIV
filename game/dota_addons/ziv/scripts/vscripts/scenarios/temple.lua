@@ -155,10 +155,12 @@ function Temple:SpawnCreeps()
 					else
 						local idle = true
 						for k2,v2 in pairs(v.creeps) do
-							if Distance(hero, v2) <= Temple.SPAWN_THRESHOLD or hero:CanEntityBeSeenByMyTeam(v2) == true or v2:IsIdle() == false then --v2:IsAlive() == true and v2:IsIdle() == false and 
-								idle = false
-								v.idle_count = 0.0
-								break
+							if v2:IsNull() == false then
+								if Distance(hero, v2) <= Temple.SPAWN_THRESHOLD or hero:CanEntityBeSeenByMyTeam(v2) == true or v2:IsIdle() == false then --v2:IsAlive() == true and v2:IsIdle() == false and 
+									idle = false
+									v.idle_count = 0.0
+									break
+								end
 							end
 						end
 						if idle == true then
@@ -175,10 +177,10 @@ end
 
 function Temple:DestroyCreeps( v )
 	if v.creeps then
-		print(#v.creeps)
 		for i,v2 in ipairs(v.creeps) do
-			print("dicks")
-			v2:ForceKill(false)
+			if v2:IsNull() == false then
+				v2:ForceKill(false)
+			end
 		end
 	end
 	v.creeps = nil

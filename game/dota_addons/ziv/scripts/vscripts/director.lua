@@ -188,7 +188,7 @@ function Director:SpawnPack( pack_table )
 end
 
 function Director:SpawnCreeps( spawn_table )
-	local spawn_table = DeepCopy(spawn_table)
+	local spawn_table = spawn_table
 
 	if spawn_table then
 		local count = spawn_table["Count"]
