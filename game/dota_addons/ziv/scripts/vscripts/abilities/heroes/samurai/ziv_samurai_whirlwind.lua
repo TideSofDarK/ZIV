@@ -3,6 +3,13 @@ function StartWhirlwind( keys )
 	local ability = keys.ability
 	local target = keys.target_points[1]
 
+	local target_unit = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, 98, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)[1]
+	if target_unit then
+		target = target_unit:GetAbsOrigin()
+	end
+
+	-- caster:MoveToPosition(target)
+
 	local _duration = ability:GetSpecialValueFor("duration")
 
 	ability:StartCooldown(_duration - 0.1)
@@ -11,7 +18,7 @@ function StartWhirlwind( keys )
 
 	if caster:HasModifier("modifier_animation") == false then
 		StartAnimation(caster, {duration=-1, activity=ACT_DOTA_OVERRIDE_ABILITY_1, rate=1.25})
-		-- caster:EmitSound()
+
 		ability.sound = ability.sound or false
 		if ability.sound == false then
 			StartSoundEvent("Greevil.BladeFuryStart", caster)

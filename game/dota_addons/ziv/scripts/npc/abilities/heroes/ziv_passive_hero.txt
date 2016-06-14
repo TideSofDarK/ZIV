@@ -23,27 +23,13 @@
       "IsHidden"      "1"
       "IsDebuff"      "0"
     
-      "ThinkInterval"  "0.5"
+      "ThinkInterval"  "0.75"
       "OnIntervalThink"
       {
-        "ActOnTargets"
+        "RunScript"
         {
-          "Target"
-          {
-            "Center"    "CASTER"
-            "Radius"   "%aggro_radius"
-            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-            "Types"   "DOTA_UNIT_TARGET_BASIC"
-          }
-        
-          "Action"    
-          {
-            "RemoveModifier"
-            {
-              "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
-              "Target"     "TARGET"
-            }
-          }
+          "ScriptFile"  "libraries/abilities.lua"
+          "Function"    "HeroAggression"
         }
       }
     }

@@ -1,6 +1,8 @@
 "use strict";
 
-var m_AbilityCasting = [];
+var abilityCasting = [];
+var abilityTimings = [];
+var abilityDelay = 0.2;
 
 function GetMouseCastTarget()
 {
@@ -40,63 +42,42 @@ function GetMouseCastPosition( abilityIndex )
 
 function ZIVStopAbility(number) {
 	var ability = Entities.GetAbility( Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), number-1 ); 
-	if (m_AbilityCasting[ability] == true) {
-		m_AbilityCasting[ability] = false;
+	if (abilityCasting[ability] == true) {
+		abilityCasting[ability] = false;
 	}
 }
 
 function ZIVCastAbility(number, pressing, single) { 
-	var ability = Entities.GetAbility( Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), number-1 ); 
+	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+	var ability = Entities.GetAbility( queryUnit, number-1 ); 
+	if (Entities.IsAlive(queryUnit) == false || 
+		Entities.IsCommandRestricted(queryUnit) == true ||
+		Entities.IsSilenced(queryUnit) == true) {
+		return;
+	}
 
 	if (ability !== -1) {
-		if (pressing && m_AbilityCasting[ability] == false || Entities.IsAlive(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() )) == false) {
+		if (!abilityTimings[ability]) {
+			abilityTimings[ability] = 0;
+		}
+
+		if (pressing && abilityCasting[ability] == false) {
 			return;
 		}
-		var order = {
-			AbilityIndex : ability,
-			Queue : OrderQueueBehavior_t.DOTA_ORDER_QUEUE_DEFAULT,
-			ShowEffects : true,
-			OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_NO_TARGET
-		};
-		var abilityBehavior = Abilities.GetBehavior( order.AbilityIndex );
-		var target = GetMouseCastTarget();
 
-		if ( abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT ) {
-			if (abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET && target != -1) {
-				order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET;
-				order.TargetIndex = target;
-				order.Position = GetMouseCastPosition( order.AbilityIndex );
-			}
-			else {
-				order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION;
-				order.Position = GetMouseCastPosition( order.AbilityIndex );
-			}
-		}
-		if ( abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET )
-		{
-			if (abilityBehavior & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT && target == -1) {
-				order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION;
-				order.Position = GetMouseCastPosition( order.AbilityIndex );
-			}
-			else if (target !== -1) 
-			{
-				order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET;
-				order.TargetIndex = GetMouseCastTarget();
-			}
+		if ((Game.Time() - abilityTimings[ability]) > abilityDelay && Abilities.IsCooldownReady(ability) === true && Abilities.IsInAbilityPhase(ability) === false && Abilities.GetCooldownTimeRemaining(ability) === 0.0) {
+			abilityTimings[ability] = Game.Time();
+			Abilities.ExecuteAbility( ability, queryUnit, true );
 		}
 
-		if (Abilities.IsCooldownReady(ability) === true && Abilities.IsInAbilityPhase(ability) === false && Abilities.GetCooldownTimeRemaining(ability) === 0.0) {
-			// Game.PrepareUnitOrders( order );
-			Abilities.ExecuteAbility( ability, Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), true );
-		}
+		var tic = Abilities.GetCooldownTimeRemaining( ability );
 
 		if (!single) {
-			m_AbilityCasting[ability] = true;
+			abilityCasting[ability] = true;
 				
-			var tic = Abilities.GetCooldownTimeRemaining( ability ) + 0.06;
 			$.Schedule(tic, (function() {ZIVCastAbility(number, true)}) );
-			return tic;
 		}
+		return tic;
 	}
 }
 

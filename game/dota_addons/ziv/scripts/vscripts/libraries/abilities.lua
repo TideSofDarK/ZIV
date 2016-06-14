@@ -325,6 +325,17 @@ function SimulateRangeAttack( keys )
   end)
 end
 
+function HeroAggression( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  
+  DoToUnitsInRadius( caster, caster:GetAbsOrigin(), GetSpecial(ability, "aggro_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_CREEP, target_flags, function ( v )
+    if GridNav:FindPathLength(caster:GetAbsOrigin(), v:GetAbsOrigin()) < GetSpecial(ability, "aggro_radius") then
+      v:RemoveModifierByName("ziv_creep_normal_behavior_disable_autoattack")
+    end
+  end)
+end
+
 function GetSpecial( ability, name )
   return ability:GetLevelSpecialValueFor(name,ability:GetLevel()-1)
 end

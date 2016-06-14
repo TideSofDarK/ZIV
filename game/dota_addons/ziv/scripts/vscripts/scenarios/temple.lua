@@ -16,7 +16,7 @@ Temple.SPAWN_THRESHOLD = 1600
 Temple.SPAWN_SPREAD = 1400
 Temple.SPAWN_MIN = 20
 Temple.SPAWN_MAX = 30
-Temple.SPAWN_GC_TIME = 8.0
+Temple.SPAWN_GC_TIME = 10.0
 
 Temple.stage = Temple.STAGE_NO
 
@@ -135,8 +135,8 @@ function Temple:SpawnCreeps()
 	Timers:CreateTimer(function (  )
 		DoToAllHeroes(function ( hero )
 			for k,v in pairs(Temple.creeps_positions) do
-				if (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() < Temple.SPAWN_THRESHOLD and (not v.creeps) then
-					v.creeps = {}
+				if (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() < Temple.SPAWN_THRESHOLD and not v.creeps then
+					v.creeps = v.creeps or {}
 
 					Director:SpawnPack(
 				    {
@@ -147,8 +147,7 @@ function Temple:SpawnCreeps()
 				        CheckHeight = true,
 				        Spread = Temple.SPAWN_SPREAD,
 				        SpawnLord = math.random(1,4) == 1,
-				        Table = v.creeps,
-
+				        Table = v.creeps
 				    })
 				elseif v.creeps then
 					if v.idle_count and v.idle_count > Temple.SPAWN_GC_TIME then
@@ -156,8 +155,9 @@ function Temple:SpawnCreeps()
 					else
 						local idle = true
 						for k2,v2 in pairs(v.creeps) do
-							if v2:IsNull() == false and v2:IsAlive() == true and v2:IsIdle() == false and hero:CanEntityBeSeenByMyTeam(v2) == false then
+							if Distance(hero, v2) <= Temple.SPAWN_THRESHOLD or hero:CanEntityBeSeenByMyTeam(v2) == true or v2:IsIdle() == false then --v2:IsAlive() == true and v2:IsIdle() == false and 
 								idle = false
+								v.idle_count = 0.0
 								break
 							end
 						end
@@ -175,9 +175,12 @@ end
 
 function Temple:DestroyCreeps( v )
 	if v.creeps then
-		for k2,v2 in pairs(v.creeps) do
-			UTIL_Remove(v2)
+		print(#v.creeps)
+		for i,v2 in ipairs(v.creeps) do
+			print("dicks")
+			v2:ForceKill(false)
 		end
 	end
 	v.creeps = nil
+	v.idle_count = 0.0
 end

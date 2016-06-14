@@ -5,7 +5,7 @@
     
     "HealthBarOffset"   "200"
     "Model"           "models/items/undying/idol_of_ruination/ruin_wight_minion_gold.vmdl"
-    "ModelScale"    "1.1"
+    "ModelScale"    "1.5"
     "Level"           "1"
 
     "Ability1"          ""
@@ -65,7 +65,7 @@
     
     "HealthBarOffset"   "155"
     "Model"           "models/items/undying/idol_of_ruination/ruin_wight_minion_torso.vmdl"
-    "ModelScale"    "0.855"
+    "ModelScale"    "1.2"
     "Level"           "1"
 
     "Ability1"          ""
@@ -126,7 +126,7 @@
     
     "HealthBarOffset"   "155"
     "Model"           "models/items/undying/idol_of_ruination/ruin_wight_minion.vmdl"
-    "ModelScale"    "0.855"
+    "ModelScale"    "1.2"
     "Level"           "1"
 
     "Ability1"          ""
@@ -187,7 +187,7 @@
     
     "HealthBarOffset"   "155"
     "Model"           "models/items/undying/idol_of_ruination/ruin_wight_minion_torso_gold.vmdl"
-    "ModelScale"    "0.855"
+    "ModelScale"    "1.2"
     "Level"           "1"
 
     "Ability1"          ""

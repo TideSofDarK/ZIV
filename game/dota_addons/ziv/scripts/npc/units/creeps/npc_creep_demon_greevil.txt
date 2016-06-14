@@ -5,7 +5,7 @@
     
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/mega_greevil/mega_greevil.vmdl"
-    "ModelScale"    "1.2"
+    "ModelScale"    "1.4"
     "Level"           "1"
 
     "Ability1"          ""
