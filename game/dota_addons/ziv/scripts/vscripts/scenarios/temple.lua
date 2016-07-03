@@ -7,7 +7,7 @@ Temple.STAGE_SECOND = 2
 Temple.STAGE_BOSS = 3
 Temple.STAGE_END = 4
 
-Temple.ROCKS_DELAY = 4.0
+Temple.ROCKS_DELAY = 12.0
 Temple.ROCKS_TICK = 0.1
 Temple.ROCKS_DAMAGE = 0.02
 Temple.ROCKS_DURATION = 1.5
@@ -147,7 +147,8 @@ function Temple:SpawnCreeps()
 				        CheckHeight = true,
 				        Spread = Temple.SPAWN_SPREAD,
 				        SpawnLord = math.random(1,4) == 1,
-				        Table = v.creeps
+				        Table = v.creeps,
+				        CheckTable = HeroList:GetAllHeroes()
 				    })
 				elseif v.creeps then
 					if v.idle_count and v.idle_count > Temple.SPAWN_GC_TIME then

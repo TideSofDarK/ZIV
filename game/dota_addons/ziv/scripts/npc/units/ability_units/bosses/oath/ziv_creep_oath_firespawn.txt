@@ -8,6 +8,8 @@
 	"ModelScale" 									"1.1"
 	"HealthBarOffset"								"250"
 
+	"Unique" 										"1"
+
 	"AttackDamageMin"								"15"
 	"AttackDamageMax"								"25"
 	"AttackRate"									"0.7"

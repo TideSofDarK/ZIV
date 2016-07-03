@@ -1646,7 +1646,7 @@
 	      "Passive"      "1"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
-	    
+	
 	      "ThinkInterval"  "0.75"
 	      "OnIntervalThink"
 	      {
@@ -3982,6 +3982,11 @@
 	    {
 	      "var_type"            "FIELD_FLOAT"
 	      "ballista_duration"            "9.5"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "ballista_targets"            "3"
 	    }
 	  }
 	  

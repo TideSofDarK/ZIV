@@ -3,6 +3,8 @@ DOTAAbilityImage {
 
 	width: 85%;
 	height: 85%;
+
+	box-shadow: inset #000000ff 4px 4px 8px 8px;
 	/*transform: scale3d( 1.14, 1.1, 0 );*/
 }
 
@@ -12,7 +14,7 @@ DOTAAbilityImage {
 	vertical-align: bottom;
 	flow-children: right;
 
-	margin-right: 260px;
+	margin-right: 265px;
 }
 
 #AbilityList
@@ -22,7 +24,7 @@ DOTAAbilityImage {
 
 .AbilityPanel
 {
-	margin-left: -10px;
+	margin-left: -2px;
 	margin-bottom: 8px;
 }
 
@@ -171,12 +173,12 @@ DOTAAbilityImage {
 
 #Hotkey
 {
-	margin-left: 0px;
-	margin-top: 0px;
+	margin-left: 4px;
+	margin-top: 4px;
 
 	vertical-align: top;
 	horizontal-align: left;
-	min-width: 22px;
+	min-width: 20px;
 	min-height: 18px;
 
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #393939 ), to( #414849 ) );
@@ -188,7 +190,7 @@ DOTAAbilityImage {
 {
 	color: #bba995;
  	text-shadow: 1px 1px 2px 2 #000000;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     line-height: 0px;
     font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;

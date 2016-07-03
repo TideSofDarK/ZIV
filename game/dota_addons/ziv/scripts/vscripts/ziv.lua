@@ -150,6 +150,8 @@ function ZIV:OnHeroInGame(hero)
     InitAbilities(camera_target)
 
     Timers:CreateTimer(function ()
+      AddFOWViewer(hero:GetTeamNumber(), hero:GetAbsOrigin(), hero:GetCurrentVisionRange(), 0.03, false)
+
       if GetZIVSpecificSetting(pid, "Controls") == false then
         PlayerResource:SetCameraTarget(pid, camera_target)
       else

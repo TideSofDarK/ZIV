@@ -22,7 +22,7 @@
       "Passive"      "1"
       "IsHidden"      "1"
       "IsDebuff"      "0"
-    
+
       "ThinkInterval"  "0.75"
       "OnIntervalThink"
       {

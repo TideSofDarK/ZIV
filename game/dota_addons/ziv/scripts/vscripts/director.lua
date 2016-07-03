@@ -100,8 +100,10 @@ function Director:GetCreeps(prefix)
 	local new_table = {}
 
 	for k,v in pairs(Director.creep_list) do
-		if string.match(k, prefix) then
-			new_table[k] = v
+		if prefix ~= "creep" or (ZIV.UnitKVs[k]["Unique"] ~= 1) then
+			if string.match(k, prefix) then
+				new_table[k] = v
+			end
 		end
 	end
 
@@ -188,7 +190,7 @@ function Director:SpawnPack( pack_table )
 end
 
 function Director:SpawnCreeps( spawn_table )
-	local spawn_table = spawn_table
+	local spawn_table = ShallowCopy(spawn_table)
 
 	if spawn_table then
 		local count = spawn_table["Count"]
@@ -215,6 +217,15 @@ function Director:SpawnCreeps( spawn_table )
 
 			if GridNav:IsBlocked(position) == true or GridNav:CanFindPath(position, GetGroundPosition(Vector(0,0,0), nil)) == false then
 				spawn = false
+			end
+
+			if spawn_table.CheckTable then
+				for k,v in pairs(spawn_table.CheckTable) do
+					if Distance(v, position) < v:GetCurrentVisionRange() then
+						spawn = false
+						break
+					end
+				end
 			end
 
 			if spawn == true then
@@ -266,6 +277,8 @@ function Director:SpawnCreeps( spawn_table )
 				end)
 			end
 		end
+
+		UTIL_Remove(spawn_table)
 	end
 end
 

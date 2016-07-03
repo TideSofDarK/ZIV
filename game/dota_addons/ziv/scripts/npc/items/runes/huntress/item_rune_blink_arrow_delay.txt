@@ -1,0 +1,26 @@
+"item_rune_blink_arrow_delay"
+{
+  "ID"		"1509"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"           "item_datadriven"
+  "AbilityTextureName"      "item_rune_huntress"
+  "Model"                   "models/items/topaz.vmdl"
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+
+  "ItemStackable"         "1"
+  "ItemPermanent"         "0"
+  "ItemInitialCharges"            "1"
+
+  "MaxUpgradeLevel"       "1"
+  "ItemBaseLevel"         "1"
+
+  "FortifyModifiersCount" "1"
+  "FortifyModifiers"
+  {
+    "ziv_huntress_blink_arrow_delay"
+    {
+      "min" "5"
+      "max" "20"
+    }
+  }
+}

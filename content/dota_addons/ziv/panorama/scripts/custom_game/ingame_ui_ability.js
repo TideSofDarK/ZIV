@@ -79,7 +79,7 @@ function UpdateAbility()
 		var cooldownLength = Abilities.GetCooldownLength( m_Ability );
 		var cooldownRemaining = Abilities.GetCooldownTimeRemaining( m_Ability );
 		var cooldownPercent = cooldownRemaining / cooldownLength;
-		$( "#CooldownTimer" ).text = Math.ceil( cooldownRemaining );
+		// $( "#CooldownTimer" ).text = Math.ceil( cooldownRemaining );
 		$( "#CooldownOverlay" ).style.clip = "radial(50% 50%, 0deg, " + cooldownPercent * -360 + "deg)";
 	}
 }

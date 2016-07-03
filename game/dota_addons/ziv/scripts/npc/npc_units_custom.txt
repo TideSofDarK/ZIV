@@ -165,6 +165,8 @@
 		"ModelScale" 									"1.1"
 		"HealthBarOffset"								"250"
 	
+		"Unique" 										"1"
+	
 		"AttackDamageMin"								"15"
 		"AttackDamageMax"								"25"
 		"AttackRate"									"0.7"
@@ -274,6 +276,7 @@
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "Model"           "models/items/beastmaster/boar/beast_deming/beast_deming.vmdl"
+	    "ModelScale"    "0.9"
 	    "SoundSet"                  "Lycan_Wolf"
 	    "IsSummoned"                "1"
 	    "Level"           "1"
@@ -319,6 +322,7 @@
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "Model"           "models/items/lone_druid/bear/dark_wood_bear/dark_wood_bear.vmdl"
+	    "ModelScale"    "0.9"
 	    "SoundSet"                  "LoneDruid_SpiritBear"
 	    "IsSummoned"                "1"
 	    "Level"           "2"
