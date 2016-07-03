@@ -2,12 +2,23 @@
   <styles>
     <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
   </styles>
+  <script>
+    (function () {
+      var root = $.GetContextPanel();
+      var background = $.CreatePanel("Panel", root, "Background");
+      background.BLoadLayoutSnippet("Temple");
+    })();
+  </script>
+  <snippets>
+    <snippet name="Temple">
+      <Panel class="Background">
+        <Image class="StaticBackground" src="file://{images}/custom_game/backgrounds/temple/temple_bg.png" />
+        <Image class="ScrollingBackground" id="ObeliskB" src="file://{images}/custom_game/backgrounds/temple/temple_obeliskB.png" scaling="stretch-to-fit-preserve-aspect"/>
+        <Image class="ScrollingBackground" id="ObeliskA" src="file://{images}/custom_game/backgrounds/temple/temple_obeliskA.png" scaling="stretch-to-fit-preserve-aspect"/>
+      </Panel>
+    </snippet>
+  </snippets>
   <Panel class="AddonLoadingRoot">
-    <Panel id="CustomBg" >
-      <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/loading_screen/gamemode.png" />
-    </Panel>
-    <Panel id="TitlePanel">
-      <Label id="AddonTitle" text="#addon_game_name" style="" />
-    </Panel>
+
   </Panel>
 </root>
