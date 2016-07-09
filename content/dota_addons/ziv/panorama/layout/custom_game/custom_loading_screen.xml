@@ -3,10 +3,27 @@
     <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
   </styles>
   <script>
-    (function () {
+    function ChooseBackground() {
+      var mapInfo = Game.GetMapInfo()
+      var mapName = mapInfo.map_display_name
+
       var root = $.GetContextPanel();
       var background = $.CreatePanel("Panel", root, "Background");
-      background.BLoadLayoutSnippet("Temple");
+
+      if (mapName == "")
+      {
+        $.Schedule(0.1, ChooseBackground);
+        return;
+      }
+
+      if (mapName == "ziv_temple")
+      {
+        background.BLoadLayoutSnippet("Temple");
+      }
+    };
+
+    (function () {
+      ChooseBackground();
     })();
   </script>
   <snippets>

@@ -48,11 +48,13 @@ require('items/crafting')
 require('items/equipment')
 require('items/vials')
 require('items/runes')
+-- Game setup
+require('libraries/gamesetup')
 
 -- Character management
 require('characters')
 
--- These internal libraries set up ziv's events and processes.  Feel free to inspect them/change them if you need to.
+-- These internal libraries set up ziv's events and processes.
 require('internal/ziv')
 require('internal/events')
 
@@ -232,6 +234,8 @@ function ZIV:InitZIV()
   ZIV.HerolistKVs = LoadKeyValues("scripts/npc/herolist.txt")
   ZIV.RecipesKVs = LoadKeyValues("scripts/kv/Recipes.kv")
   ZIV.PresetsKVs = LoadKeyValues("scripts/kv/CharacterPresets.kv")
+
+  GameSetup:Init()
 
   Director:Init()
   Loot:Init()
