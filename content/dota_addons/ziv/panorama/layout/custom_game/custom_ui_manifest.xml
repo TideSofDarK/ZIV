@@ -108,8 +108,9 @@
 
 	<!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/dummy.xml" />  -->
 
-    <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection/character_selection_background.xml" />
-    <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection/character_selection.xml" />
+    <!-- <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/custom_character_selection/character_selection_background.xml" /> -->
+    <!-- <CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/custom_character_selection/character_selection.xml" /> -->
+    <CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/gamesetup.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/containers/container_base.xml" />
 

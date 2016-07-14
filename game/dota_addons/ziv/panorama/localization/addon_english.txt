@@ -21,14 +21,17 @@
 
 	"equipment"										"Equipment"
 
-	"createcharacter"										"Create Character"
-	"loadcharacter"										"Load Character"
-
+	// Game setup
 	"biography"										"Biography"
 	"abilities"										"Abilities"
 	"lockin"										"Lock-In"
 	"lockedin"										"Waiting for start"
 	"free_slot"										"Free Slot"
+	"gamesetup_choosing_character"					"Preparing"
+	"gamesetup_disconected"							"Disconnected"
+
+	"createcharacter"								"Create Character"
+	"loadcharacter"									"Load Character"
 
 	// Settings
 	"settings_damage" "Popup damage numbers"

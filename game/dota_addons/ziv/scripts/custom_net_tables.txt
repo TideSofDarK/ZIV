@@ -6,6 +6,7 @@
     "kvs",
     "hero_status",
     "scenario",
-    "settings"
+    "settings",
+    "gamesetup"
   ]
 }

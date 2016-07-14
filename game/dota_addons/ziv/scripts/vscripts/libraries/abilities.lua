@@ -183,8 +183,6 @@ function SimulateRangeAttack( keys )
     local lock = true
     local distanceToTarget = caster:GetAttackRange() * 2.0
     local origin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment(keys.attachment or "attach_attack1")) or (caster:GetAbsOrigin())
-    local direction = (Vector(keys.target_points[1].x, keys.target_points[1].y, 0) 
-      - Vector(origin.x, origin.y, 0)):Normalized()
     local point = origin + (((keys.target_points[1] - origin):Normalized() * Vector(1,1,0)) * distanceToTarget)
 
     if math.abs(target.z - caster:GetAbsOrigin().z) >= 32 then
@@ -196,7 +194,7 @@ function SimulateRangeAttack( keys )
     if keys.standard_targeting then
       point = unit_target:GetAttachmentOrigin(unit_target:ScriptLookupAttachment("attach_hitloc"))
       if keys.ignore_z then
-        point.z = unit_target:GetAbsOrigin().z + (origin.z-128)
+        point.z = unit_target:GetAbsOrigin().z + 128
       end
     end
 

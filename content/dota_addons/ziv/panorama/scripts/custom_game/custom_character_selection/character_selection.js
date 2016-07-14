@@ -272,9 +272,21 @@ function SetupCreation() {
 	}
 }
 
+function UpdateGameSetupPlayerState(status) {
+	var table = CustomNetTables.GetTableValue( "gamesetup", "status" );
+	table[Players.GetLocalPlayer()] = status;
+
+	GameEvents.SendCustomGameEventToServer( "ziv_write_to_nettable", { 
+		"name" : "gamesetup", 
+		"key" : "status",
+		"value" : table } );
+}
+
 function CreateCharacterButton() {
 	$("#Menu").style.visibility = "collapse;";
 	$("#CreationRoot").style.visibility = "visible;";
+
+	UpdateGameSetupPlayerState("choosing_character");
 
 	SetupCreation();
 }

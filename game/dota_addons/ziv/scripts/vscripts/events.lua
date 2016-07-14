@@ -398,10 +398,6 @@ function ZIV:OnDragItemToWorld( keys )
   unit:DropItemAtPosition(position, item)
 end
 
-function ZIV:OnGetHeroStatus( keys )
-  
-end
-
 function ZIV:WriteToNettable( keys )
   local name = keys.name
   local key = keys.key

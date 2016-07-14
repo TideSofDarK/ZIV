@@ -16,7 +16,7 @@
         return;
       }
 
-      if (mapName == "ziv_temple")
+      if (mapName.indexOf("ziv_temple") != -1)
       {
         background.BLoadLayoutSnippet("Temple");
       }

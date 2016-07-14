@@ -76,6 +76,9 @@ require('libraries/containers')
 -- Balance variables
 require('balance')
 
+-- Scenarios
+require('scenarios/temple')
+
 -- Debug commands
 require('commands')
 

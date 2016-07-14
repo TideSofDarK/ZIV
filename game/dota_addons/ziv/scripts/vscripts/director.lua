@@ -1,8 +1,9 @@
-require('scenarios/temple')
-
 if Director == nil then
     _G.Director = class({})
 end
+
+Director.TEAM_ASSIGNMENT_AUTO = 0
+Director.TEAM_ASSIGNMENT_MANUAL = 1
 
 Director.scenario = nil
 

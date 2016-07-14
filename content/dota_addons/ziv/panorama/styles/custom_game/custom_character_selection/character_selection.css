@@ -78,15 +78,18 @@
 
 #GameInfo {
 	vertical-align: bottom;
-	horizontal-align: left;
+	horizontal-align: right;
 
-	text-align: left;
+	text-align: right;
 
 	font-weight: normal;
 	font-size: 18px;
 	color: #ffffff88;
 
 	margin: 5px;
+	margin-right: 8px;
+
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 }
 
 /*

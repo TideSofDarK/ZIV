@@ -1,5 +1,6 @@
 Temple = {}
 
+-- Stages
 Temple.STAGE_NO = -1
 Temple.STAGE_PREGAME = 0
 Temple.STAGE_FIRST = 1
@@ -7,10 +8,17 @@ Temple.STAGE_SECOND = 2
 Temple.STAGE_BOSS = 3
 Temple.STAGE_END = 4
 
-Temple.ROCKS_DELAY = 12.0
+-- Teams
+Temple.TEAMS = { DOTA_TEAM_GOODGUYS }
+Temple.TEAM_ASSIGNMENT = Director.TEAM_ASSIGNMENT_AUTO
+
+-- Balance
+Temple.ROCKS_DELAY = 1.5
 Temple.ROCKS_TICK = 0.1
 Temple.ROCKS_DAMAGE = 0.02
-Temple.ROCKS_DURATION = 1.5
+Temple.ROCKS_DURATION = 2.0
+Temple.ROCKS_INTERVAL_MIN = 8.0
+Temple.ROCKS_INTERVAL_MAX = 15.0
 
 Temple.SPAWN_THRESHOLD = 1600
 Temple.SPAWN_SPREAD = 1400
@@ -18,9 +26,10 @@ Temple.SPAWN_MIN = 20
 Temple.SPAWN_MAX = 30
 Temple.SPAWN_GC_TIME = 10.0
 
-Temple.stage = Temple.STAGE_NO
-
 Temple.OBELISK_COUNT = 20
+
+-- Store
+Temple.stage = Temple.STAGE_NO
 
 Temple.obelisks_positions = {}
 Temple.creeps_positions = {}
@@ -93,7 +102,6 @@ function Temple:FallingRocks()
 						for k,v in pairs(units) do
 							if v ~= unit then
 								DealDamage( unit, v, v:GetMaxHealth() * Temple.ROCKS_DAMAGE, DAMAGE_TYPE_PHYSICAL ) 
-								v:EmitSound("Creep_Good_Melee_Mega.Attack")
 								-- v:AddNewModifier(unit,nil,"modifier_stunned",{duration=0.03})
 							end
 						end
@@ -106,9 +114,9 @@ function Temple:FallingRocks()
 						end
 					end)
 				end)
-				return math.random(3.0, 7.0)
+				return math.random(Temple.ROCKS_INTERVAL_MIN, Temple.ROCKS_INTERVAL_MAX)
 			end
-			return math.random(0.0, 2.0)
+			return 0.0
 		end)
 	end)
 end

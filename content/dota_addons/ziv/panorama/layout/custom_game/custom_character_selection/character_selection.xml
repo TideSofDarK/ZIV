@@ -10,7 +10,7 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_tooltips.js" />
 		<include src="file://{resources}/scripts/custom_game/custom_character_selection/character_selection.js" />
 	</scripts>
-	<Panel class="Root">
+	<Panel class="Root" hittest="false">
 		<Label id="GameInfo" class="CCSHeadline" text="#addoninfo" />	
 		<Panel class="GenericBackground" id="Logo">
 		</Panel>

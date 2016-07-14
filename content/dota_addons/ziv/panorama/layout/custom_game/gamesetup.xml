@@ -1,0 +1,45 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
+    <include src="file://{resources}/styles/custom_game/gamesetup.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/gamesetup.js" />
+  </scripts>
+  <snippets>
+    <snippet name="PlayerLeft">
+      <Panel class="PlayerRoot AlignLeft">
+        <DOTAAvatarImage class="Avatar AlignLeft" id="Avatar"/>
+        <Panel id="PlayerStatus" class="PlayerStatus AlignRight">
+
+        </Panel>
+        <Panel id="PlayerFrame" class="PlayerFrame AlignLeft">
+
+        </Panel>
+        <Label id="NameLabel" class="GameSetupLabel NameLabel AlignLeft" text=""/>
+        <Label id="StatusLabel" class="GameSetupLabel StatusLabel AlignLeft" text="Status"/>
+      </Panel>
+    </snippet>
+    <snippet name="PlayerRight">
+      <Panel class="PlayerRoot AlignRight">
+        <DOTAAvatarImage class="Avatar AlignRight" id="Avatar"/>
+        <Panel id="PlayerStatus" class="PlayerStatus AlignLeft">
+
+        </Panel>
+        <Panel id="PlayerFrame" class="PlayerFrame AlignRight Flipped">
+
+        </Panel>
+        <Label id="NameLabel" class="GameSetupLabel NameLabel AlignRight" text=""/>
+        <Label id="StatusLabel" class="GameSetupLabel StatusLabel AlignRight" text="Status"/>
+      </Panel>
+    </snippet>
+  </snippets>
+  <Panel class="GameSetupRoot">
+    <Panel id="PlayerListRight" class="PlayerList FixMargin AlignRight">
+      
+    </Panel>
+    <Panel id="PlayerListLeft" class="PlayerList AlignLeft">
+      
+    </Panel>
+  </Panel>
+</root>

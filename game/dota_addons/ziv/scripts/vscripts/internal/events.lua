@@ -5,12 +5,12 @@ function ZIV:_OnGameRulesStateChange(keys)
     self.bSeenWaitForPlayers = true
   elseif newState == DOTA_GAMERULES_STATE_INIT then
     --Timers:RemoveTimer("alljointimer")
-  elseif newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
+  elseif newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
     ZIV:PostLoadPrecache()
     ZIV:OnAllPlayersLoaded()
 
     if USE_CUSTOM_TEAM_COLORS_FOR_PLAYERS then
-      for i=0,9 do
+      for i=0,DOTA_MAX_PLAYERS do
         if PlayerResource:IsValidPlayer(i) then
           local color = TEAM_COLORS[PlayerResource:GetTeam(i)]
           PlayerResource:SetCustomPlayerColor(i, color[1], color[2], color[3])

@@ -1,0 +1,119 @@
+.GameSetupLabel {
+	background-color: transparent;
+
+	text-shadow: 4px 4px 17px black;
+	font-size: 23px;
+
+	line-height: 18px;
+
+	text-overflow: clip;
+
+	color: White;
+
+	margin: 25px;
+	margin-left: 186px;
+	margin-right: 186px;
+
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+.GameSetupRoot {
+	width: 100%;
+	height: 100%;
+}
+
+.PlayerRoot {
+	width: 550px;
+	height: 181px;
+}
+
+.AlignLeft {
+	horizontal-align: left;
+	text-align: left;
+}
+
+.AlignRight {
+	horizontal-align: right;
+	text-align: right;
+}
+
+.PlayerFrame {
+	width: 352px;
+	height: 181px;
+
+	background-image: url("file://{images}/custom_game/gamesetup_player.png");
+	background-repeat: no-repeat;
+	background-size: 352px 181px;
+}
+
+.Flipped {
+	transform: scale3d( -1, 1, 1);
+}
+
+.FixMargin {
+	margin-right: 40px;
+}
+
+.FramePadding {
+	margin-left: 60px;
+	margin-right: 60px;
+}
+
+.PlayerList {
+	flow-children: down;
+
+	margin-top: 40px;
+}
+
+.Avatar {
+	width: 168px;
+	height: 168px;
+
+	vertical-align: center;
+
+	opacity-mask: url("file://{images}/custom_game/gamesetup_avatar_mask.png");
+}
+
+#Avatar {
+	transform: scale3d( 1, 1, 1);
+}
+
+.PlayerStatus {
+	width: 28px;
+	height: 28px;
+
+	background-repeat: no-repeat;
+	background-size: 28px 28px;
+
+	background-color: #bbbbbb;
+	opacity-mask: url("file://{images}/custom_game/gamesetup_avatar_mask.png");
+
+	margin-left: 203px;
+	margin-right: 203px;
+
+	vertical-align: center;
+}
+
+.StatusDisconnected {
+	background-image: url("file://{images}/custom_game/gamesetup_status_no.png");
+}
+
+.StatusReady {
+	background-image: url("file://{images}/custom_game/gamesetup_status_ready.png");
+}
+
+.StatusConnected {
+	background-image: url("file://{images}/custom_game/gamesetup_status_connected.png");
+}
+
+.NameLabel {
+	vertical-align: center;
+	margin-bottom: 80px;
+}
+
+.StatusLabel {
+	vertical-align: center;
+	margin-top: 80px;
+
+	min-width: 200px;
+}
