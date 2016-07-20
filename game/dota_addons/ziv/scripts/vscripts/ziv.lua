@@ -238,6 +238,10 @@ function ZIV:InitZIV()
   ZIV.RecipesKVs = LoadKeyValues("scripts/kv/Recipes.kv")
   ZIV.PresetsKVs = LoadKeyValues("scripts/kv/CharacterPresets.kv")
 
+  SendToServerConsole("dota_surrender_on_disconnect 0")
+  SendToServerConsole( 'customgamesetup_set_auto_launch_delay 300' )
+  Convars:SetInt( 'dota_auto_surrender_all_disconnected_timeout', 7200 )
+
   GameSetup:Init()
 
   Director:Init()

@@ -121,14 +121,34 @@
 	height: 100%;
 }
 
-#Logo {
-	margin-top: 60px;
-	vertical-align: top;
+/*
+ * Here comes main menu stuff
+ */
 
-	background-image: url('file://{images}/custom_game/ingame_ui/logo.png');
+#SilhouetteRoot {
+	margin-top: 250px;
+}
 
-	width: 352px;
-	height: 430px;
+#SilhouetteModel {
+	align: center center;
+	width: 600px;
+	height: 600px;
+	wash-color: #000000;
+}
+
+#QuestionMark {
+	align: center center;
+	font-weight: bold;
+	font-size: 110px;
+	margin-top: 50px;
+
+	transition-property: pre-transform-scale2d;
+	transition-duration: 0.23s;
+	transition-timing-function: linear;
+}
+
+#QuestionMark:hover {
+	pre-transform-scale2d: 1.23;
 }
 
 /*
@@ -183,8 +203,6 @@
 
 	width: 85%;
 	height: 85%;
-
-	visibility: collapse;
 
 	flow-children: down;
 }

@@ -12,15 +12,13 @@
 	</scripts>
 	<Panel class="Root" hittest="false">
 		<Label id="GameInfo" class="CCSHeadline" text="#addoninfo" />	
-		<Panel class="GenericBackground" id="Logo">
+		<Panel id="SilhouetteRoot" class="GenericBackground">
+			<DOTAScenePanel id="SilhouetteModel" unit="npc_dota_hero_brewmaster">
+
+			</DOTAScenePanel>
+			<Label id="QuestionMark" class="CCSHeadline Headline2" text="?" hittest="true" onactivate="CreateCharacterButton()"/>	
 		</Panel>
-		<Panel class="GenericBackground" id="CharacterList">
-		</Panel>
-		<Panel class="GenericBackground" id="Menu">
-			<Panel class="CharacterListCard" id="LoadCharacterList" />
-			<Panel class="CharacterListOverlap" />
-		</Panel>
-		<Panel id="CreationRoot" class="GenericBackground">
+		<Panel id="CreationRoot" class="GenericBackground WindowAnimation WindowClosed">
 			<Panel id="CreationTop">
 				<Label class="CCSHeadline Headline1" id="CreateCharacterLabel" text="#create_character" />	
 

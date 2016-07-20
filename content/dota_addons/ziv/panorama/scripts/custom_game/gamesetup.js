@@ -29,13 +29,17 @@ function Update() {
 				if (playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_CONNECTED) {
 					var playerStatus = CustomNetTables.GetTableValue("gamesetup", "status");
 					if (playerStatus && playerStatus[playerID]) {
-						statusTextPanel.text = $.Localize("gamesetup_") + playerStatus[playerID];
+						statusTextPanel.text = $.Localize("gamesetup_" + playerStatus[playerID]);
 
-						SetStatusIcon(statusIconPanel, "StatusConnected");
+						if (playerStatus[playerID] == "ready") {
+							SetStatusIcon(statusIconPanel, "StatusReady");
+						} else { 
+							SetStatusIcon(statusIconPanel, "StatusConnected");
+						}
 					} else {
 						statusTextPanel.text = $.Localize("gamesetup_choosing_character");
 
-						SetStatusIcon(statusIconPanel, "StatusReady");
+						SetStatusIcon(statusIconPanel, "StatusConnected");
 					}
 				} else {
 					statusTextPanel.text = $.Localize("gamesetup_disconected");
@@ -47,8 +51,35 @@ function Update() {
 	}
 }
 
+function CheckForHostPrivileges()
+{
+	var playerInfo = Game.GetLocalPlayerInfo();
+	if ( !playerInfo )
+		return;
+ 
+	if (playerInfo.player_has_host_privileges) {
+		Game.SetRemainingSetupTime( 3000 ); 
+		Game.SetAutoLaunchEnabled( false );
+	}
+}
+
+function Blur(args) {
+	if (args.ui == "gamesetup") {
+		$.GetContextPanel().AddClass("Blur");
+	}
+}
+
+function RemoveBlur(args) {
+	$.GetContextPanel().RemoveClass("Blur");
+}
+
 (function (){
-	Game.SetAutoLaunchEnabled( false );
+	GameEvents.Subscribe( "ziv_apply_ui_blur", Blur );
+	GameEvents.Subscribe( "ziv_remove_ui_blur", RemoveBlur );
+
+	Game.PlayerJoinTeam(2);
+
+	CheckForHostPrivileges();
 
 	// Get max players for a map
 	var mapInfo = Game.GetMapInfo();

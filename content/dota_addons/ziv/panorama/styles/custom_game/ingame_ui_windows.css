@@ -118,6 +118,22 @@
 	visibility: collapse;
 }
 
+.WindowAnimation {
+	transition-property: blur, transform, opacity;
+	transition-duration: 0.3s, 0.3s, 0.3s;
+	transition-timing-function: ease-in;
+}
+
+.WindowClosed {
+	transform: rotateX(6deg) translate3d( 0px, -100px, 0px );
+	blur: gaussian( 15.0 );
+	opacity: 0.0;
+}
+
+.Blur {
+	blur: gaussian( 15.0 );
+}
+
 .BasicShadow {
 	box-shadow: #000000ff 0px 0px 21px 0px;
 }

@@ -1,5 +1,6 @@
 <root>
   <styles>
+    <include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
     <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
     <include src="file://{resources}/styles/custom_game/gamesetup.css" />
   </styles>
@@ -10,7 +11,7 @@
     <snippet name="PlayerLeft">
       <Panel class="PlayerRoot AlignLeft">
         <DOTAAvatarImage class="Avatar AlignLeft" id="Avatar"/>
-        <Panel id="PlayerStatus" class="PlayerStatus AlignRight">
+        <Panel id="PlayerStatus" class="PlayerStatus">
 
         </Panel>
         <Panel id="PlayerFrame" class="PlayerFrame AlignLeft">
@@ -23,7 +24,7 @@
     <snippet name="PlayerRight">
       <Panel class="PlayerRoot AlignRight">
         <DOTAAvatarImage class="Avatar AlignRight" id="Avatar"/>
-        <Panel id="PlayerStatus" class="PlayerStatus AlignLeft">
+        <Panel id="PlayerStatus" class="PlayerStatus Flipped AlignRight">
 
         </Panel>
         <Panel id="PlayerFrame" class="PlayerFrame AlignRight Flipped">
@@ -34,7 +35,9 @@
       </Panel>
     </snippet>
   </snippets>
-  <Panel class="GameSetupRoot">
+  <Panel class="GameSetupRoot WindowAnimation">
+    <Panel class="GenericBackground" id="Logo">
+    </Panel>
     <Panel id="PlayerListRight" class="PlayerList FixMargin AlignRight">
       
     </Panel>

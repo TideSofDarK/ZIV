@@ -14,6 +14,8 @@ var heroesKVs;
 var currentCharacter = -1;
 var lockedIn = false;
 
+var noCharacters = true;
+
 var heroRoot = $("#HeroRoot");
 var abilityRoot = $("#Abilities");
 
@@ -73,8 +75,12 @@ function CreateHeroButton() {
 
 function BackButton() {
 	if (currentCharacter == -1) {
-		$("#Menu").visible = true;
-		$("#CreationRoot").visible = false;
+		// $("#Menu").visible = true;
+		$("#CreationRoot").AddClass("WindowClosed")
+
+		UpdateGameSetupPlayerState("connected");
+
+		GameEvents.SendEventClientSide( "ziv_remove_ui_blur", { } );
 	}
 	else {
 		DeleteHeroPreview(); 
@@ -283,22 +289,18 @@ function UpdateGameSetupPlayerState(status) {
 }
 
 function CreateCharacterButton() {
-	$("#Menu").style.visibility = "collapse;";
-	$("#CreationRoot").style.visibility = "visible;";
+	SetupCreation();
+	$("#CreationRoot").RemoveClass("WindowClosed")
 
 	UpdateGameSetupPlayerState("choosing_character");
 
-	SetupCreation();
+	GameEvents.SendEventClientSide( "ziv_apply_ui_blur", { "ui" : "gamesetup"} );
+	GameEvents.SendEventClientSide( "ziv_apply_ui_blur", { "ui" : "loading_screen"} );
 }
 
 function LoadCharacterButton() {
 	$("#Menu").AddClass("FlippedB");
 	$.Schedule(0.4, RemoveFlipClass);
-}
-
-function RemoveFlipClass() {
-	$("#CharacterList").RemoveClass("FlippedA");
-	$("#CharacterList").style.visibility = "visible;";
 }
 
 function LoadCharactersList( args )
@@ -339,5 +341,8 @@ function LoadCharactersList( args )
 	attackType.html = true;
 	playstyle.html = true;
 
-	LoadCharactersList( null );
+	// SetupCreation()
+	// CreateCharacterButton()
+
+	// LoadCharactersList( null );
 })();

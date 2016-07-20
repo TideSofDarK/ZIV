@@ -29,6 +29,7 @@
 	"free_slot"										"Free Slot"
 	"gamesetup_choosing_character"					"Preparing"
 	"gamesetup_disconected"							"Disconnected"
+	"gamesetup_connected"							"Connected"
 
 	"createcharacter"								"Create Character"
 	"loadcharacter"									"Load Character"
