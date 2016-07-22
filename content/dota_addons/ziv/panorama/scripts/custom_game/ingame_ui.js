@@ -189,7 +189,7 @@ function OpenStatusWindow() {
 }
 
 function OpenInventoryWindow() {
-	GameEvents.SendCustomGameEventToServer( "OpenInventory", {} );
+	GameEvents.SendCustomGameEventToServer( "ziv_open_inventory", {} );
 }
 
 function OpenCraftingWindow() {

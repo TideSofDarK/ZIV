@@ -2,7 +2,17 @@ if Characters == nil then
     _G.Characters = class({})
 end
 
-function Characters:OnPlayerCreatedHero( args )
+Characters.current_session_characters = Characters.current_session_characters or {}
+
+function Characters:Init() 
+  CustomGameEventManager:RegisterListener("ziv_spawn_character", Dynamic_Wrap(Characters, 'OnSpawnCharacter'))
+  CustomGameEventManager:RegisterListener("ziv_open_inventory", Dynamic_Wrap(Characters, "OnOpenInventory"))
+
+  Containers:SetDisableItemLimit(true)
+  Containers:UsePanoramaInventory(false)
+end
+
+function Characters:OnSpawnCharacter( args )
   local pID = tonumber(args.pID)
   local player = PlayerResource:GetPlayer(pID)
   local hero_name = args.hero_name
@@ -24,7 +34,7 @@ function Characters:OnPlayerCreatedHero( args )
       hero:AddAbility(abilities[tostring(i)])
     end
 
-    Characters:CreateHeroInventory( pID, hero )
+    Characters:CreateCharacterInventory( pID, hero )
 
     if preset and preset[args.preset] then
       preset = preset[args.preset]
@@ -44,17 +54,17 @@ function Characters:OnPlayerCreatedHero( args )
             end
           end
 
-          ZIV.INVENTORY[pID]:AddItem(item)
-          ZIV.INVENTORY[pID]:ActivateItem(hero, item, pID)
+          Characters:GetInventory(pID):AddItem(item)
+          Characters:GetInventory(pID):ActivateItem(hero, item, pID)
         end
       end)
     end
 
-    Characters:InitHero( hero )
+    Characters:InitCharacter( hero )
   end, pID)
 end
 
-function Characters:CreateHeroInventory( pID, hero )
+function Characters:CreateCharacterInventory( pID, hero )
     local inventory = Containers:CreateContainer({
       layout =      {3,3,3,3,3},
       skins =       {"Hourglass"},
@@ -66,12 +76,12 @@ function Characters:CreateHeroInventory( pID, hero )
       OnDragWorld = true
     })
 
-    ZIV.INVENTORY[pID] = inventory
+    hero.inventory = inventory
 
     Containers:SetDefaultInventory(hero, inventory)
 end
 
-function Characters:InitHero( hero )
+function Characters:InitCharacter( hero )
     hero:AddAbility("ziv_passive_hero")
     hero:AddAbility("ziv_stats_bonus_fix")
     hero:AddAbility("ziv_hero_normal_hpbar_behavior")
@@ -84,4 +94,17 @@ function Characters:InitHero( hero )
     hero.loot_rng = PseudoRNG.create( 0.5 )
     hero.vial_rng = PseudoRNG.create( ZIV_VIAL_CHANCE )
     hero.vial_choice_rng = ChoicePseudoRNG.create( {ZIV_HP_VIAL_CHANCE, ZIV_SP_VIAL_CHANCE} )
+
+    Characters.current_session_characters[hero:GetPlayerID()] = hero
+end
+
+function Characters:GetInventory(pID)
+  if Characters.current_session_characters[pID] then
+    return Characters.current_session_characters[pID].inventory
+  end
+end
+
+function Characters:OnOpenInventory(args)
+  local pID = args.PlayerID
+  Characters:GetInventory(pID):Open(pID)
 end

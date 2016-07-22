@@ -20,7 +20,7 @@
 		</Panel>
 		<Panel id="CreationRoot" class="GenericBackground WindowAnimation WindowClosed">
 			<Panel id="CreationTop">
-				<Label class="CCSHeadline Headline1" id="CreateCharacterLabel" text="#create_character" />	
+				<Label class="CCSHeadline Headline1" id="CreateCharacterLabel" text="#create_character_headline" />	
 
 				<Button onactivate="BackButton()" class="CloseButton BackButton" id="BackButton">
 				</Button>
@@ -79,8 +79,8 @@
 							<RadioButton group="Leagues" class="League" id="League1" text="#league_standard" tooltip="league_standard_Tooltip"/>
 							<RadioButton group="Leagues" class="League" id="League2" text="#league_competitive" tooltip="league_competitive_Tooltip"/>
 						</Panel>
-						<Button onactivate="CreateHeroButton()" class="OKButton" id="CreateHeroButton" onmouseout="UIHideCustomLayoutTooltip( CharacterCreationError )">
-							<Label id="CreateHeroButtonLabel" class="WindowLabel" text="#create_hero"/>
+						<Button onactivate="CreateCharacterButton()" class="OKButton" id="CreateCharacterButton" onmouseout="UIHideCustomLayoutTooltip( CharacterCreationError )">
+							<Label id="CreateCharacterButtonLabel" class="WindowLabel" text="#create_character_button"/>
 						</Button>
 					</Panel>
 				</Panel>

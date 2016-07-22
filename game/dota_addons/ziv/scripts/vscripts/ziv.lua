@@ -90,11 +90,6 @@ LinkLuaModifier("modifier_disable_auto_attack", "abilities/tools/modifier_disabl
 LinkLuaModifier("modifier_smooth_floating", "abilities/tools/modifier_smooth_floating.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_ai", "abilities/tools/modifier_boss_ai.lua", LUA_MODIFIER_MOTION_NONE)
 
-function ZIV:OpenInventory(args)
-  local pid = args.PlayerID
-  ZIV.INVENTORY[pid]:Open(pid)
-end
-
 function ZIV:PostLoadPrecache()
   DebugPrint("[ZIV] Performing Post-Load precache")    
   --PrecacheItemByNameAsync("item_example_item", function(...) end)
@@ -106,11 +101,6 @@ end
 
 function ZIV:OnFirstPlayerLoaded()
   DebugPrint("[ZIV] First Player has loaded")
-
-  CustomGameEventManager:RegisterListener("OpenInventory", Dynamic_Wrap(ZIV, "OpenInventory"))
-
-  Containers:SetDisableItemLimit(true)
-  Containers:UsePanoramaInventory(false)
 end
 
 function ZIV:OnAllPlayersLoaded()
@@ -244,6 +234,7 @@ function ZIV:InitZIV()
 
   GameSetup:Init()
 
+  Characters:Init() 
   Director:Init()
   Loot:Init()
 end
@@ -254,5 +245,3 @@ end
 LOADED = true
 
 ZIV.TRUE_TIME = 0
-
-ZIV.INVENTORY = {}

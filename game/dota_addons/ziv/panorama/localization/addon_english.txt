@@ -21,22 +21,6 @@
 
 	"equipment"										"Equipment"
 
-	// Game setup
-	"biography"										"Biography"
-	"abilities"										"Abilities"
-	"lockin"										"Lock-In"
-	"lockedin"										"Waiting for start"
-	"free_slot"										"Free Slot"
-	"gamesetup_choosing_character"					"Preparing"
-	"gamesetup_disconected"							"Disconnected"
-	"gamesetup_connected"							"Connected"
-
-	"createcharacter"								"Create Character"
-	"loadcharacter"									"Load Character"
-
-	"creation_error_length"							"Minimal name length is 6 charaters. Maximum name length is 17 characters."
-	"creation_error_symbols"						"Name can only contain digits and latin letters."
-
 	// Settings
 	"settings_damage" "Popup damage numbers"
 	"settings_autoequip" "Auto equip better items"
@@ -190,8 +174,25 @@
 	"summoner" "Summoner"
 	"hitnrun" "Hit'n'run"
 
+	// Game setup
+	"biography"										"Biography"
+	"abilities"										"Abilities"
+	"lockin"										"Lock-In"
+	"lockedin"										"Waiting for start"
+	"free_slot"										"Free Slot"
+
+	"gamesetup_choosing_character"					"Preparing"
+	"gamesetup_disconected"							"Disconnected"
+	"gamesetup_connected"							"Connected"
+
+	"menu_create_character"								"Create Character"
+	"menu_load_character"									"Load Character"
+
+	"creation_error_length"							"Minimal name length is 6 charaters. Maximum name length is 17 characters."
+	"creation_error_symbols"						"Name can only contain digits and latin letters."
+
 	"remove_hero" "Remove hero"
-	"create_character" "Create new Character"
+	"create_character_headline" "Create new Character"
 	"highlight_easy_caharacters" "Highlight Characters for new players"
 	"pick_character" "Pick character to customize it"
 	"character_attack_type" "Attack Type"
@@ -203,7 +204,7 @@
 	"character_color"	"Color Scheme"
 	"character_presets"	"Presets"
 	"character_league"	"League"
-	"create_hero" "Submit"
+	"create_character_button" "Submit"
 
 	"tab_battle_info" "Summary"
 	"tab_bio" "Biography"

@@ -65,7 +65,7 @@ function GetSelectedPreset() {
 	}
 }
 
-function CreateHeroButton() {
+function CreateCharacterButton() {
 	// Check for name
 	var nameLabel = $("#CharacterNameEntry");
 	var name = nameLabel.text;
@@ -80,7 +80,7 @@ function CreateHeroButton() {
 		for (var i = 0; i < abilities.length; i++) {
 			selectedAbilities.push(abilities[i].abilityname);
 		}
-		GameEvents.SendCustomGameEventToServer( "ziv_create_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroIcons[currentCharacter].heroname, "abilities" : selectedAbilities, "preset" : GetSelectedPreset() } );
+		GameEvents.SendCustomGameEventToServer( "ziv_spawn_character", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroIcons[currentCharacter].heroname, "abilities" : selectedAbilities, "preset" : GetSelectedPreset() } );
 	} else {
 		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', nameLabel, "CharacterCreationError", "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize("creation_error_symbols"));
 		return;

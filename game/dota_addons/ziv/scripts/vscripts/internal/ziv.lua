@@ -93,12 +93,8 @@ function ZIV:_InitZIV()
 
   CustomGameEventManager:RegisterListener( "player_buff_clicked", Dynamic_Wrap(ZIV, 'OnBuffClicked'))
 
-  CustomGameEventManager:RegisterListener( "ziv_create_hero", Dynamic_Wrap(Characters, 'OnPlayerCreatedHero'))
-
   CustomGameEventManager:RegisterListener( "ziv_fortify_item", Dynamic_Wrap(Socketing, 'OnFortify'))
   CustomGameEventManager:RegisterListener( "ziv_fortify_item_get_modifiers", Dynamic_Wrap(Socketing, 'OnFortifyGetModifiers'))
-
-  -- CustomGameEventManager:RegisterListener( "ziv_drag_item_to_world", Dynamic_Wrap(ZIV, 'OnDragItemToWorld'))
 
   CustomGameEventManager:RegisterListener( "ziv_item_tooltip_get_modifiers", Dynamic_Wrap(ZIV, 'OnItemTooltipGetModifiers'))
 
