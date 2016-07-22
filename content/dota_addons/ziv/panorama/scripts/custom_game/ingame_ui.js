@@ -90,21 +90,22 @@ function UpdateAbilityList()
 
 function UpdateHPAndMP() 
 {
+	$.Schedule( 0.1, UpdateHPAndMP );
+
 	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 	var heroKV = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName( queryUnit )];
 
 	if (!queryUnit || queryUnit == -1 || !heroKV) {
-		$.Schedule( 0.1, UpdateHPAndMP );
 		return;
 	}
 
-	var hp = 	Entities.GetHealth( queryUnit )
-	var maxHP = 	Entities.GetMaxHealth( queryUnit ) * 1.0
-	var mp = 	Entities.GetMana( queryUnit )
-	var maxMP = 	Entities.GetMaxMana( queryUnit ) * 1.0
+	var hp 		= 	Entities.GetHealth( queryUnit )
+	var maxHP 	= 	Entities.GetMaxHealth( queryUnit ) * 1.0
+	var mp 		= 	Entities.GetMana( queryUnit )
+	var maxMP 	= 	Entities.GetMaxMana( queryUnit ) * 1.0
 
-	var xp = 	Entities.GetCurrentXP( queryUnit );
-	var maxXP = 	Entities.GetNeededXPToLevel( queryUnit );
+	var xp 		= 	Entities.GetCurrentXP( queryUnit );
+	var maxXP 	= 	Entities.GetNeededXPToLevel( queryUnit );
 
 	if (heroKV["UsesEnergy"]) 
 	{
@@ -144,8 +145,6 @@ function UpdateHPAndMP()
 			XPBar.style.width = value + "px;";
 		}
 	}
-
-	$.Schedule( 0.1, UpdateHPAndMP );
 }
 
 function GrayoutButton() {

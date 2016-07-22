@@ -101,6 +101,8 @@ end
 function Characters:GetInventory(pID)
   if Characters.current_session_characters[pID] then
     return Characters.current_session_characters[pID].inventory
+  elseif PlayerResource:GetPlayer(pID) then
+    return PlayerResource:GetPlayer(pID):GetAssignedHero().inventory
   end
 end
 
