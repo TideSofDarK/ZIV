@@ -1,0 +1,19 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+    </styles>
+    <script>
+        function SetupTooltip()
+        {
+            $("#TooltipText").text = $.Localize( $.GetContextPanel().GetAttributeString( "text", "not-found" ) );
+        }
+    </script>
+    <Panel class="TooltipContents GenericBackground" ontooltiploaded="SetupTooltip()">
+        <Panel class="TooltipBorderA">
+            <Panel class="TooltipBorderB">
+                 <Label id="TooltipText" class="TooltipText"/>
+            </Panel>
+        </Panel>
+    </Panel>
+</root>

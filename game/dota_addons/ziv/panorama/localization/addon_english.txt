@@ -34,6 +34,9 @@
 	"createcharacter"								"Create Character"
 	"loadcharacter"									"Load Character"
 
+	"creation_error_length"							"Minimal name length is 6 charaters. Maximum name length is 17 characters."
+	"creation_error_symbols"						"Name can only contain digits and latin letters."
+
 	// Settings
 	"settings_damage" "Popup damage numbers"
 	"settings_autoequip" "Auto equip better items"

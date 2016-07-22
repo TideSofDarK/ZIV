@@ -79,7 +79,7 @@
 							<RadioButton group="Leagues" class="League" id="League1" text="#league_standard" tooltip="league_standard_Tooltip"/>
 							<RadioButton group="Leagues" class="League" id="League2" text="#league_competitive" tooltip="league_competitive_Tooltip"/>
 						</Panel>
-						<Button onactivate="CreateHeroButton()" class="OKButton" id="CreateHeroButton">
+						<Button onactivate="CreateHeroButton()" class="OKButton" id="CreateHeroButton" onmouseout="UIHideCustomLayoutTooltip( CharacterCreationError )">
 							<Label id="CreateHeroButtonLabel" class="WindowLabel" text="#create_hero"/>
 						</Button>
 					</Panel>

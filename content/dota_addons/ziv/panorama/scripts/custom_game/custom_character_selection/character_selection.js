@@ -66,11 +66,25 @@ function GetSelectedPreset() {
 }
 
 function CreateHeroButton() {
-	var selected_abilities = [];
-	for (var i = 0; i < abilities.length; i++) {
-		selected_abilities.push(abilities[i].abilityname);
+	// Check for name
+	var nameLabel = $("#CharacterNameEntry");
+	var name = nameLabel.text;
+	if (name.length < 6 || name.length > 17) {
+		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', nameLabel, "CharacterCreationError", "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize("creation_error_length"));
+		return;
 	}
-	GameEvents.SendCustomGameEventToServer( "ziv_create_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroIcons[currentCharacter].heroname, "abilities" : selected_abilities, "preset" : GetSelectedPreset() } );
+
+	if (name.match(/^[a-z0-9_-]{6,17}$/gm)) {
+		// Gather abilities
+		var selectedAbilities = [];
+		for (var i = 0; i < abilities.length; i++) {
+			selectedAbilities.push(abilities[i].abilityname);
+		}
+		GameEvents.SendCustomGameEventToServer( "ziv_create_hero", { "pID" : Players.GetLocalPlayer(), "hero_name" : heroIcons[currentCharacter].heroname, "abilities" : selectedAbilities, "preset" : GetSelectedPreset() } );
+	} else {
+		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', nameLabel, "CharacterCreationError", "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize("creation_error_symbols"));
+		return;
+	}
 }
 
 function BackButton() {
@@ -100,7 +114,7 @@ function BackButton() {
 
 		$("#HighlightEasyCharacters").visible = true;
 
-		heroRoot.visible = false;
+		// heroRoot.visible = false;
 	}
 }
 

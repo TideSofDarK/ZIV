@@ -261,7 +261,7 @@
 	height: 75%;
 
 	transition-property: position, opacity;
-	transition-duration: 0.3s, .3s;
+	transition-duration: 0.23s, 0.23s;
 	transition-timing-function: linear, ease-in-out;
 
 	flow-children: down;
