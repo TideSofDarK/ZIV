@@ -3,8 +3,8 @@
 		<include src="file://{resources}/styles/custom_game/custom_character_selection/character_selection.css" />
 	</styles>
 	<script>
-		function SelectHero() {
-			$.GetContextPanel().SelectHero();
+		function Select() {
+			$.GetContextPanel().Select();
 		}
 
 		function SetHero(name, kv, id) {
@@ -58,7 +58,7 @@
 		})();
 	</script>
 	<Panel hittest="false" class="HeroIcon">
-		<Button class="HeroIconButton" onactivate="SelectHero()">
+		<Button class="HeroIconButton" onactivate="Select()">
 			<DOTAHeroImage id="HeroImage" heroname="npc_dota_hero_pudge" heroimagestyle="landscape" />
 		</Button>
 

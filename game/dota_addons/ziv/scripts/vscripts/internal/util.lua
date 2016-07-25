@@ -56,11 +56,11 @@ end
 
 function DoToAllPlayers(action)
   if not action then return end
-  for playerID = 0, DOTA_MAX_PLAYERS do
-    if PlayerResource:IsValidPlayerID(playerID) then
-      if not PlayerResource:IsBroadcaster(playerID) then
-        if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
-          action(PlayerResource:GetPlayer(playerID))
+  for pID = 0, DOTA_MAX_PLAYERS do
+    if PlayerResource:IsValidPlayerID(pID) then
+      if not PlayerResource:IsBroadcaster(pID) then
+        if PlayerResource:GetConnectionState(pID) == DOTA_CONNECTION_STATE_CONNECTED then
+          action(PlayerResource:GetPlayer(pID))
         end
       end
     end

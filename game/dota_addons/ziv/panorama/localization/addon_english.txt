@@ -188,11 +188,11 @@
 	"menu_create_character"								"Create Character"
 	"menu_load_character"									"Load Character"
 
-	"creation_error_length"							"Minimal name length is 6 charaters. Maximum name length is 17 characters."
+	"creation_error_length"							"Minimal name length is 6 charaters. Maximum name length is 16 characters."
 	"creation_error_symbols"						"Name can only contain digits and latin letters."
 
 	"remove_hero" "Remove hero"
-	"create_character_headline" "Create new Character"
+	"create_character_headline" "Create new character"
 	"highlight_easy_caharacters" "Highlight Characters for new players"
 	"pick_character" "Pick character to customize it"
 	"character_attack_type" "Attack Type"

@@ -2,6 +2,19 @@ if Characters == nil then
     _G.Characters = class({})
 end
 
+--[[
+  Character structure is:
+
+  I - During creation 
+  hero_name   -- e.g."npc_dota_hero_axe"
+  abilities   -- array of abilities
+  preset      -- array of abilities + equipped items
+
+  II - After creation
+  items       -- inventory
+  equipment
+]]
+
 Characters.current_session_characters = Characters.current_session_characters or {}
 
 function Characters:Init() 

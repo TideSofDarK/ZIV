@@ -16,13 +16,13 @@
 			<DOTAScenePanel id="SilhouetteModel" unit="npc_dota_hero_brewmaster">
 
 			</DOTAScenePanel>
-			<Label id="QuestionMark" class="CCSHeadline Headline2" text="?" hittest="true" onactivate="CreateCharacterButton()"/>	
+			<Label id="QuestionMark" class="CCSHeadline Headline2" text="?" hittest="true" onactivate="CharacterCreationOpen()"/>	
 		</Panel>
 		<Panel id="CreationRoot" class="GenericBackground WindowAnimation WindowClosed">
 			<Panel id="CreationTop">
 				<Label class="CCSHeadline Headline1" id="CreateCharacterLabel" text="#create_character_headline" />	
 
-				<Button onactivate="BackButton()" class="CloseButton BackButton" id="BackButton">
+				<Button onactivate="CharacterCreationBack()" class="CloseButton BackButton" id="BackButton">
 				</Button>
 			</Panel>
 
@@ -59,10 +59,10 @@
 								<Label id="DOTA_ATTRIBUTE_INTELLECT" class="CCSHeadline HeroAttribute" text="2"/>
 							</Panel>
 							<Panel class="CBR" />
-							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterPlaystyleLabel" text="#character_playstyle" tooltip="character_playstyle_Tooltip"/>
-							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterAttackTypeLabel" text="#character_attack_type" />
-							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterDamageTypeLabel" text="#character_damage_type" />
-							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterMovespeedLabel" text="#character_movespeed" />
+							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterPlaystyleLabel" text="#character_playstyle" tooltip="character_playstyle_Tooltip" html="true" />
+							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterAttackTypeLabel" text="#character_attack_type" html="true" />
+							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterDamageTypeLabel" text="#character_damage_type" html="true" />
+							<Label class="CCSHeadline Headline2 HeroInfoLabel" id="CharacterMovespeedLabel" text="#character_movespeed" html="true" />
 						</Panel>
 					</Panel>
 					<Panel id="NameRunesLeague" class="MiddleBlock OpacityPositionTransitionRight">
@@ -79,7 +79,7 @@
 							<RadioButton group="Leagues" class="League" id="League1" text="#league_standard" tooltip="league_standard_Tooltip"/>
 							<RadioButton group="Leagues" class="League" id="League2" text="#league_competitive" tooltip="league_competitive_Tooltip"/>
 						</Panel>
-						<Button onactivate="CreateCharacterButton()" class="OKButton" id="CreateCharacterButton" onmouseout="UIHideCustomLayoutTooltip( CharacterCreationError )">
+						<Button onactivate="CharacterCreationCreate()" class="OKButton" id="CreateCharacterButton" onmouseout="UIHideCustomLayoutTooltip( CharacterCreationError )">
 							<Label id="CreateCharacterButtonLabel" class="WindowLabel" text="#create_character_button"/>
 						</Button>
 					</Panel>
