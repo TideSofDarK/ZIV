@@ -43,37 +43,11 @@ function GameSetup:OnPlayerCreateCharacter(args)
 	-- Server-related stuff
 
 	local pID = args.PlayerID
-	local player = PlayerResource:GetPlayer(pID)
 
 	local characters = CustomNetTables:GetTableValue("gamesetup", "characters")
 
-	local new_character_table 		= {}
-	new_character_table.hero_name 	= args.hero_name
-	new_character_table.abilities 	= args.abilities
-	new_character_table.preset 		= args.preset
-
-	new_character_table.equipment	= {}
-
-	for item_name,sockets in pairs(ZIV.PresetsKVs[new_character_table.hero_name][new_character_table.preset]) do
-		local item = CreateItem(item_name, player, player)
-
-		if GetTableLength(sockets) > 0 then
-            for seed,tool_name in pairs(sockets) do
-            	local tool = CreateItem(tool_name, player, player)
-            	Socketing:OnFortify( {
-                pID=-1,
-                item=item:entindex(),
-                tool=tool:entindex(),
-                seed=seed
-                } )
-            end
-        end
-
-        table.insert(new_character_table.equipment, { item = item_name, fortify_modifiers = item.fortify_modifiers })
-    end
-    
     characters[pID] = characters[pID] or {}
-	table.insert(characters[pID], new_character_table)
+	table.insert(characters[pID], Characters:CreateCharacter( args ))
 
 	CustomNetTables:SetTableValue("gamesetup", "characters", characters)
 end

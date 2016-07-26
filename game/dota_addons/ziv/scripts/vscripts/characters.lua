@@ -25,16 +25,47 @@ function Characters:Init()
   Containers:UsePanoramaInventory(false)
 end
 
-function Characters:OnSpawnCharacter( args )
+function Characters:CreateCharacter( args )
+  local player = PlayerResource:GetPlayer(args.PlayerID)
+
+  local new_character_table     = {}
+  new_character_table.hero_name   = args.hero_name
+  new_character_table.abilities   = args.abilities
+  new_character_table.preset    = args.preset
+
+  new_character_table.equipment = {}
+
+  for item_name,sockets in pairs(ZIV.PresetsKVs[new_character_table.hero_name][new_character_table.preset]) do
+    local item = CreateItem(item_name, player, player)
+
+    if GetTableLength(sockets) > 0 then
+      for seed,tool_name in pairs(sockets) do
+        local tool = CreateItem(tool_name, player, player)
+        Socketing:OnFortify({
+         pID=-1,
+         item=item:entindex(),
+         tool=tool:entindex(),
+         seed=seed
+         })
+      end
+    end
+
+    table.insert(new_character_table.equipment, { item = item_name, fortify_modifiers = item.fortify_modifiers })
+  end
+
+  return new_character_table
+end
+
+function Characters:SpawnCharacter( args )
   local pID = tonumber(args.pID)
-  local player = PlayerResource:GetPlayer(pID)
   local hero_name = args.hero_name
-  local preset = ZIV.PresetsKVs[hero_name]
+  local equipment = args.equipment
+  local inventory = args.inventory
 
   local abilities = args.abilities
 
   PrecacheUnitByNameAsync(hero_name, function (  )
-    local hero = CreateHeroForPlayer(hero_name, player)
+    local hero = CreateHeroForPlayer(hero_name, PlayerResource:GetPlayer(pID))
 
     for i=0,16 do
       local abil = hero:GetAbilityByIndex(i)
@@ -49,28 +80,31 @@ function Characters:OnSpawnCharacter( args )
 
     Characters:CreateCharacterInventory( pID, hero )
 
-    if preset and preset[args.preset] then
-      preset = preset[args.preset]
-      Timers:CreateTimer(function (  )
-        for item_name,sockets in pairs(preset) do
-          local item = CreateItem(item_name, hero, hero)
-
-          if GetTableLength(sockets) > 0 then
-            for seed,tool_name in pairs(sockets) do
-              local tool = CreateItem(tool_name, hero, hero)
-              Socketing:OnFortify( {
-                pID=-1,
-                item=item:entindex(),
-                tool=tool:entindex(),
-                seed=seed
-                } )
-            end
-          end
-
+    if equipment then
+      for k,v in pairs(equipment) do
+        local item_name = v.item_name
+        local item = CreateItem(item_name, hero, hero)
+        item.fortify_modifiers = v.fortify_modifiers
+        item.built_in_modifiers = v.built_in_modifiers
+        
+        Timers:CreateTimer(function ()
           Characters:GetInventory(pID):AddItem(item)
           Characters:GetInventory(pID):ActivateItem(hero, item, pID)
-        end
-      end)
+          end)
+      end
+    end
+
+    if inventory then
+      for k,v in pairs(inventory) do
+        local item_name = v.item_name
+        local item = CreateItem(item_name, hero, hero)
+        item.fortify_modifiers = v.fortify_modifiers
+        item.built_in_modifiers = v.built_in_modifiers
+
+        Timers:CreateTimer(0.5, function () -- wait a bit longer so add inventory items only once all equipment is on
+          Characters:GetInventory(pID):AddItem(item)
+          end)
+      end
     end
 
     Characters:InitCharacter( hero )
