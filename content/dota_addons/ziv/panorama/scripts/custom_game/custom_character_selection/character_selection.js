@@ -71,7 +71,7 @@ function CharacterCreationCreate() {
 			selectedAbilities.push(abilities[i].abilityname);
 		}
 
-		var characterTable = { "hero_name" : heroIcons[currentCharacter].heroname, "abilities" : selectedAbilities, "preset" : CharacterCreationGetSelectedPreset() };
+		var characterTable = { "character_name" : name, "hero_name" : heroIcons[currentCharacter].heroname, "abilities" : selectedAbilities, "preset" : CharacterCreationGetSelectedPreset() };
 
 		GameEvents.SendCustomGameEventToServer( "ziv_gamesetup_create_character", characterTable);
 

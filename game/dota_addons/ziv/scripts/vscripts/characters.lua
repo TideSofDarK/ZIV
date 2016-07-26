@@ -6,12 +6,13 @@ end
   Character structure is:
 
   I - During creation 
-  hero_name   -- e.g."npc_dota_hero_axe"
-  abilities   -- array of abilities
-  preset      -- array of abilities + equipped items
+  character_name  -- a character name given by player
+  hero_name       -- e.g."npc_dota_hero_axe"
+  abilities       -- array of abilities
+  preset          -- array of abilities + equipped items
 
   II - After creation
-  items       -- inventory
+  items           -- inventory
   equipment
 ]]
 
