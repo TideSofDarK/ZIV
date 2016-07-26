@@ -18,13 +18,9 @@ function GameSetup:Init()
 
 			if state == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
 			elseif state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
-				local characters = {}
-
 				for i=0,DOTA_MAX_PLAYERS do
-					characters[i] = {}
+					CustomNetTables:SetTableValue( "characters", tostring(i), {})
 				end
-
-				CustomNetTables:SetTableValue( "gamesetup", "characters", characters)
 			end
 		end, 
 	nil)
@@ -44,12 +40,12 @@ function GameSetup:OnPlayerCreateCharacter(args)
 
 	local pID = args.PlayerID
 
-	local characters = CustomNetTables:GetTableValue("gamesetup", "characters")
+	local characters = CustomNetTables:GetTableValue("characters", tostring(pID))
 
-    characters[pID] = characters[pID] or {}
-	table.insert(characters[pID], Characters:CreateCharacter( args ))
+    characters = characters or {}
+	table.insert(characters, Characters:CreateCharacter( args ))
 
-	CustomNetTables:SetTableValue("gamesetup", "characters", characters)
+	CustomNetTables:SetTableValue("characters", tostring(pID), characters)
 end
 
 function GameSetup:OnPlayerDeleteCharacter(args)
@@ -58,8 +54,8 @@ function GameSetup:OnPlayerDeleteCharacter(args)
 
 	local pID = args.PlayerID
 
-	local characters = CustomNetTables:GetTableValue("gamesetup", "characters")
-	table.remove(characters[pID], args.characterID)
+	local characters = CustomNetTables:GetTableValue("characters", tostring(pID))
+	table.remove(characters, args.characterID)
 
-	CustomNetTables:SetTableValue("gamesetup", "characters", characters)
+	CustomNetTables:SetTableValue("characters", tostring(pID), characters)
 end

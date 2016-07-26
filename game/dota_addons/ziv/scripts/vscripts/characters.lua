@@ -29,29 +29,32 @@ end
 function Characters:CreateCharacter( args )
   local player = PlayerResource:GetPlayer(args.PlayerID)
 
-  local new_character_table     = {}
+  local new_character_table       = {}
   new_character_table.hero_name   = args.hero_name
   new_character_table.abilities   = args.abilities
-  new_character_table.preset    = args.preset
+  new_character_table.preset      = args.preset
 
-  new_character_table.equipment = {}
+  new_character_table.equipment   = {}
 
-  for item_name,sockets in pairs(ZIV.PresetsKVs[new_character_table.hero_name][new_character_table.preset]) do
-    local item = CreateItem(item_name, player, player)
+  local presets = ZIV.PresetsKVs[new_character_table.hero_name]
+  if presets and presets[new_character_table.preset] then
+    for item_name,sockets in pairs(presets[new_character_table.preset]) do
+      local item = CreateItem(item_name, player, player)
 
-    if GetTableLength(sockets) > 0 then
-      for seed,tool_name in pairs(sockets) do
-        local tool = CreateItem(tool_name, player, player)
-        Socketing:OnFortify({
-         pID=-1,
-         item=item:entindex(),
-         tool=tool:entindex(),
-         seed=seed
-         })
+      if GetTableLength(sockets) > 0 then
+        for seed,tool_name in pairs(sockets) do
+          local tool = CreateItem(tool_name, player, player)
+          Socketing:OnFortify({
+           pID=-1,
+           item=item:entindex(),
+           tool=tool:entindex(),
+           seed=seed
+           })
+        end
       end
-    end
 
-    table.insert(new_character_table.equipment, { item = item_name, fortify_modifiers = item.fortify_modifiers })
+      table.insert(new_character_table.equipment, { item = item_name, fortify_modifiers = item.fortify_modifiers })
+    end
   end
 
   return new_character_table

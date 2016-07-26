@@ -347,8 +347,16 @@ function LoadCharactersList( args )
 	}
 }
 
+function OnCharactersTableChanged(table, key, data) {
+	if (key == Players.GetLocalPlayer()) {
+		
+	}
+}
+
 (function () {
 	GameEvents.Subscribe( "ziv_load_characters_list", LoadCharactersList );
+
+	CustomNetTables.SubscribeNetTableListener( 'characters', OnCharactersTableChanged );
 
 	damageType.html = true;
 	movespeed.html = true;
