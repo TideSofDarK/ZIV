@@ -53,19 +53,6 @@
 	margin: 0px;
 }
 
-.CCSHeadline {
-	background-color: transparent;
-
-	text-shadow: 1px 1px 1px black;
-	text-align: center;
-
-	text-overflow: clip;
-
-	color: White;
-
-	margin: 0px;
-}
-
 .Headline1 {
 	font-size: 33px;
 	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
