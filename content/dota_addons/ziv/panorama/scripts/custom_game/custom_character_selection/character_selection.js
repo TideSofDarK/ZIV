@@ -8,6 +8,10 @@ var MAXIMUM_ABILITY_ALTERNATIVES = 2;
 var heroIcons = [];
 var abilities = [];
 
+var characterData = [
+			{ character_name: "Nagibe322", hero_name: "npc_dota_hero_drow_ranger" },
+			{ character_name: "Naruto63", hero_name: "npc_dota_hero_windrunner" } ];
+
 var heroList;
 var heroesKVs;
 
@@ -301,6 +305,36 @@ function CharacterCreationOpen() {
 	GameEvents.SendEventClientSide( "ziv_apply_ui_blur", { "ui" : "loading_screen"} );
 }
 
+function CharacterSelectionSetup() {
+	var characterList = $("#CharacterList");
+
+	$.Each(characterList.Children(), function (panel) {
+		panel.RemoveAndDeleteChildren();
+	});
+
+	$.Each(characterData, function (heroTable) {
+		var characterPanel = $.CreatePanel( "Panel", characterList, "CreateNewCharater" );
+		characterPanel.BLoadLayoutSnippet("Character");
+		characterPanel.FindChildTraverse("QuestionMark").visible = false;
+
+		characterPanel.FindChildTraverse("CharacterModel").RemoveAndDeleteChildren();
+		characterPanel.FindChildTraverse("CharacterModel").DeleteAsync(0.0);
+		
+		var modelPanel = $.CreatePanel( "Panel", characterPanel, "CharacterModel" );
+		var previewStyle = "width: 575px; height: 555px; align: center center;";
+		modelPanel.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel style='" + previewStyle + "' unit='" + heroTable.hero_name + "'/></Panel></root>", false, false);
+	
+		characterPanel.FindChildTraverse("CharacterNameLabel").text = heroTable.character_name;
+	})
+
+	var createNewCharacterPanel = $.CreatePanel( "Panel", characterList, "CreateNewCharater" );
+	createNewCharacterPanel.BLoadLayoutSnippet("Character");
+	createNewCharacterPanel.FindChildTraverse("CharacterModel").AddClass("SilhouetteModel");
+	createNewCharacterPanel.SetPanelEvent("onmouseactivate", function () {
+		CharacterCreationOpen();
+	});
+}
+
 function CharacterSelectionLockIn() {
 	if (lockedIn == false) {
 		lockedIn = true;
@@ -317,36 +351,6 @@ function UpdateGameSetupPlayerState(status) {
 		"value" : table } );
 }
 
-function LoadCharactersList( args )
-{
-	args = {
-		minCount: 4,
-		heroList: [
-			// { name: "npc_dota_hero_drow_ranger", level: 5 },
-			// { name: "npc_dota_hero_windrunner", level: 8 },
-			// { name: "npc_dota_hero_invoker", level: 1 }
-		]
-	};
-
-	for(var hero of args.heroList)
-	{
-		var panel = $.CreatePanel( "Panel", $( "#LoadCharacterList" ), "Card_" + hero.name );
-		panel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_selection_card.xml", false, false );
-		panel.UpdateCard(hero);
-	}
-
-	if (args.heroList.length < args.minCount)
-	{
-		for (var i = 0; i < args.minCount - args.heroList.length; i++) {
-			var panel = $.CreatePanel( "Panel", $( "#LoadCharacterList" ), "Card_default" );
-			panel.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_selection_card.xml", false, false );
-			panel.UpdateCard(null, true);
-
-			panel.SetPanelEvent("onmouseactivate", CreateCharacterButton);
-		}
-	}
-}
-
 function OnCharactersTableChanged(table, key, data) {
 	if (key == Players.GetLocalPlayer()) {
 		
@@ -354,14 +358,11 @@ function OnCharactersTableChanged(table, key, data) {
 }
 
 (function () {
-	GameEvents.Subscribe( "ziv_load_characters_list", LoadCharactersList );
+	// GameEvents.Subscribe( "ziv_load_characters_list", LoadCharactersList );
 
 	CustomNetTables.SubscribeNetTableListener( 'characters', OnCharactersTableChanged );
 
-	damageType.html = true;
-	movespeed.html = true;
-	attackType.html = true;
-	playstyle.html = true;
+	CharacterSelectionSetup();
 
 	// SetupCreation()
 	// CreateCharacterButton()

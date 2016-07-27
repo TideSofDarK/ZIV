@@ -10,13 +10,22 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_tooltips.js" />
 		<include src="file://{resources}/scripts/custom_game/custom_character_selection/character_selection.js" />
 	</scripts>
+	<snippets>
+		<snippet name="Character">
+			<Panel class="CharacterRoot">
+				<DOTAScenePanel id="CharacterModel" unit="npc_dota_hero_beastmaster"/>
+				<Label id="QuestionMark" class="Headline Headline2" text="?" hittest="true" onactivate="CharacterCreationOpen()"/>
+				<Label id="CharacterNameLabel" class="Headline Headline1" text="New" hittest="true" onactivate="CharacterCreationOpen()"/>	
+			</Panel>
+		</snippet>
+	</snippets>
 	<Panel class="Root" hittest="false">
 		<Label id="GameInfo" class="Headline" text="#addoninfo" />	
-		<Panel id="SilhouetteRoot" class="GenericBackground">
-			<DOTAScenePanel id="SilhouetteModel" unit="npc_dota_hero_brewmaster">
-
-			</DOTAScenePanel>
-			<Label id="QuestionMark" class="Headline Headline2" text="?" hittest="true" onactivate="CharacterCreationOpen()"/>	
+		<Panel id="SelectionRoot">
+			<Panel id="CharacterListBackground">
+				<Panel id="CharacterList">
+				</Panel>
+			</Panel>
 		</Panel>
 		<Panel id="CreationRoot" class="GenericBackground WindowAnimation WindowClosed">
 			<Panel id="CreationTop">
@@ -66,7 +75,7 @@
 						</Panel>
 					</Panel>
 					<Panel id="NameRunesLeague" class="MiddleBlock OpacityPositionTransitionRight">
-						<Label class="Headline Headline2" id="CharacterNameLabel" text="#character_name" />
+						<Label class="Headline Headline2" text="#character_name" />
 						<TextEntry id="CharacterNameEntry" maxchars="16" placeholder="Enter name..." />
 						<Label class="Headline Headline2" id="CharacterPresetsLabel" text="#character_presets" />
 						<Panel id="Presets">

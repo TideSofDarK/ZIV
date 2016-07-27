@@ -38,7 +38,7 @@
   <Panel class="GameSetupRoot WindowAnimation">
     <Panel class="GenericBackground" id="Logo">
     </Panel>
-    <Panel id="PlayerListRight" class="PlayerList FixMargin AlignRight">
+    <Panel id="PlayerListRight" class="PlayerList AlignRight">
       
     </Panel>
     <Panel id="PlayerListLeft" class="PlayerList AlignLeft">

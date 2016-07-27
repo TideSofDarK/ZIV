@@ -61,10 +61,6 @@
 	transform: scale3d( -1, 1, 1);
 }
 
-.FixMargin {
-	margin-right: 40px;
-}
-
 .FramePadding {
 	margin-left: 60px;
 	margin-right: 60px;
@@ -73,7 +69,7 @@
 .PlayerList {
 	flow-children: down;
 
-	margin-top: 40px;
+	margin: 40px;
 }
 
 .Avatar {
