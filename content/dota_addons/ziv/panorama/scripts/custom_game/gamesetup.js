@@ -37,7 +37,7 @@ function Update() {
 							SetStatusIcon(statusIconPanel, "StatusConnected");
 						}
 					} else {
-						statusTextPanel.text = $.Localize("gamesetup_choosing_character");
+						statusTextPanel.text = $.Localize("gamesetup_connected");
 
 						SetStatusIcon(statusIconPanel, "StatusConnected");
 					}

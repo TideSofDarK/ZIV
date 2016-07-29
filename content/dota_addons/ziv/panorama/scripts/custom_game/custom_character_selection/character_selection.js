@@ -10,7 +10,8 @@ var abilities = [];
 
 var characterData = [
 			{ character_name: "Nagibe322", hero_name: "npc_dota_hero_drow_ranger" },
-			{ character_name: "Dauni4", hero_name: "npc_dota_hero_invoker" } ];
+			{ character_name: "Dauni4", hero_name: "npc_dota_hero_invoker" },
+			{ character_name: "Naruto63", hero_name: "npc_dota_hero_windrunner" } ];
 
 var heroList;
 var heroesKVs;
@@ -299,7 +300,7 @@ function CharacterCreationOpen() {
 	CharacterCreationSetup();
 	$("#CreationRoot").RemoveClass("WindowClosed")
 
-	UpdateGameSetupPlayerState("choosing_character");
+	UpdateGameSetupPlayerState("preparing");
 
 	GameEvents.SendEventClientSide( "ziv_apply_ui_blur", { "ui" : "gamesetup"} );
 	GameEvents.SendEventClientSide( "ziv_apply_ui_blur", { "ui" : "loading_screen"} );
@@ -323,10 +324,11 @@ function CharacterSelectionSetup() {
 		characterPanel.FindChildTraverse("CharacterModelSelected").RemoveAndDeleteChildren();
 		characterPanel.FindChildTraverse("CharacterModelSelected").DeleteAsync(0.0);
 		
-		var modelPanelSelected = $.CreatePanel( "Panel", characterPanel, "CharacterModelSelected" );
+		var modelPanelSelected = $.CreatePanel( "RadioButton", characterPanel, "CharacterModelSelected" );
 		var previewStyle = "width: 100%; height: 100%; align: center center;";
 		modelPanelSelected.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel style='" + previewStyle + "' unit='" + heroTable.hero_name + "'/></Panel></root>", false, false);
 		modelPanelSelected.AddClass("CharacterModelSelected");
+		modelPanelSelected.group = "Characters";
 
 		var modelPanel = $.CreatePanel( "Panel", characterPanel, "CharacterModel" );
 		previewStyle = "width: 575px; height: 555px; align: center center;";
