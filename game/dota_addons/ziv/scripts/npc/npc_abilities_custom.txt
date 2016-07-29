@@ -5264,7 +5264,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_samurai_cold_touch"
 	
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 	
@@ -5346,7 +5346,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_samurai_dash"
 	
 	  "AbilityCastPoint"        "0.0001"
 	  "AbilityCooldown"         "2.5"
@@ -5459,10 +5459,9 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+	  "AbilityTextureName"            "ziv_samurai_execution"
 	
 	  "AbilityCastAnimation"      ""
-	
-	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCastPoint"        "0.04"
 	  "AbilityCooldown"        "0.295"
@@ -5536,7 +5535,7 @@
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_samurai_reign_of_fire"
 	
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 	  
@@ -5632,7 +5631,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_samurai_smoke"
 	
 	  "AbilityCastPoint"        "0.4"
 	  "AbilityCooldown"         "14"

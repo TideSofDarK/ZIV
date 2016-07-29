@@ -10,7 +10,7 @@ var abilities = [];
 
 var characterData = [
 			{ character_name: "Nagibe322", hero_name: "npc_dota_hero_drow_ranger" },
-			{ character_name: "Naruto63", hero_name: "npc_dota_hero_windrunner" } ];
+			{ character_name: "Dauni4", hero_name: "npc_dota_hero_invoker" } ];
 
 var heroList;
 var heroesKVs;
@@ -319,11 +319,19 @@ function CharacterSelectionSetup() {
 
 		characterPanel.FindChildTraverse("CharacterModel").RemoveAndDeleteChildren();
 		characterPanel.FindChildTraverse("CharacterModel").DeleteAsync(0.0);
+
+		characterPanel.FindChildTraverse("CharacterModelSelected").RemoveAndDeleteChildren();
+		characterPanel.FindChildTraverse("CharacterModelSelected").DeleteAsync(0.0);
 		
+		var modelPanelSelected = $.CreatePanel( "Panel", characterPanel, "CharacterModelSelected" );
+		var previewStyle = "width: 100%; height: 100%; align: center center;";
+		modelPanelSelected.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel style='" + previewStyle + "' unit='" + heroTable.hero_name + "'/></Panel></root>", false, false);
+		modelPanelSelected.AddClass("CharacterModelSelected");
+
 		var modelPanel = $.CreatePanel( "Panel", characterPanel, "CharacterModel" );
-		var previewStyle = "width: 575px; height: 555px; align: center center;";
-		modelPanel.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel style='" + previewStyle + "' unit='" + heroTable.hero_name + "'/></Panel></root>", false, false);
-	
+		previewStyle = "width: 575px; height: 555px; align: center center;";
+		modelPanel.LoadLayoutFromStringAsync("<root><Panel hittest='false'><DOTAScenePanel hittest='false' style='" + previewStyle + "' unit='" + heroTable.hero_name + "'/></Panel></root>", false, false);
+
 		characterPanel.FindChildTraverse("CharacterNameLabel").text = heroTable.character_name;
 	})
 

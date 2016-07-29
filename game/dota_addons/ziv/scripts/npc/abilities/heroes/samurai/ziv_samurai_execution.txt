@@ -2,10 +2,9 @@
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+  "AbilityTextureName"            "ziv_samurai_execution"
 
   "AbilityCastAnimation"      ""
-
-  "AbilityTextureName"            "ziv_empty"
 
   "AbilityCastPoint"        "0.04"
   "AbilityCooldown"        "0.295"

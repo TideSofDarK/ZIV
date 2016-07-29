@@ -153,7 +153,26 @@
 }
 
 .CharacterRoot:hover {
-	pre-transform-scale2d: 1.1;
+	/*pre-transform-scale2d: 1.1;*/
+}
+
+.CharacterModelSelected {
+	width: 600px; 
+	height: 600px; 
+
+	align: center center; 
+
+	blur: gaussian( 10.5 ); 
+	brightness: 20;
+
+	transition-property: wash-color;
+	transition-duration: 0.23s;
+
+	wash-color: #000000;
+}
+
+.CharacterModelSelected:hover {
+	wash-color: #ffffff;
 }
 
 #CharacterModel {
@@ -170,6 +189,9 @@
 	font-weight: bold;
 	font-size: 110px;
 	margin-top: 50px;
+
+	transition-property: pre-transform-scale2d;
+	transition-duration: 0.23s;
 }
 
 #CharacterNameLabel {
@@ -177,7 +199,7 @@
 }
 
 #QuestionMark:hover {
-	
+	pre-transform-scale2d: 1.1;
 }
 
 /*
@@ -487,14 +509,16 @@ RadioButton.League {
 }
 
 #Abilities {
-	width: 45%;
+	/*width: 45%;*/
 	height: 80%;
 
 	flow-children: right;
 
 	align: center center;
 
-	margin-bottom: 10px;
+	text-align: center;
+
+	margin-right: 30px;
 
 	line-height: 120px;
 }

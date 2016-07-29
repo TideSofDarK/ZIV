@@ -2,7 +2,7 @@
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-  "AbilityTextureName"            "ziv_empty"
+  "AbilityTextureName"            "ziv_samurai_cold_touch"
 
   "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 

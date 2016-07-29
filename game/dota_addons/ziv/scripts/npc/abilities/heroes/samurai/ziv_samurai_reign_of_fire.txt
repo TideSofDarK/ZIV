@@ -3,7 +3,7 @@
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
   "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-  "AbilityTextureName"            "ziv_empty"
+  "AbilityTextureName"            "ziv_samurai_reign_of_fire"
 
   "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
   
