@@ -79,6 +79,8 @@
 	vertical-align: center;
 
 	opacity-mask: url("file://{images}/custom_game/gamesetup_avatar_mask.png");
+
+	background-color: #1c221b;
 }
 
 #Avatar {

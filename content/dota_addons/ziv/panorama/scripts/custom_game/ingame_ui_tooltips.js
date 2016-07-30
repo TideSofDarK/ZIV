@@ -3,11 +3,11 @@
 function AddTooltip( panel, text )
 {
 	panel.SetPanelEvent("onmouseover", function(){
-		$.DispatchEvent("DOTAShowTextTooltip", panel, $.Localize( text ) );
+		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', panel, panel.id, "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize( text ));
 	});
 
 	panel.SetPanelEvent("onmouseout", function() {
-		$.DispatchEvent("DOTAHideTextTooltip"); 
+		$.DispatchEvent("UIHideCustomLayoutTooltip", panel, panel.id); 
 	});
 }
 

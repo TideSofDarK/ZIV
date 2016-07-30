@@ -29,12 +29,13 @@ end
 function Characters:CreateCharacter( args )
   local player = PlayerResource:GetPlayer(args.PlayerID)
 
-  local new_character_table       = {}
-  new_character_table.hero_name   = args.hero_name
-  new_character_table.abilities   = args.abilities
-  new_character_table.preset      = args.preset
+  local new_character_table             = {}
+  new_character_table.character_name    = args.character_name
+  new_character_table.hero_name         = args.hero_name
+  new_character_table.abilities         = args.abilities
+  new_character_table.preset            = args.preset
 
-  new_character_table.equipment   = {}
+  new_character_table.equipment         = {}
 
   local presets = ZIV.PresetsKVs[new_character_table.hero_name]
   if presets and presets[new_character_table.preset] then

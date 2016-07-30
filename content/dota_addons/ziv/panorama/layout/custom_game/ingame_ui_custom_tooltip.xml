@@ -12,7 +12,7 @@
     <Panel class="TooltipContents GenericBackground" ontooltiploaded="SetupTooltip()">
         <Panel class="TooltipBorderA">
             <Panel class="TooltipBorderB">
-                 <Label id="TooltipText" class="TooltipText"/>
+                 <Label id="TooltipText" html="true" class="TooltipText"/>
             </Panel>
         </Panel>
     </Panel>

@@ -191,6 +191,7 @@
 	"creation_error_length"							"Minimal name length is 6 charaters. Maximum name length is 16 characters."
 	"creation_error_symbols"						"Name can only contain digits and latin letters."
 
+	"create_character_button" "Submit"
 	"remove_hero" "Remove hero"
 	"create_character_headline" "Create new character"
 	"highlight_easy_caharacters" "Highlight Characters for new players"
@@ -204,7 +205,7 @@
 	"character_color"	"Color Scheme"
 	"character_presets"	"Presets"
 	"character_league"	"League"
-	"create_character_button" "Submit"
+	"character_new"	"New"
 
 	"tab_battle_info" "Summary"
 	"tab_bio" "Biography"

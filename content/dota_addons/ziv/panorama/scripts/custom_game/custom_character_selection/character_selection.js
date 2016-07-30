@@ -8,10 +8,8 @@ var MAXIMUM_ABILITY_ALTERNATIVES = 2;
 var heroIcons = [];
 var abilities = [];
 
-var characterData = [
-			{ character_name: "Nagibe322", hero_name: "npc_dota_hero_drow_ranger" },
-			{ character_name: "Dauni4", hero_name: "npc_dota_hero_invoker" },
-			{ character_name: "Naruto63", hero_name: "npc_dota_hero_windrunner" } ];
+var newCharacterButtonTable = {"character_name":"new","preset":{},"hero_name":"npc_dota_hero_beastmaster"};
+var characterData = [newCharacterButtonTable];
 
 var heroList;
 var heroesKVs;
@@ -310,13 +308,13 @@ function CharacterSelectionSetup() {
 	var characterList = $("#CharacterList");
 
 	$.Each(characterList.Children(), function (panel) {
+		panel.DeleteAsync(0.0);
 		panel.RemoveAndDeleteChildren();
 	});
 
 	$.Each(characterData, function (heroTable) {
 		var characterPanel = $.CreatePanel( "Panel", characterList, "CreateNewCharater" );
 		characterPanel.BLoadLayoutSnippet("Character");
-		characterPanel.FindChildTraverse("QuestionMark").visible = false;
 
 		characterPanel.FindChildTraverse("CharacterModel").RemoveAndDeleteChildren();
 		characterPanel.FindChildTraverse("CharacterModel").DeleteAsync(0.0);
@@ -325,24 +323,35 @@ function CharacterSelectionSetup() {
 		characterPanel.FindChildTraverse("CharacterModelSelected").DeleteAsync(0.0);
 		
 		var modelPanelSelected = $.CreatePanel( "RadioButton", characterPanel, "CharacterModelSelected" );
-		var previewStyle = "width: 100%; height: 100%; align: center center;";
+		var previewStyle = "width: 100%; height: 100%; align: center top; overflow: clip clip;";
 		modelPanelSelected.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel style='" + previewStyle + "' unit='" + heroTable.hero_name + "'/></Panel></root>", false, false);
+		modelPanelSelected.AddClass("CharacterModel");
 		modelPanelSelected.AddClass("CharacterModelSelected");
 		modelPanelSelected.group = "Characters";
 
 		var modelPanel = $.CreatePanel( "Panel", characterPanel, "CharacterModel" );
-		previewStyle = "width: 575px; height: 555px; align: center center;";
+		previewStyle = "width: 100%; height: 100%; align: center top; overflow: clip clip;";
 		modelPanel.LoadLayoutFromStringAsync("<root><Panel hittest='false'><DOTAScenePanel hittest='false' style='" + previewStyle + "' unit='" + heroTable.hero_name + "'/></Panel></root>", false, false);
+		modelPanel.AddClass("CharacterModel");
 
-		characterPanel.FindChildTraverse("CharacterNameLabel").text = heroTable.character_name;
+		if (heroTable.character_name == "new") {
+			characterPanel.FindChildTraverse("CharacterNameLabel").text = $.Localize("#character_new");
+			
+			modelPanelSelected.SetPanelEvent("onmouseactivate", function () {
+				CharacterCreationOpen();
+				modelPanelSelected.checked = false;
+			});
+
+			modelPanel.AddClass("SilhouetteModel");
+			modelPanelSelected.visible = false;
+
+			characterPanel.MoveChildAfter(characterPanel.FindChildTraverse("QuestionMark"), modelPanel);
+		} else {
+			characterPanel.FindChildTraverse("QuestionMark").visible = false;
+
+			characterPanel.FindChildTraverse("CharacterNameLabel").text = heroTable.character_name;
+		}
 	})
-
-	var createNewCharacterPanel = $.CreatePanel( "Panel", characterList, "CreateNewCharater" );
-	createNewCharacterPanel.BLoadLayoutSnippet("Character");
-	createNewCharacterPanel.FindChildTraverse("CharacterModel").AddClass("SilhouetteModel");
-	createNewCharacterPanel.SetPanelEvent("onmouseactivate", function () {
-		CharacterCreationOpen();
-	});
 }
 
 function CharacterSelectionLockIn() {
@@ -362,8 +371,13 @@ function UpdateGameSetupPlayerState(status) {
 }
 
 function OnCharactersTableChanged(table, key, data) {
+	// Update character list table
 	if (key == Players.GetLocalPlayer()) {
-		
+		characterData = data;
+		// Keep 'new character' button
+		characterData[(characterData.length + 1).toString()] = newCharacterButtonTable
+
+		CharacterSelectionSetup()
 	}
 }
 
