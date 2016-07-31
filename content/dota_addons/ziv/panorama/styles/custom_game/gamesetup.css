@@ -28,14 +28,34 @@
 	height: 181px;
 }
 
-#Logo {
+#GameSetupInfo {
+	align: center top;
+	height: 300px;
 	margin-top: 35px;
+}
+
+#Logo {
 	vertical-align: top;
 
 	background-image: url('file://{images}/custom_game/ingame_ui/logo.png');
 
-	width: 312px;
-	height: 380px;
+	width: 201px;
+	height: 250px;
+}
+
+#TimeOffset {
+	height: 100%;
+	width: 100%;
+	align: center bottom;
+}
+
+#TimeLabel {
+	align: center bottom;
+	font-family: Goudy Trajan;
+	font-size: 35px;
+	text-align: left;
+	color: white;
+	text-shadow: 0px 0px 8px 3.0 #333333b0;
 }
 
 .AlignLeft {

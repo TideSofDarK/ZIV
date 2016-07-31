@@ -1,5 +1,7 @@
 "use strict";
 
+var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+
 function CreatePlayers() {
 
 }
@@ -27,7 +29,7 @@ function Update() {
 				var statusTextPanel = playerPanel.FindChildTraverse("StatusLabel");
  
 				if (playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_CONNECTED) {
-					var playerStatus = CustomNetTables.GetTableValue("gamesetup", "status");
+					var playerStatus = PlayerTables.GetTableValue("gamesetup", "status");
 					if (playerStatus && playerStatus[playerID]) {
 						statusTextPanel.text = $.Localize("gamesetup_" + playerStatus[playerID]);
 
@@ -73,9 +75,18 @@ function RemoveBlur(args) {
 	$.GetContextPanel().RemoveClass("Blur");
 }
 
+function OnGameSetupTableChanged(tableName, changesObject, deletionsObject) {
+	if (changesObject["time"]) {
+		var time = changesObject["time"]["initial"]
+		$("#TimeLabel").text = (Math.floor(time/60)) + ":" + (time%60);
+	}
+}
+
 (function (){
 	GameEvents.Subscribe( "ziv_apply_ui_blur", Blur );
 	GameEvents.Subscribe( "ziv_remove_ui_blur", RemoveBlur );
+
+	PlayerTables.SubscribeNetTableListener( 'gamesetup', OnGameSetupTableChanged );
 
 	Game.PlayerJoinTeam(2);
 

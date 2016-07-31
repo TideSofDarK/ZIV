@@ -36,7 +36,12 @@
     </snippet>
   </snippets>
   <Panel class="GameSetupRoot WindowAnimation">
-    <Panel class="GenericBackground" id="Logo">
+    <Panel id="GameSetupInfo">
+      <Panel class="GenericBackground" id="Logo">
+      </Panel>
+      <Panel id="TimeOffset">
+        <Label id="TimeLabel"/>
+      </Panel>
     </Panel>
     <Panel id="PlayerListRight" class="PlayerList AlignRight">
       

@@ -63,8 +63,15 @@ function CharacterCreationCreate() {
 	var nameLabel = $("#CharacterNameEntry");
 	var name = nameLabel.text;
 	if (name.length < 6 || name.length > 16) {
-		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', nameLabel, "CharacterCreationError", "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize("creation_error_length"));
+		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', nameLabel, "CharacterCreationError", "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize("gamesetup_creation_error_length"));
 		return;
+	}
+
+	for (var key in characterData) {
+		if (characterData[key].character_name == name) {
+			$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', nameLabel, "CharacterCreationError", "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize("gamesetup_creation_error_same"));
+			return;
+		}
 	}
 
 	if (name.match(/^[A-Za-z0-9_-]{6,16}$/gm)) {
@@ -78,10 +85,12 @@ function CharacterCreationCreate() {
 
 		GameEvents.SendCustomGameEventToServer( "ziv_gamesetup_create_character", characterTable);
 
+		nameLabel.text = "";
+
 		CharacterCreationCancel();
 		CharacterCreationClose();
 	} else {
-		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', nameLabel, "CharacterCreationError", "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize("creation_error_symbols"));
+		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', nameLabel, "CharacterCreationError", "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize("gamesetup_creation_error_symbols"));
 		return;
 	}
 }
@@ -103,7 +112,7 @@ function CharacterCreationCancel() {
 	abilityRoot.ToggleClass("NoLabel");
 
 	currentCharacter = -1;
-	$("#CreateCharacterLabel").text = $.Localize("create_character_headline");
+	$("#CreateCharacterLabel").text = $.Localize("gamesetup_create_character_headline");
 
 	$("#NameRunesLeague").ToggleClass("OpacityPositionTransitionRight");
 	$("#HeroInfo").ToggleClass("OpacityPositionTransitionLeft");
@@ -312,9 +321,11 @@ function CharacterSelectionSetup() {
 		panel.RemoveAndDeleteChildren();
 	});
 
-	$.Each(characterData, function (heroTable) {
+	$.Each(characterData, function (characterTable) {
 		var characterPanel = $.CreatePanel( "Panel", characterList, "CreateNewCharater" );
 		characterPanel.BLoadLayoutSnippet("Character");
+
+		characterPanel.characterTable = characterTable;
 
 		characterPanel.FindChildTraverse("CharacterModel").RemoveAndDeleteChildren();
 		characterPanel.FindChildTraverse("CharacterModel").DeleteAsync(0.0);
@@ -324,18 +335,18 @@ function CharacterSelectionSetup() {
 		
 		var modelPanelSelected = $.CreatePanel( "RadioButton", characterPanel, "CharacterModelSelected" );
 		var previewStyle = "width: 100%; height: 100%; align: center top; overflow: clip clip;";
-		modelPanelSelected.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel style='" + previewStyle + "' unit='" + heroTable.hero_name + "'/></Panel></root>", false, false);
+		modelPanelSelected.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel style='" + previewStyle + "' unit='" + characterTable.hero_name + "'/></Panel></root>", false, false);
 		modelPanelSelected.AddClass("CharacterModel");
 		modelPanelSelected.AddClass("CharacterModelSelected");
 		modelPanelSelected.group = "Characters";
 
 		var modelPanel = $.CreatePanel( "Panel", characterPanel, "CharacterModel" );
 		previewStyle = "width: 100%; height: 100%; align: center top; overflow: clip clip;";
-		modelPanel.LoadLayoutFromStringAsync("<root><Panel hittest='false'><DOTAScenePanel hittest='false' style='" + previewStyle + "' unit='" + heroTable.hero_name + "'/></Panel></root>", false, false);
+		modelPanel.LoadLayoutFromStringAsync("<root><Panel hittest='false'><DOTAScenePanel hittest='false' style='" + previewStyle + "' unit='" + characterTable.hero_name + "'/></Panel></root>", false, false);
 		modelPanel.AddClass("CharacterModel");
 
-		if (heroTable.character_name == "new") {
-			characterPanel.FindChildTraverse("CharacterNameLabel").text = $.Localize("#character_new");
+		if (characterTable.character_name == "new") {
+			characterPanel.FindChildTraverse("CharacterNameLabel").text = $.Localize("#gamesetup_character_new");
 			
 			modelPanelSelected.SetPanelEvent("onmouseactivate", function () {
 				CharacterCreationOpen();
@@ -349,31 +360,52 @@ function CharacterSelectionSetup() {
 		} else {
 			characterPanel.FindChildTraverse("QuestionMark").visible = false;
 
-			characterPanel.FindChildTraverse("CharacterNameLabel").text = heroTable.character_name;
+			characterPanel.FindChildTraverse("CharacterNameLabel").text = characterTable.character_name;
 		}
 	})
 }
 
+function CharacterSelectionGetSelectedCharacter() {
+	var characterList = $("#CharacterList");
+	for (var panel of characterList.Children()) { 
+		for (var child of panel.Children()) { 
+			return panel.characterTable
+		}
+	}
+}
+
+function CharacterSelectionRemoveCharacter() {
+	var selectedCharacter = CharacterSelectionGetSelectedCharacter();
+	GameEvents.SendCustomGameEventToServer( "ziv_gamesetup_delete_character", selectedCharacter);
+}
+
 function CharacterSelectionLockIn() {
-	if (lockedIn == false) {
+	var selectedCharacter = CharacterSelectionGetSelectedCharacter();
+
+	if (lockedIn == false && selectedCharacter) {
 		lockedIn = true;
+
+		UpdateGameSetupPlayerState("ready");
+
+		GameEvents.SendCustomGameEventToServer( "ziv_gamesetup_lockin", {"character_name" : selectedCharacter.character_name});
 	}
 }
 
 function UpdateGameSetupPlayerState(status) {
-	var table = CustomNetTables.GetTableValue( "gamesetup", "status" );
+	var table = PlayerTables.GetTableValue( "gamesetup", "status" );
 	table[Players.GetLocalPlayer()] = status;
 
 	GameEvents.SendCustomGameEventToServer( "ziv_write_to_nettable", { 
 		"name" : "gamesetup", 
 		"key" : "status",
-		"value" : table } );
+		"value" : table,
+		"api" : "PlayerTables" } );
 }
 
-function OnCharactersTableChanged(table, key, data) {
-	// Update character list table
-	if (key == Players.GetLocalPlayer()) {
-		characterData = data;
+function OnCharactersTableChanged(tableName, changesObject, deletionsObject) {
+	if (changesObject[3]) {
+		characterData = PlayerTables.GetTableValue('characters', Players.GetLocalPlayer().toString());
+		
 		// Keep 'new character' button
 		characterData[(characterData.length + 1).toString()] = newCharacterButtonTable
 
@@ -381,15 +413,12 @@ function OnCharactersTableChanged(table, key, data) {
 	}
 }
 
+function OnGameSetupTableChanged(tableName, changesObject, deletionsObject) {
+}
+
 (function () {
 	// GameEvents.Subscribe( "ziv_load_characters_list", LoadCharactersList );
 
-	CustomNetTables.SubscribeNetTableListener( 'characters', OnCharactersTableChanged );
-
-	CharacterSelectionSetup();
-
-	// SetupCreation()
-	// CreateCharacterButton()
-
-	// LoadCharactersList( null );
+	PlayerTables.SubscribeNetTableListener( 'gamesetup', OnGameSetupTableChanged );
+	PlayerTables.SubscribeNetTableListener( 'characters', OnCharactersTableChanged );
 })();

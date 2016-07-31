@@ -402,6 +402,11 @@ function ZIV:WriteToNettable( keys )
   local name = keys.name
   local key = keys.key
   local value = keys.value
+  local api = keys.api or "CustomNetTables"
 
-  CustomNetTables:SetTableValue( name, key, value )
+  if api ~= "CustomNetTables" then
+    PlayerTables:SetTableValue( name, key, value )
+  else
+    CustomNetTables:SetTableValue( name, key, value )
+  end
 end
