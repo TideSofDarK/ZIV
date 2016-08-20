@@ -19,7 +19,10 @@ function SendRequest( requestParams, successCallback )
             data: { 
                 CommandParams: JSON.stringify(requestParams) 
             },
-            success: successCallback
+            success: successCallback,
+            error: (function(data){
+                $.Msg(data);
+            })
         });
 }
 
