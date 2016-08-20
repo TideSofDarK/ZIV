@@ -29,12 +29,7 @@ end
 function Characters:CreateCharacter( args )
   local player = PlayerResource:GetPlayer(args.PlayerID)
 
-  local new_character_table             = {}
-  new_character_table.character_name    = args.character_name
-  new_character_table.hero_name         = args.hero_name
-  new_character_table.abilities         = args.abilities
-  new_character_table.preset            = args.preset
-
+  local new_character_table             = args
   new_character_table.equipment         = {}
 
   local presets = ZIV.PresetsKVs[new_character_table.hero_name]
@@ -57,6 +52,8 @@ function Characters:CreateCharacter( args )
       table.insert(new_character_table.equipment, { item = item_name, fortify_modifiers = item.fortify_modifiers })
     end
   end
+
+  SU:RecordCharacter( new_character_table )
 
   return new_character_table
 end

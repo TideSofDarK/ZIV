@@ -83,7 +83,7 @@ require('scenarios/temple')
 require('commands')
 
 -- Networking stuff
-require('libraries/stat_uploader')
+require('libraries/network')
 require('network')
 
 LinkLuaModifier("modifier_custom_attack", "abilities/tools/modifier_custom_attack.lua", LUA_MODIFIER_MOTION_NONE)

@@ -51,11 +51,6 @@ function GameSetup:OnPlayerCancelLockIn(args)
 end
 
 function GameSetup:OnPlayerCreateCharacter(args)
-	-- TODO
-	-- Server-related stuff
-
-	SU:Test()
-
 	local pID = args.PlayerID
 
 	local characters = PlayerTables:GetTableValue("characters", tostring(pID))
@@ -67,9 +62,6 @@ function GameSetup:OnPlayerCreateCharacter(args)
 end
 
 function GameSetup:OnPlayerDeleteCharacter(args)
-	-- TODO
-	-- Server-related stuff
-
 	local pID = args.PlayerID
 
 	local characters = PlayerTables:GetTableValue("characters", tostring(pID))

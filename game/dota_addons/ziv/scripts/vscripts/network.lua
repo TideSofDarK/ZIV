@@ -46,3 +46,22 @@ function SU:Init()
     print("StatUploader settings file not found.")
   end
 end
+
+function SU:RecordCharacter( args )
+  local playerID = args.PlayerID
+  local steamID = PlayerResource:GetSteamAccountID(playerID)
+
+  local requestParams = {
+    Command = "RecordCharacter",
+    Data = {
+      SteamID = steamID,
+      CharacterName = args.character_name,
+      HeroName = args.hero_name,
+      Abilities = StringifyTable(args.abilities),
+      Equipment = StringifyTable(args.equipment)
+    }
+  }
+  
+  SU:SendRequest( requestParams, function(obj)
+  end)
+end

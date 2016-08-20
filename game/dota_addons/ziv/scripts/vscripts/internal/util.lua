@@ -149,6 +149,16 @@ function DestroyEntityBasedOnHealth(killer, target)
   ApplyDamage(damageTable)
 end
 
+function StringifyTable(t) 
+  local result = ""
+
+  for k,v in pairs(t) do
+    result = result..v..","
+  end
+
+  return result
+end
+
 function DebugPrint(...)
   local spew = Convars:GetInt('ziv_spew') or -1
   if spew == -1 and ZIV_DEBUG_SPEW then
