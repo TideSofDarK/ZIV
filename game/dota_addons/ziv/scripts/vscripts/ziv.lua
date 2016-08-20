@@ -49,7 +49,7 @@ require('items/equipment')
 require('items/vials')
 require('items/runes')
 -- Game setup
-require('libraries/gamesetup')
+require('gamesetup')
 
 -- Character management
 require('characters')
@@ -81,6 +81,10 @@ require('scenarios/temple')
 
 -- Debug commands
 require('commands')
+
+-- Networking stuff
+require('libraries/stat_uploader')
+require('network')
 
 LinkLuaModifier("modifier_custom_attack", "abilities/tools/modifier_custom_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_fade_out_in", "abilities/tools/modifier_fade_out_in.lua", LUA_MODIFIER_MOTION_NONE)

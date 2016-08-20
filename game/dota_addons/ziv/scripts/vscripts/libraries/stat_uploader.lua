@@ -51,9 +51,6 @@ end
 -- Testing functions
 -------------------------------------------------------------------------------
 
--- Testing event
-CustomGameEventManager:RegisterListener( "su_test_request", Dynamic_Wrap(SU, 'Test'))
-
 function SU:Test()
   local requestParams = {
     Command = "Testing"

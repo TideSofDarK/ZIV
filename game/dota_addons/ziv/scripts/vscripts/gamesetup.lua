@@ -54,6 +54,8 @@ function GameSetup:OnPlayerCreateCharacter(args)
 	-- TODO
 	-- Server-related stuff
 
+	SU:Test()
+
 	local pID = args.PlayerID
 
 	local characters = PlayerTables:GetTableValue("characters", tostring(pID))
