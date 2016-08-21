@@ -77,7 +77,7 @@ function RemoveBlur(args) {
 
 function OnGameSetupTableChanged(tableName, changesObject, deletionsObject) {
 	if (changesObject["time"]) {
-		var time = changesObject["time"]["initial"]
+		var time = changesObject["time"]["time"]
 		$("#TimeLabel").text = (Math.floor(time/60)) + ":" + (time%60);
 	}
 }

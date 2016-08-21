@@ -26,16 +26,32 @@ function GameSetup:Init()
 					PlayerTables:SetTableValue("characters", tostring(i), {})
 				end
 
-				PlayerTables:SetTableValue("gamesetup", "time", {initial = GameSetup.INITIAL_TIME})
+				GameSetup:StartTimer(GameSetup.INITIAL_TIME, function () 
 
-				Timers:CreateTimer(function ()
-					PlayerTables:SetTableValue("gamesetup", "time", {initial = PlayerTables:GetTableValue( "gamesetup", "time").initial - 1})
+				end, function () 
+					GameSetup:StartTimer(GameSetup.COUNTDOWN_TIME, function () 
 
-					return 1.0
+					end, function () 
+
+					end)
 				end)
 			end
 		end, 
 	nil)
+end
+
+function GameSetup:StartTimer(duration, tick, on_end)
+	PlayerTables:SetTableValue("gamesetup", "time", {time = duration})
+	Timers:CreateTimer(1.0, function ()
+		local time = PlayerTables:GetTableValue( "gamesetup", "time").time
+		if time ~= 0 then
+			PlayerTables:SetTableValue("gamesetup", "time", {time = time - 1})
+			tick()
+			return 1.0
+		else
+			on_end()
+		end
+	end)
 end
 
 function GameSetup:OnPlayerLockIn(args)
