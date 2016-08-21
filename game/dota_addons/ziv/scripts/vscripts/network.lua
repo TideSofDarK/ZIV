@@ -1,23 +1,21 @@
-local isTest = true
-local steamIDs
+SU.NETWORK_TEST = true
+SU.STEAMIDS     = {}
 
 ListenToGameEvent('game_rules_state_change', 
   function(keys)
     local state = GameRules:State_Get()
 
     if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
-      Timers:CreateTimer(function ()
-        SU:Init()
-      end)
+      SU:Init()
     end
   end, nil)
 
 function SU:BuildSteamIDArray()
     local players = {}
-    for playerID = 0, DOTA_MAX_PLAYERS-1 do
-      if PlayerResource:IsValidPlayerID(playerID) then
-        if not PlayerResource:IsBroadcaster(playerID) then
-          table.insert(players, PlayerResource:GetSteamAccountID(playerID) or 0)
+    for pID = 0, DOTA_MAX_PLAYERS-1 do
+      if PlayerResource:IsValidPlayerID(pID) then
+        if not PlayerResource:IsBroadcaster(pID) then
+          players[pID] = PlayerResource:GetSteamAccountID(pID) or 0
         end
       end
     end
@@ -26,19 +24,11 @@ function SU:BuildSteamIDArray()
 end
 
 function SU:Init()
-  steamIDs = SU:BuildSteamIDArray()
-  DeepPrintTable(steamIDs)
+  SU.STEAMIDS = SU:BuildSteamIDArray()
   
-  if SU.StatSettings ~= nil then
-    if isTest or (not GameRules:IsCheatMode()) then
-      ListenToGameEvent('game_rules_state_change', 
-        function(keys)
-          local state = GameRules:State_Get()
-
-          if state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-            SU:SendAuthInfo()
-          end
-        end, nil)
+  if SU.STAT_SETTINGS ~= nil then
+    if SU.NETWORK_TEST or (not GameRules:IsCheatMode()) then
+      SU:SendAuthInfo()
     else
       print("Bad stat recording conditions.")
     end    
@@ -48,20 +38,20 @@ function SU:Init()
 end
 
 function SU:RecordCharacter( args )
-  local playerID = args.PlayerID
-  local steamID = PlayerResource:GetSteamAccountID(playerID)
+  local pID = args.PlayerID
+  local steamID = PlayerResource:GetSteamAccountID(pID)
 
-  local requestParams = {
+  local request_params = {
     Command = "RecordCharacter",
     Data = {
       SteamID = steamID,
       CharacterName = args.character_name,
       HeroName = args.hero_name,
-      Abilities = StringifyTable(args.abilities),
-      Equipment = StringifyTable(args.equipment)
+      Abilities = Pickle:Pickle(args.abilities, false),
+      Equipment = Pickle:Pickle(args.equipment, false)
     }
   }
   
-  SU:SendRequest( requestParams, function(obj)
+  SU:SendRequest( request_params, function(obj)
   end)
 end

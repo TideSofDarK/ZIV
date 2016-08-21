@@ -51,18 +51,17 @@ function GetDate() {
     return yyyy * 10000 + mm * 100 + dd;
 }
 
-function LoadCharacters( msgID ) {
+function LoadCharacters( callback ) {
     var requestParams = {
         Command: "LoadCharacters",
         SteamID: GetSteamID32()
     };
 
-    GameUI.CustomUIConfig().SendRequest( requestParams, (function(obj) {
-
-    }) );    
+    GameUI.CustomUIConfig().SendRequest( requestParams, callback );    
 }
 
 (function() {
     GameUI.CustomUIConfig().SendRequest = SendRequest;
+    GameUI.CustomUIConfig().LoadCharacters = LoadCharacters;
     GameEvents.Subscribe( "su_auth_params", SetAuthParams );
 })();

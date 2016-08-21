@@ -316,6 +316,10 @@ function CharacterCreationOpen() {
 function CharacterSelectionSetup() {
 	var characterList = $("#CharacterList");
 
+	GameUI.CustomUIConfig().LoadCharacters((function (obj) {
+		$.Msg(obj);
+	}));
+
 	$.Each(characterList.Children(), function (panel) {
 		panel.DeleteAsync(0.0);
 		panel.RemoveAndDeleteChildren();

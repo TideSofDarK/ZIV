@@ -1,29 +1,27 @@
 SU = {}
 
-SU.StatSettings = LoadKeyValues('scripts/kv/StatUploaderSettings.kv')
-SU.IsStatServerUp = true
-
-local isStatServerUp = true
+SU.STAT_SETTINGS = LoadKeyValues('scripts/kv/StatUploaderSettings.kv')
+SU.is_stat_server_up = true
 
 -- Request function
-function SU:SendRequest( requestParams, successCallback )
-  if not SU.IsStatServerUp then
+function SU:SendRequest( request_params, success_callback )
+  if not SU.is_stat_server_up then
     return
   end
   
   -- Adding auth key
-  requestParams.AuthKey = SU.StatSettings.AuthKey
-  -- DeepPrintTable(requestParams)
+  request_params.AuthKey = SU.STAT_SETTINGS.AuthKey
+  -- DeepPrintTable(request_params)
 
   -- Create the request
-  local request = CreateHTTPRequest('POST', SU.StatSettings.Host)
-  request:SetHTTPRequestGetOrPostParameter('CommandParams', json.encode(requestParams))
+  local request = CreateHTTPRequest('POST', SU.STAT_SETTINGS.Host)
+  request:SetHTTPRequestGetOrPostParameter('CommandParams', json.encode(request_params))
 
   -- Send the request
   request:Send(function(res)
     if res.StatusCode ~= 200 or not res.Body then
         -- Bad request
-        SU.IsStatServerUp = false
+        SU.is_stat_server_up = false
         
         print("Request error. See info below: ")
         DeepPrintTable(res)
@@ -39,12 +37,12 @@ function SU:SendRequest( requestParams, successCallback )
     end
     
     -- Feed the result into our callback
-    successCallback(obj)
+    success_callback(obj)
   end)
 end
 
 function SU:SendAuthInfo()
-  CustomGameEventManager:Send_ServerToAllClients("su_auth_params", { URL = SU.StatSettings.Host, AuthKey = SU.StatSettings.AuthKey } )
+  CustomGameEventManager:Send_ServerToAllClients("su_auth_params", { URL = SU.STAT_SETTINGS.Host, AuthKey = SU.STAT_SETTINGS.AuthKey } )
 end
 
 -------------------------------------------------------------------------------
@@ -52,11 +50,11 @@ end
 -------------------------------------------------------------------------------
 
 function SU:Test()
-  local requestParams = {
+  local request_params = {
     Command = "Testing"
   }
     
-  SU:SendRequest( requestParams, function(obj)
+  SU:SendRequest( request_params, function(obj)
       print("Testing result: ", obj)
   end)
 end
@@ -64,11 +62,11 @@ end
 -------------------------------------------------------------------------------
 -- Utilities
 -------------------------------------------------------------------------------
-table.filter = function(t, filterIter)
+table.filter = function(t, filter_iter)
   local out = {}
 
   for k, v in pairs(t) do
-    if filterIter(k, v, t) then out[k] = v end
+    if filter_iter(k, v, t) then out[k] = v end
   end
 
   return out
