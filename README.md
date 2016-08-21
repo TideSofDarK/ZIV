@@ -9,7 +9,7 @@
  - Craft'n'fortify
 
 ##Estimated Release Date 
- - Early June (beta)
+ - When it's fucking done
 
 ## Core developers
  - [@TideSofDarK](https://github.com/TideSofDarK)
