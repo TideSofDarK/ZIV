@@ -2,14 +2,47 @@
 
 var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 
-function CreatePlayers() {
+function CheckForHostPrivileges()
+{
+	var playerInfo = Game.GetLocalPlayerInfo();
+	if ( !playerInfo )
+		return;
+ 
+	if (playerInfo.player_has_host_privileges) {
+		Game.SetRemainingSetupTime( 3000 ); 
+		Game.SetAutoLaunchEnabled( false );
+	}
+}
 
+function Blur(args) {
+	if (args.ui == "gamesetup") {
+		$.GetContextPanel().AddClass("Blur");
+	}
+}
+
+function RemoveBlur(args) {
+	$.GetContextPanel().RemoveClass("Blur");
+}
+
+function SecondsToHHMMSS(d) {
+	d = Number(d);
+	var h = Math.floor(d / 3600);
+	var m = Math.floor(d % 3600 / 60);
+	var s = Math.floor(d % 3600 % 60);
+	return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s); 
 }
 
 function SetStatusIcon(panel, status) {
 	panel.SetHasClass("StatusDisconnected", status == "StatusDisconnected");
 	panel.SetHasClass("StatusReady", status == "StatusReady");
 	panel.SetHasClass("StatusConnected", status == "StatusConnected");
+}
+
+function OnGameSetupTableChanged(tableName, changesObject, deletionsObject) {
+	if (changesObject["time"]) {
+		var time = changesObject["time"]["time"]
+		$("#TimeLabel").text = SecondsToHHMMSS(time);
+	}
 }
 
 function Update() {
@@ -50,35 +83,6 @@ function Update() {
 				}
 			}
 		}
-	}
-}
-
-function CheckForHostPrivileges()
-{
-	var playerInfo = Game.GetLocalPlayerInfo();
-	if ( !playerInfo )
-		return;
- 
-	if (playerInfo.player_has_host_privileges) {
-		Game.SetRemainingSetupTime( 3000 ); 
-		Game.SetAutoLaunchEnabled( false );
-	}
-}
-
-function Blur(args) {
-	if (args.ui == "gamesetup") {
-		$.GetContextPanel().AddClass("Blur");
-	}
-}
-
-function RemoveBlur(args) {
-	$.GetContextPanel().RemoveClass("Blur");
-}
-
-function OnGameSetupTableChanged(tableName, changesObject, deletionsObject) {
-	if (changesObject["time"]) {
-		var time = changesObject["time"]["time"]
-		$("#TimeLabel").text = (Math.floor(time/60)) + ":" + (time%60);
 	}
 }
 
