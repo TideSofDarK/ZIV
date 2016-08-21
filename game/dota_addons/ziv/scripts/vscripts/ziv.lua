@@ -40,8 +40,6 @@ require('libraries/PseudoRNG')
 require('libraries/abilities')
 -- Keyvalues
 require('libraries/keyvalues')
--- Table serialization
-require('libraries/pickle')
 -- AI
 require('libraries/ai')
 -- Items

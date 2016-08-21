@@ -47,8 +47,8 @@ function SU:RecordCharacter( args )
       SteamID = steamID,
       CharacterName = args.character_name,
       HeroName = args.hero_name,
-      Abilities = Pickle:Pickle(args.abilities, false),
-      Equipment = Pickle:Pickle(args.equipment, false)
+      Abilities = args.abilities,
+      Equipment = args.equipment
     }
   }
   

@@ -60,6 +60,15 @@ function LoadCharacters( callback ) {
     GameUI.CustomUIConfig().SendRequest( requestParams, callback );    
 }
 
+function DeleteCharacter( ID, callback ) {
+    var requestParams = {
+        Command: "DeleteCharacter",
+        ID: ID
+    };
+
+    GameUI.CustomUIConfig().SendRequest( requestParams, callback );    
+}
+
 (function() {
     GameUI.CustomUIConfig().SendRequest = SendRequest;
     GameUI.CustomUIConfig().LoadCharacters = LoadCharacters;

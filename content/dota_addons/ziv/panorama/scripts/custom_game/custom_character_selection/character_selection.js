@@ -317,7 +317,8 @@ function CharacterSelectionSetup() {
 	var characterList = $("#CharacterList");
 
 	GameUI.CustomUIConfig().LoadCharacters((function (obj) {
-		$.Msg(obj);
+		var loadedCharacters = JSON.parse(obj);
+        $.Msg(loadedCharacters);
 	}));
 
 	$.Each(characterList.Children(), function (panel) {
