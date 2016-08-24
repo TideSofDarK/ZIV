@@ -17,8 +17,6 @@ var heroesKVs;
 var currentHero = -1;
 var lockedIn = false;
 
-var noCharacters = true;
-
 var heroRoot = $("#HeroRoot");
 var abilityRoot = $("#Abilities");
 
@@ -409,20 +407,11 @@ function CharacterSelectionLockIn() {
 		lockedIn = true;
 
 		UpdateGameSetupPlayerState("ready");
-
-		GameEvents.SendCustomGameEventToServer( "ziv_gamesetup_lockin", {"character_name" : selectedCharacter.character_name});
 	}
 }
 
 function UpdateGameSetupPlayerState(status) {
-	var table = PlayerTables.GetTableValue( "gamesetup", "status" );
-	table[Players.GetLocalPlayer()] = status;
-
-	GameEvents.SendCustomGameEventToServer( "ziv_write_to_nettable", { 
-		"name" : "gamesetup", 
-		"key" : "status",
-		"value" : table,
-		"api" : "PlayerTables" } );
+	GameEvents.SendCustomGameEventToServer( "ziv_gamesetup_update_status", { "status" : status });
 }
 
 function OnGameSetupTableChanged(tableName, changesObject, deletionsObject) {

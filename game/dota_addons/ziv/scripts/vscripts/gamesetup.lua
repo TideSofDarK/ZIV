@@ -5,14 +5,11 @@ end
 GameSetup.INITIAL_TIME = 120
 GameSetup.COUNTDOWN_TIME = 10
 
-GameSetup.player_array = {}
-
 function GameSetup:Init() 
 	PlayerTables:CreateTable("gamesetup", {status={(function() local players = {} for i=0,DOTA_MAX_PLAYERS-1 do players[i] = "connected" end return players end)()}}, true)
 
 	CustomGameEventManager:RegisterListener("ziv_gamesetup_create_character", Dynamic_Wrap(Characters, 'CreateCharacter'))
-	CustomGameEventManager:RegisterListener("ziv_gamesetup_lockin", Dynamic_Wrap(GameSetup, 'OnPlayerLockIn'))
-	CustomGameEventManager:RegisterListener("ziv_gamesetup_cancel_lockin", Dynamic_Wrap(GameSetup, 'OnPlayerCancelLockIn'))
+	CustomGameEventManager:RegisterListener("ziv_gamesetup_update_status", Dynamic_Wrap(GameSetup, 'UpdatePlayerStatus'))
 
 	ListenToGameEvent('game_rules_state_change', 
 		function(keys)
@@ -36,6 +33,15 @@ function GameSetup:Init()
 	nil)
 end
 
+function GameSetup:UpdatePlayerStatus(args)
+	local pID = args.PlayerID
+	local status = PlayerTables:GetTableValue("gamesetup", "status")
+
+	status[pID] = args.status
+
+	PlayerTables:SetTableValue("gamesetup", "time", status)
+end
+
 function GameSetup:StartTimer(duration, tick, on_end)
 	PlayerTables:SetTableValue("gamesetup", "time", {time = duration})
 	Timers:CreateTimer(1.0, function ()
@@ -48,16 +54,4 @@ function GameSetup:StartTimer(duration, tick, on_end)
 			on_end()
 		end
 	end)
-end
-
-function GameSetup:OnPlayerLockIn(args)
-	local pID = args.PlayerID
-
-	player_array[pID] = args.character_name
-end
-
-function GameSetup:OnPlayerCancelLockIn(args)
-	local pID = args.PlayerID
-
-	player_array[pID] = nil
 end
