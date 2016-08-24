@@ -31,8 +31,8 @@
 				<Button id="LockInButton" class="OKButton" onactivate="CharacterSelectionLockIn()">
 					<Label class="Headline ButtonLabel" id="LockInButtonLabel" text="#gamesetup_lockin_button" />
 				</Button>
-				<Button id="RemoveCharacterButton" class="OKButton" onactivate="CharacterSelectionRemoveCharacter()">
-					<Label class="Headline ButtonLabel" text="#gamesetup_remove_character_button" />
+				<Button id="DeleteCharacterButton" class="OKButton" onactivate="CharacterSelectionDeleteCharacter()">
+					<Label class="Headline ButtonLabel" text="#gamesetup_delete_character_button" />
 				</Button>
 			</Panel>
 		</Panel>

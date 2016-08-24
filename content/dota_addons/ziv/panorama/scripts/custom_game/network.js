@@ -72,5 +72,6 @@ function DeleteCharacter( ID, callback ) {
 (function() {
     GameUI.CustomUIConfig().SendRequest = SendRequest;
     GameUI.CustomUIConfig().LoadCharacters = LoadCharacters;
+    GameUI.CustomUIConfig().DeleteCharacter = DeleteCharacter;
     GameEvents.Subscribe( "su_auth_params", SetAuthParams );
 })();

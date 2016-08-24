@@ -185,7 +185,7 @@
 	"gamesetup_creation_error_same"					"You already have a character with such name."
 
 	"gamesetup_create_character_button" 			"Submit"
-	"gamesetup_remove_character_button" 			"Remove"
+	"gamesetup_delete_character_button" 			"Remove"
 	"gamesetup_lockin_button" 						"Lock-In"
 	"gamesetup_create_character_headline" 			"Create new character"
 	"gamesetup_highlight_easy_caharacters" 			"Highlight Characters for new players"
