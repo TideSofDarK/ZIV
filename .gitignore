@@ -2,6 +2,7 @@
 
 # Cache crap that Valve autogenerates
 *.bin
+*.cfg
 
 # Compiled formats
 *.vpcf_c
@@ -14,8 +15,8 @@
 *.blend1
 
 # Commit panorama compiled textures
-# !game/dota_addons/ziv/panorama/images/*.vtex_c
-# !game/dota_addons/ziv/panorama/images/custom_game/*.vtex_c
+!game/dota_addons/ziv/panorama/images/*.vtex_c
+!game/dota_addons/ziv/panorama/images/custom_game/*.vtex_c
 
 # Map files
 *.vpk

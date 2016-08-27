@@ -15,7 +15,6 @@
 			<Panel class="CharacterRoot">
 				<DOTAScenePanel id="CharacterModelSelected" class="CharacterModel CharacterModelSelected" unit="npc_dota_hero_beastmaster"/>
 				<DOTAScenePanel id="CharacterModel" class="CharacterModel" unit="npc_dota_hero_beastmaster"/>
-				<Label id="QuestionMark" class="Headline Headline2" text="?" hittest="true" onactivate="CharacterCreationOpen()"/>
 				<Label id="CharacterNameLabel" class="Headline Headline1" text="New" hittest="true" onactivate="CharacterCreationOpen()"/>	
 			</Panel>
 		</snippet>
@@ -25,7 +24,11 @@
 		<Panel id="SelectionRoot">
 			<Panel id="CharacterListBackground">
 				<Panel id="CharacterList">
+
 				</Panel>
+
+				<Label class="Headline Headline1" id="NoCharactersWarning" text="#gamesetup_no_characters_warning" html="true" onactivate="CharacterCreationOpen()"/>
+				<Panel class="Loader" id="CharacterListLoader"/>
 			</Panel>
 			<Panel id="CharacterButtons">
 				<Button id="LockInButton" class="OKButton" onactivate="CharacterSelectionLockIn()">

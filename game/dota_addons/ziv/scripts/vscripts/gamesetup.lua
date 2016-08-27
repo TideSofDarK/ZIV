@@ -39,7 +39,7 @@ function GameSetup:UpdatePlayerStatus(args)
 
 	status[pID] = args.status
 
-	PlayerTables:SetTableValue("gamesetup", "time", status)
+	PlayerTables:SetTableValue("gamesetup", "status", status)
 end
 
 function GameSetup:StartTimer(duration, tick, on_end)

@@ -128,6 +128,43 @@ TextButton, Label {
  * Here comes character selection
  */
 
+@keyframes 'loader' 
+{
+  0% 
+  {
+    transform: rotateZ( 360deg );
+  }
+
+  50% 
+  {
+    transform: rotateZ( 180deg );
+  }
+
+  100% 
+  {
+    transform: rotateZ( 0deg );
+  }
+}
+
+.Loader {
+	align: center center;
+
+	width: 128px;
+	height: 128px;
+
+	background-image: url('file://{images}/custom_game/loader.png');
+	background-size: 100% 100%;
+
+	/*transform-origin: 64px 64px;*/
+
+	animation-name: loader;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-duration: 1.4s;
+
+	opacity: 0.4;
+}
+
 #SelectionRoot {
 	width: 100%;
 	height: 100%;
@@ -145,6 +182,14 @@ TextButton, Label {
 
 	background-color: gradient(linear, 0% 0%, 0% 100%, from(#00000068), color-stop( 0.9, #00000060), to(#00000055));
 	wash-color: #bbbbbb;
+}
+
+#NoCharactersWarning {
+	align: center center;
+
+	visibility: collapse;
+
+	height: 80px;
 }
 
 #CharacterList {

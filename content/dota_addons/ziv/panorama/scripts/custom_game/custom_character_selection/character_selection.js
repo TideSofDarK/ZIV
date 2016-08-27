@@ -8,7 +8,6 @@ var MAXIMUM_ABILITY_ALTERNATIVES = 2;
 var heroIcons = [];
 var abilities = [];
 
-var newCharacterButtonTable = {"character_name":"new","preset":{},"hero_name":"npc_dota_hero_kunkka"};
 var characterData = [];
 
 var heroList;
@@ -16,6 +15,8 @@ var heroesKVs;
 
 var currentHero = -1;
 var lockedIn = false;
+
+var firstLaunch = true;
 
 var heroRoot = $("#HeroRoot");
 var abilityRoot = $("#Abilities");
@@ -87,6 +88,8 @@ function CharacterCreationCreate() {
 
 		CharacterCreationCancel();
 		CharacterCreationClose();
+
+		CharacterSelectionToggleLoader();
 	} else {
 		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', nameLabel, "CharacterCreationError", "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize("gamesetup_creation_error_symbols"));
 		return;
@@ -311,10 +314,18 @@ function CharacterCreationOpen() {
 	GameEvents.SendEventClientSide( "ziv_apply_ui_blur", { "ui" : "loading_screen"} );
 }
 
+function CharacterSelectionToggleLoader() {
+	$("#CharacterListLoader").visible = true;
+	$("#NoCharactersWarning").style.visibility = "collapse;";
+}
+
 function CharacterSelectionSetup() {
+	CharacterSelectionToggleLoader()
 	GameUI.CustomUIConfig().LoadCharacters((function (obj) {
 		var loadedCharacters = JSON.parse(obj);
 		var characterData = [];
+
+		$("#CharacterListLoader").visible = false;
 
         for (var i = 0; i < loadedCharacters.length; i++) {
         	$.Msg(loadedCharacters[i]["Abilities"]);
@@ -329,14 +340,21 @@ function CharacterSelectionSetup() {
         	characterData.push(character);
         }
 
-        characterData.push(newCharacterButtonTable);
-
 		var characterList = $("#CharacterList");
 
 		$.Each(characterList.Children(), function (panel) {
 			panel.DeleteAsync(0.0);
 			panel.RemoveAndDeleteChildren();
 		});
+
+		if (characterData.length == 0) {
+        	if (firstLaunch == true) {
+        		CharacterCreationOpen(); 
+        		firstLaunch = false;
+        	}
+        	$("#NoCharactersWarning").style.visibility = "visible;";
+        	return
+        }
 
 		$.Each(characterData, function (characterTable) {
 			var characterPanel = $.CreatePanel( "Panel", characterList, characterTable.id );
@@ -362,23 +380,7 @@ function CharacterSelectionSetup() {
 			modelPanel.LoadLayoutFromStringAsync("<root><Panel hittest='false'><DOTAScenePanel hittest='false' style='" + previewStyle + "' unit='" + characterTable.hero_name + "'/></Panel></root>", false, false);
 			modelPanel.AddClass("CharacterModel");
 
-			if (characterTable.character_name == "new") {
-				characterPanel.FindChildTraverse("CharacterNameLabel").text = $.Localize("#gamesetup_character_new");
-				
-				modelPanelSelected.SetPanelEvent("onmouseactivate", function () {
-					CharacterCreationOpen();
-					modelPanelSelected.checked = false;
-				});
-
-				modelPanel.AddClass("SilhouetteModel");
-				modelPanelSelected.visible = false;
-
-				characterPanel.MoveChildAfter(characterPanel.FindChildTraverse("QuestionMark"), modelPanel);
-			} else {
-				characterPanel.FindChildTraverse("QuestionMark").visible = false;
-
-				characterPanel.FindChildTraverse("CharacterNameLabel").text = characterTable.character_name;
-			}
+			characterPanel.FindChildTraverse("CharacterNameLabel").text = characterTable.character_name;
 		})
 	}));
 }

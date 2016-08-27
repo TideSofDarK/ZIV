@@ -184,6 +184,7 @@
 	"gamesetup_creation_error_symbols"				"Name can only contain digits and latin letters."
 	"gamesetup_creation_error_same"					"You already have a character with such name."
 
+	"gamesetup_no_characters_warning"				"You have no characters <br> Click here to create new one"
 	"gamesetup_create_character_button" 			"Submit"
 	"gamesetup_delete_character_button" 			"Remove"
 	"gamesetup_lockin_button" 						"Lock-In"
