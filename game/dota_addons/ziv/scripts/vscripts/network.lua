@@ -53,6 +53,6 @@ function SU:RecordCharacter( args )
   }
   
   SU:SendRequest( request_params, function(obj)
-    CustomGameEventManager:Send_ServerToAllClients("ziv_setup_character_selection",{})
+    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(pID), "ziv_setup_character_selection",{})
   end)
 end
