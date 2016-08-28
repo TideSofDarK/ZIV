@@ -1189,25 +1189,6 @@
 	
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
-	
-	    "Creature"
-	    {
-	        "CanRespawn"                "0"
-	        "States"
-	        {
-	            "Invade"
-	            {
-	                "Name"              "Invade"
-	                "Aggression"        "100.0"
-	                "Avoidance"         "0.0"
-	                "Support"           "0.0"
-	                "RoamDistance"      "200.0"
-	            }
-	        }
-	        "DefaultState"              "Invade"
-	
-	        "DisableClumpingBehavior"   "1"
-	    }
 	} 
 	"npc_creep_demon_greevil"
 	{
@@ -1250,25 +1231,49 @@
 	
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
+	} 
+	"npc_creep_spider_webspinner"
+	{
+	    "BaseClass"                 "npc_dota_creature"
+	    "SoundSet"                  "Hero_BroodMother"                  
+	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+	    
+	    "HealthBarOffset"           "150"
+	    "Model"                     "models/heroes/broodmother/spiderling.vmdl"
+	    "ModelScale"                "1.8"
+	    "Level"                     "1"
 	
-	    "Creature"
-	    {
-	        "CanRespawn"                "0"
-	        "States"
-	        {
-	            "Invade"
-	            {
-	                "Name"              "Invade"
-	                "Aggression"        "100.0"
-	                "Avoidance"         "0.0"
-	                "Support"           "0.0"
-	                "RoamDistance"      "200.0"
-	            }
-	        }
-	        "DefaultState"              "Invade"
+	    "Ability1"                  "ziv_spider"
 	
-	        "DisableClumpingBehavior"   "1"
-	    }
+	    "ArmorPhysical"             "0"
+	    "MagicalResistance"         "0"
+	
+	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"           "1"
+	    "AttackDamageMax"           "3"
+	    "AttackRate"                "1"
+	    "AttackAnimationPoint"      "0.467"
+	    "AttackAcquisitionRange"    "400"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"                  "0"
+	    "BountyGoldMin"             "0"
+	    "BountyGoldMax"             "0"
+	
+	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"             "330"
+	    "MovementTurnRate"          "1.0"
+	    "FollowRange"               "250"
+	
+	    "StatusHealth"              "100"
+	    "StatusHealthRegen"         "0"
+	    "StatusMana"                "0"
+	    "StatusManaRegen"           "0"
+	
+	    "VisionDaytimeRange"        "525"
+	    "VisionNighttimeRange"      "525"
 	} 
 	"npc_creep_undead_skeleton"
 	{
@@ -1311,25 +1316,6 @@
 	
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
-	
-	    "Creature"
-	    {
-	        "CanRespawn"                "0"
-	        "States"
-	        {
-	            "Invade"
-	            {
-	                "Name"              "Invade"
-	                "Aggression"        "100.0"
-	                "Avoidance"         "0.0"
-	                "Support"           "0.0"
-	                "RoamDistance"      "200.0"
-	            }
-	        }
-	        "DefaultState"              "Invade"
-	
-	        "DisableClumpingBehavior"   "1"
-	    }
 	} 
 	"npc_creep_undead_wraith"
 	{
@@ -1371,25 +1357,6 @@
 	
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
-	
-	    "Creature"
-	    {
-	        "CanRespawn"                "0"
-	        "States"
-	        {
-	            "Invade"
-	            {
-	                "Name"              "Invade"
-	                "Aggression"        "100.0"
-	                "Avoidance"         "0.0"
-	                "Support"           "0.0"
-	                "RoamDistance"      "200.0"
-	            }
-	        }
-	        "DefaultState"              "Invade"
-	
-	        "DisableClumpingBehavior"   "1"
-	    }
 	} 
 	
 	"npc_creep_undead_wraith_a"
@@ -1432,25 +1399,6 @@
 	
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
-	
-	    "Creature"
-	    {
-	        "CanRespawn"                "0"
-	        "States"
-	        {
-	            "Invade"
-	            {
-	                "Name"              "Invade"
-	                "Aggression"        "100.0"
-	                "Avoidance"         "0.0"
-	                "Support"           "0.0"
-	                "RoamDistance"      "200.0"
-	            }
-	        }
-	        "DefaultState"              "Invade"
-	
-	        "DisableClumpingBehavior"   "1"
-	    }
 	} 
 	
 	"npc_creep_undead_wraith_b"
@@ -1493,25 +1441,6 @@
 	
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
-	
-	    "Creature"
-	    {
-	        "CanRespawn"                "0"
-	        "States"
-	        {
-	            "Invade"
-	            {
-	                "Name"              "Invade"
-	                "Aggression"        "100.0"
-	                "Avoidance"         "0.0"
-	                "Support"           "0.0"
-	                "RoamDistance"      "200.0"
-	            }
-	        }
-	        "DefaultState"              "Invade"
-	
-	        "DisableClumpingBehavior"   "1"
-	    }
 	} 
 	"npc_creep_undead_zombie"
 	{
@@ -1553,25 +1482,6 @@
 	
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
-	
-	    "Creature"
-	    {
-	        "CanRespawn"                "0"
-	        "States"
-	        {
-	            "Invade"
-	            {
-	                "Name"              "Invade"
-	                "Aggression"        "100.0"
-	                "Avoidance"         "0.0"
-	                "Support"           "0.0"
-	                "RoamDistance"      "200.0"
-	            }
-	        }
-	        "DefaultState"              "Invade"
-	
-	        "DisableClumpingBehavior"   "1"
-	    }
 	} 
 	"npc_creep_undead_zombie_tomb"
 	{
@@ -1613,25 +1523,6 @@
 	
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
-	
-	    "Creature"
-	    {
-	        "CanRespawn"                "0"
-	        "States"
-	        {
-	            "Invade"
-	            {
-	                "Name"              "Invade"
-	                "Aggression"        "100.0"
-	                "Avoidance"         "0.0"
-	                "Support"           "0.0"
-	                "RoamDistance"      "200.0"
-	            }
-	        }
-	        "DefaultState"              "Invade"
-	
-	        "DisableClumpingBehavior"   "1"
-	    }
 	} 
 	"npc_creep_undead_zombie_tomb_a"
 	{
@@ -1673,25 +1564,6 @@
 	
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
-	
-	    "Creature"
-	    {
-	        "CanRespawn"                "0"
-	        "States"
-	        {
-	            "Invade"
-	            {
-	                "Name"              "Invade"
-	                "Aggression"        "100.0"
-	                "Avoidance"         "0.0"
-	                "Support"           "0.0"
-	                "RoamDistance"      "200.0"
-	            }
-	        }
-	        "DefaultState"              "Invade"
-	
-	        "DisableClumpingBehavior"   "1"
-	    }
 	} 
 	
 	"npc_creep_undead_zombie_tomb_b"
@@ -1734,25 +1606,6 @@
 	
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
-	
-	    "Creature"
-	    {
-	        "CanRespawn"                "0"
-	        "States"
-	        {
-	            "Invade"
-	            {
-	                "Name"              "Invade"
-	                "Aggression"        "100.0"
-	                "Avoidance"         "0.0"
-	                "Support"           "0.0"
-	                "RoamDistance"      "200.0"
-	            }
-	        }
-	        "DefaultState"              "Invade"
-	
-	        "DisableClumpingBehavior"   "1"
-	    }
 	} 
 	
 	"npc_creep_undead_zombie_tomb_c"
@@ -1795,25 +1648,6 @@
 	
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
-	
-	    "Creature"
-	    {
-	        "CanRespawn"                "0"
-	        "States"
-	        {
-	            "Invade"
-	            {
-	                "Name"              "Invade"
-	                "Aggression"        "100.0"
-	                "Avoidance"         "0.0"
-	                "Support"           "0.0"
-	                "RoamDistance"      "200.0"
-	            }
-	        }
-	        "DefaultState"              "Invade"
-	
-	        "DisableClumpingBehavior"   "1"
-	    }
 	} 
 	"npc_temple_oath"
 	{
