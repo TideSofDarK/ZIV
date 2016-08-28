@@ -125,7 +125,8 @@ function ZIV:OnAllPlayersLoaded()
       heroes = ZIV.HeroesKVs,
       abilities = ZIV.AbilityKVs,
       units = ZIV.UnitKVs,
-      presets = ZIV.PresetsKVs
+      presets = ZIV.PresetsKVs,
+      recipes = ZIV.RecipesKVs
      }, true)
 
     CustomGameEventManager:Send_ServerToAllClients( "ziv_set_recipes_kvs", ZIV.RecipesKVs )

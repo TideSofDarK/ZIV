@@ -1,5 +1,7 @@
 "use strict";
 
+var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+
 var craftingItemPanel = null;
 var selectedRecipe = null;
 
@@ -51,7 +53,7 @@ function AddRecipe( id )
 
 function FillRecipesList()
 {
-	for (var key in GameUI.CustomUIConfig().recipes) 
+	for (var key in PlayerTables.GetTableValue("kvs", "recipes")) 
 	{
 		AddRecipe( key ); 
 	}
@@ -138,15 +140,15 @@ function CreateRecipeParts( id )
 	$( "#RecipeRow1" ).RemoveAndDeleteChildren();
 	$( "#RecipeRow2" ).RemoveAndDeleteChildren();
 
-	var count = Object.keys( GameUI.CustomUIConfig().recipes[id]["Recipe"] ).length;
+	var count = Object.keys( PlayerTables.GetTableValue("kvs", "recipes")[id]["Recipe"] ).length;
 
 	var i = 0;
-	for (var key in GameUI.CustomUIConfig().recipes[id]["Recipe"]) 
+	for (var key in PlayerTables.GetTableValue("kvs", "recipes")[id]["Recipe"]) 
 	{
 		var panelName = i < 4 ? "#RecipeRow1" : "#RecipeRow2";
 		if (i % 4 != 0)
 			AddPlus( $( panelName ) );		
-		AddRecipeSlot( $( panelName ), i, key, GameUI.CustomUIConfig().recipes[id]["Recipe"][key] );
+		AddRecipeSlot( $( panelName ), i, key, PlayerTables.GetTableValue("kvs", "recipes")[id]["Recipe"][key] );
 
 		i++;
 	}
