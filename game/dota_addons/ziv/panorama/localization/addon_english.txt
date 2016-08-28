@@ -35,7 +35,7 @@
 	"temple_kill_oath" 		"Kill Oath"
 
 	"ziv_temple_4p_story" 			"<font color=\"#7ADBB6\"><b>Escape the Temple!</b></font> - the dungeon is collapsing and hordes of monsters will stand in your way. Meanwhile a fire lord called Oath is getting summoned by Curse of Obelisk. Only the bravest heroes can handle this trial of might, skill and team work. Sacred treasures awaits!"
-	"ziv_temple_4p_objectives" 	"Objectives:<br>   - Destroy Obelisks to prevent Oath from intruding your world<br>   - After each Obelisk wave you will encounter soome powerful boss<br>   - Move out carefully! Caverns collapses do dont get hit by falling rocks!<br>"
+	"ziv_temple_4p_objectives" 	"Objectives:<br>   - Destroy Obelisks to prevent Oath from intruding your world<br>   - After each Obelisk wave you will encounter soome powerful boss<br>   - Move out carefully! Caverns collapses do dont get hit by falling rocks!"
 
 	// Common modifiers
 

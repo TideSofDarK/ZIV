@@ -26,20 +26,7 @@
       }
     };
 
-    function Blur(args) {
-      if (args.ui == "loading_screen") {
-        $.GetContextPanel().AddClass("Blur");
-      }
-    }
-
-    function RemoveBlur(args) {
-      $.GetContextPanel().RemoveClass("Blur");
-    }
-
     (function () {
-      GameEvents.Subscribe( "ziv_apply_ui_blur", Blur );
-      GameEvents.Subscribe( "ziv_remove_ui_blur", RemoveBlur );
-
       ChooseBackground();
     })();
   </script>

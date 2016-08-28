@@ -2,7 +2,7 @@ if GameSetup == nil then
     _G.GameSetup = class({})
 end
 
-GameSetup.INITIAL_TIME = 120
+GameSetup.INITIAL_TIME = 180
 GameSetup.COUNTDOWN_TIME = 10
 
 function GameSetup:Init() 

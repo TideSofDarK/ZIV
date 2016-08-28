@@ -34,13 +34,4 @@
 	{
 
 	}
-
-	"ziv_apply_ui_blur"
-	{
-		"ui"		"string"
-	}
-	"ziv_remove_ui_blur"
-	{
-		
-	}
 }
