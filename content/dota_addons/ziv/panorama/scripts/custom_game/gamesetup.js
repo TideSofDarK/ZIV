@@ -14,16 +14,6 @@ function CheckForHostPrivileges()
 	}
 }
 
-function Blur(args) {
-	if (args.ui == "gamesetup") {
-		$.GetContextPanel().AddClass("Blur");
-	}
-}
-
-function RemoveBlur(args) {
-	$.GetContextPanel().RemoveClass("Blur");
-}
-
 function SecondsToHHMMSS(d) {
 	d = Number(d);
 	var h = Math.floor(d / 3600);
@@ -86,6 +76,16 @@ function Update() {
 	}
 }
 
+function Blur(args) {
+	if (args.ui == "gamesetup") {
+		$.GetContextPanel().AddClass("Blur");
+	}
+}
+
+function RemoveBlur(args) {
+	$.GetContextPanel().RemoveClass("Blur");
+}
+
 (function (){
 	GameEvents.Subscribe( "ziv_apply_ui_blur", Blur );
 	GameEvents.Subscribe( "ziv_remove_ui_blur", RemoveBlur );
@@ -96,11 +96,15 @@ function Update() {
 
 	CheckForHostPrivileges();
 
-	// Get max players for a map
 	var mapInfo = Game.GetMapInfo();
+
+	// Get max players for a map
 	GameUI.CustomUIConfig().mapMaxPlayers = parseInt(mapInfo.map_display_name.replace( /^\D+/g, ''));
 
-	for (var playerID = 0; playerID < GameUI.CustomUIConfig().mapMaxPlayers; playerID++) { //
+	$("#StoryLabel").text = $.Localize(mapInfo.map_display_name + "_story");
+	$("#ObjectivesLabel").text = $.Localize(mapInfo.map_display_name + "_objectives");
+
+	for (var playerID = 0; playerID < GameUI.CustomUIConfig().mapMaxPlayers; playerID++) {
 		var playerPanelName = "Player_" + playerID;
 		var playerPanel = $.CreatePanel("Panel", playerID < (GameUI.CustomUIConfig().mapMaxPlayers / 2) ? $("#PlayerListLeft") : $("#PlayerListRight"), playerPanelName);
 		playerPanel.BLoadLayoutSnippet("Player" + (playerID >= (GameUI.CustomUIConfig().mapMaxPlayers / 2) ? "Right" : "Left"));

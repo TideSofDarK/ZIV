@@ -21,7 +21,7 @@
 	</snippets>
 	<Panel class="Root" hittest="false">
 		<Label id="GameInfo" class="Headline" text="#addoninfo" />	
-		<Panel id="SelectionRoot">
+		<Panel id="SelectionRoot"  class="WindowAnimation">
 			<Panel id="CharacterListBackground">
 				<Panel id="CharacterList">
 

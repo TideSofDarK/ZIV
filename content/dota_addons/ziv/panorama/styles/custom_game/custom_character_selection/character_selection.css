@@ -152,7 +152,7 @@ TextButton, Label {
 	width: 128px;
 	height: 128px;
 
-	background-image: url('file://{images}/custom_game/loader.png');
+	background-image: url('file://{images}/custom_game/gamesetup/loader.png');
 	background-size: 100% 100%;
 
 	/*transform-origin: 64px 64px;*/

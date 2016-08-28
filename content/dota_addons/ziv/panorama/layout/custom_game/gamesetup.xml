@@ -17,8 +17,8 @@
         <Panel id="PlayerFrame" class="PlayerFrame AlignLeft">
 
         </Panel>
-        <Label id="NameLabel" class="GameSetupLabel NameLabel AlignLeft" text=""/>
-        <Label id="StatusLabel" class="GameSetupLabel StatusLabel AlignLeft" text="Status"/>
+        <Label id="NameLabel" class="GameSetupLabel GameSetupLabelLeft NameLabel AlignLeft" text=""/>
+        <Label id="StatusLabel" class="GameSetupLabel GameSetupLabelLeft StatusLabel AlignLeft" text="Status"/>
       </Panel>
     </snippet>
     <snippet name="PlayerRight">
@@ -30,13 +30,19 @@
         <Panel id="PlayerFrame" class="PlayerFrame AlignRight Flipped">
 
         </Panel>
-        <Label id="NameLabel" class="GameSetupLabel NameLabel AlignRight" text=""/>
-        <Label id="StatusLabel" class="GameSetupLabel StatusLabel AlignRight" text="Status"/>
+        <Label id="NameLabel" class="GameSetupLabel GameSetupLabelRight NameLabel AlignRight" text=""/>
+        <Label id="StatusLabel" class="GameSetupLabel GameSetupLabelRight StatusLabel AlignRight" text="Status"/>
       </Panel>
     </snippet>
   </snippets>
   <Panel class="GameSetupRoot WindowAnimation">
     <Panel id="GameSetupInfo">
+      <Panel class="GameSetupInfoBlock" id="GameSetupInfoBlockLeft">
+        <Label html="true" class="GameSetupInfoBlockLabel" id="StoryLabel"/>
+      </Panel>
+      <Panel class="GameSetupInfoBlock" id="GameSetupInfoBlockRight">
+        <Label html="true" class="GameSetupInfoBlockLabel" id="ObjectivesLabel"/>
+      </Panel>
       <Panel class="GenericBackground" id="Logo">
       </Panel>
       <Panel id="TimeOffset">

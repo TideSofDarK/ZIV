@@ -28,19 +28,22 @@
 	"settings_controls" "Dota 2-like controls style(deprecated)"
 
 	// Scenarios
-	"objectives" "Objectives"
-	"kill_boss" "Kill miniboss: "
+	"objectives" 			"Objectives"
+	"kill_boss" 			"Kill miniboss: "
 
-	"temple_obelisks" "Find and destroy obelisks: "
-	"temple_kill_oath" "Kill Oath"
+	"temple_obelisks" 		"Find and destroy obelisks: "
+	"temple_kill_oath" 		"Kill Oath"
+
+	"ziv_temple_4p_story" 			"<font color=\"#7ADBB6\"><b>Escape the Temple!</b></font> - the dungeon is collapsing and hordes of monsters will stand in your way. Meanwhile a fire lord called Oath is getting summoned by Curse of Obelisk. Only the bravest heroes can handle this trial of might, skill and team work. Sacred treasures awaits!"
+	"ziv_temple_4p_objectives" 	"Objectives:<br>   - Destroy Obelisks to prevent Oath from intruding your world<br>   - After each Obelisk wave you will encounter soome powerful boss<br>   - Move out carefully! Caverns collapses do dont get hit by falling rocks!<br>"
 
 	// Common modifiers
 
-	"modifier_all_resistances" "to All Magic Resistances"
-	"modifier_fire_resistance" "to Fire Resistance"
-	"modifier_cold_resistance" "to Cold Resistance"
-	"modifier_lightning_resistance" "to Lightning Resistance"
-	"modifier_dark_resistance" "to Dark Resistance"
+	"modifier_all_resistances" 			"to All Magic Resistances"
+	"modifier_fire_resistance" 			"to Fire Resistance"
+	"modifier_cold_resistance" 			"to Cold Resistance"
+	"modifier_lightning_resistance" 	"to Lightning Resistance"
+	"modifier_dark_resistance" 			"to Dark Resistance"
 
 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "to Attack Speed"
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "to Move Speed"

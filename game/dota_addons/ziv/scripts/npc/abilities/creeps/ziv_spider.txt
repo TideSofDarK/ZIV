@@ -1,0 +1,41 @@
+"ziv_spider"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityTextureName"            "ziv_empty"
+  
+  "MaxLevel"          "1"
+
+  "precache"
+  {
+    "particle"  "particles/ziv_creep_modifier_color_blue.vpcf"
+  }
+
+  "Modifiers"
+  {
+    "modifier_spider_idle"
+    {
+      "Passive" "1"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "States"
+      {
+        "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+      }
+    }
+
+    "modifier_spider_out"
+    {
+      "Passive" "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+
+      "States"
+      {
+        "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_DISARMED"        "MODIFIER_STATE_VALUE_ENABLED"
+      }
+    }
+  }
+}

@@ -419,7 +419,18 @@ function UpdateGameSetupPlayerState(status) {
 function OnGameSetupTableChanged(tableName, changesObject, deletionsObject) {
 }
 
+function Blur(args) {
+	$("#SelectionRoot").AddClass("Blur");
+}
+
+function RemoveBlur(args) {
+	$("#SelectionRoot").RemoveClass("Blur");
+}
+
 (function () {
+	GameEvents.Subscribe( "ziv_apply_ui_blur", Blur );
+	GameEvents.Subscribe( "ziv_remove_ui_blur", RemoveBlur );
+
 	GameEvents.Subscribe( "ziv_setup_character_selection", CharacterSelectionSetup );
 
 	PlayerTables.SubscribeNetTableListener( 'gamesetup', OnGameSetupTableChanged );
