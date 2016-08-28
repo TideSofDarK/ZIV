@@ -3,7 +3,7 @@
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
-		<include src="file://{resources}/styles/custom_game/custom_character_selection/character_creation_ability.css" />
+		<include src="file://{resources}/styles/custom_game/gamesetup_ability.css" />
 	</styles>
 	<script>
 		var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
@@ -34,7 +34,7 @@
 			if (panel.abilitygroup && panel.abilitygroup.length > 1 && !panel.BHasClass("ContextMenuAbility")) {
 				var content = $.CreatePanel( "Panel", panel, "Contents" );
 
-				content.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability_context_menu.xml", false, false );
+				content.BLoadLayout( "file://{resources}/layout/custom_game/gamesetup_ability_context_menu.xml", false, false );
 				content.SetAbilities(panel.abilitygroup, panel);
 				content.SetFocus();
 

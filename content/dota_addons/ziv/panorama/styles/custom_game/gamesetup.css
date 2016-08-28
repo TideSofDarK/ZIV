@@ -1,3 +1,128 @@
+@define Primary50: #E8EAF6;
+@define Primary100: #C5CAE9;
+@define Primary200: #9FA8DA;
+@define Primary300: #7986CB;
+@define Primary400: #5C6BC0;
+@define Primary500: #3F51B5;
+@define PrimaryR500: #b53f51;
+@define PrimaryG500: #3fb568;
+@define Primary600: #3949AB;
+@define Primary700: #303F9F;
+@define Primary800: #283593;
+@define Primary900: #1A237E;
+
+@define AccentsA100: #8C9EFF;
+@define AccentsA200: #536DFE;
+@define AccentsA400: #3D5AFE;
+@define AccentsA700: #0304FF;
+
+// Grey palette
+@define Grey50: #FAFAFA;
+@define Grey100: #F5F5F5;
+@define Grey200: #EEEEEE;
+@define Grey300: #E0E0E0;
+@define Grey400: #BDBDBD;
+@define Grey500: #9E9E9E;
+@define Grey600: #757575;
+@define Grey700: #616161;
+@define Grey800: #424242;
+@define Grey900: #021212;
+
+// Simple colors
+@define White: #FFFFFF;
+@define Black: #000000;
+
+@define BACKGROUND_COLOR_WHITE: #FFFFFF28;
+
+.SimpleText
+{
+	box-shadow: 0px 0px 0px 0px;
+
+	background-color: transparent;
+
+	text-align: center;
+
+	box-shadow: #00000000 -1px -1px -1px;
+
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 14px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	color: White;
+
+	margin: 0px;
+}
+
+.Headline1 {
+	font-size: 33px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+.Headline2 {
+	font-size: 29px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+.ButtonLabel {
+	align: center center;
+
+	font-size: 20px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+#GameInfo {
+	vertical-align: bottom;
+	horizontal-align: right;
+
+	text-align: right;
+
+	font-weight: normal;
+	font-size: 18px;
+	color: #ffffff88;
+
+	margin: 5px;
+	margin-right: 8px;
+
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+/*
+ * Some common stuff
+ */
+
+RadioButton Label {
+	font-size: 18px;
+}
+
+TextButton, Label {
+	text-align: center;
+}
+
+/*
+ * Roots
+ */
+
+#Background {
+	width: 1920px;
+	height: 1080px;
+
+	background-color: Grey900;
+}
+
+.Root {
+	z-index: 1;
+
+	vertical-align: center;
+	horizontal-align: center;
+
+	width: 100%;
+	height: 100%;
+}
+
+/*
+ * Game setup 
+ */
+
 .GameSetupLabel {
 	background-color: transparent;
 
@@ -189,4 +314,523 @@
 #HeroPreview {
 	width: 100%;
 	height: 100%;
+}
+
+/*
+ * Here comes character selection
+ */
+
+@keyframes 'loader' 
+{
+  0% 
+  {
+    transform: rotateZ( 360deg );
+  }
+
+  50% 
+  {
+    transform: rotateZ( 180deg );
+  }
+
+  100% 
+  {
+    transform: rotateZ( 0deg );
+  }
+}
+
+.Loader {
+	align: center center;
+
+	width: 128px;
+	height: 128px;
+
+	background-image: url('file://{images}/custom_game/gamesetup/loader.png');
+	background-size: 100% 100%;
+
+	/*transform-origin: 64px 64px;*/
+
+	animation-name: loader;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-duration: 1.4s;
+
+	opacity: 0.4;
+}
+
+#SelectionRoot {
+	width: 100%;
+	height: 100%;
+
+	flow-children: down;
+}
+
+#CharacterListBackground {
+	align: center center;
+
+	margin-top: 450px;
+
+	width: 100%;
+	height: 45%;
+
+	background-color: gradient(linear, 0% 0%, 0% 100%, from(#00000068), color-stop( 0.9, #00000060), to(#00000055));
+	wash-color: #bbbbbb;
+}
+
+#NoCharactersWarning {
+	align: center center;
+
+	visibility: collapse;
+
+	height: 80px;
+}
+
+#CharacterList {
+	align: center center;
+
+	flow-children: right;
+}
+
+.CharacterRoot {
+	vertical-align: center;
+
+	height: 555px;
+	width: 255px;
+
+	padding-bottom: 50px;
+
+	transition-property: wash-color, pre-transform-scale2d;
+	transition-duration: 0.4s;
+}
+
+.CharacterModel {
+	/*padding-top: -50px;*/
+
+	height: 555px;
+	width: 555px;
+}
+
+.CharacterModelSelected {
+	align: center center; 
+
+	blur: gaussian( 10.5 ); 
+	brightness: 20;
+
+	transition-property: wash-color;
+	transition-duration: 0.13s;
+
+	wash-color: #000000;
+}
+
+.CharacterModelSelected:hover {
+	wash-color: #ffffff;
+}
+
+.CharacterModelSelected:selected {
+	wash-color: #ffffff;
+}
+
+.SilhouetteModel {
+	wash-color: #000000;
+}
+
+#QuestionMark {
+	align: center center;
+	font-weight: bold;
+	font-size: 110px;
+	margin-top: 50px;
+
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New;
+
+	transition-property: pre-transform-scale2d;
+	transition-duration: 0.13s;
+}
+
+#CharacterNameLabel {
+	align: center bottom;
+
+	margin-bottom: -15px;
+
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New;
+	text-transform: none;
+	font-weight: normal;
+}
+
+#QuestionMark:hover {
+	pre-transform-scale2d: 1.1;
+}
+
+#CharacterButtons {
+	align: right top;
+
+	flow-children: right;
+
+	margin: 12px;
+}
+
+.OKButton {
+	width: 159px;
+	margin-left: 8px;
+}
+
+/*
+ * Here comes "create new character" window
+ */
+
+#CreationRoot {
+	horizontal-align: center;
+	vertical-align: center;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/character_creation.png');
+
+	width: 85%;
+	height: 85%;
+
+	flow-children: down;
+}
+
+#CreateCharacterLabel {
+	horizontal-align: center;
+	margin-top: 40px;
+}
+
+#BackButton {
+	width: 78px;
+	height: 78px;
+
+	margin: 0px;
+	margin-top: 6px;
+	margin-right: 6px;
+}
+
+#CreationTop {
+	width: 100%;
+	height: 10%;
+}
+
+#CreationMiddle {
+	width: 100%;
+	height: 57%;
+}
+
+#HeroList {
+	vertical-align: middle;
+
+	width: 100%;
+	height: 65%;
+
+	flow-children: down;
+}
+
+#HeroRoot {
+	vertical-align: middle;
+
+	width: 100%;
+	height: 100%;
+
+	visibility: collapse;
+}
+
+#HeroPreview {
+	width: 100%;
+	height: 100%;
+
+	margin-bottom: 60px;
+}
+
+.MiddleBlock {
+	width: 30%;
+	height: 75%;
+
+	transition-property: position, opacity;
+	transition-duration: 0.23s, 0.23s;
+	transition-timing-function: linear, ease-in-out;
+
+	flow-children: down;
+}
+
+.SelectAbility {
+	flow-children: down;
+}
+
+#HeroInfo {
+	align: left center;
+	width: 27%;
+
+	margin-left: 200px;
+}
+
+#BioLabel {
+	width: 100%;
+	height: 500px;
+
+	horizontal-align: left;
+	text-align: left;
+	margin-left: 100px;
+	margin-top: 0px;
+}
+
+#HeroBio {
+	visibility: collapse;
+}
+
+#HeroOptionsTabs {
+	width: 300px;
+	height: 50px;
+
+	flow-children: right;
+}
+
+.HeroOptionsTabSeparator{
+	margin-right: 11px;
+	margin-left: 22px;
+}
+
+RadioButton.HeroOptionTab .RadioBox,
+RadioButton.HeroOptionTab:selected .RadioBox,
+RadioButton.HeroOptionTab:hover .RadioBox,
+ {
+	background-image: none;
+	background-color: transparent;
+	border-width: 0px;
+	box-shadow: #ffffff00 0px 0px 0px 0px;
+	min-width: 0px;
+	min-height: 0px;
+	opacity: 0.0;
+	visibility: collapse;
+}
+
+RadioButton.HeroOptionTab Label,
+RadioButton.HeroOptionTab:selected Label,
+RadioButton.HeroOptionTab:hover Label,
+{
+	font-size: 29px;
+}
+
+.HeroInfoBlock {
+	width: 70%;
+	height: 400px;
+
+	flow-children: down;
+}
+
+.CBR {
+	horizontal-align: left;
+	width: 65%;
+	height: 1px;
+
+	/*border-top: 1px solid #ffffff44;*/
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #ffffff00 ), color-stop( 0.4, #ffffff ), color-stop( 0.6, #ffffff ), to( #ffffff00 ) );
+
+	margin-bottom: 14px;
+	margin-top: 6px;
+}
+
+#HeroBattleInfo {
+	width: 100%;
+}
+
+#HeroAttributes {
+	width: 100%;
+	height: 100px;
+	align: left top;
+
+	flow-children: right;
+}
+
+.HeroAttribute {
+	margin-top: 2px;
+	margin-left: 0px;
+
+	horizontal-align: left;
+
+	width: 95px;
+	height: 75px;
+
+	font-size: 24px;
+	line-height: 80px;
+
+	background-color: transparent;
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex");
+	background-repeat: no-repeat; 
+	background-position: 50% 8%;
+	background-size: 34px 34px;
+
+	box-shadow: #00000000 -1px -1px 0px 0.0;
+	text-shadow: 0px 0px 40px 110.0 #00000024;
+}
+
+.MainAttribute {
+	background-position: 50% -8%;
+	background-size: 45px 45px;
+}
+
+#DOTA_ATTRIBUTE_AGILITY {
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex");
+}
+
+#DOTA_ATTRIBUTE_INTELLECT {
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex");
+}
+
+.HeroInfoLabel {
+	line-height: 0px;
+	font-size: 20px;
+	margin-top: -2px;
+	color: #A5ADA2;
+}
+
+#NameRunesLeague {
+	align: right center;
+}
+
+.OpacityPositionTransitionRight {
+	x: 80px;
+	opacity: 0.0;
+}
+
+.OpacityPositionTransitionLeft {
+	x: -80px;
+	opacity: 0.0;
+}
+
+#Presets {
+	flow-children: right;
+	margin-bottom: 25px;
+}
+
+TextEntry {
+	height: 40px;
+	font-size: 20px;
+}
+
+TextEntry #PlaceholderText {
+	font-size: 20px;
+	margin-top: 0px;
+}
+
+RadioButton.ColorScheme .RadioBox,
+RadioButton.ColorScheme:selected .RadioBox,
+RadioButton.ColorScheme:hover .RadioBox,
+ {
+	background-image: none;
+	background-color: transparent;
+	border-width: 0px;
+	box-shadow: #ffffff00 0px 0px 0px 0px;
+}
+
+.ColorScheme {
+	width: 35px;
+	height: 35px;
+
+	/*margin-right: 4px;*/
+
+	background-size: 10px 10px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+.ColorScheme:selected {
+	border: 2px solid #ffffff;
+}
+
+#ColorScheme1 {
+	background-color: #4444ff44;
+}	
+
+#ColorScheme2 {
+	background-color: #4444ff88;
+}
+
+#ColorScheme3 {
+	background-color: #4444ffbb;
+}
+
+#ColorScheme4 {
+	background-color: #4444ffff;
+}
+
+#CharacterNameEntry {
+	width: 210px;
+	margin-bottom: 25px;
+}
+
+#Leagues {
+	flow-children: right;
+	margin-bottom: 35px;
+}
+
+RadioButton.League {
+	padding-right: 10px;
+}
+
+#CreateCharacterButton {
+	horizontal-align: left;
+	width: 200px;
+}
+
+#CreateHeroButtonLabel {
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	line-height: 0px;
+}
+
+#CreationBottom {
+	width: 100%;
+	height: 40%;
+}
+
+#Abilities {
+	/*width: 45%;*/
+	height: 80%;
+
+	flow-children: right;
+
+	align: center center;
+
+	text-align: center;
+
+	margin-right: 30px;
+
+	line-height: 120px;
+}
+
+.NoLabel {
+	font-size: 0px;
+}
+
+#HighlightEasyCharacters {
+	margin-top: 12px;
+	margin-left: 36px;
+}
+
+.HeroListHorizontal {
+	flow-children: right;
+
+	horizontal-align: center;
+}
+
+.HeroIcon {
+	width: 180px;
+	height: 100px;
+}
+
+.HeroIconForeground {
+	background-image: url('file://{images}/custom_game/ingame_ui/hero_icon_border.png');
+	background-size: 137px 78px;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+.HeroIconButton {
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.HeroIconButton:hover {
+	wash-color: #bbbbbb;
+	
+	sound-out: "whoosh_out";
+}
+
+.HeroIconButton:active {
+	sound: "General.SelectAction";
 }

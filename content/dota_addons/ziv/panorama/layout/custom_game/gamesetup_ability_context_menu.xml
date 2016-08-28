@@ -2,7 +2,7 @@
 	<styles>
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
-		<include src="file://{resources}/styles/custom_game/custom_character_selection/character_creation_ability.css" />
+		<include src="file://{resources}/styles/custom_game/gamesetup_ability.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
 	</styles>
 	<script>
@@ -14,7 +14,7 @@
 
 			for (var i = 0; i < abilities.length; i++) {
 				var newAbility = $.CreatePanel( "Panel", panel, "CCSSelectAbility_" + abilities[i]  );
-				newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability.xml", false, false );
+				newAbility.BLoadLayout( "file://{resources}/layout/custom_game/gamesetup_ability.xml", false, false );
 
 				newAbility.SetAbility(abilities[i], abilities);
 				newAbility.FindChildTraverse("CCSAbilityButton").oncontextmenu = "";

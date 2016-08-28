@@ -1,10 +1,9 @@
 <root>
   <styles>
-        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    <include src="s2r://panorama/styles/dotastyles.vcss_c" />
     <include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
     <include src="file://{resources}/styles/custom_game/ingame_ui_colors.css" />
-    <include src="file://{resources}/styles/custom_game/custom_character_selection/character_selection.css" />
-    <include src="file://{resources}/styles/custom_game/custom_character_selection/character_creation_ability.css" />
+    <include src="file://{resources}/styles/custom_game/gamesetup_ability.css" />
     <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
     <include src="file://{resources}/styles/custom_game/gamesetup.css" />
   </styles>

@@ -347,7 +347,7 @@ function CharacterCreationSetup() {
 
 		for (var i = 0; i < panelCount; i++) {
 			var selectionRoot = $.CreatePanel( "Panel", abilityRoot, "CCSAbilitySelection_" + i  );
-			selectionRoot.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability_selection.xml", false, false );
+			selectionRoot.BLoadLayout( "file://{resources}/layout/custom_game/gamesetup_ability_selection.xml", false, false );
 			var hotkey = selectionRoot.FindChildTraverse("HotkeyText");
 			if (GameUI.CustomUIConfig().KEYBINDS[i].length == 1) {
 				hotkey.text = GameUI.CustomUIConfig().KEYBINDS[i];
@@ -360,7 +360,7 @@ function CharacterCreationSetup() {
 			}
 
 			var newAbility = $.CreatePanel( "Panel", selectionRoot, "CCSAbility_" + i  );
-			newAbility.BLoadLayout( "file://{resources}/layout/custom_game/custom_character_selection/character_creation_ability.xml", false, false );
+			newAbility.BLoadLayout( "file://{resources}/layout/custom_game/gamesetup_ability.xml", false, false );
 
 			newAbility.SetCreationOptions = SetCreationOptions;
 

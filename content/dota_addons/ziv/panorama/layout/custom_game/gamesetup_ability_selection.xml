@@ -3,7 +3,7 @@
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
-		<include src="file://{resources}/styles/custom_game/custom_character_selection/character_creation_ability.css" />
+		<include src="file://{resources}/styles/custom_game/gamesetup_ability.css" />
 	</styles>
 	<Panel class="CCSAbilitySelection">
 		<Panel id="Hotkey">
