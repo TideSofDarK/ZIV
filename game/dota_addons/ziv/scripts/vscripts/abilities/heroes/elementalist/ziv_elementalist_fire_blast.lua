@@ -3,7 +3,12 @@ function FireBlastImpact( keys )
 	local target = keys.target
 	local ability =  keys.ability
 
-	DealDamage(caster, target, caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_FIRE)
+	local damage = caster:GetAverageTrueAttackDamage() * GetSpecial(ability, "damage_amp")
+	if GetRuneChance("ziv_elementalist_fire_blast_crit_chance",caster) then
+		damage = damage * GetSpecial(ability, "crit_damage")
+	end
+
+	DealDamage(caster, target, damage, DAMAGE_TYPE_FIRE)
 
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_fire_blast_effect",{})
 end
@@ -12,6 +17,12 @@ function FireBlast( keys )
 	local caster = keys.caster
 	local target = keys.target_points[1]
 	local ability =  keys.ability
+
+	StartRuneCooldown(ability,"ziv_elementalist_fire_blast_cd",caster)
+
+	if GetRuneChance("ziv_elementalist_fire_blast_double_chance",caster) then
+		ability:EndCooldown()
+	end
 
 	local info =
 	{

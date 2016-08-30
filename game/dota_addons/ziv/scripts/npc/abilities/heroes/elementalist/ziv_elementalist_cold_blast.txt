@@ -56,7 +56,7 @@
 		"06"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"damage_amp"				"2.3"
+			"damage_amp"			"2.3"
 		}
 	}
 
@@ -81,7 +81,7 @@
 
 "ziv_elementalist_cold_blast_dummy"
 {
-	"BaseClass"				"ability_datadriven"
+	"BaseClass"						"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	"AbilityTextureName"			"ziv_empty"
 

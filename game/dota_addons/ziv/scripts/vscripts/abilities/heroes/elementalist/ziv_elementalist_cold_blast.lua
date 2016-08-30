@@ -67,4 +67,19 @@ function ColdBlastHit( keys )
 	local damage = owner_ability:GetLevelSpecialValueFor("damage_amp", 1) * caster_owner:GetAverageTrueAttackDamage()
 
 	DealDamage(caster_owner, target, damage, DAMAGE_TYPE_COLD)
+
+	if GetRuneChance("ziv_elementalist_cold_blast_knockback_chance",caster_owner) then
+		local knockback_modifier_table =
+	    {
+	        should_stun = 1,
+	        knockback_duration = 1,
+	        duration = 1,
+	        knockback_distance = 100,
+	        knockback_height = 80,
+	        center_x = caster_owner:GetAbsOrigin().x,
+	        center_y = caster_owner:GetAbsOrigin().y,
+	        center_z = caster_owner:GetAbsOrigin().z
+	    }
+		target:AddNewModifier( caster_owner, nil, "modifier_knockback", knockback_modifier_table )
+	end
 end

@@ -1203,6 +1203,58 @@
 	    }
 	  }
 	}
+	"item_rune_cold_blast_aoe_chance"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_elementalist"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_cold_blast_aoe_chance"
+	    {
+	      "min" "7"
+	      "max" "23"
+	    }
+	  }
+	}
+	"item_rune_cold_blast_knockback_chance"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_elementalist"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_cold_blast_knockback_chance"
+	    {
+	      "min" "5"
+	      "max" "19"
+	    }
+	  }
+	}
 	"item_rune_cold_blast_radius"
 	{
 	  "ID"		"1509"
@@ -1226,6 +1278,32 @@
 	    {
 	      "min" "5"
 	      "max" "95"
+	    }
+	  }
+	}
+	"item_rune_cold_blast_knockback_chance"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_elementalist"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_cold_blast_slow"
+	    {
+	      "min" "10"
+	      "max" "25"
 	    }
 	  }
 	}
@@ -1277,6 +1355,84 @@
 	    "ziv_elementalist_dark_orb_damage"
 	    {
 	      "min" "1"
+	      "max" "20"
+	    }
+	  }
+	}
+	"item_rune_fire_blast_cd"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_elementalist"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_fire_blast_cd"
+	    {
+	      "min" "5"
+	      "max" "27"
+	    }
+	  }
+	}
+	"item_rune_fire_blast_crit_chance"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_elementalist"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_fire_blast_crit_chance"
+	    {
+	      "min" "5"
+	      "max" "25"
+	    }
+	  }
+	}
+	"item_rune_fire_blast_double_chance"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_elementalist"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_fire_blast_double_chance"
+	    {
+	      "min" "4"
 	      "max" "20"
 	    }
 	  }
