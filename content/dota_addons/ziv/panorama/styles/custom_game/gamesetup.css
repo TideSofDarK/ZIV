@@ -341,20 +341,23 @@ TextButton, Label {
 .Loader {
 	align: center center;
 
-	width: 128px;
-	height: 128px;
+	width: 96px;
+	height: 96px;
 
-	background-image: url('file://{images}/custom_game/gamesetup/loader.png');
-	background-size: 100% 100%;
+	background-image: url("s2r://panorama/images/status_icons/loadingthrobber_round_psd.vtex");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: contain;
+	/*background-size: 100% 100%;*/
 
 	/*transform-origin: 64px 64px;*/
 
 	animation-name: loader;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
-	animation-duration: 1.4s;
+	animation-duration: 1.0s;
 
-	opacity: 0.4;
+	/*opacity: 0.4;*/
 }
 
 #SelectionRoot {
