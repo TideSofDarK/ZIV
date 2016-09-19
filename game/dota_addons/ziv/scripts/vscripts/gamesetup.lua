@@ -17,7 +17,9 @@ function GameSetup:Init()
 
 			if state == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
 			elseif state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
-				Timers:CreateTimer(1.0, function () CustomGameEventManager:Send_ServerToAllClients("ziv_setup_character_selection",{}) end)
+				Timers:CreateTimer(1.0, function () 
+					CustomGameEventManager:Send_ServerToAllClients("ziv_setup_character_selection",{}) 
+				end)
 
 				GameSetup:StartTimer(GameSetup.INITIAL_TIME, function () 
 
@@ -35,11 +37,17 @@ end
 
 function GameSetup:UpdatePlayerStatus(args)
 	local pID = args.PlayerID
+
 	local status = PlayerTables:GetTableValue("gamesetup", "status")
-
 	status[pID] = args.status
-
 	PlayerTables:SetTableValue("gamesetup", "status", status)
+
+	if args.status == "ready" and (string.match(GetMapName(), "debug") or IsInToolsMode()) then
+		GameRules:LockCustomGameSetupTeamAssignment(true)
+		GameRules:FinishCustomGameSetup()
+
+		-- Characters:SpawnCharacter()
+	end
 end
 
 function GameSetup:StartTimer(duration, tick, on_end)

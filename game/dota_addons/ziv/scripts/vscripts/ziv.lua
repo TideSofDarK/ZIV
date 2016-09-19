@@ -35,7 +35,7 @@ require('libraries/particles')
 require('libraries/damage')
 -- Random
 require('libraries/random')
-require('libraries/PseudoRNG')
+require('libraries/pseudoRNG')
 -- Ability-related stuff
 require('libraries/abilities')
 -- Keyvalues

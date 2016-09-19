@@ -181,9 +181,9 @@ function SimulateRangeAttack( keys )
     end
 
     local lock = true
-    local distanceToTarget = caster:GetAttackRange() * 2.0
+    local distance_to_target = caster:GetAttackRange() * 2.0
     local origin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment(keys.attachment or "attach_attack1")) or (caster:GetAbsOrigin())
-    local point = origin + (((keys.target_points[1] - origin):Normalized() * Vector(1,1,0)) * distanceToTarget)
+    local point = origin + (((keys.target_points[1] - origin):Normalized() * Vector(1,1,0)) * distance_to_target)
 
     if math.abs(target.z - caster:GetAbsOrigin().z) >= 32 then
       if math.abs(GridNav:FindPathLength(caster:GetAbsOrigin(),target) - (target - caster:GetAbsOrigin()):Length2D()) < 128 then
