@@ -394,15 +394,13 @@ function CharacterSelectionSetup() {
 		$("#CharacterListLoader").visible = false;
 
         for (var i = 0; i < loadedCharacters.length; i++) {
-        	$.Msg(loadedCharacters[i]["Abilities"]);
+        	var character = {};
+        	character["id"] = loadedCharacters[i]["ID"];
+        	character["hero_name"] = loadedCharacters[i]["HeroName"];
+        	character["character_name"] = loadedCharacters[i]["CharacterName"];
+        	character["abilities"] = JSON.parse(loadedCharacters[i]["Abilities"]);
+        	character["equipment"] = JSON.parse(loadedCharacters[i]["Equipment"]);
 
-        	var character = [];
-        	character.id = loadedCharacters[i]["ID"];
-        	character.hero_name = loadedCharacters[i]["HeroName"];
-        	character.character_name = loadedCharacters[i]["CharacterName"];
-        	character.abilities = loadedCharacters[i]["Abilities"];
-        	character.equipment = loadedCharacters[i]["Equipment"];
-        	
         	characterData.push(character);
         }
 
@@ -423,30 +421,32 @@ function CharacterSelectionSetup() {
         }
 
 		$.Each(characterData, function (characterTable) {
-			var characterPanel = $.CreatePanel( "Panel", characterList, characterTable.id );
-			characterPanel.BLoadLayoutSnippet("Character");
+			(function() {
+				var characterPanel = $.CreatePanel( "Panel", characterList, characterTable.id );
+				characterPanel.BLoadLayoutSnippet("Character");
 
-			characterPanel.characterTable = characterTable;
+				characterPanel.characterTable = characterTable;
 
-			characterPanel.FindChildTraverse("CharacterModel").RemoveAndDeleteChildren();
-			characterPanel.FindChildTraverse("CharacterModel").DeleteAsync(0.0);
+				characterPanel.FindChildTraverse("CharacterModel").RemoveAndDeleteChildren();
+				characterPanel.FindChildTraverse("CharacterModel").DeleteAsync(0.0);
 
-			characterPanel.FindChildTraverse("CharacterModelSelected").RemoveAndDeleteChildren();
-			characterPanel.FindChildTraverse("CharacterModelSelected").DeleteAsync(0.0);
-			
-			var modelPanelSelected = $.CreatePanel( "RadioButton", characterPanel, "CharacterModelSelected" );
-			var previewStyle = "width: 100%; height: 100%; align: center top; overflow: clip clip;";
-			modelPanelSelected.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel style='" + previewStyle + "' unit='" + characterTable.hero_name + "'/></Panel></root>", false, false);
-			modelPanelSelected.AddClass("CharacterModel");
-			modelPanelSelected.AddClass("CharacterModelSelected");
-			modelPanelSelected.group = "Characters";
+				characterPanel.FindChildTraverse("CharacterModelSelected").RemoveAndDeleteChildren();
+				characterPanel.FindChildTraverse("CharacterModelSelected").DeleteAsync(0.0);
+				
+				var modelPanelSelected = $.CreatePanel( "RadioButton", characterPanel, "CharacterModelSelected" );
+				var previewStyle = "width: 100%; height: 100%; align: center top; overflow: clip clip;";
+				modelPanelSelected.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel style='" + previewStyle + "' unit='" + characterTable.hero_name + "'/></Panel></root>", false, false);
+				modelPanelSelected.AddClass("CharacterModel");
+				modelPanelSelected.AddClass("CharacterModelSelected");
+				modelPanelSelected.group = "Characters";
 
-			var modelPanel = $.CreatePanel( "Panel", characterPanel, "CharacterModel" );
-			previewStyle = "width: 100%; height: 100%; align: center top; overflow: clip clip;";
-			modelPanel.LoadLayoutFromStringAsync("<root><Panel hittest='false'><DOTAScenePanel hittest='false' style='" + previewStyle + "' unit='" + characterTable.hero_name + "'/></Panel></root>", false, false);
-			modelPanel.AddClass("CharacterModel");
+				var modelPanel = $.CreatePanel( "Panel", characterPanel, "CharacterModel" );
+				previewStyle = "width: 100%; height: 100%; align: center top; overflow: clip clip;";
+				modelPanel.LoadLayoutFromStringAsync("<root><Panel hittest='false'><DOTAScenePanel hittest='false' style='" + previewStyle + "' unit='" + characterTable.hero_name + "'/></Panel></root>", false, false);
+				modelPanel.AddClass("CharacterModel");
 
-			characterPanel.FindChildTraverse("CharacterNameLabel").text = characterTable.character_name;
+				characterPanel.FindChildTraverse("CharacterNameLabel").text = characterTable.character_name;
+			})();
 		})
 	}));
 }
@@ -454,7 +454,7 @@ function CharacterSelectionSetup() {
 function CharacterSelectionGetSelectedCharacter() {
 	var characterList = $("#CharacterList");
 	for (var panel of characterList.Children()) { 
-		if (panel.FindChildTraverse("CharacterModelSelected").IsSelected()) {
+		if (panel.FindChildTraverse("CharacterModelSelected") && panel.FindChildTraverse("CharacterModelSelected").IsSelected()) {
 			return panel.characterTable;
 		}
 	}
@@ -479,7 +479,8 @@ function CharacterSelectionLockIn() {
 }
 
 function UpdateGameSetupPlayerState(status) {
-	GameEvents.SendCustomGameEventToServer( "ziv_gamesetup_update_status", { "status" : status });
+	var selectedCharacter = CharacterSelectionGetSelectedCharacter();
+	GameEvents.SendCustomGameEventToServer( "ziv_gamesetup_update_status", { "status" : status, "character" : selectedCharacter });
 }
 
 function Blur(target) {
