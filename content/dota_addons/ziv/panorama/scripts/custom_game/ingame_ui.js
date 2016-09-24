@@ -137,7 +137,7 @@ function UpdateHPAndMP()
 	// 	$("#sp").text = "";
 	// }
 
-	if (xp != NaN && maxXP != NaN && maxXP != 0) {
+	if (maxXP != 0) {
 		var xpPercentage = xp / maxXP;
 		var value = xpPercentage * 700;
 		if (value != NaN && value != Infinity && XPBar) {
