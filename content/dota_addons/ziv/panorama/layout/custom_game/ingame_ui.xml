@@ -8,7 +8,7 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui.js" />
-		<include src="file://{resources}/scripts/custom_game/arpgctrl.js" />
+		<include src="file://{resources}/scripts/custom_game/ingame_ui_controls.js" />
 	</scripts>
 	<Panel class="InGameUIRoot" hittest="false">
 		<Panel class="GenericBackground" id="BottomGfx" hittest="false"/>

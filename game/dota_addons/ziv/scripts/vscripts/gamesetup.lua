@@ -46,7 +46,7 @@ function GameSetup:UpdatePlayerStatus(args)
 		GameRules:LockCustomGameSetupTeamAssignment(true)
 		GameRules:FinishCustomGameSetup()
 
-		-- Characters:SpawnCharacter()
+		Characters:SpawnCharacter(pID, args.character)
 	end
 end
 

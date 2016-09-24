@@ -107,8 +107,7 @@ function UpdateHPAndMP()
 	var xp 		= 	Entities.GetCurrentXP( queryUnit );
 	var maxXP 	= 	Entities.GetNeededXPToLevel( queryUnit );
 
-	if (heroKV["UsesEnergy"]) 
-	{
+	if (heroKV["UsesEnergy"]) {
 		if (heroKV["DarkEnergy"]) {
 			SPOrb1.SwitchClass("Mana", "DarkEnergy");
 			SPOrb2.SwitchClass("Mana", "DarkEnergy");
@@ -138,9 +137,9 @@ function UpdateHPAndMP()
 	// 	$("#sp").text = "";
 	// }
 
-	if (xp != NaN && maxXP != NaN) {
+	if (xp != NaN && maxXP != NaN && maxXP != 0) {
 		var xpPercentage = xp / maxXP;
-		var value = (xpPercentage * 700);
+		var value = xpPercentage * 700;
 		if (value != NaN && value != Infinity && XPBar) {
 			XPBar.style.width = value + "px;";
 		}

@@ -1,8 +1,122 @@
 "use strict";
 
+GameUI.SetRenderBottomInsetOverride( 0 );
+GameUI.SetRenderTopInsetOverride( 0 );
+
+var heightOffset = 300;
+var clampOffset = 200;
+var offset = 0;
+
 var abilityCasting = [];
 var abilityTimings = [];
 var abilityDelay = 0.2;
+
+function BeginPickUpState( targetEntIndex )
+{
+	var order = {
+		OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_PICKUP_ITEM,
+		TargetIndex : targetEntIndex,
+		QueueBehavior : OrderQueueBehavior_t.DOTA_ORDER_QUEUE_NEVER,
+		ShowEffects : false
+	};
+	(function tic()
+	{
+		if ( GameUI.IsMouseDown( 0 ) )
+		{
+			$.Schedule( 1.0/30.0, tic );
+			if ( Entities.IsValidEntity( order.TargetIndex) )
+			{
+				Game.PrepareUnitOrders( order );
+			}
+		}	
+	})();
+}
+
+
+
+(function SmoothCameraZ()
+{
+	$.Schedule( 1.0/60.0, SmoothCameraZ );
+	var minStep = 0.5;
+	var target = Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2] - heightOffset;
+	target = Math.max(0, Math.min(clampOffset, target));
+	var delta = ( target - offset );
+	if ( Math.abs( delta ) < minStep )
+	{
+		delta = target;
+	}
+	else
+	{
+		var step = delta * 0.3;
+		if ( Math.abs( step ) < minStep )
+		{
+			if ( delta > 0 )
+				step = minStep;
+			else
+				step = -minStep;
+		}
+		offset += step;
+	}
+
+	GameUI.SetCameraLookAtPositionHeightOffset(offset); 
+	return;
+})();
+
+function BeginMoveState()
+{
+	var order = {
+		OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+		Position : [0, 0, 0],
+		QueueBehavior : OrderQueueBehavior_t.DOTA_ORDER_QUEUE_NEVER,
+		ShowEffects : false
+	};
+	(function tic()
+	{
+		if ( GameUI.IsMouseDown( 0 ))
+		{
+			$.Schedule( 1.0/30.0, tic );
+			if (GetMouseCastTarget() != -1) {
+				GameUI.CustomUIConfig().ZIVCastAbility(4, false, true);
+			}
+			else {
+				var mouseWorldPos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
+				if ( mouseWorldPos !== null )
+				{
+					if (GameUI.IsMouseDown( 2 ) )
+					{
+						return;
+					}			
+					order.Position = mouseWorldPos;
+					Game.PrepareUnitOrders( order );
+				}
+			}
+		}
+	})();
+}
+
+function OnLeftButtonPressed()
+{
+	var targetIndex = GetMouseCastTarget();
+	if ( targetIndex === -1 )
+	{
+		if ( GameUI.IsShiftDown() )
+		{
+			GameUI.CustomUIConfig().ZIVCastAbility(4, false, true);
+		}
+		else
+		{
+			BeginMoveState();
+		}
+	}
+	else if ( Entities.IsItemPhysical( targetIndex ) )
+	{
+		BeginPickUpState( targetIndex );
+	}
+	else
+	{
+		BeginMoveState();
+	}
+}
 
 function GetMouseCastTarget()
 {
@@ -83,6 +197,7 @@ function ZIVCastAbility(number, pressing, single) {
 
 (function()
 {
+	// Hotkeys
 	GameUI.CustomUIConfig().ZIVCastAbility = ZIVCastAbility;
 	GameUI.CustomUIConfig().ZIVStopAbility = ZIVStopAbility; 
 
@@ -109,4 +224,54 @@ function ZIVCastAbility(number, pressing, single) {
     Game.AddCommand("-ZIVCastAbility3", GameUI.CustomUIConfig().ZIVStopAbility3, "", 0);
     Game.AddCommand("-ZIVCastAbility4", GameUI.CustomUIConfig().ZIVStopAbility4, "", 0);
     Game.AddCommand("-ZIVCastAbility5", GameUI.CustomUIConfig().ZIVStopAbility5, "", 0);
+
+    //Mouse
+    GameUI.SetMouseCallback( function( eventName, arg ) {
+		var nMouseButton = arg
+		var CONSUME_EVENT = true;
+		var CONTINUE_PROCESSING_EVENT = false;
+		if ( GameUI.GetClickBehaviors() !== CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE )
+			return CONTINUE_PROCESSING_EVENT;
+
+		if ( eventName === "pressed" )
+		{
+			if ( arg === 0 )
+			{
+				OnLeftButtonPressed();
+				
+				return CONSUME_EVENT;
+			}
+
+			if ( arg === 1 )
+			{
+				GameUI.CustomUIConfig().ZIVCastAbility(5, false, true);
+				return CONSUME_EVENT;
+			}
+
+			if ( arg === 2 )
+			{
+				return CONSUME_EVENT;
+			}
+		}
+
+		if ( eventName === "released" )
+		{
+			if ( arg === 0 )
+			{
+				GameUI.CustomUIConfig().ZIVStopAbility4();
+				return CONSUME_EVENT;
+			}
+		}
+
+		if ( eventName === "doublepressed" )
+		{
+			return CONSUME_EVENT;
+		}
+		return CONTINUE_PROCESSING_EVENT;
+	} );
+
+    // Camera
+	GameUI.SetCameraPitchMax( 55 );
+	GameUI.SetCameraYaw( 45 );
+	GameUI.SetCameraLookAtPositionHeightOffset(Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2]); 
 })();

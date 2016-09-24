@@ -58,8 +58,7 @@ function Characters:CreateCharacter( args )
   return new_character_table
 end
 
-function Characters:SpawnCharacter( args )
-  local pID = tonumber(args.pID)
+function Characters:SpawnCharacter( pID, args )
   local hero_name = args.hero_name
   local equipment = args.equipment
   local inventory = args.inventory
@@ -84,8 +83,7 @@ function Characters:SpawnCharacter( args )
 
     if equipment then
       for k,v in pairs(equipment) do
-        local item_name = v.item_name
-        local item = CreateItem(item_name, hero, hero)
+        local item = CreateItem(v.item, hero, hero)
         item.fortify_modifiers = v.fortify_modifiers
         item.built_in_modifiers = v.built_in_modifiers
         
@@ -98,8 +96,7 @@ function Characters:SpawnCharacter( args )
 
     if inventory then
       for k,v in pairs(inventory) do
-        local item_name = v.item_name
-        local item = CreateItem(item_name, hero, hero)
+        local item = CreateItem(v.item, hero, hero)
         item.fortify_modifiers = v.fortify_modifiers
         item.built_in_modifiers = v.built_in_modifiers
 
@@ -135,9 +132,10 @@ function Characters:InitCharacter( hero )
     hero:AddAbility("ziv_stats_bonus_fix")
     hero:AddAbility("ziv_hero_normal_hpbar_behavior")
 
-    InitAbilities(hero)
-
     hero:AddNewModifier(hero,nil,"modifier_disable_auto_attack",{})
+    hero:AddNewModifier(hero,nil,"modifier_smooth_floating",{duration = 5})
+
+    InitAbilities(hero)
 
     -- PseudoRNG stuff
     hero.loot_rng = PseudoRNG.create( 0.5 )

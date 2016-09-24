@@ -109,8 +109,8 @@ end
 
 function ZIV:OnAllPlayersLoaded()
   DebugPrint("[ZIV] All Players have loaded into the game")
-  
-  -- Timers:CreateTimer(1.0, function ()
+
+  Timers:CreateTimer(1.0, function () 
     DoToAllPlayers(function ( player )
       CustomNetTables:SetTableValue( "settings", tostring(player:GetPlayerID()), {
         CustomSettingDamage = ZIV_CustomSettingDamage_DEFAULT, 
@@ -127,12 +127,8 @@ function ZIV:OnAllPlayersLoaded()
       units = ZIV.UnitKVs,
       presets = ZIV.PresetsKVs,
       recipes = ZIV.RecipesKVs
-     }, true)
-
-    CustomGameEventManager:Send_ServerToAllClients( "ziv_set_recipes_kvs", ZIV.RecipesKVs )
-
-    SendToServerConsole("dota_combine_models 0")
-  -- end)
+      }, true)
+    end)
 end
 
 function ZIV:OnHeroInGame(hero)
