@@ -388,9 +388,9 @@ function PlayerTables:SetTableValue(tableName, key, value)
 end
 
 function PlayerTables:SetSubTableValue(tableName, key, subKey, value)
-  local value = PlayerTables:GetTableValue(tableName, key)
-  status[subKey] = value
-  PlayerTables:SetTableValue(tableName, key, value)
+  local new_table = PlayerTables:GetTableValue(tableName, key)
+  new_table[subKey] = value
+  PlayerTables:SetTableValue(tableName, key, new_table)
 end
 
 function PlayerTables:SetTableValues(tableName, changes)

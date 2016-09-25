@@ -95,23 +95,14 @@ function BeginMoveState()
 function OnLeftButtonPressed()
 {
 	var targetIndex = GetMouseCastTarget();
-	if ( targetIndex === -1 )
-	{
-		if ( GameUI.IsShiftDown() )
-		{
-			GameUI.CustomUIConfig().ZIVCastAbility(4, false, true);
-		}
-		else
-		{
-			BeginMoveState();
-		}
-	}
-	else if ( Entities.IsItemPhysical( targetIndex ) )
-	{
+	
+	if (GameUI.IsShiftDown()) {
+		GameUI.CustomUIConfig().ZIVCastAbility(4, false, true);
+	} else if ( targetIndex === -1 && Entities.IsEnemy( targetIndex )) {
+		BeginMoveState();
+	} else if ( Entities.IsItemPhysical( targetIndex ) ) {
 		BeginPickUpState( targetIndex );
-	}
-	else
-	{
+	} else {
 		BeginMoveState();
 	}
 }

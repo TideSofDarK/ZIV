@@ -44,12 +44,6 @@ function GameSetup:UpdatePlayerStatus(args)
 		PlayerTables:SetSubTableValue("characters", "characters", pID, args.character)
 	end
 
-	for k,v in pairs(status) do
-		if v ~= "ready" and not string.match(GetMapName(), "debug") and not IsInToolsMode() then
-			return false
-		end
-	end
-
 	GameSetup:FinishGameSetup()
 end
 
@@ -57,7 +51,15 @@ function GameSetup:FinishGameSetup()
 	local status = PlayerTables:GetTableValue("gamesetup", "status")
 
 	for k,v in pairs(status) do
-		Characters:SpawnCharacter(k, PlayerTables:GetTableValue("characters", "characters")[pID])
+		if v ~= "ready" and not string.match(GetMapName(), "debug") and not IsInToolsMode() then
+			return false
+		end
+	end
+
+	for k,v in pairs(status) do
+		if PlayerResource:GetPlayer(k) then
+			Characters:SpawnCharacter(k, PlayerTables:GetTableValue("characters", "characters")[k])
+		end
 	end
 
 	GameRules:LockCustomGameSetupTeamAssignment(true)

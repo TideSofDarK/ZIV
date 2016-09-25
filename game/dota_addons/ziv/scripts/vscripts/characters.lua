@@ -19,7 +19,7 @@ end
 Characters.current_session_characters = Characters.current_session_characters or {}
 
 function Characters:Init() 
-  PlayerTables:CreateTable("characters", {characters=GeneratePlayerArray({})}, true)
+  PlayerTables:CreateTable("characters", {characters=GeneratePlayerArray("player")}, true)
 
   CustomGameEventManager:RegisterListener("ziv_spawn_character", Dynamic_Wrap(Characters, 'OnSpawnCharacter'))
   CustomGameEventManager:RegisterListener("ziv_open_inventory", Dynamic_Wrap(Characters, "OnOpenInventory"))

@@ -27,10 +27,8 @@ function StartAttack( keys )
 
 			damage_type = DAMAGE_TYPE_COLD
 		else
-			local fire_effect = ParticleManager:CreateParticle("particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare_explosion_flameouts.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-			ParticleManager:SetParticleControlEnt(fire_effect, 3, caster, PATTACH_CUSTOMORIGIN, "attach_hitloc", target, true) 
-			fire_effect = ParticleManager:CreateParticle("particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare_explosion_flash_c.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-			ParticleManager:SetParticleControlEnt(fire_effect, 3, caster, PATTACH_CUSTOMORIGIN, "attach_hitloc", target, true) 
+			local fire_effect = ParticleManager:CreateParticle("particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare_explosion_flash_c.vpcf", PATTACH_ABSORIGIN, caster)
+			ParticleManager:SetParticleControl(fire_effect, 3, target)
 		
 			damage_type = DAMAGE_TYPE_FIRE
 		end
