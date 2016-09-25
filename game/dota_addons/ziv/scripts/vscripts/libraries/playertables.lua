@@ -387,6 +387,12 @@ function PlayerTables:SetTableValue(tableName, key, value)
   end
 end
 
+function PlayerTables:SetSubTableValue(tableName, key, subKey, value)
+  local value = PlayerTables:GetTableValue(tableName, key)
+  status[subKey] = value
+  PlayerTables:SetTableValue(tableName, key, value)
+end
+
 function PlayerTables:SetTableValues(tableName, changes)
   if not self.tables[tableName] then
     print("[playertables.lua] Warning: Table '" .. tableName .. "' does not exist.")

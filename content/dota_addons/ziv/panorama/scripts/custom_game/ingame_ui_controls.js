@@ -32,8 +32,6 @@ function BeginPickUpState( targetEntIndex )
 	})();
 }
 
-
-
 (function SmoothCameraZ()
 {
 	$.Schedule( 1.0/60.0, SmoothCameraZ );

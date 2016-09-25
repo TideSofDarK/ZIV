@@ -27,6 +27,14 @@ function DeepCopy(orig)
     return copy
 end
 
+function GeneratePlayerArray(default_value)
+  pIDs = {}
+  for i=0,DOTA_MAX_TEAM_PLAYERS-1 do
+    pIDs[#pIDs+1] = default_value
+  end
+  return pIDs
+end
+
 function RandomPointOnMap(offset)
   local offset = offset or 100
 

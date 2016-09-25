@@ -10,13 +10,16 @@ function SpawnPet( keys )
 		if keys.respawn_pet then
 			KillPet( keys )
 		end
-		caster.pet = CreateUnitByName(keys.unit or "npc_beastmaster_pet1", caster:GetAbsOrigin() + RandomPointOnCircle(75), false, caster, caster, caster:GetTeamNumber())
-		ability:ApplyDataDrivenModifier(caster, caster.pet, "modifier_beastmaster_pet", {})
+		local unit_name = keys.unit or "npc_beastmaster_pet1"
+		PrecacheUnitByNameAsync(unit_name, function () 
+			caster.pet = CreateUnitByName(unit_name, caster:GetAbsOrigin() + RandomPointOnCircle(75), false, caster, caster, caster:GetTeamNumber())
+			ability:ApplyDataDrivenModifier(caster, caster.pet, "modifier_beastmaster_pet", {})
 
-		caster:EmitSound("Hero_Beastmaster.Call.Boar")
+			caster:EmitSound("Hero_Beastmaster.Call.Boar")
 
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_boar.vpcf", PATTACH_ABSORIGIN, caster.pet)
-		ParticleManager:SetParticleControl(particle, 0, caster.pet:GetAbsOrigin())
+			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_boar.vpcf", PATTACH_ABSORIGIN, caster.pet)
+			ParticleManager:SetParticleControl(particle, 0, caster.pet:GetAbsOrigin())
+		end, caster:GetPlayerOwnerID())
 	end
 end
 

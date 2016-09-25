@@ -118,5 +118,8 @@ ZIV_CustomSettingShowTooltip_DEFAULT = 1
 ZIV_CustomSettingControls_DEFAULT = 0
 
 function GetZIVSpecificSetting(pID, setting) 
-	return CustomNetTables:GetTableValue("settings", tostring(pID))["CustomSetting"..setting] == 1
+	local settings_storage = CustomNetTables:GetTableValue("settings", tostring(pID))
+	if settings_storage then
+		return settings_storage["CustomSetting"..setting] == 1
+	end
 end

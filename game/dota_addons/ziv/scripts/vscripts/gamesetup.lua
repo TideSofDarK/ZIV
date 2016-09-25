@@ -6,7 +6,7 @@ GameSetup.INITIAL_TIME = 180
 GameSetup.COUNTDOWN_TIME = 10
 
 function GameSetup:Init() 
-	PlayerTables:CreateTable("gamesetup", {status={(function() local players = {} for i=0,DOTA_MAX_PLAYERS-1 do players[i] = "connected" end return players end)()}}, true)
+	PlayerTables:CreateTable("gamesetup", {status = GeneratePlayerArray("disconnected"), time = GameSetup.INITIAL_TIME}, true)
 
 	CustomGameEventManager:RegisterListener("ziv_gamesetup_create_character", Dynamic_Wrap(Characters, 'CreateCharacter'))
 	CustomGameEventManager:RegisterListener("ziv_gamesetup_update_status", Dynamic_Wrap(GameSetup, 'UpdatePlayerStatus'))
@@ -38,16 +38,30 @@ end
 function GameSetup:UpdatePlayerStatus(args)
 	local pID = args.PlayerID
 
-	local status = PlayerTables:GetTableValue("gamesetup", "status")
-	status[pID] = args.status
-	PlayerTables:SetTableValue("gamesetup", "status", status)
+	PlayerTables:SetSubTableValue("gamesetup", "status", pID, args.status)
 
-	if args.status == "ready" and (string.match(GetMapName(), "debug") or IsInToolsMode()) then
-		GameRules:LockCustomGameSetupTeamAssignment(true)
-		GameRules:FinishCustomGameSetup()
-
-		Characters:SpawnCharacter(pID, args.character)
+	if args.character then
+		PlayerTables:SetSubTableValue("characters", "characters", pID, args.character)
 	end
+
+	for k,v in pairs(status) do
+		if v ~= "ready" and not string.match(GetMapName(), "debug") and not IsInToolsMode() then
+			return false
+		end
+	end
+
+	GameSetup:FinishGameSetup()
+end
+
+function GameSetup:FinishGameSetup()
+	local status = PlayerTables:GetTableValue("gamesetup", "status")
+
+	for k,v in pairs(status) do
+		Characters:SpawnCharacter(k, PlayerTables:GetTableValue("characters", "characters")[pID])
+	end
+
+	GameRules:LockCustomGameSetupTeamAssignment(true)
+	GameRules:FinishCustomGameSetup()
 end
 
 function GameSetup:StartTimer(duration, tick, on_end)

@@ -124,13 +124,13 @@ function UpdateHPAndMP()
 	// $("#sp").text = mp + "/" + maxMP;
 
 	if (hp != NaN) {
-		var hpPercentage = (hp / maxHP * 100);
+		var hpPercentage = (hp / maxHP) * 100;
 		HPOrb.style.height = hpPercentage + "%;";
 	}
 
 	if (mp != NaN) {
-		var mpPercentage = mp / maxMP * 100.0;
-		SPOrb.style.height = mpPercentage + "%;";
+		var mpPercentage = Math.round((mp / maxMP) * 160);
+		SPOrb.style.height = mpPercentage + "px;";
 	}
 
 	// if (maxMP == 0) {
