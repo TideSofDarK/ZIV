@@ -333,10 +333,10 @@
 	/*brightness: 0.5;*/
 }
 
-#fortify_button {
+/*#fortify_button {
 	background-image: url('file://{images}/custom_game/ingame_ui/fortify.png');
 	visibility: collapse;
-}
+}*/
 
 #help_button {
 	background-image: url('file://{images}/custom_game/ingame_ui/help.png');
