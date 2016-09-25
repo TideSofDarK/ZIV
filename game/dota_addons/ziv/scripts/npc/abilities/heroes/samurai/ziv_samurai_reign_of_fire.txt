@@ -9,7 +9,7 @@
   
   "AbilityCooldown"         "4.5"
 
-  "MaxLevel"          "7"
+  "MaxLevel"          "1"
 
   "precache"
   {

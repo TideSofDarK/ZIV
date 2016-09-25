@@ -5316,7 +5316,7 @@
 	
 	  "AbilityCooldown"         "4.5"
 	  
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "precache"
 	  {
@@ -5395,12 +5395,12 @@
 	  "AbilityTextureName"            "ziv_samurai_dash"
 	
 	  "AbilityCastPoint"        "0.0001"
-	  "AbilityCooldown"         "2.5"
+	  "AbilityCooldown"         "1.23"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	
-	  "AbilityManaCost"       "70"
+	  "AbilityManaCost"       "30"
 	  
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "precache"
 	  {
@@ -5515,7 +5515,7 @@
 	
 	  "AbilityManaCost"       "10"
 	  
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "precache"
 	  {
@@ -5587,7 +5587,7 @@
 	  
 	  "AbilityCooldown"         "4.5"
 	
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "precache"
 	  {
@@ -5684,7 +5684,7 @@
 	
 	  "AbilityManaCost"       "10"
 	  
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "precache"
 	  {
@@ -5786,7 +5786,7 @@
 	
 	  "AbilityManaCost"       "10"
 	  
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "precache"
 	  {
