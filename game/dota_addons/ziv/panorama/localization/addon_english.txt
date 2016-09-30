@@ -186,7 +186,7 @@
 	// Game setup
 	"gamesetup_ready"								"Ready"
 	"gamesetup_preparing"							"Preparing"
-	"gamesetup_disconected"							"Disconnected"
+	"gamesetup_disconnected"							"Disconnected"
 	"gamesetup_connected"							"Connected"
 
 	"gamesetup_creation_error_length"				"Minimal name length is 6 charaters. Maximum name length is 16 characters."

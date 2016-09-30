@@ -19,6 +19,8 @@ var lockedIn = false;
 
 var firstLaunch = true;
 
+var selectionIsLocked = false;
+
 var heroRoot = $("#HeroRoot");
 var abilityRoot = $("#Abilities");
 
@@ -60,43 +62,42 @@ function OnGameSetupTableChanged(tableName, changesObject, deletionsObject) {
 		var time = changesObject["time"]["time"]
 		$("#TimeLabel").text = Util.SecondsToHHMMSS(time);
 	}
-}
+	if (changesObject["status"]) {
+		var status = changesObject["status"];
 
-function Update() {
-	$.Schedule(0.1, Update);
+		for (var playerID = 0; playerID < GameUI.CustomUIConfig().mapMaxPlayers; playerID++) {
+			var playerInfo = Game.GetPlayerInfo( playerID );
 
-	for (var playerID = 0; playerID < GameUI.CustomUIConfig().mapMaxPlayers; playerID++) { //
-		var playerInfo = Game.GetPlayerInfo( playerID );
+			if (playerInfo != undefined) {
+				var playerPanelName = "Player_" + playerID;
+				var playerPanel = $("#"+playerPanelName);
+				if (playerPanel) {
+					playerPanel.FindChildTraverse("Avatar").steamid = playerInfo.player_steamid;
+					playerPanel.FindChildTraverse("NameLabel").text = playerInfo.player_name;
 
-		if (playerInfo != undefined) {
-			var playerPanelName = "Player_" + playerID;
-			var playerPanel = $("#"+playerPanelName);
-			if (playerPanel) {
-				playerPanel.FindChildTraverse("Avatar").steamid = playerInfo.player_steamid;
-				playerPanel.FindChildTraverse("NameLabel").text = playerInfo.player_name;
+					var statusIconPanel = playerPanel.FindChildTraverse("PlayerStatus");
+					var statusTextPanel = playerPanel.FindChildTraverse("StatusLabel");
+	 
+					if (playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_CONNECTED) {
+						var playerStatus = status;
+						if (playerStatus && playerStatus[playerID]) {
+							statusTextPanel.text = $.Localize("gamesetup_" + playerStatus[playerID]);
 
-				var statusIconPanel = playerPanel.FindChildTraverse("PlayerStatus");
-				var statusTextPanel = playerPanel.FindChildTraverse("StatusLabel");
- 
-				if (playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_CONNECTED) {
-					var playerStatus = PlayerTables.GetTableValue("gamesetup", "status");
-					if (playerStatus && playerStatus[playerID]) {
-						statusTextPanel.text = $.Localize("gamesetup_" + playerStatus[playerID]);
+							if (playerStatus[playerID] == "ready") {
+								SetStatusIcon(statusIconPanel, "StatusReady");
+							} else { 
+								SetStatusIcon(statusIconPanel, "StatusConnected");
+							}
+						} else {
+							statusTextPanel.text = $.Localize("gamesetup_connected");
 
-						if (playerStatus[playerID] == "ready") {
-							SetStatusIcon(statusIconPanel, "StatusReady");
-						} else { 
 							SetStatusIcon(statusIconPanel, "StatusConnected");
 						}
 					} else {
-						statusTextPanel.text = $.Localize("gamesetup_connected");
+						statusTextPanel.text = $.Localize("gamesetup_disconected");
 
-						SetStatusIcon(statusIconPanel, "StatusConnected");
+						SetStatusIcon(statusIconPanel, "StatusDisconnected");
 					}
-				} else {
-					statusTextPanel.text = $.Localize("gamesetup_disconected");
-
-					SetStatusIcon(statusIconPanel, "StatusDisconnected");
 				}
 			}
 		}
@@ -468,7 +469,19 @@ function CharacterSelectionDeleteCharacter() {
 	}
 }
 
+function CharacterSelectionLock() {
+	selectionIsLocked = true;
+	var characterList = $("#CharacterList");
+	for (var panel of characterList.Children()) { 
+		if (panel.FindChildTraverse("CharacterModelSelected") && !panel.FindChildTraverse("CharacterModelSelected").IsSelected()) {
+			panel.visible = false;
+		}
+	}
+}
+
 function CharacterSelectionLockIn() {
+	$("#LockInButton").visible = false;
+
 	var selectedCharacter = CharacterSelectionGetSelectedCharacter();
 
 	if (lockedIn == false && selectedCharacter != -1) {
@@ -499,6 +512,7 @@ function RemoveBlur() {
 
 (function (){
 	GameEvents.Subscribe( "ziv_setup_character_selection", CharacterSelectionSetup );
+	GameEvents.Subscribe( "ziv_gamesetup_lock", CharacterSelectionLock );
 
 	PlayerTables.SubscribeNetTableListener( 'gamesetup', OnGameSetupTableChanged );
 
@@ -522,5 +536,5 @@ function RemoveBlur() {
 		playerPanel.SetHasClass("FramePadding", (playerID + 1) % 2 == 0);
 	}
 
-	Update();
+	UpdateGameSetupPlayerState("connected");
 })();
