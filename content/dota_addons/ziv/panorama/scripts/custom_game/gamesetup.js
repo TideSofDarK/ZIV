@@ -485,7 +485,7 @@ function CharacterSelectionLock() {
 				var offset = (255 * (Math.ceil(characterList.Children().length / 2) - i)) + (characterList.Children().length % 2 == 0 ? 127 : 0);
 				panel.style.transform = "translate3d(" + offset +  "px, -50px, 0px);";
 				
-				$("#PreviewClassLabel").text = panel.FindChildTraverse("CharacterNameLabel").text;
+				// $("#PreviewClassLabel").text = panel.FindChildTraverse("CharacterNameLabel").text;
 				panel.FindChildTraverse("CharacterNameLabel").text = "";
 			}
 		}
@@ -507,7 +507,21 @@ function CharacterSelectionLock() {
 		})();
 	}
 
-	// $("#PreviewClassLabel").text = $.Localize(selectedCharacter.hero_name);
+	var previewEquipment = $("#CharacterPreviewEquipment").Children();
+	var heroKV = PlayerTables.GetTableValue("kvs", "heroes")[selectedCharacter.hero_name];
+	var itemKVs = PlayerTables.GetTableValue("kvs", "items");
+	var slots = heroKV["EquipmentSlots"].split(';');
+	for (var i = 0; i < previewEquipment.length; i++) {
+		previewEquipment[i].SetImage("file://{images}/custom_game/ingame_ui/slots/" + slots[i] + ".png");
+		for (var x = 0; x < selectedCharacter.equipment.length; x++) {
+			var itemName = selectedCharacter.equipment[x]["item"];
+			if (itemKVs[itemName]["Slot"] == slots[i]) {
+				previewEquipment[i].itemname = itemName;
+			}
+		}
+	}
+	
+	$("#PreviewClassLabel").text = $.Localize(selectedCharacter.hero_name);
 
 	$("#CharacterListBackground").AddClass("Expanded");
 

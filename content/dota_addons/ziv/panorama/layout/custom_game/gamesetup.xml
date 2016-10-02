@@ -100,20 +100,19 @@
             <Label class="Headline CharacterPreviewLabel" id="GamesPlayedLabel" text="#gamesetup_character_preview_games_played" />
           </Panel>
           <Panel id="CharacterPreviewEquipment">
-            <DOTAItemImage id="PreviewItemHead" class="PreviewItem BasicShadow" itemname="item_basic_parts"/>
-            <DOTAItemImage id="PreviewItemLH" class="PreviewItem BasicShadow" itemname="item_basic_sword"/>
-            <DOTAItemImage id="PreviewItemGloves" class="PreviewItem BasicShadow" itemname="item_basic_parts"/>
-            <DOTAItemImage id="PreviewItemRH" class="PreviewItem BasicShadow" itemname="item_basic_parts"/>
-            <DOTAItemImage id="PreviewItemTorso" class="PreviewItem BasicShadow" itemname="item_basic_coat"/>
-            <DOTAItemImage id="PreviewItemPants" class="PreviewItem BasicShadow" itemname="item_basic_parts"/>
-            <DOTAItemImage id="PreviewItemBoots" class="PreviewItem BasicShadow" itemname="item_basic_parts"/>
+            <DOTAItemImage id="PreviewItemTorso" class="PreviewItem BasicShadow"/>
+            <DOTAItemImage id="PreviewItemLH" class="PreviewItem BasicShadow"/>
+            <DOTAItemImage id="PreviewItemGloves" class="PreviewItem BasicShadow"/>
+            <DOTAItemImage id="PreviewItemRH" class="PreviewItem BasicShadow"/>
+            <DOTAItemImage id="PreviewItemPants" class="PreviewItem BasicShadow"/>
+            <DOTAItemImage id="PreviewItemBoots" class="PreviewItem BasicShadow"/>
           </Panel>
           <Panel id="CharacterPreviewAbilities">
-            <DOTAAbilityImage id="PreviewAbility1" class="PreviewAbility BasicShadow" />
-            <DOTAAbilityImage id="PreviewAbility2" class="PreviewAbility BasicShadow" />
-            <DOTAAbilityImage id="PreviewAbility3" class="PreviewAbility BasicShadow" />
-            <DOTAAbilityImage id="PreviewAbility4" class="PreviewAbility BasicShadow" />
-            <DOTAAbilityImage id="PreviewAbility5" class="PreviewAbility BasicShadow" />
+            <DOTAAbilityImage id="PreviewAbility1" class="PreviewAbility" />
+            <DOTAAbilityImage id="PreviewAbility2" class="PreviewAbility" />
+            <DOTAAbilityImage id="PreviewAbility3" class="PreviewAbility" />
+            <DOTAAbilityImage id="PreviewAbility4" class="PreviewAbility" />
+            <DOTAAbilityImage id="PreviewAbility5" class="PreviewAbility" />
           </Panel>
         </Panel>
       </Panel>

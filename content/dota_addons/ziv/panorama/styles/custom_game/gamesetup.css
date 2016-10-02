@@ -423,6 +423,7 @@ TextButton, Label {
 
 #CharacterPreview.Hidden {
 	opacity: 0.0;
+	transform: scale3d(0.8, 0.8, 0.8);
 }
 
 #CharacterPreviewStats {
@@ -464,16 +465,12 @@ TextButton, Label {
 	horizontal-align: right;
 }
 
-#PreviewItemTorso {
+#PreviewItemPants {
 	margin-top: 139px;
 }
 
-#PreviewItemPants {
-	margin-top: 209px;
-}
-
 #PreviewItemBoots {
-	margin-top: 280px;
+	margin-top: 209px;
 }
 
 #CharacterPreviewAbilities {
@@ -484,12 +481,17 @@ TextButton, Label {
 }
 
 .PreviewAbility {
-	width: 90px;
-	height: 90px;
+	width: 100px;
+	height: 100px;
 
 	margin: 10px;
 
-	border-radius: 4px;
+	background-image: url("file://{images}/custom_game/ingame_ui/ability_border_inner.png");
+	background-size: 100% 100%;
+
+	padding: 8px;
+
+	/*border-radius: 4px;*/
 }
 
 .CharacterRoot {
