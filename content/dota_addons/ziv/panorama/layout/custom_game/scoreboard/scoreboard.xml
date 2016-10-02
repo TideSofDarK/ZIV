@@ -9,7 +9,7 @@
 	</scripts>
 	<Panel class="ScoreboardRoot" hittest="false">
 		<Panel class="GenericBackground" id="Background"/>
-		<Panel hittest="true" id="OpenHide" onmouseover="OnHoverButton()" onmouseout="OnLeaveButton()" />
+		<Panel hittest="true" id="OpenHide" onactivate="Open()" />
 		<Panel class="PlayersPanel" id="Players">
 		</Panel> 
 	</Panel>

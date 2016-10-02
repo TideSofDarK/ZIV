@@ -70,6 +70,19 @@
 	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 }
 
+.CharacterPreviewHeadline {
+	margin-left: 17px;
+
+	font-size: 28px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+.CharacterPreviewLabel {
+	font-size: 23px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	font-weight: bold;
+}
+
 #GameInfo {
 	vertical-align: bottom;
 	horizontal-align: right;
@@ -363,20 +376,24 @@ TextButton, Label {
 #SelectionRoot {
 	width: 100%;
 	height: 100%;
-
-	flow-children: down;
 }
 
 #CharacterListBackground {
 	align: center center;
 
-	margin-top: 450px;
+	transform: translateY(150px);
 
 	width: 100%;
 	height: 45%;
 
 	background-color: gradient(linear, 0% 0%, 0% 100%, from(#00000068), color-stop( 0.9, #00000060), to(#00000055));
 	wash-color: #bbbbbb;
+}
+
+#CharacterListBackground.Expanded {
+	height: 55%;
+
+	transform: translateY(100px);
 }
 
 #NoCharactersWarning {
@@ -393,6 +410,88 @@ TextButton, Label {
 	flow-children: right;
 }
 
+#CharacterList.Expanded {
+	flow-children: none;
+}
+
+#CharacterPreview {
+	align: center center;
+
+	width: 950px;
+	height: 100%;
+}
+
+#CharacterPreview.Hidden {
+	opacity: 0.0;
+}
+
+#CharacterPreviewStats {
+	margin-top: 75px;
+	margin-left: 20px;
+
+	align: left top;
+	flow-children: down;
+}
+
+#CharacterPreviewEquipment {
+	margin-top: 75px;
+
+	align: right top;
+
+	width: 274px;
+}
+
+.PreviewItem {
+	width: 88px;
+	height: 64px;
+
+	border-radius: 4px;
+
+	align: center top;
+}
+
+#PreviewItemLH {
+	margin-top: 70px;
+	horizontal-align: left;
+}
+
+#PreviewItemGloves {
+	margin-top: 70px;
+}
+
+#PreviewItemRH {
+	margin-top: 70px;
+	horizontal-align: right;
+}
+
+#PreviewItemTorso {
+	margin-top: 139px;
+}
+
+#PreviewItemPants {
+	margin-top: 209px;
+}
+
+#PreviewItemBoots {
+	margin-top: 280px;
+}
+
+#CharacterPreviewAbilities {
+	margin-bottom: 25px;
+
+	align: center bottom;
+	flow-children: right;
+}
+
+.PreviewAbility {
+	width: 90px;
+	height: 90px;
+
+	margin: 10px;
+
+	border-radius: 4px;
+}
+
 .CharacterRoot {
 	vertical-align: center;
 
@@ -400,9 +499,14 @@ TextButton, Label {
 	width: 255px;
 
 	padding-bottom: 50px;
+}
 
-	transition-property: wash-color, pre-transform-scale2d;
-	transition-duration: 0.4s;
+.CharacterRoot.Expanded {
+	transform: translateX(-100px);
+}
+
+.CharacterRoot.Hidden {
+	opacity: 0.0;
 }
 
 .CharacterModel {
@@ -463,11 +567,16 @@ TextButton, Label {
 }
 
 #CharacterButtons {
-	align: right top;
+	align: right bottom;
 
 	flow-children: right;
 
 	margin: 12px;
+	margin-bottom: 95px;
+}
+
+#CharacterButtons.Hidden {
+	transform: translateX(500px);
 }
 
 .OKButton {
@@ -766,7 +875,7 @@ RadioButton.League {
 	padding-right: 10px;
 }
 
-#CreateCharacterButton {
+#SubmitCharacterButton {
 	horizontal-align: left;
 	width: 200px;
 }

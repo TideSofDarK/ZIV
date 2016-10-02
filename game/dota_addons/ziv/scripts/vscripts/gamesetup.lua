@@ -56,6 +56,10 @@ function GameSetup:StartCountdownPhase()
 
 	CustomGameEventManager:Send_ServerToAllClients("ziv_gamesetup_lock", {})
 
+	-- if IsInToolsMode() then
+	-- 	GameSetup.COUNTDOWN_TIME = 10
+	-- end
+
 	GameSetup.timer = GameSetup:StartTimer(GameSetup.COUNTDOWN_TIME, function () 
 		-- Tick
 	end, function () 
@@ -89,7 +93,7 @@ function GameSetup:AttemptForceStart()
 	local status = PlayerTables:GetTableValue("gamesetup", "status")
 	
 	for k,v in pairs(status) do
-		if PlayerResource:GetPlayer(k) and v ~= "ready" and not string.match(GetMapName(), "debug") and not IsInToolsMode() then
+		if PlayerResource:GetPlayer(k) and v ~= "ready" then -- and not string.match(GetMapName(), "debug") and not IsInToolsMode()
 			return false
 		end
 	end

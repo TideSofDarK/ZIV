@@ -13,7 +13,7 @@
   </scripts>
   <snippets>
     <snippet name="Character">
-      <Panel class="CharacterRoot">
+      <Panel class="CharacterRoot WindowAnimation">
         <DOTAScenePanel id="CharacterModelSelected" class="CharacterModel CharacterModelSelected" unit="npc_dota_hero_beastmaster"/>
         <DOTAScenePanel id="CharacterModel" class="CharacterModel" unit="npc_dota_hero_beastmaster"/>
         <Label id="CharacterNameLabel" class="Headline Headline1" text="New" hittest="true" onactivate="CharacterCreationOpen()"/>  
@@ -68,21 +68,54 @@
       
     </Panel>
     <Panel id="SelectionRoot" class="WindowAnimation">
-      <Panel id="CharacterListBackground">
+      <Panel id="CharacterButtons" class="WindowAnimation">
+        <Button id="LockInButton" class="OKButton" onactivate="CharacterSelectionLockIn()">
+          <Label class="Headline ButtonLabel" id="LockInButtonLabel" text="#gamesetup_lockin_button" />
+        </Button>
+        <Button id="CreateCharacterButton" class="OKButton" onactivate="CharacterCreationOpen()">
+          <Label class="Headline ButtonLabel" text="#gamesetup_create_character_button" />
+        </Button>
+        <Button id="DeleteCharacterButton" class="OKButton" onactivate="CharacterSelectionDeleteCharacter()">
+          <Label class="Headline ButtonLabel" text="#gamesetup_delete_character_button" />
+        </Button>
+      </Panel>
+      <Panel id="CharacterListBackground" class="WindowAnimation">
         <Panel id="CharacterList">
 
         </Panel>
 
         <Label class="Headline Headline1" id="NoCharactersWarning" text="#gamesetup_no_characters_warning" html="true" onactivate="CharacterCreationOpen()"/>
         <Panel class="Loader" id="CharacterListLoader"/>
-      </Panel>
-      <Panel id="CharacterButtons">
-        <Button id="LockInButton" class="OKButton" onactivate="CharacterSelectionLockIn()">
-          <Label class="Headline ButtonLabel" id="LockInButtonLabel" text="#gamesetup_lockin_button" />
-        </Button>
-        <Button id="DeleteCharacterButton" class="OKButton" onactivate="CharacterSelectionDeleteCharacter()">
-          <Label class="Headline ButtonLabel" text="#gamesetup_delete_character_button" />
-        </Button>
+        <Panel id="CharacterPreview" class="WindowAnimation Hidden">
+          <Panel id="CharacterPreviewStats">
+            <Label class="Headline CharacterPreviewHeadline" id="PreviewClassLabel" text="HERO_NAME | 1 Level" />
+            <Panel class="CBR" />
+            <Label class="Headline CharacterPreviewLabel" id="HealthPointsLabel"  text="#gamesetup_character_preview_hp" />
+            <Label class="Headline CharacterPreviewLabel" id="EnergyPointsLabel"  text="#gamesetup_character_preview_ep" />
+            <Label class="Headline CharacterPreviewLabel" id="StrengthLabel"      text="#gamesetup_character_preview_strength" />
+            <Label class="Headline CharacterPreviewLabel" id="DexterityLabel"     text="#gamesetup_character_preview_dexterity" />
+            <Label class="Headline CharacterPreviewLabel" id="IntelligenceLabel"  text="#gamesetup_character_preview_intelligence" />
+            <Panel class="CBR" />
+            <Label class="Headline CharacterPreviewLabel" id="PVPKillsLabel" text="#gamesetup_character_preview_pvp_kills" />
+            <Label class="Headline CharacterPreviewLabel" id="GamesPlayedLabel" text="#gamesetup_character_preview_games_played" />
+          </Panel>
+          <Panel id="CharacterPreviewEquipment">
+            <DOTAItemImage id="PreviewItemHead" class="PreviewItem BasicShadow" itemname="item_basic_parts"/>
+            <DOTAItemImage id="PreviewItemLH" class="PreviewItem BasicShadow" itemname="item_basic_sword"/>
+            <DOTAItemImage id="PreviewItemGloves" class="PreviewItem BasicShadow" itemname="item_basic_parts"/>
+            <DOTAItemImage id="PreviewItemRH" class="PreviewItem BasicShadow" itemname="item_basic_parts"/>
+            <DOTAItemImage id="PreviewItemTorso" class="PreviewItem BasicShadow" itemname="item_basic_coat"/>
+            <DOTAItemImage id="PreviewItemPants" class="PreviewItem BasicShadow" itemname="item_basic_parts"/>
+            <DOTAItemImage id="PreviewItemBoots" class="PreviewItem BasicShadow" itemname="item_basic_parts"/>
+          </Panel>
+          <Panel id="CharacterPreviewAbilities">
+            <DOTAAbilityImage id="PreviewAbility1" class="PreviewAbility BasicShadow" />
+            <DOTAAbilityImage id="PreviewAbility2" class="PreviewAbility BasicShadow" />
+            <DOTAAbilityImage id="PreviewAbility3" class="PreviewAbility BasicShadow" />
+            <DOTAAbilityImage id="PreviewAbility4" class="PreviewAbility BasicShadow" />
+            <DOTAAbilityImage id="PreviewAbility5" class="PreviewAbility BasicShadow" />
+          </Panel>
+        </Panel>
       </Panel>
     </Panel>
     <Panel id="CreationRoot" class="GenericBackground WindowAnimation WindowClosed">
@@ -146,8 +179,8 @@
               <RadioButton group="Leagues" class="League" id="League1" text="#league_standard" tooltip="league_standard_Tooltip"/>
               <RadioButton group="Leagues" class="League" id="League2" text="#league_competitive" tooltip="league_competitive_Tooltip"/>
             </Panel>
-            <Button onactivate="CharacterCreationCreate()" class="OKButton" id="CreateCharacterButton" onmouseout="UIHideCustomLayoutTooltip( CharacterCreationError )">
-              <Label id="CreateCharacterButtonLabel" class="WindowLabel" text="#gamesetup_create_character_button"/>
+            <Button onactivate="CharacterCreationCreate()" class="OKButton" id="SubmitCharacterButton" onmouseout="UIHideCustomLayoutTooltip( CharacterCreationError )">
+              <Label id="CreateCharacterButtonLabel" class="WindowLabel" text="#gamesetup_submit_character_button"/>
             </Button>
           </Panel>
         </Panel>

@@ -4,10 +4,12 @@
 
 	margin-top: 50px;
 
+	transition: transform 0.3s ease-in-out 0.0s;
+
     transform: translatex( -695px );
 }
 
-.ScoreboardRoot.show {
+.ScoreboardRoot.Show {
     transform: translatex( 0px );
 }
 
@@ -21,6 +23,10 @@
 	vertical-align: center;
 
 	z-index: 1;
+}
+
+#OpenHide:hover {
+	wash-color: #bbbbbb;
 }
 
 #Background {
@@ -62,18 +68,22 @@
 }
 
 #HeroInfo {
+	height: 100%;
+
 	vertical-align: center;
 	margin-left: 10px;
-
-	flow-children: down;
 }
 
 #PlayerName {
+	vertical-align: top;
+
 	font-weight: bold;
-	font-size: 30px;
+	font-size: 25px;
 }
 
 #HeroNameLevel {
+	vertical-align: bottom;
+
 	font-weight: bold;
 	font-size: 15px;
 }

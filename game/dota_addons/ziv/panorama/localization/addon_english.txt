@@ -186,7 +186,7 @@
 	// Game setup
 	"gamesetup_ready"								"Ready"
 	"gamesetup_preparing"							"Preparing"
-	"gamesetup_disconnected"							"Disconnected"
+	"gamesetup_disconnected"						"Disconnected"
 	"gamesetup_connected"							"Connected"
 
 	"gamesetup_creation_error_length"				"Minimal name length is 6 charaters. Maximum name length is 16 characters."
@@ -194,7 +194,8 @@
 	"gamesetup_creation_error_same"					"You already have a character with such name."
 
 	"gamesetup_no_characters_warning"				"You have no characters <br> Click here to create new one"
-	"gamesetup_create_character_button" 			"Submit"
+	"gamesetup_create_character_button" 			"Create"
+	"gamesetup_submit_character_button"				"Submit"
 	"gamesetup_delete_character_button" 			"Remove"
 	"gamesetup_lockin_button" 						"Lock-In"
 	"gamesetup_create_character_headline" 			"Create new character"
@@ -208,6 +209,13 @@
 	"gamesetup_character_name" 						"Name"
 	"gamesetup_character_presets"					"Presets"
 	"gamesetup_character_league"					"League"
+	"gamesetup_character_preview_hp"			" - Hit Points: "
+	"gamesetup_character_preview_ep"			" - Energy Points: "
+	"gamesetup_character_preview_strength"			" - Strength: "
+	"gamesetup_character_preview_dexterity"			" - Dexterity: "
+	"gamesetup_character_preview_intelligence"			" - Intelligence: "
+	"gamesetup_character_preview_games_played"			" - Games Played: "
+	"gamesetup_character_preview_pvp_kills"			" - PvP Kills: "
 	"gamesetup_character_new"						"New"
 
 	"gamesetup_tab_battle_info" 					"Summary"

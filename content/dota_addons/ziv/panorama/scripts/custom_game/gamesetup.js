@@ -470,18 +470,53 @@ function CharacterSelectionDeleteCharacter() {
 }
 
 function CharacterSelectionLock() {
+	var selectedCharacter = CharacterSelectionGetSelectedCharacter();
+
 	selectionIsLocked = true;
 	var characterList = $("#CharacterList");
+	var i = 1;
 	for (var panel of characterList.Children()) { 
-		if (panel.FindChildTraverse("CharacterModelSelected") && !panel.FindChildTraverse("CharacterModelSelected").IsSelected()) {
-			panel.visible = false;
+		var characterPanel = panel.FindChildTraverse("CharacterModelSelected");
+		if (characterPanel) {
+			if (!characterPanel.IsSelected()) {
+				panel.AddClass("Hidden");
+			} else {
+				// Magic as fuck!
+				var offset = (255 * (Math.ceil(characterList.Children().length / 2) - i)) + (characterList.Children().length % 2 == 0 ? 127 : 0);
+				panel.style.transform = "translate3d(" + offset +  "px, -50px, 0px);";
+				
+				$("#PreviewClassLabel").text = panel.FindChildTraverse("CharacterNameLabel").text;
+				panel.FindChildTraverse("CharacterNameLabel").text = "";
+			}
 		}
+		i++;
 	}
+	characterList.AddClass("Expanded");
+
+	var previewAbilities = $("#CharacterPreviewAbilities").Children();
+	for (var i = 0; i < previewAbilities.length; i++) {
+		(function () {
+			var abilityPanel = previewAbilities[i];
+			abilityPanel.abilityname = selectedCharacter.abilities[i];
+			previewAbilities[i].SetPanelEvent("onmouseover", (function () {
+				$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", abilityPanel, abilityPanel.abilityname, 0 );
+			}));
+			previewAbilities[i].SetPanelEvent("onmouseout", (function () {
+				$.DispatchEvent( "DOTAHideAbilityTooltip", abilityPanel );
+			}));
+		})();
+	}
+
+	// $("#PreviewClassLabel").text = $.Localize(selectedCharacter.hero_name);
+
+	$("#CharacterListBackground").AddClass("Expanded");
+
+	$("#CharacterPreview").SetHasClass("Hidden", false);
+
+	$("#CharacterButtons").AddClass("Hidden");
 }
 
 function CharacterSelectionLockIn() {
-	$("#LockInButton").visible = false;
-
 	var selectedCharacter = CharacterSelectionGetSelectedCharacter();
 
 	if (lockedIn == false && selectedCharacter != -1) {

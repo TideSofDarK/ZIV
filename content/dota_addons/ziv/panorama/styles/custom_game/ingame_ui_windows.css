@@ -119,7 +119,7 @@
 }
 
 .WindowAnimation {
-	transition-property: blur, transform, opacity;
+	transition-property: blur, transform, opacity, width, height, wash-color, pre-transform-scale2d;
 	transition-duration: 0.3s, 0.3s, 0.3s;
 	transition-timing-function: ease-in;
 }
