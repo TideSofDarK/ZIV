@@ -17,10 +17,10 @@
 
   "AbilityCastRange"        "900"
   "AbilityCastPoint"        "0.2"
-  "AbilityCooldown"       "10.0"
+  "AbilityCooldown"       "4.0"
   "AbilityCastAnimation"      "ACT_DOTA_ATTACK"
 
-  "AbilityManaCost"       "75"
+  "AbilityManaCost"       "65"
 
   "MaxLevel"  "7"
 
@@ -29,7 +29,7 @@
     "01"
     {
       "var_type"      "FIELD_FLOAT"
-      "arrow_delay"    "0.5"
+      "arrow_delay"    "0.25"
     }
   }
 

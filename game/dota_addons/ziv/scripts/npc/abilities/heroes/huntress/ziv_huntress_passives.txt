@@ -27,11 +27,6 @@
       "var_type"      "FIELD_FLOAT"
       "snare_duration"    "3.5 4.0 4.5 5.0"
     }
-    "03"
-    {
-      "var_type"      "FIELD_INTEGER"
-      "bonus_attackspeed"    "100"
-    }
   }
 
   "OnProjectileHitUnit"
@@ -53,11 +48,6 @@
       "Passive"      "1"
       "IsHidden"      "1"
       "IsDebuff"      "0"
-
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
-      }
 
       "OnAttackStart"
       {

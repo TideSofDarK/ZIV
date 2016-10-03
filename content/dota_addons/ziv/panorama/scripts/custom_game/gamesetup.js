@@ -200,16 +200,17 @@ function CharacterCreationBack() {
 
 function SetCreationOptions(table) {
 	if (table["Playstyle"]) {
-		playstyle.text = $.Localize("character_playstyle") + ": <span class=\"" + table["Playstyle"] + "\">" + $.Localize(table["Playstyle"]) + "</span>";
+		playstyle.text = $.Localize("gamesetup_character_playstyle") + ": <span class=\"" + table["Playstyle"] + "\">" + $.Localize(table["Playstyle"]) + "</span>";
+		GameUI.CustomUIConfig().AddTooltip(playstyle, "gamesetup_character_playstyle_" + table["Playstyle"] + "_Tooltip");
 	}
 	if (table["AttackCapabilities"]) {
-		attackType.text = $.Localize("character_attack_type") + ": <span class=\"" + table["AttackCapabilities"] + "\">" + $.Localize(table["AttackCapabilities"]) + "</span>";
+		attackType.text = $.Localize("gamesetup_character_attack_type") + ": <span class=\"" + table["AttackCapabilities"] + "\">" + $.Localize(table["AttackCapabilities"]) + "</span>";
 	}
 	if (table["PrimaryDamageType"]) {
-		damageType.text = $.Localize("character_damage_type") + ": <span class=\"" + table["PrimaryDamageType"] + "\">" + $.Localize(table["PrimaryDamageType"]) + "</span>";
+		damageType.text = $.Localize("gamesetup_character_damage_type") + ": <span class=\"" + table["PrimaryDamageType"] + "\">" + $.Localize(table["PrimaryDamageType"]) + "</span>";
 	}
 	if (table["MovementSpeed"]) {
-		movespeed.text = $.Localize("character_movespeed") + ": <span class=\"" + "Movespeed" + "\">" + table["MovementSpeed"] + "</span>";
+		movespeed.text = $.Localize("gamesetup_character_movespeed") + ": <span class=\"" + "Movespeed" + "\">" + table["MovementSpeed"] + "</span>";
 	}	
 }
 
