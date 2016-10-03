@@ -14,10 +14,10 @@
 	}
 
 	"AbilityCastRange"				"0"
-	"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+	"AbilityCastPoint"				"0.0"
 	"AbilityCooldown"				"6.0"
 	
-	"AbilityManaCost"				"40 35 30 20"
+	"AbilityManaCost"				"40"
 
 	"AbilitySpecial"
 	{
@@ -44,12 +44,12 @@
 		"05"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"leap_speedbonus"	"4 8 12 16"
+			"leap_speedbonus"	"4"
 		}
 		"06"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"leap_speedbonus_as"	"8 16 24 32"
+			"leap_speedbonus_as"	"8"
 		}
 		"07"
 		{

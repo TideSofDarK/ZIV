@@ -2084,10 +2084,10 @@
 		}
 	
 		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"6.0"
 		
-		"AbilityManaCost"				"40 35 30 20"
+		"AbilityManaCost"				"40"
 	
 		"AbilitySpecial"
 		{
@@ -2114,12 +2114,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"leap_speedbonus"	"4 8 12 16"
+				"leap_speedbonus"	"4"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"leap_speedbonus_as"	"8 16 24 32"
+				"leap_speedbonus_as"	"8"
 			}
 			"07"
 			{
@@ -4283,11 +4283,6 @@
 	      "var_type"      "FIELD_FLOAT"
 	      "snare_duration"    "3.5 4.0 4.5 5.0"
 	    }
-	    "03"
-	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "bonus_attackspeed"    "100"
-	    }
 	  }
 	
 	  "OnProjectileHitUnit"
@@ -4309,11 +4304,6 @@
 	      "Passive"      "1"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
-	
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
-	      }
 	
 	      "OnAttackStart"
 	      {

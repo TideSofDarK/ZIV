@@ -1,9 +1,9 @@
 "use strict";
 
-function AddTooltip( panel, text )
+function AddTooltip( panel, text, ability )
 {
 	panel.SetPanelEvent("onmouseover", function(){
-		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', panel, panel.id, "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize( text ));
+		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', panel, panel.id, "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize( text )+"&ability="+ability);
 	});
 
 	panel.SetPanelEvent("onmouseout", function() {

@@ -491,6 +491,9 @@ TextButton, Label {
 
 	padding: 8px;
 
+	tooltip-position: top;
+	tooltip-body-position: 50% 100%;
+
 	/*border-radius: 4px;*/
 }
 

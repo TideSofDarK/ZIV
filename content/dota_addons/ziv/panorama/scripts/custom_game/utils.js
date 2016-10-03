@@ -27,6 +27,10 @@ Util.GetDate = (function () {
     return yyyy * 10000 + mm * 100 + dd;
 });
 
+Util.RoundToTwo = (function (num) {    
+    return +(Math.round(num + "e+2")  + "e-2");
+});
+
 (function(){
 	GameUI.CustomUIConfig().Util = Util;
 })()

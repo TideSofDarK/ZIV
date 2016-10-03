@@ -499,12 +499,7 @@ function CharacterSelectionLock() {
 		(function () {
 			var abilityPanel = previewAbilities[i];
 			abilityPanel.abilityname = selectedCharacter.abilities[i];
-			previewAbilities[i].SetPanelEvent("onmouseover", (function () {
-				$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", abilityPanel, abilityPanel.abilityname, 0 );
-			}));
-			previewAbilities[i].SetPanelEvent("onmouseout", (function () {
-				$.DispatchEvent( "DOTAHideAbilityTooltip", abilityPanel );
-			}));
+			GameUI.CustomUIConfig().AddTooltip(abilityPanel, "", abilityPanel.abilityname);
 		})();
 	}
 

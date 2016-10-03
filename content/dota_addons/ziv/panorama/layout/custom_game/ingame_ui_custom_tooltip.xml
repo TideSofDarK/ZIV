@@ -3,15 +3,95 @@
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
         <include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
     </styles>
+    <snippets>
+        <snippet name="AbilityTooltip">
+            <Panel class="AbilityTooltip WindowAnimation">
+                <DOTAAbilityImage id="AbilityTooltipImage" abilityname="ziv_empty1"/>
+                <Panel class="TooltipCBR"/>
+                <Label id="AbilityTooltipName" class="TooltipLabel" text=""/>  
+                <Label id="AbilityTooltipEnergyCost" class="TooltipLabel" text="#energy_cost"/>  
+                <Label id="AbilityTooltipCastPoint" class="TooltipLabel" text="#cast_point"/> 
+                <Panel class="TooltipCBR"/>
+                <Label id="AbilityTooltipDescription" class="TooltipLabel" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/> 
+                <Panel class="TooltipCBR"/>
+                <Label id="AbilityTooltipSpecial1" class="TooltipLabel" text=""/> 
+                <Label id="AbilityTooltipSpecial2" class="TooltipLabel" text=""/> 
+                <Label id="AbilityTooltipSpecial3" class="TooltipLabel" text=""/> 
+                <Label id="AbilityTooltipSpecial4" class="TooltipLabel" text=""/> 
+                <Label id="AbilityTooltipSpecial5" class="TooltipLabel" text=""/> 
+                <Label id="AbilityTooltipSpecial6" class="TooltipLabel" text=""/>
+                <Label id="AbilityTooltipSpecial7" class="TooltipLabel" text=""/> 
+            </Panel>
+        </snippet>
+    </snippets>
     <script>
+        var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+
         function SetupTooltip()
         {
-            $("#TooltipText").text = $.Localize( $.GetContextPanel().GetAttributeString( "text", "not-found" ) );
+            // Cleanup
+            if ($("#TooltipBorderB").FindChildTraverse("AbilityTooltip")) {
+                $("#TooltipBorderB").FindChildTraverse("AbilityTooltip").RemoveAndDeleteChildren();
+                $("#TooltipBorderB").FindChildTraverse("AbilityTooltip").DeleteAsync(0.0);
+            }
+
+            var abilityName = $.GetContextPanel().GetAttributeString( "ability", "not-found" );
+            $.Msg(abilityName);
+            if (abilityName != "not-found" && abilityName != "undefined" && abilityName) {
+                $("#TooltipText").visible = false;
+
+                // abilityTooltipTable = JSON.parse(abilityTooltipString);
+
+                var abilityKV = PlayerTables.GetTableValue("kvs", "abilities")[abilityName];
+
+                var abilityTooltip = $.CreatePanel( "Panel", $("#TooltipBorderB"), "AbilityTooltip" );
+                abilityTooltip.BLoadLayoutSnippet("AbilityTooltip");
+
+                abilityTooltip.FindChildTraverse("AbilityTooltipImage").abilityname = abilityName;
+
+                abilityTooltip.FindChildTraverse("AbilityTooltipName").text = $.Localize("DOTA_Tooltip_ability_" + abilityName);
+
+                if (abilityKV["AbilityManaCost"] && abilityKV["AbilityManaCost"] != 0) {
+                    abilityTooltip.FindChildTraverse("AbilityTooltipEnergyCost").text = $.Localize("energy_cost") + " " + GameUI.CustomUIConfig().Util.RoundToTwo(abilityKV["AbilityManaCost"]);
+                } else {
+                    abilityTooltip.FindChildTraverse("AbilityTooltipEnergyCost").visible = false;
+                }
+
+                if (abilityKV["AbilityCastPoint"] && abilityKV["AbilityCastPoint"] != 0) {
+                    abilityTooltip.FindChildTraverse("AbilityTooltipCastPoint").text = $.Localize("cast_point") + " " + GameUI.CustomUIConfig().Util.RoundToTwo(abilityKV["AbilityCastPoint"]);
+                } else {
+                    abilityTooltip.FindChildTraverse("AbilityTooltipCastPoint").visible = false;
+                }
+                
+                abilityTooltip.FindChildTraverse("AbilityTooltipDescription").text = $.Localize("DOTA_Tooltip_ability_" + abilityName + "_Description");
+
+                var i = 1;
+                for (special in abilityKV["AbilitySpecial"]) {
+                    for (specialName in abilityKV["AbilitySpecial"][special]) {
+                        if (specialName != "var_type") {
+                            var specialCaption = $.Localize("DOTA_Tooltip_ability_" + abilityName + "_" + specialName);
+                            if (specialCaption == "DOTA_Tooltip_ability_" + abilityName + "_" + specialName) {
+                                abilityTooltip.FindChildTraverse("AbilityTooltipSpecial" + i).visible = false;
+                            } else {
+                                var specialLabel = abilityTooltip.FindChildTraverse("AbilityTooltipSpecial" + i)
+                                specialLabel.text = specialCaption + " " + GameUI.CustomUIConfig().Util.RoundToTwo(abilityKV["AbilitySpecial"][special][specialName]);
+
+                                if (specialLabel.text[0] == "%") {
+                                    specialLabel.text = specialLabel.text.replace("%", "") + "%";
+                                }
+                            }
+                        }
+                    }
+                    i++;
+                }
+            } else {
+                $("#TooltipText").text = $.Localize( $.GetContextPanel().GetAttributeString( "text", "not-found" ) );    
+            }
         }
     </script>
     <Panel class="TooltipContents GenericBackground" ontooltiploaded="SetupTooltip()">
         <Panel class="TooltipBorderA">
-            <Panel class="TooltipBorderB">
+            <Panel id="TooltipBorderB" class="TooltipBorderB">
                  <Label id="TooltipText" html="true" class="TooltipText"/>
             </Panel>
         </Panel>
