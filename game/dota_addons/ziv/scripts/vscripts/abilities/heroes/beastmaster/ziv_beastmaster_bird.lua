@@ -119,7 +119,7 @@ function Bird( keys )
 				return 0.03
 			end
 	    end)
-	end
 
-	ability:ToggleAbility()
+	    ability:ToggleAbility()
+	end
 end

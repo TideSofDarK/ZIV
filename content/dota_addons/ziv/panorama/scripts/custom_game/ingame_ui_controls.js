@@ -73,10 +73,14 @@ function BeginMoveState()
 		if ( GameUI.IsMouseDown( 0 ))
 		{
 			$.Schedule( 1.0/30.0, tic );
+			var dcm = DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT;
+        	var move = true;
 			if (GetMouseCastTarget() != -1) {
 				GameUI.CustomUIConfig().ZIVCastAbility(4, false, true);
-			}
-			else {
+				
+        		move = (Abilities.GetBehavior(Entities.GetAbility( Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ), 3 )) & dcm) == dcm;
+			} 
+			if (move) {
 				var mouseWorldPos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
 				if ( mouseWorldPos !== null )
 				{
@@ -98,7 +102,7 @@ function OnLeftButtonPressed()
 	
 	if (GameUI.IsShiftDown()) {
 		GameUI.CustomUIConfig().ZIVCastAbility(4, false, true);
-	} else if ( targetIndex === -1 && Entities.IsEnemy( targetIndex )) {
+	} else if ( targetIndex != -1 && Entities.IsEnemy( targetIndex )) {
 		BeginMoveState();
 	} else if ( Entities.IsItemPhysical( targetIndex ) ) {
 		BeginPickUpState( targetIndex );
@@ -156,7 +160,7 @@ function ZIVCastAbility(number, pressing, single) {
 	if (Entities.IsAlive(queryUnit) == false || 
 		Entities.IsCommandRestricted(queryUnit) == true ||
 		Entities.IsSilenced(queryUnit) == true) {
-		return;
+		return false;
 	}
 
 	if (ability !== -1) {

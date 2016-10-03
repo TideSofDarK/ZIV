@@ -4,22 +4,24 @@ function SpawnPet( keys )
 
 	local level = ability:GetLevel()
 
-	if caster.pet ~= nil and caster.pet:IsNull() == false and level == caster.pet:GetLevel() and not keys.respawn_pet then
-		return
-	else
-		if keys.respawn_pet then
-			KillPet( keys )
-		end
-		local unit_name = keys.unit or "npc_beastmaster_pet1"
+	KillPet( keys )
+
+	if ability:GetToggleState() == false then
+		local unit_name = keys.unit_name or "npc_beastmaster_pet1"
 		PrecacheUnitByNameAsync(unit_name, function () 
 			caster.pet = CreateUnitByName(unit_name, caster:GetAbsOrigin() + RandomPointOnCircle(75), false, caster, caster, caster:GetTeamNumber())
+
 			ability:ApplyDataDrivenModifier(caster, caster.pet, "modifier_beastmaster_pet", {})
 
 			caster:EmitSound("Hero_Beastmaster.Call.Boar")
 
 			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_boar.vpcf", PATTACH_ABSORIGIN, caster.pet)
 			ParticleManager:SetParticleControl(particle, 0, caster.pet:GetAbsOrigin())
+
+			SetToggleState( ability, true )
 		end, caster:GetPlayerOwnerID())
+	else
+		SetToggleState( ability, false )
 	end
 end
 
@@ -27,8 +29,16 @@ function KillPet( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
-	if caster.pet then
-		caster.pet:RemoveSelf()
+	if caster.pet and not caster.pet:IsNull() then
+		caster.pet:Kill(ability, caster)
+	end
+end
+
+function PetDied(keys)
+	local ability = keys.ability
+
+	if keys.attacker ~= keys.caster then
+		SetToggleState( ability, false )
 	end
 end
 

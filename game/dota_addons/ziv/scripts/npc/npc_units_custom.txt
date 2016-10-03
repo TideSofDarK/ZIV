@@ -1240,7 +1240,7 @@
 	    
 	    "HealthBarOffset"           "150"
 	    "Model"                     "models/heroes/broodmother/spiderling.vmdl"
-	    "ModelScale"                "1.8"
+	    "ModelScale"                "1.0"
 	    "Level"                     "1"
 	
 	    "Ability1"                  "ziv_spider"

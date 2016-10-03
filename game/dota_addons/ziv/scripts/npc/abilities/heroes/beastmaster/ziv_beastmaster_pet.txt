@@ -1,12 +1,13 @@
 "ziv_beastmaster_pet"
 {
   "BaseClass"           "ability_datadriven"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE" //DOTA_ABILITY_BEHAVIOR_PASSIVE
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET" //DOTA_ABILITY_BEHAVIOR_PASSIVE
   "AbilityTextureName"            "ziv_beastmaster_pet"
 
   "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
 
   "AbilityCastPoint"  "0.3"
+  "AbilityCooldown"        "8.0"
 
   "precache"
   {
@@ -44,21 +45,6 @@
     {
       "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
       "Function"    "SpawnPet"
-      "respawn_pet" "1"
-    }
-  }
-
-  "OnUpgrade"
-  {
-    "RunScript"
-    {
-      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
-      "Function"    "KillPet"
-    }
-    "RunScript"
-    {
-      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
-      "Function"    "SpawnPet"
     }
   }
 
@@ -73,21 +59,6 @@
 
   "Modifiers"
   {
-    "modifier_beastmaster_pet_passive"
-    {
-      "Passive"      "1"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-
-      "OnCreated"
-      {
-        "RunScript"
-        {
-          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
-          "Function"    "SpawnPet"
-        }
-      }
-    }
     "modifier_beastmaster_pet"
     {
       "Passive"      "0"
@@ -109,6 +80,16 @@
         {
           "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
           "Function"    "WolfAttack"
+          "Target" "TARGET"
+        }
+      }
+
+      "OnDeath"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+          "Function"    "PetDied"
           "Target" "TARGET"
         }
       }

@@ -1,11 +1,11 @@
 "ziv_samurai_whirlwind"
 {
   "BaseClass"           "ability_datadriven"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
   "AbilityTextureName"            "juggernaut_blade_fury"
 
   "AbilityCastPoint"        "0"
-  "AbilityCastRange" "250"
+  // "AbilityCastRange" "250"
   "AbilityCooldown"         "0.195"
 
   "AbilityManaCost"       "10"
@@ -26,7 +26,7 @@
     "01"
     {
       "var_type" "FIELD_FLOAT"
-      "duration" "1.0"
+      "duration" "1.5"
     }
     "02"
     {
@@ -37,6 +37,11 @@
     {
       "var_type" "FIELD_INTEGER"
       "radius" "250"
+    }
+    "04"
+    {
+      "var_type" "FIELD_INTEGER"
+      "trigger_radius" "165"
     }
   }
 

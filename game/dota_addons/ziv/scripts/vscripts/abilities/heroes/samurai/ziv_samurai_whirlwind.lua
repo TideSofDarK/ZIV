@@ -3,14 +3,15 @@ function StartWhirlwind( keys )
 	local ability = keys.ability
 	local target = keys.target_points[1]
 
-	local target_unit = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, 98, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)[1]
-	if target_unit then
-		target = target_unit:GetAbsOrigin()
+	local target_unit = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, GetSpecial(ability, "trigger_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)[1]
+	
+	if not target_unit then
+		return
 	end
 
 	-- caster:MoveToPosition(target)
 
-	local _duration = ability:GetSpecialValueFor("duration")
+	local _duration = GetSpecial(ability, "duration")
 
 	ability:StartCooldown(_duration - 0.1)
 
@@ -59,7 +60,7 @@ function StartWhirlwind( keys )
 
 	end
 
-	caster:MoveToPosition(target)
+	-- caster:MoveToPosition(target)
 end
 
 function DamageTick( keys )

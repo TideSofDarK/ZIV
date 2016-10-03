@@ -1879,7 +1879,7 @@
 	
 	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
 	
-	  "AbilityCastPoint"  "0.3"
+	  "AbilityCastPoint"  "0.19"
 	  "AbilityCooldown"        "2.0"
 	  "AbilityManaCost"        "0"
 	
@@ -2024,7 +2024,7 @@
 	
 	  "AbilityCastPoint"        "0.001"
 	  "AbilityCooldown"        "0.0"
-	  "AbilityCastRange"        "150"
+	  "AbilityCastRange"        "180"
 	
 	  "AbilityManaCost"       "12"
 	  
@@ -2148,12 +2148,13 @@
 	"ziv_beastmaster_pet"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE" //DOTA_ABILITY_BEHAVIOR_PASSIVE
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET" //DOTA_ABILITY_BEHAVIOR_PASSIVE
 	  "AbilityTextureName"            "ziv_beastmaster_pet"
 	
 	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
 	
 	  "AbilityCastPoint"  "0.3"
+	  "AbilityCooldown"        "8.0"
 	
 	  "precache"
 	  {
@@ -2191,21 +2192,6 @@
 	    {
 	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
 	      "Function"    "SpawnPet"
-	      "respawn_pet" "1"
-	    }
-	  }
-	
-	  "OnUpgrade"
-	  {
-	    "RunScript"
-	    {
-	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
-	      "Function"    "KillPet"
-	    }
-	    "RunScript"
-	    {
-	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
-	      "Function"    "SpawnPet"
 	    }
 	  }
 	
@@ -2220,21 +2206,6 @@
 	
 	  "Modifiers"
 	  {
-	    "modifier_beastmaster_pet_passive"
-	    {
-	      "Passive"      "1"
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	
-	      "OnCreated"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
-	          "Function"    "SpawnPet"
-	        }
-	      }
-	    }
 	    "modifier_beastmaster_pet"
 	    {
 	      "Passive"      "0"
@@ -2256,6 +2227,16 @@
 	        {
 	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
 	          "Function"    "WolfAttack"
+	          "Target" "TARGET"
+	        }
+	      }
+	
+	      "OnDeath"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	          "Function"    "PetDied"
 	          "Target" "TARGET"
 	        }
 	      }
@@ -2309,6 +2290,7 @@
 	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
 	
 	  "AbilityCastPoint"  "0.3"
+	  "AbilityCooldown"        "8.0"
 	
 	  "precache"
 	  {
@@ -2346,23 +2328,7 @@
 	    {
 	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
 	      "Function"    "SpawnPet"
-	      "unit" "npc_beastmaster_pet2"
-	      "respawn_pet" "1"
-	    }
-	  }
-	
-	  "OnUpgrade"
-	  {
-	    "RunScript"
-	    {
-	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
-	      "Function"    "KillPet"
-	    }
-	    "RunScript"
-	    {
-	      "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
-	      "Function"    "SpawnPet"
-	      "unit" "npc_beastmaster_pet2"
+	      "unit_name" "npc_beastmaster_pet2"
 	    }
 	  }
 	
@@ -2377,22 +2343,6 @@
 	
 	  "Modifiers"
 	  {
-	    "modifier_beastmaster_pet_passive"
-	    {
-	      "Passive"      "1"
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	
-	      "OnCreated"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
-	          "Function"    "SpawnPet"
-	          "unit" "npc_beastmaster_pet2"
-	        }
-	      }
-	    }
 	    "modifier_beastmaster_pet"
 	    {
 	      "Passive"      "0"
@@ -2414,6 +2364,16 @@
 	        {
 	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
 	          "Function"    "BearAttack"
+	          "Target" "TARGET"
+	        }
+	      }
+	
+	      "OnDeath"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/beastmaster/ziv_beastmaster_pet.lua"
+	          "Function"    "PetDied"
 	          "Target" "TARGET"
 	        }
 	      }
@@ -5740,11 +5700,11 @@
 	"ziv_samurai_whirlwind"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	  "AbilityTextureName"            "juggernaut_blade_fury"
 	
 	  "AbilityCastPoint"        "0"
-	  "AbilityCastRange" "250"
+	  // "AbilityCastRange" "250"
 	  "AbilityCooldown"         "0.195"
 	
 	  "AbilityManaCost"       "10"
@@ -5765,7 +5725,7 @@
 	    "01"
 	    {
 	      "var_type" "FIELD_FLOAT"
-	      "duration" "1.0"
+	      "duration" "1.5"
 	    }
 	    "02"
 	    {
@@ -5776,6 +5736,11 @@
 	    {
 	      "var_type" "FIELD_INTEGER"
 	      "radius" "250"
+	    }
+	    "04"
+	    {
+	      "var_type" "FIELD_INTEGER"
+	      "trigger_radius" "165"
 	    }
 	  }
 	
