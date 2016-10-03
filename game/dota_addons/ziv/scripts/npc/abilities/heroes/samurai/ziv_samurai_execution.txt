@@ -33,7 +33,7 @@
     "01"
     {
       "var_type" "FIELD_FLOAT"
-      "bonus_attack_speed" "100"
+      "damage_amp" "2.5"
     }
     "02"
     {
@@ -60,16 +60,6 @@
 
   "Modifiers"
   {
-    "modifier_execution"
-    {
-      "Passive"      "1"
-      "IsHidden"      "0"
-      "IsDebuff"      "0"
 
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
-      }
-    }
   }
 }

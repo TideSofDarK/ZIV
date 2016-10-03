@@ -5321,14 +5321,9 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_damage"            "70 100 130 160 190 220 250"
-	    }
-	    "02"
-	    {
-	      "var_type"            "FIELD_INTEGER"
 	      "slow"            "-20"
 	    }
-	    "03"
+	    "02"
 	    {
 	      "var_type"            "FIELD_INTEGER"
 	      "slow_duration"            "4"
@@ -5404,8 +5399,8 @@
 	  {
 	    "01"
 	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_damage"            "70 100 130 160 190 220 250"
+	      "var_type"            "FIELD_FLOAT"
+	      "damage_amp"            "1.1"
 	    }
 	    "02"
 	    {
@@ -5526,7 +5521,7 @@
 	    "01"
 	    {
 	      "var_type" "FIELD_FLOAT"
-	      "bonus_attack_speed" "100"
+	      "damage_amp" "2.5"
 	    }
 	    "02"
 	    {
@@ -5553,17 +5548,7 @@
 	
 	  "Modifiers"
 	  {
-	    "modifier_execution"
-	    {
-	      "Passive"      "1"
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
 	
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
-	      }
-	    }
 	  }
 	}
 	"ziv_samurai_reign_of_fire"
@@ -5593,15 +5578,10 @@
 	  {
 	    "01"
 	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_damage"            "70 100 130 160 190 220 250"
+	      "var_type"            "FIELD_FLOAT"
+	      "burn_damage_amp"            "0.12"
 	    }
 	    "02"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "burn_damage_percent"            "5"
-	    }
-	    "03"
 	    {
 	      "var_type"            "FIELD_INTEGER"
 	      "burn_duration"            "4"
@@ -5768,7 +5748,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "juggernaut_blade_fury"
 	
 	  "AbilityCastPoint"        "0"
 	  "AbilityCastRange" "250"
@@ -5792,7 +5772,7 @@
 	    "01"
 	    {
 	      "var_type" "FIELD_FLOAT"
-	      "duration" "0.3"
+	      "duration" "1.0"
 	    }
 	    "02"
 	    {

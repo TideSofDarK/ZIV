@@ -519,6 +519,15 @@ function CharacterSelectionLock() {
 	
 	$("#PreviewClassLabel").text = $.Localize(selectedCharacter.hero_name);
 
+	$("#PreviewHealthPointsLabel").text = $.Localize("gamesetup_character_preview_hp") + (parseInt((heroKV["AttributeBaseStrength"] * 55)) + parseInt(heroKV["StatusHealth"]));
+	$("#PreviewEnergyPointsLabel").text = $.Localize("gamesetup_character_preview_ep") + (parseInt((heroKV["AttributeBaseIntelligence"] * 22)) + parseInt(heroKV["StatusMana"]));
+	$("#PreviewStrengthLabel").text = $.Localize("gamesetup_character_preview_strength") + heroKV["AttributeBaseStrength"];
+	$("#PreviewDexterityLabel").text = $.Localize("gamesetup_character_preview_dexterity") + heroKV["AttributeBaseAgility"];
+	$("#PreviewIntelligenceLabel").text = $.Localize("gamesetup_character_preview_intelligence") + heroKV["AttributeBaseIntelligence"];
+
+	$("#PreviewPVPKillsLabel").text = $.Localize("gamesetup_character_preview_pvp_kills") + "0";
+	$("#PreviewGamesPlayedLabel").text = $.Localize("gamesetup_character_preview_games_played") + "0";
+
 	$("#CharacterListBackground").AddClass("Expanded");
 
 	$("#CharacterPreview").SetHasClass("Hidden", false);

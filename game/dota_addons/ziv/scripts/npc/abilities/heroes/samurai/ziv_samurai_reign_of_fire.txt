@@ -25,15 +25,10 @@
   {
     "01"
     {
-      "var_type"            "FIELD_INTEGER"
-      "bonus_damage"            "70 100 130 160 190 220 250"
+      "var_type"            "FIELD_FLOAT"
+      "burn_damage_amp"            "0.12"
     }
     "02"
-    {
-      "var_type"            "FIELD_INTEGER"
-      "burn_damage_percent"            "5"
-    }
-    "03"
     {
       "var_type"            "FIELD_INTEGER"
       "burn_duration"            "4"

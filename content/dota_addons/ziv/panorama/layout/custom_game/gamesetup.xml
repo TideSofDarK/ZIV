@@ -90,14 +90,14 @@
           <Panel id="CharacterPreviewStats">
             <Label class="Headline CharacterPreviewHeadline" id="PreviewClassLabel" text="HERO_NAME | 1 Level" />
             <Panel class="CBR" />
-            <Label class="Headline CharacterPreviewLabel" id="HealthPointsLabel"  text="#gamesetup_character_preview_hp" />
-            <Label class="Headline CharacterPreviewLabel" id="EnergyPointsLabel"  text="#gamesetup_character_preview_ep" />
-            <Label class="Headline CharacterPreviewLabel" id="StrengthLabel"      text="#gamesetup_character_preview_strength" />
-            <Label class="Headline CharacterPreviewLabel" id="DexterityLabel"     text="#gamesetup_character_preview_dexterity" />
-            <Label class="Headline CharacterPreviewLabel" id="IntelligenceLabel"  text="#gamesetup_character_preview_intelligence" />
+            <Label class="Headline CharacterPreviewLabel" id="PreviewHealthPointsLabel"  text="#gamesetup_character_preview_hp" />
+            <Label class="Headline CharacterPreviewLabel" id="PreviewEnergyPointsLabel"  text="#gamesetup_character_preview_ep" />
+            <Label class="Headline CharacterPreviewLabel" id="PreviewStrengthLabel"      text="#gamesetup_character_preview_strength" />
+            <Label class="Headline CharacterPreviewLabel" id="PreviewDexterityLabel"     text="#gamesetup_character_preview_dexterity" />
+            <Label class="Headline CharacterPreviewLabel" id="PreviewIntelligenceLabel"  text="#gamesetup_character_preview_intelligence" />
             <Panel class="CBR" />
-            <Label class="Headline CharacterPreviewLabel" id="PVPKillsLabel" text="#gamesetup_character_preview_pvp_kills" />
-            <Label class="Headline CharacterPreviewLabel" id="GamesPlayedLabel" text="#gamesetup_character_preview_games_played" />
+            <Label class="Headline CharacterPreviewLabel" id="PreviewPVPKillsLabel" text="#gamesetup_character_preview_pvp_kills" />
+            <Label class="Headline CharacterPreviewLabel" id="PreviewGamesPlayedLabel" text="#gamesetup_character_preview_games_played" />
           </Panel>
           <Panel id="CharacterPreviewEquipment">
             <DOTAItemImage id="PreviewItemTorso" class="PreviewItem BasicShadow"/>

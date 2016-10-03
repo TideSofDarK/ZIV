@@ -59,10 +59,10 @@
 	    "MovementSpeed"       "360"
 	    "MovementTurnRate"      "4.0"
 	
-	    "StatusHealth"        "1000"
-	    "StatusHealthRegen"     "1.0"
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "50.0"
+	    "StatusManaRegen"     "20.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -132,10 +132,10 @@
 	    "MovementSpeed"       "360"
 	    "MovementTurnRate"      "4.0"
 	
-	    "StatusHealth"        "1000"
-	    "StatusHealthRegen"     "1.0"
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "15.0"
+	    "StatusManaRegen"     "20.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -200,10 +200,10 @@
 	    "MovementSpeed"       "360"
 	    "MovementTurnRate"      "4.0"
 	
-	    "StatusHealth"        "1000"
-	    "StatusHealthRegen"     "1.0"
-	    "StatusMana"        "200"
-	    "StatusManaRegen"     "1.0"
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "2.0"
+	    "StatusMana"        "100"
+	    "StatusManaRegen"     "20.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -268,10 +268,10 @@
 	    "MovementSpeed"       "360"
 	    "MovementTurnRate"      "4.0"
 	
-	    "StatusHealth"        "1000"
-	    "StatusHealthRegen"     "1.0"
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "50.0"
+	    "StatusManaRegen"     "20.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -335,10 +335,10 @@
 	    "MovementSpeed"       "365"
 	    "MovementTurnRate"      "4.0"
 	
-	    "StatusHealth"        "1000"
-	    "StatusHealthRegen"     "1.0"
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "40.0"
+	    "StatusManaRegen"     "20.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -401,10 +401,10 @@
 	    "MovementSpeed"       "360"
 	    "MovementTurnRate"      "4.0"
 	
-	    "StatusHealth"        "1000"
-	    "StatusHealthRegen"     "1.0"
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "50.0"
+	    "StatusManaRegen"     "20.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -467,10 +467,10 @@
 	    "MovementSpeed"       "360"
 	    "MovementTurnRate"      "4.0"
 	
-	    "StatusHealth"        "1000"
-	    "StatusHealthRegen"     "1.0"
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "50.0"
+	    "StatusManaRegen"     "20.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -533,10 +533,10 @@
 	    "MovementSpeed"       "360"
 	    "MovementTurnRate"      "4.0"
 	
-	    "StatusHealth"        "1000"
-	    "StatusHealthRegen"     "1.0"
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "50.0"
+	    "StatusManaRegen"     "20.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"

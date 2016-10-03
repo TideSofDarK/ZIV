@@ -44,7 +44,7 @@
             }
 
             var abilityName = $.GetContextPanel().GetAttributeString( "ability", "not-found" );
-            $.Msg(abilityName);
+
             if (abilityName != "not-found" && abilityName != "undefined" && abilityName) {
                 $("#TooltipText").visible = false;
 

@@ -23,14 +23,9 @@
     "01"
     {
       "var_type"            "FIELD_INTEGER"
-      "bonus_damage"            "70 100 130 160 190 220 250"
-    }
-    "02"
-    {
-      "var_type"            "FIELD_INTEGER"
       "slow"            "-20"
     }
-    "03"
+    "02"
     {
       "var_type"            "FIELD_INTEGER"
       "slow_duration"            "4"
