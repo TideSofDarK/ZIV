@@ -62,7 +62,7 @@
 	    "StatusHealth"        "100"
 	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "20.0"
+	    "StatusManaRegen"     "5.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -135,7 +135,7 @@
 	    "StatusHealth"        "100"
 	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "20.0"
+	    "StatusManaRegen"     "5.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -203,7 +203,7 @@
 	    "StatusHealth"        "100"
 	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "20.0"
+	    "StatusManaRegen"     "5.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -227,7 +227,7 @@
 	    "Ability1"        "ziv_elementalist_cold_blast"
 	    "Ability2"        "ziv_elementalist_fire_blast"
 	    "Ability3"        "ziv_elementalist_overload"
-	    "Ability4"        "ziv_empty1"
+	    "Ability4"        "ziv_elementalist_barrier"
 	    "Ability5"        "ziv_elementalist_dark_orb" 
 	    "Ability6"        "ziv_elementalist_cold_orb" 
 	    "Ability7"        "ziv_elementalist_ball_lightning" 
@@ -250,7 +250,7 @@
 	    "ProjectileSpeed"     "1150"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_INTELLECT"
-	    "AttributeBaseStrength"   "5"
+	    "AttributeBaseStrength"   "4"
 	    "AttributeStrengthGain"   "0"
 	    "AttributeBaseIntelligence" "5"
 	    "AttributeIntelligenceGain" "0"
@@ -271,7 +271,7 @@
 	    "StatusHealth"        "100"
 	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "20.0"
+	    "StatusManaRegen"     "5.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -338,7 +338,7 @@
 	    "StatusHealth"        "100"
 	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "20.0"
+	    "StatusManaRegen"     "5.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -404,7 +404,7 @@
 	    "StatusHealth"        "100"
 	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "20.0"
+	    "StatusManaRegen"     "5.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -470,7 +470,7 @@
 	    "StatusHealth"        "100"
 	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "20.0"
+	    "StatusManaRegen"     "5.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"
@@ -536,7 +536,7 @@
 	    "StatusHealth"        "100"
 	    "StatusHealthRegen"     "2.0"
 	    "StatusMana"        "100"
-	    "StatusManaRegen"     "20.0"
+	    "StatusManaRegen"     "5.0"
 	
 	    "VisionDaytimeRange"    "1300"
 	    "VisionNighttimeRange"    "1300"

@@ -5,7 +5,7 @@ function BallLightningTraverse( keys )
 	end
 
 	local caster = keys.caster
-	local casterLoc = caster:GetAbsOrigin()
+	local caster_loc = caster:GetAbsOrigin()
 	local target = keys.target_points[ 1 ] 
 	local ability = keys.ability
 	
@@ -14,25 +14,25 @@ function BallLightningTraverse( keys )
 	
 	local particle_dummy = "particles/status_fx/status_effect_base.vpcf"
 	local loop_sound_name = "Hero_StormSpirit.BallLightning.Loop"
-	local modifierName = "modifier_ball_lightning_buff"
+	local modifier_name = "modifier_ball_lightning_buff"
 	
-	local currentPos = casterLoc
+	local current_pos = caster_loc
 	local intervals_per_second = speed / 100
-	local forwardVec = ( target - casterLoc ):Normalized()
+	local forward_vec = ( target - caster_loc ):Normalized()
 	
-	caster.ball_lightning_start_pos = casterLoc
+	caster.ball_lightning_start_pos = caster_loc
 	caster.ball_lightning_is_running = true
-
-	caster:AddNoDraw()
 	
 	local distance = 0.0
+
+	caster:AddNoDraw()
 		
 	local projectileTable =
 	{
 		EffectName = particle_dummy,
 		Ability = ability,
 		vSpawnOrigin = caster:GetAbsOrigin(),
-		vVelocity = speed * forwardVec,
+		vVelocity = speed * forward_vec,
 		fDistance = 99999,
 		fStartRadius = radius,
 		fEndRadius = radius,
@@ -51,16 +51,21 @@ function BallLightningTraverse( keys )
 	Timers:CreateTimer( function()
 			distance = distance + speed / intervals_per_second
 
-			currentPos = currentPos + forwardVec * ( speed / intervals_per_second )
+			current_pos = current_pos + forward_vec * ( speed / intervals_per_second )
 
-			FindClearSpaceForUnit( caster, currentPos, false )
+			FindClearSpaceForUnit( caster, current_pos, false )
+			FindClearSpaceForUnit( dummy_unit, current_pos, false )
 			
-			if ( target - currentPos ):Length2D() <= speed / intervals_per_second then
-				caster:RemoveModifierByName( modifierName )
+			if ( target - current_pos ):Length2D() <= speed / intervals_per_second then
+				caster:RemoveModifierByName( modifier_name )
 				StopSoundEvent( loop_sound_name, caster )
 				caster.ball_lightning_is_running = false
 
 				caster:RemoveNoDraw()
+
+				caster:SetForwardVector(UnitLookAtPoint( caster, target ))
+				caster:Stop()
+
 				return nil
 			else
 				return 0.03

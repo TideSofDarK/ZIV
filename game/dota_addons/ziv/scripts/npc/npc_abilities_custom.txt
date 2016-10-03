@@ -3194,13 +3194,13 @@
 	"ziv_elementalist_ball_lightning"
 	{
 		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"ziv_empty"
 	
 		"AbilityCastRange"        "900"
-		"AbilityCastPoint"				"0.05"
+		"AbilityCastPoint"				"0.001"
 		"AbilityCooldown"				"5.0"
 		
 		"AbilityManaCost"				"15"
@@ -3288,13 +3288,75 @@
 						}
 					}
 				}
-			
+	
 				"States"
 				{
-					// "MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	"ziv_elementalist_barrier"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"ziv_empty"
+	
+		"MaxLevel" "1"
+	
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+			"particle"			"particles/heroes/elementalist/elementalist_barrier.vpcf"
+			"particle"			"particles/heroes/elementalist/elementalist_barrier_impact.vpcf"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_ep"		"1.0"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_barrier"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+		
+				"EffectName"		"particles/heroes/elementalist/elementalist_barrier.vpcf"
+				"EffectAttachType"	"follow_origin"
+		
+				"OnTakeDamage"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Medusa.ManaShield.Proc"
+						"Target" 		"UNIT"
+					}
+	
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_barrier.lua"
+						"Function"		"Barrier"
+						"Damage"		"%attack_damage"
+					}
+				}
+	
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_barrier.lua"
+						"Function"		"BarrierHealth"
+					}
 				}
 			}
 		}

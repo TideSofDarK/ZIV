@@ -1,13 +1,13 @@
 "ziv_elementalist_ball_lightning"
 {
 	"BaseClass"				"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 	"AbilityTextureName"			"ziv_empty"
 
 	"AbilityCastRange"        "900"
-	"AbilityCastPoint"				"0.05"
+	"AbilityCastPoint"				"0.001"
 	"AbilityCooldown"				"5.0"
 	
 	"AbilityManaCost"				"15"
@@ -95,10 +95,9 @@
 					}
 				}
 			}
-		
+
 			"States"
 			{
-				// "MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
 				"MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
 				"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 				"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
