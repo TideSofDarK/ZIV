@@ -80,7 +80,7 @@
 .CharacterPreviewLabel {
 	font-size: 23px;
 	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
-	font-weight: bold;
+	/*font-weight: bold;*/
 }
 
 #GameInfo {
@@ -487,12 +487,15 @@ TextButton, Label {
 	margin: 10px;
 
 	background-image: url("file://{images}/custom_game/ingame_ui/ability_border_inner.png");
-	background-size: 100% 100%;
+	background-size: 110% 110%;
+	background-position: center;
 
-	padding: 8px;
+	padding: 5px;
 
 	tooltip-position: top;
 	tooltip-body-position: 50% 100%;
+
+	box-shadow: fill #000000ff -2px -2px 8px 3px;
 
 	/*border-radius: 4px;*/
 }

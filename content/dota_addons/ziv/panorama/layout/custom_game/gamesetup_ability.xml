@@ -50,6 +50,8 @@
 			panel.abilityname = $("#CCSAbilityImage").abilityname = name;
 			panel.abilitygroup = group;
 
+			GameUI.CustomUIConfig().AddTooltip(panel, "", panel.abilityname);
+
 			var customCreationOptions = PlayerTables.GetTableValue("kvs", "abilities")[panel.abilityname]["CustomCreationOptions"];
 
 			if (panel.SetCreationOptions && customCreationOptions) {
@@ -68,8 +70,6 @@
 	</script>
 	<Panel class="CCSAbilityPanel">
 		<Button id="CCSAbilityButton"
-							onmouseover="AbilityShowTooltip()"
-							onmouseout="AbilityHideTooltip()"
 							onactivate="SelectAbility()"
 							oncontextmenu="OpenAbilityContextMenu()"
 							>

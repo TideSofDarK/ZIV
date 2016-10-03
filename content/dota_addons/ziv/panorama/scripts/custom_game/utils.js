@@ -31,6 +31,10 @@ Util.RoundToTwo = (function (num) {
     return +(Math.round(num + "e+2")  + "e-2");
 });
 
+Util.AutoUppercase = (function (str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+});
+
 (function(){
 	GameUI.CustomUIConfig().Util = Util;
 })()

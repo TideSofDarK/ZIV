@@ -176,6 +176,8 @@
 
 	background-color: #101D21;
 
+	box-shadow: inset #000000bb 4px 4px 4px 4px;
+
 	max-width: 270px;
 }
 
@@ -232,6 +234,10 @@
 #AbilityTooltipDescription,
 #AbilityTooltipName {
 	color: White;
+}
+
+#AbilityTooltipName {
+	font-weight: bold;
 }
 
 #AbilityTooltipImage {
