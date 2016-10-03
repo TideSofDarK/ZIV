@@ -130,13 +130,14 @@ end
 
 function Characters:InitCharacter( hero )
     hero:AddAbility("ziv_passive_hero")
-    hero:AddAbility("ziv_stats_bonus_fix")
     hero:AddAbility("ziv_hero_normal_hpbar_behavior")
 
     hero:AddNewModifier(hero,nil,"modifier_disable_auto_attack",{})
     hero:AddNewModifier(hero,nil,"modifier_smooth_floating",{duration = 5})
 
     InitAbilities(hero)
+
+    Attributes:ModifyBonuses(hero)
 
     -- PseudoRNG stuff
     hero.loot_rng = PseudoRNG.create( 0.5 )

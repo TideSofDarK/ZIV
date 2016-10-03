@@ -504,6 +504,7 @@ function CharacterSelectionLock() {
 	}
 
 	var previewEquipment = $("#CharacterPreviewEquipment").Children();
+	var attributesKVs = PlayerTables.GetTableValue("kvs", "attributes");
 	var heroKV = PlayerTables.GetTableValue("kvs", "heroes")[selectedCharacter.hero_name];
 	var itemKVs = PlayerTables.GetTableValue("kvs", "items");
 	var slots = heroKV["EquipmentSlots"].split(';');
@@ -519,8 +520,8 @@ function CharacterSelectionLock() {
 	
 	$("#PreviewClassLabel").text = $.Localize(selectedCharacter.hero_name);
 
-	$("#PreviewHealthPointsLabel").text = $.Localize("gamesetup_character_preview_hp") + (parseInt((heroKV["AttributeBaseStrength"] * 55)) + parseInt(heroKV["StatusHealth"]));
-	$("#PreviewEnergyPointsLabel").text = $.Localize("gamesetup_character_preview_ep") + (parseInt((heroKV["AttributeBaseIntelligence"] * 22)) + parseInt(heroKV["StatusMana"]));
+	$("#PreviewHealthPointsLabel").text = $.Localize("gamesetup_character_preview_hp") + (parseInt((heroKV["AttributeBaseStrength"] * attributesKVs["HP_PER_STR"])) + parseInt(heroKV["StatusHealth"]));
+	$("#PreviewEnergyPointsLabel").text = $.Localize("gamesetup_character_preview_ep") + (parseInt((heroKV["AttributeBaseIntelligence"] * attributesKVs["MANA_PER_INT"])) + parseInt(heroKV["StatusMana"]));
 	$("#PreviewStrengthLabel").text = $.Localize("gamesetup_character_preview_strength") + heroKV["AttributeBaseStrength"];
 	$("#PreviewDexterityLabel").text = $.Localize("gamesetup_character_preview_dexterity") + heroKV["AttributeBaseAgility"];
 	$("#PreviewIntelligenceLabel").text = $.Localize("gamesetup_character_preview_intelligence") + heroKV["AttributeBaseIntelligence"];

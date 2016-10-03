@@ -8,10 +8,10 @@
             <Panel class="AbilityTooltip WindowAnimation">
                 <DOTAAbilityImage id="AbilityTooltipImage" class="BasicShadow" abilityname="ziv_empty1"/>
                 <Panel class="TooltipCBR"/>
-                <Label id="AbilityTooltipName" class="TooltipLabel" text=""/>  
+                <Label id="AbilityTooltipName" class="TooltipLabel" text=""/>
+                <Panel class="TooltipCBR"/>
                 <Label id="AbilityTooltipEnergyCost" html="true" class="TooltipLabel" text="#energy_cost"/>  
                 <Label id="AbilityTooltipCastPoint" html="true" class="TooltipLabel" text="#cast_point"/> 
-                <Panel class="TooltipCBR"/>
                 <Label id="AbilityTooltipDescription" class="TooltipLabel" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/> 
                 <Panel class="TooltipCBR"/>
                 <Label id="AbilityTooltipSpecial1" html="true" class="TooltipLabel" text=""/> 
@@ -30,8 +30,10 @@
         function FillProperty(panel, name, value, color) {
             if (value && GameUI.CustomUIConfig().Util.RoundToTwo(value) != 0) {
                 panel.text = $.Localize(name) + " <font color=\"" + (color ? color : "#ffffff") + "\">" + GameUI.CustomUIConfig().Util.RoundToTwo(value) + "</font>";
+                return 1;
             } else {
                 panel.visible = false;
+                return 0;
             }
         }
 
@@ -59,8 +61,16 @@
 
                 abilityTooltip.FindChildTraverse("AbilityTooltipName").text = $.Localize("DOTA_Tooltip_ability_" + abilityName);
 
-                FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipEnergyCost"), "energy_cost", abilityKV["AbilityManaCost"], "#63adf2");
-                FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCastPoint"), "cast_point", abilityKV["AbilityCastPoint"]);
+                var costOrPoint = 0;
+
+                costOrPoint += FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipEnergyCost"), "energy_cost", abilityKV["AbilityManaCost"], "#63adf2");
+                costOrPoint += FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCastPoint"), "cast_point", abilityKV["AbilityCastPoint"]);
+
+                if (costOrPoint > 0) {
+                    var cbr = $.CreatePanel( "Panel", abilityTooltip, "" );
+                    cbr.AddClass("TooltipCBR");
+                    abilityTooltip.MoveChildBefore(cbr, $("#AbilityTooltipDescription"));
+                }
                 
                 abilityTooltip.FindChildTraverse("AbilityTooltipDescription").text = $.Localize("DOTA_Tooltip_ability_" + abilityName + "_Description");
 

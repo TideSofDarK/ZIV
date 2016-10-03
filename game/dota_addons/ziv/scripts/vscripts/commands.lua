@@ -37,6 +37,9 @@ function ZIV:PrintHeroStats()
     local playerID = cmdPlayer:GetPlayerID()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
+      print("HP: "..tostring(hero:GetHealth()).."/"..tostring(hero:GetMaxHealth()))
+      print("EP: "..tostring(hero:GetMana()).."/"..tostring(hero:GetMaxMana()))
+
       print("MR: "..tostring(hero:GetMagicalArmorValue()))
       print("FR: "..tostring(hero:GetModifierStackCount("modifier_fire_resistance",nil)))
       print("CR: "..tostring(hero:GetModifierStackCount("modifier_cold_resistance",nil)))

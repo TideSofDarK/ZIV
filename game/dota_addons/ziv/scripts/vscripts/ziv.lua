@@ -76,6 +76,9 @@ require('libraries/containers')
 -- Balance variables
 require('balance')
 
+-- Attributes fix
+require('libraries/attributes')
+
 -- Scenarios
 require('scenarios/temple')
 
@@ -126,7 +129,8 @@ function ZIV:OnAllPlayersLoaded()
       abilities = ZIV.AbilityKVs,
       units = ZIV.UnitKVs,
       presets = ZIV.PresetsKVs,
-      recipes = ZIV.RecipesKVs
+      recipes = ZIV.RecipesKVs,
+      attributes = ZIV.AttributesKVs
       }, true)
     end)
 end
@@ -228,6 +232,7 @@ function ZIV:InitZIV()
   ZIV.HerolistKVs = LoadKeyValues("scripts/npc/herolist.txt")
   ZIV.RecipesKVs = LoadKeyValues("scripts/kv/Recipes.kv")
   ZIV.PresetsKVs = LoadKeyValues("scripts/kv/CharacterPresets.kv")
+  ZIV.AttributesKVs = LoadKeyValues("scripts/kv/Attributes.kv")
 
   SendToServerConsole("dota_surrender_on_disconnect 0")
   SendToServerConsole( 'customgamesetup_set_auto_launch_delay 300' )
@@ -238,6 +243,8 @@ function ZIV:InitZIV()
   Characters:Init() 
   Director:Init()
   Loot:Init()
+
+  Attributes:Init()
 end
 
 if LOADED then
