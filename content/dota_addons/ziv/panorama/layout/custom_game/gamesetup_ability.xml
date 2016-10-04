@@ -50,7 +50,7 @@
 			panel.abilityname = $("#CCSAbilityImage").abilityname = name;
 			panel.abilitygroup = group;
 
-			GameUI.CustomUIConfig().AddTooltip(panel, "", panel.abilityname);
+			GameUI.CustomUIConfig().AddAbilityTooltip(panel, panel.abilityname);
 
 			var customCreationOptions = PlayerTables.GetTableValue("kvs", "abilities")[panel.abilityname]["CustomCreationOptions"];
 

@@ -29,7 +29,7 @@ DOTAItemImage {
 	horizontal-align: center;
 	vertical-align: bottom;
 
-	height: 38%;
+	height: 36%;
 
 	margin-bottom: 66px;
 }
@@ -39,9 +39,13 @@ DOTAItemImage {
 }
 
 .FortifyItem {
-	margin-top: 92px;
-	width: 126px;
-	height: 90px;
+	horizontal-align: left;
+
+	margin-top: 76px;
+	margin-left: 79px;
+
+	width: 120px;
+	height: 86px;
 
 	border-radius: 5px;
 	border: 1px solid #111111ff;
@@ -60,14 +64,6 @@ DOTAItemImage {
 
 	vertical-align: top;
 	horizontal-align: center;
-}
-
-#FortifyItem {
-	margin-left: 72px;
-
-	transform: rotateZ( -4deg );
-
-	horizontal-align: left;
 }
 
 #FortifyTool {

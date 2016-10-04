@@ -18,6 +18,9 @@ function SetAbility( ability, queryUnit, keybind, bInLevelUp )
 	$.GetContextPanel().SetHasClass( "learnable_ability", bInLevelUp && canUpgrade );
 
 	$.GetContextPanel().keybindID = keybind;
+	
+	var abilityName = Abilities.GetAbilityName( m_Ability );
+	GameUI.CustomUIConfig().AddAbilityTooltip($( "#AbilityImage" ), abilityName);
 
 	UpdateAbility();
 }
@@ -82,23 +85,6 @@ function UpdateAbility()
 		// $( "#CooldownTimer" ).text = Math.ceil( cooldownRemaining );
 		$( "#CooldownOverlay" ).style.clip = "radial(50% 50%, 0deg, " + cooldownPercent * -360 + "deg)";
 	}
-}
-
-function AbilityShowTooltip()
-{
-	var abilityButton = $( "#AbilityButton" );
-	var abilityName = Abilities.GetAbilityName( m_Ability );
-	// If you don't have an entity, you can still show a tooltip that doesn't account for the entity
-	//$.DispatchEvent( "DOTAShowAbilityTooltip", abilityButton, abilityName );
-	
-	// If you have an entity index, this will let the tooltip show the correct level / upgrade information
-	$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", abilityButton, abilityName, m_QueryUnit );
-}
-
-function AbilityHideTooltip()
-{
-	var abilityButton = $( "#AbilityButton" );
-	$.DispatchEvent( "DOTAHideAbilityTooltip", abilityButton );
 }
 
 function ActivateAbility()

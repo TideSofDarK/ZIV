@@ -33,8 +33,6 @@
 
     </snippets>
     <script>
-        var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
-
         function FillProperty(panel, name, value, color) {
             if (value && (typeof(value) == "string" || GameUI.CustomUIConfig().Util.RoundToTwo(value) != 0)) {
                 var newValue = value;
@@ -59,6 +57,8 @@
 
         function SetupTooltip()
         {
+            var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+            
             // Cleanup
             if ($("#TooltipBorderB").FindChildTraverse("AbilityTooltip")) {
                 $("#TooltipBorderB").FindChildTraverse("AbilityTooltip").RemoveAndDeleteChildren();
@@ -72,7 +72,7 @@
 
             var abilityName = $.GetContextPanel().GetAttributeString( "ability", "not-found" );
             var itemID = parseInt($.GetContextPanel().GetAttributeString( "itemID", "not-found" ));
-            $.Msg(itemID);
+            
             if (itemID && itemID != "not-found" && itemID != undefined) {
                 var itemName = Abilities.GetAbilityName(itemID);
                 var itemData = PlayerTables.GetTableValue("items", itemID)
@@ -106,7 +106,9 @@
                                 specialLabel.AddClass("TooltipLabel");
                                 specialLabel.html = true;
 
-                                specialLabel.text = "<font color=\"#ffffff\">+ " + GameUI.CustomUIConfig().Util.RoundToTwo(itemKV["AbilitySpecial"][special][specialName]) + "</font> " + specialCaption;
+                                var finalValue = GameUI.CustomUIConfig().Util.RoundToTwo(itemKV["AbilitySpecial"][special][specialName]);
+                                
+                                specialLabel.text = GameUI.CustomUIConfig().Util.ColorString("+ " + finalValue,"#ffffff") + " " + specialCaption;
                             }
                         }
                         i++;
@@ -115,19 +117,45 @@
                     if (itemData.built_in_modifiers && Object.keys( itemData.built_in_modifiers ).length >= 1)
                     {
                         AddCBR(itemTooltip);
-
+                        $.Msg(itemData.built_in_modifiers);
                         var i = 0;
                         for (var key in itemData.built_in_modifiers)
                         {
                             var value = itemData.built_in_modifiers[key];
 
-                            var specialLabel = $.CreatePanel( "Panel", itemTooltip, "ItemTooltipSpecial" + i);
+                            var specialLabel = $.CreatePanel( "Label", itemTooltip, "ItemTooltipSpecial" + i);
                             specialLabel.AddClass("TooltipLabel");
                             specialLabel.html = true;
 
-                            specialLabel.text = "+ " + value + " " + $.Localize(key);
+                            var finalValue = value;
+
+                            specialLabel.text = GameUI.CustomUIConfig().Util.ColorString("+ " + finalValue,"#ffffff") + " " + $.Localize(key);
 
                             i = i + 1;
+                        }
+                    }
+
+                    if (itemData.fortify_modifiers && Object.keys( itemData.fortify_modifiers ).length >= 1)
+                    {
+                        AddCBR(itemTooltip);
+
+                        var i = 0;
+                        for (var key in itemData.fortify_modifiers)
+                        {
+                            var value = itemData.fortify_modifiers[key];
+                            for (var modifier in value) {
+                                if (modifier != "gem") {
+                                    var specialLabel = $.CreatePanel( "Label", itemTooltip, "ItemTooltipFortifyModifier" + i);
+                                    specialLabel.AddClass("TooltipLabel");
+                                    specialLabel.html = true;
+
+                                    var finalValue = value[modifier];
+
+                                    specialLabel.text = GameUI.CustomUIConfig().Util.ColorString("+ " + finalValue,"#ffffff") + " " + $.Localize(modifier);
+
+                                    i = i + 1;
+                                }
+                            }
                         }
                     }
                 }
@@ -167,12 +195,16 @@
                             specialLabel.AddClass("TooltipLabel");
                             specialLabel.html = true;
 
-                            specialLabel.text = specialCaption + " " + GameUI.CustomUIConfig().Util.RoundToTwo(abilityKV["AbilitySpecial"][special][specialName]);
+                            var percent = false;
 
-                            if (specialLabel.text[0] == "%") {
-                                specialLabel.text = specialLabel.text.replace("%", "") + "%";
+                            if (specialCaption[0] == "%") {
+                                specialCaption = specialCaption.replace("%", "");
+                                percent = true;
                             }
-                            specialLabel.text = GameUI.CustomUIConfig().Util.AutoUppercase(specialLabel.text);
+
+                            var finalValue = GameUI.CustomUIConfig().Util.RoundToTwo(abilityKV["AbilitySpecial"][special][specialName]);
+
+                            specialLabel.text = GameUI.CustomUIConfig().Util.AutoUppercase(specialCaption) + " " + GameUI.CustomUIConfig().Util.ColorString(finalValue + (percent ? '%' : ""),"#ffffff");
                         }
                     }
                     i++;

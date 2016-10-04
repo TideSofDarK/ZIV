@@ -8,10 +8,21 @@ function HideItemTooltip(panel) {
 	$.DispatchEvent("UIHideCustomLayoutTooltip", panel, panel.id); 
 }
 
-function AddTooltip( panel, text, ability )
+function AddAbilityTooltip( panel, ability )
 {
 	panel.SetPanelEvent("onmouseover", function(){
-		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', panel, panel.id, "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize( text )+"&ability="+ability);
+		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', panel, panel.id, "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "ability="+ability);
+	});
+
+	panel.SetPanelEvent("onmouseout", function() {
+		$.DispatchEvent("UIHideCustomLayoutTooltip", panel, panel.id); 
+	});
+}
+
+function AddTooltip( panel, text )
+{
+	panel.SetPanelEvent("onmouseover", function(){
+		$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', panel, panel.id, "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "text="+$.Localize( text ));
 	});
 
 	panel.SetPanelEvent("onmouseout", function() {
@@ -36,6 +47,7 @@ function InitTooltip( panel )
 (function () {
 	InitTooltip( $.GetContextPanel() );
 	GameUI.CustomUIConfig().AddTooltip = AddTooltip;
+	GameUI.CustomUIConfig().AddAbilityTooltip = AddAbilityTooltip;
 	GameUI.CustomUIConfig().ShowItemTooltip = ShowItemTooltip;
 	GameUI.CustomUIConfig().HideItemTooltip = HideItemTooltip;
 })();

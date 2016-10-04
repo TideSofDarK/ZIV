@@ -320,25 +320,24 @@
 	wash-color: #bbbbbb;
 }
 
-#inventory_button {
+#InventoryButton {
 	background-image: url('file://{images}/custom_game/ingame_ui/inventory.png');
 }
 
-#character_button {
+#CharacterButton {
 	background-image: url('file://{images}/custom_game/ingame_ui/character.png');
 }
 
-#craft_button {
+#CraftButton {
 	background-image: url('file://{images}/custom_game/ingame_ui/craft.png');
-	/*brightness: 0.5;*/
 }
 
-#fortify_button {
-	background-image: url('file://{images}/custom_game/ingame_ui/fortify.png');
-	visibility: collapse;
+#FortifyButton {
+	/*background-image: url('file://{images}/custom_game/ingame_ui/fortify.png');*/
+	background-image: url('file://{images}/custom_game/ingame_ui/craft.png');
 }
 
-#help_button {
+#SettingsButton {
 	background-image: url('file://{images}/custom_game/ingame_ui/help.png');
 }
 

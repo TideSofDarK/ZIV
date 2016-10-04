@@ -62,20 +62,20 @@
 
 	// Common modifiers
 
-	"modifier_all_resistances" 			"to All Magic Resistances"
-	"modifier_fire_resistance" 			"to Fire Resistance"
-	"modifier_cold_resistance" 			"to Cold Resistance"
-	"modifier_lightning_resistance" 	"to Lightning Resistance"
-	"modifier_dark_resistance" 			"to Dark Resistance"
+	"modifier_all_resistances" 			"to all magic resistances"
+	"modifier_fire_resistance" 			"to fire resistance"
+	"modifier_cold_resistance" 			"to cold resistance"
+	"modifier_lightning_resistance" 	"to lightning resistance"
+	"modifier_dark_resistance" 			"to dark resistance"
 
-	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "to Attack Speed"
-	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "to Move Speed"
-	"MODIFIER_PROPERTY_EVASION_CONSTANT" "to Evasion rating"
-	"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "to Agility"
-	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "to Intellect"
-	"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "to Strength"
-	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "to Armor"
-	"MODIFIER_PROPERTY_STATS_ALL_BONUS" "to All Stats"
+	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "to attack speed"
+	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "to move speed"
+	"MODIFIER_PROPERTY_EVASION_CONSTANT" "to evasion rating"
+	"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "to agility"
+	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "to intellect"
+	"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "to strength"
+	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "to armor"
+	"MODIFIER_PROPERTY_STATS_ALL_BONUS" "to all stats"
 	"MODIFIER_PROPERTY_HEALTH_BONUS" "to max HP"
 
 	// Runes

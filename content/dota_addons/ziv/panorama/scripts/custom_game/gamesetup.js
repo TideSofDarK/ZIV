@@ -499,7 +499,7 @@ function CharacterSelectionLock() {
 		(function () {
 			var abilityPanel = previewAbilities[i];
 			abilityPanel.abilityname = selectedCharacter.abilities[i];
-			GameUI.CustomUIConfig().AddTooltip(abilityPanel, "", abilityPanel.abilityname);
+			GameUI.CustomUIConfig().AddAbilityTooltip(abilityPanel, abilityPanel.abilityname);
 		})();
 	}
 

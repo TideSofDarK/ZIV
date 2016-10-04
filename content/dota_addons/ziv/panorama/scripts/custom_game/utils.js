@@ -39,6 +39,10 @@ Util.SpanString = (function (str, className) {
     return "<span class=\"" + className + "\">" + str + "</span>";
 });
 
+Util.ColorString = (function (str, color) {
+    return "<font color=\"" + color + "\">" + str + "</font>";
+});
+
 (function(){
 	GameUI.CustomUIConfig().Util = Util;
 })()

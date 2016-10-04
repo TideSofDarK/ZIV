@@ -15,7 +15,7 @@ function Items:Update()
 		for k,v in pairs(items) do
 			local item = EntIndexToHScript(k)
 			v.fortify_modifiers = item.fortify_modifiers
-			v.built_in_modifiers = item.fortify_modifiers
+			v.built_in_modifiers = item.built_in_modifiers
 			v.rarity = item.rarity or 0
 		end
 

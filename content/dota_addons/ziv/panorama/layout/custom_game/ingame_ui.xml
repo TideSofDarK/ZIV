@@ -51,11 +51,11 @@
 			<Panel class="GenericBackground" id="Separator" hittest="false"/>
 
 			<Panel id="SideButtons" hittest="false">
-				<Button id="craft_button" class="BottomButton" onactivate="OpenCraftingWindow()" />
-				<Button id="fortify_button" class="BottomButton" onactivate="OpenFortifyWindow()" />
-				<Button id="character_button" class="BottomButton" onactivate="OpenStatusWindow()" />
-				<Button id="inventory_button" class="BottomButton" onactivate="OpenInventoryWindow()" />
-				<Button id="help_button" class="BottomButton" onactivate="OpenSettingsWindow()" />
+				<!-- <Button id="CraftButton" class="BottomButton" onactivate="OpenCraftingWindow()" /> -->
+				<Button id="FortifyButton" class="BottomButton" onactivate="OpenFortifyWindow()" />
+				<Button id="CharacterButton" class="BottomButton" onactivate="OpenStatusWindow()" />
+				<Button id="InventoryButton" class="BottomButton" onactivate="OpenInventoryWindow()" />
+				<Button id="SettingsButton" class="BottomButton" onactivate="OpenSettingsWindow()" />
 			</Panel>
 		</Panel>
 		<!-- <Panel class="GenericBackground" id="LeftBottomGfx" hittest="false"/> -->

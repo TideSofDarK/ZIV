@@ -12,8 +12,6 @@
 
 		</Panel>
 		<Button id="AbilityButton"
-				onmouseover="AbilityShowTooltip()"
-				onmouseout="AbilityHideTooltip()"
 				onactivate="ActivateAbility()"
 				ondblclick="DoubleClickAbility()"
 				oncontextmenu="RightClickAbility()"
