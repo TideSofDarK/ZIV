@@ -51,6 +51,7 @@ function ZIV:PrintHeroStats()
       print("AGI: "..tostring(hero:GetAgility()))
       print("INT: "..tostring(hero:GetIntellect()))
       print("AS: "..tostring(hero:GetAttackSpeed()))
+      print("MODIFIER COUNT: "..tostring(hero:GetModifierCount()))
       for i=0,hero:GetModifierCount() do
         print(hero:GetModifierNameByIndex(i), hero:GetModifierStackCount(hero:GetModifierNameByIndex(i), hero))
       end

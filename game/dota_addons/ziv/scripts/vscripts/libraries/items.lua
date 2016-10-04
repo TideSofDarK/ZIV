@@ -14,8 +14,19 @@ function Items:Update()
 
 		for k,v in pairs(items) do
 			local item = EntIndexToHScript(k)
-			v.fortify_modifiers = item.fortify_modifiers
-			v.built_in_modifiers = item.built_in_modifiers
+
+			if item.fortify_modifiers then
+				local fortify_modifiers = {} 
+				for k,v in pairs(item.fortify_modifiers) do table.insert(fortify_modifiers, v) end	
+				v.fortify_modifiers = fortify_modifiers
+			end
+
+			if item.fortify_modifiers then
+				local built_in_modifiers = {} 
+				for k,v in pairs(item.built_in_modifiers) do table.insert(built_in_modifiers, v) end	
+				v.built_in_modifiers = built_in_modifiers
+			end
+
 			v.rarity = item.rarity or 0
 		end
 

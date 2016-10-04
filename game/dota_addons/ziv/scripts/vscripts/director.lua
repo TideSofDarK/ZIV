@@ -19,7 +19,7 @@ Director.creep_list = Director.creep_list or {}
 Director.current_session_creep_count = 0
 
 function Director:FindMapScenario( string )
-	local scenario = string.gsub(" "..string.gsub(string, "ziv_", ""), "%W%l", string.upper):sub(2)
+	local scenario = string.gsub(" "..string, "%W%l", string.upper):sub(2)
 	assert( type(scenario) == "string" )
 
 	local f = _G
@@ -32,6 +32,10 @@ function Director:FindMapScenario( string )
 	end
 
 	return f
+end
+
+function Director:GetMapName()
+	return string.gsub(GetMapName(), "ziv_", ""):sub(1, -4)
 end
 
 function Director:Init()
@@ -53,8 +57,8 @@ function Director:Init()
 		end
 	end
 	
-	Director.scenario = Director:FindMapScenario(GetMapName())
-	
+	Director.scenario = Director:FindMapScenario(Director:GetMapName())
+
 	if Director.scenario then
 		Director.scenario:Init()
 	end
@@ -62,7 +66,7 @@ end
 
 function Director:SetupCustomUI( name, args, pID )
 	local args = args or {}
-	args.map = string.gsub(GetMapName(), "ziv_", "")
+	args.map = Director:GetMapName()
 	args.name = name
 
 	if pID then

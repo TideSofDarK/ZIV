@@ -29,7 +29,7 @@ function OnDragDrop(panelId, draggedPanel) {
 			var plus = "+" + itemKV["FortifyModifiersCount"] + " " + $.Localize(itemName + "_fortify_string");
 			if (itemName.indexOf( "item_rune_" ) !== -1) {
 				for (var key in itemKV["FortifyModifiers"]) {
-					plus = "+" + itemKV["FortifyModifiers"][key]["min"] + "-" + itemKV["FortifyModifiers"][key]["max"] + " " + $.Localize(key);
+					plus = "+(" + itemKV["FortifyModifiers"][key]["min"] + "-" + itemKV["FortifyModifiers"][key]["max"] + ") " + $.Localize(key);
 					break;
 				}
 			}
@@ -78,7 +78,6 @@ function GetModifiers(table) {
 		var newText = "";
 
 		for (var i = 1; i < Object.keys( modifiers ).length + 1; i++) {
-			$.Msg(modifiers[i.toString()]["gem"]+"asd");
 			for (var key in modifiers[i.toString()]) {
 				var span = "<span class=\"" + modifiers[i.toString()]["gem"] + "\">";
 				var endSpan = "</span>";

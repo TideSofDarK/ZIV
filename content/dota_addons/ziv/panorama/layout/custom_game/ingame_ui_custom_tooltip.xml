@@ -146,6 +146,7 @@
 
                     if (itemData.fortify_modifiers && Object.keys( itemData.fortify_modifiers ).length >= 1)
                     {
+                        $.Msg(PlayerTables.GetTableValue("items", itemID));
                         AddCBR(itemTooltip);
 
                         var i = 0;
@@ -195,6 +196,8 @@
                 
                 abilityTooltip.FindChildTraverse("AbilityTooltipDescription").text = $.Localize("DOTA_Tooltip_ability_" + abilityName + "_Description");
 
+                var newModifiers = {};
+
                 var i = 1;
                 for (special in abilityKV["AbilitySpecial"]) {
                     for (specialName in abilityKV["AbilitySpecial"][special]) {
@@ -215,16 +218,14 @@
 
                             var finalValue = parseFloat(abilityKV["AbilitySpecial"][special][specialName]);
                             
-
                             if (Entities.GetUnitName(hero)) {
-                                for (var i = 0; i < 20; i++) {
-                                    var valueColor = "#ffffff";
-                                    
+                                var valueColor = "#ffffff";
+                                for (var i = 0; i < Entities.GetNumBuffs( hero); i++) {
                                     var heroName = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName(hero)]["SecondName"];
 
-                                    var buffName = Buffs.GetName(hero, i);
-                                    
+                                    var buffName = Buffs.GetName(hero, Entities.GetBuff( hero, i ));
                                     if (buffName.match("ziv_" + heroName)) {
+
                                         var stackCount = Buffs.GetStackCount(hero, i);
                                         var runeName = buffName.replace("ziv_" + heroName, "item_rune");
 
@@ -234,6 +235,7 @@
                                         }
                                         if (buffName.match(abilityName) && stackCount != 0) {
                                             var multiplier = itemKV["Reduction"] == 1 ? -1 : 1;
+
                                             if (itemKV["Tooltip"] == specialName) {
                                                 valueColor = "#3fb568";
                                                 if (itemKV["Type"] == "Add") {
@@ -248,6 +250,14 @@
                                                 } else {
                                                     FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCooldown"), "cooldown", abilityKV["AbilityCooldown"] + ((abilityKV["AbilityCooldown"] * (stackCount * 0.01)) * multiplier), valueColor);
                                                 }
+                                            } else if (itemKV["Tooltip"] == "New") {
+                                                var newValue = stackCount;
+                                                if (itemKV["Type"] == "Float") {
+                                                    newValue = GameUI.CustomUIConfig().Util.RoundToTwo(newValue / 100);
+                                                } else {
+                                                    newValue += "%";
+                                                }
+                                                newModifiers[buffName] = GameUI.CustomUIConfig().Util.ColorString("+ " + newValue,"#ffffff") + " " + $.Localize(buffName);
                                             }
                                         }
                                     }
@@ -260,6 +270,19 @@
                         }
                     }
                     i++;
+                }
+
+                if (Object.keys( newModifiers ).length >= 1)
+                {
+                    AddCBR(abilityTooltip);
+                    for (var key in newModifiers) 
+                    {
+                        var newModifier = $.CreatePanel( "Label", abilityTooltip, "AbilityTooltipNewSpecial" + i);
+                        newModifier.AddClass("TooltipLabel");
+                        newModifier.html = true;
+
+                        newModifier.text = newModifiers[key];
+                    }
                 }
             } else {
                 $("#TooltipText").text = $.Localize( $.GetContextPanel().GetAttributeString( "text", "not-found" ) );    

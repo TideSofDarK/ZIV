@@ -22,8 +22,8 @@
   {
     "ziv_samurai_cold_touch_damage"
     {
-      "min" "2"
-      "max" "21"
+      "min" "10"
+      "max" "60"
     }
   }
 }

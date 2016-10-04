@@ -10,7 +10,7 @@
   "AbilityCooldown"        "0.295"
   "AbilityCastRange"        "128"
 
-  "AbilityManaCost"       "10"
+  "AbilityManaCost"       "7"
   
   "MaxLevel"          "1"
 
