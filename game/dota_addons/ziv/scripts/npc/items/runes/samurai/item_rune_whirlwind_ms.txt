@@ -14,13 +14,16 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip" "movespeed_reduction"
+  "Type"    "Add"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
     "ziv_samurai_whirlwind_ms"
     {
       "min" "2"
-      "max" "27"
+      "max" "25"
     }
   }
 }

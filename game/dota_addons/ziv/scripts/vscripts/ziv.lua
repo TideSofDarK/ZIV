@@ -247,6 +247,9 @@ function ZIV:InitZIV()
   Loot:Init()
 
   Attributes:Init()
+
+  -- Dynamic modifiers
+  require("modifiers")
 end
 
 if LOADED then

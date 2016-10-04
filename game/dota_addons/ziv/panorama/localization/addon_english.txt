@@ -249,6 +249,7 @@
 	// Ability tooltips
 	"energy_cost"	"Energy Cost: "
 	"cast_point"	"Cast Point: "
+	"cooldown"		"Cooldown: "
 
 	"status_attr"	"Attributes"
 	"status_status"	"Status"

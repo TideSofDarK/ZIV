@@ -4,6 +4,8 @@
     // "UsesEnergy"    "1"
     "SoundSet"      "Hero_Beastmaster"
 
+    "SecondName"    "beastmaster"
+
     "Playstyle" "nobrain"
     "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
     "CreationSound" "beastmaster_beas_spawn_05"

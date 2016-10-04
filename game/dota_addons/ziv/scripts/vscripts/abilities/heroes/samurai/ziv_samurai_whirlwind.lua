@@ -88,6 +88,6 @@ function DamageTick( keys )
 			damage_type = DAMAGE_TYPE_COLD
 		end
 
-		DealDamage( caster, target, GetRuneDamage("ziv_samurai_whirlwind_damage",caster) / 1.5, damage_type )
+		DealDamage( caster, target, GetRuneDamage("ziv_samurai_whirlwind_damage",caster) * GetSpecial(ability, "damage_amp"), damage_type )
 	end
 end

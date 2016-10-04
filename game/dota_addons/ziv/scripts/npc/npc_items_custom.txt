@@ -2297,6 +2297,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"    "New"
+	  "Type"       "Float"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -2322,6 +2325,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip" "radius"
+	  "Type"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2349,6 +2355,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip" "AbilityCooldown"
+	  "Reduction" "1"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -2374,6 +2383,8 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"    "New"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2401,6 +2412,8 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip" "burn_damage_amp"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -2427,13 +2440,15 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip" "damage_amp"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_samurai_dash_damage"
 	    {
 	      "min" "2"
-	      "max" "17"
+	      "max" "20"
 	    }
 	  }
 	}
@@ -2453,13 +2468,16 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip" "radius"
+	  "Type"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_samurai_whirlwind_aoe"
 	    {
 	      "min" "10"
-	      "max" "90"
+	      "max" "75"
 	    }
 	  }
 	}
@@ -2479,13 +2497,15 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip" "damage_amp"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_samurai_whirlwind_damage"
 	    {
-	      "min" "2"
-	      "max" "15"
+	      "min" "4"
+	      "max" "24"
 	    }
 	  }
 	}
@@ -2505,13 +2525,16 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip" "movespeed_reduction"
+	  "Type"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_samurai_whirlwind_ms"
 	    {
 	      "min" "2"
-	      "max" "27"
+	      "max" "25"
 	    }
 	  }
 	}

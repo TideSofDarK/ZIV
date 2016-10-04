@@ -11,7 +11,8 @@
                 <Panel class="TooltipCBR"/>
                 <Label id="AbilityTooltipName" class="TooltipLabel" text=""/>
                 <Panel class="TooltipCBR"/>
-                <Label id="AbilityTooltipEnergyCost" html="true" class="TooltipLabel" text="#energy_cost"/>  
+                <Label id="AbilityTooltipEnergyCost" html="true" class="TooltipLabel" text="#energy_cost"/>
+                <Label id="AbilityTooltipCooldown" html="true" class="TooltipLabel" text="#cooldown"/>  
                 <Label id="AbilityTooltipCastPoint" html="true" class="TooltipLabel" text="#cast_point"/> 
                 <Label id="AbilityTooltipDescription" class="TooltipLabel" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/> 
                 <Panel class="TooltipCBR"/>
@@ -29,7 +30,6 @@
                 <Label id="ItemTooltipDescription" class="TooltipLabel" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/> 
             </Panel>
         </snippet>
-
     </snippets>
     <script>
         function FillProperty(panel, name, value, color) {
@@ -57,6 +57,8 @@
         function SetupTooltip()
         {
             var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+
+            var hero = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
             
             // Cleanup
             if ($("#TooltipBorderB").FindChildTraverse("AbilityTooltip")) {
@@ -185,6 +187,8 @@
                 costOrPoint += FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipEnergyCost"), "energy_cost", abilityKV["AbilityManaCost"], "#63adf2");
                 costOrPoint += FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCastPoint"), "cast_point", abilityKV["AbilityCastPoint"]);
 
+                costOrPoint += FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCooldown"), "cooldown", abilityKV["AbilityCooldown"]);
+
                 if (costOrPoint > 0) {
                     AddCBR(abilityTooltip, $("#AbilityTooltipDescription"));
                 }
@@ -209,9 +213,50 @@
                                 percent = true;
                             }
 
-                            var finalValue = GameUI.CustomUIConfig().Util.RoundToTwo(abilityKV["AbilitySpecial"][special][specialName]);
+                            var finalValue = parseFloat(abilityKV["AbilitySpecial"][special][specialName]);
+                            
 
-                            specialLabel.text = GameUI.CustomUIConfig().Util.AutoUppercase(specialCaption) + " " + GameUI.CustomUIConfig().Util.ColorString(finalValue + (percent ? '%' : ""),"#ffffff");
+                            if (Entities.GetUnitName(hero)) {
+                                for (var i = 0; i < 20; i++) {
+                                    var valueColor = "#ffffff";
+                                    
+                                    var heroName = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName(hero)]["SecondName"];
+
+                                    var buffName = Buffs.GetName(hero, i);
+                                    
+                                    if (buffName.match("ziv_" + heroName)) {
+                                        var stackCount = Buffs.GetStackCount(hero, i);
+                                        var runeName = buffName.replace("ziv_" + heroName, "item_rune");
+
+                                        var itemKV = PlayerTables.GetTableValue("kvs", "items")[runeName];
+                                        if (!itemKV) {
+                                            itemKV = PlayerTables.GetTableValue("kvs", "items")[buffName.replace("ziv_" + heroName, "item_rune_"+heroName)];
+                                        }
+                                        if (buffName.match(abilityName) && stackCount != 0) {
+                                            var multiplier = itemKV["Reduction"] == 1 ? -1 : 1;
+                                            if (itemKV["Tooltip"] == specialName) {
+                                                valueColor = "#3fb568";
+                                                if (itemKV["Type"] == "Add") {
+                                                    finalValue += stackCount * multiplier;
+                                                } else {
+                                                    finalValue = finalValue + ((finalValue * (stackCount * 0.01)) * multiplier);
+                                                }
+                                            } else if (itemKV["Tooltip"] == "AbilityCooldown") {
+                                                valueColor = "#3fb568";
+                                                if (itemKV["Type"] == "Add") {
+                                                    FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCooldown"), "cooldown", abilityKV["AbilityCooldown"] + (stackCount * multiplier), valueColor);
+                                                } else {
+                                                    FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCooldown"), "cooldown", abilityKV["AbilityCooldown"] + ((abilityKV["AbilityCooldown"] * (stackCount * 0.01)) * multiplier), valueColor);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            var finalValue = GameUI.CustomUIConfig().Util.RoundToTwo(finalValue);
+
+                            specialLabel.text = GameUI.CustomUIConfig().Util.AutoUppercase(specialCaption) + " " + GameUI.CustomUIConfig().Util.ColorString(finalValue + (percent ? '%' : ""),valueColor);
                         }
                     }
                     i++;

@@ -6,6 +6,8 @@
 	    // "UsesEnergy"    "1"
 	    "SoundSet"      "Hero_Beastmaster"
 	
+	    "SecondName"    "beastmaster"
+	
 	    "Playstyle" "nobrain"
 	    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
 	    "CreationSound" "beastmaster_beas_spawn_05"
@@ -71,6 +73,8 @@
 	  {
 	    "override_hero"     "npc_dota_hero_dragon_knight"
 	    "SoundSet"      "Hero_DragonKnight"
+	
+	    "SecondName"    "knight"
 	
 	    "Playstyle" "hitnrun"
 	    "PrimaryDamageType" "DAMAGE_TYPE_MAGICAL"
@@ -147,6 +151,8 @@
 	    // "DarkEnergy"    "1"
 	    "SoundSet"      "Hero_DrowRanger"
 	
+	    "SecondName"    "dark_goddess"
+	
 	    "Playstyle" "hitnrun"
 	    "PrimaryDamageType" "DAMAGE_TYPE_DARK"
 	    "CreationSound" "drowranger_drow_deny_17"
@@ -213,6 +219,8 @@
 	    "override_hero"     "npc_dota_hero_invoker"
 	    "SoundSet"      "Hero_Invoker"
 	    "IdleSoundLoop"     "Hero_Invoker.IdleLoop"
+	
+	    "SecondName"    "elementalist"
 	
 	    "Playstyle" "hitnrun"
 	    "PrimaryDamageType" "DAMAGE_TYPE_DARK"
@@ -282,6 +290,8 @@
 	    // "UsesEnergy"    "1"
 	    "SoundSet"      "Hero_Juggernaut"
 	
+	    "SecondName"    "samurai"
+	
 	    "Playstyle" "nobrain"
 	    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
 	    "CreationSound" "juggernaut_jugg_set_complete_01"
@@ -347,6 +357,8 @@
 	  {
 	    "override_hero"     "npc_dota_hero_sniper"
 	    "SoundSet"      "Hero_Sniper"
+	
+	    "SecondName"    "sniper"
 	
 	    "Playstyle" "hitnrun"
 	    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
@@ -414,6 +426,8 @@
 	    "override_hero"     "npc_dota_hero_windrunner"
 	    "SoundSet"      "Hero_Windrunner"
 	
+	    "SecondName"    "huntress"
+	
 	    "Playstyle" "hitnrun"
 	    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
 	    "CreationSound" "windrunner_wind_spawn_07"
@@ -479,6 +493,8 @@
 	{
 	    "override_hero"     "npc_dota_hero_witch_doctor"
 	    "SoundSet"      "Hero_WitchDoctor"
+	
+	    "SecondName"    "witch_doctor"
 	
 	    "Playstyle" "summoner"
 	    "PrimaryDamageType" "DAMAGE_TYPE_MAGICAL"

@@ -5,6 +5,8 @@
     // "DarkEnergy"    "1"
     "SoundSet"      "Hero_DrowRanger"
 
+    "SecondName"    "dark_goddess"
+
     "Playstyle" "hitnrun"
     "PrimaryDamageType" "DAMAGE_TYPE_DARK"
     "CreationSound" "drowranger_drow_deny_17"

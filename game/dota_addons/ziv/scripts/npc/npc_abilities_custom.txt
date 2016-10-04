@@ -1855,20 +1855,6 @@
 	        "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
 	      }
 	    }
-	
-	    "ziv_samurai_whirlwind_damage"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	    }
-	
-	    "ziv_dark_goddess_glaive_count"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	    }
 	  }
 	}
 	"ziv_beastmaster_bird"
@@ -5786,23 +5772,28 @@
 	  {
 	    "01"
 	    {
-	      "var_type" "FIELD_FLOAT"
-	      "duration" "1.5"
+	      "var_type"              "FIELD_FLOAT"
+	      "damage_amp"            "1.0"
 	    }
 	    "02"
 	    {
-	      "var_type" "FIELD_INTEGER"
-	      "movespeed_reduction" "-28"
+	      "var_type"              "FIELD_FLOAT"
+	      "duration"              "1.5"
 	    }
 	    "03"
 	    {
-	      "var_type" "FIELD_INTEGER"
-	      "radius" "250"
+	      "var_type"              "FIELD_INTEGER"
+	      "movespeed_reduction"   "-28"
 	    }
 	    "04"
 	    {
-	      "var_type" "FIELD_INTEGER"
-	      "trigger_radius" "165"
+	      "var_type"              "FIELD_INTEGER"
+	      "radius"                "250"
+	    }
+	    "05"
+	    {
+	      "var_type"              "FIELD_INTEGER"
+	      "trigger_radius"        "165"
 	    }
 	  }
 	

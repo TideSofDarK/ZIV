@@ -9,13 +9,14 @@ function ZIV:PrintCreepCount()
   end
 end
 
-function ZIV:AddModifierToHero(modifier)
+function ZIV:AddModifierToHero(modifier, stacks)
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
       hero:AddNewModifier(hero,nil,modifier,{})
+      hero:SetModifierStackCount(modifier,hero,tonumber(stacks))
     end
   end
 end

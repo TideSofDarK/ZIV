@@ -4,6 +4,8 @@
     "SoundSet"      "Hero_Invoker"
     "IdleSoundLoop"     "Hero_Invoker.IdleLoop"
 
+    "SecondName"    "elementalist"
+
     "Playstyle" "hitnrun"
     "PrimaryDamageType" "DAMAGE_TYPE_DARK"
     "CreationSound" "invoker_invo_begin_01"

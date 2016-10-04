@@ -4,6 +4,8 @@
     // "UsesEnergy"    "1"
     "SoundSet"      "Hero_Juggernaut"
 
+    "SecondName"    "samurai"
+
     "Playstyle" "nobrain"
     "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
     "CreationSound" "juggernaut_jugg_set_complete_01"

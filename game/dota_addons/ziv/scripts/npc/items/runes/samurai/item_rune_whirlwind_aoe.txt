@@ -14,13 +14,16 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip" "radius"
+  "Type"    "Add"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
     "ziv_samurai_whirlwind_aoe"
     {
       "min" "10"
-      "max" "90"
+      "max" "75"
     }
   }
 }

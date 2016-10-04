@@ -14,13 +14,15 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip" "damage_amp"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
     "ziv_samurai_dash_damage"
     {
       "min" "2"
-      "max" "17"
+      "max" "20"
     }
   }
 }
