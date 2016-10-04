@@ -43,6 +43,7 @@ require('libraries/keyvalues')
 -- AI
 require('libraries/ai')
 -- Items
+require('libraries/items')
 require('items/socketing')
 require('items/crafting')
 require('items/equipment')
@@ -242,6 +243,7 @@ function ZIV:InitZIV()
 
   Characters:Init() 
   Director:Init()
+  Items:Init()
   Loot:Init()
 
   Attributes:Init()

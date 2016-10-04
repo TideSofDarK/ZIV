@@ -1,5 +1,13 @@
 "use strict";
 
+function ShowItemTooltip(panel, itemID) {
+	$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', panel, panel.id, "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "itemID="+itemID);
+}
+
+function HideItemTooltip(panel) {
+	$.DispatchEvent("UIHideCustomLayoutTooltip", panel, panel.id); 
+}
+
 function AddTooltip( panel, text, ability )
 {
 	panel.SetPanelEvent("onmouseover", function(){
@@ -28,4 +36,6 @@ function InitTooltip( panel )
 (function () {
 	InitTooltip( $.GetContextPanel() );
 	GameUI.CustomUIConfig().AddTooltip = AddTooltip;
+	GameUI.CustomUIConfig().ShowItemTooltip = ShowItemTooltip;
+	GameUI.CustomUIConfig().HideItemTooltip = HideItemTooltip;
 })();

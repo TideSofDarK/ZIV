@@ -36,11 +36,11 @@ function Characters:CreateCharacter( args )
   local presets = ZIV.PresetsKVs[new_character_table.hero_name]
   if presets and presets[new_character_table.preset] then
     for item_name,sockets in pairs(presets[new_character_table.preset]) do
-      local item = CreateItem(item_name, player, player)
+      local item = Items:Create(item_name, player)
 
       if GetTableLength(sockets) > 0 then
         for seed,tool_name in pairs(sockets) do
-          local tool = CreateItem(tool_name, player, player)
+          local tool = Items:Create(tool_name, player)
           Socketing:OnFortify({
            pID=-1,
            item=item:entindex(),
@@ -84,7 +84,7 @@ function Characters:SpawnCharacter( pID, args )
 
     if equipment then
       for k,v in pairs(equipment) do
-        local item = CreateItem(v.item, hero, hero)
+        local item = Items:Create(v.item, hero)
         item.fortify_modifiers = v.fortify_modifiers
         item.built_in_modifiers = v.built_in_modifiers
         
@@ -97,7 +97,7 @@ function Characters:SpawnCharacter( pID, args )
 
     if inventory then
       for k,v in pairs(inventory) do
-        local item = CreateItem(v.item, hero, hero)
+        local item = Items:Create(v.item, hero)
         item.fortify_modifiers = v.fortify_modifiers
         item.built_in_modifiers = v.built_in_modifiers
 

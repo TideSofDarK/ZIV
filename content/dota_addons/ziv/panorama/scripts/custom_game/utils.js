@@ -35,6 +35,10 @@ Util.AutoUppercase = (function (str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 });
 
+Util.SpanString = (function (str, className) {
+    return "<span class=\"" + className + "\">" + str + "</span>";
+});
+
 (function(){
 	GameUI.CustomUIConfig().Util = Util;
 })()

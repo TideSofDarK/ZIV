@@ -40,7 +40,7 @@ function Loot:Init()
 end
 
 function Loot:CreateChest( pos, rarity )
-	local chest = CreateItemOnPositionSync(pos, CreateItem(Loot.CHEST_MODELS[math.random(1, GetTableLength(Loot.CHEST_MODELS))], nil, nil))
+	local chest = CreateItemOnPositionSync(pos, Items:Create(Loot.CHEST_MODELS[math.random(1, GetTableLength(Loot.CHEST_MODELS))], nil))
 	CreateItemPanel( chest )
 	chest.rarity = rarity or (math.random(0, 4))
 
@@ -148,7 +148,7 @@ function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
 
 	if not itemName or type(itemName) ~= "string" then return nil end
 
-	local item = CreateItem(itemName, owner, owner)
+	local item = Items:Create(itemName, owner)
 
   	local container = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), item)
   

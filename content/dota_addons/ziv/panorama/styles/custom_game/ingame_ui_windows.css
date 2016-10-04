@@ -196,9 +196,8 @@
 	align: center center;
 }
 
-.AbilityTooltip {
-/*	width: 100%;
-	height: 100%;*/
+.AbilityTooltip,
+.ItemTooltip {
 	flow-children: down;
 }
 
@@ -232,11 +231,13 @@
 }
 
 #AbilityTooltipDescription,
-#AbilityTooltipName {
+#AbilityTooltipName,
+#ItemTooltipName {
 	color: White;
 }
 
-#AbilityTooltipName {
+#AbilityTooltipName,
+#ItemTooltipName {
 	font-weight: bold;
 }
 
@@ -245,6 +246,13 @@
 
 	width: 80px;
 	height: 80px;
+}
+
+#ItemTooltipImage {
+	horizontal-align: center;
+
+	width: 88px;
+	height: 64px;
 }
 
 

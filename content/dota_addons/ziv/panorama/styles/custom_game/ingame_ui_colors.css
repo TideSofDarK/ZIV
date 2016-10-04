@@ -1,3 +1,11 @@
+/* Common */
+
+.Movespeed {
+	color: #ffffffbb;
+}
+
+/* 	Attack Types */
+
 .DOTA_UNIT_CAP_MELEE_ATTACK {
 	color: #ffffffbb;
 }
@@ -6,9 +14,7 @@
 	color: #ffffffbb;
 }
 
-.Movespeed {
-	color: #ffffffbb;
-}
+/* 	Damage Types */
 
 .DAMAGE_TYPE_PHYSICAL {
 	color: #71A9EA;
@@ -29,6 +35,34 @@
 .DAMAGE_TYPE_DARK {
 	color: #4553B7;
 }
+
+/* 	0 - Common
+	1 - Magic
+	2 - Rare
+	3 - Legendary
+	4 - Epic */
+
+.Rarity0 { 
+	color: #ffffff;
+}
+
+.Rarity1 {
+	color: #3d50c5;
+}
+
+.Rarity2 {
+	color: #ffea00;
+}
+
+.Rarity3 {
+	color: #FFA500;
+}
+
+.Rarity4 {
+	color: #FF00FF;
+}
+
+/* 	Playstyles */
 
 .nobrain {
 	color: #DD5283;

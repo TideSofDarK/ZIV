@@ -30,7 +30,7 @@ function Crafting:CraftingRequest( keys )
 		Crafting:UsePart( item, v, pID )
 	end
 
-	local item = CreateItem(item_name, PlayerResource:GetPlayer(pID):GetAssignedHero(), PlayerResource:GetPlayer(pID):GetAssignedHero())
+	local item = Items:Create(item_name, PlayerResource:GetPlayer(pID):GetAssignedHero())
   	Characters:GetInventory(pID):AddItem(item)
 
 	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_craft_result", { } )

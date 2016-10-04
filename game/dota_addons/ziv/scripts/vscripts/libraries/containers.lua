@@ -844,7 +844,7 @@ function Containers:OrderFilter(order)
         return false
       end
 
-      local item = CreateItem(itemName, owner, owner)
+      local item = Items:Create(itemName, owner)
       local cost = item:GetCost()
       if not defInventory:AddItem(item) then
         CreateItemOnPositionSync(unit:GetAbsOrigin() + RandomVector(10), item)
@@ -904,7 +904,7 @@ function Containers:OrderFilter(order)
         end
       end
 
-      local item = CreateItem(itemName, owner, owner)
+      local item = Items:Create(itemName, owner)
       local fullyShareStacking = Containers.itemKV[itemName]["ItemShareability"] == "ITEM_FULLY_SHAREABLE_STACKING"
       local dropped = {}
       local cost = item:GetCost()
@@ -1721,7 +1721,7 @@ function Containers:CreateShop(cont)
     local owner = PlayerResource:GetSelectedHeroEntity(playerID)
     local gold = PlayerResource:GetGold(playerID)
     if gold >= cost and (stock == nil or stock > 0) then
-      local newItem = CreateItem(item:GetAbilityName(), owner, owner)
+      local newItem = Items:Create(item:GetAbilityName(), owner)
       newItem:SetLevel(item:GetLevel())
       newItem:SetCurrentCharges(item:GetCurrentCharges())
 

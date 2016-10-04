@@ -69,7 +69,7 @@ function ZIV:AddItemToContainer(item, count)
     local playerID = cmdPlayer:GetPlayerID()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
-      local item = CreateItem(item, hero, hero)
+      local item = Items:Create(item, hero)
       hero.inventory:AddItem(item, tonumber(count) or nil)
     end
   end

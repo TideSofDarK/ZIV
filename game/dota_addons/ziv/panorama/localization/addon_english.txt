@@ -37,6 +37,29 @@
 	"ziv_temple_4p_story" 			"<font color=\"#7ADBB6\"><b>Escape the Temple!</b></font> - the dungeon is collapsing and hordes of monsters will stand in your way. Meanwhile a fire lord called Oath is getting summoned by Curse of Obelisk. Only the bravest heroes can handle this trial of might, skill and team work. Sacred treasures awaits!"
 	"ziv_temple_4p_objectives" 	"Objectives:<br>   - Destroy Obelisks to prevent Oath from intruding your world<br>   - After each Obelisk wave you will encounter soome powerful boss<br>   - Move out carefully! Caverns collapses do dont get hit by falling rocks!"
 
+	// Rarities
+	"rarity"										"Rarity: "
+	"rarity0" 										"Common"
+	"rarity1" 										"Magic"
+	"rarity2" 										"Rare"
+	"rarity3" 										"Legendary"
+	"rarity4" 										"Epic"
+
+	// Slots
+	"slot"											"Slot: "
+	"slot_ammo"										"Ammo"
+	"slot_torso"									"Torso"
+	"slot_axe"										"Axe"
+	"slot_boots"									"Boots"
+	"slot_bow"										"Bow"
+	"slot_gloves"									"Gloves"
+	"slot_gun"										"Gun"
+	"slot_pants"									"Pants"
+	"slot_ring"										"Ring"
+	"slot_staff"									"Staff"
+	"slot_sword"									"Sword"
+	"slot_torso"									"Torso"
+
 	// Common modifiers
 
 	"modifier_all_resistances" 			"to All Magic Resistances"

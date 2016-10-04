@@ -135,7 +135,7 @@ function UpdateItem()
 	
 	$.Schedule( 0.1, UpdateItem );
 }
-
+//GameUI.CustomUIConfig().AddTooltip($.GetContextPanel(), "", "", m_Item);
 function OnMouseOut()
 {
 	var jsAction = PlayerTables.GetTableValue(m_contString, "OnMouseOutJS");
@@ -145,7 +145,7 @@ function OnMouseOut()
 	unit = Entities.IsControllableByPlayer( unit, pid ) ? unit : Players.GetPlayerHeroEntityIndex(pid);
 
 	var handler = Containers.eventHandlers[jsAction]
-	if (handler){
+	if (handler) {
 		var ret = false;
 		try{
 			ret = handler({unit:unit, containerID:m_contID, itemID:m_Item, slot:m_slot, containerPanel:m_Container, itemPanel:$.GetContextPanel()});
@@ -157,7 +157,7 @@ function OnMouseOut()
 			return;
 	}
 
-	GameUI.CustomUIConfig().ItemHideTooltip($.GetContextPanel(), m_Item);
+	GameUI.CustomUIConfig().HideItemTooltip($.GetContextPanel());
 }
 
 function OnMouseOver()
@@ -181,7 +181,9 @@ function OnMouseOver()
 			return;
 	}
 
-	GameUI.CustomUIConfig().ItemShowTooltip($.GetContextPanel(), m_Item, m_QueryUnit);
+	if (m_Item != -1) {
+		GameUI.CustomUIConfig().ShowItemTooltip($.GetContextPanel(), m_Item);
+	}
 }
 
 var lastClick = 1; // 1 right, 0 left
@@ -378,8 +380,6 @@ function OnDragStart( panelId, dragCallbacks )
 
 	var itemName = Abilities.GetAbilityName( m_Item );
 
-	GameUI.CustomUIConfig().ItemHideTooltip($.GetContextPanel(), m_Item);
-
 	var itemKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
 
 	// create a temp panel that will be dragged around
@@ -400,6 +400,9 @@ function OnDragStart( panelId, dragCallbacks )
 	
 	// grey out the source panel while dragging
 	$.GetContextPanel().AddClass( "dragging_from" );
+
+	GameUI.CustomUIConfig().HideItemTooltip($.GetContextPanel());
+
 	return true;
 }
 
