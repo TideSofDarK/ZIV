@@ -8,6 +8,17 @@ function HideItemTooltip(panel) {
 	$.DispatchEvent("UIHideCustomLayoutTooltip", panel, panel.id); 
 }
 
+function AddItemTooltip( panel, itemID )
+{
+	panel.SetPanelEvent("onmouseover", function(){
+		ShowItemTooltip(panel, itemID)
+	});
+
+	panel.SetPanelEvent("onmouseout", function() {
+		HideItemTooltip(panel)
+	});
+}
+
 function AddAbilityTooltip( panel, ability )
 {
 	panel.SetPanelEvent("onmouseover", function(){
@@ -48,6 +59,7 @@ function InitTooltip( panel )
 	InitTooltip( $.GetContextPanel() );
 	GameUI.CustomUIConfig().AddTooltip = AddTooltip;
 	GameUI.CustomUIConfig().AddAbilityTooltip = AddAbilityTooltip;
+	GameUI.CustomUIConfig().AddItemTooltip = AddItemTooltip;
 	GameUI.CustomUIConfig().ShowItemTooltip = ShowItemTooltip;
 	GameUI.CustomUIConfig().HideItemTooltip = HideItemTooltip;
 })();

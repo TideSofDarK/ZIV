@@ -27,7 +27,6 @@
                 <Label id="ItemTooltipSlot" html="true" class="TooltipLabel" text=""/>  
                 <Panel class="TooltipCBR"/>
                 <Label id="ItemTooltipDescription" class="TooltipLabel" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/> 
-                <Panel class="TooltipCBR"/>
             </Panel>
         </snippet>
 
@@ -91,33 +90,41 @@
 
                     itemTooltip.FindChildTraverse("ItemTooltipRarity").text = $.Localize("rarity") + GameUI.CustomUIConfig().Util.SpanString(($.Localize("rarity" + itemData.rarity)), "Rarity" + itemData.rarity);
 
-                    FillProperty(itemTooltip.FindChildTraverse("ItemTooltipSlot"), "slot", $.Localize("slot_" + itemKV["Slot"]), "#FFFFFF");
+                    if (itemKV["Slot"]) {
+                        FillProperty(itemTooltip.FindChildTraverse("ItemTooltipSlot"), "slot", $.Localize("slot_" + itemKV["Slot"]), "#FFFFFF");
+                    } else {
+                        itemTooltip.FindChildTraverse("ItemTooltipSlot").visible = false;
+                    }
 
                     itemTooltip.FindChildTraverse("ItemTooltipDescription").text = $.Localize("DOTA_Tooltip_ability_" + itemName + "_Description");
 
                     var i = 1;
-                    for (special in itemKV["AbilitySpecial"]) {
-                        for (specialName in itemKV["AbilitySpecial"][special]) {
-                            if (specialName != "var_type") {
-                                var specialCaption = $.Localize("DOTA_Tooltip_ability_" + itemName + "_" + specialName);
-                                if (specialCaption == "DOTA_Tooltip_ability_" + itemName + "_" + specialName) continue;
+                    if (itemKV["AbilitySpecial"] && Object.keys( itemKV["AbilitySpecial"] ).length >= 1) {
+                        AddCBR(itemTooltip);
 
-                                var specialLabel = $.CreatePanel( "Label", itemTooltip, "ItemTooltipSpecial" + i);
-                                specialLabel.AddClass("TooltipLabel");
-                                specialLabel.html = true;
+                        for (special in itemKV["AbilitySpecial"]) {
+                            for (specialName in itemKV["AbilitySpecial"][special]) {
+                                if (specialName != "var_type") {
+                                    var specialCaption = $.Localize("DOTA_Tooltip_ability_" + itemName + "_" + specialName);
+                                    if (specialCaption == "DOTA_Tooltip_ability_" + itemName + "_" + specialName) continue;
 
-                                var finalValue = GameUI.CustomUIConfig().Util.RoundToTwo(itemKV["AbilitySpecial"][special][specialName]);
-                                
-                                specialLabel.text = GameUI.CustomUIConfig().Util.ColorString("+ " + finalValue,"#ffffff") + " " + specialCaption;
+                                    var specialLabel = $.CreatePanel( "Label", itemTooltip, "ItemTooltipSpecial" + i);
+                                    specialLabel.AddClass("TooltipLabel");
+                                    specialLabel.html = true;
+
+                                    var finalValue = GameUI.CustomUIConfig().Util.RoundToTwo(itemKV["AbilitySpecial"][special][specialName]);
+                                    
+                                    specialLabel.text = GameUI.CustomUIConfig().Util.ColorString("+ " + finalValue,"#ffffff") + " " + specialCaption;
+                                }
                             }
+                            i++;
                         }
-                        i++;
                     }
 
                     if (itemData.built_in_modifiers && Object.keys( itemData.built_in_modifiers ).length >= 1)
                     {
                         AddCBR(itemTooltip);
-                        $.Msg(itemData.built_in_modifiers);
+
                         var i = 0;
                         for (var key in itemData.built_in_modifiers)
                         {

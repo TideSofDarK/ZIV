@@ -20,6 +20,8 @@ function OnDragDrop(panelId, draggedPanel) {
 
 		$("#FortifyItem").style.visibility = "visible;";
 
+		GameUI.CustomUIConfig().AddItemTooltip( displayPanel, itemIndex );
+
 		Game.EmitSound( "ui.inv_equip_bone" )
 	} else {
 		var itemKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
@@ -48,6 +50,8 @@ function OnDragDrop(panelId, draggedPanel) {
 		$("#FortifyTool").currentItem = itemIndex;
 
 		$("#FortifyTool").style.visibility = "visible;";
+
+		GameUI.CustomUIConfig().AddItemTooltip( displayPanel, itemIndex );
 
 		Game.EmitSound( "Item.PickUpGemShop" );
 	}
