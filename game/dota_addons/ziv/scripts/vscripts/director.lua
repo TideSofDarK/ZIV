@@ -108,6 +108,7 @@ function Director:GetCreeps(prefix)
 		if prefix ~= "creep" or (ZIV.UnitKVs[k]["Unique"] ~= 1) then
 			if string.match(k, prefix) then
 				new_table[k] = v
+				print(k)
 			end
 		end
 	end
@@ -115,7 +116,7 @@ function Director:GetCreeps(prefix)
 	return new_table
 end
 
-function Director:GetRandomCreep(prefix, min_level, max_level)
+function Director:GetRandomCreep(prefix)
 	local creeps = Director:GetCreeps(prefix)
 
 	local seed = math.random(1, GetTableLength(creeps))
@@ -129,7 +130,6 @@ function Director:GetRandomCreep(prefix, min_level, max_level)
 	end
 end
 
--- Level
 -- SpawnBasic
 -- SpawnLord
 -- BasicModifier
@@ -150,7 +150,6 @@ function Director:SpawnPack( pack_table )
 
 		local pack_table = pack_table
 
-		pack_table["Level"] = pack_table["Level"] or 1
 		pack_table["Position"] = pack_table["Position"] or Vector(0,0,0)
 		pack_table["NoLoot"] = pack_table["NoLoot"] or false
 		pack_table["Duration"] = pack_table["Duration"]
@@ -205,10 +204,10 @@ function Director:SpawnCreeps( spawn_table )
 
 		local creep_modifier = spawn_table["BasicModifier"]
 		local lord_modifier = spawn_table["LordModifier"]
-		local level = spawn_table["Level"]
+
+		local creep_name = Director:GetRandomCreep(spawn_table["Type"])
 
 		for i=1,count do 
-			local creep_name = Director:GetRandomCreep(spawn_table["Type"], spawn_table["Level"], spawn_table["Level"])
 			local position = RandomPointInsideCircle(spawn_table["Position"][1], spawn_table["Position"][2], spawn_table["BasicSpread"] or Director.BASIC_PACK_SPREAD)
 
 			local spawn = true
@@ -250,21 +249,19 @@ function Director:SpawnCreeps( spawn_table )
 					if spawn_table["Lord"] == true then
 						creep:AddAbility("ziv_unique_hpbar")
 
-						creep:SetModelScale(creep:GetModelScale() * 1.65)
+						creep:SetModelScale(creep:GetModelScale() * 1.35)
 
 						creep:AddAbility(Director:GetRandomModifier(Director.color_modifier_list))
 
 						if lord_modifier then
 							creep:AddAbility(lord_modifier)
-						else
-							creep:AddAbility(Director:GetRandomModifier(Director.lord_modifier_list))
 						end
 
-						for i=1,level do
-							local new_modifier = Director:GetRandomModifier(Director.creep_modifier_list)
-							if not creep:FindAbilityByName(new_modifier) then
-								creep:AddAbility(new_modifier)
-							end
+						creep:AddAbility("ziv_creep_lord_tanky")
+
+						local new_modifier = Director:GetRandomModifier(Director.creep_modifier_list)
+						if not creep:FindAbilityByName(new_modifier) then
+							creep:AddAbility(new_modifier)
 						end
 					end
 

@@ -18,8 +18,8 @@ if (!teamColors) {
   teamColors = GameUI.CustomUIConfig().team_colors;
 }
 
-teamColors[DOTATeam_t.DOTA_TEAM_NEUTRALS] = teamColors[DOTATeam_t.DOTA_TEAM_NEUTRALS] || "#aaaaaa;";
-teamColors[DOTATeam_t.DOTA_TEAM_NOTEAM]   = teamColors[DOTATeam_t.DOTA_TEAM_NOTEAM]   || "#aaaaaa;";
+teamColors[DOTATeam_t.DOTA_TEAM_NEUTRALS] = "#3fb568;";
+teamColors[DOTATeam_t.DOTA_TEAM_NOTEAM]   = "#3fb568;";
 
 function HealthCheck()
 {
@@ -28,7 +28,7 @@ function HealthCheck()
   if (!offScreen && wp){
     var ent = wp.entity;
     if (ent){
-      if (!Entities.IsAlive(ent)){
+      if (!Entities.IsAlive(ent) || Entities.GetHealth(ent) == Entities.GetMaxHealth(ent)){
         $.GetContextPanel().style.opacity = "0";
         $.Schedule(1/30, HealthCheck);
         return;

@@ -4,13 +4,13 @@
   padding:2px;
   border-radius: 5px;
   flow-children:right;
-  border: 1px solid #555555;
+  border: 1px solid #3fb56800;
 }
 
 .Bubble
 {
   border-radius: 3px;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #3fb568;
   width: 20px;
   height: 10px;
   margin-right: 1px;

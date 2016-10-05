@@ -279,7 +279,8 @@ function ZIV:OnEntityKilled( keys )
 
   if kv then
     if kv["deathsim"] then
-      killedUnit:AddNoDraw()
+      killedUnit:SetModel("models/development/invisiblebox.vmdl")
+      killedUnit:SetOriginalModel("models/development/invisiblebox.vmdl")
       TimedEffect( kv["deathsim"], killedUnit, 4.0, 0 )
       Timers:CreateTimer(4.0, function (  )
       end)

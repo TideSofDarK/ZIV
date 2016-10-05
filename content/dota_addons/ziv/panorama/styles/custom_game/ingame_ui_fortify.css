@@ -41,6 +41,7 @@ DOTAItemImage {
 .FortifyItem {
 	horizontal-align: left;
 
+	margin: 79px;
 	margin-top: 76px;
 	margin-left: 79px;
 
@@ -50,6 +51,8 @@ DOTAItemImage {
 	border-radius: 5px;
 
 	visibility: collapse;
+
+	box-shadow: #000000ff 0px 0px 5px 0px;
 }
 
 .FortifyHammer {
@@ -64,9 +67,6 @@ DOTAItemImage {
 }
 
 #FortifyTool {
-	margin-right: 67px;
-	transform: translate3d( -3px, 2px, 0px );
-
 	horizontal-align: right;
 }
 

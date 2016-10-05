@@ -149,7 +149,7 @@
 
 	"ziv_beastmaster_bird_damage"	"to Bird damage"
 	"ziv_beastmaster_bird_manacost"	"% reduction of Bird energy cost"
-	"ziv_beastmaster_bird_blind_chance"	"chance of aplying Blindness with Bird's hit"
+	"ziv_beastmaster_bird_blind_chance"	"% chance of aplying Blindness with Bird's hit"
 	"ziv_beastmaster_leap_cd"	"% reduction of Leap cooldown"
 	"ziv_beastmaster_leap_damage"	"physical damage on hit"
 	"ziv_beastmaster_leap_force"	"to Leap force"

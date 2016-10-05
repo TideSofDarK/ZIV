@@ -41,8 +41,8 @@ function LeapHorizonal( keys )
 
 			ParticleManager:DestroyParticle(ability.trail_particle,false)
 
-			local units_in_burn_radius = FindUnitsInRadius(caster:GetTeamNumber(), point,  nil, GetSpecial(ability, "leap_knockback_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			for k,v in pairs(units_in_burn_radius) do
+			local units = FindUnitsInRadius(caster:GetTeamNumber(), point,  nil, GetSpecial(ability, "leap_knockback_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			for k,v in pairs(units) do
 		    	local knockbackModifierTable =
 			    {
 			        should_stun = 1,

@@ -25,7 +25,15 @@ function BallLightningTraverse( keys )
 	
 	local distance = 0.0
 
-	caster:AddNoDraw()
+	local temp_model = caster:GetModelName()
+	caster:SetModel("models/development/invisiblebox.vmdl")
+	caster:SetOriginalModel("models/development/invisiblebox.vmdl")
+
+	for k,v in pairs(caster:GetChildren()) do
+		if v:GetClassname() == "dota_item_wearable" then
+			v:AddEffects(EF_NODRAW) 
+		end
+	end
 		
 	local projectileTable =
 	{
@@ -61,7 +69,12 @@ function BallLightningTraverse( keys )
 				StopSoundEvent( loop_sound_name, caster )
 				caster.ball_lightning_is_running = false
 
-				caster:RemoveNoDraw()
+				caster:SetModel(temp_model)
+				for k,v in pairs(caster:GetChildren()) do
+					if v:GetClassname() == "dota_item_wearable" then
+						v:RemoveEffects(EF_NODRAW) 
+					end
+				end
 
 				caster:SetForwardVector(UnitLookAtPoint( caster, target ))
 				caster:Stop()

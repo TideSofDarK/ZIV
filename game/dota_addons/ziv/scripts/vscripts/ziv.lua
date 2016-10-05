@@ -43,7 +43,7 @@ require('libraries/keyvalues')
 -- AI
 require('libraries/ai')
 -- Items
-require('libraries/items')
+require('items/items')
 require('items/socketing')
 require('items/crafting')
 require('items/equipment')
@@ -97,6 +97,7 @@ LinkLuaModifier("modifier_transparent", "abilities/tools/modifier_transparent.lu
 LinkLuaModifier("modifier_disable_auto_attack", "abilities/tools/modifier_disable_auto_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_smooth_floating", "abilities/tools/modifier_smooth_floating.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_ai", "abilities/tools/modifier_boss_ai.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_hide", "abilities/tools/modifier_hide.lua", LUA_MODIFIER_MOTION_NONE)
 
 function ZIV:PostLoadPrecache()
   DebugPrint("[ZIV] Performing Post-Load precache")    

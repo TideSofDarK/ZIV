@@ -21,7 +21,7 @@ Temple.ROCKS_INTERVAL_MIN = 8.0
 Temple.ROCKS_INTERVAL_MAX = 15.0
 
 Temple.SPAWN_THRESHOLD = 1600
-Temple.SPAWN_SPREAD = 1400
+Temple.SPAWN_SPREAD = 1500
 Temple.SPAWN_MIN = 20
 Temple.SPAWN_MAX = 30
 Temple.SPAWN_GC_TIME = 10.0
@@ -146,9 +146,7 @@ function Temple:SpawnCreeps()
 				if (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() < Temple.SPAWN_THRESHOLD and not v.creeps then
 					v.creeps = v.creeps or {}
 
-					Director:SpawnPack(
-				    {
-				        Level = 1,
+					Director:SpawnPack({
 				        SpawnBasic = true,
 				        Count = math.random(Temple.SPAWN_MIN, Temple.SPAWN_MAX),
 				        Position = v:GetAbsOrigin(),

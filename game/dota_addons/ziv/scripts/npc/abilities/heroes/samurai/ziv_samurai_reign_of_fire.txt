@@ -17,7 +17,7 @@
     "particle"  "particles/winter_fx/healing_campfire_flame_a.vpcf"
     "particle" "particles/heroes/samurai/samurai_fire_steps.vpcf"
     "particle"  "particles/heroes/samurai/samurai_fire_steps_a.vpcf"
-    "particle" "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+    "particle" "particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
   }
   
@@ -56,7 +56,7 @@
       {
         "AttachEffect"
         {
-          "EffectName"    "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+          "EffectName"    "particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
           "EffectAttachType"  "follow_overhead"
           "Target"      "TARGET"
         }

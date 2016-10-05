@@ -5576,7 +5576,7 @@
 	    "particle"  "particles/winter_fx/healing_campfire_flame_a.vpcf"
 	    "particle" "particles/heroes/samurai/samurai_fire_steps.vpcf"
 	    "particle"  "particles/heroes/samurai/samurai_fire_steps_a.vpcf"
-	    "particle" "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+	    "particle" "particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
 	  }
 	  
@@ -5615,7 +5615,7 @@
 	      {
 	        "AttachEffect"
 	        {
-	          "EffectName"    "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+	          "EffectName"    "particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
 	          "EffectAttachType"  "follow_overhead"
 	          "Target"      "TARGET"
 	        }
@@ -7249,6 +7249,38 @@
 	    }
 	  }
 	}
+	"ziv_creep_lord_tanky"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "AbilityTextureName"            "ziv_empty"
+	  
+	  "MaxLevel"          "1"
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_hp" "450"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_lord_tanky"
+	    {
+	      "Passive" "1"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE" "%bonus_hp"
+	      }
+	    }
+	  }
+	}
 	"ziv_creep_modifier_frenzy"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -7328,7 +7360,7 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_hp" "150"
+	      "bonus_hp" "250"
 	    }
 	  }
 	
