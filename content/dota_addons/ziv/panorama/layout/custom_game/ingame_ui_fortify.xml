@@ -9,6 +9,13 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_fortify.js" />
 		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
+	<snippets>
+		<snippet name="Sparks">
+			<Panel class="Sparks" hittest="false">
+				<DOTAScenePanel map="ui/fortify_ui" hittest="false"/>
+			</Panel>
+		</snippet>
+	</snippets>
 	<Panel class="FortifyRoot Hide BasicShadow" hittest="true" draggable="true">
 		<Panel class="GenericBackground" id="Background"/>
 
@@ -22,17 +29,18 @@
 		</Panel>
 
 		<Panel class="FortifyItem" id="FortifyTool">
+
 		</Panel>
 
 <!-- 		<Panel class="TextBlock" id="FortifyTextBlock">
 		</Panel> -->
 
 		<Panel class="TextBlock" id="FortifyTextBlock">
-			<Label id="FortifyTextBlockLabel" class="TextBlockLabel" text="#dragfortify"/>
+			<Label id="FortifyTextBlockLabel" html="true" class="TextBlockLabel" text="#dragfortify"/>
 		</Panel>
 
 		<Button onactivate="OKButton()" class="OKButton" id="FortifyOKButton">
-			<Label id="FortifyOKButtonLabel" class="WindowLabel" text="#fortify_button"/>
+			<!-- <Label id="FortifyOKButtonLabel" class="WindowLabel" text="#fortify_button"/> -->
 		</Button>
 	</Panel>
 </root>

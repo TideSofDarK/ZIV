@@ -1,26 +1,32 @@
 var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+var Util = GameUI.CustomUIConfig().Util;
 
 function OnDragDrop(panelId, draggedPanel) {
-	var itemIndex = draggedPanel["contextEntityIndex"];
-	var itemName = Abilities.GetAbilityName(itemIndex);
+	var itemID = draggedPanel["contextEntityIndex"];
+	var itemName = Abilities.GetAbilityName(itemID);
 	draggedPanel.m_DragCompleted = true;
+
+	if (!itemName) return;
 
 	var itemKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
 
-	if (itemName.indexOf( "item_gem_" ) === -1 &&
-		(itemName.indexOf( "item_rune_" ) === -1 && $("#FortifyItem").currentItem == undefined) ||
-		(itemName.indexOf( "item_rune_" ) !== -1 && $("#FortifyItem").currentItem == undefined)) {
+	if (itemName.indexOf( "item_gem_" ) === -1 && itemName.indexOf( "item_rune_" ) === -1) {
 		var displayPanel = $.CreatePanel( "DOTAItemImage", $("#FortifyItem"), "FortifyItemImage" );
 		displayPanel.itemname = itemKV["AbilityTextureName"];
-		displayPanel.contextEntityIndex = itemIndex;
+		displayPanel.contextEntityIndex = itemID;
 
-		$("#FortifyItem").currentItem = itemIndex;
+		if ($("#FortifyItem").currentItem != itemID) {
+			$("#FortifyTextBlockLabel").temp_text = "";
+			$("#FortifyTextBlockLabel").temp_gem_text = "";
+		}
 
-		GameEvents.SendCustomGameEventToServer( "ziv_fortify_item_get_modifiers", { "pID" : Players.GetLocalPlayer(), "item" : itemIndex } );
+		$("#FortifyItem").currentItem = itemID;
+
+		GetModifiers({itemID : itemID});
 
 		$("#FortifyItem").style.visibility = "visible;";
 
-		GameUI.CustomUIConfig().AddItemTooltip( displayPanel, itemIndex );
+		GameUI.CustomUIConfig().AddItemTooltip( displayPanel, itemID );
 
 		Game.EmitSound( "ui.inv_equip_bone" )
 	} else {
@@ -29,7 +35,19 @@ function OnDragDrop(panelId, draggedPanel) {
 			var plus = "+" + itemKV["FortifyModifiersCount"] + " " + $.Localize(itemName + "_fortify_string");
 			if (itemName.indexOf( "item_rune_" ) !== -1) {
 				for (var key in itemKV["FortifyModifiers"]) {
-					plus = "+(" + itemKV["FortifyModifiers"][key]["min"] + "-" + itemKV["FortifyModifiers"][key]["max"] + ") " + $.Localize(key);
+					var minValue = itemKV["FortifyModifiers"][key]["min"];
+					var maxValue = itemKV["FortifyModifiers"][key]["max"];
+					var percent = "";
+					if (itemName.indexOf( "item_rune_" ) != -1) {
+						var runeKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
+						if (!runeKV["Type"]) {
+							percent = "%";
+						} else if (runeKV["Type"] == "Float") {
+							minValue /= 100;
+							maxValue /= 100;
+						}
+					}
+					plus = "+ (" + minValue + "-" + maxValue + ") " + percent + $.Localize(key);
 					break;
 				}
 			}
@@ -45,13 +63,13 @@ function OnDragDrop(panelId, draggedPanel) {
 
 		var displayPanel = $.CreatePanel( "DOTAItemImage", $("#FortifyTool"), "FortifyToolImage" );
 		displayPanel.itemname = itemKV["AbilityTextureName"];
-		displayPanel.contextEntityIndex = itemIndex;
+		displayPanel.contextEntityIndex = itemID;
 
-		$("#FortifyTool").currentItem = itemIndex;
+		$("#FortifyTool").currentItem = itemID;
 
 		$("#FortifyTool").style.visibility = "visible;";
 
-		GameUI.CustomUIConfig().AddItemTooltip( displayPanel, itemIndex );
+		GameUI.CustomUIConfig().AddItemTooltip( displayPanel, itemID );
 
 		Game.EmitSound( "Item.PickUpGemShop" );
 	}
@@ -59,30 +77,31 @@ function OnDragDrop(panelId, draggedPanel) {
 	CheckOKButton()
 }
 
-function FortifyResult(table) {
-	var item = table["item"];
-	var modifiers = table["modifiers"];
-
-	$("#FortifyTool").style.visibility = "collapse;";
-
-	GameEvents.SendCustomGameEventToServer( "ziv_fortify_item_get_modifiers", { "pID" : Players.GetLocalPlayer(), "item" : item } );
-}
-
 function GetModifiers(table) {
-	var item = table["item"];
-	var modifiers = table["modifiers"];
+	var itemID = table.itemID;
 	
-	if ($("#FortifyItem").currentItem == item) {
+	var modifiers = [];
+
+	if (table["modifiers"]) {
+		var modifiers = table["modifiers"];
+	} else {
+		var itemData = PlayerTables.GetTableValue("items", itemID);
+		modifiers = itemData.fortify_modifiers;
+	}
+
+	if ($("#FortifyItem").currentItem == itemID) {
 		$("#FortifyTextBlockLabel").text = $.Localize("dragfortify_gem");
 
 		var newText = "";
 
-		for (var i = 1; i < Object.keys( modifiers ).length + 1; i++) {
-			for (var key in modifiers[i.toString()]) {
-				var span = "<span class=\"" + modifiers[i.toString()]["gem"] + "\">";
-				var endSpan = "</span>";
-				if (key != "gem") { 
-					newText = newText + span + "+" + modifiers[i.toString()][key] + " " + $.Localize(key) + endSpan +"<br>";
+		if (modifiers) {
+			for (var gem in modifiers) {
+				for (var modifier in modifiers[gem]) {
+					var span = "<span class=\"" + modifiers[gem]["gem"] + "\">";
+					var endSpan = "</span>";
+					if (modifier != "gem") { 
+						newText = newText + span + "+ " + Util.ConvertModifierValue(modifier, modifiers[gem][modifier]) + " " + $.Localize(modifier) + endSpan +"<br>";
+					}
 				}
 			}
 		}
@@ -108,12 +127,16 @@ function OKButton() {
 			GameEvents.SendCustomGameEventToServer( "ziv_fortify_item", { "pID" : Players.GetLocalPlayer(), "item" : item, "tool" : tool } );
 
 			$("#FortifyToolImage").DeleteAsync( 0.0 );
-
 			$("#FortifyTool").currentItem = undefined;
+			$("#FortifyTool").style.visibility = "collapse;";
 
 			Game.EmitSound( "ui.crafting_gem_applied" );
 
 			$("#FortifyOKButton").enabled = false;
+
+			var characterPanel = $.CreatePanel( "Panel", $.GetContextPanel(), "Explosion" );
+			characterPanel.BLoadLayoutSnippet("Sparks");
+			characterPanel.DeleteAsync(4.0);
 		}
 	}
 }
@@ -151,14 +174,10 @@ function Open() {
 }
 
 (function() {
-	$("#FortifyOKButton").enabled = false;
-
-	GameEvents.Subscribe( "ziv_fortify_item_result", FortifyResult );
-	GameEvents.Subscribe( "ziv_fortify_get_modifiers", GetModifiers );
+	GameEvents.Subscribe( "ziv_fortify_item_result", GetModifiers );
 	GameEvents.Subscribe( "ziv_open_fortify", Open );
 
-	$("#FortifyTextBlockLabel").html = true;
-
 	$.GetContextPanel().SetDraggable( true );
+
 	$.RegisterEventHandler( 'DragDrop', $.GetContextPanel(), OnDragDrop );
 })();

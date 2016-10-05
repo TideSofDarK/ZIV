@@ -32,11 +32,13 @@
         </snippet>
     </snippets>
     <script>
+        var Util = GameUI.CustomUIConfig().Util;
+
         function FillProperty(panel, name, value, color) {
-            if (value && (typeof(value) == "string" || GameUI.CustomUIConfig().Util.RoundToTwo(value) != 0)) {
+            if (value && (typeof(value) == "string" || Util.RoundToTwo(value) != 0)) {
                 var newValue = value;
                 if (typeof(value) != "string") {
-                    newValue = GameUI.CustomUIConfig().Util.RoundToTwo(value);
+                    newValue = Util.RoundToTwo(value);
                 }
                 panel.text = $.Localize(name) + " <font color=\"" + (color ? color : "#ffffff") + "\">" + newValue + "</font>";
                 return 1;
@@ -59,6 +61,10 @@
             var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 
             var hero = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+            var heroName = Entities.GetUnitName(hero);
+            if (heroName) {
+                heroName = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName(hero)]["SecondName"];
+            }
             
             // Cleanup
             if ($("#TooltipBorderB").FindChildTraverse("AbilityTooltip")) {
@@ -90,7 +96,7 @@
 
                     itemTooltip.FindChildTraverse("ItemTooltipName").text = $.Localize("DOTA_Tooltip_ability_" + itemName);
 
-                    itemTooltip.FindChildTraverse("ItemTooltipRarity").text = $.Localize("rarity") + GameUI.CustomUIConfig().Util.SpanString(($.Localize("rarity" + itemData.rarity)), "Rarity" + itemData.rarity);
+                    itemTooltip.FindChildTraverse("ItemTooltipRarity").text = $.Localize("rarity") + Util.SpanString(($.Localize("rarity" + itemData.rarity)), "Rarity" + itemData.rarity);
 
                     if (itemKV["Slot"]) {
                         FillProperty(itemTooltip.FindChildTraverse("ItemTooltipSlot"), "slot", $.Localize("slot_" + itemKV["Slot"]), "#FFFFFF");
@@ -114,9 +120,9 @@
                                     specialLabel.AddClass("TooltipLabel");
                                     specialLabel.html = true;
 
-                                    var finalValue = GameUI.CustomUIConfig().Util.RoundToTwo(itemKV["AbilitySpecial"][special][specialName]);
+                                    var finalValue = Util.RoundToTwo(itemKV["AbilitySpecial"][special][specialName]);
                                     
-                                    specialLabel.text = GameUI.CustomUIConfig().Util.ColorString("+ " + finalValue,"#ffffff") + " " + specialCaption;
+                                    specialLabel.text = Util.ColorString("+ " + finalValue,"#ffffff") + " " + specialCaption;
                                 }
                             }
                             i++;
@@ -138,7 +144,7 @@
 
                             var finalValue = value;
 
-                            specialLabel.text = GameUI.CustomUIConfig().Util.ColorString("+ " + finalValue,"#ffffff") + " " + $.Localize(key);
+                            specialLabel.text = Util.ColorString("+ " + finalValue,"#ffffff") + " " + $.Localize(key);
 
                             i = i + 1;
                         }
@@ -146,7 +152,6 @@
 
                     if (itemData.fortify_modifiers && Object.keys( itemData.fortify_modifiers ).length >= 1)
                     {
-                        $.Msg(PlayerTables.GetTableValue("items", itemID));
                         AddCBR(itemTooltip);
 
                         var i = 0;
@@ -161,7 +166,9 @@
 
                                     var finalValue = value[modifier];
 
-                                    specialLabel.text = GameUI.CustomUIConfig().Util.ColorString("+ " + finalValue,"#ffffff") + " " + $.Localize(modifier);
+                                    finalValue = Util.ConvertModifierValue(modifier, finalValue);
+
+                                    specialLabel.text = Util.ColorString("+ " + Util.RoundToTwo(finalValue),"#ffffff") + " " + $.Localize(modifier);
 
                                     i = i + 1;
                                 }
@@ -221,12 +228,11 @@
                             if (Entities.GetUnitName(hero)) {
                                 var valueColor = "#ffffff";
                                 for (var i = 0; i < Entities.GetNumBuffs( hero); i++) {
-                                    var heroName = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName(hero)]["SecondName"];
-
-                                    var buffName = Buffs.GetName(hero, Entities.GetBuff( hero, i ));
+                                    var buff = Entities.GetBuff( hero, i );
+                                    var buffName = Buffs.GetName(hero, buff);
                                     if (buffName.match("ziv_" + heroName)) {
 
-                                        var stackCount = Buffs.GetStackCount(hero, i);
+                                        var stackCount = Buffs.GetStackCount(hero, buff);
                                         var runeName = buffName.replace("ziv_" + heroName, "item_rune");
 
                                         var itemKV = PlayerTables.GetTableValue("kvs", "items")[runeName];
@@ -253,20 +259,20 @@
                                             } else if (itemKV["Tooltip"] == "New") {
                                                 var newValue = stackCount;
                                                 if (itemKV["Type"] == "Float") {
-                                                    newValue = GameUI.CustomUIConfig().Util.RoundToTwo(newValue / 100);
+                                                    newValue = newValue / 100;
                                                 } else {
                                                     newValue += "%";
                                                 }
-                                                newModifiers[buffName] = GameUI.CustomUIConfig().Util.ColorString("+ " + newValue,"#ffffff") + " " + $.Localize(buffName);
+                                                newModifiers[buffName] = Util.ColorString("+ " + newValue,"#ffffff") + " " + $.Localize(buffName);
                                             }
                                         }
                                     }
                                 }
                             }
 
-                            var finalValue = GameUI.CustomUIConfig().Util.RoundToTwo(finalValue);
+                            var finalValue = Util.RoundToTwo(finalValue);
 
-                            specialLabel.text = GameUI.CustomUIConfig().Util.AutoUppercase(specialCaption) + " " + GameUI.CustomUIConfig().Util.ColorString(finalValue + (percent ? '%' : ""),valueColor);
+                            specialLabel.text = Util.AutoUppercase(specialCaption) + " " + Util.ColorString(finalValue + (percent ? '%' : ""),valueColor);
                         }
                     }
                     i++;

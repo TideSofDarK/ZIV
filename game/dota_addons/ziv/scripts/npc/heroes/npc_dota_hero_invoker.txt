@@ -44,7 +44,7 @@
     "AttributePrimary"      "DOTA_ATTRIBUTE_INTELLECT"
     "AttributeBaseStrength"   "4"
     "AttributeStrengthGain"   "0"
-    "AttributeBaseIntelligence" "5"
+    "AttributeBaseIntelligence" "8"
     "AttributeIntelligenceGain" "0"
     "AttributeBaseAgility"    "5"
     "AttributeAgilityGain"    "0"

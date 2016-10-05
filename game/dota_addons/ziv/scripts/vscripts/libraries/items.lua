@@ -21,7 +21,7 @@ function Items:Update()
 				v.fortify_modifiers = fortify_modifiers
 			end
 
-			if item.fortify_modifiers then
+			if item.built_in_modifiers then
 				local built_in_modifiers = {} 
 				for k,v in pairs(item.built_in_modifiers) do table.insert(built_in_modifiers, v) end	
 				v.built_in_modifiers = built_in_modifiers

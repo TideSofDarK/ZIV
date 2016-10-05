@@ -43,6 +43,24 @@ Util.ColorString = (function (str, color) {
     return "<font color=\"" + color + "\">" + str + "</font>";
 });
 
+Util.ConvertModifierValue = (function (modifier, value) {
+    var hero = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+    var heroName = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName(hero)]["SecondName"];
+
+    var newValue = value;
+
+    if (modifier.indexOf( heroName ) != -1) {
+        var runeKV = PlayerTables.GetTableValue("kvs", "items")[modifier.replace("ziv_" + heroName, "item_rune")];
+        if (!runeKV["Type"]) {
+            newValue += "%";
+        } else if (runeKV["Type"] == "Float") {
+            newValue /= 100;
+        }
+    }
+
+    return newValue;
+});
+
 (function(){
 	GameUI.CustomUIConfig().Util = Util;
 })()

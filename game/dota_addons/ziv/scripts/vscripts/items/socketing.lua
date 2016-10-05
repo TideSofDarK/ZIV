@@ -30,22 +30,13 @@ function Socketing:OnFortify( keys )
 
   	table.insert(item.fortify_modifiers, new_modifiers)
 
-  	PrintTable(item.fortify_modifiers)
-
   	if playerID and playerID >= 0 then
-	  	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ziv_fortify_item_result", { item = keys.item, modifiers = new_modifiers } )
+	  	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ziv_fortify_item_result", { itemID = keys.item, modifiers = item.fortify_modifiers } )
 
 	  	Crafting:UsePart( tool, 1, tonumber(playerID) )
   	end
 
   	ResetRandomSeed()
-end
-
-function Socketing:OnFortifyGetModifiers( keys )
-  	local playerID = keys.pID
-  	local item = EntIndexToHScript(keys.item)
-
-  	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ziv_fortify_get_modifiers", { item = keys.item, modifiers = (item.fortify_modifiers or {}) } )
 end
 
 function Socketing:GetRandomFortifyModifiers( modifiers_kv, count )

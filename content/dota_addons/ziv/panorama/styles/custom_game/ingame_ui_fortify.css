@@ -29,9 +29,9 @@ DOTAItemImage {
 	horizontal-align: center;
 	vertical-align: bottom;
 
-	height: 36%;
+	height: 30%;
 
-	margin-bottom: 66px;
+	margin-bottom: 95px;
 }
 
 #FortifyTextBlockLabel {
@@ -48,9 +48,6 @@ DOTAItemImage {
 	height: 86px;
 
 	border-radius: 5px;
-	border: 1px solid #111111ff;
-
-	background-color: gradient( radial, 10% 10%, 0% 0%, 100% 100%, from( #222222FF ), to( #111111FF ) );
 
 	visibility: collapse;
 }
@@ -86,4 +83,10 @@ DOTAItemImage {
 	
 	width: 544px;
 	height: 419px;
+}
+
+.Sparks,
+.SceneLoaded {
+	width: 100%;
+	height: 100%;
 }
