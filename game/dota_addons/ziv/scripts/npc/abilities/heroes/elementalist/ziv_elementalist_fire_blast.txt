@@ -7,7 +7,7 @@
 
 	"AbilityCastRange"				"600"
 	"AbilityCastPoint"				"0.15"
-	"AbilityCooldown"				"0.9"
+	"AbilityCooldown"				"1.75"
 	"AbilityManaCost"				"20"
 
 	"AbilityCastAnimation" 			"ACT_DOTA_CAST_DEAFENING_BLAST"

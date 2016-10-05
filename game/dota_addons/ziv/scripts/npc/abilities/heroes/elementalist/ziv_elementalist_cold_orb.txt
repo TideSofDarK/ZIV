@@ -8,7 +8,7 @@
 	"AbilityTextureName"			"ziv_empty"
 
 	"AbilityCastRange" 	"1600"
-	"AbilityManaCost"	"25"
+	"AbilityManaCost"	"15"
 	"AbilityCastPoint"        "0.0"
 	"AbilityCooldown"				"0.0"
 
@@ -42,12 +42,12 @@
 		"03"
 		{
 			"var_type" "FIELD_INTEGER"
-			"cold_duration" "3"
+			"slow_duration" "3"
 		}
 		"04"
 		{
 			"var_type" "FIELD_INTEGER"
-			"cold_movespeed" "-20"
+			"slow" "-20"
 		}
 	}
 
@@ -68,7 +68,7 @@
 	{
 		"modifier_cold_orb_effect"
 		{
-			"Duration"	"%cold_duration"
+			"Duration"	"%slow_duration"
 
 			"Passive"			"0"
 			"IsHidden"			"0"
@@ -79,7 +79,7 @@
 		
 			"Properties"
 			{
-			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%cold_movespeed" 
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
 			}
 		}
 

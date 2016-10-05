@@ -8,7 +8,7 @@
 	"AbilityTextureName"			"ziv_empty"
 
 	"AbilityCastRange" 	"1600"
-	"AbilityManaCost"	"25"
+	"AbilityManaCost"	"15"
 	"AbilityCastPoint"        "0.0"
 	"AbilityCooldown"				"0.0"
 

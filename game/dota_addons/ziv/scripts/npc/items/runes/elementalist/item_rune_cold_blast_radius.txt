@@ -19,8 +19,8 @@
   {
     "ziv_elementalist_cold_blast_radius"
     {
-      "min" "5"
-      "max" "95"
+      "min" "20"
+      "max" "130"
     }
   }
 }

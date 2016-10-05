@@ -451,6 +451,67 @@
 	}
 }
 
+"Hero_Invoker.ColdBlast"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/crystal_maiden/freezing_field.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"0.3500000"
+					}
+					"pitch_rand_min"
+					{
+						"value"		"-0.025000"
+					}
+					"pitch_rand_max"
+					{
+						"value"		"0.025000"
+					}
+					"pitch"
+					{
+						"value"		"0.975000"
+					}
+					"soundlevel"
+					{
+						"value"		"81.000000"
+					}
+					"mixgroup"
+					{
+						"value"		"Weapons"
+					}
+					"volume_fade_out"
+					{
+						"value"		"1.500000"
+					}
+					"spread_radius"
+					{
+						"value"		"900.000000"
+					}
+					"use_entity_position"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+		}
+	}
+}
+
 "Hero_Invoker.Tornado"
 {
 	"operator_stacks"

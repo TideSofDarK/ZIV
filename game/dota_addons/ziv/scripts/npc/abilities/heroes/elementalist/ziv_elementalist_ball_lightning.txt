@@ -19,7 +19,7 @@
 		"01"
 		{
 			"var_type"							"FIELD_INTEGER"
-			"ball_lightning_move_speed"			"325"		
+			"ball_lightning_move_speed"			"200"		
 		}
 		"02"
 		{
@@ -60,17 +60,6 @@
 		{
 			"Target"						"CASTER"
 			"ModifierName"					"modifier_ball_lightning_buff"
-		}
-	}
-	
-	"OnProjectileHitUnit"
-	{
-		"DeleteOnHit"						"0"
-	
-		"RunScript"
-		{
-			"ScriptFile"					"abilities/heroes/elementalist/ziv_elementalist_ball_lightning.lua"
-			"Function"						"BallLightningDamage"
 		}
 	}
 	

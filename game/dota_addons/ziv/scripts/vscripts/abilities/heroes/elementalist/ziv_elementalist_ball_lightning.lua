@@ -70,6 +70,7 @@ function BallLightningTraverse( keys )
 				caster.ball_lightning_is_running = false
 
 				caster:SetModel(temp_model)
+				caster:SetOriginalModel(temp_model)
 				for k,v in pairs(caster:GetChildren()) do
 					if v:GetClassname() == "dota_item_wearable" then
 						v:RemoveEffects(EF_NODRAW) 
@@ -85,8 +86,4 @@ function BallLightningTraverse( keys )
 			end
 		end
 	)
-end
-
-function BallLightningDamage( keys )
-	DealDamage(keys.caster, keys.target, keys.caster:GetAverageTrueAttackDamage() / 10, DAMAGE_TYPE_PURE)
 end

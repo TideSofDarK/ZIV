@@ -1,4 +1,4 @@
-"item_rune_cold_blast_knockback_chance"
+"item_rune_cold_blast_double_chance"
 {
   "ID"		"1509"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -17,10 +17,10 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_elementalist_cold_blast_knockback_chance"
+    "ziv_elementalist_cold_blast_double_chance"
     {
-      "min" "5"
-      "max" "19"
+      "min" "3"
+      "max" "11"
     }
   }
 }

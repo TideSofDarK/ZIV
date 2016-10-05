@@ -19,8 +19,8 @@
   {
     "ziv_elementalist_cold_blast_slow"
     {
-      "min" "10"
-      "max" "25"
+      "min" "5"
+      "max" "35"
     }
   }
 }

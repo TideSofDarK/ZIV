@@ -279,9 +279,9 @@ function ZIV:OnEntityKilled( keys )
 
   if kv then
     if kv["deathsim"] then
-      killedUnit:SetModel("models/development/invisiblebox.vmdl")
-      killedUnit:SetOriginalModel("models/development/invisiblebox.vmdl")
-      TimedEffect( kv["deathsim"], killedUnit, 4.0, 0 )
+      killedUnit:AddNoDraw()
+      local dummy = CreateUnitByName("npc_dummy_unit",killedUnit:GetAbsOrigin(),false,killedUnit:GetOwnerEntity(),killedUnit:GetOwnerEntity(),killedUnit:GetTeamNumber())
+      TimedEffect( kv["deathsim"], dummy, 4.0, 0 )
       Timers:CreateTimer(4.0, function (  )
       end)
     end

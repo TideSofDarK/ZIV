@@ -3203,7 +3203,7 @@
 			"01"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"ball_lightning_move_speed"			"325"		
+				"ball_lightning_move_speed"			"200"		
 			}
 			"02"
 			{
@@ -3244,17 +3244,6 @@
 			{
 				"Target"						"CASTER"
 				"ModifierName"					"modifier_ball_lightning_buff"
-			}
-		}
-		
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"						"0"
-		
-			"RunScript"
-			{
-				"ScriptFile"					"abilities/heroes/elementalist/ziv_elementalist_ball_lightning.lua"
-				"Function"						"BallLightningDamage"
 			}
 		}
 		
@@ -3354,7 +3343,7 @@
 	}
 	"ziv_elementalist_cold_blast"
 	{
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -3362,21 +3351,20 @@
 	
 		"AbilityTextureName"			"ziv_empty"
 	
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0"
-		"AbilityCooldown"				"0.95"
-		"AbilityManaCost"				"20"
+		"AbilityCastRange"				"1500"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"4.75"
+		"AbilityManaCost"				"40"
 	
-		"AbilityCastAnimation" "ACT_DOTA_CAST_DEAFENING_BLAST"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_DEAFENING_BLAST"
 	
 		"MaxLevel"						"7"
 	
 		"precache"
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_deafening_blast_knockback_debuff.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_deafening_blast_disarm_debuff.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+			"particle"		"particles/heroes/elementalist/elementalist_cold_blast.vpcf"
 			"particle"		"particles/status_fx/status_effect_frost.vpcf"
 		}
 	
@@ -3384,86 +3372,84 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"travel_distance"		"1000"
+				"var_type"				"FIELD_FLOAT"
+				"damage_amp"			"0.9"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"travel_speed"			"1100"
+				"radius"				"400"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_start"			"175"
+				"var_type"				"FIELD_FLOAT"
+				"tick"					"1.0"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_end"			"225"
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"2.0"
 			}
 			"05"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"end_vision_duration"	"1.75"
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"-60"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_amp"			"2.3"
+				"duration"					"6.2"
 			}
 		}
 	
 		"OnSpellStart"
 		{
-			"FireSound"
-			{
-				"EffectName"	"Hero_Invoker.DeafeningBlast"
-				"Target" 		"CASTER"
-			}
-	
 			"RunScript"
 			{
 				"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_cold_blast.lua"
 				"Function"		"ColdBlastStart"
 				"Target"		"POINT"
-				"dummy_ability_name"	"ziv_elementalist_cold_blast_dummy"
-				"projectile_name"		"particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf"
-			}
-		}
-	}
-	
-	"ziv_elementalist_cold_blast_dummy"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"ziv_empty"
-	
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			
-			"RunScript"
-			{
-				"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_cold_blast.lua"
-				"Function"		"ColdBlastHit"
 			}
 		}
 	
 		"Modifiers"
 		{
-			"modifier_cold_blast_dummy"
+			"modifier_cold_blast"
 			{
-				"Passive"	"1"
+				"IsHidden"      "1"
+				"IsDebuff"      "1"
 	
-				"States"
+				"OnCreated"
 				{
-					"MODIFIER_STATE_STUNNED"						"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_cold_blast.lua"
+						"Function"		"ColdBlastTick"
+					}
+				}
+	
+				"ThinkInterval"  "%tick"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/heroes/elementalist/ziv_elementalist_cold_blast.lua"
+						"Function"		"ColdBlastTick"
+					}
+				}
+			}
+			"modifier_cold_blast_slow"
+			{
+				"Duration"  	"%slow_duration"
+				"IsHidden"      "1"
+				"IsDebuff"      "1"
+	
+				"StatusEffectName"     "particles/status_fx/status_effect_frost_lich.vpcf"      
+				"StatusEffectPriority"  "1"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1" 
 				}
 			}
 		}
@@ -3478,7 +3464,7 @@
 		"AbilityTextureName"			"ziv_empty"
 	
 		"AbilityCastRange" 	"1600"
-		"AbilityManaCost"	"25"
+		"AbilityManaCost"	"15"
 		"AbilityCastPoint"        "0.0"
 		"AbilityCooldown"				"0.0"
 	
@@ -3512,12 +3498,12 @@
 			"03"
 			{
 				"var_type" "FIELD_INTEGER"
-				"cold_duration" "3"
+				"slow_duration" "3"
 			}
 			"04"
 			{
 				"var_type" "FIELD_INTEGER"
-				"cold_movespeed" "-20"
+				"slow" "-20"
 			}
 		}
 	
@@ -3538,7 +3524,7 @@
 		{
 			"modifier_cold_orb_effect"
 			{
-				"Duration"	"%cold_duration"
+				"Duration"	"%slow_duration"
 	
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -3549,7 +3535,7 @@
 			
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%cold_movespeed" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
 				}
 			}
 	
@@ -3714,7 +3700,7 @@
 		"AbilityTextureName"			"ziv_empty"
 	
 		"AbilityCastRange" 	"1600"
-		"AbilityManaCost"	"25"
+		"AbilityManaCost"	"15"
 		"AbilityCastPoint"        "0.0"
 		"AbilityCooldown"				"0.0"
 	
@@ -3812,7 +3798,7 @@
 	
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.15"
-		"AbilityCooldown"				"0.9"
+		"AbilityCooldown"				"1.75"
 		"AbilityManaCost"				"20"
 	
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_DEAFENING_BLAST"
