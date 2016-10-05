@@ -14,8 +14,9 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
-  "Tooltip" "movespeed_reduction"
-  "Type"    "Add"
+  "Tooltip"   "movespeed_reduction"
+  "Type"      "Int"
+  "Method"    "Add"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"

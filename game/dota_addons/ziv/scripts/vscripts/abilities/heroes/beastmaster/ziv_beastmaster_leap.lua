@@ -41,14 +41,14 @@ function LeapHorizonal( keys )
 
 			ParticleManager:DestroyParticle(ability.trail_particle,false)
 
-			local units_in_burn_radius = FindUnitsInRadius(caster:GetTeamNumber(), point,  nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			local units_in_burn_radius = FindUnitsInRadius(caster:GetTeamNumber(), point,  nil, GetSpecial(ability, "leap_knockback_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 			for k,v in pairs(units_in_burn_radius) do
 		    	local knockbackModifierTable =
 			    {
 			        should_stun = 1,
 			        knockback_duration = 1.0,
 			        duration = 1.0,
-			        knockback_distance = 75 + GRMSC("ziv_beastmaster_leap_force",caster),
+			        knockback_distance = GetSpecial(ability, "leap_force") + GRMSC("ziv_beastmaster_leap_force",caster),
 			        knockback_height = 80,
 			        center_x = point.x,
 			        center_y = point.y,

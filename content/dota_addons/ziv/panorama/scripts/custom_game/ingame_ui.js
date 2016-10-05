@@ -59,7 +59,7 @@ function UpdateAbilityList()
 		if ( nUsedPanels >= m_AbilityPanels.length )
 		{
 			// create a new panel
-			var abilityPanel = $.CreatePanel( "Panel", abilityListPanel, "" );
+			var abilityPanel = $.CreatePanel( "Panel", abilityListPanel, "Ability" + i );
 			abilityPanel.BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_ability.xml", false, false );
 			m_AbilityPanels.push( abilityPanel );
 

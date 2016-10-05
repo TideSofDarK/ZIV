@@ -7,7 +7,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_ability.js" />
 	</scripts>
-	<Panel class="AbilityPanel">
+	<Panel class="AbilityPanel" hittestchildren="false">
 		<Panel id="AbilityStatusBorder">
 
 		</Panel>

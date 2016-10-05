@@ -23,7 +23,8 @@ function Cleave( keys )
 	keys.base_attack_time = 0.25
 
 	keys.on_impact = (function ( caster )
-		local units = FindUnitsInCone(caster:GetAbsOrigin(), caster:GetForwardVector(), 300, 300 + GRMSC("ziv_beastmaster_cleave_aoe", caster), caster:GetTeamNumber(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER)
+		local radius = GetSpecial(ability, "radius")
+		local units = FindUnitsInCone(caster:GetAbsOrigin(), caster:GetForwardVector(), radius, radius + GRMSC("ziv_beastmaster_cleave_aoe", caster), caster:GetTeamNumber(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER)
 		
 		for k,v in pairs(units) do
 			TimedEffect("particles/units/heroes/hero_riki/riki_backstab_hit_blood.vpcf", v, 1.0, 0, PATTACH_POINT_FOLLOW)

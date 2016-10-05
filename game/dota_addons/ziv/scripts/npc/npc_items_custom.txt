@@ -659,6 +659,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip" "AbilityCooldown"
+	  "Reduction" "1"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -684,6 +687,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip" "New"
+	  "Type"    "Float"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -711,6 +717,10 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "leap_force"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -736,6 +746,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -763,6 +776,10 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -788,6 +805,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "sp_per_second"
+	  "Reduction"   "1"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -815,6 +835,10 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "radius"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -840,6 +864,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip" "AbilityCooldown"
+	  "Reduction" "1"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -867,6 +894,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "New"
+	  "Type"      "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -892,6 +922,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "New"
+	  "Type"      "Int"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -919,6 +952,10 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "bear_stun_chance"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -945,6 +982,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "New"
+	  "Type"      "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -970,6 +1010,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "wolf_crit_chance"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2326,8 +2370,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
-	  "Tooltip" "radius"
-	  "Type"    "Add"
+	  "Tooltip"   "radius"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2384,7 +2429,8 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
-	  "Tooltip"    "New"
+	  "Tooltip"     "New"
+	  "Type"        "Int"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2413,6 +2459,8 @@
 	  "ItemBaseLevel"         "1"
 	
 	  "Tooltip" "burn_damage_amp"
+	  "Type"    "Float"
+	  "Method"  "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2441,6 +2489,8 @@
 	  "ItemBaseLevel"         "1"
 	
 	  "Tooltip" "damage_amp"
+	  "Type"    "Float"
+	  "Method"  "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2469,7 +2519,8 @@
 	  "ItemBaseLevel"         "1"
 	
 	  "Tooltip" "radius"
-	  "Type"    "Add"
+	  "Type"    "Int"
+	  "Method"  "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2497,7 +2548,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
-	  "Tooltip" "damage_amp"
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2525,8 +2578,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
-	  "Tooltip" "movespeed_reduction"
-	  "Type"    "Add"
+	  "Tooltip"   "movespeed_reduction"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"

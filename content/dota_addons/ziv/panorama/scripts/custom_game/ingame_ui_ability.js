@@ -20,7 +20,7 @@ function SetAbility( ability, queryUnit, keybind, bInLevelUp )
 	$.GetContextPanel().keybindID = keybind;
 	
 	var abilityName = Abilities.GetAbilityName( m_Ability );
-	GameUI.CustomUIConfig().AddAbilityTooltip($( "#AbilityImage" ), abilityName);
+	GameUI.CustomUIConfig().AddAbilityTooltip($.GetContextPanel(), abilityName);
 
 	UpdateAbility();
 }

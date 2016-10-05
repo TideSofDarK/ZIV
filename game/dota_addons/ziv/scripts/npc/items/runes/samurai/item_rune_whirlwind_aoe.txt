@@ -15,7 +15,8 @@
   "ItemBaseLevel"         "1"
 
   "Tooltip" "radius"
-  "Type"    "Add"
+  "Type"    "Int"
+  "Method"  "Add"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"

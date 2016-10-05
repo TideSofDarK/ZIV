@@ -43,22 +43,48 @@ Util.ColorString = (function (str, color) {
     return "<font color=\"" + color + "\">" + str + "</font>";
 });
 
-Util.ConvertModifierValue = (function (modifier, value) {
+Util.RuneToItem = (function (modifier) {
     var hero = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
     var heroName = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName(hero)]["SecondName"];
 
-    var newValue = value;
-
-    if (modifier.indexOf( heroName ) != -1) {
-        var runeKV = PlayerTables.GetTableValue("kvs", "items")[modifier.replace("ziv_" + heroName, "item_rune")];
-        if (!runeKV["Type"]) {
-            newValue += "%";
-        } else if (runeKV["Type"] == "Float") {
-            newValue /= 100;
-        }
+    var item = PlayerTables.GetTableValue("kvs", "items")[modifier.replace("ziv_" + heroName, "item_rune")];
+    if (!item) {
+        item = PlayerTables.GetTableValue("kvs", "items")[modifier.replace("ziv", "item_rune")];
     }
 
-    return newValue;
+    return item;
+});
+
+// https://github.com/TideSofDarK/ZiV/wiki/Rune-Tooltip-Formatting
+// Default is modifyMethod == "Multiply" and modifierType == "Percent"
+
+Util.ConvertValue = (function (modifier, originalValue, modifierValue, dontModify) {
+    var itemKV = Util.RuneToItem(modifier);
+
+    var tooltipType     = itemKV["Tooltip"];
+    var modifierType    = itemKV["Type"];
+    var modifyMethod    = itemKV["Method"];
+    var multiplier      = itemKV["Reduction"] ? -1 : 1;
+
+    if (dontModify) {
+        originalValue = modifyMethod == "Multiply" || !modifyMethod ? 1 : 0;
+    }
+
+    var newValue = originalValue;
+    if ((!modifyMethod || modifyMethod == "Multiply") && (!modifierType || modifierType == "Percent") && !dontModify) {
+        newValue = originalValue * (1 + (modifierValue / 100 * multiplier));
+    } else if (modifyMethod == "Add" && modifierType == "Int") {
+        newValue = originalValue + (modifierValue * multiplier);
+    } else if (modifyMethod == "Add" && modifierType == "Float") {
+        newValue = originalValue + ((modifierValue / 100) * multiplier);
+    } else if (modifierType == "Float") {
+        newValue = ((modifierValue / 100) * multiplier);
+    } else if (modifierType == "Int") {
+        newValue = modifierValue * multiplier;
+    } else {
+        return modifierValue;
+    }
+    return Util.RoundToTwo(newValue);
 });
 
 (function(){

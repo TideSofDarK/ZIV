@@ -58,23 +58,28 @@
 
         function SetupTooltip()
         {
+            // Cleanup
+            if ($("#TooltipBorderB").FindChildTraverse("AbilityTooltip")) {
+                for (var panel in $("#TooltipBorderB").Children()) {
+                    $("#TooltipBorderB").FindChildTraverse("AbilityTooltip").DeleteAsync(0.0);
+                    $("#TooltipBorderB").FindChildTraverse("AbilityTooltip").RemoveAndDeleteChildren();
+                }
+            }
+
+            if ($("#TooltipBorderB").FindChildTraverse("ItemTooltip")) {
+                for (var panel in $("#TooltipBorderB").Children()) {
+                    $("#TooltipBorderB").FindChildTraverse("ItemTooltip").DeleteAsync(0.0);
+                    $("#TooltipBorderB").FindChildTraverse("ItemTooltip").RemoveAndDeleteChildren();
+                }
+            }
+
             var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+            Util = GameUI.CustomUIConfig().Util;
 
             var hero = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
             var heroName = Entities.GetUnitName(hero);
             if (heroName) {
                 heroName = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName(hero)]["SecondName"];
-            }
-            
-            // Cleanup
-            if ($("#TooltipBorderB").FindChildTraverse("AbilityTooltip")) {
-                $("#TooltipBorderB").FindChildTraverse("AbilityTooltip").RemoveAndDeleteChildren();
-                $("#TooltipBorderB").FindChildTraverse("AbilityTooltip").DeleteAsync(0.0);
-            }
-
-            if ($("#TooltipBorderB").FindChildTraverse("ItemTooltip")) {
-                $("#TooltipBorderB").FindChildTraverse("ItemTooltip").RemoveAndDeleteChildren();
-                $("#TooltipBorderB").FindChildTraverse("ItemTooltip").DeleteAsync(0.0);
             }
 
             var abilityName = $.GetContextPanel().GetAttributeString( "ability", "not-found" );
@@ -164,11 +169,7 @@
                                     specialLabel.AddClass("TooltipLabel");
                                     specialLabel.html = true;
 
-                                    var finalValue = value[modifier];
-
-                                    finalValue = Util.ConvertModifierValue(modifier, finalValue);
-
-                                    specialLabel.text = Util.ColorString("+ " + Util.RoundToTwo(finalValue),"#ffffff") + " " + $.Localize(modifier);
+                                    specialLabel.text = Util.ColorString("+ " + Util.ConvertValue(modifier, 0, value[modifier], true),"#ffffff") + " " + $.Localize(modifier);
 
                                     i = i + 1;
                                 }
@@ -224,12 +225,13 @@
                             }
 
                             var finalValue = parseFloat(abilityKV["AbilitySpecial"][special][specialName]);
-                            
+                            var valueColor = "#ffffff";
+
                             if (Entities.GetUnitName(hero)) {
-                                var valueColor = "#ffffff";
                                 for (var i = 0; i < Entities.GetNumBuffs( hero); i++) {
                                     var buff = Entities.GetBuff( hero, i );
                                     var buffName = Buffs.GetName(hero, buff);
+
                                     if (buffName.match("ziv_" + heroName)) {
 
                                         var stackCount = Buffs.GetStackCount(hero, buff);
@@ -244,26 +246,13 @@
 
                                             if (itemKV["Tooltip"] == specialName) {
                                                 valueColor = "#3fb568";
-                                                if (itemKV["Type"] == "Add") {
-                                                    finalValue += stackCount * multiplier;
-                                                } else {
-                                                    finalValue = finalValue + ((finalValue * (stackCount * 0.01)) * multiplier);
-                                                }
+                                                finalValue = Util.ConvertValue(buffName, finalValue, stackCount);
                                             } else if (itemKV["Tooltip"] == "AbilityCooldown") {
-                                                valueColor = "#3fb568";
-                                                if (itemKV["Type"] == "Add") {
-                                                    FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCooldown"), "cooldown", abilityKV["AbilityCooldown"] + (stackCount * multiplier), valueColor);
-                                                } else {
-                                                    FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCooldown"), "cooldown", abilityKV["AbilityCooldown"] + ((abilityKV["AbilityCooldown"] * (stackCount * 0.01)) * multiplier), valueColor);
-                                                }
+                                                FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCooldown"), "cooldown", Util.ConvertValue(buffName, abilityKV["AbilityCooldown"], stackCount), "#3fb568");
+                                            } else if (itemKV["Tooltip"] == "AbilityManaCost") {
+                                                FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipEnergyCost"), "energy_cost", Util.ConvertValue(buffName, abilityKV["AbilityManaCost"], stackCount), "#3fb568");
                                             } else if (itemKV["Tooltip"] == "New") {
-                                                var newValue = stackCount;
-                                                if (itemKV["Type"] == "Float") {
-                                                    newValue = newValue / 100;
-                                                } else {
-                                                    newValue += "%";
-                                                }
-                                                newModifiers[buffName] = Util.ColorString("+ " + newValue,"#ffffff") + " " + $.Localize(buffName);
+                                                newModifiers[buffName] = Util.ColorString("+ " + Util.ConvertValue(buffName, 0, stackCount),"#ffffff") + " " + $.Localize(buffName);
                                             }
                                         }
                                     }

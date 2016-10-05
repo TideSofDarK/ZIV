@@ -14,6 +14,10 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"   "leap_force"
+  "Type"      "Int"
+  "Method"    "Add"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {

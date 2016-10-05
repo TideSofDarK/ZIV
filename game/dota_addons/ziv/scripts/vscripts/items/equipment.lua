@@ -23,9 +23,6 @@ function UnEquip( unit, buffName )
 
     	local itemName = string.gsub (string.gsub (buffName, "modifier", "item"), "_equipped_%a+", "")
 
-    	local new_item = Items:Create(itemName, unit)
-    	Characters:GetInventory(unit:GetPlayerOwnerID()):AddItem(new_item)
-
     	if unit.fortify_modifiers and unit.fortify_modifiers[itemName] and unit:HasAbility("ziv_passive_hero") then
 			for id,gem_table in pairs(unit.fortify_modifiers[itemName]) do
 				for k,v in pairs(gem_table) do
@@ -43,7 +40,15 @@ function UnEquip( unit, buffName )
 				end
 			end
 
-			new_item.fortify_modifiers = unit.fortify_modifiers[itemName]
+			local new_item = Items:Create(itemName, unit)
+			new_item.fortify_modifiers = {}
+
+			for k,v in pairs(unit.fortify_modifiers[itemName]) do
+				table.insert(new_item.fortify_modifiers, v)
+			end
+    	
+    		Characters:GetInventory(unit:GetPlayerOwnerID()):AddItem(new_item)
+
 			unit.fortify_modifiers[itemName] = nil
 		end
   	end

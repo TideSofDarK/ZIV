@@ -14,7 +14,8 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
-  "Tooltip"    "New"
+  "Tooltip"     "New"
+  "Type"        "Int"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"

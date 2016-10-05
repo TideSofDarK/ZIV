@@ -37,17 +37,14 @@ function OnDragDrop(panelId, draggedPanel) {
 				for (var key in itemKV["FortifyModifiers"]) {
 					var minValue = itemKV["FortifyModifiers"][key]["min"];
 					var maxValue = itemKV["FortifyModifiers"][key]["max"];
-					var percent = "";
 					if (itemName.indexOf( "item_rune_" ) != -1) {
 						var runeKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
-						if (!runeKV["Type"]) {
-							percent = "%";
-						} else if (runeKV["Type"] == "Float") {
+						if (runeKV["Type"] == "Float") {
 							minValue /= 100;
 							maxValue /= 100;
 						}
 					}
-					plus = "+ (" + minValue + "-" + maxValue + ") " + percent + $.Localize(key);
+					plus = "+ (" + minValue + "-" + maxValue + ")" + " " + $.Localize(key);
 					break;
 				}
 			}
@@ -100,7 +97,7 @@ function GetModifiers(table) {
 					var span = "<span class=\"" + modifiers[gem]["gem"] + "\">";
 					var endSpan = "</span>";
 					if (modifier != "gem") { 
-						newText = newText + span + "+ " + Util.ConvertModifierValue(modifier, modifiers[gem][modifier]) + " " + $.Localize(modifier) + endSpan +"<br>";
+						newText = newText + span + "+ " + Util.ConvertValue(modifier, 0, modifiers[gem][modifier], true) + " " + $.Localize(modifier) + endSpan +"<br>";
 					}
 				}
 			}

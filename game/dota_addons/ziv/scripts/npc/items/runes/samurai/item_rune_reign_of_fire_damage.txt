@@ -15,6 +15,8 @@
   "ItemBaseLevel"         "1"
 
   "Tooltip" "burn_damage_amp"
+  "Type"    "Float"
+  "Method"  "Add"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"

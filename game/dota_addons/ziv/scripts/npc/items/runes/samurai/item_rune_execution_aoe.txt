@@ -14,8 +14,9 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
-  "Tooltip" "radius"
-  "Type"    "Add"
+  "Tooltip"   "radius"
+  "Type"      "Int"
+  "Method"    "Add"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"

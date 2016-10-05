@@ -5,9 +5,6 @@ DOTAAbilityImage {
 	height: 85%;
 
 	box-shadow: inset #000000ff 4px 4px 8px 8px;
-
-	tooltip-position: top;
-	tooltip-body-position: 50% 100%;
 }
 
 .AbilityOverlayRoot
@@ -28,6 +25,9 @@ DOTAAbilityImage {
 {
 	margin-left: -2px;
 	margin-bottom: 8px;
+
+	tooltip-position: top;
+	tooltip-body-position: 50% 100%;
 }
 
 #AbilityBorderInner {
