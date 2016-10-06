@@ -7,16 +7,14 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/minimap/minimap.js" />
 	</scripts>
-	<Panel class="MinimapRoot" hittest="false"> 
-<!-- 		<Panel class="ImageContainer" id="ImagePanel">
+	<Panel class="MinimapRoot TopRight"> 
+		<Panel class="ImageContainer" id="ImagePanel">
 			<Image class="MinimapMarks" id="PointerImage" src="file://{images}/custom_game/minimap/pointer.png" />			
 			<Image id="MinimapImage" src="file://{images}/custom_game/minimap/minimap.png" onactivate="MinimapClick()">
 				<Panel class="MarksContainer" id="MarksMap" />
 				<Panel hittest="false" class="EventsContainer" id="EventsMap" />
-				<Panel hittest="false" class="FogContainer" id="FogMap" />
+				<HTML id="FogMap" hittest="false" />
 			</Image>
-		</Panel> -->
-		<HTML id="MinimapCanvas" class="BasicShadow WindowAnimation WindowClosed" hittest="false">
-		</HTML>
+		</Panel>
 	</Panel>
 </root>

@@ -180,12 +180,23 @@ function UpdateEvents()
 	}	
 }
 
+function ClearFog()
+{
+	var pos = GetRelativePosition( Entities.GetAbsOrigin(heroID) );
+	// Relative vision
+	var visionRange =Entities.GetCurrentVisionRange( heroID ) /  (bounds["max"].x - bounds["min"].x);	
+
+	$("#FogMap").RunJavascript('ClearFog(' + pos[0] + ', ' + pos[1] + ', ' + visionRange +');'); 
+}
+
 function UpdateMinimap()
 {
 	UpdateImagePosition();
 	UpdatePointerPosition();
 	UpdateUnits();
 	UpdateEvents();
+
+	ClearFog(); 
 
 	$.Schedule(0.05, UpdateMinimap);
 }
@@ -227,7 +238,9 @@ function SetWorldBounds( args )
 
 	bounds["min"] = args.min;
 	bounds["max"] = args.max;
-	bounds["name"] = args.map;
+	bounds["name"] = args.map; 
+
+	UpdateMinimap();
 }
 
 // Events handler
@@ -247,100 +260,25 @@ function MinimapEvent( args )
 
 function ChangeMinimapMode()
 {
-	$("#MinimapCanvas").ToggleClass("WindowClosed");
-	// if ($.GetContextPanel().BHasClass("Hero"))
-	// {
-	// 	$.GetContextPanel().RemoveClass("Hero");
-	// 	$.GetContextPanel().AddClass("TopRight");
-
-	// 	$( "#MinimapImage" ).hittest = true;
-	// }
-	// else
-	// {
-	// 	$.GetContextPanel().RemoveClass("TopRight");
-	// 	$.GetContextPanel().AddClass("Hero");
-
-	// 	$( "#MinimapImage" ).hittest = false;
-	// }
-}
-
-function InitFogMap()
-{
-	var fogMap = $( "#FogMap" );
-	$( "#FogMap" ).RemoveAndDeleteChildren();
-	var size = GetPanelSize( $( "#MinimapImage" ) );
-
-	fogSquareSize = Math.max(size.width, size.height) / maxFogSquares;
-	fogMapSize = { width: size.width / fogSquareSize, height: size.height / fogSquareSize }
-	
-	for (var x = 0; x < fogMapSize.width; x++) {
-		squares[x] = {}
-		for (var y = 0; y < fogMapSize.height; y++) {
-			var square = $.CreatePanel( "Panel", fogMap, "FOGSquare_" + x + "x" + y );
-
-			square.AddClass("FOGSquare");
-			square.style.x = ( x * fogSquareSize) + "px;";
-			square.style.y = ( y * fogSquareSize) + "px;";
-			square.style.width = fogSquareSize + "px;";
-			square.style.height = fogSquareSize + "px;";
-
-			squares[x][y] = square; 
-		}
-	}
-
-	FOW() ;
-}
-
-function FOW() {
-	if ( $( "#FogMap" ).GetChildCount() == 0 )
-		return;
-
-	var pos = Entities.GetAbsOrigin(heroID);
-
-	var width = bounds["max"].x - bounds["min"].x;
-	var height = bounds["max"].y - bounds["min"].y;
-
-	pos[0] -=  bounds["min"].x;
-	pos[1] -=  bounds["min"].y;
-
-	var x = Math.ceil(pos[0] / width * fogMapSize.width) - 1;
-	var y = fogMapSize.height - Math.ceil(pos[1] / height * fogMapSize.height);
-
-	if (squares[x][y] && squares[x][y].visible)
+	$("#FogMap").ToggleClass("WindowClosed"); 
+	if ($.GetContextPanel().BHasClass("Hero"))
 	{
-		squares[x][y].DeleteAsync(0);
-		squares[x][y] = null;
+	 	$.GetContextPanel().RemoveClass("Hero");
+	 	$.GetContextPanel().AddClass("TopRight");
+
+	 	$( "#MinimapImage" ).hittest = true;
 	}
-
-	if (squares[x + 1][y] && squares[x + 1][y].visible)
+	else
 	{
-		squares[x + 1][y].DeleteAsync(0);
-		squares[x + 1][y] = null;
+	 	$.GetContextPanel().RemoveClass("TopRight");
+	 	$.GetContextPanel().AddClass("Hero");
+
+	 	$( "#MinimapImage" ).hittest = false;
 	}
-
-	if (squares[x - 1][y] && squares[x - 1][y].visible)
-	{
-		squares[x - 1][y].DeleteAsync(0);
-		squares[x - 1][y] = null;
-	}
-
-	if (squares[x][y + 1] && squares[x][y + 1].visible)
-	{
-		squares[x][y + 1].DeleteAsync(0);
-		squares[x][y + 1] = null;
-	}
-
-	if (squares[x][y - 1] && squares[x][y - 1].visible)
-	{
-		squares[x][y - 1].DeleteAsync(0);
-		squares[x][y - 1] = null;
-	}	
-
-	$.Schedule(0.1, FOW);
 }
 
 function UpdateCanvas() {
-	$.Schedule(0.03, UpdateCanvas);
+	$.Schedule(0.03, UpdateCanvas); 
 }
 
 (function()
@@ -348,21 +286,16 @@ function UpdateCanvas() {
 	GameEvents.SendCustomGameEventToServer( "world_bounds_request", {} );
 
 	GameEvents.Subscribe("world_bounds", SetWorldBounds);
-	// GameEvents.Subscribe("custom_minimap_event", MinimapEvent);
+	GameEvents.Subscribe("custom_minimap_event", MinimapEvent);
 
 	if (!GameUI.CustomUIConfig().ChangeMinimapMode)
 	{
 		GameUI.CustomUIConfig().ChangeMinimapMode = ChangeMinimapMode; 
 	}
 
-	var mapImage = "'https://puu.sh/rzAer/92feb69948.png'";
-	$("#MinimapCanvas").SetURL("about:blank");
-	// Load map image
-	$("#MinimapCanvas").RunJavascript("var c = document.createElement('canvas');\nc.setAttribute('id', 'myCanvas');\ndocument.body.appendChild(c);\ndocument.body.style.backgroundColor=\"#FFFFFFBB\";\nc.style.backgroundColor=\"FFFFFF\";\ndocument.body.style.margin=\"0px\";\nc.width=document.documentElement.clientWidth;\nc.height=document.documentElement.clientHeight;\nvar ctx = c.getContext(\"2d\");\nvar img = new Image();\nimg.onload=function(){ctx.drawImage(img, 0, 0, c.width, c.height);}\nimg.src = " + mapImage + ";");
-	// Display player
-	UpdateCanvas()
-
-	if ($("#MinimapCanvas").FindChildTraverse("MousePanningImage")) {
-		$("#MinimapCanvas").FindChildTraverse("MousePanningImage").DeleteAsync(0.0);
-	}
+	//var mapImage = "'https://puu.sh/rzAer/92feb69948.png'";
+	$("#FogMap").SetURL('http://ec2-54-93-180-157.eu-central-1.compute.amazonaws.com/test_minimap/minimap.html');
+	$.Schedule(0.1, function(){
+		$("#FogMap").RunJavascript('LoadImage("https://puu.sh/rzAer/92feb69948.png");');  
+	});
 })();
