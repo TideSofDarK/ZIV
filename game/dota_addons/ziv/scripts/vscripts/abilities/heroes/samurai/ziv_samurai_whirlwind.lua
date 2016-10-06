@@ -87,7 +87,7 @@ function DamageTick( keys )
 		if caster:HasModifier("modifier_cold_touch") then
 			damage_type = DAMAGE_TYPE_COLD
 		end
-
-		DealDamage( caster, target, GetRuneDamage("ziv_samurai_whirlwind_damage",caster) * GetSpecial(ability, "damage_amp"), damage_type )
+		
+		DealDamage( caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_samurai_whirlwind_damage"), damage_type )
 	end
 end

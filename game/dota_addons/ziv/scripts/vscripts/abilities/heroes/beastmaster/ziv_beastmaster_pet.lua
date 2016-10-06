@@ -73,7 +73,7 @@ function WolfAttack( keys )
 	local ability = keys.ability
 	local target = keys.target
 
-	local damage = caster:GetAverageTrueAttackDamage() * GetSpecial(ability, "wolf_damage_amp")
+	local damage = GetRuneDamage(caster, GetSpecial(ability, "wolf_damage_amp"), "")
 
 	if GetChance(GetSpecial(ability, "wolf_crit_chance") + GRMSC("ziv_beastmaster_pet_crit_chance", caster)) then
 		StartSoundEvent('Hero_PhantomAssassin.CoupDeGrace', target)
@@ -93,9 +93,11 @@ function BearAttack( keys )
 	local ability = keys.ablity
 	local target = keys.target
 
+	local damage = GetRuneDamage(caster, GetSpecial(ability, "bear_damage_amp"), "")
+
 	if GetChance(GetSpecial(ability, "bear_stun_chance") + GRMSC("ziv_beastmaster_pet2_stun_chance", caster)) then
 		target:AddNewModifier(caster,ability,"modifier_stunned",{duration = GetSpecial(ability, "bear_stun_duration")})
 	end
 
-	DealDamage(caster,target,caster:GetAverageTrueAttackDamage() * GetSpecial(ability, "bear_damage_amp"),DAMAGE_TYPE_PHYSICAL)
+	DealDamage(caster,target,damage,DAMAGE_TYPE_PHYSICAL)
 end

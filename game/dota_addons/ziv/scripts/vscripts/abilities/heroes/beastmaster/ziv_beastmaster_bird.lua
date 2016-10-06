@@ -21,8 +21,8 @@ function BirdDamage( keys )
 	local ability = keys.ability
 	local target = keys.target
 
-	DealDamage(caster, target, GetRuneDamage("ziv_beastmaster_bird_damage",caster) * GetSpecial(ability, "damage_amp"), DAMAGE_TYPE_PHYSICAL)
-
+	DealDamage(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_beastmaster_bird_damage"), DAMAGE_TYPE_PHYSICAL)
+	
 	if GetRuneChance("ziv_beastmaster_bird_blind_chance",caster) then
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_bird_blindness",{})
 		target:EmitSound("Hero_Antimage.ManaBreak")

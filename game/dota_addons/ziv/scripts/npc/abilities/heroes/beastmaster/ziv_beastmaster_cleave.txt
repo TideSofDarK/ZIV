@@ -29,6 +29,11 @@
     "01"
     {
       "var_type" "FIELD_FLOAT"
+      "damage_amp" "0.8"
+    }
+    "02"
+    {
+      "var_type" "FIELD_FLOAT"
       "radius" "300"
     }
   }

@@ -55,5 +55,5 @@ function SplitShotImpact( keys )
     local target = keys.target
     local ability = keys.ability
 
-    DealDamage( caster, target, caster:GetAverageTrueAttackDamage(), DAMAGE_TYPE_PHYSICAL )
+    DealDamage( caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_PHYSICAL )
 end

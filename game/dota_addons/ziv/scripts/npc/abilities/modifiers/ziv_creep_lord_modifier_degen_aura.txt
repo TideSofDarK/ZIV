@@ -16,7 +16,7 @@
     "01"
     {
       "var_type"            "FIELD_INTEGER"
-      "bonus_movespeed" "-35"
+      "bonus_movespeed" "-45"
     }
     "02"
     {

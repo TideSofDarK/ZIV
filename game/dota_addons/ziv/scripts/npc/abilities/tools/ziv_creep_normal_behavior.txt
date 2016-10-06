@@ -4,6 +4,15 @@
   "BaseClass"           "ability_datadriven"
   "AbilityTextureName"            "ziv_empty"
   "MaxLevel"                      "1"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"          "FIELD_INTEGER"
+      "aggro_radius"      "800"
+    }
+  }
   
   "Modifiers"
   {
@@ -46,6 +55,15 @@
       "States"
       {
         "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+      }
+
+      "OnTakeDamage"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/creeps.lua"
+          "Function"    "AggroNearbyCreeps"
+        }
       }
     }
   }

@@ -62,5 +62,5 @@ function VolleyHit(args)
 	local caster = args.caster
 	local ability = args.ability
 		
-	DealDamage(caster, target, GetRuneDamage("ziv_huntress_volley_damage",caster) * ability:GetSpecialValueFor("damage_amp"), DAMAGE_TYPE_PHYSICAL)
+	DealDamage(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_huntress_volley_damage"), DAMAGE_TYPE_PHYSICAL)
 end

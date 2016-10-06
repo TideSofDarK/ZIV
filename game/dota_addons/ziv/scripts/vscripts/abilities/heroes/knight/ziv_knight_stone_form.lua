@@ -20,8 +20,8 @@ function StoneFormEnd( keys )
 	local ability = keys.ability
 
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),  nil, ability:GetLevelSpecialValueFor("explosion_radius",ability:GetLevel()-1), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-	local damage = caster:GetModifierStackCount("modifier_stone_form_stacks",caster) * GetRuneDamage("ziv_knight_stone_form_damage", caster) * ability:GetLevelSpecialValueFor("damage_amp",ability:GetLevel()-1)
-
+	local damage = caster:GetModifierStackCount("modifier_stone_form_stacks",caster) * GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_stone_form_damage")
+	
 	for k,v in pairs(units) do
 		DealDamage(caster, v, damage, DAMAGE_TYPE_PHYSICAL)
 

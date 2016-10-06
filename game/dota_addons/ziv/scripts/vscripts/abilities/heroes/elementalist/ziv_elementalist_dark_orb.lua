@@ -15,7 +15,7 @@ function DarkOrbOnHit( keys )
 
 	for k,v in pairs(units) do
 		if IsValidEntity(v) then
-			DealDamage(caster, v, GetRuneDamage("ziv_elementalist_dark_orb_damage",caster) * GetSpecial(ability,"damage_amp"), DAMAGE_TYPE_DARK)
+			DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_elementalist_dark_orb_damage"), DAMAGE_TYPE_DARK)
 		end
 	end
 end

@@ -218,6 +218,9 @@ function ZIVCastAbility(number, pressing, single) {
     Game.AddCommand("-ZIVCastAbility4", GameUI.CustomUIConfig().ZIVStopAbility4, "", 0);
     Game.AddCommand("-ZIVCastAbility5", GameUI.CustomUIConfig().ZIVStopAbility5, "", 0);
 
+    Game.AddCommand("+ZIVShowMinimap", GameUI.CustomUIConfig().ChangeMinimapMode, "", 0); 
+	Game.AddCommand("-ZIVShowMinimap", GameUI.CustomUIConfig().ChangeMinimapMode, "", 0); 
+
     //Mouse
     GameUI.SetMouseCallback( function( eventName, arg ) {
 		var nMouseButton = arg
@@ -265,6 +268,6 @@ function ZIVCastAbility(number, pressing, single) {
 
     // Camera
 	GameUI.SetCameraPitchMax( 55 );
-	GameUI.SetCameraYaw( 45 );
+	// GameUI.SetCameraYaw( 45 );
 	GameUI.SetCameraLookAtPositionHeightOffset(Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2]); 
 })();

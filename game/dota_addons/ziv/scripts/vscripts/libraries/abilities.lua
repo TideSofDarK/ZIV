@@ -110,7 +110,7 @@ function SimulateMeleeAttack( keys )
           new_keys.target = v
           keys.on_hit(new_keys)
         else
-          DealDamage(caster, v, caster:GetAverageTrueAttackDamage() * damage_amp, DAMAGE_TYPE_PHYSICAL)
+          DealDamage(caster, v, caster:GetAverageTrueAttackDamage(caster) * damage_amp, DAMAGE_TYPE_PHYSICAL)
         end
         if keys.on_kill and v:IsAlive() == false then
           new_keys.unit = v
@@ -266,7 +266,7 @@ function SimulateRangeAttack( keys )
           new_keys.target = target
           keys.on_hit(new_keys)
         else
-          DealDamage(caster, target, caster:GetAverageTrueAttackDamage() * damage_amp, DAMAGE_TYPE_PHYSICAL)
+          DealDamage(caster, target, caster:GetAverageTrueAttackDamage(caster) * damage_amp, DAMAGE_TYPE_PHYSICAL)
         end
         if keys.on_kill and (target:IsAlive() == false or target:GetHealth() <= 0) then
           new_keys.unit = target

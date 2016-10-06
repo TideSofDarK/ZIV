@@ -57,7 +57,7 @@ function SMGBackup( keys )
                         gyro:EmitSound("Hero_Gyrocopter.Rocket_Barrage.Launch")
 
                         DoToUnitsInRadius( caster, target_point, 75, target_team, target_type, target_flags, function ( v )
-                            DealDamage(caster, v, caster:GetAverageTrueAttackDamage() * GetSpecial(ability, "explosion_damage_amp"), DAMAGE_TYPE_PHYSICAL)
+                            DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "explosion_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)  
                         end )
                     end
                     return 0.12

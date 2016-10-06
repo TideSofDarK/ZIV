@@ -6,7 +6,7 @@ function Overload( keys )
 
 	local maximum_targets = ability:GetSpecialValueFor("max_targets") + GRMSC("ziv_elementalist_overload_targets", caster)
 
-	local damage = 0
+	local enemies = 0
 	local speed = 900
 
 	if #units > 0 then
@@ -16,7 +16,7 @@ function Overload( keys )
 		TimedEffect("particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_ti5.vpcf", caster, 2.0, 3)
 		TimedEffect("particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf", caster, 2.0)
 
-		damage = clamp(#units, 1, maximum_targets) * (caster:GetAverageTrueAttackDamage() * ability:GetSpecialValueFor("damage_amp"))
+		enemies = clamp(#units, 1, maximum_targets)
 	end
 
 	i = 1
@@ -27,17 +27,16 @@ function Overload( keys )
 			ParticleManager:SetParticleControl(arc, 0, caster:GetAbsOrigin() + Vector(0,0,48))
 			ParticleManager:SetParticleControl(arc, 1, v:GetAbsOrigin() + Vector(0,0,48))
 
-			DealDamage(caster, v, GetRunePercentIncrease(damage/3,"ziv_elementalist_overload_lightning_damage",caster), DAMAGE_TYPE_LIGHTNING) 
-			DealDamage(caster, v, GetRunePercentIncrease(damage/3,"ziv_elementalist_overload_cold_damage",caster), DAMAGE_TYPE_COLD)
+			DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp_lightning"), "ziv_elementalist_overload_lightning_damage"), DAMAGE_TYPE_LIGHTNING) 
+			DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp_cold"), "ziv_elementalist_overload_cold_damage"), DAMAGE_TYPE_COLD)
 
 			ability:ApplyDataDrivenModifier(caster,v,"modifier_overload_frozen",{})
 
 			-- v:EmitSound("Hero_Zuus.GodsWrath.Target")
-			
 
 			Timers:CreateTimer(((caster:GetAbsOrigin() - v:GetAbsOrigin()):Length2D() / speed) + 0.2, function (  )
 				local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_overload_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
-				DealDamage(caster, v, GetRunePercentIncrease(damage/3,"ziv_elementalist_overload_fire_damage",caster), DAMAGE_TYPE_FIRE)
+				DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp_fire"), "ziv_elementalist_overload_fire_damage"), DAMAGE_TYPE_FIRE)
 
 				ability:ApplyDataDrivenModifier(caster,v,"modifier_overload_burn",{})
 				v:EmitSound("Item.Maelstrom.Chain_Lightning.Jump")

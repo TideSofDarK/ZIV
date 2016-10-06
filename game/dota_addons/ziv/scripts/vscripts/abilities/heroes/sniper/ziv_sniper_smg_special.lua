@@ -26,7 +26,7 @@ function SMGSpecial(keys)
 		end
 	end)
 	keys.on_hit = (function ( keys )
-		DealDamage(caster, keys.target, caster:GetAverageTrueAttackDamage() * GetSpecial(ability,"damage_amp"), DAMAGE_TYPE_PHYSICAL)
+		DealDamage(caster, keys.target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
 		if GetRuneChance("ziv_sniper_smg_special_knockback_chance", caster) then 
 			local knockbackModifierTable =
 		    {

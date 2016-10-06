@@ -160,9 +160,9 @@ function ZIV:OnHeroInGame(hero)
         PlayerResource:SetCameraTarget(pid, nil)
       end
       
-      local heroZ = math.floor(hero:GetAbsOrigin().z / 128)
-      local offset = ZIV_CameraZValueA - (camera_target:GetAbsOrigin().z/25)
-      camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(-offset,offset,0))
+      -- local heroY = math.floor(hero:GetAbsOrigin().y / 128)
+      -- local offset =  - (camera_target:GetAbsOrigin().y/25)
+      camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,ZIV_CameraZValueA,0))
       return 0.03
     end)
   end)
@@ -193,7 +193,7 @@ function ZIV:OnGameInProgress()
               status_table["str"] = hero:GetStrength()
               status_table["agi"] = hero:GetAgility()
               status_table["int"] = hero:GetIntellect()
-              status_table["damage"] = hero:GetAverageTrueAttackDamage()
+              status_table["damage"] = hero:GetAverageTrueAttackDamage(hero)
               CustomNetTables:SetTableValue("hero_status", tostring(playerID), status_table)
             end
           end

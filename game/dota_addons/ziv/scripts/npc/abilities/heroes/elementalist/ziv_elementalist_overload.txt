@@ -32,19 +32,29 @@
     "01"
     {
       "var_type"      "FIELD_FLOAT"
-      "damage_amp"      "0.25"
+      "damage_amp_lightning"      "0.15"
     }
     "02"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "damage_amp_fire"      "0.15"
+    }
+    "03"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "damage_amp_cold"      "0.15"
+    }
+    "04"
     {
       "var_type"      "FIELD_INTEGER"
       "max_targets"      "15"
     }
-    "03"
+    "05"
     {
       "var_type"      "FIELD_INTEGER"
       "slow"      "-20"
     }
-    "04"
+    "06"
     {
       "var_type"      "FIELD_INTEGER"
       "duration"      "3"

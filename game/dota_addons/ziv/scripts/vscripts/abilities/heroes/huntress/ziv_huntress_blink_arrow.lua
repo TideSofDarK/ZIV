@@ -21,9 +21,9 @@ function Blink( keys )
 		FindClearSpaceForUnit(caster,target,false)
 		EmitSoundOnLocationWithCaster(target,"Hero_QueenOfPain.Blink_in",caster)
 
-		local units = FindUnitsInRadius(caster:GetTeamNumber(), target,  nil, 75 + GRMSC("ziv_huntress_blink_arrow_radius", caster), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		local units = FindUnitsInRadius(caster:GetTeamNumber(), target,  nil, GetSpecial(ability, "damage_radius") + GRMSC("ziv_huntress_blink_arrow_radius", caster), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		for k,v in pairs(units) do
-			DealDamage(caster, v, caster:GetAverageTrueAttackDamage(), DAMAGE_TYPE_PHYSICAL)
+			DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
 		end
 	end)
 

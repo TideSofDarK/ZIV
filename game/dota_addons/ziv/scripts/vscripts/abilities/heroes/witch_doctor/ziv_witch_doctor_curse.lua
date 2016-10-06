@@ -23,7 +23,7 @@ function Damage( keys )
 	local ability = keys.ability
 	local target = keys.target
 
-	local final_damage = math.ceil(ability.damage) * GetRuneDamage("ziv_witch_doctor_curse_damage",caster)
+	local final_damage = GetRunePercentIncrease( math.ceil(ability.damage), "ziv_witch_doctor_curse_damage", caster)
 
 	PopupDamageOverTime(target, final_damage)
 

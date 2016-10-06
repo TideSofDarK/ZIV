@@ -48,7 +48,7 @@ function OrbOnHit( keys )
 		if GetRuneChance("ziv_knight_orb_burn_chance",caster) then
 			ability:ApplyDataDrivenModifier(caster,v,"modifier_knight_orb_burn",{})
 		end
-
-		DealDamage(caster, v, GetRuneDamage("ziv_knight_orb_damage",caster) * GetSpecial(ability,"damage_amp"), DAMAGE_TYPE_FIRE)
+		
+		DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_orb_damage"), DAMAGE_TYPE_FIRE)
 	end)
 end

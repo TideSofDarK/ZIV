@@ -25,9 +25,14 @@
     "01"
     {
       "var_type"            "FIELD_FLOAT"
-      "ballista_duration"            "9.5"
+      "ballista_damage_amp"            "1.1"
     }
     "02"
+    {
+      "var_type"            "FIELD_FLOAT"
+      "ballista_duration"            "9.5"
+    }
+    "03"
     {
       "var_type"            "FIELD_INTEGER"
       "ballista_targets"            "3"

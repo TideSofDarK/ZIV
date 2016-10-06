@@ -2029,6 +2029,11 @@
 	    "01"
 	    {
 	      "var_type" "FIELD_FLOAT"
+	      "damage_amp" "0.8"
+	    }
+	    "02"
+	    {
+	      "var_type" "FIELD_FLOAT"
 	      "radius" "300"
 	    }
 	  }
@@ -2749,7 +2754,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"spirit_duration"	"5"
+				"spirit_duration"	"6"
 			}
 			"04"
 			{
@@ -2769,14 +2774,19 @@
 			"07"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"damage_amp"	"2.0"
+				"spirit_damage_amp"	"0.8"
 			}
 			"08"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_amp"	"2.0"
+			}
+			"09"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"aoe_radius"	"400"
 			}
-			"09"
+			"10"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"energy_restored"	"3"
@@ -2848,7 +2858,7 @@
 		    	"Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
 	
 		    	"StatusEffectName"     "particles/status_fx/status_effect_terrorblade_reflection.vpcf"      
-		    	"StatusEffectPriority"  "10"
+		    	"StatusEffectPriority"  "1"
 	
 		    	"OnAttackLanded"
 		    	{
@@ -3829,6 +3839,16 @@
 				"var_type"				"FIELD_FLOAT"
 				"crit_damage"			"1.75"
 			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"start_radius"			"75"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"end_radius"			"125"
+			}
 		}
 	
 		"OnSpellStart"
@@ -3924,19 +3944,29 @@
 	    "01"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "damage_amp"      "0.25"
+	      "damage_amp_lightning"      "0.15"
 	    }
 	    "02"
+	    {
+	      "var_type"      "FIELD_FLOAT"
+	      "damage_amp_fire"      "0.15"
+	    }
+	    "03"
+	    {
+	      "var_type"      "FIELD_FLOAT"
+	      "damage_amp_cold"      "0.15"
+	    }
+	    "04"
 	    {
 	      "var_type"      "FIELD_INTEGER"
 	      "max_targets"      "15"
 	    }
-	    "03"
+	    "05"
 	    {
 	      "var_type"      "FIELD_INTEGER"
 	      "slow"      "-20"
 	    }
-	    "04"
+	    "06"
 	    {
 	      "var_type"      "FIELD_INTEGER"
 	      "duration"      "3"
@@ -4019,9 +4049,14 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_FLOAT"
-	      "ballista_duration"            "9.5"
+	      "ballista_damage_amp"            "1.1"
 	    }
 	    "02"
+	    {
+	      "var_type"            "FIELD_FLOAT"
+	      "ballista_duration"            "9.5"
+	    }
+	    "03"
 	    {
 	      "var_type"            "FIELD_INTEGER"
 	      "ballista_targets"            "3"
@@ -4125,6 +4160,16 @@
 	  "AbilitySpecial"
 	  {
 	    "01"
+	    {
+	      "var_type"      "FIELD_FLOAT"
+	      "damage_amp"    "1.3"
+	    }
+	    "02"
+	    {
+	      "var_type"      "FIELD_FLOAT"
+	      "damage_radius"    "100"
+	    }
+	    "03"
 	    {
 	      "var_type"      "FIELD_FLOAT"
 	      "arrow_delay"    "0.25"
@@ -4832,7 +4877,7 @@
 	
 	  "AbilityCooldown"         "3.5"
 	  
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "precache"
 	  {
@@ -4843,13 +4888,18 @@
 	  {
 	    "01"
 	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "parry_chance"        "20 25 30 35 40 50 60"
+	      "var_type"            "FIELD_FLOAT"
+	      "parry_damage_amp"        "1.1"
 	    }
 	    "02"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_armor"        "5 6 7 8 9 10 11"
+	      "parry_chance"        "20"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "bonus_armor"        "4"
 	    }
 	  }
 	
@@ -7129,7 +7179,7 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_movespeed" "-35"
+	      "bonus_movespeed" "-45"
 	    }
 	    "02"
 	    {
@@ -7186,7 +7236,7 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "hp_regen_percentage" "4"
+	      "hp_regen_percentage" "10"
 	    }
 	    "02"
 	    {
@@ -7248,7 +7298,7 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_hp" "450"
+	      "bonus_hp" "1050"
 	    }
 	  }
 	
@@ -7481,6 +7531,15 @@
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityTextureName"            "ziv_empty"
 	  "MaxLevel"                      "1"
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"          "FIELD_INTEGER"
+	      "aggro_radius"      "800"
+	    }
+	  }
 	  
 	  "Modifiers"
 	  {
@@ -7523,6 +7582,15 @@
 	      "States"
 	      {
 	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	
+	      "OnTakeDamage"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/creeps.lua"
+	          "Function"    "AggroNearbyCreeps"
+	        }
 	      }
 	    }
 	  }

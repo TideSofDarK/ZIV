@@ -18,7 +18,7 @@ function ShotgunSpecial(keys)
 	keys.standard_targeting = false
 	keys.attack_sound = "null"
 	keys.on_hit = (function ( keys )
-		DealDamage(caster, keys.target, GetRuneDamage("ziv_sniper_shotgun_special_damage",caster) * GetSpecial(ability,"damage_amp"), DAMAGE_TYPE_PHYSICAL)
+		DealDamage(caster, keys.target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_sniper_shotgun_special_damage"), DAMAGE_TYPE_PHYSICAL)
 		if GetChance(GetSpecial(ability, "knockback_chance")) then
 			local duration = GetRunePercentIncrease(0.3,"ziv_sniper_shotgun_special_force",caster)
 			local knockbackModifierTable =

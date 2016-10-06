@@ -14,6 +14,9 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"   "AbilityCooldown"
+  "Reduction" "1"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {

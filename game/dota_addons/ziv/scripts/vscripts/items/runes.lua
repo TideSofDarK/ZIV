@@ -7,8 +7,8 @@ function StartRuneCooldown(ability,name,caster)
 	ability:StartCooldown((1 - (GRMSC(name,caster) / 100)) * ability:GetCooldown(ability:GetLevel())) 
 end
 
-function GetRuneDamage(name,caster)
-	return ((GRMSC(name,caster) / 100) + 1) * caster:GetAverageTrueAttackDamage()
+function GetRuneDamage(caster, damage_amp, name)
+	return (damage_amp + (GRMSC(name,caster) / 100)) * caster:GetAverageTrueAttackDamage(caster)
 end
 
 function GetRunePercentIncrease(value,name,caster)
@@ -20,7 +20,11 @@ function GetRunePercentDecrease(value,name,caster)
 end
 
 function GetRuneChance(name,caster)
-	return math.random(0, 100) > (100 - GRMSC(name,caster))
+	local result = math.random(0, 100) > (100 - GRMSC(name,caster))
+	if result then
+		caster:EmitSound("Hero_ObsidianDestroyer.EssenceAura")
+	end
+	return result
 end
 
 function BasicPropertyRune(keys)

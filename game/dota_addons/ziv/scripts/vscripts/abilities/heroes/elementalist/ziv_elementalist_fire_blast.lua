@@ -2,8 +2,8 @@ function FireBlastImpact( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability =  keys.ability
-
-	local damage = caster:GetAverageTrueAttackDamage() * GetSpecial(ability, "damage_amp")
+	
+	local damage = GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "")
 	if GetRuneChance("ziv_elementalist_fire_blast_crit_chance",caster) then
 		damage = damage * GetSpecial(ability, "crit_damage")
 	end
@@ -29,8 +29,8 @@ function FireBlast( keys )
 		EffectName = "particles/heroes/elementalist/elementalist_fire_blast.vpcf",
 		Ability = ability,
 		vSpawnOrigin = caster:GetAbsOrigin(), 
-		fStartRadius = 75 + GRMSC("ziv_elementalist_fire_blast_radius", caster),
-		fEndRadius = 125 + GRMSC("ziv_elementalist_fire_blast_radius", caster),
+		fStartRadius = GetSpecial(ability, "start_radius") + GRMSC("ziv_elementalist_fire_blast_radius", caster),
+		fEndRadius = GetSpecial(ability, "end_radius") + GRMSC("ziv_elementalist_fire_blast_radius", caster),
 		vVelocity = 900 * caster:GetForwardVector(),
 		fDistance = 400,
 		Source = caster,

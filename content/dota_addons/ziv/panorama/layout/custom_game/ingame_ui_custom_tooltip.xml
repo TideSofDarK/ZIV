@@ -169,7 +169,7 @@
                                     specialLabel.AddClass("TooltipLabel");
                                     specialLabel.html = true;
 
-                                    specialLabel.text = Util.ColorString("+ " + Util.ConvertValue(modifier, 0, value[modifier], true),"#ffffff") + " " + $.Localize(modifier);
+                                    specialLabel.text = Util.ColorString("+ " + Math.abs(Util.ConvertValue(modifier, 0, value[modifier], true)),"#ffffff") + " " + $.Localize(modifier);
 
                                     i = i + 1;
                                 }

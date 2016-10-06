@@ -1,5 +1,21 @@
-.MinimapRoot {
+#MinimapCanvas
+{
+    align: center center;
+    width: 800px;
+    height: 800px;
+    flow-children: none;
 
+    transform: rotateX( 30deg ) translateY( -90px ) scale3d(1, 1, 1);
+
+    transition-duration: 0.15s;
+
+    background-color: transparent;
+}
+
+.MinimapRoot {
+	align: center center;
+	width: 100%;
+	height: 100%;
 }
 
 .TopRight {

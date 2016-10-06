@@ -14,7 +14,7 @@ function ColdOrbOnHit( keys )
 
 	for k,v in pairs(units) do
 		if IsValidEntity(v) then
-			DealDamage(caster, v, GetRuneDamage("ziv_elementalist_cold_orb_damage",caster) * GetSpecial(ability,"damage_amp"), DAMAGE_TYPE_COLD)
+			DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_elementalist_cold_orb_damage"), DAMAGE_TYPE_COLD)
 			ability:ApplyDataDrivenModifier(caster,v,"modifier_cold_orb_effect",{})
 		end
 	end

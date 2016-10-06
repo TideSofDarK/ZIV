@@ -38,6 +38,16 @@
 			"var_type"				"FIELD_FLOAT"
 			"crit_damage"			"1.75"
 		}
+		"04"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"start_radius"			"75"
+		}
+		"05"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"end_radius"			"125"
+		}
 	}
 
 	"OnSpellStart"

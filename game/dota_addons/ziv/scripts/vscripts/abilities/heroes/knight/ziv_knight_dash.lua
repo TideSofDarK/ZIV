@@ -82,5 +82,5 @@ function Knockback( keys )
     }
 	target:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
 
-    DealDamage(caster, target, GetRuneDamage("ziv_knight_dash_damage",caster) + ability:GetLevelSpecialValueFor("damage_amp", ability:GetLevel()-1), DAMAGE_TYPE_FIRE)
+    DealDamage(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_dash_damage"), DAMAGE_TYPE_FIRE)
 end

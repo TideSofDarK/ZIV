@@ -97,7 +97,7 @@ function GetModifiers(table) {
 					var span = "<span class=\"" + modifiers[gem]["gem"] + "\">";
 					var endSpan = "</span>";
 					if (modifier != "gem") { 
-						newText = newText + span + "+ " + Util.ConvertValue(modifier, 0, modifiers[gem][modifier], true) + " " + $.Localize(modifier) + endSpan +"<br>";
+						newText = newText + span + "+ " + Math.abs(Util.ConvertValue(modifier, 0, modifiers[gem][modifier], true)) + " " + $.Localize(modifier) + endSpan +"<br>";
 					}
 				}
 			}

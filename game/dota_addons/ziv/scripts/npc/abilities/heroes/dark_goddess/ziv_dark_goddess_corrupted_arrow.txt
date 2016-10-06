@@ -43,7 +43,7 @@
 		"03"
 		{
 			"var_type"	"FIELD_INTEGER"
-			"spirit_duration"	"5"
+			"spirit_duration"	"6"
 		}
 		"04"
 		{
@@ -63,14 +63,19 @@
 		"07"
 		{
 			"var_type"	"FIELD_FLOAT"
-			"damage_amp"	"2.0"
+			"spirit_damage_amp"	"0.8"
 		}
 		"08"
+		{
+			"var_type"	"FIELD_FLOAT"
+			"damage_amp"	"2.0"
+		}
+		"09"
 		{
 			"var_type"	"FIELD_INTEGER"
 			"aoe_radius"	"400"
 		}
-		"09"
+		"10"
 		{
 			"var_type"	"FIELD_INTEGER"
 			"energy_restored"	"3"
@@ -142,7 +147,7 @@
 	    	"Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
 
 	    	"StatusEffectName"     "particles/status_fx/status_effect_terrorblade_reflection.vpcf"      
-	    	"StatusEffectPriority"  "10"
+	    	"StatusEffectPriority"  "1"
 
 	    	"OnAttackLanded"
 	    	{

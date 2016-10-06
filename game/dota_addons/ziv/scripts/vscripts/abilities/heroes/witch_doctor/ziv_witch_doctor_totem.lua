@@ -96,9 +96,7 @@ function SplitShotImpact( keys )
     local target = keys.target
     local ability = keys.ability
 
-    local damage_amp = ability:GetSpecialValueFor("damage_amp")
-
-    DealDamage( caster, target, caster:GetAverageTrueAttackDamage() * damage_amp, DAMAGE_TYPE_DARK )
+    DealDamage( caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_DARK )
 end
 
 function Pulling( keys )

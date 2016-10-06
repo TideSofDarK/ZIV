@@ -33,7 +33,7 @@ function ColdBlastTick( keys )
 		ability:ApplyDataDrivenModifier(caster,v,"modifier_cold_blast_slow",{})
 		v:SetModifierStackCount("modifier_cold_blast_slow",caster,math.abs(GetSpecial(ability,"slow")) + GRMSC("ziv_elementalist_cold_blast_slow", caster))
 
-		local damage = GetSpecial(ability, "damage_amp") * GetSpecial(ability, "tick") * caster:GetAverageTrueAttackDamage()
+		local damage = GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "") * GetSpecial(ability, "tick")
 
 		DealDamage(caster, v, damage, DAMAGE_TYPE_COLD)
 

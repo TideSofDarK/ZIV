@@ -9,7 +9,7 @@ function DragonComes( keys )
 	local radius = ability:GetSpecialValueFor("spawn_radius")
 
 	local explosion_radius = ability:GetSpecialValueFor("explosion_radius") + GRMSC("ziv_knight_dragon_radius", caster)
-	local explosion_damage = ability:GetSpecialValueFor("explosion_damage_amp") * caster:GetAverageTrueAttackDamage()
+	local explosion_damage = GetRuneDamage(caster, GetSpecial(ability, "explosion_damage_amp"), "")
 
 	local burn_duration = ability:GetSpecialValueFor("burn_duration")
 	local burn_damage = ability:GetSpecialValueFor("burn_damage_amp") * caster:GetAverageTrueAttackDamage()

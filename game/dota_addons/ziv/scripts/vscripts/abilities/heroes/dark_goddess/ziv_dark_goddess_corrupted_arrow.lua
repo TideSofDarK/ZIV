@@ -58,7 +58,7 @@ function RestoreEnergy( keys )
 	local target = keys.target
 	local ability = keys.ability
 
-	DealDamage(caster, target, caster:GetAverageTrueAttackDamage(), DAMAGE_TYPE_DARK)
+	DealDamage(caster, target, GetRuneDamage(caster, GetSpecial(ability, "spirit_damage_amp"), ""), DAMAGE_TYPE_DARK)
 
 	local energy_restored = ability:GetSpecialValueFor("energy_restored")
 	
@@ -82,12 +82,10 @@ function AdditionalDamage( keys )
 
 	    	ParticleManager:SetParticleControlEnt(particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin() + Vector(0,0,16), true)
 	    	ParticleManager:SetParticleControlEnt(particle, 1, v, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin() + Vector(0,0,16), true)
-
-			-- DealDamage(caster, v, (ability:GetSpecialValueFor("damage_amp") * caster:GetAverageTrueAttackDamage()) / 3, DAMAGE_TYPE_DARK)
 		end
 	end
 
 	target:EmitSound("Hero_Spectre.PreAttack")
 
-	DealDamage(caster, target, ability:GetSpecialValueFor("damage_amp") * caster:GetAverageTrueAttackDamage(), DAMAGE_TYPE_DARK)
+	DealDamage(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_DARK)
 end

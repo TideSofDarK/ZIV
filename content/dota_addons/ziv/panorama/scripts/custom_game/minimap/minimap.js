@@ -228,13 +228,6 @@ function SetWorldBounds( args )
 	bounds["min"] = args.min;
 	bounds["max"] = args.max;
 	bounds["name"] = args.map;
-
-	var image = $( "#MinimapImage" );
-	image.SetImage( "file://{images}/custom_game/minimap/" + bounds["name"] + ".png" );
-	$.Msg("file://{images}/custom_game/minimap/" + bounds["name"] + ".png");
-
-	UpdateMinimap(); 
-	$.Schedule(0.2, InitFogMap); 
 }
 
 // Events handler
@@ -254,20 +247,21 @@ function MinimapEvent( args )
 
 function ChangeMinimapMode()
 {
-	if ($.GetContextPanel().BHasClass("Hero"))
-	{
-		$.GetContextPanel().RemoveClass("Hero");
-		$.GetContextPanel().AddClass("TopRight");
+	$("#MinimapCanvas").ToggleClass("WindowClosed");
+	// if ($.GetContextPanel().BHasClass("Hero"))
+	// {
+	// 	$.GetContextPanel().RemoveClass("Hero");
+	// 	$.GetContextPanel().AddClass("TopRight");
 
-		$( "#MinimapImage" ).hittest = true;
-	}
-	else
-	{
-		$.GetContextPanel().RemoveClass("TopRight");
-		$.GetContextPanel().AddClass("Hero");
+	// 	$( "#MinimapImage" ).hittest = true;
+	// }
+	// else
+	// {
+	// 	$.GetContextPanel().RemoveClass("TopRight");
+	// 	$.GetContextPanel().AddClass("Hero");
 
-		$( "#MinimapImage" ).hittest = false;
-	}
+	// 	$( "#MinimapImage" ).hittest = false;
+	// }
 }
 
 function InitFogMap()
@@ -345,17 +339,30 @@ function FOW() {
 	$.Schedule(0.1, FOW);
 }
 
+function UpdateCanvas() {
+	$.Schedule(0.03, UpdateCanvas);
+}
+
 (function()
 {
 	GameEvents.SendCustomGameEventToServer( "world_bounds_request", {} );
 
 	GameEvents.Subscribe("world_bounds", SetWorldBounds);
-	GameEvents.Subscribe("custom_minimap_event", MinimapEvent);
+	// GameEvents.Subscribe("custom_minimap_event", MinimapEvent);
 
 	if (!GameUI.CustomUIConfig().ChangeMinimapMode)
 	{
 		GameUI.CustomUIConfig().ChangeMinimapMode = ChangeMinimapMode; 
-		Game.AddCommand("+ZIVShowMinimap", GameUI.CustomUIConfig().ChangeMinimapMode, "", 0); 
-		Game.AddCommand("-ZIVShowMinimap", GameUI.CustomUIConfig().ChangeMinimapMode, "", 0); 
+	}
+
+	var mapImage = "'https://puu.sh/rzAer/92feb69948.png'";
+	$("#MinimapCanvas").SetURL("about:blank");
+	// Load map image
+	$("#MinimapCanvas").RunJavascript("var c = document.createElement('canvas');\nc.setAttribute('id', 'myCanvas');\ndocument.body.appendChild(c);\ndocument.body.style.backgroundColor=\"#FFFFFFBB\";\nc.style.backgroundColor=\"FFFFFF\";\ndocument.body.style.margin=\"0px\";\nc.width=document.documentElement.clientWidth;\nc.height=document.documentElement.clientHeight;\nvar ctx = c.getContext(\"2d\");\nvar img = new Image();\nimg.onload=function(){ctx.drawImage(img, 0, 0, c.width, c.height);}\nimg.src = " + mapImage + ";");
+	// Display player
+	UpdateCanvas()
+
+	if ($("#MinimapCanvas").FindChildTraverse("MousePanningImage")) {
+		$("#MinimapCanvas").FindChildTraverse("MousePanningImage").DeleteAsync(0.0);
 	}
 })();
