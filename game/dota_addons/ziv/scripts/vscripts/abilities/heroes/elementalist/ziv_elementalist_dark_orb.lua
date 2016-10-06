@@ -1,6 +1,9 @@
 function FireOrb( keys )
 	keys.on_hit = DarkOrbOnHit
 	keys.standard_targeting = true
+	keys.ignore_z = true
+	keys.pre_attack_sound = "Hero_Nevermore.PreAttack"
+	keys.impact_sound = "Hero_Nevermore.ProjectileImpact"
 	SimulateRangeAttack(keys)
 end
 
@@ -15,6 +18,7 @@ function DarkOrbOnHit( keys )
 
 	for k,v in pairs(units) do
 		if IsValidEntity(v) then
+			v:EmitSound("Hero_Nevermore.ProjectileImpact")
 			DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_elementalist_dark_orb_damage"), DAMAGE_TYPE_DARK)
 		end
 	end

@@ -1,12 +1,11 @@
-"item_basic_coat"
+"item_basic_bow"
 {
-  "ID"		                  "1002"
-  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-  "BaseClass"               "item_datadriven"
-  "AbilityTextureName"      "item_basic_coat"
-  "Model"                   "models/items/basic_coat.vmdl" 
+  "ID"		"1025"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "BaseClass"           "item_datadriven"
+  "AbilityTextureName"      "item_basic_bow"
 
-  "Slot"  "torso"
+  "Slot"  "bow"
 
   "ItemStackable" "0"
   "ItemPermanent" "0"
@@ -21,12 +20,12 @@
     "01"
     {
       "var_type"        "FIELD_INTEGER"
-      "armor"           "5"
+      "damage"          "4"
     }
     "02"
     {
       "var_type"        "FIELD_INTEGER"
-      "strength"        "2"
+      "attack_speed"    "40"
     }
   }
   
@@ -39,19 +38,153 @@
     }
     "ApplyModifier"
     {
-      "ModifierName"  "modifier_basic_coat_equipped_torso"
+      "ModifierName"  "modifier_basic_bow_equipped_bow"
       "Target"     "CASTER"
     }
     "FireSound"
     {
-      "EffectName"  "ui.inv_equip_leather"
+      "EffectName"  "ui.inv_equip_wood"
       "Target"     "CASTER"
     }
   }
   
   "Modifiers"
   {
-    "modifier_basic_coat_equipped_torso"
+    "modifier_basic_bow_equipped_bow"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsBuff"      "1"
+    
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%damage"
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed"
+      }
+    }
+  }
+}
+
+"item_tribe_bow"
+{
+  "ID"    "1025"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "BaseClass"           "item_datadriven"
+  "AbilityTextureName"      "item_tribe_bow"
+
+  "Slot"  "bow"
+
+  "ItemStackable" "0"
+  "ItemPermanent" "0"
+
+  "ItemDroppable"         "1"
+  "ItemPurchasable"       "0"
+  "ItemSellable"          "0"
+  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"        "FIELD_INTEGER"
+      "damage"          "2"
+    }
+    "02"
+    {
+      "var_type"        "FIELD_INTEGER"
+      "attack_speed"    "60"
+    }
+  }
+  
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "items/equipment.lua"
+      "Function"    "Equip"
+    }
+    "ApplyModifier"
+    {
+      "ModifierName"  "modifier_tribe_bow_equipped_bow"
+      "Target"     "CASTER"
+    }
+    "FireSound"
+    {
+      "EffectName"  "ui.inv_equip_wood"
+      "Target"     "CASTER"
+    }
+  }
+  
+  "Modifiers"
+  {
+    "modifier_tribe_bow_equipped_bow"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsBuff"      "1"
+    
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%damage"
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed"
+      }
+    }
+  }
+}
+
+"item_craft_bow"
+{
+  "ID"    "1025"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "BaseClass"           "item_datadriven"
+  "AbilityTextureName"      "item_craft_bow"
+
+  "Slot"  "bow"
+
+  "ItemStackable" "0"
+  "ItemPermanent" "0"
+
+  "ItemDroppable"         "1"
+  "ItemPurchasable"       "0"
+  "ItemSellable"          "0"
+  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"        "FIELD_INTEGER"
+      "strength"        "2"
+    }
+    "02"
+    {
+      "var_type"        "FIELD_INTEGER"
+      "dexterity"       "2"
+    }
+  }
+  
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "items/equipment.lua"
+      "Function"    "Equip"
+    }
+    "ApplyModifier"
+    {
+      "ModifierName"  "modifier_craft_bow_equipped_bow"
+      "Target"     "CASTER"
+    }
+    "FireSound"
+    {
+      "EffectName"  "ui.inv_equip_wood"
+      "Target"     "CASTER"
+    }
+  }
+  
+  "Modifiers"
+  {
+    "modifier_craft_bow_equipped_bow"
     {
       "Passive"      "0"
       "IsHidden"      "1"
@@ -60,137 +193,7 @@
       "Properties"
       {
         "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"      "%strength"
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"      "%armor"
-      }
-    }
-  }
-}
-
-"item_arrow_proof_coat"
-{
-  "ID"                      "1002"
-  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-  "BaseClass"               "item_datadriven"
-  "AbilityTextureName"      "item_arrow_proof_coat"
-  "Model"                   "models/items/basic_coat.vmdl" 
-
-  "Slot"  "torso"
-
-  "ItemStackable" "0"
-  "ItemPermanent" "0"
-
-  "ItemDroppable"         "1"
-  "ItemPurchasable"       "0"
-  "ItemSellable"          "0"
-  "ItemShareability"        "ITEM_NOT_SHAREABLE"
-
-  "AbilitySpecial"
-  {
-    "01"
-    {
-      "var_type"      "FIELD_INTEGER"
-      "armor"      "6"
-    }
-  }
-  
-  "OnSpellStart"
-  {
-    "RunScript"
-    {
-      "ScriptFile"  "items/equipment.lua"
-      "Function"    "Equip"
-    }
-    "ApplyModifier"
-    {
-      "ModifierName"  "modifier_arrow_proof_coat_equipped_torso"
-      "Target"     "CASTER"
-    }
-    "FireSound"
-    {
-      "EffectName"  "ui.inv_equip_leather"
-      "Target"     "CASTER"
-    }
-  }
-  
-  "Modifiers"
-  {
-    "modifier_arrow_proof_coat_equipped_torso"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsBuff"      "1"
-    
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-      }
-    }
-  }
-}
-
-"item_tribe_coat"
-{
-  "ID"                      "1002"
-  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-  "BaseClass"               "item_datadriven"
-  "AbilityTextureName"      "item_tribe_coat"
-  "Model"                   "models/items/basic_coat.vmdl" 
-
-  "Slot"  "torso"
-
-  "ItemStackable" "0"
-  "ItemPermanent" "0"
-
-  "ItemDroppable"         "1"
-  "ItemPurchasable"       "0"
-  "ItemSellable"          "0"
-  "ItemShareability"        "ITEM_NOT_SHAREABLE"
-
-  "AbilitySpecial"
-  {
-    "01"
-    {
-      "var_type"      "FIELD_INTEGER"
-      "armor"      "2"
-    }
-    "02"
-    {
-      "var_type"      "FIELD_INTEGER"
-      "intelligence"      "2"
-    }
-  }
-  
-  "OnSpellStart"
-  {
-    "RunScript"
-    {
-      "ScriptFile"  "items/equipment.lua"
-      "Function"    "Equip"
-    }
-    "ApplyModifier"
-    {
-      "ModifierName"  "modifier_tribe_coat_equipped_torso"
-      "Target"     "CASTER"
-    }
-    "FireSound"
-    {
-      "EffectName"  "ui.inv_equip_leather"
-      "Target"     "CASTER"
-    }
-  }
-  
-  "Modifiers"
-  {
-    "modifier_tribe_coat_equipped_torso"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsBuff"      "1"
-    
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%intelligence"
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"  "%armor"
+        "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"       "%dexterity"
       }
     }
   }

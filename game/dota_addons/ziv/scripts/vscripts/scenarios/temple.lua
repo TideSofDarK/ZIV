@@ -20,8 +20,8 @@ Temple.ROCKS_DURATION = 2.0
 Temple.ROCKS_INTERVAL_MIN = 8.0
 Temple.ROCKS_INTERVAL_MAX = 15.0
 
-Temple.SPAWN_THRESHOLD = 1600
-Temple.SPAWN_SPREAD = 1500
+Temple.SPAWN_THRESHOLD = 2300
+Temple.SPAWN_SPREAD = 2000
 Temple.SPAWN_MIN = 20
 Temple.SPAWN_MAX = 30
 Temple.SPAWN_GC_TIME = 10.0
@@ -60,16 +60,16 @@ function Temple:NextStage()
 			Temple:SetupMap()
 
 			if Temple.stage == Temple.STAGE_PREGAME then
-				local duration = 5.0
+				-- local duration = 5.0
 
-				DoToAllHeroes(function ( hero )
-					hero:AddNewModifier(hero,nil,"modifier_smooth_floating",{duration = duration})
-					TimedEffect( "particles/unique/temple/temple_floating_particle.vpcf", hero, duration, 0 )
-				end)
+				-- DoToAllHeroes(function ( hero )
+				-- 	hero:AddNewModifier(hero,nil,"modifier_smooth_floating",{duration = duration})
+				-- 	TimedEffect( "particles/unique/temple/temple_floating_particle.vpcf", hero, duration, 0 )
+				-- end)
 
-				Timers:CreateTimer(duration, function (  )
-					Temple:NextStage()
-				end)
+				-- Timers:CreateTimer(duration, function (  )
+				Temple:NextStage()
+				-- end)
 			elseif Temple.stage == Temple.STAGE_SECOND then
 
 			end
@@ -143,7 +143,7 @@ function Temple:SpawnCreeps()
 	Timers:CreateTimer(function (  )
 		DoToAllHeroes(function ( hero )
 			for k,v in pairs(Temple.creeps_positions) do
-				if (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() < Temple.SPAWN_THRESHOLD and not v.creeps then
+				if (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() < Temple.SPAWN_THRESHOLD and (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() >= Temple.SPAWN_SPREAD and not v.creeps then
 					v.creeps = v.creeps or {}
 
 					Director:SpawnPack({
@@ -152,7 +152,7 @@ function Temple:SpawnCreeps()
 				        Position = v:GetAbsOrigin(),
 				        CheckHeight = true,
 				        Spread = Temple.SPAWN_SPREAD,
-				        SpawnLord = math.random(1,4) == 1,
+				        SpawnLord = math.random(1,2) == 1,
 				        Table = v.creeps,
 				        CheckTable = HeroList:GetAllHeroes()
 				    })

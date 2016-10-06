@@ -3388,7 +3388,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"400"
+				"radius"				"280"
 			}
 			"03"
 			{
@@ -7287,35 +7287,9 @@
 	}
 	"ziv_creep_lord_tanky"
 	{
-	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "AbilityTextureName"            "ziv_empty"
-	  
-	  "MaxLevel"          "1"
-	  
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_hp" "1050"
-	    }
-	  }
-	
-	  "Modifiers"
-	  {
-	    "modifier_lord_tanky"
-	    {
-	      "Passive" "1"
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
-	
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE" "%bonus_hp"
-	      }
-	    }
-	  }
+	  "BaseClass" "ability_lua"
+	  "ScriptFile" "abilities/modifiers/ziv_creep_lord_tanky"
+	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
 	"ziv_creep_modifier_frenzy"
 	{

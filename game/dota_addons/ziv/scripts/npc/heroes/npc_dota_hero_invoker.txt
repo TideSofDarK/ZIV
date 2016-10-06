@@ -1,6 +1,7 @@
 "npc_dota_hero_invoker"
 {
     "override_hero"     "npc_dota_hero_invoker"
+    "ModelScale"        "0.810000"
     "SoundSet"      "Hero_Invoker"
     "IdleSoundLoop"     "Hero_Invoker.IdleLoop"
 

@@ -108,7 +108,6 @@ function Director:GetCreeps(prefix)
 		if prefix ~= "creep" or (ZIV.UnitKVs[k]["Unique"] ~= 1) then
 			if string.match(k, prefix) then
 				new_table[k] = v
-				print(k)
 			end
 		end
 	end

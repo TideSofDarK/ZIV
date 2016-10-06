@@ -41,3 +41,47 @@
     "VisionDaytimeRange"        "525"
     "VisionNighttimeRange"      "525"
 } 
+
+"npc_creep_spider_webspinner_a"
+{
+    "BaseClass"                 "npc_dota_creature"
+    "SoundSet"                  "Hero_BroodMother"                  
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+    
+    "HealthBarOffset"           "150"
+    "Model"                     "models/items/broodmother/spiderling/perceptive_spiderling/perceptive_spiderling.vmdl"
+    "ModelScale"                "0.65"
+    "Level"                     "1"
+
+    // "Ability1"                  "ziv_spider"
+
+    "ArmorPhysical"             "0"
+    "MagicalResistance"         "0"
+
+    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"           "1"
+    "AttackDamageMax"           "3"
+    "AttackRate"                "1"
+    "AttackAnimationPoint"      "0.467"
+    "AttackAcquisitionRange"    "400"
+    "AttackRange"               "100"
+
+    "BountyXP"                  "0"
+    "BountyGoldMin"             "0"
+    "BountyGoldMax"             "0"
+
+    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "330"
+    "MovementTurnRate"          "1.0"
+    "FollowRange"               "250"
+
+    "StatusHealth"              "100"
+    "StatusHealthRegen"         "0"
+    "StatusMana"                "0"
+    "StatusManaRegen"           "0"
+
+    "VisionDaytimeRange"        "525"
+    "VisionNighttimeRange"      "525"
+} 

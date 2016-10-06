@@ -126,8 +126,8 @@
                                     specialLabel.html = true;
 
                                     var finalValue = Util.RoundToTwo(itemKV["AbilitySpecial"][special][specialName]);
-                                    
-                                    specialLabel.text = Util.ColorString("+ " + finalValue,"#ffffff") + " " + specialCaption;
+
+                                    specialLabel.text = Util.ColorString((finalValue >= 0 ? "+" : "-") + " " + Math.abs(finalValue),"#ffffff") + " " + specialCaption;
                                 }
                             }
                             i++;

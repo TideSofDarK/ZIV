@@ -269,5 +269,5 @@ function ZIVCastAbility(number, pressing, single) {
     // Camera
 	GameUI.SetCameraPitchMax( 55 );
 	// GameUI.SetCameraYaw( 45 );
-	GameUI.SetCameraLookAtPositionHeightOffset(Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2]); 
+	GameUI.SetCameraLookAtPositionHeightOffset(Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2]/2); 
 })();
