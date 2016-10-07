@@ -25,5 +25,20 @@
 	font-weight: bold;
 	font-size: 18px;
 	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
-	color: White;
+}
+
+.Rarity2 {
+	border: 1px solid #3d50c5FF;
+}
+
+.Rarity3 {
+	border: 1px solid #ffea00FF;
+}
+
+.Rarity4 {
+	border: 1px solid #FFA500FF;
+}
+
+.Rarity5 {
+	border: 1px solid #FF00FFFF;
 }

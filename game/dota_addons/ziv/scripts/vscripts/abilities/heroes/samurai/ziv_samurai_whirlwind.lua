@@ -6,9 +6,9 @@ function StartWhirlwind( keys )
 	local target_unit = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, GetSpecial(ability, "trigger_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)[1]
 	
 	if not target_unit then
-		return
+		-- return
 	end
-
+	print(ability:GetBehavior())
 	-- caster:MoveToPosition(target)
 
 	local _duration = GetSpecial(ability, "duration")

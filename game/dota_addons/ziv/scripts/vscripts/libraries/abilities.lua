@@ -1,3 +1,9 @@
+function ZIV:CastAbilityNoTargetRemote(args)
+  local caster = PlayerResource:GetPlayer(args.PlayerID):GetAssignedHero()
+
+  caster:CastAbilityNoTarget(EntIndexToHScript(tonumber(args.ability)),args.PlayerID)
+end
+
 function GetModifierCount( unit, modifier_name )
   local count = 0
   for i=1,unit:GetModifierCount() do

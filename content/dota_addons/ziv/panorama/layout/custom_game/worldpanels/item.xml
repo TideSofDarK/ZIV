@@ -3,13 +3,14 @@
     <include src="s2r://panorama/styles/dotastyles.vcss_c" />
     <include src="file://{resources}/styles/custom_game/worldpanels/item.css" />
     <include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+    <include src="file://{resources}/styles/custom_game/ingame_ui_colors.css" />
   </styles>
   <scripts>
     <include src="file://{resources}/scripts/custom_game/worldpanels/item.js" /> 
   </scripts>
   <Panel hittest="false" class="Item Hide Transition">
     <Button onactivate="Click()" onmouseover="Hover()" onmouseout="Leave()">
-      <Label id="ItemNameLabel" text="DICK" />
+      <Label id="ItemNameLabel" html="true"/>
     </Button>
   </Panel>
 </root>

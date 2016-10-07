@@ -63,12 +63,12 @@
 		"07"
 		{
 			"var_type"	"FIELD_FLOAT"
-			"spirit_damage_amp"	"0.8"
+			"spirit_damage_amp"	"0.4"
 		}
 		"08"
 		{
 			"var_type"	"FIELD_FLOAT"
-			"damage_amp"	"2.0"
+			"damage_amp"	"3.0"
 		}
 		"09"
 		{

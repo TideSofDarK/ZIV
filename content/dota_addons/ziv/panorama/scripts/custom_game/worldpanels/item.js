@@ -1,4 +1,7 @@
-//$.Msg("item");
+var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+var Util = GameUI.CustomUIConfig().Util;
+
+
 var maxXOffset = 200;
 var maxYOffset = 200;
 
@@ -6,7 +9,7 @@ function ItemCheck()
 {
   var wp = $.GetContextPanel().WorldPanel;
   var offScreen = $.GetContextPanel().OffScreen;
-  if (!offScreen && wp){
+  if (!offScreen && wp && Entities.IsItemPhysical(wp.entity)){
     var ent = wp.entity;
     if (ent){
       $.GetContextPanel().SetHasClass("Hide", GameUI.IsAltDown() == false)
@@ -24,7 +27,11 @@ function ItemCheck()
         $.GetContextPanel().SetHasClass("Transition", transConstr);
       }
 
-      $("#ItemNameLabel").text = $.Localize("DOTA_Tooltip_ability_" + wp.data["name"]);
+      var itemData = PlayerTables.GetTableValue("items", parseInt(wp.data["item_entity"]));
+      if (itemData) {
+        $("#ItemNameLabel").AddClass("Rarity" + itemData.rarity);
+        $("#ItemNameLabel").text = Util.SpanString($.Localize("DOTA_Tooltip_ability_" + wp.data["name"]), "Rarity" + itemData.rarity);
+      }
     }
   }
 
@@ -48,16 +55,13 @@ function Hover()
   var offScreen = $.GetContextPanel().OffScreen;
   var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
   if (!offScreen && wp) {
-    GameUI.CustomUIConfig().ItemShowTooltip($.GetContextPanel(), parseInt(wp.data["item_entity"]), queryUnit);
-    // GameEvents.SendEventClientSide( "ziv_open_side_item_desc", { "entity": wp.entity, "name": wp.data["name"] } );
+    // GameUI.CustomUIConfig().ShowItemTooltip($.GetContextPanel(), parseInt(wp.data["item_entity"]));
   }
 }
 
 function Leave()
 {
-  var wp = $.GetContextPanel().WorldPanel;  
-  GameUI.CustomUIConfig().ItemHideTooltip($.GetContextPanel(), parseInt(wp.data["item_entity"]));
-  //GameEvents.SendEventClientSide( "ziv_close_side_item_desc", null);
+  // GameUI.CustomUIConfig().HideItemTooltip($.GetContextPanel());
 }
 
 (function()

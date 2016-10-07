@@ -158,7 +158,7 @@ function CreateItemPanel( item_container )
         name = item_container:GetContainedItem():GetName(), 
         item_entity = item_container:GetContainedItem():GetEntityIndex() 
       },
-      entityHeight = 100,
+      entityHeight = 150,
     })
 end
 

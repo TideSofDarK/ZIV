@@ -17,20 +17,90 @@ var entities = [];
 // panel deletion call?
 // Delete call to server for cleanup
 
-function Position( wp, k )
+function WorldPanelChange(id, changes, dels)
 {
+  //$.Msg("change ", id, ' -- ', changes, ' -- ', dels);
+  for (var k in changes){
+    var wp = panels[k];
+    if (!wp){
+      wp = {};
+      panels[k] = wp;
+    }
+
+    if (changes[k].layout !== wp.layout){
+      if (wp.panel)
+        wp.panel.DeleteAsync(0);
+
+      wp.panel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
+      wp.panel.BLoadLayout(changes[k].layout, false, false);
+      wp.panel.WorldPanel = wp;
+      wp.panel.OnEdge = false;
+      wp.panel.OffScreen = false;
+      wp.panel.Data = wp.data;
+      wp.panel.DeleteWorldPanel = function(pan){ 
+        return function(){
+          pan.DeleteAsync(0);
+          delete panels[k];
+        }
+      }(wp.panel);
+
+    }
+
+    for (j in changes[k]){
+      if (j == "position"){
+        wp[j] = changes[k][j].split(' ');
+        wp[j] = [parseFloat(wp[j][0]), parseFloat(wp[j][1]), parseFloat(wp[j][2])]
+      }
+      else if (j == "data"){
+        wp.panel.Data = changes[k][j];
+        wp[j] = changes[k][j];
+      }
+      else
+        wp[j] = changes[k][j];
+    }
+    
+    //wp.dirty = true;
+    wp.offsetX = wp.offsetX || 0;
+    wp.offsetY = wp.offsetY || 0;
+    wp.entityHeight = wp.entityHeight || 0;
+    wp.hAlign = wp.hAlign || HA_CENTER;
+    wp.vAlign = wp.vAlign || VA_BOTTOM;
+    wp.edge = wp.edge || -1;
+    wp.seen = wp.entity ? Entities.IsValidEntity(wp.entity) : null;
+
+  }
+
+  for (var k in dels){
+    panels[k].panel.DeleteAsync(0);
+    delete panels[k];
+  }
+}
+
+function PositionPanels()
+{
+  //$.Msg(Object.keys(panels).length);
+  for (var k in panels){
+    var wp = panels[k];
     var pos = wp.position;
     if (!pos){
       if (!Entities.IsValidEntity(wp.entity)){
-        panels[k].panel.DeleteAsync(0);
-        delete panels[k];
-        return
+        if (wp.seen){
+          panels[k].panel.DeleteAsync(0);
+          delete panels[k];
+          continue;
+        }
+        else{
+          continue;
+        }
       }
+
+
+      wp.seen = true;
 
       pos = Entities.GetAbsOrigin(wp.entity);
       if (entities.indexOf(wp.entity) === -1){
         wp.panel.visible = false;
-        return
+        continue;
       }
       wp.panel.visible = true;
 
@@ -141,189 +211,14 @@ function Position( wp, k )
     {
       wp.panel.visible = true;  
     }
+
     
     wp.panel.style.position = x + "px " + y + "px 0px;";
-    
-    wp.panel.X = x;
-    wp.panel.Y = y;
-}
 
-function UpdateParams( panel )
-{
-    var sh = GameUI.CustomUIConfig().screenheight;
-    var scale = 1080 / sh;
-
-    panel.X = panel.actualxoffset * scale;
-    panel.Y = panel.actualyoffset * scale;
-
-    panel.Width = panel.actuallayoutwidth * scale;
-    panel.Height = panel.actuallayoutheight * scale;
-}
-
-function WorldPanelChange(id, changes, dels)
-{
-  //$.Msg("change ", id, ' -- ', changes, ' -- ', dels);
-  for (var k in changes){
-    var wp = panels[k];
-    if (!wp){
-      wp = {};
-      panels[k] = wp;
-    }
-
-    if (changes[k].layout !== wp.layout){
-      if (wp.panel)
-        wp.panel.DeleteAsync(0);
-
-      wp.panel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
-      wp.panel.BLoadLayout(changes[k].layout, false, false);
-      wp.panel.WorldPanel = wp;
-      wp.panel.Data = wp.data;
-      wp.panel.OnEdge = false;
-      wp.panel.OffScreen = false;
-
-      wp.panel.X = 0;
-      wp.panel.Y = 0;
-
-      wp.panel.DeleteWorldPanel = function(pan){ 
-        return function(){
-          pan.DeleteAsync(0);
-          delete panels[k];
-        }
-      }(wp.panel);
-
-      wp.Position = function() {
-        return function(){
-          Position(wp, k);
-        }
-      }(wp, k);
-
-      wp.panel.UpdateParams = function() {
-        return function(){
-          UpdateParams(wp.panel);
-        }
-      }(wp.panel);
-
-      wp.panel.UpdateParams();
-    }
-
-    for (j in changes[k]){
-      if (j == "position"){
-        wp[j] = changes[k][j].split(' ');
-        wp[j] = [parseFloat(wp[j][0]), parseFloat(wp[j][1]), parseFloat(wp[j][2])]
-      }
-      else
-        wp[j] = changes[k][j];
-    }
-    
-    //wp.dirty = true;
-    wp.offsetX = wp.offsetX || 0;
-    wp.offsetY = wp.offsetY || 0;
-    wp.entityHeight = wp.entityHeight || 0;
-    wp.hAlign = wp.hAlign || HA_CENTER;
-    wp.vAlign = wp.vAlign || VA_BOTTOM;
-    wp.edge = wp.edge || -1;
-
+    //$.Msg(k, ' -- ', pw, ' -- ', ph);
+    //var x = scale * Math.min(sw - panel.desiredlayoutwidth,Math.max(0, wx - panel.desiredlayoutwidth/2));
+    //var y = scale * Math.min(sh - panel.desiredlayoutheight,Math.max(0, wy - panel.desiredlayoutheight - 50));
   }
-
-  for (var k in dels){
-    panels[k].panel.DeleteAsync(0);
-    delete panels[k];
-  }
-}
-
-//-----------------------------------------------------------------------------
-// Panels reposition
-//-----------------------------------------------------------------------------
-var positionPanels = [];
-
-function IsInside( checkElem, elem )
-{
-    var lt_c = { x: checkElem.X, y: checkElem.Y };
-    var rb_c = { x: checkElem.X + checkElem.Width, y: checkElem.Y + checkElem.Height };
-
-    var lt = { x: elem.X, y: elem.Y };
-    var rb = { x: elem.X + elem.Width, y: elem.Y + elem.Height };
-    
-    return { 
-        x: rb.x - lt_c.x >= 0,
-        y: rb.y - lt_c.y >= 0
-    };
-}
-
-function RemoveIntersectsGrid( checkElem, elem )
-{
-    var isInside = IsInside( checkElem, elem );
-    if (isInside.x && Math.abs(checkElem.Y - elem.Y) < 2)
-    {
-        var newPosX = elem.X + elem.Width;
-      
-        var offset = Math.floor(checkElem.TopOffset + (checkElem.Row - checkElem.TopRow) * checkElem.Height);
-        offset = isNaN(offset) ? 0 : offset
-
-        checkElem.style.position = parseInt(newPosX) + "px " + parseInt(offset) + "px 0px;";
-
-        checkElem.UpdateParams();
-    }
-}
-
-function CheckElement( elem )
-{
-    var index = positionPanels.indexOf(elem);
-    positionPanels.forEach(function(item, i, arr){
-        if (i >= index)
-            return;
-
-        RemoveIntersectsGrid( elem, item );
-    });
-}
-
-function RepositionItems()
-{
-    positionPanels = positionPanels.sort(function(a, b){
-        var rowA = Math.floor( a.Y / a.Height + ((a.Y % a.Height / a.Height > 0.5) ? 1 : 0) );
-        var rowB = Math.floor( b.Y / b.Height + ((b.Y % b.Height / b.Height > 0.5) ? 1 : 0) );
-
-        a.Row = rowA;
-        b.Row = rowB;
-
-        if (rowA == rowB)
-          return a.X < b.X ? -1 : 1;
-
-        return rowA < rowB ? -1 : 1;
-    });
-
-    positionPanels.forEach(function(item, i, arr) {
-        item.TopOffset = positionPanels[0].Y;
-        item.TopRow = positionPanels[0].Row;
-        var offset = Math.floor(item.TopOffset + (item.Row - item.TopRow) * item.Height);
-        offset = isNaN(offset) == true ? 0 : offset;
-        var x = !item.X || item.X == Infinity ? 0 : item.X;
-
-        item.style.position = parseInt(x) + "px " + parseInt(offset) + "px 0px;";
-        item.UpdateParams();
-    });
-
-    positionPanels.forEach(function(item, i, arr) {
-        CheckElement(item);
-    });
-    
-}
-
-function PositionPanels()
-{
-  positionPanels = [];
-
-  //$.Msg(Object.keys(panels).length);
-  for (var k in panels){
-    var wp = panels[k];
-    wp.Position();
-    wp.panel.UpdateParams();
- 
-    if (wp.panel.layoutfile.indexOf("item.xml") != -1)
-      positionPanels.push(wp.panel);
-  }
-
-  RepositionItems();
 
   $.Schedule(1/200, PositionPanels);
 }

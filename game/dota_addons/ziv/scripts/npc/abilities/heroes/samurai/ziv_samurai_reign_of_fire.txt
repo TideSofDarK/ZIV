@@ -19,6 +19,7 @@
     "particle"  "particles/heroes/samurai/samurai_fire_steps_a.vpcf"
     "particle" "particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
   }
   
   "AbilitySpecial"
@@ -26,7 +27,7 @@
     "01"
     {
       "var_type"            "FIELD_FLOAT"
-      "burn_damage_amp"            "0.12"
+      "burn_damage_amp"            "0.7"
     }
     "02"
     {
@@ -56,18 +57,18 @@
       {
         "AttachEffect"
         {
-          "EffectName"    "particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
+          "EffectName"        "particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
           "EffectAttachType"  "follow_overhead"
-          "Target"      "TARGET"
+          "Target"            "TARGET"
         }
       }
 
-      "ThinkInterval"  "1.0"
+      "ThinkInterval"         "1.0"
       "OnIntervalThink"
       {
         "RunScript"
         {
-          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_reign_of_fire.lua"
+          "ScriptFile"        "abilities/heroes/samurai/ziv_samurai_reign_of_fire.lua"
           "Function"          "OnDamageTick"
         }
       }
@@ -82,9 +83,9 @@
       {
         "RunScript"
         {
-          "ScriptFile"  "abilities/heroes/samurai/ziv_samurai_reign_of_fire.lua"
+          "ScriptFile"        "abilities/heroes/samurai/ziv_samurai_reign_of_fire.lua"
           "Function"          "OnDealDamage"
-          "Damage"  "%attack_damage"
+          "Damage"            "%attack_damage"
         }
       }
     }

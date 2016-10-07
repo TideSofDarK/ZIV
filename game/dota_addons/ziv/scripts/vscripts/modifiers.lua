@@ -6,7 +6,6 @@ for k,v in pairs(LoadKeyValues("scripts/npc/npc_items_custom.txt")) do
       _G[str].IsHidden = (function ()
         return true
       end)
-
       LinkLuaModifier(str, "modifiers.lua", LUA_MODIFIER_MOTION_NONE)
     end
   end

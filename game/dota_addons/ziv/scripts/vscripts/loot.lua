@@ -77,7 +77,10 @@ function Loot:CreateItem( position, owner )
 
 	local item = Items:Create(item_name, owner)
 
+	item.rarity = Loot.RARITY_COMMON
+
 	if item_type == Loot.TYPE_WEAPONS or item_type == Loot.TYPE_ARMOR then
+		print(item_type, item_name)
 		item.rarity = owner.loot_rarity_rng:Choose()
 
 		Loot:AddModifiers(item)

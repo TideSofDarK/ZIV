@@ -23,12 +23,12 @@
 		"01"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"damage_amp"			"1.1"
+			"damage_amp"			"0.7"
 		}
 		"02"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"bleeding_damage_amp"			"0.25"
+			"bleeding_damage_amp"			"0.1"
 		}
 		"03"
 		{

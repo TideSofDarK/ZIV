@@ -1,13 +1,12 @@
 function OnDamageTick( keys )
 	local caster = keys.caster
 	local target = keys.target
-
 	local ability = keys.ability
 
 	local damage = GetRuneDamage(caster, GetSpecial(ability, "burn_damage_amp"), "ziv_samurai_reign_of_fire_damage")
 
 	-- PopupCriticalDamage(target, damage)
-	DealDamage(target, target, damage, DAMAGE_TYPE_FIRE)
+	DealDamage(caster, target, damage, DAMAGE_TYPE_FIRE)
 end
 
 function OnDealDamage( keys )
@@ -17,7 +16,10 @@ function OnDealDamage( keys )
 
 	caster.OnDamageDealCallbacks = caster.OnDamageDealCallbacks or {}
 	table.insert(caster.OnDamageDealCallbacks, function (target)
-		ability:ApplyDataDrivenModifier(caster,target,"modifier_reign_of_fire_burn", {})
+		if target:HasModifier("modifier_reign_of_fire_burn") == false then
+			target:EmitSound("Hero_Huskar.Burning_Spear")
+			ability:ApplyDataDrivenModifier(caster,target,"modifier_reign_of_fire_burn", {})
+		end
 	end)
 end
 
