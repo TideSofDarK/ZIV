@@ -18,7 +18,7 @@ function modifier_creep_lord_tanky:DeclareFunctions()
   return funcs
 end
 function modifier_creep_lord_tanky:GetModifierExtraHealthPercentage()
-  return 20
+  return 1.5
 end
 --------------------------------------------------------------------------------
 LinkLuaModifier("modifier_creep_lord_tanky", "abilities/modifiers/ziv_creep_lord_tanky.lua", LUA_MODIFIER_MOTION_NONE)

@@ -295,7 +295,7 @@ function UpdateCanvas() {
 
 	//var mapImage = "'https://puu.sh/rzAer/92feb69948.png'";
 	$("#FogMap").SetURL('http://ec2-54-93-180-157.eu-central-1.compute.amazonaws.com/test_minimap/minimap.html');
-	$.Schedule(0.1, function(){
+	$.Schedule(2.0, function(){
 		$("#FogMap").RunJavascript('LoadImage("https://puu.sh/rzAer/92feb69948.png");');  
 	});
 })();

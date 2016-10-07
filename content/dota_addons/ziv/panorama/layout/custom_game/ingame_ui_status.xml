@@ -8,10 +8,10 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_status.js" />
 		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
-	<Panel class="Window StatusRoot Hide BasicShadow" hittestchildren="true" draggable="true">
+	<Panel class="Window StatusRoot BasicShadow WindowAnimation WindowClosed" hittestchildren="true" draggable="true">
 		<Panel class="StatusInfo">
-			<Panel id="hires">
-				<Label id="HeroNameLabel" text="Name">
+			<Panel id="HiRes">
+				<Label id="HeroNameLabel" text="Name" html="true">
 				</Label>
 			</Panel>
 			
@@ -22,11 +22,11 @@
 			</Panel>
 
 			<Panel id="Attributes" hittest="true">
-				<Label class="Attribute" id="Str" text="40">
+				<Label class="Attribute" id="Str" text="">
 				</Label>
-				<Label class="Attribute" id="Agi" text="40">
+				<Label class="Attribute" id="Agi" text="">
 				</Label>
-				<Label class="Attribute" id="Int" text="20">
+				<Label class="Attribute" id="Int" text="">
 				</Label>
 			</Panel>
 
@@ -62,7 +62,7 @@
 
 		<Panel id="Foreground" hittest="false"/>
 
-		<Button onactivate="CloseButton()" class="CloseButton" id="CloseButton">
+		<Button onactivate="Toggle()" class="CloseButton" id="CloseButton">
 		</Button>
 	</Panel>
 </root>

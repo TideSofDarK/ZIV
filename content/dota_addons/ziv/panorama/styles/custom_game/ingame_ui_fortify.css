@@ -12,6 +12,14 @@ DOTAItemImage {
 	height: 419px;
 }
 
+.CloseButton {
+	width: 45px;
+	height: 46px;
+
+	margin: 4px;
+	margin-top: 2px;
+}
+
 #FortifyOKButton {
 	horizontal-align: center;
 	vertical-align: bottom;

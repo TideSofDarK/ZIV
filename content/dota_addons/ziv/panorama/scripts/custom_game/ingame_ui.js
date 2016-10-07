@@ -145,7 +145,7 @@ function OpenEquipment() {
 	GameEvents.SendEventClientSide( "ziv_open_equipment", {} );
 }
 
-function OpenFortifyWindow() {
+function ToggleFortifyWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_fortify", {} );
 }
 
@@ -153,7 +153,7 @@ function OpenCraftingWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_crafting", {} );
 }
 
-function OpenStatusWindow() {
+function ToggleStatusWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_status", {} );
 }
 
@@ -165,7 +165,7 @@ function OpenCraftingWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_crafting", {} );
 }
 
-function OpenSettingsWindow() {
+function ToggleSettingsWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_settings", {} );
 }
 

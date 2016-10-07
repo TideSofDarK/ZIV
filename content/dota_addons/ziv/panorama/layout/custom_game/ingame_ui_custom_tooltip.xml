@@ -136,22 +136,23 @@
 
                     if (itemData.built_in_modifiers && Object.keys( itemData.built_in_modifiers ).length >= 1)
                     {
+                        $.Msg(itemData.built_in_modifiers);
                         AddCBR(itemTooltip);
 
                         var i = 0;
                         for (var key in itemData.built_in_modifiers)
                         {
-                            var value = itemData.built_in_modifiers[key];
+                            for (var modifier in itemData.built_in_modifiers[key]) {
+                                var value = itemData.built_in_modifiers[key][modifier];
 
-                            var specialLabel = $.CreatePanel( "Label", itemTooltip, "ItemTooltipSpecial" + i);
-                            specialLabel.AddClass("TooltipLabel");
-                            specialLabel.html = true;
+                                var specialLabel = $.CreatePanel( "Label", itemTooltip, "ItemTooltipSpecial" + i);
+                                specialLabel.AddClass("TooltipLabel");
+                                specialLabel.html = true;
 
-                            var finalValue = value;
+                                specialLabel.text = Util.ColorString("+ " + value,"#ffffff") + " " + $.Localize(modifier);
 
-                            specialLabel.text = Util.ColorString("+ " + finalValue,"#ffffff") + " " + $.Localize(key);
-
-                            i = i + 1;
+                                i = i + 1;
+                            }
                         }
                     }
 

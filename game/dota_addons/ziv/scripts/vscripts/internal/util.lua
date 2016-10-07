@@ -92,14 +92,14 @@ function DoToUnitsInRadius( caster, position, radius, target_team, target_type, 
   end
 end
 
-function GetRandomElement(list, checker)
+function GetRandomElement(list, checker, return_key)
   local new_table = {}
 
   for k,v in pairs(list) do
     if (checker and checker(v) == false) then
 
     else
-      table.insert(new_table, v)
+      new_table[k] = v
     end
   end
 
@@ -109,6 +109,9 @@ function GetRandomElement(list, checker)
   
   for k,v in pairs(new_table) do
     if i == seed then
+      if return_key then
+        return k
+      end
       return v
     end
     i = i + 1
@@ -133,6 +136,18 @@ function Shuffle(list)
     end
 
     return shuffled
+end
+
+function GetTableKeys(t)
+  local keyset={}
+  local n=0
+
+  for k,v in pairs(t) do
+    n=n+1
+    keyset[n]=k
+  end
+
+  return keyset
 end
 
 function CreateItemPanel( item_container )

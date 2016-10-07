@@ -17,7 +17,7 @@
 	flow-children: down;
 }
 
-#hires {
+#HiRes {
 	width: 458px;
 	height: 220px;
 
@@ -62,7 +62,7 @@
 	box-shadow: #00000000 0px 0px 0px 0.0;
 	background-color: transparent;
 
-	font-size: 18px;
+	font-size: 16px;
 	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	color: White;
 
@@ -77,31 +77,35 @@
 	height: 1px;
 
 	/*background-color: #333333;*/
-	border-top: 1px solid #333333;
+	border-top: 1px solid #33333300;
 	margin-top: -1px;
 
 	flow-children: none;
 }
 
 .Attribute {
-	width: 75px;
+	width: 100px;
+	height: 72px;
 
+	line-height: 55px;
 	text-align: center; 
-	line-height: 85px;
 
-	font-size: 28px;
+	font-size: 31px;
 	font-family: Goudy Trajan Regular,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	font-weight: bold;
 	color: White;
 
 	background-color: transparent;
 	background-repeat: no-repeat; 
-	background-position: left 19px center -35px;
+	background-position: left 0px center -19px;
 	background-size: 37px 37px;
 
-	margin-left: 130px;
-	margin-right: 130px;
-	vertical-align: bottom;
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+#AttributesHeadline {
+	margin-top: 5px;
 }
 
 #Attributes {
@@ -156,6 +160,8 @@
 	width: 41px;
 	height: 42px;
 	margin: 5px;
+	margin-right: 5px;
+	margin-top: 4px;
 }
 
 #Foreground {

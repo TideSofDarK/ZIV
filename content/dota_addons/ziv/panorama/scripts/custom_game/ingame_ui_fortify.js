@@ -32,7 +32,7 @@ function OnDragDrop(panelId, draggedPanel) {
 	} else {
 		var itemKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
 		if (itemKV) {
-			var plus = "+" + itemKV["FortifyModifiersCount"] + " " + $.Localize(itemName + "_fortify_string");
+			var plus = "+ " + itemKV["FortifyModifiersCount"] + " " + $.Localize(itemName + "_fortify_string");
 			if (itemName.indexOf( "item_rune_" ) !== -1) {
 				for (var key in itemKV["FortifyModifiers"]) {
 					var minValue = itemKV["FortifyModifiers"][key]["min"];
@@ -94,8 +94,8 @@ function GetModifiers(table) {
 		if (modifiers) {
 			for (var gem in modifiers) {
 				for (var modifier in modifiers[gem]) {
-					var span = "<span class=\"" + modifiers[gem]["gem"] + "\">";
-					var endSpan = "</span>";
+					var span = ""; //"<span class=\"" + modifiers[gem]["gem"] + "\">";
+					var endSpan = "";//"</span>";
 					if (modifier != "gem") { 
 						newText = newText + span + "+ " + Math.abs(Util.ConvertValue(modifier, 0, modifiers[gem][modifier], true)) + " " + $.Localize(modifier) + endSpan +"<br>";
 					}
@@ -138,25 +138,14 @@ function OKButton() {
 	}
 }
 
-function CloseButton() {
-	$.GetContextPanel().RemoveFromPanelsQueue();
-
-	$.GetContextPanel().ToggleClass("Hide", true);
-
-	$("#FortifyTool").currentItem = undefined;
-	$("#FortifyItem").currentItem = undefined;
-	if ($("#FortifyToolImage")) {
-		$("#FortifyToolImage").DeleteAsync(0);
+function Toggle() {
+	$.GetContextPanel().ToggleClass("WindowClosed");
+	if ($.GetContextPanel().BHasClass("WindowClosed")) {
+		$.GetContextPanel().RemoveFromPanelsQueue();
+	} else {
+		$.GetContextPanel().AddToPanelsQueue();
 	}
-	if ($("#FortifyItemImage")) {
-		$("#FortifyItemImage").DeleteAsync(0);
-	}
-}
 
-function Open() {
-	$.GetContextPanel().AddToPanelsQueue();
-
-	$.GetContextPanel().SetHasClass("Hide", false);
 	if ($("#FortifyToolImage")) {
 		$("#FortifyToolImage").DeleteAsync( 0.0 );
 		$("#FortifyTool").currentItem = undefined;
@@ -167,12 +156,14 @@ function Open() {
 	}
 	if ($("#FortifyTextBlockLabel")) {
 		$("#FortifyTextBlockLabel").text = $.Localize("dragfortify");
+		$("#FortifyTextBlockLabel").temp_text = "";
+		$("#FortifyTextBlockLabel").temp_gem_text = "";
 	}
 }
 
 (function() {
 	GameEvents.Subscribe( "ziv_fortify_item_result", GetModifiers );
-	GameEvents.Subscribe( "ziv_open_fortify", Open );
+	GameEvents.Subscribe( "ziv_open_fortify", Toggle );
 
 	$.GetContextPanel().SetDraggable( true );
 

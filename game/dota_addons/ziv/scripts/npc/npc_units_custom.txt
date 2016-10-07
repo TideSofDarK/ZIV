@@ -1232,11 +1232,56 @@
 	    "VisionDaytimeRange"    "525"
 	    "VisionNighttimeRange"    "525"
 	} 
+	
+	"npc_creep_demon_greevil_a"
+	{
+	    "BaseClass"         "npc_dota_creature"
+	    "SoundSet"  "n_creep_skeleton_melee"
+	    
+	    "HealthBarOffset"   "200"
+	    "Model"           "models/courier/greevil/greevil.vmdl"
+	    "ModelScale"    "1.4"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "1"
+	    "AttackDamageMax"     "3"
+	    "AttackRate"                "0.9"
+	    "AttackAnimationPoint"      "0.33"
+	    "AttackAcquisitionRange"    "150"
+	    "AttackRange"   "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "360"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "525"
+	    "VisionNighttimeRange"    "525"
+	} 
 	"npc_creep_spider_webspinner"
 	{
 	    "BaseClass"                 "npc_dota_creature"
 	    "SoundSet"                  "Hero_BroodMother"                  
 	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+	
+	    "Group"                     "spiders_a"
 	    
 	    "HealthBarOffset"           "150"
 	    "Model"                     "models/heroes/broodmother/spiderling.vmdl"
@@ -1281,6 +1326,8 @@
 	    "BaseClass"                 "npc_dota_creature"
 	    "SoundSet"                  "Hero_BroodMother"                  
 	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+	
+	    "Group"                     "spiders_a"
 	    
 	    "HealthBarOffset"           "150"
 	    "Model"                     "models/items/broodmother/spiderling/perceptive_spiderling/perceptive_spiderling.vmdl"
@@ -1318,6 +1365,333 @@
 	
 	    "VisionDaytimeRange"        "525"
 	    "VisionNighttimeRange"      "525"
+	} 
+	
+	"npc_creep_spider_webspinner_b"
+	{
+	    "BaseClass"                 "npc_dota_creature"
+	    "SoundSet"                  "Hero_BroodMother"                  
+	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+	
+	    "Group"                     "spiders_b"
+	    
+	    "HealthBarOffset"           "150"
+	    "Model"                     "models/items/broodmother/spiderling/virulent_matriarchs_spiderling/virulent_matriarchs_spiderling.vmdl"
+	    "ModelScale"                "0.65"
+	    "Level"                     "1"
+	
+	    // "Ability1"                  "ziv_spider"
+	
+	    "ArmorPhysical"             "0"
+	    "MagicalResistance"         "0"
+	
+	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"           "1"
+	    "AttackDamageMax"           "3"
+	    "AttackRate"                "1"
+	    "AttackAnimationPoint"      "0.467"
+	    "AttackAcquisitionRange"    "400"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"                  "0"
+	    "BountyGoldMin"             "0"
+	    "BountyGoldMax"             "0"
+	
+	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"             "330"
+	    "MovementTurnRate"          "1.0"
+	    "FollowRange"               "250"
+	
+	    "StatusHealth"              "100"
+	    "StatusHealthRegen"         "0"
+	    "StatusMana"                "0"
+	    "StatusManaRegen"           "0"
+	
+	    "VisionDaytimeRange"        "525"
+	    "VisionNighttimeRange"      "525"
+	} 
+	
+	"npc_creep_spider_webspinner_c"
+	{
+	    "BaseClass"                 "npc_dota_creature"
+	    "SoundSet"                  "Hero_BroodMother"                  
+	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+	    
+	    "HealthBarOffset"           "150"
+	    "Model"                     "models/items/broodmother/spiderling/thistle_crawler/thistle_crawler.vmdl"
+	    "ModelScale"                "0.65"
+	    "Level"                     "1"
+	
+	    // "Ability1"                  "ziv_spider"
+	
+	    "ArmorPhysical"             "0"
+	    "MagicalResistance"         "0"
+	
+	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"           "1"
+	    "AttackDamageMax"           "3"
+	    "AttackRate"                "1"
+	    "AttackAnimationPoint"      "0.467"
+	    "AttackAcquisitionRange"    "400"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"                  "0"
+	    "BountyGoldMin"             "0"
+	    "BountyGoldMax"             "0"
+	
+	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"             "330"
+	    "MovementTurnRate"          "1.0"
+	    "FollowRange"               "250"
+	
+	    "StatusHealth"              "100"
+	    "StatusHealthRegen"         "0"
+	    "StatusMana"                "0"
+	    "StatusManaRegen"           "0"
+	
+	    "VisionDaytimeRange"        "525"
+	    "VisionNighttimeRange"      "525"
+	} 
+	
+	"npc_creep_spider_webspinner_d"
+	{
+	    "BaseClass"                 "npc_dota_creature"
+	    "SoundSet"                  "Hero_BroodMother"                  
+	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+	
+	    "Group"                     "spiders_b"
+	    
+	    "HealthBarOffset"           "150"
+	    "Model"                     "models/items/broodmother/spiderling/spiderling_dlotus_red/spiderling_dlotus_red.vmdl"
+	    "ModelScale"                "0.65"
+	    "Level"                     "1"
+	
+	    // "Ability1"                  "ziv_spider"
+	
+	    "ArmorPhysical"             "0"
+	    "MagicalResistance"         "0"
+	
+	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"           "1"
+	    "AttackDamageMax"           "3"
+	    "AttackRate"                "1"
+	    "AttackAnimationPoint"      "0.467"
+	    "AttackAcquisitionRange"    "400"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"                  "0"
+	    "BountyGoldMin"             "0"
+	    "BountyGoldMax"             "0"
+	
+	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"             "330"
+	    "MovementTurnRate"          "1.0"
+	    "FollowRange"               "250"
+	
+	    "StatusHealth"              "100"
+	    "StatusHealthRegen"         "0"
+	    "StatusMana"                "0"
+	    "StatusManaRegen"           "0"
+	
+	    "VisionDaytimeRange"        "525"
+	    "VisionNighttimeRange"      "525"
+	} 
+	
+	"npc_creep_spider_webspinner_e"
+	{
+	    "BaseClass"                 "npc_dota_creature"
+	    "SoundSet"                  "Hero_BroodMother"                  
+	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+	    
+	    "HealthBarOffset"           "150"
+	    "Model"                     "models/items/broodmother/spiderling/araknarok_broodmother_araknarok_spiderling/araknarok_broodmother_araknarok_spiderling.vmdl"
+	    "ModelScale"                "0.65"
+	    "Level"                     "1"
+	
+	    // "Ability1"                  "ziv_spider"
+	
+	    "ArmorPhysical"             "0"
+	    "MagicalResistance"         "0"
+	
+	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"           "1"
+	    "AttackDamageMax"           "3"
+	    "AttackRate"                "1"
+	    "AttackAnimationPoint"      "0.467"
+	    "AttackAcquisitionRange"    "400"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"                  "0"
+	    "BountyGoldMin"             "0"
+	    "BountyGoldMax"             "0"
+	
+	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"             "330"
+	    "MovementTurnRate"          "1.0"
+	    "FollowRange"               "250"
+	
+	    "StatusHealth"              "100"
+	    "StatusHealthRegen"         "0"
+	    "StatusMana"                "0"
+	    "StatusManaRegen"           "0"
+	
+	    "VisionDaytimeRange"        "525"
+	    "VisionNighttimeRange"      "525"
+	} 
+	
+	"npc_creep_spider_webspinner_f"
+	{
+	    "BaseClass"                 "npc_dota_creature"
+	    "SoundSet"                  "Hero_BroodMother"                  
+	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+	    
+	    "HealthBarOffset"           "150"
+	    "Model"                     "models/items/broodmother/spiderling/amber_queen_spiderling_2/amber_queen_spiderling_2.vmdl"
+	    "ModelScale"                "0.65"
+	    "Level"                     "1"
+	
+	    // "Ability1"                  "ziv_spider"
+	
+	    "ArmorPhysical"             "0"
+	    "MagicalResistance"         "0"
+	
+	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"           "1"
+	    "AttackDamageMax"           "3"
+	    "AttackRate"                "1"
+	    "AttackAnimationPoint"      "0.467"
+	    "AttackAcquisitionRange"    "400"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"                  "0"
+	    "BountyGoldMin"             "0"
+	    "BountyGoldMax"             "0"
+	
+	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"             "330"
+	    "MovementTurnRate"          "1.0"
+	    "FollowRange"               "250"
+	
+	    "StatusHealth"              "100"
+	    "StatusHealthRegen"         "0"
+	    "StatusMana"                "0"
+	    "StatusManaRegen"           "0"
+	
+	    "VisionDaytimeRange"        "525"
+	    "VisionNighttimeRange"      "525"
+	} 
+	"npc_creep_tribe_warrior"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"              "Creep_Good_Range"
+	
+	    "Group"                 "tribe_warriors"
+	    "Colors"
+	    {
+	        "Color1"                 "60;179;113"
+	        "Color2"                 "132;205;139"
+	        "Color3"                 "0;128;128"
+	        "Color4"                 "128;128;0"
+	    }
+	    
+	    "HealthBarOffset"   "200"
+	    "Model"           "models/creeps/item_creeps/i_creep_necro_warrior/necro_warrior.vmdl"
+	    "ModelScale"    "0.6"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "1"
+	    "AttackDamageMax"     "3"
+	    "AttackRate"                "0.75"
+	    "AttackAnimationPoint"      "0.56"
+	    "AttackAcquisitionRange"    "150"
+	    "AttackRange"   "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "330"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "525"
+	    "VisionNighttimeRange"    "525"
+	} 
+	
+	"npc_creep_tribe_archer"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"              "Creep_Good_Range"
+	
+	    "Group"                 "tribe_warriors"
+	    "Colors"
+	    {
+	        "Color1"                 "124;252;0"
+	        "Color2"                 "135;206;235"
+	        "Color3"                 "188;143;143"
+	        "Color4"                 "20;240;30"
+	    }
+	
+	    "HealthBarOffset"   "200"
+	    "Model"           "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
+	    "ModelScale"    "0.6"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "3"
+	    "AttackDamageMax"     "7"
+	    "AttackRate"                "1"
+	    "AttackAnimationPoint"      "0.7"
+	    "AttackAcquisitionRange"    "700"
+	    "AttackRange"               "450"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "330"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "100"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "525"
+	    "VisionNighttimeRange"    "525"
 	} 
 	"npc_creep_undead_skeleton"
 	{

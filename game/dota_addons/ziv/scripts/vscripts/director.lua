@@ -129,6 +129,30 @@ function Director:GetRandomCreep(prefix)
 	end
 end
 
+function Director:GetRandomGroupCreep(creep)
+	local creeps = Director:GetCreeps("creep")
+
+	local new_table = {}
+
+	for k,v in pairs(Director.creep_list) do
+		if ZIV.UnitKVs[k] and ZIV.UnitKVs[creep] then
+			if ZIV.UnitKVs[k]["Group"] == ZIV.UnitKVs[creep]["Group"] then
+				new_table[k] = v
+			end
+		end
+	end
+
+	local seed = math.random(1, GetTableLength(new_table))
+
+	local i = 1
+	for k,v in pairs(new_table) do
+		if i == seed then
+			return k
+		end
+		i = i + 1
+	end
+end
+
 -- SpawnBasic
 -- SpawnLord
 -- BasicModifier
@@ -206,7 +230,16 @@ function Director:SpawnCreeps( spawn_table )
 
 		local creep_name = Director:GetRandomCreep(spawn_table["Type"])
 
+		local group = ZIV.UnitKVs[creep_name]["Group"]
+		if group then
+			group = math.random(1,2) == 1
+		end
+
 		for i=1,count do 
+			if group then
+				creep_name = Director:GetRandomGroupCreep(creep_name)
+			end
+
 			local position = RandomPointInsideCircle(spawn_table["Position"][1], spawn_table["Position"][2], spawn_table["BasicSpread"] or Director.BASIC_PACK_SPREAD)
 
 			local spawn = true
@@ -271,6 +304,11 @@ function Director:SpawnCreeps( spawn_table )
 					end
 
 					InitAbilities(creep)
+
+					if ZIV.UnitKVs[creep:GetUnitName()]["Colors"] then
+						local color = KeyValues:Split(ZIV.UnitKVs[creep:GetUnitName()]["Colors"]["Color"..tostring(math.random(1,GetTableLength(ZIV.UnitKVs[creep:GetUnitName()]["Colors"])))], ";") 
+						creep:SetRenderColor(tonumber(color[1]), tonumber(color[2]), tonumber(color[3]))
+					end
 
 					if spawn_table.Table then --and type(spawn_table["Table"]) == "table"
 						table.insert(spawn_table.Table, creep)

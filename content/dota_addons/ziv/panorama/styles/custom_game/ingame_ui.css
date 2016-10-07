@@ -337,6 +337,10 @@
 	background-image: url('file://{images}/custom_game/ingame_ui/craft.png');
 }
 
+#FortifyButton:active {
+	wash-color: #bbbbbb;
+}
+
 #SettingsButton {
 	background-image: url('file://{images}/custom_game/ingame_ui/help.png');
 }

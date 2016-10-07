@@ -36,29 +36,29 @@
 	color: #4553B7;
 }
 
-/* 	0 - Common
-	1 - Magic
-	2 - Rare
-	3 - Legendary
-	4 - Epic */
+/* 	1 - Common
+	2 - Magic
+	3 - Rare
+	4 - Legendary
+	5 - Epic */
 
-.Rarity0 { 
+.Rarity1 { 
 	color: #ffffff;
 }
 
-.Rarity1 {
+.Rarity2 {
 	color: #3d50c5;
 }
 
-.Rarity2 {
+.Rarity3 {
 	color: #ffea00;
 }
 
-.Rarity3 {
+.Rarity4 {
 	color: #FFA500;
 }
 
-.Rarity4 {
+.Rarity5 {
 	color: #FF00FF;
 }
 

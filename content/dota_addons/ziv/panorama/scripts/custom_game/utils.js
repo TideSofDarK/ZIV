@@ -61,6 +61,8 @@ Util.RuneToItem = (function (modifier) {
 Util.ConvertValue = (function (modifier, originalValue, modifierValue, dontModify) {
     var itemKV = Util.RuneToItem(modifier);
 
+    if (!itemKV) return modifierValue;
+
     var tooltipType     = itemKV["Tooltip"];
     var modifierType    = itemKV["Type"];
     var modifyMethod    = itemKV["Method"];

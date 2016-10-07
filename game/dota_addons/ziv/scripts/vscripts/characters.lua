@@ -133,16 +133,16 @@ function Characters:InitCharacter( hero )
     hero:AddAbility("ziv_hero_normal_hpbar_behavior")
 
     hero:AddNewModifier(hero,nil,"modifier_disable_auto_attack",{})
-    hero:AddNewModifier(hero,nil,"modifier_smooth_floating",{duration = 5})
 
     InitAbilities(hero)
 
     Attributes:ModifyBonuses(hero)
 
     -- PseudoRNG stuff
-    hero.loot_rng = PseudoRNG.create( 0.5 )
-    hero.vial_rng = PseudoRNG.create( ZIV_VIAL_CHANCE )
-    hero.vial_choice_rng = ChoicePseudoRNG.create( {ZIV_HP_VIAL_CHANCE, ZIV_SP_VIAL_CHANCE} )
+    hero.loot_rng         = PseudoRNG.create( Loot.LOOT_CHANCE )
+    hero.loot_rarity_rng  = ChoicePseudoRNG.create( Loot.RARITY_CHANCES )
+    hero.vial_rng         = PseudoRNG.create( ZIV_VIAL_CHANCE )
+    hero.vial_choice_rng  = ChoicePseudoRNG.create( {ZIV_HP_VIAL_CHANCE, ZIV_SP_VIAL_CHANCE} )
 
     Characters.current_session_characters[hero:GetPlayerID()] = hero
 end

@@ -125,7 +125,7 @@
 }
 
 .WindowClosed {
-	transform: rotateX(6deg) translate3d( 0px, -100px, 0px );
+	transform: rotateX(6deg) translate3d( 0px, -75px, 0px );
 	blur: gaussian( 15.0 );
 	opacity: 0.0;
 }

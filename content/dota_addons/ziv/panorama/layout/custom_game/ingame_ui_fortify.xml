@@ -16,10 +16,10 @@
 			</Panel>
 		</snippet>
 	</snippets>
-	<Panel class="FortifyRoot Hide BasicShadow" hittest="true" draggable="true">
+	<Panel class="FortifyRoot BasicShadow WindowAnimation WindowClosed" hittest="true" draggable="true">
 		<Panel class="GenericBackground" id="Background"/>
 
-		<Button onactivate="CloseButton()" class="CloseButton">
+		<Button onactivate="Toggle()" class="CloseButton">
 		</Button>
 
 		<!-- <Image class='FortifyHammer' src="file://{images}/custom_game/ingame_ui/hammer.png"/> -->

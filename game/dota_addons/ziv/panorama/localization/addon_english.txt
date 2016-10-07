@@ -39,11 +39,11 @@
 
 	// Rarities
 	"rarity"										"Rarity: "
-	"rarity0" 										"Common"
-	"rarity1" 										"Magic"
-	"rarity2" 										"Rare"
-	"rarity3" 										"Legendary"
-	"rarity4" 										"Epic"
+	"rarity1" 										"Common"
+	"rarity2" 										"Magic"
+	"rarity3" 										"Rare"
+	"rarity4" 										"Legendary"
+	"rarity5" 										"Epic"
 
 	// Slots
 	"slot"											"Slot: "
@@ -72,7 +72,7 @@
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "to move speed"
 	"MODIFIER_PROPERTY_EVASION_CONSTANT" "to evasion rating"
 	"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "to agility"
-	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "to intellect"
+	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "to intelligence"
 	"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "to strength"
 	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "to armor"
 	"MODIFIER_PROPERTY_STATS_ALL_BONUS" "to all stats"
@@ -107,8 +107,8 @@
 	"ziv_huntress_volley_damage"					"to Volley damage"
 
 	"ziv_samurai_whirlwind_damage"					"to Whirlwind damage"
-	"ziv_samurai_whirlwind_aoe"						"to Whirldwind radius"
-	"ziv_samurai_whirlwind_ms"						"to Whirldwind move speed"
+	"ziv_samurai_whirlwind_aoe"						"to Whirlwind radius"
+	"ziv_samurai_whirlwind_ms"						"to Whirlwind move speed"
 	"ziv_samurai_execution_cd"						"to Execution speed"
 	"ziv_samurai_execution_aoe"						"to Execution radius"
 	"ziv_samurai_execution_knockback_chance"		"% chance to knockback"

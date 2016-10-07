@@ -8,10 +8,8 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_settings.js" />
 		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
-	<Panel class="SettingsRoot Hide BasicShadow" hittest="true" draggable="true">
+	<Panel class="SettingsRoot BasicShadow WindowAnimation WindowClosed" hittest="true" draggable="true">
 		<Panel class="GenericBackground" id="Background"/>
-
-		<Button onactivate="CloseButton()" class="CloseButton" id="CloseButton" />
 
 		<Panel id="Checkboxes">
 			<DOTASettingsCheckbox id="CustomSettingDamage" text="#settings_damage" onactivate="CustomSettingDamage()" />

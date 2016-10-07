@@ -263,7 +263,6 @@ function ZIV:OnEntityKilled( keys )
   local damagebits = keys.damagebits -- This might always be 0 and therefore useless
 
   if killedUnit:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not killedUnit.no_loot then
-    -- PopupNumbers(killedUnit, "heal", Vector(215, 50, 248), 1.0, killedUnit:GetDeathXP(), nil, nil)
     Loot:Generate( killedUnit, attackerUnit )
   end
 

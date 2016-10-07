@@ -2,108 +2,203 @@ if Loot == nil then
     _G.Loot = class({})
 end
 
-Loot.RARITY_COMMON = 0
-Loot.RARITY_MAGIC = 1
-Loot.RARITY_RARE = 2
-Loot.RARITY_EPIC = 3
-Loot.RARITY_LEGENDARY = 4
+Loot.TYPE_PARTS 						= 1
+Loot.TYPE_WEAPONS 						= 2
+Loot.TYPE_ARMOR 						= 3
+Loot.TYPE_SOCKETING 					= 4
+
+Loot.TYPE_CHANCES 						= {}
+Loot.TYPE_CHANCES[Loot.TYPE_PARTS] 		= 0.4
+Loot.TYPE_CHANCES[Loot.TYPE_WEAPONS] 	= 0.3
+Loot.TYPE_CHANCES[Loot.TYPE_ARMOR] 		= 0.2
+Loot.TYPE_CHANCES[Loot.TYPE_SOCKETING] 	= 0.1
+
+Loot.RARITY_COMMON 						= 1
+Loot.RARITY_MAGIC 						= 2
+Loot.RARITY_RARE 						= 3
+Loot.RARITY_EPIC 						= 4
+Loot.RARITY_LEGENDARY 					= 5
+
+Loot.LOOT_CHANCE 						= 0.1
+
+Loot.RARITY_CHANCES = {}
+Loot.RARITY_CHANCES[Loot.RARITY_COMMON] 	= 0.6
+Loot.RARITY_CHANCES[Loot.RARITY_MAGIC] 		= 0.2
+Loot.RARITY_CHANCES[Loot.RARITY_RARE] 		= 0.04
+Loot.RARITY_CHANCES[Loot.RARITY_EPIC] 		= 0.02
+Loot.RARITY_CHANCES[Loot.RARITY_LEGENDARY] 	= 0.001
 
 Loot.RARITY_PARTICLES = {}
-Loot.RARITY_PARTICLES[Loot.RARITY_MAGIC] = "particles/items/ziv_chest_light_magic.vpcf"
-Loot.RARITY_PARTICLES[Loot.RARITY_RARE] = "particles/items/ziv_chest_light_rare.vpcf"
-Loot.RARITY_PARTICLES[Loot.RARITY_EPIC] = "particles/items/ziv_chest_light_epic.vpcf"
-Loot.RARITY_PARTICLES[Loot.RARITY_LEGENDARY] = "particles/items/ziv_chest_light_legendary.vpcf"
+Loot.RARITY_PARTICLES[Loot.RARITY_MAGIC] 			= "particles/items/ziv_chest_light_magic.vpcf"
+Loot.RARITY_PARTICLES[Loot.RARITY_RARE] 			= "particles/items/ziv_chest_light_rare.vpcf"
+Loot.RARITY_PARTICLES[Loot.RARITY_EPIC] 			= "particles/items/ziv_chest_light_epic.vpcf"
+Loot.RARITY_PARTICLES[Loot.RARITY_LEGENDARY] 		= "particles/items/ziv_chest_light_legendary.vpcf"
 
-Loot.CHEST_MODELS = {}
-Loot.CHEST_MODELS[1] = "item_basic_chest_lockjaw"
-Loot.CHEST_MODELS[2] = "item_basic_chest_flopjaw"
-Loot.CHEST_MODELS[3] = "item_basic_chest_mechjaw"
-Loot.CHEST_MODELS[4] = "item_basic_chest_trapjaw"
+Loot.CHEST_MODELS 		= {}
+Loot.CHEST_MODELS[1] 	= "item_basic_chest_lockjaw"
+Loot.CHEST_MODELS[2] 	= "item_basic_chest_flopjaw"
+Loot.CHEST_MODELS[3] 	= "item_basic_chest_mechjaw"
+Loot.CHEST_MODELS[4] 	= "item_basic_chest_trapjaw"
 
-Loot.CommonModifiers = {}
-Loot.RuneModifiers = {}
+Loot.CommonModifiers	= {}
+Loot.RuneModifiers 		= {}
 
-Loot.Table = LoadKeyValues('scripts/kv/LootTable.kv')
-
-function IsItemDropped( chance )
-  return math.random(100) < chance
-end
+Loot.Table = {}
 
 function Loot:Init()
-	for k,v in pairs(ZIV.AbilityKVs["ziv_passive_hero"]["Modifiers"]) do
-		if string.match(k, "MODIFIER_PROPERTY") then
-			Loot.CommonModifiers[k] = v
-		elseif string.match(k, "ziv_") then
-			Loot.RuneModifiers[k] = v
+	-- All droppable items
+	for type,keywords in pairs(LoadKeyValues('scripts/kv/LootTable.kv')) do
+		for keyword,_ in pairs(keywords) do
+			for k,v in pairs(ZIV.ItemKVs) do
+				if string.match(k, keyword) then
+					Loot.Table[type] = Loot.Table[type] or {}
+					Loot.Table[type][k] = v
+				end
+			end
+		end
+	end
+	-- All custom modifiers
+	for k,v in pairs(ZIV.ItemKVs) do
+		if v["FortifyModifiers"] then
+			for modifier,modifier_table in pairs(v["FortifyModifiers"]) do	
+				if string.match(string.lower(modifier), "ziv_") then
+					Loot.RuneModifiers[modifier] = modifier_table
+				else
+					Loot.CommonModifiers[modifier] = modifier_table
+				end
+			end
 		end
 	end
 end
 
-function Loot:CreateChest( pos, rarity )
-	local chest = CreateItemOnPositionSync(pos, Items:Create(Loot.CHEST_MODELS[math.random(1, GetTableLength(Loot.CHEST_MODELS))], nil))
-	CreateItemPanel( chest )
-	chest.rarity = rarity or (math.random(0, 4))
+function Loot:CreateItem( position, owner )
+  	local item_type = ChoicePseudoRNG.create( Loot.TYPE_CHANCES ):Choose()
+  	local item_name = GetRandomElement(Loot.Table[tostring(item_type)], false, true)
 
-	chest:SetAngles(0, math.random(0, 360), 0)
-	Timers:CreateTimer(function (  )
-		local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[chest.rarity], PATTACH_ABSORIGIN_FOLLOW, chest)
-		ParticleManager:SetParticleControl(particle, 0, chest:GetAbsOrigin())
+	local item = Items:Create(item_name, owner)
 
-		AddChildParticle( chest, particle )
-	end)
-end
+	if item_type == Loot.TYPE_WEAPONS or item_type == Loot.TYPE_ARMOR then
+		item.rarity = owner.loot_rarity_rng:Choose()
 
-function Loot:GetLootTable( creep )
-  if Loot.Table == nil then
-    return nil
-  end
-  -- Get loot table
-  return Loot.Table[creep:GetUnitName()]
-end
-
-function Loot:Generate( creep, killer )
-	local lootTable = Loot:GetLootTable( creep )
-
-	if killer:IsHero() == false  then
-		if not PlayerResource:GetPlayer(killer:GetPlayerOwnerID()) then return end
-		killer = PlayerResource:GetPlayer(killer:GetPlayerOwnerID()):GetAssignedHero()
+		Loot:AddModifiers(item)
 	end
 
-	if lootTable ~= nil and IsItemDropped(lootTable.LootChance or 0) then
-    	Loot:CreepDrops( lootTable, creep, killer )
-    	if lootTable.Preset then 
-    		Loot:CreepDrops( Loot.Table[lootTable.Preset], creep, killer ) 
-    	end
-	end
-
-	local vial = CreateVial( killer, creep:GetAbsOrigin() + Vector(math.random(-20,20),math.random(-20,20), 0) )
-
-	if vial then
-		PrepareVial( vial )
+	if item then
+		Loot:SpawnPhysicalItem(position, item)
 	end
 end
 
 function Loot:AddModifiers(item)
-	local modifier_count = item.rarity + math.random(0, 2)
+	local modifier_count = item.rarity + math.random(0, 1)
+
 	item.built_in_modifiers = item.built_in_modifiers or {}
 
 	local all_modifiers = Loot.CommonModifiers
-	-- if string.match(item:GetName(), "item_rune_") then 
-	-- 	all_modifiers = Loot.CommonModifiers
-	-- end
 
 	for i=1,modifier_count do
 		local seed = math.random(1, GetTableLength(all_modifiers))
 		local x = 1
 		for k,v in pairs(all_modifiers) do
 			if x == seed then
-				item.built_in_modifiers[k] = item.built_in_modifiers[k] or 0
-				item.built_in_modifiers[k] = item.built_in_modifiers[k] + math.random(1,12)
+				local new_modifier = {}
+				new_modifier[k] = math.random(tonumber(v["min"]), tonumber(v["max"]))
+
+				table.insert(item.built_in_modifiers, new_modifier)
 				break
 			end
 			x = x + 1
 		end
 	end
+end
+
+-- Creep loot
+
+function Loot:Generate( creep, killer )
+	-- If some summon is killer, not the hero
+	if killer:IsHero() == false then
+		if not PlayerResource:GetPlayer(killer:GetPlayerOwnerID()) then return end
+		killer = PlayerResource:GetPlayer(killer:GetPlayerOwnerID()):GetAssignedHero()
+	end
+
+	if killer.loot_rng:Next() then
+    	Loot:CreateItem( creep:GetAbsOrigin(), killer )
+	else
+		local vial = CreateVial( killer, creep:GetAbsOrigin() + Vector(math.random(-20,20),math.random(-20,20), 0) )
+
+		if vial then
+			PrepareVial( vial )
+		end
+	end
+end
+
+-- Chests
+
+function Loot:CreateChest( pos, rarity )
+	local chest = CreateItemOnPositionSync(pos, Items:Create(Loot.CHEST_MODELS[math.random(1, GetTableLength(Loot.CHEST_MODELS))], nil))
+	CreateItemPanel( chest )
+	chest.rarity = rarity or ChoicePseudoRNG.create( Loot.RARITY_CHANCES ):Choose()
+
+	chest:SetAngles(0, math.random(0, 360), 0)
+	Timers:CreateTimer(function (  )
+		Loot:AttachRarityParticle(chest, chest.rarity)
+	end)
+end
+
+function Loot:OpenChest( chest, unit )
+	local chest_unit = CreateUnitByName("npc_basic_chest",chest:GetAbsOrigin(),false,nil,nil,unit:GetTeamNumber())
+
+	chest_unit:SetModel(ZIV.ItemKVs[chest:GetContainedItem():GetName()]["Model"])
+	chest_unit:SetOriginalModel(ZIV.ItemKVs[chest:GetContainedItem():GetName()]["Model"])
+
+	InitAbilities(chest_unit)
+	chest:RemoveSelf()
+  
+	local count = chest.rarity
+
+	local i = 1
+	Timers:CreateTimer(function ()
+		if i <= count then
+			i = i + 1
+
+			Loot:CreateItem( chest_unit:GetAbsOrigin(), unit )
+
+			return math.random(0.2, 0.2)
+		else
+			Timers:CreateTimer(0.3, function (  )
+				chest_unit:ForceKill(false)
+			end)
+		end
+	end) 
+end
+
+-- Util
+
+function Loot:AttachRarityParticle(entity, rarity)
+	local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[rarity], PATTACH_ABSORIGIN_FOLLOW, entity)
+    ParticleManager:SetParticleControl(particle, 0, entity:GetAbsOrigin())
+
+    AddChildParticle( entity, particle )
+end
+
+function Loot:SpawnPhysicalItem(position, item, no_panel)
+	local container = CreateItemOnPositionSync(position,item)
+
+	if not no_panel then CreateItemPanel( container ) end
+
+	Physics:Unit(container)
+
+	local seed = math.random(0, 360)
+	local boost = math.random(0,325)
+
+	local x = ((185 + boost) * math.cos(seed))
+	local y = ((185 + boost) * math.sin(seed))
+
+	container:AddPhysicsVelocity(Vector(x, y, 1100))
+	container:SetPhysicsAcceleration(Vector(0,0,-1700))
+
+    Loot:AttachRarityParticle(container, item.rarity)
+
+	EmitSoundOn("Item.DropWorld",container)
 end
 
 function Loot:CombineLootTables(table1, table2)
@@ -117,133 +212,4 @@ function Loot:CombineLootTables(table1, table2)
 	end
 	
 	return new_table
-end
-
-function Loot:RandomItemFromLootTable( lootTable, chest_unit, owner )
-	if not lootTable then return end
-
-	local itemName = ""
-
-	local seed = math.random(100)
-  	local rarity = nil
-  	local items = nil
-
-	if type(lootTable) == "table" and lootTable.Loot then
-	  	-- Random rarity
-	  	local num = 0
-	  	for k,v in pairs(lootTable.Loot) do
-	    	if seed > num and seed <= num + v.Chance then
-	      		rarity = tonumber(k)
-	      		items = v.Items
-	    	end
-	    
-	    	num = num + v.Chance
-	  	end
-	  
-	  	-- Random item in group
-	  	itemName = items[tostring(math.random(0, GetTableLength(items) - 1))]
-	else
-		itemName = lootTable
-	end
-
-	if not itemName or type(itemName) ~= "string" then return nil end
-
-	local item = Items:Create(itemName, owner)
-
-  	local container = CreateItemOnPositionSync(chest_unit:GetAbsOrigin(), item)
-  
-  	-- Random item rotation
-  	container:SetAngles(0, math.random(0, 360), 0)
-  	local new_item = container:GetContainedItem()
-
-  	new_item.rarity = 0
-
-  	if rarity > Loot.RARITY_COMMON and not string.match(new_item:GetName(), "gem") then
-    	if i == count then
-      		new_item.rarity = rarity
-    	elseif math.random(0,1) == 0 then
-        	new_item.rarity = math.abs(math.random(0,rarity-1))
-      	end
-    end
-
-    if new_item.rarity > 0 then 
-      	Loot:AddModifiers(new_item)
-
-      	local particle = ParticleManager:CreateParticle(Loot.RARITY_PARTICLES[new_item.rarity], PATTACH_ABSORIGIN_FOLLOW, container)
-      	ParticleManager:SetParticleControl(particle, 0, container:GetAbsOrigin())
-      	container.particles = {}
-      	table.insert(container.particles, particle)
- 	end
-  
-  	return container
-end
-
-function Loot:CreepDrops( lootTable, creep, killer )
-	local count = math.random(1, lootTable.Max)
-  	local i = 1
-  
-	Timers:CreateTimer(function ()
-		if i < count then
-			i = i + 1
-
-			local item = Loot:RandomItemFromLootTable( lootTable, creep, killer )
-			if item then
-				Loot:SpawnPhysicalItem(item)
-			end
-
-			return math.random(0.21, 0.41)
-		end
-	end)
-end
-
-function Loot:OpenChest( chest, unit )
-	local chest_unit = CreateUnitByName("npc_basic_chest",chest:GetAbsOrigin(),false,nil,nil,unit:GetTeamNumber())
-
-	chest_unit:SetModel(ZIV.ItemKVs[chest:GetContainedItem():GetName()]["Model"])
-	chest_unit:SetOriginalModel(ZIV.ItemKVs[chest:GetContainedItem():GetName()]["Model"])
-
-	InitAbilities(chest_unit)
-	chest:RemoveSelf()
-
-  	local lootTable = Loot:GetLootTable( chest_unit )
-  
-  	if lootTable == nil then
-    	return
-  	end
-  
-	local count = math.random(1, lootTable.Max)
-	local i = 1
-  
-	Timers:CreateTimer(function ()
-		if i <= count then
-			i = i + 1
-
-			Loot:SpawnPhysicalItem(Loot:RandomItemFromLootTable( lootTable, chest_unit, nil ))
-
-			return math.random(0.31, 0.41)
-		else
-			Timers:CreateTimer(0.3, function (  )
-				-- chest_unit:RemoveModifierByName("dummy_unit")
-				-- chest_unit:RemoveAbility("dummy_unit")
-				chest_unit:ForceKill(false)
-			end)
-		end
-	end) 
-end
-
-function Loot:SpawnPhysicalItem(new_item_c, no_panel)
-	if not no_panel then CreateItemPanel( new_item_c ) end
-
-	Physics:Unit(new_item_c)
-
-	local seed = math.random(0, 360)
-	local boost = math.random(0,325)
-
-	local x = ((185 + boost) * math.cos(seed))
-	local y = ((185 + boost) * math.sin(seed))
-
-	new_item_c:AddPhysicsVelocity(Vector(x, y, 1100))
-	new_item_c:SetPhysicsAcceleration(Vector(0,0,-1700))
-
-	EmitSoundOn("Item.DropWorld",new_item_c)
 end

@@ -38,18 +38,17 @@ function CustomSettingControls() {
 		"value" : table } );
 }
 
-function CloseButton() {
-	$.GetContextPanel().RemoveFromPanelsQueue();
-	$.GetContextPanel().SetHasClass("Hide", true);
-}
-
-function Open() {
-	$.GetContextPanel().AddToPanelsQueue();
-	$.GetContextPanel().SetHasClass("Hide", false);
+function Toggle() {
+	$.GetContextPanel().ToggleClass("WindowClosed");
+	if ($.GetContextPanel().BHasClass("WindowClosed")) {
+		$.GetContextPanel().RemoveFromPanelsQueue();
+	} else {
+		$.GetContextPanel().AddToPanelsQueue();
+	}
 }
 
 (function() {
-	GameEvents.Subscribe( "ziv_open_settings", Open );
+	GameEvents.Subscribe( "ziv_open_settings", Toggle );
 
 	pID = Players.GetLocalPlayer().toString();
 
