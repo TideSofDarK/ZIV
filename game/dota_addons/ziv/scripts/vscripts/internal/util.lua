@@ -162,16 +162,6 @@ function CreateItemPanel( item_container )
     })
 end
 
-function DestroyEntityBasedOnHealth(killer, target)
-  local damageTable = {
-    victim = target,
-    attacker = killer,
-    damage = target:GetMaxHealth(),
-    damage_type = DAMAGE_TYPE_PURE,
-  }
-  ApplyDamage(damageTable)
-end
-
 function DebugPrint(...)
   local spew = Convars:GetInt('ziv_spew') or -1
   if spew == -1 and ZIV_DEBUG_SPEW then

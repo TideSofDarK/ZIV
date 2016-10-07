@@ -26,7 +26,7 @@ function Explode( keys )
 
 				v:EmitSound("Hero_Enigma.Pick")
 
-				DestroyEntityBasedOnHealth(v, v)
+				v:RemoveSelf()
 
 				i = i + 1
 			end

@@ -28,7 +28,7 @@ function Combine( keys )
 
 					v:EmitSound("Hero_Enigma.Pick")
 
-					DestroyEntityBasedOnHealth(v, v)
+					v:RemoveSelf()
 				end
 
 				i = i + 1

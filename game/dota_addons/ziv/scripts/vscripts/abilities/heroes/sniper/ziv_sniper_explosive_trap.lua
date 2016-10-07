@@ -74,7 +74,7 @@ function Explode( keys )
 		trap:SetRenderMode(10)
 
 		Timers:CreateTimer(0.6, function (  )
-			DestroyEntityBasedOnHealth(trap, trap)
+			trap:RemoveSelf()
 		end)
 	end
 end

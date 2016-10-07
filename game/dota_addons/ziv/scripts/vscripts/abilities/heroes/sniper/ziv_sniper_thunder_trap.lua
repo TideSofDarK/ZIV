@@ -80,7 +80,7 @@ function Explode( keys )
 
 		Timers:CreateTimer(0.6, function (  )
 			trap:RemoveModifierByName("dummy_unit")
-			DestroyEntityBasedOnHealth(trap, trap)
+			trap:RemoveSelf()
 			trap:SetRenderMode(10)
 		end)
 	end
