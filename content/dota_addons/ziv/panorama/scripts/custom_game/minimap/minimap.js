@@ -1,6 +1,12 @@
 "use strict";
 var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 
+var teamID = Game.GetLocalPlayerInfo().player_team_id;
+var heroes = Game.GetPlayerIDsOnTeam(teamID).map(function(pID){
+	return Players.GetPlayerHeroEntityIndex(pID);
+});
+
+
 var marksPath = "file://{resources}/layout/custom_game/minimap/marks/";
 var bounds = null;
 
@@ -128,7 +134,7 @@ function CreateMarkPanel( entity )
 	var panel = $.CreatePanel( "Panel", $( "#MarksMap" ), "Entity_" + entity );
 	panel.BLoadLayout( marksPath + GetMarkType( entity ) +".xml", false, false );
 
-	panel.entity = entity;
+	panel.entity = entity; 
 
 	if (panel.UpdateClass)
 		panel.UpdateClass();
@@ -143,9 +149,9 @@ function FilterUnits()
 	return Entities.GetAllEntities().filter(function( entity ) {
 		return Entities.IsEntityInRange( heroID, entity, visionRange ) &&
 			!Entities.IsInvisible( entity ) && 
-			Entities.IsValidEntity( entity ) &&
+			//Entities.IsValidEntity( entity ) &&
 			Entities.IsHero( entity ) &&
-			heroID != entity;
+			heroID != entity; 
 	})
 }
 
@@ -182,11 +188,16 @@ function UpdateEvents()
 
 function ClearFog()
 {
-	var pos = GetRelativePosition( Entities.GetAbsOrigin(heroID) );
-	// Relative vision
-	var visionRange =Entities.GetCurrentVisionRange( heroID ) /  (bounds["max"].x - bounds["min"].x);	
+	$("#FogMap").RunJavascript('FillFog();'); 
 
-	$("#FogMap").RunJavascript('ClearFog(' + pos[0] + ', ' + pos[1] + ', ' + visionRange +');'); 
+	for(var hero of heroes)
+	{
+		var pos = GetRelativePosition( Entities.GetAbsOrigin(hero) );
+		// Relative vision
+		var visionRange =Entities.GetCurrentVisionRange( hero ) /  (bounds["max"].x - bounds["min"].x);	
+		
+		$("#FogMap").RunJavascript('ClearFog(' + pos[0] + ', ' + pos[1] + ', ' + visionRange +');'); 
+	}
 }
 
 function UpdateMinimap()
@@ -260,7 +271,7 @@ function MinimapEvent( args )
 
 function ChangeMinimapMode()
 {
-	$("#FogMap").ToggleClass("WindowClosed"); 
+	//$("#FogMap").ToggleClass("WindowClosed"); 
 	if ($.GetContextPanel().BHasClass("Hero"))
 	{
 	 	$.GetContextPanel().RemoveClass("Hero");
@@ -271,14 +282,10 @@ function ChangeMinimapMode()
 	else
 	{
 	 	$.GetContextPanel().RemoveClass("TopRight");
-	 	$.GetContextPanel().AddClass("Hero");
+	 	$.GetContextPanel().AddClass("Hero"); 
 
 	 	$( "#MinimapImage" ).hittest = false;
 	}
-}
-
-function UpdateCanvas() {
-	$.Schedule(0.03, UpdateCanvas); 
 }
 
 (function()
@@ -295,7 +302,7 @@ function UpdateCanvas() {
 
 	//var mapImage = "'https://puu.sh/rzAer/92feb69948.png'";
 	$("#FogMap").SetURL('http://ec2-54-93-180-157.eu-central-1.compute.amazonaws.com/test_minimap/minimap.html');
-	$.Schedule(2.0, function(){
+	$.Schedule(1, function(){ 
 		$("#FogMap").RunJavascript('LoadImage("https://puu.sh/rzAer/92feb69948.png");');  
 	});
 })();
