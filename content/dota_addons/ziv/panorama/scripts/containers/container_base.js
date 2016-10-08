@@ -25,7 +25,7 @@ function DisableFocus(panel)
 function OpenContainer(msg)
 {
   //$.Msg("OpenContainer -- ", msg);
-  var panel = $.GetContextPanel();
+  var panel = msg.panel || $.GetContextPanel();
   var id = msg.id; 
   var containerPanel = containers[id];
 
@@ -41,7 +41,7 @@ function OpenContainer(msg)
 
     containerPanel.NewContainer(id);
 
-
+    $.Msg('asd');
     DisableFocus(panel);
   }
   else{
@@ -257,6 +257,8 @@ function RegisterEventHandler(name, func)
   GameUI.CustomUIConfig().Containers.containers = containers;
   GameUI.CustomUIConfig().Containers.eventHandlers = eventHandlers;
   GameUI.CustomUIConfig().Containers.RegisterEventHandler = RegisterEventHandler;
+
+  GameUI.CustomUIConfig().OpenContainer = OpenContainer;
 
   panel.containers = containers;
   panel.initialized = true; 

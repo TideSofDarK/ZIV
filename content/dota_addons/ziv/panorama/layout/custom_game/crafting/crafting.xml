@@ -6,7 +6,6 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/crafting/crafting.js" />
-		<include src="file://{resources}/scripts/custom_game/crafting/item_tooltip.js" /> 
 		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
 	<Panel class="MainPanel z-index1 Hide" hittestchildren="true" draggable="true">

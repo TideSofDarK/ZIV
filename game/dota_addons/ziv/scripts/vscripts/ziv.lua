@@ -246,6 +246,7 @@ function ZIV:InitZIV()
   Characters:Init() 
   Director:Init()
   Items:Init()
+  Trade:Init()
   Loot:Init()
 
   Attributes:Init()

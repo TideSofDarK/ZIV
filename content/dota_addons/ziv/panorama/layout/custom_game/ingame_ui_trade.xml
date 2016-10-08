@@ -7,21 +7,33 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_trade.js" />
-		<include src="file://{resources}/scripts/containers/draggable.js" />
+		<!-- <include src="file://{resources}/scripts/containers/draggable.js" />draggable="true" -->
 	</scripts>
-	<Panel class="TradeRoot BasicShadow WindowAnimation" hittest="true" draggable="true">
-		<Panel class="GenericBackground" id="Background"/>
+	<Panel class="Trade WindowClosed" hittest="false">
+		<Panel id="TradeRoot" class="BasicShadow WindowAnimation WindowClosed" hittest="true"> 
+			<Panel class="GenericBackground" id="Background"/>
 
-		<Button onactivate="Toggle()" class="CloseButton" />
+			<Button onactivate="Toggle()" class="CloseButton" />
 
-		<Label id="PlayerItemsLabel" class="Headline Headline1 TradeItemsLabel" text="#trade_player_items"/>
-		<Label id="OfferedItemsLabel" class="Headline Headline1 TradeItemsLabel" text="#trade_offered_items"/>
+			<Label id="PlayerItemsLabel" class="Headline Headline1 TradeItemsLabel" text="#trade_player_items"/>
+			<Label id="OfferedItemsLabel" class="Headline Headline1 TradeItemsLabel" text="#trade_offered_items"/>
 
-		<Panel class="TradeItems" id="OfferedTradeItems"/>
-		<Panel class="TradeItems" id="PlayerTradeItems"/>
-		
-		<Button onactivate="AcceptButton()" class="OKButton" id="TradeAcceptButton">
-			<Label id="TradeAcceptButtonLabel" class="WindowLabel" text="#trade_accept_button"/>
-		</Button>
+			<Panel class="TradeItems" id="PlayerTradeItems"/>
+			<Panel class="TradeItems" id="OfferedTradeItems"/>
+
+			<Button onactivate="AcceptButton()" class="OKButton" id="TradeAcceptButton">
+				<Label id="TradeAcceptButtonLabel" class="WindowLabel" text="#trade_accept_button"/>
+			</Button>
+		</Panel>
+		<Panel class="WindowAnimation WindowClosed" id="TradeRequest">
+			<Panel class="GenericBackground" id="RequestBackground"/>
+			<Label id="RequestLabel" class="WindowLabel" text="#trade_request"/>
+			<Button onactivate="AcceptRequest()" class="OKButton RequestButton" id="RequestAcceptButton">
+				<Label id="RequestAcceptButtonLabel" class="WindowLabel" text="#trade_accept_button"/>
+			</Button>
+			<Button onactivate="DeclineRequest()" class="OKButton RequestButton" id="RequestDeclineButton">
+				<Label id="RequestDeclineButtonLabel" class="WindowLabel" text="#trade_decline_button"/>
+			</Button>
+		</Panel>
 	</Panel>
 </root>

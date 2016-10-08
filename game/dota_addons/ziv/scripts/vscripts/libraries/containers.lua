@@ -1845,7 +1845,8 @@ function Containers:CreateContainer(cont)
      OnCloseClickedJS =cont.OnCloseClickedJS,
     }
 
-  local c = {id = pt.id,
+  local c = {
+    id = pt.id,
     ptID = pt.ptID,
     items = {},
     itemNames = {},

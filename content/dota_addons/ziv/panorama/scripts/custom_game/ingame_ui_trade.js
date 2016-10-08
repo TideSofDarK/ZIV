@@ -10,12 +10,40 @@ function AcceptButton() {
 
 }
 
-function Toggle() {
-	$.GetContextPanel().ToggleClass("WindowClosed");
-	if ($.GetContextPanel().BHasClass("WindowClosed")) {
-		$.GetContextPanel().RemoveFromPanelsQueue();
+function AcceptRequest() {
+	var requestPanel = $("#TradeRequest");
+	requestPanel.ToggleClass("WindowClosed");
+
+	var initiator = $("#TradeRequest").initiator;
+
+	GameEvents.SendCustomGameEventToServer( "ziv_accept_trade_request", { "initiator" : initiator } );
+}
+
+function TradeRequest(args) {
+	var requestPanel = $("#TradeRequest");
+	requestPanel.ToggleClass("WindowClosed");
+
+	$("#TradeRequest").initiator = args.initiator;
+
+	$("#RequestLabel").text = Game.GetPlayerInfo(args.initiator).player_name + $.Localize("trade_request");
+}
+
+function Toggle(args) {
+	$("#TradeRoot").ToggleClass("WindowClosed");
+	if ($("#TradeRoot").BHasClass("WindowClosed")) {
+		// $("#TradeRoot").RemoveFromPanelsQueue();
 	} else {
-		$.GetContextPanel().AddToPanelsQueue();
+		// $("#TradeRoot").AddToPanelsQueue();
+	}
+
+	if (args) {
+		var itemsContainerID = args.items;
+		var offerContainerID = args.offer;
+
+		GameUI.CustomUIConfig().OpenContainer({"id" : itemsContainerID, "panel" : $("#PlayerTradeItems")});
+		GameUI.CustomUIConfig().OpenContainer({"id" : offerContainerID, "panel" : $("#OfferedTradeItems")});
+
+		$.Msg(itemsContainerID, offerContainerID);
 	}
 }
 
@@ -49,10 +77,15 @@ function CreatePlayerSlots() {
 }
 
 (function() {
-	CreateOfferSlots();
-	CreatePlayerSlots();
+	GameEvents.Subscribe( "ziv_transmit_trade_request", TradeRequest );
+	GameEvents.Subscribe( "ziv_open_trade", Toggle );
 
-	$.GetContextPanel().SetDraggable( true );
+	// CreateOfferSlots();
+	// CreatePlayerSlots();
 
-	$.RegisterEventHandler( 'DragDrop', $.GetContextPanel(), OnDragDrop );
+	// $("#TradeRoot").SetDraggable( true );
+
+	$.RegisterEventHandler( 'DragDrop', $("#TradeRoot"), OnDragDrop );
+
+	$.GetContextPanel().ToggleClass("WindowClosed");
 })();

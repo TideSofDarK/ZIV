@@ -1,3 +1,7 @@
+/*
+  Inventory
+*/
+
 .Hourglass.Outer
 {
   width: 317px;
@@ -112,29 +116,62 @@
   wash-color: #bbbbbb;
 }
 
-/*.Hourglass #slot1
+/*
+  Trade containers
+*/
+
+.Trade.Outer
 {
-  border: 8px solid red;
-  box-shadow: fill black 1px 1px 2px 2px;
-  pre-transform-scale2d: 1.0;
-  animation-name: goleft;
-  //animation-delay: 0s;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite; 
+  width: 800px;
+  height: 200px;
+
+  border-color: transparent;
+  background-color: transparent;
 }
 
-.Hourglass #slot2
+.Trade #Header
 {
-  border: 5px solid green;
-  box-shadow: fill black 1px 1px 2px 2px;
-  animation-name: goright;
-  //animation-delay: 0s;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite; 
-}*/
+  height: 0px;
+  background-color: transparent;
+}
 
+.Trade #Footer
+{
+  
+}
+
+.Trade #HeaderLabel
+{ 
+  color: transparent;
+}
+
+.Trade #Inner
+{
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.Trade .ItemRow
+{
+  margin-top: 2px;
+  margin-bottom: 2px;
+  background-color: transparent;
+} 
+
+.Trade .ItemPanel
+{
+  width: 79px;
+  height: 58px;
+}
+
+.Trade .CloseButton {
+  visibility: collapse;
+  opacity: 0.0;
+}
+
+/*
+  Misc
+*/
 
 @keyframes 'goleft'
 {
