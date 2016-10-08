@@ -2,10 +2,6 @@
 var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 
 var teamID = Game.GetLocalPlayerInfo().player_team_id;
-var heroes = Game.GetPlayerIDsOnTeam(teamID).map(function(pID){
-	return Players.GetPlayerHeroEntityIndex(pID);
-});
-
 
 var marksPath = "file://{resources}/layout/custom_game/minimap/marks/";
 var bounds = null;
@@ -190,6 +186,10 @@ function ClearFog()
 {
 	$("#FogMap").RunJavascript('FillFog();'); 
 
+	var heroes = Game.GetPlayerIDsOnTeam(teamID).map(function(pID){
+		return Players.GetPlayerHeroEntityIndex(pID);
+	});
+
 	for(var hero of heroes)
 	{
 		var pos = GetRelativePosition( Entities.GetAbsOrigin(hero) );
@@ -211,7 +211,7 @@ function UpdateMinimap()
 
 	$.Schedule(0.05, UpdateMinimap);
 
-	$("#FogMap").RunJavascript('LoadImage("https://puu.sh/rzAer/92feb69948.png");');  
+	$("#FogMap").RunJavascript('LoadImage("http://puu.sh/rBIaa/9340a006d3.png");');  
 }
 
 function MinimapClick()
@@ -245,7 +245,7 @@ function MinimapClick()
 	}
 }
 
-function SetWorldBounds( ) 
+function SetWorldBounds( args ) 
 {
 	var args = CustomNetTables.GetTableValue("scenario", "map");
 
@@ -254,8 +254,6 @@ function SetWorldBounds( )
 	bounds["min"] = args.min;
 	bounds["max"] = args.max;
 	bounds["name"] = args.map; 
-
-	$.Msg(args.max);
 
 	UpdateMinimap();
 }
@@ -272,7 +270,7 @@ function MinimapEvent( args )
 		SetMapPosByWorldPos( panel, [ args.pos[0], args.pos[1] ]);
 	});
 
-	panel.DeleteAsync( args.duration );
+	panel.DeleteAsync( args.duration ); 
 }
 
 function ChangeMinimapMode()
@@ -303,8 +301,9 @@ function ChangeMinimapMode()
 		GameUI.CustomUIConfig().ChangeMinimapMode = ChangeMinimapMode; 
 	}
 
-	SetWorldBounds(); 
+	SetWorldBounds();
 
 	//var mapImage = "'https://puu.sh/rzAer/92feb69948.png'";
 	$("#FogMap").SetURL('http://ec2-54-93-180-157.eu-central-1.compute.amazonaws.com/test_minimap/minimap.html');
+	//CustomNetTables.SubscribeNetTableListener( "scenario", SetWorldBounds );
 })();

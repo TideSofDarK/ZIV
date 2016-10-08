@@ -40,8 +40,8 @@ function Temple:Init()
 	Temple.creeps_positions = Entities:FindAllByName("ziv_temple_obelisk") --ziv_basic_creep_spawner
 
 
-	local worldMin = { x = GetWorldMinX(), y = GetWorldMinY() }
-  	local worldMax = { x = GetWorldMaxX(), y = GetWorldMaxY() }
+	local worldMin = {x = -6100, y = -6100 } --{ x = GetWorldMinX(), y = GetWorldMinY() }
+  local worldMax = {x = 6100, y = 6100 } --{ x = GetWorldMaxX(), y = GetWorldMaxY() }
 
 	CustomNetTables:SetTableValue( "scenario", "map", {min = worldMin, max = worldMax, map = GetMapName()} )
 end
