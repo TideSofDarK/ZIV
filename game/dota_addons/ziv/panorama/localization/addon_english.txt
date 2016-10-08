@@ -101,6 +101,7 @@
 	"ziv_huntress_blink_arrow_damage"				"to Blink Arrow damage"
 	"ziv_huntress_blink_arrow_delay"				"% reduction of Blink Arrow delay"
 	"ziv_huntress_blink_arrow_cd"					"% reduction of Blink Arrow cooldown"
+	"ziv_huntress_blink_arrow_radius"				"to Blink Arrow radius"
 	"ziv_huntress_focus_fire_damage"				"to Focus Fire damage"
 	"ziv_huntress_trap_duration"					"to Trap duration"
 	"ziv_huntress_volley_arrows"					"to Volley arrow count"
@@ -205,6 +206,10 @@
 	"nobrain" "Nobrainer"
 	"summoner" "Summoner"
 	"hitnrun" "Hit'n'run"
+
+	"trade_accept_button"	"Accept"
+	"trade_player_items"	"Your Offer"
+	"trade_offered_items"	"You Get"
 
 	// Game setup
 	"gamesetup_ready"								"Ready"

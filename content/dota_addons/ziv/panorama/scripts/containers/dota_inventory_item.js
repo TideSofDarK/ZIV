@@ -29,7 +29,6 @@ function UpdateItem()
 				break;
 			}
 		}
-
 		panel.visible = show;
 	} 
 
@@ -175,11 +174,13 @@ function OnDragEnter( a, draggedPanel )
 
 	// highlight this panel as a drop target
 	$.GetContextPanel().AddClass( "potential_drop_target" );
+
 	return true;
 }
 
 function OnDragDrop( panelId, draggedPanel )
 {
+
 	var draggedItem = draggedPanel.m_DragItem;
 	
 	// only care about dragged items other than us

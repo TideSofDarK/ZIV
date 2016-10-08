@@ -1599,7 +1599,7 @@ function Containers:OnDragWorld(playerID, container, unit, item, slot, position,
       action = function(playerID, container, unit, target)
         if container:ContainsItem(item) then
           container:RemoveItem(item)
-          CreateItemOnPositionSync(position, item)
+          Items:CreateItemPanel( CreateItemOnPositionSync(position, item) )
         end
       end,
     }

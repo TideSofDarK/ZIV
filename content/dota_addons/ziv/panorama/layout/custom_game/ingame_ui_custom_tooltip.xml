@@ -136,7 +136,6 @@
 
                     if (itemData.built_in_modifiers && Object.keys( itemData.built_in_modifiers ).length >= 1)
                     {
-                        $.Msg(itemData.built_in_modifiers);
                         AddCBR(itemTooltip);
 
                         var i = 0;

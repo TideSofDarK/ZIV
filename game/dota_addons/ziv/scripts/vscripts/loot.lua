@@ -137,7 +137,7 @@ end
 
 function Loot:CreateChest( pos, rarity )
 	local chest = CreateItemOnPositionSync(pos, Items:Create(Loot.CHEST_MODELS[math.random(1, GetTableLength(Loot.CHEST_MODELS))], nil))
-	CreateItemPanel( chest )
+	Items:CreateItemPanel( chest )
 	chest.rarity = rarity or ChoicePseudoRNG.create( Loot.RARITY_CHANCES ):Choose()
 
 	chest:SetAngles(0, math.random(0, 360), 0)
@@ -185,7 +185,7 @@ end
 function Loot:SpawnPhysicalItem(position, item, no_panel)
 	local container = CreateItemOnPositionSync(position,item)
 
-	if not no_panel then CreateItemPanel( container ) end
+	if not no_panel then Items:CreateItemPanel( container, true ) end
 
 	Physics:Unit(container)
 

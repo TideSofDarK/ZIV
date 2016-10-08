@@ -210,6 +210,8 @@ function UpdateMinimap()
 	ClearFog(); 
 
 	$.Schedule(0.05, UpdateMinimap);
+
+	$("#FogMap").RunJavascript('LoadImage("https://puu.sh/rzAer/92feb69948.png");');  
 }
 
 function MinimapClick()
@@ -243,13 +245,17 @@ function MinimapClick()
 	}
 }
 
-function SetWorldBounds( args ) 
+function SetWorldBounds( ) 
 {
+	var args = CustomNetTables.GetTableValue("scenario", "map");
+
 	bounds = {};
 
 	bounds["min"] = args.min;
 	bounds["max"] = args.max;
 	bounds["name"] = args.map; 
+
+	$.Msg(args.max);
 
 	UpdateMinimap();
 }
@@ -290,9 +296,6 @@ function ChangeMinimapMode()
 
 (function()
 {
-	GameEvents.SendCustomGameEventToServer( "world_bounds_request", {} );
-
-	GameEvents.Subscribe("world_bounds", SetWorldBounds);
 	GameEvents.Subscribe("custom_minimap_event", MinimapEvent);
 
 	if (!GameUI.CustomUIConfig().ChangeMinimapMode)
@@ -300,9 +303,8 @@ function ChangeMinimapMode()
 		GameUI.CustomUIConfig().ChangeMinimapMode = ChangeMinimapMode; 
 	}
 
+	SetWorldBounds(); 
+
 	//var mapImage = "'https://puu.sh/rzAer/92feb69948.png'";
 	$("#FogMap").SetURL('http://ec2-54-93-180-157.eu-central-1.compute.amazonaws.com/test_minimap/minimap.html');
-	$.Schedule(1, function(){ 
-		$("#FogMap").RunJavascript('LoadImage("https://puu.sh/rzAer/92feb69948.png");');  
-	});
 })();

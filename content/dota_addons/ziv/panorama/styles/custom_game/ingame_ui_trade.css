@@ -33,17 +33,34 @@ DOTAItemImage {
 	flow-children: down;
 }
 
+.TradeItemsLabel {
+	margin: 62px;
+	margin-left: 95px;
+	margin-right: 95px;
+	font-size: 17px;
+	color: #dddddd;
+}
+
+#PlayerItemsLabel {
+	vertical-align: top;
+	horizontal-align: left;
+}
+
+#OfferedItemsLabel {
+	vertical-align: bottom;
+	horizontal-align: right;
+}
+
 .CloseButton {
 	z-index: 1;
 }
 
 #PlayerTradeItems {
-	margin-top: 273px;
+	margin-top: 89px;
 }
 
 #OfferedTradeItems {
-	margin-top: 30px;
-	margin-left: -10px;
+	margin-top: 305px;
 }
 
 .ItemsRow {

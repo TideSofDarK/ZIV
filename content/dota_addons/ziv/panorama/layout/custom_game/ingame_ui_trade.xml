@@ -9,28 +9,17 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_trade.js" />
 		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
-	<Panel class="TradeRoot Hide BasicShadow" hittest="true" draggable="true">
+	<Panel class="TradeRoot BasicShadow WindowAnimation" hittest="true" draggable="true">
 		<Panel class="GenericBackground" id="Background"/>
 
-		<Button onactivate="CloseButton()" class="CloseButton" />
+		<Button onactivate="Toggle()" class="CloseButton" />
+
+		<Label id="PlayerItemsLabel" class="Headline Headline1 TradeItemsLabel" text="#trade_player_items"/>
+		<Label id="OfferedItemsLabel" class="Headline Headline1 TradeItemsLabel" text="#trade_offered_items"/>
+
 		<Panel class="TradeItems" id="OfferedTradeItems"/>
 		<Panel class="TradeItems" id="PlayerTradeItems"/>
-		<!-- <Image class='FortifyHammer' src="file://{images}/custom_game/ingame_ui/hammer.png"/> -->
-<!--
-		<Panel class="FortifyItem" id="FortifyItem">
-
-		</Panel>
-
-		<Panel class="FortifyItem" id="FortifyTool">
-		</Panel>
-
- 		<Panel class="TextBlock" id="FortifyTextBlock">
-		</Panel> 
-
-		<Panel class="TextBlock" id="FortifyTextBlock">
-			<Label id="FortifyTextBlockLabel" class="TextBlockLabel" text="#dragfortify"/>
-		</Panel>-->
-
+		
 		<Button onactivate="AcceptButton()" class="OKButton" id="TradeAcceptButton">
 			<Label id="TradeAcceptButtonLabel" class="WindowLabel" text="#trade_accept_button"/>
 		</Button>

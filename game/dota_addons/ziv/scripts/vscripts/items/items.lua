@@ -2,6 +2,8 @@ if not Items then
     Items = class({})
 end
 
+Items.ITEM_GC_TIME = 20
+
 function Items:Init()
 	PlayerTables:CreateTable("items", {}, true)
 
@@ -46,4 +48,20 @@ function Items:Create(item_name, owner)
 	PlayerTables:SetTableValue("items", item:entindex(), {})
 
 	return item
+end
+
+function Items:CreateItemPanel( item_container, gc )
+	item_container.worldPanel = WorldPanels:CreateWorldPanelForAll({
+		layout = "file://{resources}/layout/custom_game/worldpanels/item.xml",
+		entity = item_container:GetEntityIndex(),
+		data = {name = item_container:GetContainedItem():GetName(), item_entity = item_container:GetContainedItem():GetEntityIndex() },
+		entityHeight = 150,
+    })
+
+	if gc then
+	    Timers:CreateTimer(Items.ITEM_GC_TIME, function (  )
+	    	UTIL_Remove(item_container:GetContainedItem())
+	    	UTIL_Remove(item_container)
+	    end)
+	end
 end

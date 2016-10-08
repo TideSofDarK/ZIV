@@ -12,8 +12,6 @@ function ItemCheck()
   if (!offScreen && wp && Entities.IsItemPhysical(wp.entity)){
     var ent = wp.entity;
     if (ent){
-      $.GetContextPanel().SetHasClass("Hide", GameUI.IsAltDown() == false)
-
       // Smooth in small square
       var worldPos = Entities.GetAbsOrigin( ent );
       if (worldPos)
@@ -32,6 +30,8 @@ function ItemCheck()
         $("#ItemNameLabel").AddClass("Rarity" + itemData.rarity);
         $("#ItemNameLabel").text = Util.SpanString($.Localize("DOTA_Tooltip_ability_" + wp.data["name"]), "Rarity" + itemData.rarity);
       }
+
+      $.GetContextPanel().SetHasClass("Hide", GameUI.IsAltDown() == false)
     }
   }
 

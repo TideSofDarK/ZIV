@@ -150,18 +150,6 @@ function GetTableKeys(t)
   return keyset
 end
 
-function CreateItemPanel( item_container )
-  item_container.worldPanel = WorldPanels:CreateWorldPanelForAll(
-    {layout = "file://{resources}/layout/custom_game/worldpanels/item.xml",
-      entity = item_container:GetEntityIndex(),
-      data = { 
-        name = item_container:GetContainedItem():GetName(), 
-        item_entity = item_container:GetContainedItem():GetEntityIndex() 
-      },
-      entityHeight = 150,
-    })
-end
-
 function DebugPrint(...)
   local spew = Convars:GetInt('ziv_spew') or -1
   if spew == -1 and ZIV_DEBUG_SPEW then

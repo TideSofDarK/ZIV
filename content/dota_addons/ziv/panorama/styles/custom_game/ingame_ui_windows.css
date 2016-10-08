@@ -12,13 +12,18 @@
 	margin: 0px;
 }
 
+.Headline1 {
+	font-size: 33px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
 .WindowLabel {
 	horizontal-align: middle;
 	vertical-align: center;
 
 	width: 100%;
 
-	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	font-weight: bold;
 	font-size: 21px;
 
@@ -26,7 +31,7 @@
 	text-align: center;
 	/*text-shadow: 0px 0px 8px 2.0 #333333ff;*/
 	
-	color: white;
+	color: #dddddd;
 }
 
 .TextBlock {

@@ -44,6 +44,7 @@ require('libraries/keyvalues')
 require('libraries/ai')
 -- Items
 require('items/items')
+require('items/trade')
 require('items/socketing')
 require('items/crafting')
 require('items/equipment')

@@ -38,6 +38,12 @@ Temple.obelisks = {}
 function Temple:Init()
 	Temple.obelisks_positions = Entities:FindAllByName("ziv_temple_obelisk")
 	Temple.creeps_positions = Entities:FindAllByName("ziv_temple_obelisk") --ziv_basic_creep_spawner
+
+
+	local worldMin = { x = GetWorldMinX(), y = GetWorldMinY() }
+  	local worldMax = { x = GetWorldMaxX(), y = GetWorldMaxY() }
+
+	CustomNetTables:SetTableValue( "scenario", "map", {min = worldMin, max = worldMax, map = GetMapName()} )
 end
 
 function Temple:SetObelisksCount()
