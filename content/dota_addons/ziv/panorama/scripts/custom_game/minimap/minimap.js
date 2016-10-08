@@ -121,9 +121,11 @@ function SetMapPosByWorldPos( panel, pos )
 function GetMarkType( entity )
 {
 	var type = "default";
+	if (Entities.IsHero( entity ))
+		return "hero";
 
 	return type;
-}
+} 
 
 function CreateMarkPanel( entity )
 {

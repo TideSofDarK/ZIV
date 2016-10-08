@@ -7,19 +7,9 @@ function UpdateClass()
 	var entity = $.GetContextPanel().entity;
 	var panel = $.GetContextPanel();	
 
-	panel.AddClass("square");
-
-	if (Entities.IsItemPhysical(entity))
-		panel.AddClass("yellow");
-
-	if (Entities.IsEnemy(entity))
-		panel.AddClass("red");
-	else if (Entities.IsNeutralUnitType(entity))
-		panel.AddClass("white");
-	else
-		panel.AddClass("green");
-
-	$.Schedule(0.1, UpdateClass);	
+	panel.AddClass("hero");
+	$("#Icon").SetImage( "file://{images}/heroes/icons/" + Entities.GetUnitName(entity) + ".png" );
+	$("#Icon").style.washColor = Entities.IsEnemy(entity) ? "#ff0000bb;" : "#00ff00bb;";
 }
 
 function Click()
@@ -55,7 +45,7 @@ function Click()
 
 function ShowEntityTooltip()
 {
-	$.DispatchEvent( "DOTAShowTextTooltip", "Entity " + $.GetContextPanel().entity);
+	$.DispatchEvent( "DOTAShowTextTooltip", $.Localize( Entities.GetUnitName($.GetContextPanel().entity) ));
 }
 
 function HideEntityTooltip()
