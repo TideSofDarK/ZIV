@@ -6,8 +6,10 @@ function OnDragDrop() {
 	draggedPanel.m_DragCompleted = true;
 }
 
-function AcceptButton() {
+function AcceptTrade() {
+	$("#TradeAcceptButtonLabel").text = $.Localize("trade_waiting_button");
 
+	GameEvents.SendCustomGameEventToServer( "ziv_accept_trade", { "tradeID" : $("#TradeRoot").tradeID } );
 }
 
 function AcceptRequest() {
@@ -36,14 +38,14 @@ function Toggle(args) {
 		// $("#TradeRoot").AddToPanelsQueue();
 	}
 
-	if (args) {
+	if (args.tradeID) {
+		$("#TradeRoot").tradeID = args.tradeID;
+
 		var itemsContainerID = args.items;
 		var offerContainerID = args.offer;
 
 		GameUI.CustomUIConfig().OpenContainer({"id" : itemsContainerID, "panel" : $("#PlayerTradeItems")});
 		GameUI.CustomUIConfig().OpenContainer({"id" : offerContainerID, "panel" : $("#OfferedTradeItems")});
-
-		$.Msg(itemsContainerID, offerContainerID);
 	}
 }
 
@@ -79,6 +81,7 @@ function CreatePlayerSlots() {
 (function() {
 	GameEvents.Subscribe( "ziv_transmit_trade_request", TradeRequest );
 	GameEvents.Subscribe( "ziv_open_trade", Toggle );
+	GameEvents.Subscribe( "ziv_close_trade", Toggle );
 
 	// CreateOfferSlots();
 	// CreatePlayerSlots();

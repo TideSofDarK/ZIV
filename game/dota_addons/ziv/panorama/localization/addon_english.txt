@@ -42,8 +42,8 @@
 	"rarity1" 										"Common"
 	"rarity2" 										"Magic"
 	"rarity3" 										"Rare"
-	"rarity4" 										"Legendary"
-	"rarity5" 										"Epic"
+	"rarity4" 										"Epic"
+	"rarity5" 										"Legendary"
 
 	// Slots
 	"slot"											"Slot: "
@@ -209,6 +209,7 @@
 
 	"trade_accept_button"	"Accept"
 	"trade_decline_button"	"Decline"
+	"trade_waiting_button"	"Waiting"
 	"trade_player_items"	"Your Offer"
 	"trade_offered_items"	"You Get"
 	"trade_request"			" wants to trade"

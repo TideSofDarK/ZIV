@@ -3,7 +3,6 @@
 		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_trade.css" />
-		<include src="file://{resources}/styles/containers/container_skins.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_trade.js" />
@@ -21,7 +20,7 @@
 			<Panel class="TradeItems" id="PlayerTradeItems"/>
 			<Panel class="TradeItems" id="OfferedTradeItems"/>
 
-			<Button onactivate="AcceptButton()" class="OKButton" id="TradeAcceptButton">
+			<Button onactivate="AcceptTrade()" class="OKButton" id="TradeAcceptButton">
 				<Label id="TradeAcceptButtonLabel" class="WindowLabel" text="#trade_accept_button"/>
 			</Button>
 		</Panel>

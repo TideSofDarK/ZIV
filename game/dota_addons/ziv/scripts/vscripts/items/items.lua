@@ -30,7 +30,7 @@ function Items:Update()
 					v.built_in_modifiers = built_in_modifiers
 				end
 
-				v.rarity = item.rarity or 0
+				v.rarity = item.rarity or 1
 			else
 				PlayerTables:SetTableValue("items", k, {})
 			end

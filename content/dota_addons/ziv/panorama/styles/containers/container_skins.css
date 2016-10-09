@@ -162,6 +162,9 @@
 {
   width: 79px;
   height: 58px;
+
+  box-shadow: fill #000000ff 0px 0px 12px 0px;
+  border-radius: 6px;
 }
 
 .Trade .CloseButton {

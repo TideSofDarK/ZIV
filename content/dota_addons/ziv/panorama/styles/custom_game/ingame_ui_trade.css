@@ -10,6 +10,9 @@ DOTAItemImage {
 
 	width: 712px;
 	height: 533px;
+
+	margin-right: 500px;
+	margin-bottom: 100px;
 }
 
 #TradeAcceptButton {
@@ -65,7 +68,7 @@ DOTAItemImage {
 }
 
 #OfferedTradeItems {
-	margin-top: 305px;
+	margin-top: 298px;
 }
 
 #Background {
