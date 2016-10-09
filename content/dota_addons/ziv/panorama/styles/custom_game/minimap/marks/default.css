@@ -17,6 +17,66 @@
 	z-index: 2;
 }
 
+// Obelisk
+.obelisk {
+	width: 50px;
+	height: 50px;
+
+
+}
+
+.obelisk #Icon {
+	width: 30px;
+	height: 30px;
+
+	vertical-align: center;
+	horizontal-align: center;
+
+	z-index: 2;
+}
+
+.ping-circle {
+	width: 30px;
+	height: 30px;
+
+	vertical-align: center;
+	horizontal-align: center;	
+
+	border-radius: 50%;
+	border: 1px solid green;
+
+	z-index: 1;
+}
+
+.ping-circle.anim1 {
+    animation-duration: 1.7s;
+    animation-iteration-count: 999;
+    animation-timing-function: ease-in-out;
+    animation-name: ping-circle;
+}
+
+.ping-circle.anim2 {
+    animation-duration: 1.7s;
+    animation-delay: 0.8s;
+    animation-iteration-count: 999;
+    animation-timing-function: ease-in-out;
+    animation-name: ping-circle;
+}
+
+@keyframes 'ping-circle'
+{
+    0%
+    {
+        transform: scale3d( 0.5, 0.5, 1);
+    }    
+    
+    100%
+    {
+		transform: scale3d( 1.5, 1.5, 1);
+    }
+}
+
+
 .square {
 	border: 1px solid black;
 }

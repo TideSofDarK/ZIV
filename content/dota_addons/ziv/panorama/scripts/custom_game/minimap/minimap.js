@@ -124,6 +124,9 @@ function GetMarkType( entity )
 	if (Entities.IsHero( entity ))
 		return "hero";
 
+	if (Entities.GetUnitName(entity) == "npc_temple_obelisk")
+		return "obelisk";
+
 	return type;
 } 
 
@@ -145,10 +148,11 @@ function FilterUnits()
 {
 	var visionRange = Entities.GetCurrentVisionRange( heroID );	
 	return Entities.GetAllEntities().filter(function( entity ) {
+		//$.Msg(Entities.GetUnitName(entity));
 		return Entities.IsEntityInRange( heroID, entity, visionRange ) &&
 			!Entities.IsInvisible( entity ) && 
 			//Entities.IsValidEntity( entity ) &&
-			Entities.IsHero( entity ) &&
+			(Entities.IsHero( entity ) || Entities.GetUnitName(entity) == "npc_temple_obelisk") &&
 			heroID != entity; 
 	})
 }
