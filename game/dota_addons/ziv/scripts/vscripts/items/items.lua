@@ -63,7 +63,7 @@ function Items:CreateItemPanel( item_container, gc )
 
 	if gc then
 	    Timers:CreateTimer(Items.ITEM_GC_TIME, function (  )
-	    	if item_container then
+	    	if item_container and not item_container:IsNull() then
 		    	UTIL_Remove(item_container:GetContainedItem())
 		    	UTIL_Remove(item_container)
 	    	end

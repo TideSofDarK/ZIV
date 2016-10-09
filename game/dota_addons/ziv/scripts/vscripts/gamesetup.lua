@@ -56,9 +56,9 @@ function GameSetup:StartCountdownPhase()
 
 	CustomGameEventManager:Send_ServerToAllClients("ziv_gamesetup_lock", {})
 
-	-- if IsInToolsMode() then
-	-- 	GameSetup.COUNTDOWN_TIME = 10
-	-- end
+	if IsInToolsMode() then
+		GameSetup.COUNTDOWN_TIME = 5
+	end
 
 	GameSetup.timer = GameSetup:StartTimer(GameSetup.COUNTDOWN_TIME, function () 
 		-- Tick

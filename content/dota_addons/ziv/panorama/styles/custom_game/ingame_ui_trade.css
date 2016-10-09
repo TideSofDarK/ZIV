@@ -33,14 +33,6 @@ DOTAItemImage {
 	height: 100%;
 }
 
-.TradeItems {
-	width: 685px;
-
-	horizontal-align: center;
-
-	flow-children: down;
-}
-
 .TradeItemsLabel {
 	margin: 62px;
 	margin-left: 80px;
@@ -61,6 +53,19 @@ DOTAItemImage {
 
 .CloseButton {
 	z-index: 1;
+}
+
+.TradeItems {
+	width: 540px;
+
+	horizontal-align: center;
+
+	flow-children: down;
+}
+
+.TradeItems.Accepted {
+	border: 2px solid #3fb568FF;
+	border-radius: 6px;
 }
 
 #PlayerTradeItems {

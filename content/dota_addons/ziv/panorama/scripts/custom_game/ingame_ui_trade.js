@@ -1,13 +1,21 @@
 var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 
-function OnDragDrop() {
-	var itemID = draggedPanel["contextEntityIndex"];
-	var itemName = Abilities.GetAbilityName(itemID);
-	draggedPanel.m_DragCompleted = true;
+function HighlightItems(args) {
+	if (args.tradeID == $("#TradeRoot").tradeID) {
+		if ($("#PlayerTradeItems").containerID != args.containerID) {
+			$("#PlayerTradeItems").AddClass("Accepted");
+		} else if ($("#OfferedTradeItems").containerID != args.containerID) {
+			$("#OfferedTradeItems").AddClass("Accepted");
+		}
+	}
 }
 
 function AcceptTrade() {
-	$("#TradeAcceptButtonLabel").text = $.Localize("trade_waiting_button");
+	if ($("#PlayerTradeItems").BHasClass("Accepted")) {
+		$("#TradeAcceptButtonLabel").text = $.Localize("trade_accept_button");
+	} else {
+		$("#TradeAcceptButtonLabel").text = $.Localize("trade_cancel_button");
+	}
 
 	GameEvents.SendCustomGameEventToServer( "ziv_accept_trade", { "tradeID" : $("#TradeRoot").tradeID } );
 }
@@ -39,10 +47,18 @@ function Toggle(args) {
 	}
 
 	if (args.tradeID) {
+		$("#TradeAcceptButtonLabel").text = $.Localize("trade_accept_button");
+
+		$("#PlayerTradeItems").RemoveClass("Accepted");
+		$("#OfferedTradeItems").RemoveClass("Accepted");
+
 		$("#TradeRoot").tradeID = args.tradeID;
 
 		var itemsContainerID = args.items;
 		var offerContainerID = args.offer;
+
+		$("#PlayerTradeItems").containerID = itemsContainerID;
+		$("#OfferedTradeItems").containerID = offerContainerID;
 
 		GameUI.CustomUIConfig().OpenContainer({"id" : itemsContainerID, "panel" : $("#PlayerTradeItems")});
 		GameUI.CustomUIConfig().OpenContainer({"id" : offerContainerID, "panel" : $("#OfferedTradeItems")});
@@ -82,13 +98,12 @@ function CreatePlayerSlots() {
 	GameEvents.Subscribe( "ziv_transmit_trade_request", TradeRequest );
 	GameEvents.Subscribe( "ziv_open_trade", Toggle );
 	GameEvents.Subscribe( "ziv_close_trade", Toggle );
+	GameEvents.Subscribe( "ziv_highlight_trade", HighlightItems );
 
 	// CreateOfferSlots();
 	// CreatePlayerSlots();
 
 	// $("#TradeRoot").SetDraggable( true );
-
-	$.RegisterEventHandler( 'DragDrop', $("#TradeRoot"), OnDragDrop );
 
 	$.GetContextPanel().ToggleClass("WindowClosed");
 })();

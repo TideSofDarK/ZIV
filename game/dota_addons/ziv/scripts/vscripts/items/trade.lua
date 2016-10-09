@@ -67,12 +67,15 @@ function Trade:AcceptTrade(args)
 	local pID = args.PlayerID
 	local tradeID = args.tradeID
 
-	Trade.TRADES[tradeID][pID].status = true
+	Trade.TRADES[tradeID][pID].status = not Trade.TRADES[tradeID][pID].status
 
 	local pIDs = {}
 
 	for k,v in pairs(Trade.TRADES[tradeID]) do
 		table.insert(pIDs, k)
+
+		CustomGameEventManager:Send_ServerToAllClients("ziv_highlight_trade", {tradeID = tradeID, containerID = Trade.TRADES[tradeID][k].container.id, highlight = v.status})
+
 		if not v.status then
 			return
 		end

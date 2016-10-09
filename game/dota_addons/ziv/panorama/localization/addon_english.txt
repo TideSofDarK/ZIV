@@ -209,7 +209,7 @@
 
 	"trade_accept_button"	"Accept"
 	"trade_decline_button"	"Decline"
-	"trade_waiting_button"	"Waiting"
+	"trade_cancel_button"	"Cancel"
 	"trade_player_items"	"Your Offer"
 	"trade_offered_items"	"You Get"
 	"trade_request"			" wants to trade"
