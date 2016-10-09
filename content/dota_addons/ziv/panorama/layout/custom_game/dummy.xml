@@ -1,14 +1,5 @@
-<root> <Panel> <Image src="file://{images}/custom_game/ingame_ui/slots/ammo.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/axe.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/axe2.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/boots.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/bow.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/gloves.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/gun.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/pants.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/ring.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/ring2.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/staff.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/sword.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/sword2.png" />
-<Image src="file://{images}/custom_game/ingame_ui/slots/torso.png" /> </Panel></root>
+<root> 
+	<Panel>
+		<Image src="file://{images}/spellicons/ziv_samurai_dash.png" /> 
+	</Panel>
+</root>

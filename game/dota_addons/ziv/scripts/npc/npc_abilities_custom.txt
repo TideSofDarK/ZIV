@@ -5791,7 +5791,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-	  "AbilityTextureName"            "juggernaut_blade_fury"
+	  "AbilityTextureName"            "ziv_samurai_whirlwind"
 	
 	  "AbilityCastPoint"        "0"
 	  // "AbilityCastRange" "250"
