@@ -41,6 +41,7 @@
 	"empty_gem_slot" "Пустой слот"
 
 	"level" "Уровень"
+	"obelisk" "Обелиск"
 	
 	"remove_hero" "Удалить героя"
 

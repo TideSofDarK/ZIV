@@ -193,6 +193,7 @@
 	"empty_gem_slot" "Empty Slot"
 
 	"level" "Level"
+	"obelisk" "Obelisk"
 
 	"DOTA_UNIT_CAP_MELEE_ATTACK" "Melee"
 	"DOTA_UNIT_CAP_RANGED_ATTACK" "Ranged"
