@@ -2,10 +2,19 @@ var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 
 function HighlightItems(args) {
 	if (args.tradeID == $("#TradeRoot").tradeID) {
-		if ($("#PlayerTradeItems").containerID != args.containerID) {
-			$("#PlayerTradeItems").AddClass("Accepted");
-		} else if ($("#OfferedTradeItems").containerID != args.containerID) {
-			$("#OfferedTradeItems").AddClass("Accepted");
+		if ($("#PlayerTradeItems").containerID == args.containerID) {
+			if (args.highlight == true) {
+				$("#PlayerTradeItems").AddClass("Accepted");
+			} else {
+				$("#PlayerTradeItems").RemoveClass("Accepted");
+			}
+		}
+		if ($("#OfferedTradeItems").containerID == args.containerID) {
+			if (args.highlight == true) {
+				$("#OfferedTradeItems").AddClass("Accepted");
+			} else {
+				$("#OfferedTradeItems").RemoveClass("Accepted");
+			}
 		}
 	}
 }
