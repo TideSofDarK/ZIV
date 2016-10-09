@@ -2,6 +2,10 @@
 
 $.GetContextPanel().entity = -1;
 
+function UpdateClass()
+{
+}
+
 function Click()
 {
 	if (GameUI.IsAltDown())
