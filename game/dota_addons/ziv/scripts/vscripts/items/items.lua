@@ -13,6 +13,7 @@ end
 function Items:Update()
 	Timers:CreateTimer(function()
 		local items = PlayerTables:GetAllTableValues("items")
+		local updated_items = {}
 
 		for k,v in pairs(items) do
 			local item = EntIndexToHScript(k)
@@ -31,12 +32,14 @@ function Items:Update()
 				end
 
 				v.rarity = item.rarity or 1
+
+				updated_items[k] = v
 			else
 				PlayerTables:SetTableValue("items", k, {})
 			end
 		end
 
-		PlayerTables:SetTableValues("items", items)
+		PlayerTables:SetTableValues("items", updated_items)
 
 		return 0.03
 	end)
@@ -60,8 +63,10 @@ function Items:CreateItemPanel( item_container, gc )
 
 	if gc then
 	    Timers:CreateTimer(Items.ITEM_GC_TIME, function (  )
-	    	UTIL_Remove(item_container:GetContainedItem())
-	    	UTIL_Remove(item_container)
+	    	if item_container then
+		    	UTIL_Remove(item_container:GetContainedItem())
+		    	UTIL_Remove(item_container)
+	    	end
 	    end)
 	end
 end
