@@ -137,7 +137,7 @@ function CreateMarkPanel( entity )
 
 	panel.entity = entity; 
 
-	if (panel.UpdateClass)
+	if (typeof panel.UpdateClass == 'function')
 		panel.UpdateClass();
 
 	return panel;

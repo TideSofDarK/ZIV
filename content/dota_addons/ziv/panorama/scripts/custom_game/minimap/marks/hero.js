@@ -7,9 +7,11 @@ function UpdateClass()
 	var entity = $.GetContextPanel().entity;
 	var panel = $.GetContextPanel();	
 
+	//$.Msg(Entities.IsEnemy(entity));
+
 	panel.AddClass("hero");
 	$("#Icon").SetImage( "file://{images}/heroes/icons/" + Entities.GetUnitName(entity) + ".png" );
-	$("#Icon").style.washColor = Entities.IsEnemy(entity) ? "#ff0000bb;" : "#00ff00bb;";
+	$("#Icon").style.washColor = Entities.IsEnemy(entity) ? "#ff0000bb;" : "#00ff00bb;"; 
 }
 
 function Click()
@@ -56,5 +58,4 @@ function HideEntityTooltip()
 (function()
 { 
 	$.GetContextPanel().UpdateClass = UpdateClass;
-	UpdateClass();
 })();

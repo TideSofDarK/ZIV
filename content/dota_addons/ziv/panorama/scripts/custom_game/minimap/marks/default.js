@@ -66,5 +66,4 @@ function HideEntityTooltip()
 (function()
 { 
 	$.GetContextPanel().UpdateClass = UpdateClass;
-	UpdateClass();
 })();
