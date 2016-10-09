@@ -2,10 +2,6 @@
 
 $.GetContextPanel().entity = -1;
 
-function UpdateClass()
-{
-}
-
 function Click()
 {
 	if (GameUI.IsAltDown())
@@ -40,6 +36,5 @@ function HideEntityTooltip()
 
 (function()
 { 
-	$.GetContextPanel().UpdateClass = UpdateClass;
-	UpdateClass();
+
 })();
