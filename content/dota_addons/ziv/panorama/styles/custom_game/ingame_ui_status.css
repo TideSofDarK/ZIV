@@ -1,25 +1,35 @@
 .StatusRoot {
-	horizontal-align: center;
+	horizontal-align: left;
 	vertical-align: center;
 
-	background-image: url('file://{images}/custom_game/ingame_ui/status_bg.png');
-	background-size: 100% 100%;
+	margin-bottom: 70px;
 
-	width: 457px;
-	height: 561px;
+	width: 483px;
+	height: 894px;
 
-	margin-bottom: 240px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+}
 
-	border-radius: 6px;
+.WindowClosed {
+	transform: translate3d( -483px, 0px, 0px );
+	blur: none;
 }
 
 .StatusInfo {
+	vertical-align: bottom;
+
+	width: 100%;
+	height: 590px;
+
 	flow-children: down;
 }
 
 #HiRes {
-	width: 458px;
-	height: 220px;
+	margin-top: 21px;
+
+	width: 462px;
+	height: 263px;
 
 	background-size: 100% 110%; 
 
@@ -164,13 +174,10 @@
 	margin-top: 4px;
 }
 
-#Foreground {
-	background-image: url('file://{images}/custom_game/ingame_ui/status_bg_a.png');
+#Background {
+	background-image: url('file://{images}/custom_game/ingame_ui/status_bg.png');
 	background-size: 100% 100%;
 
 	width: 100%;
-	height: 221px;
-
-/*	vertical-align: center;
-	horizontal-align: center;*/
+	height: 100%;
 }

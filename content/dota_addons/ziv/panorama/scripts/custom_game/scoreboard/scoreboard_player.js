@@ -27,9 +27,9 @@ function Update()
     $( "#PlayerButtons" ).visible = false;
 }
 
-function OfferFriendship()
+function OfferTrade()
 {
-  $.Msg("Friend!")
+  GameEvents.SendCustomGameEventToServer( "ziv_trade_request", { "target" : $.GetContextPanel().playerID } );
 }
 
 function InviteGroup()

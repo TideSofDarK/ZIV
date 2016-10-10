@@ -39,9 +39,8 @@ function Temple:Init()
 	Temple.obelisks_positions = Entities:FindAllByName("ziv_temple_obelisk")
 	Temple.creeps_positions = Entities:FindAllByName("ziv_temple_obelisk") --ziv_basic_creep_spawner
 
-
-	local worldMin = {x = -6100, y = -6100 } --{ x = GetWorldMinX(), y = GetWorldMinY() }
-  local worldMax = {x = 6100, y = 6100 } --{ x = GetWorldMaxX(), y = GetWorldMaxY() }
+	local worldMin = {x = -6100, y = -6100 }
+  	local worldMax = {x = 6100, y = 6100 }
 
 	CustomNetTables:SetTableValue( "scenario", "map", {min = worldMin, max = worldMax, map = GetMapName()} )
 end
@@ -59,23 +58,19 @@ function Temple:NextStage()
 		if Temple.stage == Temple.STAGE_FIRST then
 			Director:SetupCustomUI( "temple_objectives" )
 
-			Temple:FallingRocks()
+			-- Temple:FallingRocks()
 		elseif Temple.stage == Temple.STAGE_BOSS then
 			
 		else
 			Temple:SetupMap()
 
 			if Temple.stage == Temple.STAGE_PREGAME then
-				-- local duration = 5.0
-
-				-- DoToAllHeroes(function ( hero )
-				-- 	hero:AddNewModifier(hero,nil,"modifier_smooth_floating",{duration = duration})
-				-- 	TimedEffect( "particles/unique/temple/temple_floating_particle.vpcf", hero, duration, 0 )
-				-- end)
-
-				-- Timers:CreateTimer(duration, function (  )
-				Temple:NextStage()
-				-- end)
+				Timers:CreateTimer(Director.HERO_SPAWN_TIME, function (  )
+					for k,v in pairs(Entities:FindAllByName("ziv_temple_portal")) do
+						
+					end
+					Temple:NextStage()
+				end)
 			elseif Temple.stage == Temple.STAGE_SECOND then
 
 			end

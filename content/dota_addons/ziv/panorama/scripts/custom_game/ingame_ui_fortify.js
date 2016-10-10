@@ -1,6 +1,8 @@
 var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 var Util = GameUI.CustomUIConfig().Util;
 
+const MAXIMUM_SOCKETS = 3;
+
 function OnDragDrop(panelId, draggedPanel) {
 	var itemID = draggedPanel["contextEntityIndex"];
 	var itemName = Abilities.GetAbilityName(itemID);
@@ -10,7 +12,9 @@ function OnDragDrop(panelId, draggedPanel) {
 
 	var itemKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
 
-	if (itemName.indexOf( "item_gem_" ) === -1 && itemName.indexOf( "item_rune_" ) === -1) {
+	if (itemName.indexOf( "item_gem_" ) === -1 && 
+		itemName.indexOf( "item_rune_" ) === -1 && 
+		itemName.indexOf( "item_forging_" ) === -1) {
 		var displayPanel = $.CreatePanel( "DOTAItemImage", $("#FortifyItem"), "FortifyItemImage" );
 		displayPanel.itemname = itemKV["AbilityTextureName"];
 		displayPanel.contextEntityIndex = itemID;
@@ -26,28 +30,32 @@ function OnDragDrop(panelId, draggedPanel) {
 
 		$("#FortifyItem").style.visibility = "visible;";
 
-		GameUI.CustomUIConfig().AddItemTooltip( displayPanel, itemID );
-
 		Game.EmitSound( "ui.inv_equip_bone" )
 	} else {
 		var itemKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
 		if (itemKV) {
-			var plus = "+ " + itemKV["FortifyModifiersCount"] + " " + $.Localize(itemName + "_fortify_string");
-			if (itemName.indexOf( "item_rune_" ) !== -1) {
-				for (var key in itemKV["FortifyModifiers"]) {
-					var minValue = itemKV["FortifyModifiers"][key]["min"];
-					var maxValue = itemKV["FortifyModifiers"][key]["max"];
-					if (itemName.indexOf( "item_rune_" ) != -1) {
-						var runeKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
-						if (runeKV["Type"] == "Float") {
-							minValue /= 100;
-							maxValue /= 100;
+			var plus;
+			if (itemName.indexOf("item_forging_") != -1) {
+				plus = $.Localize(itemName + "_Fortify");
+			} else {
+				plus = "+ " + itemKV["FortifyModifiersCount"] + " " + $.Localize(itemName + "_Fortify");
+				if (itemName.indexOf( "item_rune_" ) !== -1) {
+					for (var key in itemKV["FortifyModifiers"]) {
+						var minValue = itemKV["FortifyModifiers"][key]["min"];
+						var maxValue = itemKV["FortifyModifiers"][key]["max"];
+						if (itemName.indexOf( "item_rune_" ) != -1) {
+							var runeKV = PlayerTables.GetTableValue("kvs", "items")[itemName];
+							if (runeKV["Type"] == "Float") {
+								minValue /= 100;
+								maxValue /= 100;
+							}
 						}
+						plus = "+ (" + minValue + "-" + maxValue + ")" + " " + $.Localize(key);
+						break;
 					}
-					plus = "+ (" + minValue + "-" + maxValue + ")" + " " + $.Localize(key);
-					break;
 				}
 			}
+
 			var newText = plus;
 			$("#FortifyTextBlockLabel").text = newText;
 			if ($("#FortifyTextBlockLabel").temp_text && $("#FortifyTextBlockLabel").temp_text != "") {
@@ -66,10 +74,10 @@ function OnDragDrop(panelId, draggedPanel) {
 
 		$("#FortifyTool").style.visibility = "visible;";
 
-		GameUI.CustomUIConfig().AddItemTooltip( displayPanel, itemID );
-
 		Game.EmitSound( "Item.PickUpGemShop" );
 	}
+
+	GameUI.CustomUIConfig().AddItemTooltip( displayPanel, itemID );
 	
 	CheckOKButton()
 }

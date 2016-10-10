@@ -1,117 +1,173 @@
 /*
-  Inventory
+  Equipment
 */
 
-.Hourglass.Outer
+.Equipment.Outer
 {
-  width: 317px;
-  height: 425px;
+  margin-top: 51px;
+  margin-left: 32px;
 
-  background-image: url('file://{images}/custom_game/ingame_ui/inventory_bg.png');
-  background-size: 100% 100%;
+  width: 496px;
+  height: 464px;
+
+  background-color: transparent;
 
   border-color: transparent;
   border-radius: 7px;
+
+  flow-children: none;
 }
 
-.Hourglass #Header
+.Equipment #Header
 {
   background-color: transparent;
-  height: 60px;
+  visibility: collapse;
 }
 
-.Hourglass #Footer
+.Equipment #Footer
 {
   
 }
 
-.Hourglass #HeaderLabel
+.Equipment #HeaderLabel
 { 
-  margin-top: 17px;
-  color: #ffffffbb;
-
-  text-shadow: 1px 1px 1px black;
-  text-align: left;
-  text-transform: uppercase;
-  text-overflow: clip;
-
-  box-shadow: #000000ff 0px 0px 8px 0.3;
-
-  font-weight: bold;
-  font-size: 23px;
-  font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+  visibility: collapse;
 }
 
-.Hourglass #Inner
+.Equipment #Inner
 {
+  margin: 0px;
+  align: center top;
+
   border-color: transparent;
   background-color: transparent;
 
+  flow-children: none;
 }
 
-.Hourglass .ItemRow
+.Equipment .ItemRow
 {
   margin-top: 3px;
   margin-bottom: 2px;
   background-color: transparent;
 } 
 
-.Hourglass .ItemPanel
-{
-  width:81px;
-  height:60px;
-
-  margin-top: -1px;
-}
-
-.Hourglass #row1
+.Equipment #row1
 {
   clip: rect(-100%, 200%, 200%, -100%);
   background-color: transparent;
 
-  margin-left: 8px;
-  margin-top: 4px;
+  flow-children: none;
 }
 
-.Hourglass #row2
+.Equipment #slot2
 {
+  margin-top: 85px;
+  margin-right: 240px;
+}
+
+.Equipment #slot3
+{
+  margin-top: 85px;
+}
+
+.Equipment #slot4
+{
+  margin-top: 85px;
+  margin-left: 234px;
+}
+
+.Equipment #slot5
+{
+  margin-top: 171px;
+}
+
+.Equipment #slot6
+{
+  margin-top: 256px;
+}
+
+.Equipment .ItemPanel
+{
+  align: center top;
+
+  margin: 0px;
+
+  width: 95px;
+  height: 68px;
+
+  border-radius: 4px;
+
+  box-shadow: fill #000000ff 0px 0px 12px 0px;
+}
+
+.Equipment .CloseButton {
+  visibility: collapse;
+}
+
+/*
+  Inventory
+*/
+
+.Inventory.Outer
+{
+  width: 496px;
+  height: 460px;
+
+  border-color: transparent;
+  border-radius: 7px;
+
+  background-color: transparent;
+}
+
+.Inventory #Header
+{
+  height: 20px;
+  background-color: transparent;
+}
+
+.Inventory #Footer
+{
+  
+}
+
+.Inventory #HeaderLabel
+{ 
+  visibility: collapse;
+}
+
+.Inventory #Inner
+{
+  border-color: transparent;
   background-color: transparent;
 
-  margin-left: 8px;
-  margin-top: 4px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
-.Hourglass #row3
+.Inventory .ItemRow
 {
+  margin-top: 2px;
+  margin-bottom: 0px;
+
   background-color: transparent;
+} 
 
-  margin-left: 8px;
-  margin-top: 4px;
-}
-
-.Hourglass .ItemPanel
+.Inventory .ItemPanel
 {
+  width:81px;
+  height:60px;
+
   box-shadow: fill #000000ff 0px 0px 12px 0px;
   border-radius: 6px;
 }
 
-.Hourglass .CloseButton {
-  width: 47px;
-  height: 52px;
-
-  margin-right: 5px;
-
-  wash-color: none;
-
-  background-image: url('file://{images}/custom_game/ingame_ui/ui_close_button.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-
-  horizontal-align: right;
+.Inventory .CloseButton {
+  visibility: collapse;
 }
 
-.Hourglass .CloseButton:hover
+.Inventory .CloseButton:hover
 {
   wash-color: #bbbbbb;
 }

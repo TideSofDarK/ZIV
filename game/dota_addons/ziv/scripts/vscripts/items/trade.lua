@@ -92,6 +92,9 @@ function Trade:AcceptTrade(args)
 		Characters:GetInventory(pIDs[1]):AddItem(v)
 	end
 
+	initiatorContainer:Delete(true)
+	accepterContainer:Delete(true)
+
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(tonumber(pIDs[1])), "ziv_close_trade", {})
 
 	if pIDs[1] ~= pIDs[2] then

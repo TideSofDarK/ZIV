@@ -2,7 +2,7 @@ if not Items then
     Items = class({})
 end
 
-Items.ITEM_GC_TIME = 20
+Items.ITEM_GC_TIME = 30
 
 function Items:Init()
 	PlayerTables:CreateTable("items", {}, true)
@@ -19,23 +19,24 @@ function Items:Update()
 			local item = EntIndexToHScript(k)
 
 			if item and not item:IsNull() then
+				updated_items[k] = {}
 				if item.fortify_modifiers then
 					local fortify_modifiers = {} 
 					for k,v in pairs(item.fortify_modifiers) do table.insert(fortify_modifiers, v) end	
-					v.fortify_modifiers = fortify_modifiers
+					updated_items[k].fortify_modifiers = fortify_modifiers
 				end
 
 				if item.built_in_modifiers then
 					local built_in_modifiers = {} 
 					for k,v in pairs(item.built_in_modifiers) do table.insert(built_in_modifiers, v) end	
-					v.built_in_modifiers = built_in_modifiers
+					updated_items[k].built_in_modifiers = built_in_modifiers
 				end
 
-				v.rarity = item.rarity or 1
+				updated_items[k].rarity = item.rarity or 1
 
-				updated_items[k] = v
+				updated_items[k].sockets = item.sockets or 0
 			else
-				PlayerTables:SetTableValue("items", k, {})
+				-- PlayerTables:SetTableValue("items", k, {})
 			end
 		end
 

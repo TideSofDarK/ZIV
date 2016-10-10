@@ -2,6 +2,12 @@ if Loot == nil then
     _G.Loot = class({})
 end
 
+Loot.SOCKETS_CHANCES 					= {}
+Loot.SOCKETS_CHANCES[1] 				= 0.8 		-- 0
+Loot.SOCKETS_CHANCES[2] 				= 0.5		-- 1
+Loot.SOCKETS_CHANCES[3] 				= 0.04		-- 2
+Loot.SOCKETS_CHANCES[4] 				= 0.005		-- 3
+
 Loot.TYPE_PARTS 						= 1
 Loot.TYPE_WEAPONS 						= 2
 Loot.TYPE_ARMOR 						= 3
@@ -69,18 +75,25 @@ function Loot:Init()
 			end
 		end
 	end
+	-- RNGs
+	Loot.SOCKETS_RNG = ChoicePseudoRNG.create( Loot.SOCKETS_CHANCES )
+	Loot.TYPE_RNG = ChoicePseudoRNG.create( Loot.TYPE_CHANCES )
+	Loot.RARITY_RNG = ChoicePseudoRNG.create( Loot.RARITY_CHANCES )
 end
 
+-- Main item generating function
+
 function Loot:CreateItem( position, owner )
-  	local item_type = ChoicePseudoRNG.create( Loot.TYPE_CHANCES ):Choose()
+  	local item_type = Loot.TYPE_RNG:Choose()
   	local item_name = GetRandomElement(Loot.Table[tostring(item_type)], false, true)
 
 	local item = Items:Create(item_name, owner)
 
-	item.rarity = Loot.RARITY_COMMON
+	item.rarity = ZIV.ItemKVs[item_name].Rarity or Loot.RARITY_COMMON
 
 	if item_type == Loot.TYPE_WEAPONS or item_type == Loot.TYPE_ARMOR then
 		item.rarity = owner.loot_rarity_rng:Choose()
+		item.sockets = Loot.SOCKETS_RNG:Choose() - 1
 
 		Loot:AddModifiers(item)
 	end
@@ -138,7 +151,7 @@ end
 function Loot:CreateChest( pos, rarity )
 	local chest = CreateItemOnPositionSync(pos, Items:Create(Loot.CHEST_MODELS[math.random(1, GetTableLength(Loot.CHEST_MODELS))], nil))
 	Items:CreateItemPanel( chest )
-	chest.rarity = rarity or ChoicePseudoRNG.create( Loot.RARITY_CHANCES ):Choose()
+	chest.rarity = rarity or Loot.RARITY_RNG:Choose()
 
 	chest:SetAngles(0, math.random(0, 360), 0)
 	Timers:CreateTimer(function (  )

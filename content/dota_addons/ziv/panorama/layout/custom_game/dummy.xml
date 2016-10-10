@@ -1,5 +1,29 @@
-<root> 
-	<Panel>
-		<Image src="file://{images}/spellicons/ziv_samurai_dash.png" /> 
-	</Panel>
-</root>
+<root> <Panel> <Image src="file://{images}/items/arrow_proof_coat.png" />
+<Image src="file://{images}/items/basic_bow.png" />
+<Image src="file://{images}/items/basic_coat.png" />
+<Image src="file://{images}/items/basic_leather.png" />
+<Image src="file://{images}/items/basic_parts.png" />
+<Image src="file://{images}/items/basic_shotgun.png" />
+<Image src="file://{images}/items/basic_smg.png" />
+<Image src="file://{images}/items/basic_sword.png" />
+<Image src="file://{images}/items/bastard_sword.png" />
+<Image src="file://{images}/items/craft_bow.png" />
+<Image src="file://{images}/items/craft_shotgun.png" />
+<Image src="file://{images}/items/emptyitembg.png" />
+<Image src="file://{images}/items/enhanced_shotgun.png" />
+<Image src="file://{images}/items/forging_dial.png" />
+<Image src="file://{images}/items/forging_seal_of_lore.png" />
+<Image src="file://{images}/items/gem_malachite.png" />
+<Image src="file://{images}/items/gem_topaz.png" />
+<Image src="file://{images}/items/rune_beastmaster.png" />
+<Image src="file://{images}/items/rune_dark_goddess.png" />
+<Image src="file://{images}/items/rune_elementalist.png" />
+<Image src="file://{images}/items/rune_huntress.png" />
+<Image src="file://{images}/items/rune_knight.png" />
+<Image src="file://{images}/items/rune_samurai.png" />
+<Image src="file://{images}/items/rune_sniper.png" />
+<Image src="file://{images}/items/rune_witch_doctor.png" />
+<Image src="file://{images}/items/scarred_sword.png" />
+<Image src="file://{images}/items/tribe_bow.png" />
+<Image src="file://{images}/items/tribe_coat.png" />
+ </Panel></root>

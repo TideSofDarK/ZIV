@@ -1,12 +1,7 @@
- var Util = GameUI.CustomUIConfig().Util;
+var Util = GameUI.CustomUIConfig().Util;
 
 function Toggle() {
 	$.GetContextPanel().ToggleClass("WindowClosed");
-	if ($.GetContextPanel().BHasClass("WindowClosed")) {
-		$.GetContextPanel().RemoveFromPanelsQueue();
-	} else {
-		$.GetContextPanel().AddToPanelsQueue();
-	}
 
 	Update();
 }

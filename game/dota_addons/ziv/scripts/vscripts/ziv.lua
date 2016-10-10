@@ -97,6 +97,7 @@ LinkLuaModifier("modifier_fade_out", "abilities/tools/modifier_fade_out.lua", LU
 LinkLuaModifier("modifier_transparent", "abilities/tools/modifier_transparent.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_disable_auto_attack", "abilities/tools/modifier_disable_auto_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_smooth_floating", "abilities/tools/modifier_smooth_floating.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_command_restricted", "abilities/tools/modifier_command_restricted.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_ai", "abilities/tools/modifier_boss_ai.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hide", "abilities/tools/modifier_hide.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -236,6 +237,7 @@ function ZIV:InitZIV()
   ZIV.RecipesKVs = LoadKeyValues("scripts/kv/Recipes.kv")
   ZIV.PresetsKVs = LoadKeyValues("scripts/kv/CharacterPresets.kv")
   ZIV.AttributesKVs = LoadKeyValues("scripts/kv/Attributes.kv")
+  ZIV.EquipmentKVs = LoadKeyValues("scripts/kv/Equipment.kv")
 
   SendToServerConsole("dota_surrender_on_disconnect 0")
   SendToServerConsole( 'customgamesetup_set_auto_launch_delay 300' )

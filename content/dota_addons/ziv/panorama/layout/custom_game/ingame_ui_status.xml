@@ -9,12 +9,12 @@
 		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
 	<Panel class="Window StatusRoot BasicShadow WindowAnimation WindowClosed" hittestchildren="true" draggable="true">
+		<Panel id="HiRes">
+			<Label id="HeroNameLabel" text="Name" html="true">
+			</Label>
+		</Panel>
+		<Panel id="Background" hittest="false"/>
 		<Panel class="StatusInfo">
-			<Panel id="HiRes">
-				<Label id="HeroNameLabel" text="Name" html="true">
-				</Label>
-			</Panel>
-			
 			<Label id="AttributesHeadline" class="Headline" text="#status_attr">
 			</Label>
 
@@ -59,10 +59,5 @@
 			<Panel class="CBR" hittest="true">
 			</Panel>
 		</Panel>
-
-		<Panel id="Foreground" hittest="false"/>
-
-		<Button onactivate="Toggle()" class="CloseButton" id="CloseButton">
-		</Button>
 	</Panel>
 </root>

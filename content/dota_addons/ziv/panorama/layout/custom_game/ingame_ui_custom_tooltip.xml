@@ -26,6 +26,7 @@
                 <Panel class="TooltipCBR"/>
                 <Label id="ItemTooltipRarity" html="true" class="TooltipLabel" text=""/>
                 <Label id="ItemTooltipSlot" html="true" class="TooltipLabel" text=""/>  
+                <Label id="ItemTooltipSockets" html="true" class="TooltipLabel" text=""/> 
                 <Panel class="TooltipCBR"/>
                 <Label id="ItemTooltipDescription" class="TooltipLabel" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/> 
             </Panel>
@@ -108,6 +109,9 @@
                     } else {
                         itemTooltip.FindChildTraverse("ItemTooltipSlot").visible = false;
                     }
+
+                    itemTooltip.FindChildTraverse("ItemTooltipSockets").text = $.Localize("sockets") + Util.ColorString(itemData.sockets);
+                    itemTooltip.FindChildTraverse("ItemTooltipSockets").visible = itemData.sockets > 0;
 
                     itemTooltip.FindChildTraverse("ItemTooltipDescription").text = $.Localize("DOTA_Tooltip_ability_" + itemName + "_Description");
 

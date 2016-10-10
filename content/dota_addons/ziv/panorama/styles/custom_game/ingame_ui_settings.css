@@ -1,8 +1,10 @@
 .SettingsRoot {
 	align: center center;
 
-	width: 432px;
-	height: 579px;
+	width: 436px;
+	height: 580px;
+
+	border-radius: 5px;
 }
 
 #Checkboxes {
@@ -11,8 +13,8 @@
 }
 
 #Background {
-	width: 432px;
-	height: 579px;
+	width: 436px;
+	height: 580px;
 
 	background-image: url('file://{images}/custom_game/ingame_ui/settings_bg.png');
 }

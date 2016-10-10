@@ -1,4 +1,5 @@
 var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+var Util = GameUI.CustomUIConfig().Util;
 
 function HighlightItems(args) {
 	if (args.tradeID == $("#TradeRoot").tradeID) {
@@ -57,6 +58,9 @@ function Toggle(args) {
 
 	if (args.tradeID) {
 		$("#TradeAcceptButtonLabel").text = $.Localize("trade_accept_button");
+
+		Util.RemoveChildren($("#PlayerTradeItems"));
+		Util.RemoveChildren($("#OfferedTradeItems"));
 
 		$("#PlayerTradeItems").RemoveClass("Accepted");
 		$("#OfferedTradeItems").RemoveClass("Accepted");

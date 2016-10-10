@@ -2,6 +2,8 @@ if Director == nil then
     _G.Director = class({})
 end
 
+Director.HERO_SPAWN_TIME = 5.0
+
 Director.TEAM_ASSIGNMENT_AUTO = 0
 Director.TEAM_ASSIGNMENT_MANUAL = 1
 

@@ -61,7 +61,6 @@
 	"slot_torso"									"Torso"
 
 	// Common modifiers
-
 	"modifier_all_resistances" 			"to all magic resistances"
 	"modifier_fire_resistance" 			"to fire resistance"
 	"modifier_cold_resistance" 			"to cold resistance"
@@ -79,7 +78,6 @@
 	"MODIFIER_PROPERTY_HEALTH_BONUS" "to max HP"
 
 	// Runes
-
 	"ziv_elementalist_overload_targets"				"to max Overload targets"
 	"ziv_elementalist_overload_lightning_damage"	"to Overload lightning damage"
 	"ziv_elementalist_overload_fire_damage"			"to Overload fire damage"
@@ -215,6 +213,8 @@
 	"trade_offered_items"	"You Get"
 	"trade_request"			" wants to trade"
 
+	"sockets"				"Sockets: "
+
 	// Game setup
 	"gamesetup_ready"								"Ready"
 	"gamesetup_preparing"							"Preparing"
@@ -270,10 +270,14 @@
 	"status_mda"	"Spell Amplify: "
 	"status_ctc"	"Chance to crit: "
 
+	// Fortifying
 	"dragfortify"				"Drag and drop weapon or armor from inventory to fortify"
 	"dragfortify_gem"			"Drag and drop gem from inventory to insert it"
 	"fortify_button"			"Fortify"
 
-	"item_gem_malachite_fortify_string" "random modifier from list (attack speed, move speed, evasion, bonus agility)"
-	"item_gem_topaz_fortify_string" "random modifier from list (bonus to single stat, bonus to all stats, bonus armor)"
+	"item_forging_dial_Fortify" "Randomizes values of ALL fortified modifiers. Use with caution!"
+	"item_forging_seal_of_lore_Fortify" "Adds additional socket to weapon or armor."
+
+	"item_gem_malachite_Fortify" "random modifier from list (attack speed, move speed, evasion, bonus agility)"
+	"item_gem_topaz_Fortify" "random modifier from list (bonus to single stat, bonus to all stats, bonus armor)"
 }

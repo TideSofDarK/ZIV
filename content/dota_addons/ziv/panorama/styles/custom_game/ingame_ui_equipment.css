@@ -1,0 +1,70 @@
+.EquipmentRoot
+{
+	vertical-align: center;
+	horizontal-align: right;
+
+	margin-bottom: 70px;
+
+	width: 496px;
+	height: 894px;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/equipment_bg.png');
+	background-size: 100% 100%;
+
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+
+	flow-children: down;
+}
+
+.WindowClosed {
+	transform: translate3d( 496px, 0px, 0px );
+	blur: none;
+}
+
+#Equipment
+{
+	align: center center;
+
+	width: 496px;
+	height: 464px;
+}
+
+#Inventory 
+{
+	margin-left: 25px;
+
+	width: 100%;
+	height: 460px;
+}
+
+.PreviewItem {
+	width: 93px;
+	height: 68px;
+
+	border-radius: 4px;
+
+	align: center top;
+}
+
+#PreviewItemLH {
+	margin-top: 85px;
+	horizontal-align: left;
+}
+
+#PreviewItemGloves {
+	margin-top: 85px;
+}
+
+#PreviewItemRH {
+	margin-top: 85px;
+	horizontal-align: right;
+}
+
+#PreviewItemPants {
+	margin-top: 170px;
+}
+
+#PreviewItemBoots {
+	margin-top: 255px;
+}

@@ -74,12 +74,17 @@
         }));
     })();
 
-    var parent = $.GetContextPanel().GetParent();
-    while(parent.id != "Hud")
-        parent = parent.GetParent();
+    // Store HUD root to create panels there later
+    <!-- $.Schedule(0.03, function () { -->
+        var parent = $.GetContextPanel().GetParent();
+        while(parent.id != "Hud")
+            parent = parent.GetParent();
 
-    GameUI.CustomUIConfig().hudRoot = parent;
+        GameUI.CustomUIConfig().hudRoot = parent.FindChildTraverse("CustomUIRoot");
+    <!-- }) -->
 
+
+    // Default keybinds for abilities
     GameUI.CustomUIConfig().KEYBINDS = {
         0: "Q",
         1: "W",
@@ -107,9 +112,7 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_fortify.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_status.xml"/>
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_side_item_description.xml"/>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_trade.xml" />
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_equip_list.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_settings.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/crafting/crafting.xml" />
 
@@ -117,6 +120,8 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/minimap/minimap.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/scoreboard/scoreboard.xml" />
+
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_equipment.xml" />
 
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/modmaker/modmaker.xml" /> -->
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_worldpanels.xml" />

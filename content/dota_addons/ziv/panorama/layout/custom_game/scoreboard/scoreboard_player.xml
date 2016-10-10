@@ -17,8 +17,8 @@
 			<Button class="ScoreboardButton" id="Party" onactivate="InviteGroup();" >
 				<Image src="file://{images}/custom_game/ingame_ui/scoreboard_btn_group.png" />
 			</Button>
-			<Button class="ScoreboardButton" id="Friendship" onactivate="OfferFriendship();"> 
-				<Image src="file://{images}/custom_game/ingame_ui/scoreboard_btn_friendship.png" />
+			<Button class="ScoreboardButton" id="Friendship" onactivate="OfferTrade();"> 
+				<Image src="file://{images}/custom_game/ingame_ui/scoreboard_btn_trade.png" />
 			</Button>
 		</Panel> 
 	</Panel>

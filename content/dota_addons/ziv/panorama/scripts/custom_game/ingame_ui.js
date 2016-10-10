@@ -17,8 +17,6 @@ var SPOrb = $("#SPOrb");
 
 var XPBar = $("#XPBarRoot");
 
-// var modelParticle;
-
 function OnAbilityLearnModeToggled( bEnabled )
 {
 	UpdateAbilityList();
@@ -141,7 +139,7 @@ function UpdateHPAndMP()
 	}
 }
 
-function OpenEquipment() {
+function ToggleEquipmentWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_equipment", {} );
 }
 

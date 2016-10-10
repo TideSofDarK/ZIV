@@ -91,8 +91,6 @@ function ZIV:_InitZIV()
 
   ListenToGameEvent("player_chat", Dynamic_Wrap(ZIV, 'OnPlayerChat'), self)
 
-  CustomGameEventManager:RegisterListener( "player_buff_clicked", Dynamic_Wrap(ZIV, 'OnBuffClicked'))
-
   CustomGameEventManager:RegisterListener( "ziv_fortify_item", Dynamic_Wrap(Socketing, 'OnFortify'))
   CustomGameEventManager:RegisterListener( "ziv_fortify_item_get_modifiers", Dynamic_Wrap(Socketing, 'OnFortifyGetModifiers'))
 

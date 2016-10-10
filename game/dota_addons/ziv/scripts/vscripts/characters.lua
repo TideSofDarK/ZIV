@@ -21,7 +21,7 @@ Characters.current_session_characters = Characters.current_session_characters or
 function Characters:Init() 
   PlayerTables:CreateTable("characters", {characters=GeneratePlayerArray("player")}, true)
 
-  CustomGameEventManager:RegisterListener("ziv_open_inventory", Dynamic_Wrap(Characters, "OnOpenInventory"))
+  CustomGameEventManager:RegisterListener("ziv_get_containers", Dynamic_Wrap(Characters, "SendPlayerContainers"))
 
   Containers:SetDisableItemLimit(true)
   Containers:UsePanoramaInventory(false)
@@ -113,38 +113,130 @@ end
 
 function Characters:CreateCharacterInventory( pID, hero )
     local inventory = Containers:CreateContainer({
-      layout =      {3,3,3,3,3},
-      skins =       {"Hourglass"},
+      layout =      {5,5,5,5,5},
+      skins =       {"Inventory"},
       headerText =  "Bag",
       pids =        {pID},
       entity =      hero,
       closeOnOrder =false,
-      position =    "75% 25%",
+      position =    "0px 0px 0px",
       OnDragWorld = true
     })
 
     hero.inventory = inventory
 
+    local equipment = Containers:CreateContainer({
+      layout        = {6},
+      skins         = {"Equipment"},
+      position      = "0px 0px 0px",
+      pids          = {pID},
+      entity        = hero,
+      closeOnOrder  = false,
+      OnDragWorld   = false,
+      OnDragTo      = (function (playerID, container, unit, item, fromSlot, toContainer, toSlot) 
+        Containers:print('Containers:OnDragTo', playerID, container, unit, item, fromSlot, toContainer, toSlot)
+
+        if ZIV.ItemKVs[item:GetName()]["Slot"] and string.match(ZIV.EquipmentKVs[tostring(toSlot)], ZIV.ItemKVs[item:GetName()]["Slot"]) then
+          Equipment:Equip( hero, item )
+        else
+          return false
+        end
+
+        local item2 = toContainer:GetItemInSlot(toSlot)
+        local addItem = nil
+        if item2 and IsValidEntity(item2) and (item2:GetAbilityName() ~= item:GetAbilityName() or not item2:IsStackable() or not item:IsStackable()) then
+          if Containers.itemKV[item2:GetAbilityName()].ItemCanChangeContainer == 0 then
+            return false
+          end
+          toContainer:RemoveItem(item2)
+          addItem = item2
+
+          Equipment:Unequip( hero, item2 )
+        end
+
+        if toContainer:AddItem(item, toSlot) then
+          container:ClearSlot(fromSlot)
+          if addItem then
+            if container:AddItem(addItem, fromSlot) then
+              return true
+            else
+              toContainer:RemoveItem(item)
+              toContainer:AddItem(item2, toSlot, nil, true)
+              container:AddItem(item, fromSlot, nil, true)
+              return false
+            end
+          end
+          return true
+        elseif addItem then
+          toContainer:AddItem(item2, toSlot, nil, true)
+        end
+         
+        return false 
+      end),
+      OnDragFrom    = (function (playerID, container, unit, item, fromSlot, toContainer, toSlot) 
+        Containers:print('Containers:OnDragFrom', playerID, container, unit, item, fromSlot, toContainer, toSlot)
+
+        local canChange = Containers.itemKV[item:GetAbilityName()].ItemCanChangeContainer
+        if toContainer._OnDragTo == false or canChange == 0 then return end
+
+        Equipment:Unequip( hero, item )
+
+        local fun = nil
+        if type(toContainer._OnDragTo) == "function" then
+          fun = toContainer._OnDragTo
+        end
+
+        if fun then
+          fun(playerID, container, unit, item, fromSlot, toContainer, toSlot)
+        else
+          Containers:OnDragTo(playerID, container, unit, item, fromSlot, toContainer, toSlot)
+        end
+      end)
+    })
+
+    hero.equipment = equipment
+
     Containers:SetDefaultInventory(hero, inventory)
 end
 
 function Characters:InitCharacter( hero )
-    hero:AddAbility("ziv_passive_hero")
-    hero:AddAbility("ziv_hero_normal_hpbar_behavior")
+  Characters.current_session_characters[hero:GetPlayerID()] = hero
 
-    hero:AddNewModifier(hero,nil,"modifier_disable_auto_attack",{})
+  hero:AddAbility("ziv_passive_hero")
+  hero:AddAbility("ziv_hero_normal_hpbar_behavior")
 
-    InitAbilities(hero)
+  InitAbilities(hero)
 
-    Attributes:ModifyBonuses(hero)
+  Attributes:ModifyBonuses(hero)
 
-    -- PseudoRNG stuff
-    hero.loot_rng         = PseudoRNG.create( Loot.LOOT_CHANCE )
-    hero.loot_rarity_rng  = ChoicePseudoRNG.create( Loot.RARITY_CHANCES )
-    hero.vial_rng         = PseudoRNG.create( ZIV_VIAL_CHANCE )
-    hero.vial_choice_rng  = ChoicePseudoRNG.create( {ZIV_HP_VIAL_CHANCE, ZIV_SP_VIAL_CHANCE} )
+  -- PseudoRNG stuff
 
-    Characters.current_session_characters[hero:GetPlayerID()] = hero
+  hero.loot_rng         = PseudoRNG.create( Loot.LOOT_CHANCE )
+  hero.loot_rarity_rng  = ChoicePseudoRNG.create( Loot.RARITY_CHANCES )
+  hero.vial_rng         = PseudoRNG.create( ZIV_VIAL_CHANCE )
+  hero.vial_choice_rng  = ChoicePseudoRNG.create( {ZIV_HP_VIAL_CHANCE, ZIV_SP_VIAL_CHANCE} )
+
+  hero:AddNewModifier(hero,nil,"modifier_disable_auto_attack",{})
+
+  -- Spawn effects
+
+  hero:AddNewModifier(hero,nil,"modifier_hide",{duration = Director.HERO_SPAWN_TIME})
+  hero:AddNewModifier(hero,nil,"modifier_command_restricted",{duration = Director.HERO_SPAWN_TIME})
+
+  local particle = ParticleManager:CreateParticle( "particles/items2_fx/teleport_end.vpcf", PATTACH_CUSTOMORIGIN, nil )
+  ParticleManager:SetParticleControl(particle, 0, hero:GetAbsOrigin() + Vector(0,0,30))
+  ParticleManager:SetParticleControl(particle, 1, hero:GetAbsOrigin() + Vector(0,0,30))
+  ParticleManager:SetParticleControl(particle, 2, Vector(40,40,200))
+  ParticleManager:SetParticleControl(particle, 3, hero:GetAbsOrigin() + Vector(0,0,30))
+
+  hero:EmitSound("Portal.Loop_Appear")
+
+  Timers:CreateTimer(Director.HERO_SPAWN_TIME, function (  )
+    hero:EmitSound("Portal.Hero_Disappear")
+    hero:StopSound("Portal.Loop_Appear")
+
+    ParticleManager:DestroyParticle(particle, false)
+  end)
 end
 
 function Characters:GetInventory(pID)
@@ -155,7 +247,13 @@ function Characters:GetInventory(pID)
   end
 end
 
-function Characters:OnOpenInventory(args)
+function Characters:GetHero(pID)
+  return Characters.current_session_characters[pID]
+end
+
+function Characters:SendPlayerContainers(args)
   local pID = args.PlayerID
-  Characters:GetInventory(pID):Open(pID)
+  local hero = Characters:GetHero(pID)
+
+  CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_set_containers", { equipmentContainerID = hero.equipment.id, inventoryContainerID = hero.inventory.id } )
 end

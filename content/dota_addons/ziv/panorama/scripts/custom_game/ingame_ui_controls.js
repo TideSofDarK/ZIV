@@ -73,8 +73,8 @@ function BeginMoveState()
 		if ( GameUI.IsMouseDown( 0 ))
 		{
 			$.Schedule( 1.0/30.0, tic );
-			
-        	var move = true;
+
+			var move = true;
 			if (GameUI.IsShiftDown() || GetMouseCastTarget() != -1) {
 				var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 				var ability = Entities.GetAbility( queryUnit, 3 ); 
@@ -124,7 +124,7 @@ function GetMouseCastTarget()
 {
 	var mouseEntities = GameUI.FindScreenEntities( GameUI.GetCursorPosition() );
 	var localHeroIndex = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
-	mouseEntities = mouseEntities.filter( function(e) { return e.entityIndex !== localHeroIndex; } );
+	mouseEntities = mouseEntities.filter( function(e) { return (e.entityIndex !== localHeroIndex) && Entities.IsEnemy(e.entityIndex); } );
 	for ( var e of mouseEntities )
 	{
 		if ( !e.accurateCollision )

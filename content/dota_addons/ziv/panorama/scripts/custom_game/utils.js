@@ -40,7 +40,7 @@ Util.SpanString = (function (str, className) {
 });
 
 Util.ColorString = (function (str, color) {
-    return "<font color=\"" + color + "\">" + str + "</font>";
+    return "<font color=\"" + (color || "#FFFFFF") + "\">" + str + "</font>";
 });
 
 Util.RuneToItem = (function (modifier) {
@@ -87,6 +87,13 @@ Util.ConvertValue = (function (modifier, originalValue, modifierValue, dontModif
         return modifierValue;
     }
     return Util.RoundToTwo(newValue);
+});
+
+Util.RemoveChildren = (function (panel) {
+    for (var child in panel.Children()) {
+        child.DeleteAsync(0.0);
+        child.RemoveAndDeleteChildren();
+    }
 });
 
 (function(){

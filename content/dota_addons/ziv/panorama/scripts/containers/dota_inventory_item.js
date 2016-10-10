@@ -97,13 +97,12 @@ function ItemShowTooltip()
 	if ( m_Item == -1 )
 		return;
 
-	var itemName = Abilities.GetAbilityName( m_Item );
-	$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, m_QueryUnit );
+	GameUI.CustomUIConfig().ShowItemTooltip($("#ItemImage"), m_Item);
 }
 
 function ItemHideTooltip()
 {
-	$.DispatchEvent( "DOTAHideAbilityTooltip", $.GetContextPanel() );
+	GameUI.CustomUIConfig().HideItemTooltip($("#ItemImage"));
 }
 
 var lastClick = 1; // 1 right, 0 left
