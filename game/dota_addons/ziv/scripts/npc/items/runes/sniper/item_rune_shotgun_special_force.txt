@@ -14,13 +14,16 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"     "New"
+  "Type"        "Int"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
     "ziv_sniper_shotgun_special_force"
     {
       "min" "10"
-      "max" "40"
+      "max" "70"
     }
   }
 }

@@ -80,8 +80,8 @@ function Explode( keys )
 
 		Timers:CreateTimer(0.6, function (  )
 			trap:RemoveModifierByName("dummy_unit")
-			trap:RemoveSelf()
 			trap:SetRenderMode(10)
+			trap:RemoveSelf()
 		end)
 	end
 end

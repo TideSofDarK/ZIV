@@ -14,13 +14,17 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip" "dash_speed"
+  "Type"    "Int"
+  "Method"  "Add"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
     "ziv_sniper_shotgun_dash_speed"
     {
       "min" "75"
-      "max" "300"
+      "max" "350"
     }
   }
 }

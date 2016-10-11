@@ -8,11 +8,11 @@
   "Slot"  "gun"
   "CustomSkill1"  
   {
-    "ziv_sniper_empty1" "ziv_sniper_smg_special"
+    "3" "ziv_sniper_smg_special"
   }
   "CustomSkill2"  
   {
-    "ziv_sniper_empty2" "ziv_sniper_smg_backup"
+    "4" "ziv_sniper_smg_backup"
   }
 
   "ItemStackable" "0"

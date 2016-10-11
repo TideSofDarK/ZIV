@@ -20,16 +20,16 @@
   "AbilityCastPoint"        "0.001"
   "AbilityCooldown"       "5.0"
 
-  "AbilityManaCost"       "75"
+  "AbilityManaCost"       "25"
 
-  "MaxLevel"  "7"
+  "MaxLevel"  "1"
 
   "AbilitySpecial"
   {
     "01"
     {
       "var_type"      "FIELD_FLOAT"
-      "damage_amp"    "3.5"
+      "damage_amp"    "2.5"
     }
     "02"
     {
@@ -86,6 +86,8 @@
 
       "StatusEffectName"  "particles/status_fx/status_effect_electrical.vpcf"
       "StatusEffectPriority"  "2"
+
+      "RemoveOnDeath"       "0"
     }
   }
 }

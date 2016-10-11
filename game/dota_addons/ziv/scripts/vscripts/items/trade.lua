@@ -105,5 +105,26 @@ function Trade:AcceptTrade(args)
 end
 
 function Trade:CancelTrade(args)
+	local pID = args.PlayerID
+	local tradeID = args.tradeID
 
+	if tradeID then
+		local trade = Trade.TRADES[tradeID]
+
+		for k,v in pairs(Trade.TRADES[tradeID][pID].container:GetAllItems()) do
+			Trade.TRADES[tradeID][pID].container:RemoveItem(v)
+			Characters:GetInventory(pID):AddItem(v)
+		end
+
+		for k,v in pairs(Trade.TRADES[tradeID]) do
+			if k ~= pID then
+				for k1,v1 in pairs(Trade.TRADES[tradeID][k].container:GetAllItems()) do
+					Trade.TRADES[tradeID][k].container:RemoveItem(v1)
+					Characters:GetInventory(k):AddItem(v1)
+				end
+
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(k), "ziv_close_trade", {})
+			end
+		end 
+	end
 end

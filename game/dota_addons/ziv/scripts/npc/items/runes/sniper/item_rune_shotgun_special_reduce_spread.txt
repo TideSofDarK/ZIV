@@ -1,4 +1,4 @@
-"item_rune_shotgun_special_spread"
+"item_rune_shotgun_special_reduce_spread"
 {
   "ID"		"1656"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -14,10 +14,13 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"     "New"
+  "Type"        "Int"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_sniper_shotgun_special_spread"
+    "ziv_sniper_shotgun_special_reduce_spread"
     {
       "min" "5"
       "max" "35"

@@ -5920,15 +5920,15 @@
 	  
 	"ziv_sniper_empty1"
 	{
-		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"MaxLevel"            "7"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"            "1"
 		"BaseClass"           "ability_datadriven"
 		"AbilityTextureName"            "ziv_empty"
 	}
 	"ziv_sniper_empty2"
 	{
-		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"MaxLevel"            "7"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"            "1"
 		"BaseClass"           "ability_datadriven"
 		"AbilityTextureName"            "ziv_empty"
 	}
@@ -5954,16 +5954,16 @@
 	  "AbilityCastPoint"        "0.001"
 	  "AbilityCooldown"       "5.0"
 	
-	  "AbilityManaCost"       "75"
+	  "AbilityManaCost"       "25"
 	
-	  "MaxLevel"  "7"
+	  "MaxLevel"  "1"
 	
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "damage_amp"    "3.5"
+	      "damage_amp"    "2.5"
 	    }
 	    "02"
 	    {
@@ -6051,12 +6051,12 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "dash_speed"            "1400"
+	      "dash_speed"          "1400"
 	    }
 	    "02"
 	    {
-	      "var_type" "FIELD_INTEGER"
-	      "maximum_range" "575"
+	      "var_type"            "FIELD_INTEGER"
+	      "maximum_range"       "575"
 	    }
 	  }
 	
@@ -6345,16 +6345,16 @@
 	  "AbilityCastPoint"        "0.001"
 	  "AbilityCooldown"       "5.0"
 	
-	  "AbilityManaCost"       "75"
+	  "AbilityManaCost"       "25"
 	
-	  "MaxLevel"  "7"
+	  "MaxLevel"  "1"
 	
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "damage_amp"    "3.5"
+	      "damage_amp"    "2.5"
 	    }
 	    "02"
 	    {
@@ -6411,6 +6411,8 @@
 	
 	      "StatusEffectName"  "particles/status_fx/status_effect_electrical.vpcf"
 	      "StatusEffectPriority"  "2"
+	
+	      "RemoveOnDeath"       "0"
 	    }
 	  }
 	}
@@ -7112,6 +7114,8 @@
 	
 	      "StatusEffectName"    "particles/ziv_creep_modifier_color_blue.vpcf"
 	      "StatusEffectPriority"  "10"
+	
+	      "RemoveOnDeath"       "0"
 	    }
 	  }
 	}
@@ -7140,6 +7144,8 @@
 	
 	      "StatusEffectName"     "particles/ziv_creep_modifier_color_green.vpcf"      
 	      "StatusEffectPriority"  "10"
+	
+	      "RemoveOnDeath"       "0"
 	    }
 	  }
 	}
@@ -7168,6 +7174,8 @@
 	
 	      "StatusEffectName"    "particles/ziv_creep_modifier_color_red.vpcf"
 	      "StatusEffectPriority"  "10"
+	
+	      "RemoveOnDeath"       "0"
 	    }
 	  }
 	}
@@ -7200,13 +7208,21 @@
 	
 	  "Modifiers"
 	  {
-	    "modifier_creep_degen_aura"
+	    "modifier_creep_degen_aura_status"
 	    {
-	      "IsHidden"      "0"
+	      "IsPassive"      "1"
 	      "IsDebuff"      "0"
 	
 	      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
 	      "StatusEffectPriority"  "10"
+	
+	      "RemoveOnDeath" "0"
+	    }
+	    
+	    "modifier_creep_degen_aura"
+	    {
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
 	
 	      "Aura"        "modifier_creep_regen"
 	      "Aura_Radius" "%radius"
@@ -7359,6 +7375,8 @@
 	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
 	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movespeed" 
 	      }
+	
+	      "RemoveOnDeath" "0"
 	    }
 	  }
 	}
@@ -7399,6 +7417,8 @@
 	      {
 	        "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE" "%bonus_hp"
 	      }
+	
+	      "RemoveOnDeath" "0"
 	    }
 	  }
 	}

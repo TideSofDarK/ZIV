@@ -2656,6 +2656,10 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -2681,6 +2685,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2708,6 +2715,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip" "AbilityCooldown"
+	  "Reduction" "1"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -2733,6 +2743,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip" "maximum_range"
+	  "Type"    "Int"
+	  "Method"  "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2760,13 +2774,17 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip" "dash_speed"
+	  "Type"    "Int"
+	  "Method"  "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_sniper_shotgun_dash_speed"
 	    {
 	      "min" "75"
-	      "max" "300"
+	      "max" "350"
 	    }
 	  }
 	}
@@ -2785,6 +2803,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2812,13 +2834,45 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_sniper_shotgun_special_force"
 	    {
 	      "min" "10"
-	      "max" "40"
+	      "max" "70"
+	    }
+	  }
+	}
+	"item_rune_shotgun_special_reduce_spread"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_sniper"
+	  "Model"                   "models/items/topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_shotgun_special_reduce_spread"
+	    {
+	      "min" "5"
+	      "max" "35"
 	    }
 	  }
 	}
@@ -2838,39 +2892,16 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_sniper_shotgun_special_speed"
 	    {
-	      "min" "7"
-	      "max" "17"
-	    }
-	  }
-	}
-	"item_rune_shotgun_special_spread"
-	{
-	  "ID"		"1656"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
-	  "Model"                   "models/items/topaz.vmdl"
-	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
-	
-	  "ItemStackable"         "1"
-	  "ItemPermanent"         "0"
-	  "ItemInitialCharges"            "1"
-	
-	  "MaxUpgradeLevel"       "1"
-	  "ItemBaseLevel"         "1"
-	
-	  "FortifyModifiersCount" "1"
-	  "FortifyModifiers"
-	  {
-	    "ziv_sniper_shotgun_special_spread"
-	    {
 	      "min" "5"
-	      "max" "35"
+	      "max" "40"
 	    }
 	  }
 	}
@@ -2889,6 +2920,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2916,6 +2950,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -2941,6 +2978,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2968,6 +3008,10 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -2993,6 +3037,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -3020,6 +3067,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -3046,6 +3096,10 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -3071,6 +3125,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -3578,11 +3635,11 @@
 	  "Slot"  "gun"
 	  "CustomSkill1"  
 	  {
-	    "ziv_sniper_empty1" "ziv_sniper_shotgun_special"
+	    "3" "ziv_sniper_shotgun_special"
 	  }
 	  "CustomSkill2"  
 	  {
-	    "ziv_sniper_empty2" "ziv_sniper_shotgun_dash"
+	    "4" "ziv_sniper_shotgun_dash"
 	  }
 	
 	  "ItemStackable" "0"
@@ -3653,11 +3710,11 @@
 	  "Slot"  "gun"
 	  "CustomSkill1"  
 	  {
-	    "ziv_sniper_empty1" "ziv_sniper_shotgun_special"
+	    "3" "ziv_sniper_shotgun_special"
 	  }
 	  "CustomSkill2"  
 	  {
-	    "ziv_sniper_empty2" "ziv_sniper_shotgun_dash"
+	    "4" "ziv_sniper_shotgun_dash"
 	  }
 	
 	  "ItemStackable"         "0"
@@ -3734,11 +3791,11 @@
 	  "Slot"  "gun"
 	  "CustomSkill1"  
 	  {
-	    "ziv_sniper_empty1" "ziv_sniper_shotgun_special"
+	    "3" "ziv_sniper_shotgun_special"
 	  }
 	  "CustomSkill2"  
 	  {
-	    "ziv_sniper_empty2" "ziv_sniper_shotgun_dash"
+	    "4" "ziv_sniper_shotgun_dash"
 	  }
 	
 	  "ItemStackable" "0"
@@ -3808,11 +3865,11 @@
 	  "Slot"  "gun"
 	  "CustomSkill1"  
 	  {
-	    "ziv_sniper_empty1" "ziv_sniper_smg_special"
+	    "3" "ziv_sniper_smg_special"
 	  }
 	  "CustomSkill2"  
 	  {
-	    "ziv_sniper_empty2" "ziv_sniper_smg_backup"
+	    "4" "ziv_sniper_smg_backup"
 	  }
 	
 	  "ItemStackable" "0"

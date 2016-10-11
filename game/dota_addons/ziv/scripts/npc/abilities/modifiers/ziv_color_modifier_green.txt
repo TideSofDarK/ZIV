@@ -23,6 +23,8 @@
 
       "StatusEffectName"     "particles/ziv_creep_modifier_color_green.vpcf"      
       "StatusEffectPriority"  "10"
+
+      "RemoveOnDeath"       "0"
     }
   }
 }

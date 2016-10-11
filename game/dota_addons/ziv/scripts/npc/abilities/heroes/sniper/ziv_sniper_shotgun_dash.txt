@@ -24,12 +24,12 @@
     "01"
     {
       "var_type"            "FIELD_INTEGER"
-      "dash_speed"            "1400"
+      "dash_speed"          "1400"
     }
     "02"
     {
-      "var_type" "FIELD_INTEGER"
-      "maximum_range" "575"
+      "var_type"            "FIELD_INTEGER"
+      "maximum_range"       "575"
     }
   }
 

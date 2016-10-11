@@ -56,6 +56,8 @@
         "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
         "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movespeed" 
       }
+
+      "RemoveOnDeath" "0"
     }
   }
 }

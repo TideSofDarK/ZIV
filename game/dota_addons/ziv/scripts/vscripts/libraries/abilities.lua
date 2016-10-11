@@ -155,7 +155,8 @@ function SimulateRangeAttack( keys )
   
   StartAnimation(caster, {duration=duration + base_attack_time, activity=ACT_DOTA_ATTACK, rate=rate, translate=keys.translate})
   
-  UnitLookAtPoint( caster, target )
+  -- UnitLookAtPoint( caster, target )
+  caster:SetForwardVector(UnitLookAtPoint( caster, target ))
   caster:Stop()
 
   caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = 1.0 / caster:GetAttacksPerSecond()})

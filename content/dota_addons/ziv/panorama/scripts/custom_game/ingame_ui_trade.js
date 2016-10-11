@@ -51,9 +51,9 @@ function TradeRequest(args) {
 function Toggle(args) {
 	$("#TradeRoot").ToggleClass("WindowClosed");
 	if ($("#TradeRoot").BHasClass("WindowClosed")) {
-		// $("#TradeRoot").RemoveFromPanelsQueue();
+		GameEvents.SendCustomGameEventToServer( "ziv_cancel_trade", { "tradeID" : $("#TradeRoot").tradeID } );
 	} else {
-		// $("#TradeRoot").AddToPanelsQueue();
+		
 	}
 
 	if (args.tradeID) {

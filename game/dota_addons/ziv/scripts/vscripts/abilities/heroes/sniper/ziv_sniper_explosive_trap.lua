@@ -33,14 +33,16 @@ function RemoveTrapUnit( keys )
 	if trap then
 		trap:EmitSound("Tutorial.Notice.Speech")
 
-		Timers:CreateTimer(1.0, function (  )
+		local delay = GetRunePercentDecrease(1.0,"ziv_sniper_explosive_trap_delay",caster) -- GetSpecial(ability, "delay")
+
+		Timers:CreateTimer(delay, function (  )
 			Explode( keys )
 		end)
 
 		trap.worldPanel = WorldPanels:CreateWorldPanelForAll(
 		    {layout = "file://{resources}/layout/custom_game/worldpanels/trap_countdown.xml",
 		      entity = trap:GetEntityIndex(),
-		      data = { delay = 1.0 },
+		      data = { delay = delay },
 		      entityHeight = 170,
 		    })
 	end

@@ -40,7 +40,7 @@ function Equipment:Equip( unit, item )
 		local custom_skill = ZIV.ItemKVs[itemName]["CustomSkill"..tostring(i)]
 		if custom_skill then
 			for k,v in pairs(custom_skill) do
-				unit:RemoveAbility(k)
+				unit:RemoveAbility(unit:GetAbilityByIndex(tonumber(k)):GetName())
 				unit:AddAbility(v):UpgradeAbility(true)
 			end
 		end

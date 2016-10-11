@@ -35,6 +35,8 @@
       {
         "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE" "%bonus_hp"
       }
+
+      "RemoveOnDeath" "0"
     }
   }
 }

@@ -1,7 +1,7 @@
 "ziv_sniper_empty1"
 {
-	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	"MaxLevel"            "7"
+	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"MaxLevel"            "1"
 	"BaseClass"           "ability_datadriven"
 	"AbilityTextureName"            "ziv_empty"
 }

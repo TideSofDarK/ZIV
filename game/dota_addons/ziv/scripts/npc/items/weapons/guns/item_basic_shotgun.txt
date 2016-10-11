@@ -8,11 +8,11 @@
   "Slot"  "gun"
   "CustomSkill1"  
   {
-    "ziv_sniper_empty1" "ziv_sniper_shotgun_special"
+    "3" "ziv_sniper_shotgun_special"
   }
   "CustomSkill2"  
   {
-    "ziv_sniper_empty2" "ziv_sniper_shotgun_dash"
+    "4" "ziv_sniper_shotgun_dash"
   }
 
   "ItemStackable" "0"
@@ -83,11 +83,11 @@
   "Slot"  "gun"
   "CustomSkill1"  
   {
-    "ziv_sniper_empty1" "ziv_sniper_shotgun_special"
+    "3" "ziv_sniper_shotgun_special"
   }
   "CustomSkill2"  
   {
-    "ziv_sniper_empty2" "ziv_sniper_shotgun_dash"
+    "4" "ziv_sniper_shotgun_dash"
   }
 
   "ItemStackable"         "0"
@@ -164,11 +164,11 @@
   "Slot"  "gun"
   "CustomSkill1"  
   {
-    "ziv_sniper_empty1" "ziv_sniper_shotgun_special"
+    "3" "ziv_sniper_shotgun_special"
   }
   "CustomSkill2"  
   {
-    "ziv_sniper_empty2" "ziv_sniper_shotgun_dash"
+    "4" "ziv_sniper_shotgun_dash"
   }
 
   "ItemStackable" "0"

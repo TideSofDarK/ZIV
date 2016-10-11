@@ -27,13 +27,21 @@
 
   "Modifiers"
   {
-    "modifier_creep_degen_aura"
+    "modifier_creep_degen_aura_status"
     {
-      "IsHidden"      "0"
+      "IsPassive"      "1"
       "IsDebuff"      "0"
 
       "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
       "StatusEffectPriority"  "10"
+
+      "RemoveOnDeath" "0"
+    }
+    
+    "modifier_creep_degen_aura"
+    {
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
 
       "Aura"        "modifier_creep_regen"
       "Aura_Radius" "%radius"
