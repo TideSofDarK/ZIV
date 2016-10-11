@@ -59,19 +59,14 @@
 
         function SetupTooltip()
         {
-            // Cleanup
-            if ($("#TooltipBorderB").FindChildTraverse("AbilityTooltip")) {
-                for (var panel in $("#TooltipBorderB").Children()) {
-                    $("#TooltipBorderB").FindChildTraverse("AbilityTooltip").DeleteAsync(0.0);
-                    $("#TooltipBorderB").FindChildTraverse("AbilityTooltip").RemoveAndDeleteChildren();
-                }
+            for (var panelID in $("#TooltipBorderB").FindChildrenWithClassTraverse("ItemTooltip")) {
+                $("#TooltipBorderB").FindChildrenWithClassTraverse("ItemTooltip")[panelID].RemoveAndDeleteChildren();
+                $("#TooltipBorderB").FindChildrenWithClassTraverse("ItemTooltip")[panelID].DeleteAsync(0.0);
             }
 
-            if ($("#TooltipBorderB").FindChildTraverse("ItemTooltip")) {
-                for (var panel in $("#TooltipBorderB").Children()) {
-                    $("#TooltipBorderB").FindChildTraverse("ItemTooltip").DeleteAsync(0.0);
-                    $("#TooltipBorderB").FindChildTraverse("ItemTooltip").RemoveAndDeleteChildren();
-                }
+            for (var panelID in $("#TooltipBorderB").FindChildrenWithClassTraverse("AbilityTooltip")) {
+                $("#TooltipBorderB").FindChildrenWithClassTraverse("AbilityTooltip")[panelID].RemoveAndDeleteChildren();
+                $("#TooltipBorderB").FindChildrenWithClassTraverse("AbilityTooltip")[panelID].DeleteAsync(0.0);
             }
 
             var PlayerTables = GameUI.CustomUIConfig().PlayerTables;

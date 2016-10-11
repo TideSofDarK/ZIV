@@ -23,12 +23,17 @@
     "01"
     {
       "var_type"            "FIELD_INTEGER"
-      "slow"            "-20"
+      "slow"                "-20"
     }
     "02"
     {
       "var_type"            "FIELD_INTEGER"
-      "slow_duration"            "4"
+      "slow_duration"       "4"
+    }
+    "03"
+    {
+      "var_type"            "FIELD_FLOAT"
+      "ep_leech"            "4"
     }
   }
 
@@ -63,7 +68,7 @@
       "IsHidden"      "1"
       "IsBuff"    "1"
 
-      "OnDealDamage"
+      "OnCreated"
       {
         "RunScript"
         {

@@ -112,24 +112,10 @@ function Characters:SpawnCharacter( pID, args )
 end
 
 function Characters:CreateCharacterInventory( pID, hero )
-    local inventory = Containers:CreateContainer({
-      layout =      {5,5,5,5,5},
-      skins =       {"Inventory"},
-      headerText =  "Bag",
-      pids =        {pID},
-      entity =      hero,
-      closeOnOrder =false,
-      position =    "0px 0px 0px",
-      OnDragWorld = true
-    })
+  hero.inventory = Equipment:CreateInventory( hero )
+  Containers:SetDefaultInventory(hero, hero.inventory)
 
-    hero.inventory = inventory
-
-    local equipment = Equipment:CreateContainer( hero )
-
-    hero.equipment = equipment
-
-    Containers:SetDefaultInventory(hero, inventory)
+  hero.equipment = Equipment:CreateContainer( hero )
 end
 
 function Characters:InitCharacter( hero )
@@ -153,23 +139,23 @@ function Characters:InitCharacter( hero )
 
   -- Spawn effects
 
-  hero:AddNewModifier(hero,nil,"modifier_hide",{duration = Director.HERO_SPAWN_TIME})
-  hero:AddNewModifier(hero,nil,"modifier_command_restricted",{duration = Director.HERO_SPAWN_TIME})
+  -- hero:AddNewModifier(hero,nil,"modifier_hide",{duration = Director.HERO_SPAWN_TIME})
+  -- hero:AddNewModifier(hero,nil,"modifier_command_restricted",{duration = Director.HERO_SPAWN_TIME})
 
-  local particle = ParticleManager:CreateParticle( "particles/items2_fx/teleport_end.vpcf", PATTACH_CUSTOMORIGIN, nil )
-  ParticleManager:SetParticleControl(particle, 0, hero:GetAbsOrigin() + Vector(0,0,30))
-  ParticleManager:SetParticleControl(particle, 1, hero:GetAbsOrigin() + Vector(0,0,30))
-  ParticleManager:SetParticleControl(particle, 2, Vector(40,40,200))
-  ParticleManager:SetParticleControl(particle, 3, hero:GetAbsOrigin() + Vector(0,0,30))
+  -- local particle = ParticleManager:CreateParticle( "particles/items2_fx/teleport_end.vpcf", PATTACH_CUSTOMORIGIN, nil )
+  -- ParticleManager:SetParticleControl(particle, 0, hero:GetAbsOrigin() + Vector(0,0,30))
+  -- ParticleManager:SetParticleControl(particle, 1, hero:GetAbsOrigin() + Vector(0,0,30))
+  -- ParticleManager:SetParticleControl(particle, 2, Vector(40,40,200))
+  -- ParticleManager:SetParticleControl(particle, 3, hero:GetAbsOrigin() + Vector(0,0,30))
 
-  hero:EmitSound("Portal.Loop_Appear")
+  -- hero:EmitSound("Portal.Loop_Appear")
 
-  Timers:CreateTimer(Director.HERO_SPAWN_TIME, function (  )
-    hero:EmitSound("Portal.Hero_Disappear")
-    hero:StopSound("Portal.Loop_Appear")
+  -- Timers:CreateTimer(Director.HERO_SPAWN_TIME, function (  )
+  --   hero:EmitSound("Portal.Hero_Disappear")
+  --   hero:StopSound("Portal.Loop_Appear")
 
-    ParticleManager:DestroyParticle(particle, false)
-  end)
+  --   ParticleManager:DestroyParticle(particle, false)
+  -- end)
 end
 
 function Characters:GetInventory(pID)

@@ -6,44 +6,10 @@ Items.ITEM_GC_TIME = 30
 
 function Items:Init()
 	PlayerTables:CreateTable("items", {}, true)
-
-	Items:Update()
 end
 
-function Items:Update()
-	Timers:CreateTimer(function()
-		local items = PlayerTables:GetAllTableValues("items")
-		local updated_items = {}
-
-		for k,v in pairs(items) do
-			local item = EntIndexToHScript(k)
-
-			if item and not item:IsNull() then
-				updated_items[k] = {}
-				if item.fortify_modifiers then
-					local fortify_modifiers = {} 
-					for k,v in pairs(item.fortify_modifiers) do table.insert(fortify_modifiers, v) end	
-					updated_items[k].fortify_modifiers = fortify_modifiers
-				end
-
-				if item.built_in_modifiers then
-					local built_in_modifiers = {} 
-					for k,v in pairs(item.built_in_modifiers) do table.insert(built_in_modifiers, v) end	
-					updated_items[k].built_in_modifiers = built_in_modifiers
-				end
-
-				updated_items[k].rarity = item.rarity or 1
-
-				updated_items[k].sockets = item.sockets or 0
-			else
-				-- PlayerTables:SetTableValue("items", k, {})
-			end
-		end
-
-		PlayerTables:SetTableValues("items", updated_items)
-
-		return 0.03
-	end)
+function Items:UpdateItem(item)
+	PlayerTables:SetTableValue("items", item:entindex(), { fortify_modifiers = item.fortify_modifiers, built_in_modifiers = item.built_in_modifiers, rarity = item.rarity or 1, sockets = item.sockets or 0})
 end
 
 function Items:Create(item_name, owner)

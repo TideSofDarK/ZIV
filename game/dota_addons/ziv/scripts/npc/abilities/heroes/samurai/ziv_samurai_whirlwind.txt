@@ -8,7 +8,7 @@
   // "AbilityCastRange" "250"
   "AbilityCooldown"         "0.3"
 
-  "AbilityManaCost"       "10"
+  "AbilityManaCost"       "21"
   
   "MaxLevel"          "1"
 

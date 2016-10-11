@@ -260,6 +260,9 @@ TextButton, Label {
 }
 
 .Avatar {
+	margin-left: 10px;
+	margin-right: 10px;
+
 	width: 168px;
 	height: 168px;
 
@@ -278,22 +281,24 @@ TextButton, Label {
 	width: 352px;
 	height: 181px;
 
+	background-image: url("file://{images}/custom_game/gamesetup/gamesetup_status.png");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
+
+	hue-rotation: 10deg;
 
 	vertical-align: center;
 }
 
 .StatusDisconnected {
-	background-image: url("file://{images}/custom_game/gamesetup/gamesetup_status_no.png");
+	hue-rotation: 150deg;
 }
 
 .StatusReady {
-	background-image: url("file://{images}/custom_game/gamesetup/gamesetup_status_ready.png");
+	hue-rotation: 280deg;
 }
 
 .StatusConnected {
-	background-image: url("file://{images}/custom_game/gamesetup/gamesetup_status_connected.png");
 }
 
 .NameLabel {

@@ -24,15 +24,10 @@
   {
     "01"
     {
-      "var_type"            "FIELD_FLOAT"
-      "damage_amp"            "1.1"
-    }
-    "02"
-    {
       "var_type"            "FIELD_INTEGER"
       "dash_speed"            "95"
     }
-    "03"
+    "02"
     {
       "var_type"            "FIELD_FLOAT"
       "duration"            "0.25"

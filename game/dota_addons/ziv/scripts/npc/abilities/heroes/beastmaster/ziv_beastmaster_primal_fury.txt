@@ -7,21 +7,22 @@
 
   "precache"
   {
+    "particle"  "particles/status_fx/status_effect_avatar.vpcf"
   }
 
-  "MaxLevel"  "7"
+  "MaxLevel"  "1"
 
   "AbilitySpecial"
   {
     "01"
     {
       "var_type"      "FIELD_FLOAT"
-      "damage_per_stack"    "0.5"
+      "ep_regen"      "0.05"
     }
     "02"
     {
       "var_type"      "FIELD_FLOAT"
-      "armor_per_stack"    "0.1"
+      "hp_regen"      "0.05"
     }
     "03"
     {
@@ -31,7 +32,7 @@
     "04"
     {
       "var_type"      "FIELD_INTEGER"
-      "duration"    "8"
+      "duration"      "8"
     }
   }
 
@@ -58,10 +59,13 @@
       "IsHidden"      "1"
       "IsDebuff"      "0"
 
+      // "StatusEffectName"     "particles/status_fx/status_effect_avatar.vpcf"      
+      // "StatusEffectPriority"  "10"
+
       "Properties"
       {
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_per_stack"
-        "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%damage_per_stack" 
+        "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"   "%ep_regen"
+        "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%hp_regen" 
       }
     }
   }

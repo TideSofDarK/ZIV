@@ -1,19 +1,19 @@
 "npc_dota_hero_sniper"
   {
-    "override_hero"     "npc_dota_hero_sniper"
-    "SoundSet"      "Hero_Sniper"
+    "override_hero"         "npc_dota_hero_sniper"
+    "SoundSet"              "Hero_Sniper"
 
-    "SecondName"    "sniper"
+    "SecondName"            "sniper"
 
-    "Playstyle" "hitnrun"
-    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
-    "CreationSound" "sniper_snip_move_03"
+    "Playstyle"             "hitnrun"
+    "PrimaryDamageType"     "DAMAGE_TYPE_PHYSICAL"
+    "CreationSound"         "sniper_snip_move_03"
 
-    "EquipmentSlots" "torso;gun;gloves;ring;pants;boots"
+    "EquipmentSlots"        "torso;gun;gloves;ring;pants;boots"
 
-    "ChooseLayout"  "21111"
+    "ChooseLayout"          "21111"
 
-    "AbilityLayout"     "5"
+    "AbilityLayout"         "5"
     
     "Ability1"        "ziv_sniper_explosive_trap"
     "Ability2"        "ziv_sniper_thunder_trap"

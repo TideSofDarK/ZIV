@@ -9,23 +9,28 @@ end
 function Equipment:Unequip( unit, item )
 	local itemName = item:GetName()
 
-	if item.fortify_modifiers then
-		for id,gem_table in pairs(item.fortify_modifiers) do
-			for k,v in pairs(gem_table) do
-				if unit:HasModifier(k) then
-					if unit:HasModifier(k) == false then
-						unit:FindAbilityByName("ziv_passive_hero"):ApplyDataDrivenModifier(unit,unit,k,{})
-					end
+	local RemoveModifiers = (function (modifiers, unit)
+		if modifiers then
+			for id,gem_table in pairs(modifiers) do
+				for k,v in pairs(gem_table) do
+					if unit:HasModifier(k) then
+						if unit:HasModifier(k) == false then
+							unit:FindAbilityByName("ziv_passive_hero"):ApplyDataDrivenModifier(unit,unit,k,{})
+						end
 
-					local new_count = unit:GetModifierStackCount(k, unit) - v
-					unit:SetModifierStackCount(k, unit, new_count)
-					if new_count <= 0 then
-						unit:RemoveModifierByName(k)
+						local new_count = unit:GetModifierStackCount(k, unit) - v
+						unit:SetModifierStackCount(k, unit, new_count)
+						if new_count <= 0 then
+							unit:RemoveModifierByName(k)
+						end
 					end
 				end
 			end
 		end
-	end
+	end)
+
+	RemoveModifiers(item.built_in_modifiers, unit)
+	RemoveModifiers(item.fortify_modifiers, unit)
 end
 
 function Equipment:Equip( unit, item )
@@ -41,22 +46,105 @@ function Equipment:Equip( unit, item )
 		end
 	end
 
-	if item.fortify_modifiers and unit:HasAbility("ziv_passive_hero") then
-		local fortify_modifiers_ability = unit:FindAbilityByName("ziv_passive_hero")
+	local ApplyModifiers = (function (modifiers, unit)
+		if modifiers and unit:HasAbility("ziv_passive_hero") then
+			local fortify_modifiers_ability = unit:FindAbilityByName("ziv_passive_hero")
 
-		for id,gem_table in pairs(item.fortify_modifiers) do
-			for k,v in pairs(gem_table) do
-				if k ~= "gem" then
-					if unit:HasModifier(k) then
-						unit:SetModifierStackCount(k, unit, v + unit:GetModifierStackCount(k, unit))
-					else
-						fortify_modifiers_ability:ApplyDataDrivenModifier(unit, unit, k, {})
-						unit:SetModifierStackCount(k, unit, v)
+			for id,gem_table in pairs(modifiers) do
+				for k,v in pairs(gem_table) do
+					if k ~= "gem" then
+						if unit:HasModifier(k) then
+							unit:SetModifierStackCount(k, unit, v + unit:GetModifierStackCount(k, unit))
+						else
+							fortify_modifiers_ability:ApplyDataDrivenModifier(unit, unit, k, {})
+							unit:SetModifierStackCount(k, unit, v)
+						end
 					end
 				end
 			end
 		end
-	end
+	end)
+
+	ApplyModifiers(item.built_in_modifiers, unit)
+	ApplyModifiers(item.fortify_modifiers, unit)
+end
+
+function Equipment:CreateInventory( hero )
+	return Containers:CreateContainer({
+		layout 			= {5,5,5,5,5},
+		skins 			= {"Inventory"},
+		headerText 		= "Bag",
+		pids 			= {hero:GetPlayerOwnerID()},
+		entity 			= hero,
+		closeOnOrder 	= false,
+		position 		= "0px 0px 0px",
+		OnDragWorld 	= true,
+		-- OnDragFrom 		= (function (playerID, container, unit, item, fromSlot, toContainer, toSlot)
+		-- 	local canChange = Containers.itemKV[item:GetAbilityName()].ItemCanChangeContainer
+		-- 	if toContainer._OnDragTo == false or canChange == 0 then return end
+
+		-- 	if unit.equipment.id == toContainer.id then
+		-- 		print("dcis1")
+		-- 		local toSlotName = KeyValues:Split(ZIV.HeroesKVs[unit:GetUnitName()]["EquipmentSlots"], ';')[toSlot]
+
+		-- 		if ZIV.ItemKVs[item:GetName()]["Slot"] and string.match(toSlotName, ZIV.ItemKVs[item:GetName()]["Slot"]) then
+		-- 			Equipment:Equip( hero, item )
+		-- 		end
+		-- 	end
+
+		-- 	local fun = nil
+
+		-- 	if type(toContainer._OnDragTo) == "function" then
+		--   		fun = toContainer._OnDragTo
+		-- 	end
+
+		-- 	if fun then
+		--   		fun(playerID, container, unit, item, fromSlot, toContainer, toSlot)
+		-- 	else
+		--   		Containers:OnDragTo(playerID, container, unit, item, fromSlot, toContainer, toSlot)
+		-- 	end
+		-- end)
+		OnDragTo = (function (playerID, container, unit, item, fromSlot, toContainer, toSlot) 
+			local item2 = toContainer:GetItemInSlot(toSlot)
+			local addItem = nil
+			if item2 and IsValidEntity(item2) and (item2:GetAbilityName() ~= item:GetAbilityName() or not item2:IsStackable() or not item:IsStackable()) then
+				if Containers.itemKV[item2:GetAbilityName()].ItemCanChangeContainer == 0 then
+					return false
+				end
+				toContainer:RemoveItem(item2)
+				addItem = item2
+
+				print("dcis")
+				if unit.equipment.id == container.id then
+					print("dcis1")
+					local toSlotName = KeyValues:Split(ZIV.HeroesKVs[unit:GetUnitName()]["EquipmentSlots"], ';')[fromSlot]
+
+					if ZIV.ItemKVs[addItem:GetName()]["Slot"] and string.match(toSlotName, ZIV.ItemKVs[addItem:GetName()]["Slot"]) then
+						Equipment:Equip( unit, addItem )
+					end
+				end
+			end
+
+			if toContainer:AddItem(item, toSlot) then
+				container:ClearSlot(fromSlot)
+				if addItem then
+					if container:AddItem(addItem, fromSlot) then
+						return true
+					else
+						toContainer:RemoveItem(item)
+						toContainer:AddItem(item2, toSlot, nil, true)
+						container:AddItem(item, fromSlot, nil, true)
+						return false
+					end
+				end
+				return true
+			elseif addItem then
+				toContainer:AddItem(item2, toSlot, nil, true)
+			end
+
+			return false 
+		end)
+	})
 end
 
 function Equipment:CreateContainer( hero )
@@ -69,52 +157,63 @@ function Equipment:CreateContainer( hero )
 		closeOnOrder  = false,
 		OnDragWorld   = false,
 		OnDragTo = (function (playerID, container, unit, item, fromSlot, toContainer, toSlot) 
-		Containers:print('Containers:OnDragTo', playerID, container, unit, item, fromSlot, toContainer, toSlot)
+			-- Containers:print('Containers:OnDragTo', playerID, container, unit, item, fromSlot, toContainer, toSlot)
 
-		if ZIV.ItemKVs[item:GetName()]["Slot"] and string.match(ZIV.HeroesKVs[hero:GetUnitName()]["EquipmentSlots"], ZIV.ItemKVs[item:GetName()]["Slot"]) then
-			Equipment:Equip( hero, item )
-		else
-			return false
-		end
+			local toSlotName = KeyValues:Split(ZIV.HeroesKVs[unit:GetUnitName()]["EquipmentSlots"], ';')[toSlot]
 
-		local item2 = toContainer:GetItemInSlot(toSlot)
-		local addItem = nil
-		if item2 and IsValidEntity(item2) and (item2:GetAbilityName() ~= item:GetAbilityName() or not item2:IsStackable() or not item:IsStackable()) then
-		  if Containers.itemKV[item2:GetAbilityName()].ItemCanChangeContainer == 0 then
-		    return false
-		  end
-		  toContainer:RemoveItem(item2)
-		  addItem = item2
+			if ZIV.ItemKVs[item:GetName()]["Slot"] and string.match(toSlotName, ZIV.ItemKVs[item:GetName()]["Slot"]) then
+				Equipment:Equip( unit, item )
+			else
+				return false
+			end
 
-		  Equipment:Unequip( hero, item2 )
-		end
-
-		if toContainer:AddItem(item, toSlot) then
-			container:ClearSlot(fromSlot)
-			if addItem then
-				if container:AddItem(addItem, fromSlot) then
-					return true
-				else
-					toContainer:RemoveItem(item)
-					toContainer:AddItem(item2, toSlot, nil, true)
-					container:AddItem(item, fromSlot, nil, true)
+			local item2 = toContainer:GetItemInSlot(toSlot)
+			local addItem = nil
+			if item2 and IsValidEntity(item2) and (item2:GetAbilityName() ~= item:GetAbilityName() or not item2:IsStackable() or not item:IsStackable()) then
+				if Containers.itemKV[item2:GetAbilityName()].ItemCanChangeContainer == 0 then
 					return false
 				end
+				toContainer:RemoveItem(item2)
+				addItem = item2
+
+				Equipment:Unequip( unit, item2 )
 			end
-			return true
+
+			if toContainer:AddItem(item, toSlot) then
+				container:ClearSlot(fromSlot)
+				if addItem then
+					if container:AddItem(addItem, fromSlot) then
+						return true
+					else
+						toContainer:RemoveItem(item)
+						toContainer:AddItem(item2, toSlot, nil, true)
+						container:AddItem(item, fromSlot, nil, true)
+						return false
+					end
+				end
+				return true
 			elseif addItem then
 				toContainer:AddItem(item2, toSlot, nil, true)
 			end
 
 			return false 
 		end),
+		OnDragWithin = (function(playerID, container, unit, item, fromSlot, toSlot)
+			-- Containers:print('Containers:OnDragWithin', playerID, container, unit, item, fromSlot, toSlot)
+
+			local toSlotName = KeyValues:Split(ZIV.HeroesKVs[unit:GetUnitName()]["EquipmentSlots"], ';')[toSlot]
+
+			if ZIV.ItemKVs[item:GetName()]["Slot"] and string.match(toSlotName, ZIV.ItemKVs[item:GetName()]["Slot"]) then
+				container:SwapSlots(fromSlot, toSlot, true)
+			end
+		end),
 		OnDragFrom = (function (playerID, container, unit, item, fromSlot, toContainer, toSlot) 
-			Containers:print('Containers:OnDragFrom', playerID, container, unit, item, fromSlot, toContainer, toSlot)
+			-- Containers:print('Containers:OnDragFrom', playerID, container, unit, item, fromSlot, toContainer, toSlot)
 
 			local canChange = Containers.itemKV[item:GetAbilityName()].ItemCanChangeContainer
 			if toContainer._OnDragTo == false or canChange == 0 then return end
 
-			Equipment:Unequip( hero, item )
+			Equipment:Unequip( unit, item )
 
 			local fun = nil
 

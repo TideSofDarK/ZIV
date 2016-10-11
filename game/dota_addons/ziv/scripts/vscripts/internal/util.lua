@@ -173,7 +173,7 @@ function DebugPrintTable(...)
 end
 
 function GetTableLength( t )
-  if not t then return nil end
+  if not t then return 0 end
   local length = 0
 
   for k,v in pairs(t) do

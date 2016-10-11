@@ -20,10 +20,10 @@ Temple.ROCKS_DURATION = 2.0
 Temple.ROCKS_INTERVAL_MIN = 8.0
 Temple.ROCKS_INTERVAL_MAX = 15.0
 
-Temple.SPAWN_THRESHOLD = 2300
-Temple.SPAWN_SPREAD = 2000
+Temple.SPAWN_THRESHOLD = 1200
+Temple.SPAWN_SPREAD = 1800
 Temple.SPAWN_MIN = 20
-Temple.SPAWN_MAX = 30
+Temple.SPAWN_MAX = 40
 Temple.SPAWN_GC_TIME = 10.0
 
 Temple.OBELISK_COUNT = 20
@@ -58,7 +58,7 @@ function Temple:NextStage()
 		if Temple.stage == Temple.STAGE_FIRST then
 			Director:SetupCustomUI( "temple_objectives" )
 
-			-- Temple:FallingRocks()
+			Temple:FallingRocks()
 		elseif Temple.stage == Temple.STAGE_BOSS then
 			
 		else
@@ -66,9 +66,9 @@ function Temple:NextStage()
 
 			if Temple.stage == Temple.STAGE_PREGAME then
 				Timers:CreateTimer(Director.HERO_SPAWN_TIME, function (  )
-					for k,v in pairs(Entities:FindAllByName("ziv_temple_portal")) do
+					-- for k,v in pairs(Entities:FindAllByName("ziv_temple_portal")) do
 						
-					end
+					-- end
 					Temple:NextStage()
 				end)
 			elseif Temple.stage == Temple.STAGE_SECOND then
@@ -144,7 +144,8 @@ function Temple:SpawnCreeps()
 	Timers:CreateTimer(function (  )
 		DoToAllHeroes(function ( hero )
 			for k,v in pairs(Temple.creeps_positions) do
-				if (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() < Temple.SPAWN_THRESHOLD and (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() >= Temple.SPAWN_SPREAD and not v.creeps then
+				local distance = (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D()
+				if distance < Temple.SPAWN_THRESHOLD and not v.creeps then --GetTableLength(v.creeps) == 0
 					v.creeps = v.creeps or {}
 
 					Director:SpawnPack({
@@ -155,7 +156,7 @@ function Temple:SpawnCreeps()
 				        Spread = Temple.SPAWN_SPREAD,
 				        SpawnLord = math.random(1,2) == 1,
 				        Table = v.creeps,
-				        CheckTable = HeroList:GetAllHeroes()
+				        CheckTable = Characters.current_session_characters
 				    })
 				elseif v.creeps then
 					if v.idle_count and v.idle_count > Temple.SPAWN_GC_TIME then
@@ -187,7 +188,7 @@ function Temple:DestroyCreeps( v )
 	if v.creeps then
 		for i,v2 in ipairs(v.creeps) do
 			if v2:IsNull() == false then
-				v2:ForceKill(false)
+				UTIL_Remove(v2)
 			end
 		end
 	end

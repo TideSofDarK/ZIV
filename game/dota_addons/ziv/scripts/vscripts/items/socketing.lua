@@ -30,6 +30,8 @@ function Socketing:OnFortify( keys )
 
   	table.insert(item.fortify_modifiers, new_modifiers)
 
+    Items:UpdateItem(item)
+
   	if playerID and playerID >= 0 then
 	  	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ziv_fortify_item_result", { itemID = keys.item, modifiers = item.fortify_modifiers } )
 

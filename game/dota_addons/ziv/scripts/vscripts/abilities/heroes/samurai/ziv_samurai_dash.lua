@@ -7,7 +7,9 @@ function Dash( keys )
 
 	local ability_level = ability:GetLevel() - 1
 
-	StartAnimation(caster, {duration=ability:GetSpecialValueFor("duration"), activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=5.4})
+	if not caster:HasModifier("modifier_whirlwind") then
+		StartAnimation(caster, {duration=ability:GetSpecialValueFor("duration"), activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=5.4})
+	end
 
 	ability.direction = UnitLookAtPoint( caster, target )
 

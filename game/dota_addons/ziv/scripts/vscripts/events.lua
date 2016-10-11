@@ -64,7 +64,7 @@ function ZIV:OnEntityHurt(keys)
     if entCause.OnDamageDealCallbacks then
       for i,v in ipairs(entCause.OnDamageDealCallbacks) do
         if v then
-          v(entVictim)
+          v(entCause, entVictim, keys.damage)
           table.remove(entCause.OnDamageDealCallbacks, i)
           break
         end
@@ -272,6 +272,10 @@ function ZIV:OnEntityKilled( keys )
     for k,v in pairs(killedUnit.particles) do
       ParticleManager:DestroyParticle(v, false)
     end
+  end
+
+  if killedUnit.pack then
+    Director.current_session_creep_count = Director.current_session_creep_count - 1
   end
 
   local kv = ZIV.UnitKVs[killedUnit:GetUnitName()]

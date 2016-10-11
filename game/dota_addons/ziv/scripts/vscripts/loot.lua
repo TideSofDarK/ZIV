@@ -124,6 +124,8 @@ function Loot:AddModifiers(item)
 			x = x + 1
 		end
 	end
+
+	Items:UpdateItem(item)
 end
 
 -- Creep loot

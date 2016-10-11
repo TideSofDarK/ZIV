@@ -75,14 +75,17 @@
     })();
 
     // Store HUD root to create panels there later
-    <!-- $.Schedule(0.03, function () { -->
-        var parent = $.GetContextPanel().GetParent();
-        while(parent.id != "Hud")
-            parent = parent.GetParent();
+    var parent = $.GetContextPanel().GetParent();
+    while(parent.id != "Hud")
+        parent = parent.GetParent();
 
-        GameUI.CustomUIConfig().hudRoot = parent.FindChildTraverse("CustomUIRoot");
-    <!-- }) -->
+    GameUI.CustomUIConfig().hudRoot = parent;
 
+    // Hide radar button
+    //var radarButton = parent.FindChildTraverse("HUDElements").FindChildTraverse("RadarButton");
+    //if (radarButton) {
+    //    radarButton.DeleteAsync(0.0);
+    //}
 
     // Default keybinds for abilities
     GameUI.CustomUIConfig().KEYBINDS = {

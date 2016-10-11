@@ -4,7 +4,7 @@ function OnDealDamage( keys )
 	local damage = keys.Damage
 
 	caster.OnDamageDealCallbacks = caster.OnDamageDealCallbacks or {}
-	table.insert(caster.OnDamageDealCallbacks, function (target)
+	table.insert(caster.OnDamageDealCallbacks, function (caster, target, damage)
 		local bonus_damage = GetRunePercentIncrease(math.ceil(damage/10),"ziv_samurai_cold_touch_damage",caster)
 		DealDamage( target, target, bonus_damage, DAMAGE_TYPE_COLD )
 		-- PopupColdDamage(target, bonus_damage)
@@ -12,6 +12,8 @@ function OnDealDamage( keys )
 		ParticleManager:CreateParticle("particles/creeps/ziv_creep_blood_frozen.vpcf", PATTACH_POINT_FOLLOW, target)
 
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_cold_touch_frozen", {})
+
+		caster:GiveMana((damage * (GetSpecial(ability, "ep_leech") / 100.0)))
 	end)
 end
 

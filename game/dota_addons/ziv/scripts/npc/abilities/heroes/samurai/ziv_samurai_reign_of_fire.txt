@@ -27,12 +27,17 @@
     "01"
     {
       "var_type"            "FIELD_FLOAT"
-      "burn_damage_amp"            "0.7"
+      "burn_damage_amp"     "1.0"
     }
     "02"
     {
       "var_type"            "FIELD_INTEGER"
-      "burn_duration"            "4"
+      "burn_duration"       "3"
+    }
+    "03"
+    {
+      "var_type"            "FIELD_FLOAT"
+      "hp_leech"            "4"
     }
   }
 

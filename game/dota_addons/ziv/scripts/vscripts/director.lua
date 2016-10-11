@@ -170,69 +170,81 @@ end
 -- Table
 function Director:SpawnPack( pack_table )
 	if type(pack_table) == 'table' then
-		local spawn_basic = pack_table["SpawnBasic"] == true
-		local spawn_lord = pack_table["SpawnLord"] == true
+		local basic_table = {}
+		basic_table.Position = pack_table.Position or Vector(0,0,0)
+		basic_table.NoLoot = pack_table.NoLoot or false
+		basic_table.Duration = pack_table.Duration
 
-		local pack_table = pack_table
+		if pack_table.SpawnBasic then
+			basic_table.BasicModifier = pack_table.BasicModifier
 
-		pack_table["Position"] = pack_table["Position"] or Vector(0,0,0)
-		pack_table["NoLoot"] = pack_table["NoLoot"] or false
-		pack_table["Duration"] = pack_table["Duration"]
-
-		if spawn_basic then
-			local basic_modifier = pack_table["BasicModifier"]
-
-			if basic_modifier then
-				if basic_modifier == "random" then
-					basic_modifier = Director:GetRandomModifier(Director.creep_modifier_list)
+			if basic_table.BasicModifier then
+				if basic_table.BasicModifier == "random" then
+					basic_table.BasicModifier = Director:GetRandomModifier(Director.creep_modifier_list)
 				end
 			end
 
-			pack_table["Count"] = pack_table["Count"] or Director.BASIC_PACK_COUNT
-			pack_table["RandomizeCount"] = pack_table["RandomizeCount"] or true
-			pack_table["BasicModifier"] = basic_modifier
-			pack_table["Spread"] = pack_table["BasicSpread"]
-			pack_table["Type"] = pack_table["Type"] or "creep"
-			pack_table["Lord"] = false
+			basic_table.Count = pack_table.Count or Director.BASIC_PACK_COUNT
+			basic_table.RandomizeCount = pack_table.RandomizeCount or true
+			basic_table.BasicModifier = basic_modifier
+			basic_table.Spread = pack_table.BasicSpread
+			basic_table.Type = pack_table.Type or "creep"
 
-			Director:SpawnCreeps(pack_table)
+			basic_table.Lord = false
+			basic_table.SpawnLord = false
+
+			basic_table.CheckTable = pack_table.CheckTable
+
+			basic_table.Table = pack_table.Table
+
+			Director:SpawnCreeps(basic_table)
 		end
 
-		if spawn_lord then
-			local lord_modifier = pack_table["LordModifier"]
+		local lord_table = {}
+		lord_table.Position = pack_table.Position or Vector(0,0,0)
+		lord_table.NoLoot = pack_table.NoLoot or false
+		lord_table.Duration = pack_table.Duration
 
-			if lord_modifier then
-				if lord_modifier == "random" then
-					lord_modifier = Director:GetRandomModifier(Director.lord_modifier_list)
+		if pack_table.SpawnLord then
+			lord_table.LordModifier = pack_table.LordModifier
+
+			if lord_table.LordModifier then
+				if lord_table.LordModifier == "random" then
+					lord_table.LordModifier = Director:GetRandomModifier(Director.lord_modifier_list)
 				end
 			end
 
-			pack_table["Count"] = pack_table["LordCount"] or 1
-			pack_table["LordModifier"] = lord_modifier
-			pack_table["Spread"] = pack_table["LordSpread"] or Director.BASIC_LORD_SPREAD
-			pack_table["Type"] = pack_table["Type"] or "creep"
-			pack_table["Lord"] = true
+			lord_table.Count = pack_table.LordCount or 1
+			lord_table.LordModifier = lord_modifier
+			lord_table.Spread = pack_table.Spread or Director.BASIC_LORD_SPREAD
+			lord_table.Type = pack_table.Type or "creep"
 
-			Director:SpawnCreeps(pack_table)
+			lord_table.Lord = true
+			lord_table.SpawnLord = true
+
+			lord_table.CheckTable = pack_table.CheckTable
+
+			lord_table.Table = pack_table.Table
+
+			Director:SpawnCreeps(lord_table)
 		end
 	end
 end
 
 function Director:SpawnCreeps( spawn_table )
-	local spawn_table = ShallowCopy(spawn_table)
-
+	-- local spawn_table = ShallowCopy(spawn_table)
 	if spawn_table then
-		local count = spawn_table["Count"]
-		if spawn_table["RandomizeCount"] == true then
+		local count = spawn_table.Count
+		if spawn_table.RandomizeCount == true then
 			count = math.random(math.floor(count - (count/4)), math.floor(count + (count/4)))
 		end
 
-		local creep_modifier = spawn_table["BasicModifier"]
-		local lord_modifier = spawn_table["LordModifier"]
+		local creep_modifier = spawn_table.BasicModifier
+		local lord_modifier = spawn_table.LordModifier
 
-		local creep_name = Director:GetRandomCreep(spawn_table["Type"])
+		local creep_name = Director:GetRandomCreep(spawn_table.Type)
 
-		local group = ZIV.UnitKVs[creep_name]["Group"]
+		local group = ZIV.UnitKVs[creep_name].Group
 		if group then
 			group = math.random(1,2) == 1
 		end
@@ -242,13 +254,13 @@ function Director:SpawnCreeps( spawn_table )
 				creep_name = Director:GetRandomGroupCreep(creep_name)
 			end
 
-			local position = RandomPointInsideCircle(spawn_table["Position"][1], spawn_table["Position"][2], spawn_table["BasicSpread"] or Director.BASIC_PACK_SPREAD)
+			local position = RandomPointInsideCircle(spawn_table.Position[1], spawn_table.Position[2], spawn_table.BasicSpread or Director.BASIC_PACK_SPREAD)
 
 			local spawn = true
 
-			if spawn_table["CheckHeight"] then
+			if spawn_table.CheckHeight then
 				local groundZ = GetGroundHeight(position, nil)
-				if math.abs(groundZ - spawn_table["Position"][3]) > 192 then
+				if math.abs(groundZ - spawn_table.Position[3]) > 192 then
 					spawn = false
 				end
 			end
@@ -270,17 +282,17 @@ function Director:SpawnCreeps( spawn_table )
 				local creep = CreateUnitByNameAsync(creep_name, position, true, nil, nil, DOTA_TEAM_NEUTRALS, function ( creep )
 					Director.current_session_creep_count = Director.current_session_creep_count + 1
 
-					if spawn_table["NoLoot"] == true then
+					if spawn_table.NoLoot == true then
 						creep.no_loot = true
 					end
 
-					if spawn_table["Duration"] then
-						creep:AddNewModifier(creep,nil,"modifier_kill",{duration=tonumber(spawn_table["Duration"])})
+					if spawn_table.Duration then
+						creep:AddNewModifier(creep,nil,"modifier_kill",{duration=tonumber(spawn_table.Duration)})
 					end
 
 					creep:SetAngles(0, math.random(0, 360), 0)
 
-					if spawn_table["Lord"] == true then
+					if spawn_table.Lord == true then
 						creep:AddAbility("ziv_unique_hpbar")
 
 						creep:SetModelScale(creep:GetModelScale() * 1.35)
@@ -307,13 +319,14 @@ function Director:SpawnCreeps( spawn_table )
 
 					InitAbilities(creep)
 
-					if ZIV.UnitKVs[creep:GetUnitName()]["Colors"] then
+					if ZIV.UnitKVs[creep:GetUnitName()].Colors then
 						local color = KeyValues:Split(ZIV.UnitKVs[creep:GetUnitName()]["Colors"]["Color"..tostring(math.random(1,GetTableLength(ZIV.UnitKVs[creep:GetUnitName()]["Colors"])))], ";") 
 						creep:SetRenderColor(tonumber(color[1]), tonumber(color[2]), tonumber(color[3]))
 					end
 
 					if spawn_table.Table then --and type(spawn_table["Table"]) == "table"
 						table.insert(spawn_table.Table, creep)
+						creep.pack = spawn_table.Table
 					end
 				end)
 			end

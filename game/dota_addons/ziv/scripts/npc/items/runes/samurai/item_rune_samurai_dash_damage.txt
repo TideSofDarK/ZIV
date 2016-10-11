@@ -13,10 +13,9 @@
 
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
-
-  "Tooltip" "damage_amp"
-  "Type"    "Float"
-  "Method"  "Add"
+  
+  "Tooltip"     "New"
+  "Type"        "Float"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"

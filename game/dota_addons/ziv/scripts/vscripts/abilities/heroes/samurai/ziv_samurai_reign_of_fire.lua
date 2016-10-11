@@ -15,11 +15,13 @@ function OnDealDamage( keys )
 	local damage = keys.Damage
 
 	caster.OnDamageDealCallbacks = caster.OnDamageDealCallbacks or {}
-	table.insert(caster.OnDamageDealCallbacks, function (target)
+	table.insert(caster.OnDamageDealCallbacks, function (caster, target, damage)
 		if target:HasModifier("modifier_reign_of_fire_burn") == false then
 			target:EmitSound("Hero_Huskar.Burning_Spear")
 			ability:ApplyDataDrivenModifier(caster,target,"modifier_reign_of_fire_burn", {})
 		end
+
+		caster:Heal((damage * (GetSpecial(ability, "hp_leech") / 100.0)), caster:FindAbilityByName("ziv_samurai_reign_of_fire")) 
 	end)
 end
 

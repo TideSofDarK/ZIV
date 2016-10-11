@@ -71,10 +71,10 @@ function Trade:AcceptTrade(args)
 
 	local pIDs = {}
 
+	CustomGameEventManager:Send_ServerToAllClients("ziv_highlight_trade", {tradeID = tradeID, containerID = Trade.TRADES[tradeID][pID].container.id, highlight = Trade.TRADES[tradeID][pID].status})
+
 	for k,v in pairs(Trade.TRADES[tradeID]) do
 		table.insert(pIDs, k)
-
-		CustomGameEventManager:Send_ServerToAllClients("ziv_highlight_trade", {tradeID = tradeID, containerID = Trade.TRADES[tradeID][k].container.id, highlight = v.status})
 
 		if not v.status then
 			return
@@ -85,10 +85,12 @@ function Trade:AcceptTrade(args)
 	local accepterContainer = Trade.TRADES[tradeID][pIDs[2]].container
 
 	for k,v in pairs(initiatorContainer:GetAllItems()) do
+		initiatorContainer:RemoveItem(v)
 		Characters:GetInventory(pIDs[2]):AddItem(v)
 	end
 
 	for k,v in pairs(accepterContainer:GetAllItems()) do
+		accepterContainer:RemoveItem(v)
 		Characters:GetInventory(pIDs[1]):AddItem(v)
 	end
 

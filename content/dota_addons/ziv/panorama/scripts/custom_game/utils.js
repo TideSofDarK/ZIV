@@ -91,8 +91,8 @@ Util.ConvertValue = (function (modifier, originalValue, modifierValue, dontModif
 
 Util.RemoveChildren = (function (panel) {
     for (var child in panel.Children()) {
-        child.DeleteAsync(0.0);
-        child.RemoveAndDeleteChildren();
+        panel.Children()[child].DeleteAsync(0.0);
+        panel.Children()[child].RemoveAndDeleteChildren();
     }
 });
 
