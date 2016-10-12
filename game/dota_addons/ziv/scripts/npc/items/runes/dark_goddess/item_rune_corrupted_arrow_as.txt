@@ -4,7 +4,7 @@
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_rune_dark_goddess"
-  "Model"                   "models/items/topaz.vmdl"
+  "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
   "ItemStackable"         "1"
@@ -20,7 +20,7 @@
     "ziv_dark_goddess_corrupted_arrow_as"
     {
       "min" "10"
-      "max" "50"
+      "max" "80"
     }
   }
 }

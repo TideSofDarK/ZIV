@@ -1,4 +1,5 @@
 function FireArrow( keys )
+	keys.bonus_attack_speed = GRMSC("ziv_dark_goddess_corrupted_arrow_as", caster)
 	keys.on_hit = AdditionalDamage
 	keys.on_kill = SpawnSpirit
 	keys.pierce = GetSpecial(keys.ability, "pierce") + GRMSC("modifier_concentration_pierce_rune", keys.caster)

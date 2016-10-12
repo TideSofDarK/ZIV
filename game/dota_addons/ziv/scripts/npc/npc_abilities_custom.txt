@@ -1625,31 +1625,62 @@
 	
 	  "precache"
 	  {
-	    "particle"  "particles/ziv_creep_modifier_color_blue.vpcf"
+	    "particle"  "particles/creeps/ziv_spider.vpcf"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 	  }
-	
+	  
 	  "Modifiers"
 	  {
-	    "modifier_spider_idle"
+	    "modifier_spider_invisible"
 	    {
-	      "Passive" "1"
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	
+	      "Passive"      "1"
 	      "States"
 	      {
-	        "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_INVISIBLE" "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	
+	    "modifier_spider_check"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	
+	      "ThinkInterval"  "1.0"
+	      "OnIntervalThink"
+	      {
+	        "ActOnTargets"
+	        {
+	          "Target"
+	          {
+	            "Center"    "TARGET"
+	            "Radius"    "800"
+	            "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          }
+	        
+	          "Action"    
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"    "abilities/modifiers/ziv_spider.lua"
+	              "Function"      "Descent"
+	            }
+	          }
+	        }
 	      }
 	    }
 	
 	    "modifier_spider_out"
 	    {
-	      "Passive" "0"
+	      "Passive"       "1"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
 	
 	      "States"
 	      {
+	        "MODIFIER_STATE_ROOTED"          "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_UNSELECTABLE"    "MODIFIER_STATE_VALUE_ENABLED"
 	        "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
 	        "MODIFIER_STATE_DISARMED"        "MODIFIER_STATE_VALUE_ENABLED"
 	      }
@@ -1669,7 +1700,7 @@
 	    "01"
 	    {
 	      "var_type"      "FIELD_INTEGER"
-	      "aggro_radius"      "800"
+	      "aggro_radius"      "1000"
 	    }
 	  }
 	  
@@ -1681,7 +1712,7 @@
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
 	
-	      "ThinkInterval"  "0.75"
+	      "ThinkInterval"  "0.3"
 	      "OnIntervalThink"
 	      {
 	        "RunScript"
@@ -2501,7 +2532,7 @@
 	
 	  "AbilityManaCost"         "45"
 	
-	  "MaxLevel"                "7"
+	  "MaxLevel"                "1"
 	
 	  "precache"
 	  {
@@ -2729,7 +2760,7 @@
 	
 		"AbilityCastAnimation"    "ACT_DOTA_IDLE"
 	
-		"MaxLevel" "7"
+		"MaxLevel" "1"
 	
 		"precache"
 		{
@@ -2747,48 +2778,48 @@
 		{
 			"01"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"corruption_duration"	"4"
+				"var_type"	"FIELD_FLOAT"
+				"damage_amp"	"1.3"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"slow"	"-20"
+				"aoe_radius"	"400"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"spirit_duration"	"6"
+				"pierce"	"2"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"spirit_attackspeed"	"175"
+				"corruption_duration"	"4"
 			}
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"pierce"	"2"
+				"slow"	"-20"
 			}
 			"06"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"spirits_count"	"1"
+				"spirit_duration"	"6"
 			}
 			"07"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"spirit_damage_amp"	"0.4"
+				"var_type"	"FIELD_INTEGER"
+				"spirit_attackspeed"	"175"
 			}
 			"08"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"damage_amp"	"3.0"
+				"var_type"	"FIELD_INTEGER"
+				"spirits_count"	"1"
 			}
 			"09"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"aoe_radius"	"400"
+				"var_type"	"FIELD_FLOAT"
+				"spirit_damage_amp"	"0.8"
 			}
 			"10"
 			{
@@ -2803,10 +2834,10 @@
 			{
 				"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
 				"Function"		"FireArrow"
-				"effect" "particles/heroes/dark_goddess/dark_goddess_corrupted_arrow.vpcf"
-				"damage_amp" "%damage_amp"
-				"attack_sound" "Hero_DrowRanger.FrostArrows"
-				"Target" "POINT"
+				"effect" 		"particles/heroes/dark_goddess/dark_goddess_corrupted_arrow.vpcf"
+				"damage_amp" 	"%damage_amp"
+				"attack_sound" 	"Hero_DrowRanger.FrostArrows"
+				"Target" 		"POINT"
 			}
 		}
 	
@@ -2883,7 +2914,7 @@
 				{
 					"MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+					// "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR" "MODIFIER_STATE_VALUE_ENABLED"
 				}
 		    }
@@ -2946,7 +2977,7 @@
 	
 	  "AbilityManaCost"         "45"
 	
-	  "MaxLevel"                "7"
+	  "MaxLevel"                "1"
 	
 	  "precache"
 	  {
@@ -2997,7 +3028,7 @@
 	
 		"AbilityManaCost"	"95"
 		"AbilityCastPoint"        "0.35"
-		"AbilityCooldown"				"7.0"
+		"AbilityCooldown"				"5.0"
 		"AbilityCastRange"				"1200"
 	
 		"precache"
@@ -3014,12 +3045,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_amp"			"0.7"
+				"damage_amp"			"1.7"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bleeding_damage_amp"			"0.1"
+				"bleeding_damage_amp"			"0.5"
 			}
 			"03"
 			{
@@ -3142,12 +3173,12 @@
 	  "AbilityTextureName"      "ziv_empty"
 	
 	  "AbilityCastPoint"        "0.1"
-	  "AbilityCooldown"         "6.5"
+	  "AbilityCooldown"         "4.5"
 	  "AbilityCastAnimation"    "ACT_DOTA_SPAWN"
 	
 	  "AbilityManaCost"         "45"
 	
-	  "MaxLevel"                "7"
+	  "MaxLevel"                "1"
 	
 	  "precache"
 	  {
@@ -5535,13 +5566,12 @@
 	"ziv_samurai_execution"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	  "AbilityTextureName"            "ziv_samurai_execution"
 	
 	  "AbilityCastAnimation"      ""
 	
 	  "AbilityCastPoint"        "0.04"
-	  "AbilityCooldown"        "0.295"
 	  "AbilityCastRange"        "128"
 	
 	  "AbilityManaCost"       "7"
@@ -7345,7 +7375,7 @@
 	    "03"
 	    {
 	      "var_type"            "FIELD_FLOAT"
-	      "bonus_size" "1.5"
+	      "size" "1.2"
 	    }
 	  }
 	
@@ -7549,54 +7579,83 @@
 	  {
 	    "ziv_creep_normal_behavior_logic"
 	    {
-	      "Passive"                        "1"
-	      "IsHidden"                        "1"    
+	      "Passive"                         "1"
+	      "IsHidden"                        "1"   
+	
+	      "ThinkInterval"                   "0.4"
+	      "OnIntervalThink"
+	      {
+	        "ActOnTargets"
+	        {
+	          "Target"
+	          {
+	            "Center"    "CASTER"
+	            "Radius"    "%aggro_radius"
+	            "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          }
+	        
+	          "Action"    
+	          {
+	            "RemoveModifier"
+	            {
+	              "ModifierName"  "ziv_creep_normal_behavior_logic"
+	              "Target"        "CASTER"
+	            }
+	          }
+	        }
+	      } 
 	      
-	      "OnTakeDamage"
-	      {
-	        "RemoveModifier"
-	        {
-	          "ModifierName"  "ziv_creep_normal_behavior_untouched"
-	          "Target"     "CASTER"
-	        }
-	        "RemoveModifier"
-	        {
-	          "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
-	          "Target"     "CASTER"
-	        }
-	      }
+	      // "OnTakeDamage"
+	      // {
+	      //   "RemoveModifier"
+	      //   {
+	      //     "ModifierName"  "modifier_spider_out"
+	      //     "Target"        "CASTER"
+	      //   }
+	      //   "RemoveModifier"
+	      //   {
+	      //     "ModifierName"  "ziv_creep_normal_behavior_untouched"
+	      //     "Target"        "CASTER"
+	      //   }
+	      //   "RemoveModifier"
+	      //   {
+	      //     "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
+	      //     "Target"        "CASTER"
+	      //   }
+	      // }
 	    }
 	
-	    "ziv_creep_normal_behavior_disable_autoattack"
-	    {
-	      "Passive"                        "1"
-	      "IsHidden"                        "1" 
+	    // "ziv_creep_normal_behavior_disable_autoattack"
+	    // {
+	    //   "Passive"                        "1"
+	    //   "IsHidden"                        "1" 
 	
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
-	      }
-	    }
+	    //   "Properties"
+	    //   {
+	    //     "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
+	    //   }
+	    // }
 	    
-	    "ziv_creep_normal_behavior_untouched"
-	    {
-	      "Passive"                        "1"
-	      "IsHidden"                        "1"    
+	    // "ziv_creep_normal_behavior_untouched"
+	    // {
+	    //   "Passive"                        "1"
+	    //   "IsHidden"                        "1"    
 	
-	      "States"
-	      {
-	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
-	      }
+	    //   "States"
+	    //   {
+	    //     "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	    //   }
 	
-	      "OnTakeDamage"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "abilities/creeps.lua"
-	          "Function"    "AggroNearbyCreeps"
-	        }
-	      }
-	    }
+	    //   "OnTakeDamage"
+	    //   {
+	    //     "RunScript"
+	    //     {
+	    //       "ScriptFile"  "abilities/creeps.lua"
+	    //       "Function"    "AggroNearbyCreeps"
+	    //     }
+	    //   }
+	    // }
 	  }
 	}
 	"ziv_disable_autoattack"

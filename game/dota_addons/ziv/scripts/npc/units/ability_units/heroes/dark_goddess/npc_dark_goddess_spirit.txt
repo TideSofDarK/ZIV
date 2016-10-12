@@ -45,9 +45,6 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    
-    
-
-    "VisionDaytimeRange"    "0"
-    "VisionNighttimeRange"    "0"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 

@@ -61,6 +61,7 @@ function TransformPosition( caster, ability, position )
 	Timers:CreateTimer(GetRunePercentDecrease(0.1,"ziv_dark_goddess_transform_speed",caster), function (  )
 		if caster:HasModifier("modifier_dark_goddess_transform") then
 			FindClearSpaceForUnit(caster,position,false)
+			ProjectileManager:ProjectileDodge(caster)
 
 			caster:AddNewModifier(caster,nil,"modifier_rooted",{duration = 0.9})
 

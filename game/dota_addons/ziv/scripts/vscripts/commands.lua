@@ -38,20 +38,25 @@ function ZIV:PrintHeroStats()
     local playerID = cmdPlayer:GetPlayerID()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
+      print("-------------HERO STATS------------")
       print("HP: "..tostring(hero:GetHealth()).."/"..tostring(hero:GetMaxHealth()))
       print("EP: "..tostring(hero:GetMana()).."/"..tostring(hero:GetMaxMana()))
-
+      print("-----------------------------------")
       print("MR: "..tostring(hero:GetMagicalArmorValue()))
       print("FR: "..tostring(hero:GetModifierStackCount("modifier_fire_resistance",nil)))
       print("CR: "..tostring(hero:GetModifierStackCount("modifier_cold_resistance",nil)))
       print("LR: "..tostring(hero:GetModifierStackCount("modifier_lightning_resistance",nil)))
       print("DR: "..tostring(hero:GetModifierStackCount("modifier_dark_resistance",nil)))
-
+      print("-----------------------------------")
       print("STR: "..tostring(hero:GetStrength()))
       print("AGI: "..tostring(hero:GetAgility()))
       print("INT: "..tostring(hero:GetIntellect()))
+      print("-----------------------------------")
       print("AS: "..tostring(hero:GetAttackSpeed()))
+      print("ApS: "..tostring(hero:GetAttacksPerSecond()))
+      print("-----------------------------------")
       print("MODIFIER COUNT: "..tostring(hero:GetModifierCount()))
+      print("-----------------------------------")
       for i=0,hero:GetModifierCount() do
         print(hero:GetModifierNameByIndex(i), hero:GetModifierStackCount(hero:GetModifierNameByIndex(i), hero))
       end
@@ -61,6 +66,7 @@ function ZIV:PrintHeroStats()
           print(abil:GetName())
         end
       end
+      print("-----------------------------------")
     end
   end
 end
@@ -77,7 +83,7 @@ function ZIV:AddItemToContainer(item, count)
   end
 end
 
-function ZIV:SpawnBasicPack(count)
+function ZIV:SpawnBasicPack(count, pack_type)
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
@@ -89,6 +95,7 @@ function ZIV:SpawnBasicPack(count)
           Level = 1,
           SpawnBasic = true,
           Count = tonumber(count) or 10,
+          Type = pack_type or "creep",
           Position = hero:GetAbsOrigin(),
           LordModifier = "ziv_creep_lord_modifier_regen_aura",
           SpawnLord = true

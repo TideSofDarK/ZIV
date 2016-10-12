@@ -1,4 +1,6 @@
 function SetScale( keys )
 	local caster = keys.caster
-	caster:SetModelScale(keys.ability:GetLevelSpecialValueFor("bonus_size", 1))
+	local ability = keys.ability
+
+	caster:SetModelScale(caster:GetModelScale() * GetSpecial(ability, "size"))
 end

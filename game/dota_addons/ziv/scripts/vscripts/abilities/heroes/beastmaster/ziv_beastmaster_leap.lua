@@ -6,10 +6,10 @@ function Leap( keys )
 
 	StartRuneCooldown(ability,"ziv_beastmaster_leap_cd",caster)
 
+	ProjectileManager:ProjectileDodge(caster)
+
 	caster:SetForwardVector(UnitLookAtPoint( caster, target ))
 	caster:Stop()
-
-	ProjectileManager:ProjectileDodge(caster)
 
 	ability.trail_particle = ParticleManager:CreateParticle("particles/heroes/beastmaster/beastmaster_leap_trail.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
 

@@ -11,7 +11,7 @@
     "01"
     {
       "var_type"      "FIELD_INTEGER"
-      "aggro_radius"      "800"
+      "aggro_radius"      "1000"
     }
   }
   
@@ -23,7 +23,7 @@
       "IsHidden"      "1"
       "IsDebuff"      "0"
 
-      "ThinkInterval"  "0.75"
+      "ThinkInterval"  "0.3"
       "OnIntervalThink"
       {
         "RunScript"

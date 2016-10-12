@@ -18,8 +18,8 @@ if (!teamColors) {
   teamColors = GameUI.CustomUIConfig().team_colors;
 }
 
-teamColors[DOTATeam_t.DOTA_TEAM_NEUTRALS] = "#3fb568;";
-teamColors[DOTATeam_t.DOTA_TEAM_NOTEAM]   = "#3fb568;";
+teamColors[DOTATeam_t.DOTA_TEAM_NEUTRALS] = "#b53f51;";
+teamColors[DOTATeam_t.DOTA_TEAM_NOTEAM]   = "#b53f51;";
 
 function HealthCheck()
 {

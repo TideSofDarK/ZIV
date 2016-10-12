@@ -1,13 +1,12 @@
 "ziv_samurai_execution"
 {
   "BaseClass"           "ability_datadriven"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
   "AbilityTextureName"            "ziv_samurai_execution"
 
   "AbilityCastAnimation"      ""
 
   "AbilityCastPoint"        "0.04"
-  "AbilityCooldown"        "0.295"
   "AbilityCastRange"        "128"
 
   "AbilityManaCost"       "7"

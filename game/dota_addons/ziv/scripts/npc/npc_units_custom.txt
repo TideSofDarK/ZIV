@@ -410,11 +410,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    
-	    
-	
-	    "VisionDaytimeRange"    "0"
-	    "VisionNighttimeRange"    "0"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	"npc_huntress_ballista"
 	{
@@ -1152,6 +1149,8 @@
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"  "n_creep_skeleton_melee"
+	
+	    "Group"                     "greevils_a"
 	    
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/lane_creeps/creep_dire_hulk/creep_dire_ancient_hulk.vmdl"
@@ -1164,8 +1163,8 @@
 	    "MagicalResistance"       "0"
 	
 	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"     "1"
-	    "AttackDamageMax"     "3"
+	    "AttackDamageMin"     "6"
+	    "AttackDamageMax"     "10"
 	    "AttackRate"                "1.35"
 	    "AttackAnimationPoint"      "0.3"
 	    "AttackAcquisitionRange"    "150"
@@ -1194,6 +1193,8 @@
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"  "n_creep_skeleton_melee"
+	
+	    "Group"                     "greevils_a"
 	    
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/mega_greevil/mega_greevil.vmdl"
@@ -1206,8 +1207,8 @@
 	    "MagicalResistance"       "0"
 	
 	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"     "1"
-	    "AttackDamageMax"     "3"
+	    "AttackDamageMin"     "5"
+	    "AttackDamageMax"     "11"
 	    "AttackRate"                "0.9"
 	    "AttackAnimationPoint"      "0.33"
 	    "AttackAcquisitionRange"    "150"
@@ -1249,8 +1250,8 @@
 	    "MagicalResistance"       "0"
 	
 	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"     "1"
-	    "AttackDamageMax"     "3"
+	    "AttackDamageMin"     "6"
+	    "AttackDamageMax"     "10"
 	    "AttackRate"                "0.9"
 	    "AttackAnimationPoint"      "0.33"
 	    "AttackAcquisitionRange"    "150"
@@ -1288,14 +1289,14 @@
 	    "ModelScale"                "0.65"
 	    "Level"                     "1"
 	
-	    // "Ability1"                  "ziv_spider"
+	    "Ability1"                  "ziv_spider"
 	
 	    "ArmorPhysical"             "0"
 	    "MagicalResistance"         "0"
 	
 	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"           "1"
-	    "AttackDamageMax"           "3"
+	    "AttackDamageMin"           "4"
+	    "AttackDamageMax"           "8"
 	    "AttackRate"                "1"
 	    "AttackAnimationPoint"      "0.467"
 	    "AttackAcquisitionRange"    "400"
@@ -1308,7 +1309,7 @@
 	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
 	
 	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-	    "MovementSpeed"             "330"
+	    "MovementSpeed"             "350"
 	    "MovementTurnRate"          "1.0"
 	    "FollowRange"               "250"
 	
@@ -1334,14 +1335,14 @@
 	    "ModelScale"                "0.65"
 	    "Level"                     "1"
 	
-	    // "Ability1"                  "ziv_spider"
+	    "Ability1"                  "ziv_spider"
 	
 	    "ArmorPhysical"             "0"
 	    "MagicalResistance"         "0"
 	
 	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"           "1"
-	    "AttackDamageMax"           "3"
+	    "AttackDamageMin"           "5"
+	    "AttackDamageMax"           "9"
 	    "AttackRate"                "1"
 	    "AttackAnimationPoint"      "0.467"
 	    "AttackAcquisitionRange"    "400"
@@ -1354,7 +1355,7 @@
 	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
 	
 	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-	    "MovementSpeed"             "330"
+	    "MovementSpeed"             "350"
 	    "MovementTurnRate"          "1.0"
 	    "FollowRange"               "250"
 	
@@ -1380,14 +1381,14 @@
 	    "ModelScale"                "0.65"
 	    "Level"                     "1"
 	
-	    // "Ability1"                  "ziv_spider"
+	    "Ability1"                  "ziv_spider"
 	
 	    "ArmorPhysical"             "0"
 	    "MagicalResistance"         "0"
 	
 	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"           "1"
-	    "AttackDamageMax"           "3"
+	    "AttackDamageMin"           "3"
+	    "AttackDamageMax"           "10"
 	    "AttackRate"                "1"
 	    "AttackAnimationPoint"      "0.467"
 	    "AttackAcquisitionRange"    "400"
@@ -1400,7 +1401,7 @@
 	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
 	
 	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-	    "MovementSpeed"             "330"
+	    "MovementSpeed"             "350"
 	    "MovementTurnRate"          "1.0"
 	    "FollowRange"               "250"
 	
@@ -1424,14 +1425,14 @@
 	    "ModelScale"                "0.65"
 	    "Level"                     "1"
 	
-	    // "Ability1"                  "ziv_spider"
+	    "Ability1"                  "ziv_spider"
 	
 	    "ArmorPhysical"             "0"
 	    "MagicalResistance"         "0"
 	
 	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"           "1"
-	    "AttackDamageMax"           "3"
+	    "AttackDamageMin"           "4"
+	    "AttackDamageMax"           "10"
 	    "AttackRate"                "1"
 	    "AttackAnimationPoint"      "0.467"
 	    "AttackAcquisitionRange"    "400"
@@ -1444,7 +1445,7 @@
 	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
 	
 	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-	    "MovementSpeed"             "330"
+	    "MovementSpeed"             "350"
 	    "MovementTurnRate"          "1.0"
 	    "FollowRange"               "250"
 	
@@ -1470,14 +1471,14 @@
 	    "ModelScale"                "0.65"
 	    "Level"                     "1"
 	
-	    // "Ability1"                  "ziv_spider"
+	    "Ability1"                  "ziv_spider"
 	
 	    "ArmorPhysical"             "0"
 	    "MagicalResistance"         "0"
 	
 	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"           "1"
-	    "AttackDamageMax"           "3"
+	    "AttackDamageMin"           "5"
+	    "AttackDamageMax"           "9"
 	    "AttackRate"                "1"
 	    "AttackAnimationPoint"      "0.467"
 	    "AttackAcquisitionRange"    "400"
@@ -1490,7 +1491,7 @@
 	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
 	
 	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-	    "MovementSpeed"             "330"
+	    "MovementSpeed"             "350"
 	    "MovementTurnRate"          "1.0"
 	    "FollowRange"               "250"
 	
@@ -1514,7 +1515,7 @@
 	    "ModelScale"                "0.65"
 	    "Level"                     "1"
 	
-	    // "Ability1"                  "ziv_spider"
+	    "Ability1"                  "ziv_spider"
 	
 	    "ArmorPhysical"             "0"
 	    "MagicalResistance"         "0"
@@ -1534,7 +1535,7 @@
 	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
 	
 	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-	    "MovementSpeed"             "330"
+	    "MovementSpeed"             "350"
 	    "MovementTurnRate"          "1.0"
 	    "FollowRange"               "250"
 	
@@ -1558,7 +1559,7 @@
 	    "ModelScale"                "0.65"
 	    "Level"                     "1"
 	
-	    // "Ability1"                  "ziv_spider"
+	    "Ability1"                  "ziv_spider"
 	
 	    "ArmorPhysical"             "0"
 	    "MagicalResistance"         "0"
@@ -1578,7 +1579,7 @@
 	    "BoundsHullName"            "DOTA_HULL_SIZE_SIEGE"
 	
 	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-	    "MovementSpeed"             "330"
+	    "MovementSpeed"             "350"
 	    "MovementTurnRate"          "1.0"
 	    "FollowRange"               "250"
 	
@@ -1601,7 +1602,7 @@
 	        "Color1"                 "60;179;113"
 	        "Color2"                 "132;205;139"
 	        "Color3"                 "0;128;128"
-	        "Color4"                 "128;128;0"
+	        "Color4"                 "188;188;0"
 	    }
 	    
 	    "HealthBarOffset"   "200"
@@ -1615,8 +1616,8 @@
 	    "MagicalResistance"       "0"
 	
 	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"     "1"
-	    "AttackDamageMax"     "3"
+	    "AttackDamageMin"     "8"
+	    "AttackDamageMax"     "12"
 	    "AttackRate"                "0.75"
 	    "AttackAnimationPoint"      "0.56"
 	    "AttackAcquisitionRange"    "150"
@@ -1633,7 +1634,7 @@
 	    "MovementTurnRate"      "1.0"
 	    "FollowRange"       "250"
 	
-	    "StatusHealth"        "100"
+	    "StatusHealth"        "75"
 	    "StatusHealthRegen"     "0"
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
@@ -1661,18 +1662,22 @@
 	    "ModelScale"    "0.6"
 	    "Level"           "1"
 	
-	    "Ability1"          ""
+	    "Ability1"          "ziv_tribe_archer_fire"
 	
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
-	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"     "3"
-	    "AttackDamageMax"     "7"
-	    "AttackRate"                "1"
-	    "AttackAnimationPoint"      "0.7"
-	    "AttackAcquisitionRange"    "700"
-	    "AttackRange"               "450"
+	    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+	    "AttackDamageType"          "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+	    "AttackDamageMin"           "5"
+	    "AttackDamageMax"           "10"
+	    "AttackRate"                "1.00"
+	    "AttackAnimationPoint"      "0.60"
+	    "AttackAcquisitionRange"    "600"
+	    "AttackRange"               "850"
+	    "AttackRangeBuffer"         "850"
+	    "ProjectileModel"           "particles/creeps/ziv_tribe_archer_projectile.vpcf"
+	    "ProjectileSpeed"           "900"
 	
 	    "BountyXP"          "0"
 	    "BountyGoldMin"       "0"
@@ -1685,7 +1690,7 @@
 	    "MovementTurnRate"      "1.0"
 	    "FollowRange"       "250"
 	
-	    "StatusHealth"        "100"
+	    "StatusHealth"        "110"
 	    "StatusHealthRegen"     "0"
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
@@ -1709,8 +1714,8 @@
 	    "MagicalResistance"       "0"
 	
 	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"     "1"
-	    "AttackDamageMax"     "3"
+	    "AttackDamageMin"     "4"
+	    "AttackDamageMax"     "8"
 	    "AttackRate"    "0.75"
 	    "AttackAnimationPoint"  "0.4"
 	    "AttackAcquisitionRange"    "150"
@@ -1727,7 +1732,7 @@
 	    "MovementTurnRate"      "1.0"
 	    "FollowRange"       "250"
 	
-	    "StatusHealth"        "100"
+	    "StatusHealth"        "110"
 	    "StatusHealthRegen"     "0"
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
@@ -1751,8 +1756,8 @@
 	    "MagicalResistance"       "0"
 	
 	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"     "3"
-	    "AttackDamageMax"     "4"
+	    "AttackDamageMin"     "5"
+	    "AttackDamageMax"     "8"
 	    "AttackRate"        "1"
 	    "AttackAnimationPoint"    "0.5"
 	    "AttackRange"       "100"
@@ -1768,7 +1773,7 @@
 	    "MovementTurnRate"      "1.0"
 	    "FollowRange"       "250"
 	
-	    "StatusHealth"        "100"
+	    "StatusHealth"        "60"
 	    "StatusHealthRegen"     "0"
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
@@ -1794,7 +1799,7 @@
 	
 	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
 	    "AttackDamageMin"     "3"
-	    "AttackDamageMax"     "6"
+	    "AttackDamageMax"     "9"
 	    "AttackRate"        "1"
 	    "AttackAnimationPoint"    "0.5"
 	    "AttackRange"       "100"
@@ -1810,7 +1815,7 @@
 	    "MovementTurnRate"      "1.0"
 	    "FollowRange"       "250"
 	
-	    "StatusHealth"        "100"
+	    "StatusHealth"        "70"
 	    "StatusHealthRegen"     "0"
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
@@ -1836,7 +1841,7 @@
 	
 	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
 	    "AttackDamageMin"     "3"
-	    "AttackDamageMax"     "4"
+	    "AttackDamageMax"     "10"
 	    "AttackRate"        "1"
 	    "AttackAnimationPoint"    "0.5"
 	    "AttackRange"       "100"
@@ -1852,7 +1857,7 @@
 	    "MovementTurnRate"      "1.0"
 	    "FollowRange"       "250"
 	
-	    "StatusHealth"        "100"
+	    "StatusHealth"        "60"
 	    "StatusHealthRegen"     "0"
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"

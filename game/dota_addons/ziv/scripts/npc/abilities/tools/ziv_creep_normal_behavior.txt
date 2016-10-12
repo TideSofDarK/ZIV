@@ -18,53 +18,82 @@
   {
     "ziv_creep_normal_behavior_logic"
     {
-      "Passive"                        "1"
-      "IsHidden"                        "1"    
+      "Passive"                         "1"
+      "IsHidden"                        "1"   
+
+      "ThinkInterval"                   "0.4"
+      "OnIntervalThink"
+      {
+        "ActOnTargets"
+        {
+          "Target"
+          {
+            "Center"    "CASTER"
+            "Radius"    "%aggro_radius"
+            "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+          }
+        
+          "Action"    
+          {
+            "RemoveModifier"
+            {
+              "ModifierName"  "ziv_creep_normal_behavior_logic"
+              "Target"        "CASTER"
+            }
+          }
+        }
+      } 
       
-      "OnTakeDamage"
-      {
-        "RemoveModifier"
-        {
-          "ModifierName"  "ziv_creep_normal_behavior_untouched"
-          "Target"     "CASTER"
-        }
-        "RemoveModifier"
-        {
-          "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
-          "Target"     "CASTER"
-        }
-      }
+      // "OnTakeDamage"
+      // {
+      //   "RemoveModifier"
+      //   {
+      //     "ModifierName"  "modifier_spider_out"
+      //     "Target"        "CASTER"
+      //   }
+      //   "RemoveModifier"
+      //   {
+      //     "ModifierName"  "ziv_creep_normal_behavior_untouched"
+      //     "Target"        "CASTER"
+      //   }
+      //   "RemoveModifier"
+      //   {
+      //     "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
+      //     "Target"        "CASTER"
+      //   }
+      // }
     }
 
-    "ziv_creep_normal_behavior_disable_autoattack"
-    {
-      "Passive"                        "1"
-      "IsHidden"                        "1" 
+    // "ziv_creep_normal_behavior_disable_autoattack"
+    // {
+    //   "Passive"                        "1"
+    //   "IsHidden"                        "1" 
 
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
-      }
-    }
+    //   "Properties"
+    //   {
+    //     "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
+    //   }
+    // }
     
-    "ziv_creep_normal_behavior_untouched"
-    {
-      "Passive"                        "1"
-      "IsHidden"                        "1"    
+    // "ziv_creep_normal_behavior_untouched"
+    // {
+    //   "Passive"                        "1"
+    //   "IsHidden"                        "1"    
 
-      "States"
-      {
-        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
-      }
+    //   "States"
+    //   {
+    //     "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+    //   }
 
-      "OnTakeDamage"
-      {
-        "RunScript"
-        {
-          "ScriptFile"  "abilities/creeps.lua"
-          "Function"    "AggroNearbyCreeps"
-        }
-      }
-    }
+    //   "OnTakeDamage"
+    //   {
+    //     "RunScript"
+    //     {
+    //       "ScriptFile"  "abilities/creeps.lua"
+    //       "Function"    "AggroNearbyCreeps"
+    //     }
+    //   }
+    // }
   }
 }

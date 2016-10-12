@@ -1,4 +1,4 @@
-"Creature.FireBreath.Cast"
+"Spider.Spawn"
 {
 	"operator_stacks"
 	{
@@ -14,16 +14,16 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/mini_rosh_firebreath.vsnd"
+							"value0"		"sounds/weapons/hero/broodmother/spiderling_cast.vsnd"
 						}
 					}
 					"volume_min"
 					{
-						"value"		"1.000000"
+						"value"		"0.300000"
 					}
 					"volume_max"
 					{
-						"value"		"1.000000"
+						"value"		"0.400000"
 					}
 					"pitch_min"
 					{

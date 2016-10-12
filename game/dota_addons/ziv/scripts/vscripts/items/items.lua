@@ -15,7 +15,7 @@ end
 function Items:Create(item_name, owner)
 	local item = CreateItem(item_name, owner, owner)
 
-	PlayerTables:SetTableValue("items", item:entindex(), {})
+	Items:UpdateItem(item)
 
 	return item
 end

@@ -8,31 +8,62 @@
 
   "precache"
   {
-    "particle"  "particles/ziv_creep_modifier_color_blue.vpcf"
+    "particle"  "particles/creeps/ziv_spider.vpcf"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
   }
-
+  
   "Modifiers"
   {
-    "modifier_spider_idle"
+    "modifier_spider_invisible"
     {
-      "Passive" "1"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-
+      "Passive"      "1"
       "States"
       {
-        "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_INVISIBLE" "MODIFIER_STATE_VALUE_ENABLED"
+      }
+    }
+
+    "modifier_spider_check"
+    {
+      "Passive"      "1"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+
+      "ThinkInterval"  "1.0"
+      "OnIntervalThink"
+      {
+        "ActOnTargets"
+        {
+          "Target"
+          {
+            "Center"    "TARGET"
+            "Radius"    "800"
+            "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+          }
+        
+          "Action"    
+          {
+            "RunScript"
+            {
+              "ScriptFile"    "abilities/modifiers/ziv_spider.lua"
+              "Function"      "Descent"
+            }
+          }
+        }
       }
     }
 
     "modifier_spider_out"
     {
-      "Passive" "0"
+      "Passive"       "1"
       "IsHidden"      "1"
       "IsDebuff"      "0"
 
       "States"
       {
+        "MODIFIER_STATE_ROOTED"          "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_UNSELECTABLE"    "MODIFIER_STATE_VALUE_ENABLED"
         "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
         "MODIFIER_STATE_DISARMED"        "MODIFIER_STATE_VALUE_ENABLED"
       }

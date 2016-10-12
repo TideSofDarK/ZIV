@@ -13,7 +13,7 @@
 
   "AbilityManaCost"         "45"
 
-  "MaxLevel"                "7"
+  "MaxLevel"                "1"
 
   "precache"
   {

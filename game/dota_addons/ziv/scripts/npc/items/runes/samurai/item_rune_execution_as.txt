@@ -1,10 +1,10 @@
-"item_rune_execution_cd"
+"item_rune_execution_as"
 {
   "ID"		"1657"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_rune_samurai"
-  "Model"                   "models/items/topaz.vmdl"
+  "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
   "ItemStackable"         "1"
@@ -14,16 +14,16 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
-  "Tooltip" "AbilityCooldown"
-  "Reduction" "1"
+  "Tooltip"     "New"
+  "Type"        "Int"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_samurai_execution_cd"
+    "ziv_samurai_execution_as"
     {
-      "min" "2"
-      "max" "22"
+      "min" "10"
+      "max" "80"
     }
   }
 }

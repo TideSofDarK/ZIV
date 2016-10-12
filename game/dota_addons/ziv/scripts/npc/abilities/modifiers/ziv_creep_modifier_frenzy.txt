@@ -26,7 +26,7 @@
     "03"
     {
       "var_type"            "FIELD_FLOAT"
-      "bonus_size" "1.5"
+      "size" "1.2"
     }
   }
 

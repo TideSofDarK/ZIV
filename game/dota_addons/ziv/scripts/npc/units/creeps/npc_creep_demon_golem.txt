@@ -2,6 +2,8 @@
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"  "n_creep_skeleton_melee"
+
+    "Group"                     "greevils_a"
     
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/lane_creeps/creep_dire_hulk/creep_dire_ancient_hulk.vmdl"
@@ -14,8 +16,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "1"
-    "AttackDamageMax"     "3"
+    "AttackDamageMin"     "6"
+    "AttackDamageMax"     "10"
     "AttackRate"                "1.35"
     "AttackAnimationPoint"      "0.3"
     "AttackAcquisitionRange"    "150"

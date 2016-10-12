@@ -54,15 +54,20 @@ function SetToggleState( ability, state )
   end
 end
 
+function GetAttacksPerSecond(unit, bonus)
+  return 1 / (unit:GetBaseAttackTime() / (unit:GetAttackSpeed() + bonus)) -- thanks Mayheim!
+end
+
 function SimulateMeleeAttack( keys )
   local caster = keys.caster
   local target = keys.target_points[1]
   local ability = keys.ability
 
   local activity = keys.activity or ACT_DOTA_ATTACK
-  local base_attack_time = keys.base_attack_time or (1 / caster:GetAttacksPerSecond())
-  local duration = keys.duration or (caster:GetAttackAnimationPoint() / caster:GetAttackSpeed())
-  local rate = keys.rate or caster:GetAttackSpeed()
+  local bonus_attack_speed = (keys.bonus_attack_speed or 0) / 100
+  local base_attack_time = keys.base_attack_time or (1 / GetAttacksPerSecond(caster, bonus_attack_speed))
+  local rate = keys.rate or caster:GetAttackSpeed() + bonus_attack_speed
+  local duration = keys.duration or (caster:GetAttackAnimationPoint() / rate)
 
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
   local aoe = GetSpecial(ability, "aoe") or 0
@@ -138,28 +143,29 @@ function SimulateRangeAttack( keys )
   keys.standard_targeting = keys.standard_targeting and unit_target
 
   local speed = tonumber(keys.projectile_speed) or caster:GetProjectileSpeed()
-  local duration = keys.duration or (caster:GetAttackAnimationPoint() / caster:GetAttackSpeed())
-  local base_attack_time = keys.base_attack_time or (1 / caster:GetAttacksPerSecond())
-  local rate = keys.rate or caster:GetAttackSpeed()
+  local activity = keys.activity or ACT_DOTA_ATTACK
+  local bonus_attack_speed = (keys.bonus_attack_speed or 0) / 100
+  local base_attack_time = keys.base_attack_time or (1 / GetAttacksPerSecond(caster, bonus_attack_speed))
+  local rate = keys.rate or caster:GetAttackSpeed() + bonus_attack_speed
+  local duration = keys.duration or (caster:GetAttackAnimationPoint() / rate)
 
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
 
   local kv = ZIV.HeroesKVs[caster:GetUnitName()]
   
   if keys.cooldown_modifier and keys.cooldown_modifier ~= 0 then
-    ability:StartCooldown( (base_attack_time) * keys.cooldown_modifier)
+    ability:StartCooldown( base_attack_time * keys.cooldown_modifier)
   else
     ability:EndCooldown()
-    ability:StartCooldown( base_attack_time)
+    ability:StartCooldown( base_attack_time )
   end
   
-  StartAnimation(caster, {duration=duration + base_attack_time, activity=ACT_DOTA_ATTACK, rate=rate, translate=keys.translate})
+  StartAnimation(caster, {duration=base_attack_time, activity=ACT_DOTA_ATTACK, rate=rate, translate=keys.translate})
   
-  -- UnitLookAtPoint( caster, target )
   caster:SetForwardVector(UnitLookAtPoint( caster, target ))
   caster:Stop()
 
-  caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = 1.0 / caster:GetAttacksPerSecond()})
+  caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = base_attack_time})
 
   local units = FindUnitsInRadius(caster:GetTeamNumber(),keys.target_points[1],nil,75,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
 

@@ -58,7 +58,7 @@ function Temple:NextStage()
 		if Temple.stage == Temple.STAGE_FIRST then
 			Director:SetupCustomUI( "temple_objectives" )
 
-			Temple:FallingRocks()
+			-- Temple:FallingRocks()
 		elseif Temple.stage == Temple.STAGE_BOSS then
 			
 		else

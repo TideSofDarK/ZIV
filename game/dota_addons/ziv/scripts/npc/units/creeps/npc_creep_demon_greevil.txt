@@ -2,6 +2,8 @@
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"  "n_creep_skeleton_melee"
+
+    "Group"                     "greevils_a"
     
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/mega_greevil/mega_greevil.vmdl"
@@ -14,8 +16,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "1"
-    "AttackDamageMax"     "3"
+    "AttackDamageMin"     "5"
+    "AttackDamageMax"     "11"
     "AttackRate"                "0.9"
     "AttackAnimationPoint"      "0.33"
     "AttackAcquisitionRange"    "150"
@@ -57,8 +59,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "1"
-    "AttackDamageMax"     "3"
+    "AttackDamageMin"     "6"
+    "AttackDamageMax"     "10"
     "AttackRate"                "0.9"
     "AttackAnimationPoint"      "0.33"
     "AttackAcquisitionRange"    "150"
