@@ -4,7 +4,7 @@
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 10
 	m_nInitialParticles = 2
-	m_flConstantRadius = 15.0
+	m_flConstantRadius = 7.0
 	m_ConstantColor = [ 255, 255, 255, 160 ]
 	m_Renderers = 
 	[
@@ -55,9 +55,8 @@
 		{
 			_class = "C_OP_InterpolateRadius"
 			m_flEndTime = 0.14
-			m_flStartScale = 2.0
+			m_flStartScale = 0.5
 			m_flBias = 0.95
-			m_flEndScale = 2.0
 		},
 		{
 			_class = "C_OP_RampScalarLinearSimple"

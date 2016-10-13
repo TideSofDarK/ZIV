@@ -9,6 +9,18 @@ function ZIV:PrintCreepCount()
   end
 end
 
+function ZIV:AddAbilityToHero(ability)
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+      local hero = cmdPlayer:GetAssignedHero()
+      hero:AddAbility(ability)
+      InitAbilities(hero)
+    end
+  end
+end
+
 function ZIV:AddModifierToHero(modifier, stacks)
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then

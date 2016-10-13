@@ -1,9 +1,9 @@
 "item_rune_volley_arrows"
 {
-  "ID"		"1509"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_huntress"
+  "ID"		                  "1509"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"               "item_datadriven"
+  "AbilityTextureName"      "item_rune_volley_arrows"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
@@ -13,6 +13,10 @@
 
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
+
+  "Tooltip"   "arrows"
+  "Type"      "Int"
+  "Method"    "Add"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"

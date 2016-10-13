@@ -33,7 +33,7 @@
     "03"
     {
       "var_type"            "FIELD_FLOAT"
-      "ep_leech"            "4"
+      "ep_leech"            "8"
     }
   }
 

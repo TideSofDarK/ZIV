@@ -5,18 +5,18 @@ function Descent(args)
 	caster:RemoveModifierByName("modifier_spider_check")
 
 	if not caster.descended then
-		Timers:CreateTimer(math.random(0.0, 1.4), function (  )
+		Timers:CreateTimer(math.random(0.0, 1.1), function (  )
 			local time = 2.5
 			local distance = 1500
 
 			StartAnimation(caster, {duration=time, activity=ACT_DOTA_RUN, rate=0.4})
 
-			caster:EmitSound("Spider.Spawn")
-
 			local old_pos = caster:GetAbsOrigin()
 			local pos = old_pos
 			pos.z = pos.z + distance
 			caster:SetAbsOrigin(pos)
+
+			EmitSoundOnLocationWithCaster(old_pos,"Spider.Spawn",caster)
 
 			local web_particle = ParticleManager:CreateParticle("particles/creeps/ziv_spider.vpcf",PATTACH_RENDERORIGIN_FOLLOW,caster)
 			ParticleManager:SetParticleControl(web_particle,6,pos)

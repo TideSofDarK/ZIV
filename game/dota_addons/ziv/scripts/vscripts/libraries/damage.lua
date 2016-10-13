@@ -46,9 +46,9 @@ function DealDamage( attacker, victim, damage, damage_type, no_popup)
 		attacker:GetPlayerOwnerID() >= 0 and 
 		GetZIVSpecificSetting(attacker:GetPlayerOwnerID(), "Damage") 
 		and not no_popup then 
-		if damage >= (min_damage + max_damage) / 2 then
+		-- if damage >= (min_damage + max_damage) / 2 then
 			PopupDamage(attacker:GetPlayerOwner(), victim, round(damage), clamp(damage / max_damage, 0, 1))
-		end
+		-- end
 	end
 	-- PopupExperience(victim, math.ceil(damage))
 

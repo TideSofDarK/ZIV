@@ -11,7 +11,7 @@ function SpawnBallista( keys )
 	ability:ApplyDataDrivenModifier(ballista,ballista,"modifier_ballista",{})
 
     ability:ApplyDataDrivenModifier(ballista,ballista,"modifier_ballista_as",{})
-    ballista:SetModifierStackCount("modifier_ballista_as",ballista,GRMSC("modifier_ballista_as", caster))
+    ballista:SetModifierStackCount("modifier_ballista_as",ballista,GRMSC("ziv_huntress_ballista_as", caster))
 
 	ballista:AddNewModifier(ballista, nil, "modifier_kill", {duration = _duration})
 end
@@ -20,7 +20,7 @@ function BallistaDeath( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
-	UTIL_Remove(caster)
+	caster:RemoveSelf()
 end
 
 function SplitShot( keys )
@@ -28,25 +28,36 @@ function SplitShot( keys )
 	local ability = keys.ability
 	local target = keys.target
 
-	local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(),  nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(),  nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
-	local projectile_info = 
-    {
-        EffectName = "particles/base_attacks/ranged_siege_good.vpcf",
-        Ability = ability,
-        vSpawnOrigin = caster:GetAbsOrigin(),
-        Target = nil,
-        Source = target,
-        bHasFrontalCone = false,
-        iMoveSpeed = 3000,
-        bReplaceExisting = false,
-        bProvidesVision = false
-    }
+    local targets = GetSpecial(ability, "ballista_targets") + GRMSC("ziv_huntress_ballista_targets", caster)
+
+    EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Mirana.Attack", target)
+
+    local i = 1
 
 	for k,v in pairs(units) do
-    	projectile_info.Target = v
-    	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Sniper.Attack", target)
-    	ProjectileManager:CreateTrackingProjectile(projectile_info)
+        if v:entindex() ~= target:entindex() then
+            if i > targets then
+                break
+            end
+            local projectile_info = 
+            {
+                EffectName = "particles/heroes/huntress/huntress_ballista_projectile.vpcf",
+                Ability = ability,
+                Target = v,
+                Source = target,
+                iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
+                bHasFrontalCone = false,
+                iMoveSpeed = caster:GetProjectileSpeed(),
+                bReplaceExisting = false,
+                bProvidesVision = false
+            }
+
+            ProjectileManager:CreateTrackingProjectile(projectile_info)
+
+            i = i + 1
+        end
 	end
 end
 
@@ -55,5 +66,7 @@ function SplitShotImpact( keys )
     local target = keys.target
     local ability = keys.ability
 
-    DealDamage( caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_PHYSICAL )
+    DealDamage( caster, target, GetRuneDamage(caster, GetSpecial(ability, "ballista_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL )
+
+    EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Mirana.ProjectileImpact", target)
 end

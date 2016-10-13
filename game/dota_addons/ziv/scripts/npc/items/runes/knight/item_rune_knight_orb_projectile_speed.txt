@@ -3,7 +3,7 @@
   "ID"    "1656"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_knight"
+  "AbilityTextureName"      "item_rune_knight_orb_projectile_speed"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
@@ -14,13 +14,17 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"   "projectile_speed"
+  "Type"      "Int"
+  "Method"    "Add"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
     "ziv_knight_orb_projectile_speed"
     {
       "min" "50"
-      "max" "225"
+      "max" "200"
     }
   }
 }

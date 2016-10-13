@@ -74,7 +74,7 @@ function Knockback( keys )
         should_stun = 1,
         knockback_duration = 1,
         duration = 1,
-        knockback_distance = 200 + GRMSC("ziv_knight_dash_force", caster),
+        knockback_distance = 100 + GRMSC("ziv_knight_dash_force", caster),
         knockback_height = 50,
         center_x = caster:GetAbsOrigin().x,
         center_y = caster:GetAbsOrigin().y,

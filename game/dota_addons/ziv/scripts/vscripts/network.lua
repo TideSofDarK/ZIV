@@ -11,16 +11,16 @@ ListenToGameEvent('game_rules_state_change',
   end, nil)
 
 function SU:BuildSteamIDArray()
-    local players = {}
-    for pID = 0, DOTA_MAX_PLAYERS-1 do
-      if PlayerResource:IsValidPlayerID(pID) then
-        if not PlayerResource:IsBroadcaster(pID) then
-          players[pID] = PlayerResource:GetSteamAccountID(pID) or 0
-        end
+  local players = {}
+  for pID = 0, DOTA_MAX_PLAYERS-1 do
+    if PlayerResource:IsValidPlayerID(pID) then
+      if not PlayerResource:IsBroadcaster(pID) then
+        players[pID] = PlayerResource:GetSteamAccountID(pID) or 0
       end
     end
+  end
 
-    return players
+  return players
 end
 
 function SU:Init()

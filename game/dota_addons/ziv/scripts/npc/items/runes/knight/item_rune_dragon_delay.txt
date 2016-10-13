@@ -1,9 +1,9 @@
-"item_rune_knight_orb_cd"
+"item_rune_dragon_delay"
 {
   "ID"    "1656"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_knight"
+  "AbilityTextureName"      "item_rune_dragon_delay"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
@@ -14,13 +14,16 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"     "New"
+  "Type"        "Int"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_knight_orb_cd"
+    "ziv_knight_dragon_delay"
     {
-      "min" "3"
-      "max" "10"
+      "min" "5"
+      "max" "31"
     }
   }
 }

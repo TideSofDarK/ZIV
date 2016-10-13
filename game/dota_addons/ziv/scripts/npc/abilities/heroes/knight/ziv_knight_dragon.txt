@@ -1,4 +1,4 @@
-"ziv_knight_ult"
+"ziv_knight_dragon"
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
@@ -12,7 +12,7 @@
 
   "AbilityManaCost"       "50"
   
-  "MaxLevel"          "7"
+  "MaxLevel"          "1"
 
   "precache"
   {
@@ -62,13 +62,13 @@
     "FireSound"
     {
       "EffectName"  "Hero_DragonKnight.Pick"
-      "Target"     "CASTER"
+      "Target"      "CASTER"
     }
     "RunScript"
     {
-      "ScriptFile"  "abilities/heroes/knight/ziv_knight_ult.lua"
+      "ScriptFile"  "abilities/heroes/knight/ziv_knight_dragon.lua"
       "Function"    "DragonComes"
-      "Target"    "POINT"
+      "Target"      "POINT"
     }
   }
 

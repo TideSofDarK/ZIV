@@ -8,7 +8,7 @@
 
   "precache"
   {
-    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+    "particle"  "particles/creeps/ziv_creep_modifier_vampire.vpcf"
   }
   
   "AbilitySpecial"
@@ -31,7 +31,10 @@
     {
       "Passive"           "1"
       "IsHidden"          "1"
-      // "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+      "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT"
+
+      "StatusEffectName"     "particles/creeps/ziv_creep_modifier_vampire.vpcf"      
+      "StatusEffectPriority"  "10"
       
       "Orb"
       {
@@ -46,6 +49,8 @@
           "Function"              "Lifesteal"
         }
       }
+
+      "RemoveOnDeath" "0"
     }
     "modifier_creep_lifesteal_effect"
     {

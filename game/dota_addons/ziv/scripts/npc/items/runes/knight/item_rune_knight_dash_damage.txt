@@ -3,7 +3,7 @@
   "ID"    "1656"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_knight"
+  "AbilityTextureName"      "item_rune_knight_dash_damage"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
@@ -13,6 +13,10 @@
 
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
+
+  "Tooltip"   "damage_amp"
+  "Type"      "Float"
+  "Method"    "Add"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"

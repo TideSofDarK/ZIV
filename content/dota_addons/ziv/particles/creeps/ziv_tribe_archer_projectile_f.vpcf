@@ -3,7 +3,7 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 6
-	m_flConstantRadius = 20.0
+	m_flConstantRadius = 10.0
 	m_Renderers = 
 	[
 		{
@@ -76,8 +76,8 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 26.0
-			m_flRadiusMax = 28.0
+			m_flRadiusMin = 13.0
+			m_flRadiusMax = 14.0
 		},
 		{
 			_class = "C_INIT_RandomColor"

@@ -19,19 +19,19 @@
 					}
 					"volume_min"
 					{
-						"value"		"0.300000"
+						"value"		"0.200000"
 					}
 					"volume_max"
 					{
-						"value"		"0.400000"
+						"value"		"0.300000"
 					}
 					"pitch_min"
 					{
-						"value"		"0.950000"
+						"value"		"1.000000"
 					}
 					"pitch_max"
 					{
-						"value"		"1.050000"
+						"value"		"1.300000"
 					}
 					"chan_type"
 					{

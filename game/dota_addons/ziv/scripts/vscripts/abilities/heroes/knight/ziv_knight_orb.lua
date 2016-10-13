@@ -20,7 +20,7 @@ function LaunchOrb( keys )
 	local target = keys.target_points[1]
 	local ability = keys.ability
 
-	keys.cooldown_modifier = GRMSC("ziv_knight_orb_cd", caster) / 100
+	keys.bonus_attack_speed = GRMSC("ziv_knight_orb_as", caster)
 
 	keys.projectile_speed = GetSpecial(ability, "projectile_speed") + GRMSC("ziv_knight_orb_projectile_speed", caster)
 

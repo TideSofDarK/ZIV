@@ -21,8 +21,8 @@
     "AttackAnimationPoint"      "0.7"
     "AttackAcquisitionRange"    "800"
     "AttackRange"               "690"
-    "ProjectileModel"           "particles/base_attacks/ranged_siege_good.vpcf"
-    "ProjectileSpeed"           "1100"
+    "ProjectileModel"           "particles/heroes/huntress/huntress_ballista_projectile.vpcf"
+    "ProjectileSpeed"           "1500"
 
     "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
     "AttributeBaseStrength"     "0"

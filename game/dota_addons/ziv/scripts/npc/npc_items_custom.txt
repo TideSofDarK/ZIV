@@ -1729,7 +1729,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_huntress"
+	  "AbilityTextureName"      "item_rune_ballista_as"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1740,13 +1740,16 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "New"
+	  "Type"      "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_huntress_ballista_as"
 	    {
 	      "min" "5"
-	      "max" "50"
+	      "max" "100"
 	    }
 	  }
 	}
@@ -1755,7 +1758,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_huntress"
+	  "AbilityTextureName"      "item_rune_ballista_cd"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1765,6 +1768,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "AbilityCooldown"
+	  "Reduction" "1"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -1781,7 +1787,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_huntress"
+	  "AbilityTextureName"      "item_rune_ballista_targets"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1791,6 +1797,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "ballista_targets"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -1807,7 +1817,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_huntress"
+	  "AbilityTextureName"      "item_rune_blink_arrow_cd"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1817,6 +1827,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "AbilityCooldown"
+	  "Reduction" "1"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -1828,12 +1841,12 @@
 	    }
 	  }
 	}
-	"item_rune_blink_arrow_delay"
+	"item_rune_blink_arrow_damage"
 	{
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_huntress"
+	  "AbilityTextureName"      "item_rune_blink_arrow_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1843,6 +1856,39 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_huntress_blink_arrow_damage"
+	    {
+	      "min" "2"
+	      "max" "20"
+	    }
+	  }
+	}
+	"item_rune_blink_arrow_delay"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_blink_arrow_delay"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "arrow_delay"
+	  "Reduction" "1"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -1859,7 +1905,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_huntress"
+	  "AbilityTextureName"      "item_rune_blink_arrow_radius"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1869,6 +1915,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "damage_radius"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -1880,12 +1930,12 @@
 	    }
 	  }
 	}
-	"item_rune_focus_fire_damage"
+	"item_rune_focus_fire_as"
 	{
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_huntress"
+	  "AbilityTextureName"      "item_rune_focus_fire_as"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1895,6 +1945,40 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_huntress_focus_fire_as"
+	    {
+	      "min" "5"
+	      "max" "170"
+	    }
+	  }
+	}
+	"item_rune_focus_fire_damage"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_focus_fire_damage"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -1911,7 +1995,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_huntress"
+	  "AbilityTextureName"      "item_rune_huntress_trap_duration"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1921,6 +2005,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "snare_duration"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -1934,10 +2022,10 @@
 	}
 	"item_rune_volley_arrows"
 	{
-	  "ID"		"1509"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_huntress"
+	  "ID"		                  "1509"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_rune_volley_arrows"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1947,6 +2035,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "arrows"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -1960,10 +2052,10 @@
 	}
 	"item_rune_volley_damage"
 	{
-	  "ID"		"1509"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_huntress"
+	  "ID"		                  "1509"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_rune_volley_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1973,6 +2065,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -1989,7 +2085,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_dragon_cd"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1999,6 +2095,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "AbilityCooldown"
+	  "Reduction" "1"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2010,12 +2109,12 @@
 	    }
 	  }
 	}
-	"item_rune_dragon_radius"
+	"item_rune_dragon_delay"
 	{
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_dragon_delay"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2025,6 +2124,39 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_knight_dragon_delay"
+	    {
+	      "min" "5"
+	      "max" "31"
+	    }
+	  }
+	}
+	"item_rune_dragon_radius"
+	{
+	  "ID"    "1656"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dragon_radius"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "explosion_radius"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2041,7 +2173,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_knight_dash_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2051,6 +2183,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2067,7 +2203,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_knight_dash_force"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2077,6 +2213,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2088,12 +2227,12 @@
 	    }
 	  }
 	}
-	"item_rune_knight_orb_burn_chance"
+	"item_rune_knight_orb_as"
 	{
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_knight_orb_as"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2103,40 +2242,46 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "New"
+	  "Type"      "Int"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_knight_orb_as"
+	    {
+	      "min" "5"
+	      "max" "100"
+	    }
+	  }
+	}
+	"item_rune_knight_orb_burn_chance"
+	{
+	  "ID"    "1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_knight_orb_burn_chance"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_knight_orb_burn_chance"
 	    {
-	      "min" "1"
-	      "max" "12"
-	    }
-	  }
-	}
-	"item_rune_knight_orb_cd"
-	{
-	  "ID"    "1656"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
-	  "Model"                   "models/items/gem_topaz.vmdl"
-	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
-	
-	  "ItemStackable"         "1"
-	  "ItemPermanent"         "0"
-	  "ItemInitialCharges"            "1"
-	
-	  "MaxUpgradeLevel"       "1"
-	  "ItemBaseLevel"         "1"
-	
-	  "FortifyModifiersCount" "1"
-	  "FortifyModifiers"
-	  {
-	    "ziv_knight_orb_cd"
-	    {
-	      "min" "3"
-	      "max" "10"
+	      "min" "2"
+	      "max" "20"
 	    }
 	  }
 	}
@@ -2145,7 +2290,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_knight_orb_projectile_speed"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2156,13 +2301,17 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_knight_orb_damage"
 	    {
 	      "min" "1"
-	      "max" "6"
+	      "max" "15"
 	    }
 	  }
 	}
@@ -2171,7 +2320,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_knight_orb_projectile_speed"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2182,13 +2331,17 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "projectile_speed"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_knight_orb_projectile_speed"
 	    {
 	      "min" "50"
-	      "max" "225"
+	      "max" "200"
 	    }
 	  }
 	}
@@ -2197,7 +2350,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_knight_slash_aoe_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2208,13 +2361,16 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_knight_slash_aoe_chance"
 	    {
-	      "min" "1"
-	      "max" "10"
+	      "min" "10"
+	      "max" "70"
 	    }
 	  }
 	}
@@ -2223,7 +2379,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_knight_slash_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2233,6 +2389,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2249,7 +2409,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_knight_slash_stun_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2260,13 +2420,16 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_knight_slash_stun_chance"
 	    {
-	      "min" "1"
-	      "max" "6"
+	      "min" "3"
+	      "max" "20"
 	    }
 	  }
 	}
@@ -2275,7 +2438,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_parry_cd"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2285,6 +2448,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "AbilityCooldown"
+	  "Reduction" "1"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2301,7 +2467,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_parry_force"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2312,13 +2478,16 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "New"
+	  "Type"      "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
 	    "ziv_knight_parry_force"
 	    {
-	      "min" "1"
-	      "max" "60"
+	      "min" "10"
+	      "max" "90"
 	    }
 	  }
 	}
@@ -2327,7 +2496,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_stone_form_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2337,6 +2506,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -2353,7 +2526,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_knight"
+	  "AbilityTextureName"      "item_rune_stone_form_targets"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2363,6 +2536,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "max_targets"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"

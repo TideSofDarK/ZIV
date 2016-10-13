@@ -5,7 +5,7 @@ function DragonComes( keys )
 
 	StartRuneCooldown(ability,"ziv_knight_dragon_cd",caster)
 
-	local height = ability:GetSpecialValueFor("dragon_height")
+	local height = GetRunePercentDecrease(ability:GetSpecialValueFor("dragon_height"),"ziv_knight_dragon_delay",caster)
 	local radius = ability:GetSpecialValueFor("spawn_radius")
 
 	local explosion_radius = ability:GetSpecialValueFor("explosion_radius") + GRMSC("ziv_knight_dragon_radius", caster)

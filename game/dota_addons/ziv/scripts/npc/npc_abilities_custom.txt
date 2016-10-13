@@ -4067,16 +4067,17 @@
 	  
 	  "AbilityCastRange"        "1100"
 	  "AbilityManaCost"         "60"
-	  "AbilityCastPoint"        "0.2"
-	  "AbilityChannelTime"      "1.0"
+	  "AbilityCastPoint"        "0.5"
 	  "AbilityCooldown"         "4"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	  
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "precache"
 	  {
+	    "particle"            "particles/heroes/huntress/huntress_ballista_projectile.vpcf"
 	    "soundfile"           "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+	    "soundfile"           "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
 	  }
 	  
 	  "AbilitySpecial"
@@ -4094,7 +4095,7 @@
 	    "03"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "ballista_targets"            "3"
+	      "ballista_targets"            "2"
 	    }
 	  }
 	  
@@ -4277,7 +4278,7 @@
 	  "AbilityCooldown"         "0.0"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	  
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "precache"
 	  {
@@ -4292,6 +4293,11 @@
 	    {
 	      "var_type"            "FIELD_FLOAT"
 	      "damage_amp"            "1.1"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "attack_speed"        "250"
 	    }
 	  }
 	  
@@ -4341,19 +4347,28 @@
 	
 	  "AbilityCooldown"       "1.0"
 	
-	  "MaxLevel"  "7"
+	  "MaxLevel"  "1"
 	
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "snare_chance"    "7.0 8.0 9.0 10.0"
+	      "snare_chance"    "7.0"
 	    }
 	    "02"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "snare_duration"    "3.5 4.0 4.5 5.0"
+	      "snare_duration"    "1.5"
+	    }
+	  }
+	
+	  "OnUpgrade"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_passives.lua"
+	      "Function"    "SetupCallback"
 	    }
 	  }
 	
@@ -4364,46 +4379,25 @@
 	    "ApplyModifier"
 	    {
 	      "ModifierName"  "modifier_ensnared"
-	      "Target"     "TARGET"
-	      "Duration"    "%snare_duration"
+	      "Target"        "TARGET"
+	      "Duration"      "%snare_duration"
 	    }
 	  }
 	
 	  "Modifiers"
 	  {
-	    "modifier_passives"
+	    "modifier_huntress_passives"
 	    {
 	      "Passive"      "1"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
 	
-	      "OnAttackStart"
+	      "OnDealDamage"
 	      {
-	        "Random"
+	        "RunScript"
 	        {
-	          "Chance"      "%snare_chance"
-	          "OnSuccess"
-	          {
-	            "TrackingProjectile"
-	            {
-	              "Target"                "TARGET"
-	              "EffectName"            "particles/units/heroes/hero_meepo/meepo_earthbind_projectile_fx.vpcf"
-	              "Dodgeable"             "0"
-	              "ProvidesVision"        "1"
-	              "VisionRadius"          "0"
-	              "MoveSpeed"             "800"
-	              "SourceAttachment"      "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
-	            }
-	            "FireSound"
-	            {
-	              "EffectName"            "Hero_NagaSiren.Ensnare.Cast"
-	              "Target"                "CASTER"
-	            }
-	          }
-	          "OnFailure"
-	          {
-	
-	          }
+	          "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_passives.lua"
+	          "Function"    "SetupCallback"
 	        }
 	      }
 	    }
@@ -4445,19 +4439,19 @@
 	
 	  "AbilityManaCost"       "75"
 	
-	  "MaxLevel"  "7"
+	  "MaxLevel"  "1"
 	
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "snare_unit_duration"    "70.0 75.0 80.0 85.0"
+	      "snare_unit_duration"    "70.0"
 	    }
 	    "02"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "snare_duration"    "3.5 4.0 4.5 5.0"
+	      "snare_duration"    "3.5"
 	    }
 	    "03"
 	    {
@@ -4593,25 +4587,24 @@
 	"ziv_huntress_volley"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT"
 	  "AbilityTextureName"            "ziv_empty"
 	  
-	  "AbilityCastAnimation"      ""
+	  "AbilityCastAnimation"    ""
+	  "AbilityCastPoint"         "0.2"
 	  
 	  "AbilityCastRange"        "1100"
-	  "AbilityManaCost"         "60"
-	  "AbilityCastPoint"        "0.001"
-	  "AbilityChannelTime"      "1.0"
+	  "AbilityManaCost"         "25"
 	  "AbilityCooldown"         "4"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	  
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "precache"
 	  {
-	    "particle"           "particles/windrunner_spell_powershot.vpcf"
-	    "soundfile"         "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
+	    "particle"            "particles/heroes/huntress/huntress_volley.vpcf"
 	    "soundfile"           "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+	    "soundfile"           "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
 	  }
 	  
 	  "AbilitySpecial"
@@ -4619,32 +4612,31 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_FLOAT"
-	      "damage_amp"            "0.2"
+	      "damage_amp"           "1.2"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_FLOAT"
+	      "slow"                "-40"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_FLOAT"
+	      "slow_duration"       "1.5"
 	    }
 	    "02"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "arrows"            "6"
+	      "arrows"              "6"
 	    }
 	  }
-	  
-	  "OnSpellStart"
+	
+	  "OnAbilityPhaseStart"
 	  {
 	    "RunScript"
 	    {
 	      "ScriptFile"        "abilities/heroes/huntress/ziv_huntress_volley.lua"
-	      "Function"          "Volley"
-	      "Target"            "POINT"
-	      "FixedDistance"                                     "1200"
-	      "EffectName"                    "particles/windrunner_spell_powershot.vpcf"
-	      "MoveSpeed"                             "2200"
-	      "StartRadius"                   "20"
-	      "EndRadius"                             "20"
-	      "TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	      "TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-	      "HasFrontalCone"                "1"
-	      "ProvidesVision"                "1"
-	      "VisionRadius"                  "400"
+	      "Function"          "StartVolley"
 	    }
 	
 	    "ApplyModifier"
@@ -4655,26 +4647,50 @@
 	    }
 	  }
 	  
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"        "abilities/heroes/huntress/ziv_huntress_volley.lua"
+	      "Function"          "Volley"
+	      "Target"            "POINT"
+	      "FixedDistance"                                     "1400"
+	      "StartRadius"                   "32"
+	      "EndRadius"                             "32"
+	      "TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	      "TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+	      "HasFrontalCone"                "1"
+	      "ProvidesVision"                "1"
+	      "VisionRadius"                  "400"
+	    }
+	  }
+	  
 	  "OnProjectileHitUnit"
 	  {
 	    "DeleteOnHit"   "0"
-	
-	    "FireSound"
-	    {
-	      "EffectName"                    "Hero_Silencer.GlaivesOfWisdom.Damage"
-	    }
 	    
 	    "RunScript"
 	    {
 	      "ScriptFile"        "abilities/heroes/huntress/ziv_huntress_volley.lua"
 	      "Function"          "VolleyHit"
 	      "Target"            "TARGET"
-	      "Type"        "DAMAGE_TYPE_PHYSICAL"
+	      "Type"              "DAMAGE_TYPE_PHYSICAL"
 	    }
 	  }
 	
 	  "Modifiers"
 	  {
+	    "modifier_volley_slow"
+	    {
+	      "Duration"      "%slow_duration"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	    
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"
+	      }
+	    }
 	    "modifier_volley"
 	    {
 	      "Passive"      "0"
@@ -4798,23 +4814,115 @@
 	    }
 	  }
 	}
-	"ziv_knight_fire_orb"
+	"ziv_knight_dragon"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
-	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AbilityCastRange"        "600"
+	  "AbilityCastPoint"        "0"
+	  "AbilityCooldown"         "13"
+	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+	
+	  "AbilityManaCost"       "50"
+	  
+	  "MaxLevel"          "1"
+	
+	  "precache"
+	  {
+	    "model" "models/items/dragon_knight/fireborn_dragon/fireborn_dragon.vmdl"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+	    "soundfile" "soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts"
+	    "particle"  "particles/phoenix_supernova_reborn.vpcf"
+	    "particle"  "particles/units/heroes/hero_jakiro/jakiro_macropyre.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_FLOAT"
+	      "explosion_damage_amp"            "3.0"
+	    }
+	    "02"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "burn_duration"            "3"
+	    }
+	    "03"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "burn_damage_amp"            "0.5"
+	    }
+	    "04"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "dragon_height"            "1000"
+	    }
+	    "05"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "spawn_radius"            "1500"
+	    }
+	    "06"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "explosion_radius"            "295"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"  "Hero_DragonKnight.Pick"
+	      "Target"      "CASTER"
+	    }
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_dragon.lua"
+	      "Function"    "DragonComes"
+	      "Target"      "POINT"
+	    }
+	  }
+	
+	  "Modifiers"
+	  {
+	    "modifier_dragon"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	    
+	      "States"
+	      {
+	        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_DISARMED"  "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	  }
+	}
+	"ziv_knight_orb"
+	{
+	  "BaseClass"                     "ability_datadriven"
+	  "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
+	  "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 	
 	  "AbilityTextureName"            "ziv_empty"
 	
-	  "AbilityCastRange"  "1600"
-	  "AbilityManaCost" "15"
-	  "AbilityCastPoint"        "0.0"
-	  "AbilityCooldown"       "0.0"
-	  "AbilityCastAnimation"    "ACT_DOTA_IDLE"
+	  "AbilityCastRange"              "1600"
+	  "AbilityManaCost"               "15"
+	  "AbilityCastPoint"              "0.0"
+	  "AbilityCooldown"               "0.0"
+	  "AbilityCastAnimation"          "ACT_DOTA_IDLE"
 	  
-	  "MaxLevel"          "7"
+	  "MaxLevel"          "1"
 	
 	  "CustomCreationOptions"
 	  {
@@ -5281,98 +5389,6 @@
 	    }
 	  }
 	}
-	"ziv_knight_ult"
-	{
-	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-	  "AbilityTextureName"            "ziv_empty"
-	
-	  "AbilityCastRange"        "600"
-	  "AbilityCastPoint"        "0"
-	  "AbilityCooldown"         "13"
-	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
-	
-	  "AbilityManaCost"       "50"
-	  
-	  "MaxLevel"          "7"
-	
-	  "precache"
-	  {
-	    "model" "models/items/dragon_knight/fireborn_dragon/fireborn_dragon.vmdl"
-	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
-	    "soundfile" "soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts"
-	    "particle"  "particles/phoenix_supernova_reborn.vpcf"
-	    "particle"  "particles/units/heroes/hero_jakiro/jakiro_macropyre.vpcf"
-	  }
-	  
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"            "FIELD_FLOAT"
-	      "explosion_damage_amp"            "3.0"
-	    }
-	    "02"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "burn_duration"            "3"
-	    }
-	    "03"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "burn_damage_amp"            "0.5"
-	    }
-	    "04"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "dragon_height"            "1000"
-	    }
-	    "05"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "spawn_radius"            "1500"
-	    }
-	    "06"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "explosion_radius"            "295"
-	    }
-	  }
-	
-	  "OnSpellStart"
-	  {
-	    "FireSound"
-	    {
-	      "EffectName"  "Hero_DragonKnight.Pick"
-	      "Target"     "CASTER"
-	    }
-	    "RunScript"
-	    {
-	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_ult.lua"
-	      "Function"    "DragonComes"
-	      "Target"    "POINT"
-	    }
-	  }
-	
-	  "Modifiers"
-	  {
-	    "modifier_dragon"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	    
-	      "States"
-	      {
-	        "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-	        "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
-	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
-	        "MODIFIER_STATE_DISARMED"  "MODIFIER_STATE_VALUE_ENABLED"
-	        "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"  "MODIFIER_STATE_VALUE_ENABLED"
-	      }
-	    }
-	  }
-	}
 	"ziv_samurai_cold_touch"
 	{
 	  "BaseClass"           "ability_datadriven"
@@ -5408,7 +5424,7 @@
 	    "03"
 	    {
 	      "var_type"            "FIELD_FLOAT"
-	      "ep_leech"            "4"
+	      "ep_leech"            "8"
 	    }
 	  }
 	
@@ -5666,7 +5682,7 @@
 	    "03"
 	    {
 	      "var_type"            "FIELD_FLOAT"
-	      "hp_leech"            "4"
+	      "hp_leech"            "8"
 	    }
 	  }
 	
@@ -7357,7 +7373,7 @@
 	
 	  "precache"
 	  {
-	    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+	    "particle"  "particles/creeps/ziv_creep_modifier_frenzy.vpcf"
 	  }
 	  
 	  "AbilitySpecial"
@@ -7365,7 +7381,7 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "bonus_attackspeed" "100"
+	      "bonus_attackspeed" "150"
 	    }
 	    "02"
 	    {
@@ -7387,7 +7403,7 @@
 	      "IsHidden"      "0"
 	      "IsDebuff"      "0"
 	
-	      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
+	      "StatusEffectName"      "particles/creeps/ziv_creep_modifier_frenzy.vpcf"     
 	      "StatusEffectPriority"  "10"
 	
 	      "OnCreated"
@@ -7412,45 +7428,9 @@
 	}
 	"ziv_creep_modifier_tanky"
 	{
-	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "AbilityTextureName"            "ziv_empty"
-	  
-	  "MaxLevel"          "1"
-	
-	  "precache"
-	  {
-	    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
-	  }
-	  
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_hp" "250"
-	    }
-	  }
-	
-	  "Modifiers"
-	  {
-	    "modifier_creep_tanky"
-	    {
-	      "Passive" "1"
-	      "IsHidden"      "0"
-	      "IsDebuff"      "0"
-	
-	      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
-	      "StatusEffectPriority"  "10"
-	
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE" "%bonus_hp"
-	      }
-	
-	      "RemoveOnDeath" "0"
-	    }
-	  }
+	  "BaseClass" "ability_lua"
+	  "ScriptFile" "abilities/modifiers/ziv_creep_modifier_tanky"
+	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
 	"ziv_creep_modifier_vampire"
 	{
@@ -7462,7 +7442,7 @@
 	
 	  "precache"
 	  {
-	    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+	    "particle"  "particles/creeps/ziv_creep_modifier_vampire.vpcf"
 	  }
 	  
 	  "AbilitySpecial"
@@ -7485,7 +7465,10 @@
 	    {
 	      "Passive"           "1"
 	      "IsHidden"          "1"
-	      // "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+	      "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "StatusEffectName"     "particles/creeps/ziv_creep_modifier_vampire.vpcf"      
+	      "StatusEffectPriority"  "10"
 	      
 	      "Orb"
 	      {
@@ -7500,6 +7483,8 @@
 	          "Function"              "Lifesteal"
 	        }
 	      }
+	
+	      "RemoveOnDeath" "0"
 	    }
 	    "modifier_creep_lifesteal_effect"
 	    {

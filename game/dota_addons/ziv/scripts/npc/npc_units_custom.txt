@@ -436,8 +436,8 @@
 	    "AttackAnimationPoint"      "0.7"
 	    "AttackAcquisitionRange"    "800"
 	    "AttackRange"               "690"
-	    "ProjectileModel"           "particles/base_attacks/ranged_siege_good.vpcf"
-	    "ProjectileSpeed"           "1100"
+	    "ProjectileModel"           "particles/heroes/huntress/huntress_ballista_projectile.vpcf"
+	    "ProjectileSpeed"           "1500"
 	
 	    "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
 	    "AttributeBaseStrength"     "0"
@@ -1669,13 +1669,13 @@
 	
 	    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
 	    "AttackDamageType"          "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	    "AttackDamageMin"           "5"
-	    "AttackDamageMax"           "10"
+	    "AttackDamageMin"           "2"
+	    "AttackDamageMax"           "7"
 	    "AttackRate"                "1.00"
 	    "AttackAnimationPoint"      "0.60"
 	    "AttackAcquisitionRange"    "600"
-	    "AttackRange"               "850"
-	    "AttackRangeBuffer"         "850"
+	    "AttackRange"               "750"
+	    "AttackRangeBuffer"         "750"
 	    "ProjectileModel"           "particles/creeps/ziv_tribe_archer_projectile.vpcf"
 	    "ProjectileSpeed"           "900"
 	

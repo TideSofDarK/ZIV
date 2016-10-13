@@ -5,8 +5,6 @@ function CreateTrap( keys )
 
 	local duration = ability:GetLevelSpecialValueFor("snare_unit_duration", ability:GetLevel())
 
-		print(duration)
-
 	local trap = CreateUnitByName("npc_dummy_unit", target, false, nil, caster:GetPlayerOwner(), caster:GetTeamNumber())
 	caster.last_trap = trap
 

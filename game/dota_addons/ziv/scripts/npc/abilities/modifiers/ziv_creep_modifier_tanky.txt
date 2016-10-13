@@ -1,42 +1,6 @@
 "ziv_creep_modifier_tanky"
 {
-  "BaseClass"           "ability_datadriven"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName"            "ziv_empty"
-  
-  "MaxLevel"          "1"
-
-  "precache"
-  {
-    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
-  }
-  
-  "AbilitySpecial"
-  {
-    "01"
-    {
-      "var_type"            "FIELD_INTEGER"
-      "bonus_hp" "250"
-    }
-  }
-
-  "Modifiers"
-  {
-    "modifier_creep_tanky"
-    {
-      "Passive" "1"
-      "IsHidden"      "0"
-      "IsDebuff"      "0"
-
-      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
-      "StatusEffectPriority"  "10"
-
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE" "%bonus_hp"
-      }
-
-      "RemoveOnDeath" "0"
-    }
-  }
+  "BaseClass" "ability_lua"
+  "ScriptFile" "abilities/modifiers/ziv_creep_modifier_tanky"
+  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 }

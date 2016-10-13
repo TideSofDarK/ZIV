@@ -8,16 +8,17 @@
   
   "AbilityCastRange"        "1100"
   "AbilityManaCost"         "60"
-  "AbilityCastPoint"        "0.2"
-  "AbilityChannelTime"      "1.0"
+  "AbilityCastPoint"        "0.5"
   "AbilityCooldown"         "4"
   "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
   
-  "MaxLevel"          "7"
+  "MaxLevel"          "1"
 
   "precache"
   {
+    "particle"            "particles/heroes/huntress/huntress_ballista_projectile.vpcf"
     "soundfile"           "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+    "soundfile"           "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
   }
   
   "AbilitySpecial"
@@ -35,7 +36,7 @@
     "03"
     {
       "var_type"            "FIELD_INTEGER"
-      "ballista_targets"            "3"
+      "ballista_targets"            "2"
     }
   }
   

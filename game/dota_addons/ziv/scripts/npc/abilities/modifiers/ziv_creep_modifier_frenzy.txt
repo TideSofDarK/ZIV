@@ -8,7 +8,7 @@
 
   "precache"
   {
-    "particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+    "particle"  "particles/creeps/ziv_creep_modifier_frenzy.vpcf"
   }
   
   "AbilitySpecial"
@@ -16,7 +16,7 @@
     "01"
     {
       "var_type"            "FIELD_INTEGER"
-      "bonus_attackspeed" "100"
+      "bonus_attackspeed" "150"
     }
     "02"
     {
@@ -38,7 +38,7 @@
       "IsHidden"      "0"
       "IsDebuff"      "0"
 
-      "StatusEffectName"      "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"     
+      "StatusEffectName"      "particles/creeps/ziv_creep_modifier_frenzy.vpcf"     
       "StatusEffectPriority"  "10"
 
       "OnCreated"
