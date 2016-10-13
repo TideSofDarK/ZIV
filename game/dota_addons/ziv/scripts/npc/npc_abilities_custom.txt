@@ -4345,8 +4345,6 @@
 	    "particle"      "particles/units/heroes/hero_meepo/meepo_earthbind.vpcf"   
 	  }
 	
-	  "AbilityCooldown"       "1.0"
-	
 	  "MaxLevel"  "1"
 	
 	  "AbilitySpecial"

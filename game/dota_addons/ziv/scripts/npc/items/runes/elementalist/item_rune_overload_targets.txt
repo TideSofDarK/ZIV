@@ -3,7 +3,7 @@
   "ID"		"1509"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_elementalist"
+  "AbilityTextureName"      "item_rune_overload_targets"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 

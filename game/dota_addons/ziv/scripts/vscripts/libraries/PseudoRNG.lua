@@ -53,8 +53,10 @@ function PseudoRNG.create( chance )
 	return rng
 end
 
-function PseudoRNG:Init( chance )
-	self.failedTries = 0
+function PseudoRNG:Init( chance, dont_reset )
+	if not dont_reset then
+		self.failedTries = 0
+	end
 	--calculate the constant
 	self.cons = PseudoRNG:CFromP( chance )
 end

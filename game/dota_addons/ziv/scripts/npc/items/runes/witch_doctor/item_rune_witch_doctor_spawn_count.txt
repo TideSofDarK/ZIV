@@ -3,7 +3,7 @@
   "ID"		"1609"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_witch_doctor"
+  "AbilityTextureName"      "item_rune_witch_doctor_spawn_count"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 

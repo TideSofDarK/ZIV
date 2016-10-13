@@ -3,7 +3,7 @@
   "ID"		"1509"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_dark_goddess"
+  "AbilityTextureName"      "item_rune_glaive_count"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 

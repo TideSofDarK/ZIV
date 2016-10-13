@@ -126,6 +126,15 @@
   background-color: transparent;
 }
 
+.Inventory #ChargeCount
+{
+  horizontal-align: left;
+  color: White;
+  font-size: 17px;
+  margin-left: 5px;
+  margin-bottom: 1px;
+}
+
 .Inventory #Footer
 {
   

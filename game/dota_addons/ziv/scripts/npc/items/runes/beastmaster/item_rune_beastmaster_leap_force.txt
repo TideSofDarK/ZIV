@@ -3,7 +3,7 @@
   "ID"		"1513"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_beastmaster"
+  "AbilityTextureName"      "item_rune_beastmaster_leap_force"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 

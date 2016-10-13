@@ -646,7 +646,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_beastmaster_leap_cd"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -675,7 +675,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_beastmaster_leap_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -704,7 +704,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_beastmaster_leap_force"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -734,7 +734,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_bird_blind_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -763,7 +763,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_bird_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -793,7 +793,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_bird_manacost"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -822,7 +822,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_cleave_aoe"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -852,7 +852,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_cleave_speed"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -881,7 +881,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_cleave_stun_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -910,7 +910,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_pet2_as"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -939,7 +939,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_pet2_stun_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -969,7 +969,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_pet_as"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -998,7 +998,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_beastmaster"
+	  "AbilityTextureName"      "item_rune_pet_crit_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1028,7 +1028,7 @@
 	  "ID"		"1512"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "AbilityTextureName"      "item_rune_combine_targets"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1054,7 +1054,7 @@
 	  "ID"		"1514"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "AbilityTextureName"      "item_rune_concentration_evasion"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1080,7 +1080,7 @@
 	  "ID"		"1514"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "AbilityTextureName"      "item_rune_concentration_ms"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1106,7 +1106,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "AbilityTextureName"      "item_rune_concentration_pierce"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1132,7 +1132,7 @@
 	  "ID"		"1517"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "AbilityTextureName"      "item_rune_corrupted_arrow_as"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1158,7 +1158,7 @@
 	  "ID"		"1511"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "AbilityTextureName"      "item_rune_corrupted_arrow_spirit_count"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1184,7 +1184,7 @@
 	  "ID"		"1512"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "AbilityTextureName"      "item_rune_explode_targets"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1210,7 +1210,7 @@
 	  "ID"		"1510"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "AbilityTextureName"      "item_rune_glaive_bleed_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1236,7 +1236,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "AbilityTextureName"      "item_rune_glaive_count"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1262,7 +1262,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "AbilityTextureName"      "item_rune_transform_cd"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1288,7 +1288,7 @@
 	  "ID"		"1513"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_dark_goddess"
+	  "AbilityTextureName"      "item_rune_transform_speed"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1314,7 +1314,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_cold_blast_double_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1343,7 +1343,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_cold_blast_duration"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1371,7 +1371,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_cold_blast_radius"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1401,7 +1401,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_cold_blast_slow"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1432,7 +1432,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_cold_orb_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1462,7 +1462,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_dark_orb_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1492,7 +1492,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_fire_blast_cd"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1521,7 +1521,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_fire_blast_crit_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1550,7 +1550,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_fire_blast_double_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1579,7 +1579,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_fire_blast_radius"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1609,7 +1609,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_overload_cold_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1639,7 +1639,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_overload_fire_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1669,7 +1669,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_overload_lightning_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1699,7 +1699,7 @@
 	  "ID"		"1509"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_elementalist"
+	  "AbilityTextureName"      "item_rune_overload_targets"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2017,6 +2017,36 @@
 	    {
 	      "min" "1"
 	      "max" "3"
+	    }
+	  }
+	}
+	"item_rune_passives_chance"
+	{
+	  "ID"    "1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_passives_chance"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "snare_chance"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_huntress_passives_chance"
+	    {
+	      "min" "1"
+	      "max" "13"
 	    }
 	  }
 	}
@@ -2556,7 +2586,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_samurai"
+	  "AbilityTextureName"      "item_rune_cold_touch_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2585,7 +2615,7 @@
 	  "ID"		"1658"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_samurai"
+	  "AbilityTextureName"      "item_rune_execution_aoe"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2615,7 +2645,7 @@
 	  "ID"		"1657"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_samurai"
+	  "AbilityTextureName"      "item_rune_execution_as"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2644,7 +2674,7 @@
 	  "ID"		"1658"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_samurai"
+	  "AbilityTextureName"      "item_rune_execution_knockback_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2673,7 +2703,7 @@
 	  "ID"    "1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_samurai"
+	  "AbilityTextureName"      "item_rune_reign_of_fire_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2703,7 +2733,7 @@
 	  "ID"		"1611"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_samurai"
+	  "AbilityTextureName"      "item_rune_samurai_dash_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2732,7 +2762,7 @@
 	  "ID"		"1655"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_samurai"
+	  "AbilityTextureName"      "item_rune_whirlwind_aoe"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2762,7 +2792,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_samurai"
+	  "AbilityTextureName"      "item_rune_whirlwind_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2792,7 +2822,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_samurai"
+	  "AbilityTextureName"      "item_rune_whirlwind_ms"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2822,7 +2852,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_explosive_trap_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2852,7 +2882,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_explosive_trap_delay"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2881,7 +2911,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_shotgun_dash_cd"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2910,7 +2940,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_shotgun_dash_range"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2940,7 +2970,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_shotgun_dash_speed"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -2970,7 +3000,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_shotgun_special_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3000,7 +3030,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_shotgun_special_force"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3029,7 +3059,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_shotgun_special_reduce_spread"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3058,7 +3088,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_shotgun_special_speed"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3087,7 +3117,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_smg_backup_damage_reduction"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3116,7 +3146,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_smg_backup_explosion_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3145,7 +3175,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_smg_backup_speed"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3174,7 +3204,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_smg_special_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3204,7 +3234,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_smg_special_knockback_chance"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3233,7 +3263,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_smg_special_reduce_spread"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3262,7 +3292,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_thunder_trap_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3292,7 +3322,7 @@
 	  "ID"		"1656"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_sniper"
+	  "AbilityTextureName"      "item_rune_thunder_trap_delay"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3321,7 +3351,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "AbilityTextureName"      "item_rune_witch_doctor_blink_heal"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3347,7 +3377,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "AbilityTextureName"      "item_rune_witch_doctor_curse_damage"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3373,7 +3403,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "AbilityTextureName"      "item_rune_witch_doctor_curse_duration"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3399,7 +3429,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "AbilityTextureName"      "item_rune_witch_doctor_curse_slow"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3425,7 +3455,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "AbilityTextureName"      "item_rune_witch_doctor_lifesteal_mana"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3451,7 +3481,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "AbilityTextureName"      "item_rune_witch_doctor_spawn_cd"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3477,7 +3507,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "AbilityTextureName"      "item_rune_witch_doctor_spawn_count"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3503,7 +3533,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "AbilityTextureName"      "item_rune_witch_doctor_totem2_duration"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3529,7 +3559,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "AbilityTextureName"      "item_rune_witch_doctor_totem2_force"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3555,7 +3585,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "AbilityTextureName"      "item_rune_witch_doctor_totem_radius"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -3581,7 +3611,7 @@
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_witch_doctor"
+	  "AbilityTextureName"      "item_rune_witch_doctor_totem_targets"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
