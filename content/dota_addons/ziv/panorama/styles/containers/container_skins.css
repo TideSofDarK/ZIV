@@ -128,10 +128,10 @@
 
 .Inventory #ChargeCount
 {
-  horizontal-align: left;
+  horizontal-align: right;
   color: White;
   font-size: 17px;
-  margin-left: 5px;
+  margin-right: 5px;
   margin-bottom: 1px;
 }
 
@@ -192,6 +192,15 @@
 
   border-color: transparent;
   background-color: transparent;
+}
+
+.Trade #ChargeCount
+{
+  horizontal-align: right;
+  color: White;
+  font-size: 17px;
+  margin-right: 5px;
+  margin-bottom: 1px;
 }
 
 .Trade #Header

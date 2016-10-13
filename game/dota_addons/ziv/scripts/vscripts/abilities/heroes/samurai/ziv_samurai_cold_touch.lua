@@ -13,7 +13,9 @@ function OnDealDamage( keys )
 
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_cold_touch_frozen", {})
 
-		caster:GiveMana((damage * (GetSpecial(ability, "ep_leech") / 100.0)))
+		local leech = GetSpecial(ability, "ep_leech") + GRMSC("ziv_samurai_cold_touch_leech", caster)
+
+		caster:GiveMana((damage * (leech / 100.0)))
 	end)
 end
 

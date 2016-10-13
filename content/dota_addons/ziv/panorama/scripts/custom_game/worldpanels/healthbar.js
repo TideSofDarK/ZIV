@@ -1,5 +1,3 @@
-$.Msg("healthbar");
-
 var teamColors = GameUI.CustomUIConfig().team_colors;
 
 if (!teamColors) {

@@ -21,7 +21,9 @@ function OnDealDamage( keys )
 			ability:ApplyDataDrivenModifier(caster,target,"modifier_reign_of_fire_burn", {})
 		end
 
-		caster:Heal((damage * (GetSpecial(ability, "hp_leech") / 100.0)), caster:FindAbilityByName("ziv_samurai_reign_of_fire")) 
+		local leech = GetSpecial(ability, "hp_leech") + GRMSC("ziv_samurai_reign_of_fire_leech", caster)
+
+		caster:Heal(damage * (leech / 100.0), caster:FindAbilityByName("ziv_samurai_reign_of_fire")) 
 	end)
 end
 

@@ -21,23 +21,23 @@
   {
     "01"
     {
-      "var_type" "FIELD_FLOAT"
-      "duration" "8.0"
+      "var_type"            "FIELD_FLOAT"
+      "duration"            "8.0"
     }
     "02"
     {
-      "var_type" "FIELD_INTEGER"
+      "var_type"            "FIELD_INTEGER"
       "movespeed_reduction" "-50"
     }
     "03"
     {
-      "var_type" "FIELD_INTEGER"
-      "miss_chance" "35"
+      "var_type"            "FIELD_INTEGER"
+      "miss_chance"         "35"
     }
     "04"
     {
-      "var_type" "FIELD_INTEGER"
-      "radius" "350"
+      "var_type"            "FIELD_INTEGER"
+      "radius"              "350"
     }
   }
 

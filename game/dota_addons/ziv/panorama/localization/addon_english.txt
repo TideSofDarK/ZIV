@@ -114,7 +114,9 @@
 	"ziv_samurai_execution_knockback_chance"		"% chance to knockback with Execution"
 	"ziv_samurai_dash_damage"						"to Dash damage"
 	"ziv_samurai_cold_touch_damage"					"cold damage on hit"
+	"ziv_samurai_cold_touch_leech"					"% to Cold Touch EP leech"
 	"ziv_samurai_reign_of_fire_damage"				"to Reign of Fire damage"
+	"ziv_samurai_reign_of_fire_leech"				"% to Reign of Fire HP leech"
 
 	"ziv_dark_goddess_glaive_count"					"chance to throw additional Glaive"
 	"ziv_dark_goddess_glaive_bleed_damage"			"to Glaive bleed damage"

@@ -37,7 +37,7 @@
     "03"
     {
       "var_type"            "FIELD_FLOAT"
-      "hp_leech"            "8"
+      "hp_leech"            "5"
     }
   }
 

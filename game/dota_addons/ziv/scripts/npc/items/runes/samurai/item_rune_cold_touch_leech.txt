@@ -1,0 +1,30 @@
+"item_rune_cold_touch_leech"
+{
+  "ID"		"1655"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"           "item_datadriven"
+  "AbilityTextureName"      "item_rune_cold_touch_leech"
+  "Model"                   "models/items/gem_topaz.vmdl"
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+
+  "ItemStackable"         "1"
+  "ItemPermanent"         "0"
+  "ItemInitialCharges"            "1"
+
+  "MaxUpgradeLevel"       "1"
+  "ItemBaseLevel"         "1"
+
+  "Tooltip" "ep_leech"
+  "Type"    "Int"
+  "Method"  "Add"
+
+  "FortifyModifiersCount" "1"
+  "FortifyModifiers"
+  {
+    "ziv_samurai_cold_touch_leech"
+    {
+      "min" "1"
+      "max" "5"
+    }
+  }
+}
