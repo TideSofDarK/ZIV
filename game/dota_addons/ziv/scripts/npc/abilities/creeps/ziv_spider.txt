@@ -11,6 +11,15 @@
     "particle"  "particles/creeps/ziv_spider.vpcf"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
   }
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "radius"        "1200"
+    }
+  }
   
   "Modifiers"
   {
@@ -37,7 +46,7 @@
           "Target"
           {
             "Center"    "TARGET"
-            "Radius"    "800"
+            "Radius"    "%radius"
             "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
             "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
           }

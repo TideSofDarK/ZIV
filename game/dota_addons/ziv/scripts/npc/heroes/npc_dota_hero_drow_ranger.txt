@@ -12,7 +12,7 @@
     "PrimaryDamageType" "DAMAGE_TYPE_DARK"
     "CreationSound" "drowranger_drow_deny_17"
 
-    "EquipmentSlots" "torso;bow;gloves;ring;pants;boots"
+    "EquipmentSlots" "torso;bow;gloves;quiver;pants;boots"
 
     "ChooseLayout"  "11211"
 

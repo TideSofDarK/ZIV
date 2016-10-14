@@ -11,13 +11,15 @@ Loot.SOCKETS_CHANCES[4] 				= 0.005		-- 3
 Loot.TYPE_PARTS 						= 1
 Loot.TYPE_WEAPONS 						= 2
 Loot.TYPE_ARMOR 						= 3
-Loot.TYPE_SOCKETING 					= 4
+Loot.TYPE_FORGING 						= 4
+Loot.TYPE_SOCKETING 					= 5
 
 Loot.TYPE_CHANCES 						= {}
 Loot.TYPE_CHANCES[Loot.TYPE_PARTS] 		= 0.4
 Loot.TYPE_CHANCES[Loot.TYPE_WEAPONS] 	= 0.3
-Loot.TYPE_CHANCES[Loot.TYPE_ARMOR] 		= 0.2
-Loot.TYPE_CHANCES[Loot.TYPE_SOCKETING] 	= 0.1
+Loot.TYPE_CHANCES[Loot.TYPE_ARMOR] 		= 0.25
+Loot.TYPE_CHANCES[Loot.TYPE_FORGING] 	= 0.2
+Loot.TYPE_CHANCES[Loot.TYPE_SOCKETING] 	= 0.15
 
 Loot.RARITY_COMMON 						= 1
 Loot.RARITY_MAGIC 						= 2
@@ -30,7 +32,7 @@ Loot.LOOT_CHANCE 						= 0.1
 Loot.RARITY_CHANCES = {}
 Loot.RARITY_CHANCES[Loot.RARITY_COMMON] 	= 0.6
 Loot.RARITY_CHANCES[Loot.RARITY_MAGIC] 		= 0.2
-Loot.RARITY_CHANCES[Loot.RARITY_RARE] 		= 0.04
+Loot.RARITY_CHANCES[Loot.RARITY_RARE] 		= 0.045
 Loot.RARITY_CHANCES[Loot.RARITY_EPIC] 		= 0.02
 Loot.RARITY_CHANCES[Loot.RARITY_LEGENDARY] 	= 0.001
 
@@ -103,7 +105,27 @@ function Loot:CreateItem( position, owner )
 	end
 end
 
-function Loot:AddModifiers(item)
+function Loot:GenerateCaption( item )
+	if item.rarity > Loot.RARITY_MAGIC then
+		local adjective = GetRandomElement(ZIV.CaptionsKVs.Adjectives)
+
+		local noun = ""
+		for k,v in pairs(ZIV.CaptionsKVs.Nouns) do
+			if string.match(k, ZIV.ItemKVs[item:GetName()].Slot) then
+				noun = GetRandomElement(ZIV.CaptionsKVs.Nouns[k])
+				break
+			end
+		end
+		local noun2 = ""
+		if item.rarity == Loot.RARITY_EPIC then
+			noun2 = GetRandomElement(ZIV.CaptionsKVs.Nouns2)
+		end
+
+		item.caption = adjective.." "..noun.." "..noun2
+	end
+end
+
+function Loot:AddModifiers( item )
 	local modifier_count = item.rarity + math.random(0, 1)
 
 	item.built_in_modifiers = item.built_in_modifiers or {}
@@ -124,6 +146,8 @@ function Loot:AddModifiers(item)
 			x = x + 1
 		end
 	end
+
+	Loot:GenerateCaption( item )
 
 	Items:UpdateItem(item)
 end

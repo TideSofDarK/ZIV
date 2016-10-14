@@ -22,7 +22,7 @@
             <Panel class="ItemTooltip WindowAnimation">
                 <DOTAItemImage id="ItemTooltipImage" class="BasicShadow" abilityname="ziv_empty1"/>
                 <Panel class="TooltipCBR"/>
-                <Label id="ItemTooltipName" class="TooltipLabel" text=""/>
+                <Label id="ItemTooltipName" html="true" class="TooltipLabel" text=""/>
                 <Panel class="TooltipCBR"/>
                 <Label id="ItemTooltipRarity" html="true" class="TooltipLabel" text=""/>
                 <Label id="ItemTooltipSlot" html="true" class="TooltipLabel" text=""/>  
@@ -95,7 +95,7 @@
 
                     itemTooltip.FindChildTraverse("ItemTooltipImage").itemname = itemName;
 
-                    itemTooltip.FindChildTraverse("ItemTooltipName").text = $.Localize("DOTA_Tooltip_ability_" + itemName);
+                    itemTooltip.FindChildTraverse("ItemTooltipName").text = Util.SpanString(itemData.caption, "Rarity" + itemData.rarity) || $.Localize("DOTA_Tooltip_ability_" + itemName);
 
                     itemTooltip.FindChildTraverse("ItemTooltipRarity").text = $.Localize("rarity") + Util.SpanString(($.Localize("rarity" + itemData.rarity)), "Rarity" + itemData.rarity);
 

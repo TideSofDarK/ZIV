@@ -158,7 +158,7 @@
 	    "PrimaryDamageType" "DAMAGE_TYPE_DARK"
 	    "CreationSound" "drowranger_drow_deny_17"
 	
-	    "EquipmentSlots" "torso;bow;gloves;ring;pants;boots"
+	    "EquipmentSlots" "torso;bow;gloves;quiver;pants;boots"
 	
 	    "ChooseLayout"  "11211"
 	
@@ -435,7 +435,7 @@
 	    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
 	    "CreationSound" "windrunner_wind_spawn_07"
 	
-	    "EquipmentSlots" "torso;bow;gloves;ammo;pants;boots"
+	    "EquipmentSlots" "torso;bow;gloves;quiver;pants;boots"
 	
 	    "ChooseLayout"  "22111"
 	

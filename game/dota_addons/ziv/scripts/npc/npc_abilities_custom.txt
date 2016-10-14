@@ -1628,6 +1628,15 @@
 	    "particle"  "particles/creeps/ziv_spider.vpcf"
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 	  }
+	
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "radius"        "1200"
+	    }
+	  }
 	  
 	  "Modifiers"
 	  {
@@ -1654,7 +1663,7 @@
 	          "Target"
 	          {
 	            "Center"    "TARGET"
-	            "Radius"    "800"
+	            "Radius"    "%radius"
 	            "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	            "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	          }
@@ -7554,7 +7563,7 @@
 	    "01"
 	    {
 	      "var_type"          "FIELD_INTEGER"
-	      "aggro_radius"      "800"
+	      "aggro_radius"      "1000"
 	    }
 	  }
 	  
@@ -7565,80 +7574,48 @@
 	      "Passive"                         "1"
 	      "IsHidden"                        "1"   
 	
-	      "ThinkInterval"                   "0.4"
+	      "ThinkInterval"                   "1.0"
 	      "OnIntervalThink"
 	      {
-	        "ActOnTargets"
+	        "RunScript"
 	        {
-	          "Target"
-	          {
-	            "Center"    "CASTER"
-	            "Radius"    "%aggro_radius"
-	            "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	            "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	          }
-	        
-	          "Action"    
-	          {
-	            "RemoveModifier"
-	            {
-	              "ModifierName"  "ziv_creep_normal_behavior_logic"
-	              "Target"        "CASTER"
-	            }
-	          }
+	          "ScriptFile"  "abilities/ziv_creeps.lua"
+	          "Function"    "CheckForHeroes"
 	        }
-	      } 
-	      
-	      // "OnTakeDamage"
-	      // {
-	      //   "RemoveModifier"
-	      //   {
-	      //     "ModifierName"  "modifier_spider_out"
-	      //     "Target"        "CASTER"
-	      //   }
-	      //   "RemoveModifier"
-	      //   {
-	      //     "ModifierName"  "ziv_creep_normal_behavior_untouched"
-	      //     "Target"        "CASTER"
-	      //   }
-	      //   "RemoveModifier"
-	      //   {
-	      //     "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
-	      //     "Target"        "CASTER"
-	      //   }
-	      // }
+	      }
 	    }
 	
-	    // "ziv_creep_normal_behavior_disable_autoattack"
-	    // {
-	    //   "Passive"                        "1"
-	    //   "IsHidden"                        "1" 
+	    "ziv_creep_normal_behavior_disable_autoattack"
+	    {
+	      "Passive"                         "1"
+	      "IsHidden"                        "1" 
+	      "IsPurgable"                      "0"
 	
-	    //   "Properties"
-	    //   {
-	    //     "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
-	    //   }
-	    // }
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
+	      }
+	    }
 	    
-	    // "ziv_creep_normal_behavior_untouched"
-	    // {
-	    //   "Passive"                        "1"
-	    //   "IsHidden"                        "1"    
+	    "ziv_creep_normal_behavior_untouched"
+	    {
+	      "Passive"                        "1"
+	      "IsHidden"                        "1"    
 	
-	    //   "States"
-	    //   {
-	    //     "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
-	    //   }
+	      "States"
+	      {
+	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	      }
 	
-	    //   "OnTakeDamage"
-	    //   {
-	    //     "RunScript"
-	    //     {
-	    //       "ScriptFile"  "abilities/creeps.lua"
-	    //       "Function"    "AggroNearbyCreeps"
-	    //     }
-	    //   }
-	    // }
+	      "OnTakeDamage"
+	      {
+	        "RemoveModifier"
+	        {
+	          "ModifierName"  "ziv_creep_normal_behavior_untouched"
+	          "Target"          "CASTER"
+	        }
+	      }
+	    }
 	  }
 	}
 	"ziv_disable_autoattack"

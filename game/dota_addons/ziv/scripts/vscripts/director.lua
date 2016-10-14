@@ -232,7 +232,6 @@ function Director:SpawnPack( pack_table )
 end
 
 function Director:SpawnCreeps( spawn_table )
-	-- local spawn_table = ShallowCopy(spawn_table)
 	if spawn_table then
 		local count = spawn_table.Count
 		if spawn_table.RandomizeCount == true then

@@ -9,7 +9,7 @@
     "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
     "CreationSound" "windrunner_wind_spawn_07"
 
-    "EquipmentSlots" "torso;bow;gloves;ammo;pants;boots"
+    "EquipmentSlots" "torso;bow;gloves;quiver;pants;boots"
 
     "ChooseLayout"  "22111"
 

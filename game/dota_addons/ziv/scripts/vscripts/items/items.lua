@@ -9,7 +9,7 @@ function Items:Init()
 end
 
 function Items:UpdateItem(item)
-	PlayerTables:SetTableValue("items", item:entindex(), { fortify_modifiers = item.fortify_modifiers, built_in_modifiers = item.built_in_modifiers, rarity = item.rarity or 1, sockets = item.sockets or 0})
+	PlayerTables:SetTableValue("items", item:entindex(), { caption = item.caption, fortify_modifiers = item.fortify_modifiers, built_in_modifiers = item.built_in_modifiers, rarity = item.rarity or 1, sockets = item.sockets or 0})
 end
 
 function Items:Create(item_name, owner)

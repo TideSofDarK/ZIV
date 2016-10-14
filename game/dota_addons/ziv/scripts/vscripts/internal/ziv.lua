@@ -2,6 +2,7 @@
 -- It can be used to pre-initialize any values/tables that will be needed later
 function ZIV:_InitZIV()
   -- Setup rules
+  LimitPathingSearchDepth(0.4)
   GameRules:SetHeroRespawnEnabled( ENABLE_HERO_RESPAWN )
   GameRules:SetUseUniversalShopMode( UNIVERSAL_SHOP_MODE )
   GameRules:SetSameHeroSelectionEnabled( ALLOW_SAME_HERO_SELECTION )

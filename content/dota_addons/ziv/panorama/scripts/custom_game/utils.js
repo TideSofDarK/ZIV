@@ -36,6 +36,7 @@ Util.AutoUppercase = (function (str) {
 });
 
 Util.SpanString = (function (str, className) {
+    if (!str) return str;
     return "<span class=\"" + className + "\">" + str + "</span>";
 });
 

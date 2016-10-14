@@ -238,7 +238,7 @@ function ZIV:InitZIV()
   ZIV.RecipesKVs = LoadKeyValues("scripts/kv/Recipes.kv")
   ZIV.PresetsKVs = LoadKeyValues("scripts/kv/CharacterPresets.kv")
   ZIV.AttributesKVs = LoadKeyValues("scripts/kv/Attributes.kv")
-  -- ZIV.EquipmentKVs = LoadKeyValues("scripts/kv/Equipment.kv")
+  ZIV.CaptionsKVs = LoadKeyValues("scripts/kv/Captions.kv")
 
   SendToServerConsole("dota_surrender_on_disconnect 0")
   SendToServerConsole( 'customgamesetup_set_auto_launch_delay 300' )
