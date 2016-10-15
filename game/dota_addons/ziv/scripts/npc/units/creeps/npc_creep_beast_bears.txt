@@ -1,0 +1,153 @@
+"npc_creep_beast_bear_a"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/lion/hells_bat_weapon/hells_bat_weapon.vmdl"
+                "2" "models/items/centaur/warlordofhell_head/warlordofhell_head.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/ursa/swift_claw_ursa_arms/ursa_swift_claw.vmdl"
+            }
+            "3" 
+            {
+                "1" "models/heroes/lion/lion_demonarm.vmdl"
+                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+            }
+            "4" 
+            {
+                "1" "models/heroes/lion/lion_demonarm.vmdl"
+                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/heroes/tuskarr/tusk_armor_glove.vmdl"
+                "2"     "models/items/doom/incantations_arms/incantations_arms.vmdl"
+                "3"     "models/items/axe/demon_blood_armor.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "200"
+    "Model"           "models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"
+    "ModelScale"    "0.9"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "8"
+    "AttackDamageMax"     "12"
+    "AttackRate"            "1.5"
+    "AttackAnimationPoint"  "0.3"
+    "AttackRange"   "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "330"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "75"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 
+
+"npc_creep_beast_bear_b"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/lion/hells_bat_weapon/hells_bat_weapon.vmdl"
+                "2" "models/items/centaur/warlordofhell_head/warlordofhell_head.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/ursa/swift_claw_ursa_arms/ursa_swift_claw.vmdl"
+            }
+            "3" 
+            {
+                "1" "models/heroes/lion/lion_demonarm.vmdl"
+                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+            }
+            "4" 
+            {
+                "1" "models/heroes/lion/lion_demonarm.vmdl"
+                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/doom/incantations_arms/incantations_arms.vmdl"
+                "2"     "models/items/axe/demon_blood_armor.vmdl"
+                "3"     "models/items/doom/hells_glare/hells_glare.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "200"
+    "Model"           "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+    "ModelScale"    "0.9"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "8"
+    "AttackDamageMax"     "12"
+    "AttackRate"            "155"
+    "AttackAnimationPoint"      "0.3"
+    "AttackRange"   "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "330"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "75"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 

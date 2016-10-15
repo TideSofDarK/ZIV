@@ -72,8 +72,8 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "VisionDaytimeRange"    "525"
-    "VisionNighttimeRange"    "525"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 
 
 "npc_creep_tribe_archer"
@@ -88,6 +88,38 @@
         "Color2"                 "135;206;235"
         "Color3"                 "188;143;143"
         "Color4"                 "20;240;30"
+    }
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/heroes/doom/doom_helm.vmdl"
+                "2" "models/items/juggernaut/wandering_demon_legs_black/wandering_demon_legs_black.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/beastmaster/beast_heart_marauder_arms/beast_heart_marauder_arms.vmdl"
+                "2" "models/heroes/huskar/huskar_helmet.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/ursa/assault_armor_bracer.vmdl"
+                "2" "models/items/tinker/boots_of_travel.vmdl"
+                "3" "models/items/juggernaut/armour_of_the_exiled_ronin/armour_of_the_exiled_ronin.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/lion/ancient_evil_helm/ancient_evil_helm.vmdl"
+                "2"     "models/items/doom/incantations_wings/incantations_wings.vmdl"
+                "3"     "models/items/axe/demon_blood_armor.vmdl"
+                "4"     "models/items/rikimaru/bladearmorgloves/bladearmorgloves.vmdl"
+            }
+        }
     }
 
     "HealthBarOffset"   "200"
@@ -128,6 +160,6 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "VisionDaytimeRange"    "525"
-    "VisionNighttimeRange"    "525"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 

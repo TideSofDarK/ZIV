@@ -64,7 +64,7 @@ if not KeyValues then
     KeyValues = {}
 end
 
-local split = function(inputstr, sep)
+function KeyValues:Split(inputstr, sep)
     if sep == nil then sep = "%s" end
     local t={} ; i=1
     for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
@@ -163,7 +163,7 @@ function GetKeyValue(name, key, level, tbl)
     local t = tbl or KeyValues.All[name]
     if key and t then
         if t[key] and level then
-            local s = split(t[key])
+            local s = KeyValues:Split(t[key])
             if s[level] then return tonumber(s[level]) or s[level] -- Try to cast to number
             else return tonumber(s[#s]) or s[#s] end
         else return t[key] end
@@ -192,7 +192,7 @@ function GetAbilitySpecial(name, key, level)
                 if values[key] then
                     if not level then return values[key]
                     else
-                        local s = split(values[key])
+                        local s = KeyValues:Split(values[key])
                         if s[level] then return tonumber(s[level]) -- If we match the level, return that one
                         else return tonumber(s[#s]) end -- Otherwise, return the max
                     end

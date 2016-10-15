@@ -1,7 +1,7 @@
 "npc_creep_undead_wraith"
 {
     "BaseClass"         "npc_dota_creature"
-    "SoundSet"                  "n_creep_Melee"
+    "SoundSet"                  "n_creep_Ranged"
 
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl"
@@ -36,14 +36,14 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "VisionDaytimeRange"    "525"
-    "VisionNighttimeRange"    "525"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 
 
 "npc_creep_undead_wraith_a"
 {
     "BaseClass"         "npc_dota_creature"
-    "SoundSet"                  "n_creep_Melee"
+    "SoundSet"                  "n_creep_Ranged"
 
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_frost.vmdl"
@@ -78,14 +78,14 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "VisionDaytimeRange"    "525"
-    "VisionNighttimeRange"    "525"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 
 
 "npc_creep_undead_wraith_b"
 {
     "BaseClass"         "npc_dota_creature"
-    "SoundSet"                  "n_creep_Melee"
+    "SoundSet"                  "n_creep_Ranged"
 
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_red.vmdl"
@@ -120,6 +120,80 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "VisionDaytimeRange"    "525"
-    "VisionNighttimeRange"    "525"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 
+
+"npc_creep_undead_wraith_c"
+{
+    "BaseClass"         "npc_dota_creature"
+    "SoundSet"                  "n_creep_Ranged"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/death_prophet/fatal_blossom_skirt/fatal_blossom_skirt.vmdl"
+                "2" "models/items/rikimaru/bladearmorgloves/bladearmorgloves.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/death_prophet/fatal_blossom_skirt/fatal_blossom_skirt.vmdl"
+                "2" "models/items/rikimaru/bladearmorgloves/bladearmorgloves.vmdl"
+            }
+            "3" 
+            {
+                "1" "models/items/death_prophet/skirt_mugen_augurs_curse/skirt_mugen_augurs_curse.vmdl"
+                "2" "models/heroes/death_prophet/death_prophet_arm.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/morphling/ancient_armor_arms/ancient_armor_arms.vmdl"
+                "2"     "models/items/death_prophet/burial_robes_legs/burial_robes_legs.vmdl"
+                "3"     "models/items/drow/drow_jeweloftheforest_gloves/drow_jeweloftheforest_gloves.vmdl"
+                "4"     "models/heroes/dark_seer/dark_seer_arm.vmdl"
+            }
+        }
+    }
+
+    "HealthBarOffset"   "200"
+    "Model"           "models/creeps/lane_creeps/creep_radiant_ranged_diretide/creep_radiant_ranged_diretide.vmdl"
+    "ModelScale"    "0.8"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "3"
+    "AttackDamageMax"     "10"
+    "AttackRate"        "1"
+    "AttackAnimationPoint"    "0.5"
+    "AttackRange"               "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "390"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "60"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 

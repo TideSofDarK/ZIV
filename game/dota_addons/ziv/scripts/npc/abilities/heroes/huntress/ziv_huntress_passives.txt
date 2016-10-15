@@ -18,7 +18,7 @@
     "01"
     {
       "var_type"      "FIELD_FLOAT"
-      "snare_chance"    "7.0"
+      "snare_chance"    "9.0"
     }
     "02"
     {

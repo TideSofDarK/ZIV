@@ -40,8 +40,8 @@
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
 
-    "VisionDaytimeRange"        "525"
-    "VisionNighttimeRange"      "525"
+    "VisionDaytimeRange"        "1000"
+    "VisionNighttimeRange"      "1000"
 } 
 
 "npc_creep_spider_webspinner_a"
@@ -86,8 +86,8 @@
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
 
-    "VisionDaytimeRange"        "525"
-    "VisionNighttimeRange"      "525"
+    "VisionDaytimeRange"        "1000"
+    "VisionNighttimeRange"      "1000"
 } 
 
 "npc_creep_spider_webspinner_b"
@@ -132,8 +132,8 @@
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
 
-    "VisionDaytimeRange"        "525"
-    "VisionNighttimeRange"      "525"
+    "VisionDaytimeRange"        "1000"
+    "VisionNighttimeRange"      "1000"
 } 
 
 "npc_creep_spider_webspinner_c"
@@ -176,8 +176,8 @@
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
 
-    "VisionDaytimeRange"        "525"
-    "VisionNighttimeRange"      "525"
+    "VisionDaytimeRange"        "1000"
+    "VisionNighttimeRange"      "1000"
 } 
 
 "npc_creep_spider_webspinner_d"
@@ -222,8 +222,8 @@
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
 
-    "VisionDaytimeRange"        "525"
-    "VisionNighttimeRange"      "525"
+    "VisionDaytimeRange"        "1000"
+    "VisionNighttimeRange"      "1000"
 } 
 
 "npc_creep_spider_webspinner_e"
@@ -266,8 +266,8 @@
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
 
-    "VisionDaytimeRange"        "525"
-    "VisionNighttimeRange"      "525"
+    "VisionDaytimeRange"        "1000"
+    "VisionNighttimeRange"      "1000"
 } 
 
 "npc_creep_spider_webspinner_f"
@@ -310,6 +310,6 @@
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
 
-    "VisionDaytimeRange"        "525"
-    "VisionNighttimeRange"      "525"
+    "VisionDaytimeRange"        "1000"
+    "VisionNighttimeRange"      "1000"
 } 

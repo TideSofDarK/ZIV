@@ -1145,6 +1145,321 @@
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
 	} 
+	"npc_creep_beast_bear_a"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/lion/hells_bat_weapon/hells_bat_weapon.vmdl"
+	                "2" "models/items/centaur/warlordofhell_head/warlordofhell_head.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/ursa/swift_claw_ursa_arms/ursa_swift_claw.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/heroes/lion/lion_demonarm.vmdl"
+	                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+	            }
+	            "4" 
+	            {
+	                "1" "models/heroes/lion/lion_demonarm.vmdl"
+	                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/heroes/tuskarr/tusk_armor_glove.vmdl"
+	                "2"     "models/items/doom/incantations_arms/incantations_arms.vmdl"
+	                "3"     "models/items/axe/demon_blood_armor.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "200"
+	    "Model"           "models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"
+	    "ModelScale"    "0.9"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "8"
+	    "AttackDamageMax"     "12"
+	    "AttackRate"            "1.5"
+	    "AttackAnimationPoint"  "0.3"
+	    "AttackRange"   "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "330"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "75"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	
+	"npc_creep_beast_bear_b"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/lion/hells_bat_weapon/hells_bat_weapon.vmdl"
+	                "2" "models/items/centaur/warlordofhell_head/warlordofhell_head.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/ursa/swift_claw_ursa_arms/ursa_swift_claw.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/heroes/lion/lion_demonarm.vmdl"
+	                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+	            }
+	            "4" 
+	            {
+	                "1" "models/heroes/lion/lion_demonarm.vmdl"
+	                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/doom/incantations_arms/incantations_arms.vmdl"
+	                "2"     "models/items/axe/demon_blood_armor.vmdl"
+	                "3"     "models/items/doom/hells_glare/hells_glare.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "200"
+	    "Model"           "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+	    "ModelScale"    "0.9"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "8"
+	    "AttackDamageMax"     "12"
+	    "AttackRate"            "155"
+	    "AttackAnimationPoint"      "0.3"
+	    "AttackRange"   "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "330"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "75"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	"npc_creep_beast_centaur_a"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/heroes/lone_druid/arms.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/tuskarr/frostiron_raider_helm/frostiron_raider_helm.vmdl"
+	                "2" "models/items/beastmaster/beast_heart_marauder_arms/beast_heart_marauder_arms.vmdl"
+	            }
+	            "4" 
+	            {
+	                "1" "models/items/bristleback/nightwatch_arms/nightwatch_arms.vmdl"
+	                "2" "models/items/magnataur/rage_of_volcano_natives_arms/rage_of_volcano_natives_arms.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/heroes/axe/axe_armor.vmdl"
+	                "2"     "models/items/ursa/assault_armor_belt.vmdl"
+	                "3"     "models/items/ursa/assault_armor_helmet.vmdl"
+	            }
+	            "2"
+	            {
+	                "1"     "models/items/pudge/gladiators_revenge_armor/gladiators_revenge_armor.vmdl"
+	                "2"     "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
+	                "3"     "models/items/rubick/forgotten_plate/forgotten_plate.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "220"
+	    "Model"           	"models/creeps/neutral_creeps/n_creep_centaur_lrg/n_creep_centaur_lrg.vmdl"
+	    "ModelScale"    	"0.9"
+	    "Level"           	"1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    	"DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     		"8"
+	    "AttackDamageMax"     		"12"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.3"
+	    "AttackRange"   			"100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "330"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "75"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	
+	"npc_creep_beast_centaur_b"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/heroes/lone_druid/arms.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/tuskarr/frostiron_raider_helm/frostiron_raider_helm.vmdl"
+	                "2" "models/items/beastmaster/beast_heart_marauder_arms/beast_heart_marauder_arms.vmdl"
+	            }
+	            "4" 
+	            {
+	                "1" "models/items/bristleback/nightwatch_arms/nightwatch_arms.vmdl"
+	                "2" "models/items/magnataur/rage_of_volcano_natives_arms/rage_of_volcano_natives_arms.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/heroes/axe/axe_armor.vmdl"
+	                "2"     "models/items/ursa/assault_armor_belt.vmdl"
+	                "3"     "models/items/tuskarr/frostiron_raider_helm/frostiron_raider_helm.vmdl"
+	            }
+	            "2"
+	            {
+	                "1"     "models/items/pudge/gladiators_revenge_armor/gladiators_revenge_armor.vmdl"
+	                "2"     "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "220"
+	    "Model"           	"models/creeps/neutral_creeps/n_creep_centaur_med/n_creep_centaur_med.vmdl"
+	    "ModelScale"    	"0.89"
+	    "Level"           	"1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    	"DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     		"8"
+	    "AttackDamageMax"     		"12"
+		"AttackRate"				"1.3"
+		"AttackAnimationPoint"		"0.5"
+	    "AttackRange"   			"100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "330"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "75"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
 	"npc_creep_demon_greevil"
 	{
 	    "BaseClass"         "npc_dota_creature"
@@ -1211,8 +1526,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	"npc_creep_demon_greevil"
 	{
@@ -1280,8 +1595,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	
 	"npc_creep_demon_greevil_a"
@@ -1323,8 +1638,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	"npc_creep_spider_webspinner"
 	{
@@ -1368,8 +1683,8 @@
 	    "StatusMana"                "0"
 	    "StatusManaRegen"           "0"
 	
-	    "VisionDaytimeRange"        "525"
-	    "VisionNighttimeRange"      "525"
+	    "VisionDaytimeRange"        "1000"
+	    "VisionNighttimeRange"      "1000"
 	} 
 	
 	"npc_creep_spider_webspinner_a"
@@ -1414,8 +1729,8 @@
 	    "StatusMana"                "0"
 	    "StatusManaRegen"           "0"
 	
-	    "VisionDaytimeRange"        "525"
-	    "VisionNighttimeRange"      "525"
+	    "VisionDaytimeRange"        "1000"
+	    "VisionNighttimeRange"      "1000"
 	} 
 	
 	"npc_creep_spider_webspinner_b"
@@ -1460,8 +1775,8 @@
 	    "StatusMana"                "0"
 	    "StatusManaRegen"           "0"
 	
-	    "VisionDaytimeRange"        "525"
-	    "VisionNighttimeRange"      "525"
+	    "VisionDaytimeRange"        "1000"
+	    "VisionNighttimeRange"      "1000"
 	} 
 	
 	"npc_creep_spider_webspinner_c"
@@ -1504,8 +1819,8 @@
 	    "StatusMana"                "0"
 	    "StatusManaRegen"           "0"
 	
-	    "VisionDaytimeRange"        "525"
-	    "VisionNighttimeRange"      "525"
+	    "VisionDaytimeRange"        "1000"
+	    "VisionNighttimeRange"      "1000"
 	} 
 	
 	"npc_creep_spider_webspinner_d"
@@ -1550,8 +1865,8 @@
 	    "StatusMana"                "0"
 	    "StatusManaRegen"           "0"
 	
-	    "VisionDaytimeRange"        "525"
-	    "VisionNighttimeRange"      "525"
+	    "VisionDaytimeRange"        "1000"
+	    "VisionNighttimeRange"      "1000"
 	} 
 	
 	"npc_creep_spider_webspinner_e"
@@ -1594,8 +1909,8 @@
 	    "StatusMana"                "0"
 	    "StatusManaRegen"           "0"
 	
-	    "VisionDaytimeRange"        "525"
-	    "VisionNighttimeRange"      "525"
+	    "VisionDaytimeRange"        "1000"
+	    "VisionNighttimeRange"      "1000"
 	} 
 	
 	"npc_creep_spider_webspinner_f"
@@ -1638,8 +1953,8 @@
 	    "StatusMana"                "0"
 	    "StatusManaRegen"           "0"
 	
-	    "VisionDaytimeRange"        "525"
-	    "VisionNighttimeRange"      "525"
+	    "VisionDaytimeRange"        "1000"
+	    "VisionNighttimeRange"      "1000"
 	} 
 	"npc_creep_tribe_warrior"
 	{
@@ -1715,8 +2030,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	
 	"npc_creep_tribe_archer"
@@ -1731,6 +2046,38 @@
 	        "Color2"                 "135;206;235"
 	        "Color3"                 "188;143;143"
 	        "Color4"                 "20;240;30"
+	    }
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/heroes/doom/doom_helm.vmdl"
+	                "2" "models/items/juggernaut/wandering_demon_legs_black/wandering_demon_legs_black.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/beastmaster/beast_heart_marauder_arms/beast_heart_marauder_arms.vmdl"
+	                "2" "models/heroes/huskar/huskar_helmet.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/ursa/assault_armor_bracer.vmdl"
+	                "2" "models/items/tinker/boots_of_travel.vmdl"
+	                "3" "models/items/juggernaut/armour_of_the_exiled_ronin/armour_of_the_exiled_ronin.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/lion/ancient_evil_helm/ancient_evil_helm.vmdl"
+	                "2"     "models/items/doom/incantations_wings/incantations_wings.vmdl"
+	                "3"     "models/items/axe/demon_blood_armor.vmdl"
+	                "4"     "models/items/rikimaru/bladearmorgloves/bladearmorgloves.vmdl"
+	            }
+	        }
 	    }
 	
 	    "HealthBarOffset"   "200"
@@ -1771,8 +2118,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	"npc_creep_undead_skeleton"
 	{
@@ -1792,6 +2139,16 @@
 	            {
 	                "1" "models/items/kunkka/claddish_legs/claddish_legs.vmdl"
 	                "2" "models/items/axe/berserkers_helm.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/clinkz/lost_viking_helmet/lost_viking_helmet.vmdl"
+	                "2" "models/items/blood_seeker/war_gloves.vmdl"
+	            }
+	            "4" 
+	            {
+	                "1" "models/items/windrunner/falconhelm1/falconhelm1.vmdl"
+	                "2" "models/items/siren/arms_of_the_captive_princess_armor/arms_of_the_captive_princess_armor.vmdl"
 	            }
 	        }
 	        "Lord"
@@ -1840,13 +2197,13 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	"npc_creep_undead_wraith"
 	{
 	    "BaseClass"         "npc_dota_creature"
-	    "SoundSet"                  "n_creep_Melee"
+	    "SoundSet"                  "n_creep_Ranged"
 	
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl"
@@ -1881,14 +2238,14 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	
 	"npc_creep_undead_wraith_a"
 	{
 	    "BaseClass"         "npc_dota_creature"
-	    "SoundSet"                  "n_creep_Melee"
+	    "SoundSet"                  "n_creep_Ranged"
 	
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_frost.vmdl"
@@ -1923,14 +2280,14 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	
 	"npc_creep_undead_wraith_b"
 	{
 	    "BaseClass"         "npc_dota_creature"
-	    "SoundSet"                  "n_creep_Melee"
+	    "SoundSet"                  "n_creep_Ranged"
 	
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_red.vmdl"
@@ -1965,8 +2322,82 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	
+	"npc_creep_undead_wraith_c"
+	{
+	    "BaseClass"         "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Ranged"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/death_prophet/fatal_blossom_skirt/fatal_blossom_skirt.vmdl"
+	                "2" "models/items/rikimaru/bladearmorgloves/bladearmorgloves.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/death_prophet/fatal_blossom_skirt/fatal_blossom_skirt.vmdl"
+	                "2" "models/items/rikimaru/bladearmorgloves/bladearmorgloves.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/death_prophet/skirt_mugen_augurs_curse/skirt_mugen_augurs_curse.vmdl"
+	                "2" "models/heroes/death_prophet/death_prophet_arm.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/morphling/ancient_armor_arms/ancient_armor_arms.vmdl"
+	                "2"     "models/items/death_prophet/burial_robes_legs/burial_robes_legs.vmdl"
+	                "3"     "models/items/drow/drow_jeweloftheforest_gloves/drow_jeweloftheforest_gloves.vmdl"
+	                "4"     "models/heroes/dark_seer/dark_seer_arm.vmdl"
+	            }
+	        }
+	    }
+	
+	    "HealthBarOffset"   "200"
+	    "Model"           "models/creeps/lane_creeps/creep_radiant_ranged_diretide/creep_radiant_ranged_diretide.vmdl"
+	    "ModelScale"    "0.8"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "3"
+	    "AttackDamageMax"     "10"
+	    "AttackRate"        "1"
+	    "AttackAnimationPoint"    "0.5"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "390"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "60"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	"npc_creep_undead_zombie"
 	{
@@ -2032,13 +2463,45 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	"npc_creep_undead_zombie_tomb"
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"                  "Undying_Zombie"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/heroes/drow/drow_legs.vmdl"
+	                "2" "models/items/kunkka/inquisitor_tide_glove/inquisitor_tide_glove.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/sven/guise_of_belligerent_ram_glove/guise_of_belligerent_ram_glove.vmdl"
+	                "2" "models/items/kunkka/claddish_legs/claddish_legs.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/axe/greek_helmet.vmdl"
+	                "2" "models/items/kunkka/singsingkunkkaset_gloves/singsingkunkkaset_gloves.vmdl"
+	                "3" "models/items/drow/thief_legs/thief_legs.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/clinkz/ti6_clinkz_gloves/ti6_clinkz_gloves.vmdl"
+	                "2"     "models/items/drow/misty_huntress_legs/misty_huntress_legs.vmdl"
+	                "3"     "models/items/kunkka/elegant_shoulders_of_the_kunkkistadore/elegant_shoulders_of_the_kunkkistadore.vmdl"
+	            }
+	        }
+	    }
 	    
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/items/undying/idol_of_ruination/ruin_wight_minion_gold.vmdl"
@@ -2073,8 +2536,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	"npc_creep_undead_zombie_tomb_a"
 	{
@@ -2114,8 +2577,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	
 	"npc_creep_undead_zombie_tomb_b"
@@ -2156,8 +2619,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	
 	"npc_creep_undead_zombie_tomb_c"
@@ -2198,8 +2661,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "525"
-	    "VisionNighttimeRange"    "525"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	"npc_temple_oath"
 	{

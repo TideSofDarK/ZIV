@@ -2,6 +2,38 @@
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"                  "Undying_Zombie"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/heroes/drow/drow_legs.vmdl"
+                "2" "models/items/kunkka/inquisitor_tide_glove/inquisitor_tide_glove.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/sven/guise_of_belligerent_ram_glove/guise_of_belligerent_ram_glove.vmdl"
+                "2" "models/items/kunkka/claddish_legs/claddish_legs.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/axe/greek_helmet.vmdl"
+                "2" "models/items/kunkka/singsingkunkkaset_gloves/singsingkunkkaset_gloves.vmdl"
+                "3" "models/items/drow/thief_legs/thief_legs.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/clinkz/ti6_clinkz_gloves/ti6_clinkz_gloves.vmdl"
+                "2"     "models/items/drow/misty_huntress_legs/misty_huntress_legs.vmdl"
+                "3"     "models/items/kunkka/elegant_shoulders_of_the_kunkkistadore/elegant_shoulders_of_the_kunkkistadore.vmdl"
+            }
+        }
+    }
     
     "HealthBarOffset"   "200"
     "Model"           "models/items/undying/idol_of_ruination/ruin_wight_minion_gold.vmdl"
@@ -36,8 +68,8 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "VisionDaytimeRange"    "525"
-    "VisionNighttimeRange"    "525"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 
 "npc_creep_undead_zombie_tomb_a"
 {
@@ -77,8 +109,8 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "VisionDaytimeRange"    "525"
-    "VisionNighttimeRange"    "525"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 
 
 "npc_creep_undead_zombie_tomb_b"
@@ -119,8 +151,8 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "VisionDaytimeRange"    "525"
-    "VisionNighttimeRange"    "525"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 
 
 "npc_creep_undead_zombie_tomb_c"
@@ -161,6 +193,6 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "VisionDaytimeRange"    "525"
-    "VisionNighttimeRange"    "525"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 

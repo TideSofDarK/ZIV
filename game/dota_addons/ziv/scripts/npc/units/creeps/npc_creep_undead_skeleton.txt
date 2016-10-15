@@ -17,6 +17,16 @@
                 "1" "models/items/kunkka/claddish_legs/claddish_legs.vmdl"
                 "2" "models/items/axe/berserkers_helm.vmdl"
             }
+            "3" 
+            {
+                "1" "models/items/clinkz/lost_viking_helmet/lost_viking_helmet.vmdl"
+                "2" "models/items/blood_seeker/war_gloves.vmdl"
+            }
+            "4" 
+            {
+                "1" "models/items/windrunner/falconhelm1/falconhelm1.vmdl"
+                "2" "models/items/siren/arms_of_the_captive_princess_armor/arms_of_the_captive_princess_armor.vmdl"
+            }
         }
         "Lord"
         {
@@ -64,6 +74,6 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "VisionDaytimeRange"    "525"
-    "VisionNighttimeRange"    "525"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 

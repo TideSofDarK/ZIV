@@ -105,10 +105,15 @@ function PseudoRNG:PFromC( C )
 end
 
 --Use this to check if an ab
-function PseudoRNG:Next()
+function PseudoRNG:Next(modifier)
 	-- P(N) = C * N
+	if modifier then
+		modifier = modifier + 1
+	else
+		modifier = 1
+	end
 	local P = self.cons * (self.failedTries + 1)
-	if RandomFloat( 0, 1 ) <= P then
+	if RandomFloat( 0, 1 ) <= P * modifier * modifier then
 		--success!
 		self.failedTries = 0
 		return true

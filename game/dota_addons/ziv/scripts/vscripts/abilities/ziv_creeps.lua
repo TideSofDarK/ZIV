@@ -12,7 +12,7 @@ function CheckForHeroes(keys)
 	local ability = keys.ability
 
 	for k,v in pairs(Characters.current_session_characters) do
-		if Distance(v, caster) < GetSpecial(ability, "aggro_radius") then
+		if GridNav:FindPathLength(v:GetAbsOrigin(),caster:GetAbsOrigin()) < GetSpecial(ability, "aggro_radius") then
 			caster:MoveToTargetToAttack(v)
 			caster:RemoveModifierByName("ziv_creep_normal_behavior_logic")
 			return

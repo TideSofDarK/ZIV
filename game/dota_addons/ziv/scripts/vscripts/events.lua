@@ -262,6 +262,14 @@ function ZIV:OnEntityKilled( keys )
 
   local damagebits = keys.damagebits -- This might always be 0 and therefore useless
 
+  -- Killcam nuke
+  if killedUnit:IsRealHero() then
+    Timers:CreateTimer(0.03, function (  )
+      PlayerResource:GetPlayer(killedUnit:GetPlayerOwnerID()):SetKillCamUnit(nil)
+    end)
+  end
+
+  -- Loot
   if killedUnit:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not killedUnit.no_loot then
     Loot:Generate( killedUnit, attackerUnit )
   end

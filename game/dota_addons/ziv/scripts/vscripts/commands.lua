@@ -5,9 +5,15 @@ function ZIV:Test()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
       
-      local creep = CreateUnitByName("npc_dota_creep_badguys_melee",hero:GetAbsOrigin(),false,hero,hero,DOTA_TEAM_BADGUYS)
-      Wearables:AttachWearable(creep, "models/items/dragon_knight/dragon_lord_shoulder/dragon_lord_shoulder.vmdl")
-      Wearables:AttachWearable(creep, "models/items/dragon_knight/ascension_back/ascension_back.vmdl")
+      local rng = PseudoRNG.create( 0.07 )
+      local wins = 0
+      for i=1,10000 do
+        if rng:Next(0.2) then
+          wins = wins + 1
+        end
+      end
+
+      print("common ratio: ", wins/10000)
     end
   end
 end

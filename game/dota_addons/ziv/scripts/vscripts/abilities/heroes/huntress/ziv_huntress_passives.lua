@@ -2,14 +2,11 @@ function SetupCallback( keys )
     local caster = keys.caster
     local ability = keys.ability
 
-    local chance = (GetSpecial(ability, "snare_chance") / 100) + GRSMC("ziv_huntress_passives_chance", caster)
-
-    ability.rng = ability.rng or PseudoRNG.create( chance )
+    ability.rng = ability.rng or PseudoRNG.create( GetSpecial(ability, "snare_chance") / 100 )
 
     caster.OnDamageDealCallbacks = caster.OnDamageDealCallbacks or {}
     table.insert(caster.OnDamageDealCallbacks, function (caster, target, damage)
-        ability.rng = ability.rng:Init( chance, true )
-        if ability.rng:Next() then
+        if ability.rng:Next(GRSMC("ziv_huntress_passives_chance", caster) / 100) then
             local projectile_info = {
                 EffectName = "particles/units/heroes/hero_meepo/meepo_earthbind_projectile_fx.vpcf",
                 Ability = ability,
