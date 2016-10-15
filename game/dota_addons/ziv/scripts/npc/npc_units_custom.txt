@@ -1151,6 +1151,31 @@
 	    "SoundSet"  "n_creep_skeleton_melee"
 	
 	    "Group"                     "greevils_a"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/ursa/swift_claw_ursa_arms/ursa_swift_claw.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/ursa/assault_armor_helmet.vmdl"
+	                "2" "models/heroes/tuskarr/tusk_armor_glove.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/doom/eternal_fire_back/eternal_fire_back.vmdl"
+	                "2"     "models/items/lion/scepter_of_corrupted_amber/scepter_of_corrupted_amber.vmdl"
+	                "3"     "models/items/lion/hell_arm/hell_arm.vmdl"
+	            }
+	        }
+	    }
 	    
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/lane_creeps/creep_dire_hulk/creep_dire_ancient_hulk.vmdl"
@@ -1195,6 +1220,31 @@
 	    "SoundSet"  "n_creep_skeleton_melee"
 	
 	    "Group"                     "greevils_a"
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/clinkz/bone_fletcher_gloves/bone_fletcher_gloves.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/kunkka/claddish_gloves/claddish_gloves.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/rikimaru/bladearmorgloves/bladearmorgloves.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1" 
+	            {
+	                "1"     "models/items/bounty_hunter/bounty_scout_armor/bounty_scout_armor.vmdl"
+	            }
+	        }
+	    }
 	    
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/mega_greevil/mega_greevil.vmdl"
@@ -1604,6 +1654,32 @@
 	        "Color3"                 "0;128;128"
 	        "Color4"                 "188;188;0"
 	    }
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/heroes/doom/doom_helm.vmdl"
+	                "2" "models/items/juggernaut/wandering_demon_legs_black/wandering_demon_legs_black.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/beastmaster/beast_heart_marauder_arms/beast_heart_marauder_arms.vmdl"
+	                "2" "models/heroes/huskar/huskar_helmet.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/lion/ancient_evil_helm/ancient_evil_helm.vmdl"
+	                "2"     "models/items/doom/baphomet_wings/baphomet_wings.vmdl"
+	                "3"     "models/items/lion/hell_arm/hell_arm.vmdl"
+	                "4"     "models/items/axe/searing_annihilator_armor/searing_annihilator_armor.vmdl"
+	            }
+	        }
+	    }
 	    
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/item_creeps/i_creep_necro_warrior/necro_warrior.vmdl"
@@ -1702,6 +1778,33 @@
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"  "n_creep_skeleton_melee"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/heroes/rikimaru/rikimaru_gloves.vmdl"
+	                "2" "models/items/drow/arvalias_legacy_legs/arvalias_legacy_legs.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/kunkka/claddish_legs/claddish_legs.vmdl"
+	                "2" "models/items/axe/berserkers_helm.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/heroes/nerubian_assassin/nerubian_assassin_helmet.vmdl"
+	                "2"     "models/items/juggernaut/armor_of_kogu/armor_of_kogu.vmdl"
+	                "3"     "models/items/kunkka/boots_of_the_divine_anchor/boots_of_the_divine_anchor.vmdl"
+	                "4"     "models/items/rikimaru/bladearmorgloves/bladearmorgloves.vmdl"
+	            }
+	        }
+	    }
 	    
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
@@ -1869,6 +1972,32 @@
 	{
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"                  "Undying_Zombie"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/kunkka/glove_admirableadmiral.vmdl"
+	                "2" "models/items/vengefulspirit/echoes_eyrie_legs/echoes_eyrie_legs.vmdl"
+	            }
+	            "2" 
+	            {
+	                "2" "models/heroes/undying/undying_armor.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/kunkka/boots_of_the_divine_anchor/boots_of_the_divine_anchor.vmdl"
+	                "2"     "models/items/undying/undying_tomb_overlord_armor/undying_tomb_overlord_armor.vmdl"
+	                "3"     "models/items/clinkz/ti6_clinkz_gloves/ti6_clinkz_gloves.vmdl"
+	                "4"     "models/heroes/undying/undying_helmet.vmdl"
+	            }
+	        }
+	    }
 	    
 	    "HealthBarOffset"   "205"
 	    "Model"           "models/heroes/undying/undying_minion.vmdl"

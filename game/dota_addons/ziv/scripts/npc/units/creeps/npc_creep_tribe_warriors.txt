@@ -11,6 +11,32 @@
         "Color3"                 "0;128;128"
         "Color4"                 "188;188;0"
     }
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/heroes/doom/doom_helm.vmdl"
+                "2" "models/items/juggernaut/wandering_demon_legs_black/wandering_demon_legs_black.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/beastmaster/beast_heart_marauder_arms/beast_heart_marauder_arms.vmdl"
+                "2" "models/heroes/huskar/huskar_helmet.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/lion/ancient_evil_helm/ancient_evil_helm.vmdl"
+                "2"     "models/items/doom/baphomet_wings/baphomet_wings.vmdl"
+                "3"     "models/items/lion/hell_arm/hell_arm.vmdl"
+                "4"     "models/items/axe/searing_annihilator_armor/searing_annihilator_armor.vmdl"
+            }
+        }
+    }
     
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/item_creeps/i_creep_necro_warrior/necro_warrior.vmdl"

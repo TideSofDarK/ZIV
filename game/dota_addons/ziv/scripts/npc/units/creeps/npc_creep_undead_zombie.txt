@@ -2,6 +2,32 @@
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"                  "Undying_Zombie"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/kunkka/glove_admirableadmiral.vmdl"
+                "2" "models/items/vengefulspirit/echoes_eyrie_legs/echoes_eyrie_legs.vmdl"
+            }
+            "2" 
+            {
+                "2" "models/heroes/undying/undying_armor.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/kunkka/boots_of_the_divine_anchor/boots_of_the_divine_anchor.vmdl"
+                "2"     "models/items/undying/undying_tomb_overlord_armor/undying_tomb_overlord_armor.vmdl"
+                "3"     "models/items/clinkz/ti6_clinkz_gloves/ti6_clinkz_gloves.vmdl"
+                "4"     "models/heroes/undying/undying_helmet.vmdl"
+            }
+        }
+    }
     
     "HealthBarOffset"   "205"
     "Model"           "models/heroes/undying/undying_minion.vmdl"

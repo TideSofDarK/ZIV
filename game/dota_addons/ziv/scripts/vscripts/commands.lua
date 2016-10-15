@@ -1,3 +1,17 @@
+function ZIV:Test()
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+      local hero = cmdPlayer:GetAssignedHero()
+      
+      local creep = CreateUnitByName("npc_dota_creep_badguys_melee",hero:GetAbsOrigin(),false,hero,hero,DOTA_TEAM_BADGUYS)
+      Wearables:AttachWearable(creep, "models/items/dragon_knight/dragon_lord_shoulder/dragon_lord_shoulder.vmdl")
+      Wearables:AttachWearable(creep, "models/items/dragon_knight/ascension_back/ascension_back.vmdl")
+    end
+  end
+end
+
 function ZIV:PrintCreepCount()
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then

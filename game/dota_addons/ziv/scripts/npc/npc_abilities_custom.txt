@@ -6648,9 +6648,9 @@
 	      {
 	        "RunScript"
 	        {
-	          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
-	          "Function"    "Damage"
-	          "Target"       "TARGET"
+	          "ScriptFile"    "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
+	          "Function"      "Damage"
+	          "Target"        "TARGET"
 	        }
 	      }
 	

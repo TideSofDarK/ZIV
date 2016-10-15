@@ -231,6 +231,29 @@ function Director:SpawnPack( pack_table )
 	end
 end
 
+function Director:GenerateVisuals( creep_name )
+	local visuals = {}
+
+	-- Color presets
+	if ZIV.UnitKVs[creep_name].Colors then
+		local color_string = KeyValues:Split(ZIV.UnitKVs[creep_name]["Colors"]["Color"..tostring(math.random(1,GetTableLength(ZIV.UnitKVs[creep_name]["Colors"])))], ";") 
+		visuals.material_color = Vector(tonumber(color_string[1]), tonumber(color_string[2]), tonumber(color_string[3]))
+	end
+
+	-- Wearables presets
+	local wearables = ZIV.UnitKVs[creep_name].Wearables
+	if wearables then
+		if wearables.Lord then
+			visuals.wearables_table_lord = GetRandomElement(wearables.Lord)
+		end
+		if wearables.Creep then
+			visuals.wearables_table = GetRandomElement(wearables.Creep)
+		end
+	end
+
+	return visuals
+end
+
 function Director:SpawnCreeps( spawn_table )
 	if spawn_table then
 		local count = spawn_table.Count
@@ -248,9 +271,13 @@ function Director:SpawnCreeps( spawn_table )
 			group = math.random(1,2) == 1
 		end
 
+		local visuals = {}
+		visuals[creep_name] = Director:GenerateVisuals( creep_name )
+
 		for i=1,count do 
 			if group then
 				creep_name = Director:GetRandomGroupCreep(creep_name)
+				visuals[creep_name] = visuals[creep_name] or Director:GenerateVisuals( creep_name )
 			end
 
 			local position = RandomPointInsideCircle(spawn_table.Position[1], spawn_table.Position[2], spawn_table.BasicSpread or Director.BASIC_PACK_SPREAD)
@@ -318,9 +345,21 @@ function Director:SpawnCreeps( spawn_table )
 
 					InitAbilities(creep)
 
-					if ZIV.UnitKVs[creep:GetUnitName()].Colors then
-						local color = KeyValues:Split(ZIV.UnitKVs[creep:GetUnitName()]["Colors"]["Color"..tostring(math.random(1,GetTableLength(ZIV.UnitKVs[creep:GetUnitName()]["Colors"])))], ";") 
-						creep:SetRenderColor(tonumber(color[1]), tonumber(color[2]), tonumber(color[3]))
+					local visuals = visuals[creep:GetUnitName()]
+
+					if visuals.material_color then
+						local color = visuals.material_color
+						creep:SetRenderColor(color[1], color[2], color[3])
+					end
+
+					if spawn_table.Lord and visuals.wearables_table_lord then
+						for k,v in pairs(visuals.wearables_table_lord) do
+							Wearables:AttachWearable(creep, v)
+						end
+					elseif visuals.wearables_table then
+						for k,v in pairs(visuals.wearables_table) do
+							Wearables:AttachWearable(creep, v)
+						end
 					end
 
 					if spawn_table.Table then --and type(spawn_table["Table"]) == "table"

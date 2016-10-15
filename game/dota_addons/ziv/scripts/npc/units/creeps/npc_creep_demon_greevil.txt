@@ -4,6 +4,31 @@
     "SoundSet"  "n_creep_skeleton_melee"
 
     "Group"                     "greevils_a"
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/clinkz/bone_fletcher_gloves/bone_fletcher_gloves.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/kunkka/claddish_gloves/claddish_gloves.vmdl"
+            }
+            "3" 
+            {
+                "1" "models/items/rikimaru/bladearmorgloves/bladearmorgloves.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1" 
+            {
+                "1"     "models/items/bounty_hunter/bounty_scout_armor/bounty_scout_armor.vmdl"
+            }
+        }
+    }
     
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/mega_greevil/mega_greevil.vmdl"

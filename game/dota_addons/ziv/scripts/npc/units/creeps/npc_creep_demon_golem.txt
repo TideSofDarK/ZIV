@@ -4,6 +4,31 @@
     "SoundSet"  "n_creep_skeleton_melee"
 
     "Group"                     "greevils_a"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/ursa/swift_claw_ursa_arms/ursa_swift_claw.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/ursa/assault_armor_helmet.vmdl"
+                "2" "models/heroes/tuskarr/tusk_armor_glove.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/doom/eternal_fire_back/eternal_fire_back.vmdl"
+                "2"     "models/items/lion/scepter_of_corrupted_amber/scepter_of_corrupted_amber.vmdl"
+                "3"     "models/items/lion/hell_arm/hell_arm.vmdl"
+            }
+        }
+    }
     
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/lane_creeps/creep_dire_hulk/creep_dire_ancient_hulk.vmdl"

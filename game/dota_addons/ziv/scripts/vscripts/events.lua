@@ -266,18 +266,29 @@ function ZIV:OnEntityKilled( keys )
     Loot:Generate( killedUnit, attackerUnit )
   end
 
+  -- Hardcoded callback
   if killedUnit.on_kill then killedUnit:on_kill() end
 
+  -- Customly attached particles
   if killedUnit.particles then
     for k,v in pairs(killedUnit.particles) do
       ParticleManager:DestroyParticle(v, false)
     end
   end
 
+  -- Count creeps
   if killedUnit.pack then
     Director.current_session_creep_count = Director.current_session_creep_count - 1
   end
 
+  -- Cleanup wearables
+  if killedUnit.wearables then
+    Timers:CreateTimer(4.0, function ()
+      Wearables:Remove(killedUnit)
+    end)
+  end
+
+  -- Deathsim particle and death sound
   local kv = ZIV.UnitKVs[killedUnit:GetUnitName()]
 
   if kv then
@@ -285,14 +296,11 @@ function ZIV:OnEntityKilled( keys )
       killedUnit:AddNoDraw()
       local dummy = CreateUnitByName("npc_dummy_unit",killedUnit:GetAbsOrigin(),false,killedUnit:GetOwnerEntity(),killedUnit:GetOwnerEntity(),killedUnit:GetTeamNumber())
       TimedEffect( kv["deathsim"], dummy, 4.0, 0 )
-      Timers:CreateTimer(4.0, function (  )
-      end)
     end
     if kv["deathsound"] then
       EmitSoundOnLocationWithCaster(killedUnit:GetAbsOrigin(),"Building_DireTower.Destruction",killerEntity)
     end
   end
-  -- Put code here to handle when an entity gets killed
 end
 
 

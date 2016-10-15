@@ -2,6 +2,33 @@
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"  "n_creep_skeleton_melee"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/heroes/rikimaru/rikimaru_gloves.vmdl"
+                "2" "models/items/drow/arvalias_legacy_legs/arvalias_legacy_legs.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/kunkka/claddish_legs/claddish_legs.vmdl"
+                "2" "models/items/axe/berserkers_helm.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/heroes/nerubian_assassin/nerubian_assassin_helmet.vmdl"
+                "2"     "models/items/juggernaut/armor_of_kogu/armor_of_kogu.vmdl"
+                "3"     "models/items/kunkka/boots_of_the_divine_anchor/boots_of_the_divine_anchor.vmdl"
+                "4"     "models/items/rikimaru/bladearmorgloves/bladearmorgloves.vmdl"
+            }
+        }
+    }
     
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"

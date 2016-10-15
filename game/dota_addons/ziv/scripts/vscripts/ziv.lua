@@ -17,6 +17,7 @@ require('libraries/notifications')
 require('libraries/animations')
 -- This library can be used for performing "Frankenstein" attachments on units
 require('libraries/attachments')
+require('libraries/wearables')
 -- Some jerky math stuff
 require('libraries/maths')
 -- Popup particles
@@ -100,6 +101,10 @@ LinkLuaModifier("modifier_smooth_floating", "abilities/tools/modifier_smooth_flo
 LinkLuaModifier("modifier_command_restricted", "abilities/tools/modifier_command_restricted.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_ai", "abilities/tools/modifier_boss_ai.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hide", "abilities/tools/modifier_hide.lua", LUA_MODIFIER_MOTION_NONE)
+
+LinkLuaModifier("modifier_wearable_visuals", "abilities/tools/modifier_wearable_visuals", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wearable_visuals_status_fx", "abilities/tools/modifier_wearable_visuals", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wearable_visuals_activity", "abilities/tools/modifier_wearable_visuals", LUA_MODIFIER_MOTION_NONE)
 
 function ZIV:PostLoadPrecache()
   DebugPrint("[ZIV] Performing Post-Load precache")    
@@ -226,6 +231,7 @@ function ZIV:InitZIV()
   Convars:RegisterCommand( "amth", Dynamic_Wrap(ZIV, 'AddModifierToHero'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "pcc",  Dynamic_Wrap(ZIV, 'PrintCreepCount'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "aath",  Dynamic_Wrap(ZIV, 'AddAbilityToHero'), "", FCVAR_CHEAT )
+  Convars:RegisterCommand( "vt",  Dynamic_Wrap(ZIV, 'Test'), "", FCVAR_CHEAT )
 
   GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( ZIV, "FilterExecuteOrder" ), self )
   GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( ZIV, "DamageFilter" ), self )
