@@ -1,0 +1,15 @@
+"ziv_sniper_ammo"
+{
+  "BaseClass"           "ability_lua"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityTextureName"            "ziv_empty"
+
+  "MaxLevel"  "1"
+
+  "ScriptFile"                  "abilities/heroes/sniper/ziv_sniper_ammo.lua"
+
+  "precache"
+  {
+    "particle"  "particles/heroes/sniper/sniper_ammo_poison_debuff.vpcf"
+  }
+}

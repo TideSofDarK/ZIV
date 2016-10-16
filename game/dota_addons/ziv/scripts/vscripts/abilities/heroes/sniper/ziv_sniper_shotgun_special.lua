@@ -3,6 +3,8 @@ function ShotgunSpecial(keys)
 	local ability = keys.ability
 	local target = keys.target_points[1]
 
+	local ammo = caster:FindAbilityByName("ziv_sniper_ammo")
+
 	local cast_range = Distance(caster, target)
 
 	keys.effect = "particles/heroes/sniper/sniper_shotgun_special_projectile.vpcf"
@@ -18,6 +20,7 @@ function ShotgunSpecial(keys)
 	keys.standard_targeting = false
 	keys.attack_sound = "null"
 	keys.on_hit = (function ( keys )
+		ammo:ApplyAmmo(keys.target)
 		DealDamage(caster, keys.target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_sniper_shotgun_special_damage"), DAMAGE_TYPE_PHYSICAL)
 		if GetChance(GetSpecial(ability, "knockback_chance")) then
 			local duration = GetRunePercentIncrease(0.3,"ziv_sniper_shotgun_special_force",caster)

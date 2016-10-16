@@ -140,6 +140,7 @@
 	"ziv_witch_doctor_totem_radius"		"to Spirit Totem radius"
 	"ziv_witch_doctor_totem_targets"	"to Spirit Totem target count"
 
+	"ziv_sniper_ammo_poison"						"additional dark damage amp per second debuff (applies on projectile hit)"
 	"ziv_sniper_explosive_trap_damage"				"to Explosive Trap damage"
 	"ziv_sniper_explosive_trap_delay"				"percent reduction of Explosive trap delay"
 	"ziv_sniper_thunder_trap_damage"				"to Thunder trap damage"

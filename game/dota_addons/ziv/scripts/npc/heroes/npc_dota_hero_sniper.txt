@@ -17,7 +17,7 @@
     
     "Ability1"        "ziv_sniper_explosive_trap"
     "Ability2"        "ziv_sniper_thunder_trap"
-    "Ability3"        "ziv_sniper_trueshot_aura" 
+    "Ability3"        "ziv_sniper_ammo" 
     "Ability4"        "ziv_empty6"
     "Ability5"        "ziv_sniper_empty1" 
     "Ability6"        "ziv_sniper_empty2" 

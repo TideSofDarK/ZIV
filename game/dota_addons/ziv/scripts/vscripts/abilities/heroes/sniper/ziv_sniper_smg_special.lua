@@ -5,6 +5,8 @@ function SMGSpecial(keys)
 	local target = keys.target
 	local ability = keys.ability
 
+	local ammo = caster:FindAbilityByName("ziv_sniper_ammo")
+
 	local spread = GetModifierCount( caster, "modifier_smg_special_spread" )
 
 	keys.effect = "particles/heroes/sniper/sniper_smg_special_projectile.vpcf"
@@ -26,6 +28,7 @@ function SMGSpecial(keys)
 		end
 	end)
 	keys.on_hit = (function ( keys )
+		ammo:ApplyAmmo(keys.target)
 		DealDamage(caster, keys.target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
 		if GetRuneChance("ziv_sniper_smg_special_knockback_chance", caster) then 
 			local knockbackModifierTable =

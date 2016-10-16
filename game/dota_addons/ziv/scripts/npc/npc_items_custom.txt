@@ -2907,6 +2907,35 @@
 	    }
 	  }
 	}
+	"item_rune_ammo_poison"
+	{
+	  "ID"                      "1656"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_rune_ammo_poison"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"    "New"
+	  "Type"       "Float"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_sniper_ammo_poison"
+	    {
+	      "min" "5"
+	      "max" "40"
+	    }
+	  }
+	}
 	"item_rune_explosive_trap_damage"
 	{
 	  "ID"		"1656"
