@@ -6497,6 +6497,7 @@
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "AbilityCooldown"   "1.5"
+	  "AbilityManaCost"   "40"
 	  "AbilityCastPoint"  "0.3"
 	
 	  "ScriptFile"                  "abilities/heroes/witch_doctor/ziv_witch_doctor_blink.lua"

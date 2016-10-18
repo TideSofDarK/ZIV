@@ -1,9 +1,5 @@
 ziv_witch_doctor_blink = class({})
 
-function ziv_witch_doctor_blink:GetManaCost()
-	return 40
-end
-
 function ziv_witch_doctor_blink:GetCastRange()
 	return 850
 end
