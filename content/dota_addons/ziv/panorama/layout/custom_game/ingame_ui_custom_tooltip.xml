@@ -203,8 +203,6 @@
                 
                 abilityTooltip.FindChildTraverse("AbilityTooltipDescription").text = $.Localize("DOTA_Tooltip_ability_" + abilityName + "_Description");
 
-                var newModifiers = {};
-
                 var i = 1;
                 for (special in abilityKV["AbilitySpecial"]) {
                     for (specialName in abilityKV["AbilitySpecial"][special]) {
@@ -246,14 +244,6 @@
                                             if (itemKV["Tooltip"] == specialName) {
                                                 valueColor = "#3fb568";
                                                 finalValue = Util.ConvertValue(buffName, finalValue, stackCount);
-                                            } else if (itemKV["Tooltip"] == "AbilityCooldown") {
-                                                FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCooldown"), "cooldown", Util.ConvertValue(buffName, abilityKV["AbilityCooldown"], stackCount), "#3fb568");
-                                            } else if (itemKV["Tooltip"] == "AbilityCastPoint") {
-                                                FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCastPoint"), "energy_cost", Util.ConvertValue(buffName, abilityKV["AbilityCastPoint"], stackCount), "#3fb568");
-                                            } else if (itemKV["Tooltip"] == "AbilityManaCost") {
-                                                FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipEnergyCost"), "energy_cost", Util.ConvertValue(buffName, abilityKV["AbilityManaCost"], stackCount), "#3fb568");
-                                            } else if (itemKV["Tooltip"] == "New") {
-                                                newModifiers[buffName] = Util.ColorString("+ " + Util.ConvertValue(buffName, 0, stackCount),"#ffffff") + " " + $.Localize(buffName);
                                             }
                                         }
                                     }
@@ -266,6 +256,38 @@
                         }
                     }
                     i++;
+                }
+
+                var newModifiers = {};
+
+                if (Entities.GetUnitName(hero)) {
+                    for (var i = 0; i < Entities.GetNumBuffs( hero); i++) {
+                        var buff = Entities.GetBuff( hero, i );
+                        var buffName = Buffs.GetName(hero, buff);
+
+                        if (buffName.match("ziv_" + heroName)) {
+                            var stackCount = Buffs.GetStackCount(hero, buff);
+                            var runeName = buffName.replace("ziv_" + heroName, "item_rune");
+
+                            var itemKV = PlayerTables.GetTableValue("kvs", "items")[runeName];
+                            if (!itemKV) {
+                                itemKV = PlayerTables.GetTableValue("kvs", "items")[buffName.replace("ziv_" + heroName, "item_rune_"+heroName)];
+                            }
+                            if (buffName.match(abilityName) && stackCount != 0) {
+                                var multiplier = itemKV["Reduction"] == 1 ? -1 : 1;
+
+                                if (itemKV["Tooltip"] == "AbilityCooldown") {
+                                    FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCooldown"), "cooldown", Util.ConvertValue(buffName, abilityKV["AbilityCooldown"], stackCount), "#3fb568");
+                                } else if (itemKV["Tooltip"] == "AbilityCastPoint") {
+                                    FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCastPoint"), "cast_point", Util.ConvertValue(buffName, abilityKV["AbilityCastPoint"], stackCount), "#3fb568");
+                                } else if (itemKV["Tooltip"] == "AbilityManaCost") {
+                                    FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipEnergyCost"), "energy_cost", Util.ConvertValue(buffName, abilityKV["AbilityManaCost"], stackCount), "#3fb568");
+                                } else if (itemKV["Tooltip"] == "New") {
+                                    newModifiers[buffName] = Util.ColorString("+ " + Util.ConvertValue(buffName, 0, stackCount),"#ffffff") + " " + $.Localize(buffName);
+                                }
+                            }
+                        }
+                    }
                 }
 
                 if (Object.keys( newModifiers ).length >= 1)

@@ -3480,6 +3480,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"     "New"
+	  // "Type"        "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -3505,6 +3508,9 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "AbilityCastPoint"
+	  "Reduction" "1"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -3532,6 +3538,10 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -3557,6 +3567,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "duration"
+	  "Type"      "Float"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -3584,6 +3598,10 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "slow"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -3609,6 +3627,11 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "hp_to_ep_ratio"
+	  "Type"      "Float"
+	  "Method"    "Add"
+	  "Reduction" "1"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
@@ -3636,6 +3659,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip" "AbilityCooldown"
+	  "Reduction" "1"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -3661,6 +3687,10 @@
 	
 	  "MaxUpgradeLevel"         "1"
 	  "ItemBaseLevel"           "1"
+	
+	  "Tooltip"   "count"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount"   "1"
 	  "FortifyModifiers"
@@ -3688,6 +3718,9 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip" "AbilityCooldown"
+	  "Reduction" "1"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -3713,6 +3746,10 @@
 	
 	  "MaxUpgradeLevel"         "1"
 	  "ItemBaseLevel"           "1"
+	
+	  "Tooltip"   "count"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount"   "1"
 	  "FortifyModifiers"
@@ -3740,6 +3777,10 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "totem_duration"
+	  "Type"      "Float"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -3766,6 +3807,10 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "force"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
@@ -3776,7 +3821,7 @@
 	    }
 	  }
 	}
-	"item_rune_witch_doctor_totem_radius"
+	"item_rune_witch_doctor_totem_range"
 	{
 	  "ID"		"1609"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3792,10 +3837,13 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
+	  "Tooltip"   "New"
+	  "Type"      "Int"
+	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
-	    "ziv_witch_doctor_totem_radius"
+	    "ziv_witch_doctor_totem_range"
 	    {
 	      "min" "10"
 	      "max" "500"
@@ -3817,6 +3865,10 @@
 	
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "totem_targets"
+	  "Type"      "Int"
+	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
