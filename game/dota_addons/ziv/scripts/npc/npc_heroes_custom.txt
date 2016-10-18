@@ -513,7 +513,7 @@
 	    "Ability2"        "ziv_witch_doctor_totem2" 
 	    "Ability3"        "ziv_witch_doctor_spawn"
 	    "Ability4"        "ziv_witch_doctor_spawn2"
-	    "Ability5"        "ziv_witch_doctor_lifesteal"
+	    "Ability5"        "ziv_witch_doctor_soul_sacrifice"
 	    "Ability6"        "ziv_witch_doctor_curse"
 	    "Ability7"        "ziv_witch_doctor_blink"
 	    "Ability8"        ""
@@ -534,11 +534,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_INTELLECT"
-	    "AttributeBaseStrength"   "8"
+	    "AttributeBaseStrength"   "6"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "3"
+	    "AttributeBaseIntelligence" "6"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "4"
+	    "AttributeBaseAgility"    "5"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"

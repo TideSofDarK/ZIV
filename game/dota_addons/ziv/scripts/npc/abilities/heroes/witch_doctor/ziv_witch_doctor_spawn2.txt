@@ -21,34 +21,39 @@
 
   "AbilityManaCost"       "25"
 
-  "MaxLevel"  "7"
+  "MaxLevel"  "1"
 
   "AbilitySpecial"
   {
     "01"
     {
       "var_type"      "FIELD_INTEGER"
-      "slow"      "-40"
+      "zombie_damage_amp"      "1.1"
     }
     "02"
     {
       "var_type"      "FIELD_INTEGER"
-      "slow_duration"    "5"
+      "attack_slow"      "55"
     }
     "03"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "attack_slow_duration"    "5"
+    }
+    "04"
     {
       "var_type"      "FIELD_FLOAT"
       "duration"    "6"
     }
-    "04"
-    {
-      "var_type"      "FIELD_INTEGER"
-      "count"    "6"
-    }
     "05"
     {
       "var_type"      "FIELD_INTEGER"
-      "zombie_attack_speed"    "100"
+      "count"    "3"
+    }
+    "06"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "zombie_attack_speed"    "50"
     }
   }
 
@@ -58,9 +63,9 @@
     {
       "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_spawn.lua"
       "Function"    "WDSpawn"
-      "creep" "npc_witch_doctor_zombie"
-      "modifier"  "modifier_witch_doctor_zombie"
-      "Target"       "POINT"
+      "creep"       "npc_witch_doctor_zombie"
+      "modifier"    "modifier_witch_doctor_zombie"
+      "Target"      "POINT"
     }
   }
 
@@ -84,11 +89,11 @@
 
       "OnAttackLanded"
       {
-        "ApplyModifier"
+        "RunScript"
         {
-          "ModifierName"  "modifier_witch_doctor_zombie_slow"
-          "Target"     "TARGET"
-          "Duration"    "%slow_duration"
+          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_spawn.lua"
+          "Function"    "ZombieHitImpact"
+          "Target"      "TARGET"
         }
       }
     
@@ -120,7 +125,7 @@
       
       "Properties"
       {
-        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1" 
       }
     }
   }

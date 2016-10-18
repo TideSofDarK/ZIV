@@ -11,14 +11,14 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"     "1"
-    "AttackDamageMax"     "2"
+    "AttackDamageMin"     "0"
+    "AttackDamageMax"     "0"
     "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"        "0.5"
     "AttackAnimationPoint"    "0.1"
     "AttackAcquisitionRange"  "800"
-    "AttackRange"       "600"
-    "ProjectileModel"     "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf"
+    "AttackRange"       "500"
+    "ProjectileModel"     "particles/heroes/witch_doctor/witch_doctor_totem_projectile.vpcf"
     "ProjectileSpeed"     "1100"
 
     "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"

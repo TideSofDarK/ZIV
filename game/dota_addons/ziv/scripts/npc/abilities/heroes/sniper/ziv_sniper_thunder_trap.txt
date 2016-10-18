@@ -9,12 +9,14 @@
     "soundfile"     "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
     "soundfile"     "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"      
     "particle"      "particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
-    "particle"  "particles/heroes/sniper/sniper_thunder_trap_sparks.vpcf"
-    "particle"  "particles/units/heroes/hero_ursa/ursa_earthshock_dust.vpcf"
-    "particle"  "particles/units/heroes/hero_ursa/ursa_dust_hit.vpcf"
-    "particle"  "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
-    "particle"  "particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_ground_smoke.vpcf"
+    "particle"      "particles/heroes/sniper/sniper_thunder_trap_sparks.vpcf"
+    "particle"      "particles/units/heroes/hero_ursa/ursa_earthshock_dust.vpcf"
+    "particle"      "particles/units/heroes/hero_ursa/ursa_dust_hit.vpcf"
+    "particle"      "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+    "particle"      "particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_ground_smoke.vpcf"
   }
+
+  "AbilityCastAnimation"    "ACT_DOTA_ATTACK"
 
   "AbilityCastRange"        "400"
   "AbilityCastPoint"        "0.001"

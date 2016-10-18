@@ -14,13 +14,16 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"     "New"
+  // "Type"        "Int"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
     "ziv_witch_doctor_blink_heal"
     {
       "min" "2"
-      "max" "12"
+      "max" "15"
     }
   }
 }

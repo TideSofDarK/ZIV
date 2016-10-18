@@ -21,34 +21,29 @@
 
   "AbilityManaCost"       "25"
 
-  "MaxLevel"  "7"
+  "MaxLevel"  "1"
 
   "AbilitySpecial"
   {
     "01"
     {
-      "var_type"      "FIELD_FLOAT"
-      "damage_amp"      "1.5"
-    }
-    "02"
-    {
-      "var_type"      "FIELD_FLOAT"
-      "tick"    "1.0"
+      "var_type"                  "FIELD_FLOAT"
+      "skeleton_damage_amp"       "1.5"
     }
     "03"
     {
-      "var_type"      "FIELD_FLOAT"
-      "duration"    "6"
+      "var_type"                  "FIELD_FLOAT"
+      "duration"                  "6"
     }
     "04"
     {
-      "var_type"      "FIELD_INTEGER"
-      "count"    "6"
+      "var_type"                  "FIELD_INTEGER"
+      "count"                     "4"
     }
     "05"
     {
-      "var_type"      "FIELD_INTEGER"
-      "skeleton_attack_speed"    "100"
+      "var_type"                  "FIELD_INTEGER"
+      "skeleton_attack_speed"     "50"
     }
   }
 
@@ -74,6 +69,16 @@
 
       "StatusEffectName"     "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"      
       "StatusEffectPriority"  "10"
+
+      "OnAttackLanded"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_spawn.lua"
+          "Function"    "SkeletonHitImpact"
+          "Target"      "TARGET"
+        }
+      }
 
       "Properties"
       {

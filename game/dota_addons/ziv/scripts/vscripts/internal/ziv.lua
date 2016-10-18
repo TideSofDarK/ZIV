@@ -100,7 +100,7 @@ function ZIV:_InitZIV()
   CustomGameEventManager:RegisterListener( "ziv_craft_request", Dynamic_Wrap(Crafting, 'CraftingRequest'))
 
   CustomGameEventManager:RegisterListener( "ziv_write_to_nettable", Dynamic_Wrap(ZIV, 'WriteToNettable'))
-
+  
   CustomGameEventManager:RegisterListener( "ziv_cast_ability_no_target_remote", Dynamic_Wrap(ZIV, 'CastAbilityNoTargetRemote'))
   
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(ZIV, 'OnShopToggled'), self)

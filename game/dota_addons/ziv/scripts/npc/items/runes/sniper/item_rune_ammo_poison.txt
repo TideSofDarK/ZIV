@@ -22,8 +22,8 @@
   {
     "ziv_sniper_ammo_poison"
     {
-      "min" "5"
-      "max" "40"
+      "min" "1"
+      "max" "30"
     }
   }
 }

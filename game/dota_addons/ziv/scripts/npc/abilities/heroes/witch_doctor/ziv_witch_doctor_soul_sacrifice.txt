@@ -1,0 +1,62 @@
+"ziv_witch_doctor_soul_sacrifice"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "AbilityTextureName"            "ziv_empty"
+
+  "precache"
+  {
+    "particle"  "particles/heroes/witch_doctor/witch_doctor_lifesteal.vpcf"
+    "particle" "particles/units/heroes/hero_juggernaut/juggernaut_healing_ward_var02_flame.vpcf"
+  }
+
+  "MaxLevel"  "1"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"              "FIELD_FLOAT"
+      "hp_to_ep_ratio"        "1.4"
+    }
+    "02"
+    {
+      "var_type"              "FIELD_FLOAT"
+      "hp_to_ep_per_second"   "17"
+    }
+    "03"
+    {
+      "var_type"              "FIELD_FLOAT"
+      "tick"                  "0.03"
+    }
+  }
+
+  "OnSpellStart"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_soul_sacrifice.lua"
+      "Function"    "Toggle"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_soul_sacrifice"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+    
+      "ThinkInterval"  "%tick"
+      "OnIntervalThink"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_soul_sacrifice.lua"
+          "Function"    "Sacrifice"
+        }
+      }
+    }
+  }
+}

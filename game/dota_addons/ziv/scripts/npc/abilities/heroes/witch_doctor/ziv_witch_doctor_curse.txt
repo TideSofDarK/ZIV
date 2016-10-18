@@ -9,84 +9,97 @@
   "AbilityCastRange"        "700"
   "AbilityCastPoint"        "0.3"
   "AbilityCooldown"       "0.9"
-  "AbilityCastAnimation"      ""
+  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
 
-  "AbilityManaCost"       "25"
+  "AbilityManaCost"       "30"
 
-  "MaxLevel"  "7"
+  "MaxLevel"  "1"
 
   "precache"
   {
-    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
-    "soundfile" "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
-    "soundfile"      "soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
-    "particle"      "particles/econ/courier/courier_trail_cursed/courier_cursed_ambient_c.vpcf"
+    "soundfile"       "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+    "soundfile"       "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
+    "soundfile"       "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
+    "particle"        "particles/status_fx/status_effect_stickynapalm.vpcf"
+    "particle"        "particles/heroes/witch_doctor/witch_doctor_curse_debuff.vpcf"
+    "particle"        "particles/heroes/witch_doctor/witch_doctor_curse.vpcf"
   }
 
   "AbilitySpecial"
   {
     "01"
     {
-      "var_type"      "FIELD_FLOAT"
-      "damage_amp"      "1.3"
+      "var_type"                    "FIELD_FLOAT"
+      "damage_amp"                  "0.85"
     }
     "02"
     {
-      "var_type"      "FIELD_FLOAT"
-      "tick"    "1.0"
+      "var_type"                    "FIELD_INTEGER"
+      "slow"                        "80"
     }
     "03"
     {
-      "var_type"      "FIELD_FLOAT"
-      "duration"    "6"
+      "var_type"                    "FIELD_INTEGER"
+      "incoming_damage_bonus"       "10"
     }
     "04"
     {
-      "var_type"  "FIELD_INTEGER"
-      "slow" "40"
+      "var_type"                    "FIELD_FLOAT"
+      "duration"                    "3"
+    }
+  }
+
+  "OnAbilityPhaseStart"
+  {
+    "FireSound"
+    {
+      "EffectName"        "Hero_Silencer.Curse.Cast"
+      "Target"            "CASTER"
     }
   }
 
   "OnSpellStart"
   {
-    "FireEffect"
+    "RunScript"
     {
-      "EffectName"    "particles/heroes/witch_doctor/witch_doctor_curse.vpcf"
-      "EffectAttachType"  "start_at_customorigin"
-      "TargetPoint"       "POINT"
+      "ScriptFile"        "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
+      "Function"          "CreateCurseThinker"
+      "Target"            "POINT"
     }
 
     "RunScript"
     {
-      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
-      "Function"    "Curse"
-      "Target"       "POINT"
+      "ScriptFile"        "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
+      "Function"          "Curse"
+      "Target"            "POINT"
     }
   }
 
   "Modifiers"
   {
-    "modifier_witch_doctor_curse"
+    "modifier_witch_doctor_curse_thinker"
     {
-      "Duration" "%duration"
-
-      "Passive"      "0"
       "IsHidden"      "0"
       "IsDebuff"      "0"
-  
-      "EffectName"    "particles/econ/courier/courier_trail_cursed/courier_cursed_ambient_c.vpcf"
-      "EffectAttachType"  "follow_origin"
-  
-      "ThinkInterval"  "%tick"
+
+      "ThinkInterval"  "0.1"
       "OnIntervalThink"
       {
         "RunScript"
         {
-          "ScriptFile"    "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
-          "Function"      "Damage"
-          "Target"        "TARGET"
+          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
+          "Function"    "Curse"
+          "Target"      "TARGET"
         }
       }
+    }
+    "modifier_witch_doctor_curse_slow"
+    {
+      "Duration" "0.1"
+
+      "Passive"      "0"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
 
       "Properties"
       {

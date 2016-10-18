@@ -30,6 +30,20 @@
           "Function"    "CheckForHeroes"
         }
       }
+
+      "OnTakeDamage"
+      {
+        "RemoveModifier"
+        {
+          "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
+          "Target"     "CASTER"
+        }
+        "RemoveModifier"
+        {
+          "ModifierName"  "ziv_creep_normal_behavior_logic"
+          "Target"     "CASTER"
+        }
+      }
     }
 
     "ziv_creep_normal_behavior_disable_autoattack"

@@ -11,14 +11,16 @@ function ZIV:FilterExecuteOrder( filterTable )
       issuerUnit = EntIndexToHScript(units["0"])
     end
 
-    -- PrintTable(filterTable)
+    if filterTable.queue > 0 then
+        filterTable.queue = 0
+    end
 
     return true
 end
 
 function ZIV:DamageFilter( filterTable )
-    local _attacker = EntIndexToHScript(filterTable["entindex_attacker_const"])
-    local _victim = EntIndexToHScript(filterTable["entindex_victim_const"])
+    local attacker = EntIndexToHScript(filterTable["entindex_attacker_const"])
+    local victim = EntIndexToHScript(filterTable["entindex_victim_const"])
     local damage = filterTable["damage"]
     local damage_type = filterTable["damagetype_const"]
 
@@ -26,10 +28,10 @@ function ZIV:DamageFilter( filterTable )
         damage_type = DAMAGE_TYPE_PURE
     end
 
-    if _victim:IsHero() == false and _attacker:IsHero() == false then
-        if _attacker:GetPlayerOwnerID() >= 0 then
-            _attacker = PlayerResource:GetPlayer(_attacker:GetPlayerOwnerID()):GetAssignedHero()
-            DealDamage( _attacker, _victim, damage, damage_type )
+    if victim:IsHero() == false and attacker:IsHero() == false then
+        if attacker:GetPlayerOwnerID() >= 0 then
+            attacker = PlayerResource:GetPlayer(attacker:GetPlayerOwnerID()):GetAssignedHero()
+            DealDamage( attacker, victim, damage, damage_type )
         end
 
         return false

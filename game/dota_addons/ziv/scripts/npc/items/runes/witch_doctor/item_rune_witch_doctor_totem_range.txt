@@ -1,9 +1,9 @@
-"item_rune_witch_doctor_lifesteal_mana"
+"item_rune_witch_doctor_totem_range"
 {
   "ID"		"1609"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_witch_doctor_lifesteal_mana"
+  "AbilityTextureName"      "item_rune_witch_doctor_totem_radius"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
@@ -14,13 +14,16 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"   "New"
+  "Type"      "Int"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_witch_doctor_lifesteal_mana"
+    "ziv_witch_doctor_totem_range"
     {
-      "min" "2"
-      "max" "27"
+      "min" "10"
+      "max" "500"
     }
   }
 }

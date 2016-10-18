@@ -707,12 +707,25 @@
 	"npc_witch_doctor_skeleton"
 	{
 	    "BaseClass"         "npc_dota_creature"
-	    "Model"           "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
-	    "SoundSet"  "n_creep_skeleton_melee"
+	    "Model"             "models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
+	    "SoundSet"          "Creep_Good_Melee"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/antimage/witch_hunter_arms/witch_hunter_arms.vmdl"
+	                "2" "models/items/witchdoctor/wanderer_ticket_mask/wanderer_ticket_mask.vmdl"
+	            }
+	        }
+	    }
 	    
 	    "ModelScale"    "1.2"
 	    "HealthBarOffset"   "150"
 	    "Level"           "1"
+	    "IsSummoned"                "1"
 	    
 	    "Ability1"          ""
 	    "Ability2"          ""
@@ -723,16 +736,13 @@
 	    "MagicalResistance"       "0"
 	
 	    "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackRate"    "0.75"
-	    "AttackAnimationPoint"  "0.4"
+	    "AttackRate"                "1.0"
+	    "AttackAnimationPoint"      "0.56"
 	    "AttackAcquisitionRange"    "150"
 	    "AttackRange"   "100"
 	    
-	    "AttackDamageMin"        "15"
-	    "AttackDamageMax"        "20"
-	
-	    "AttackRate"        "1.5"
-	    "AttackAnimationPoint"        "0.27"
+	    "AttackDamageMin"        "0"
+	    "AttackDamageMax"        "0"
 	
 	    "BountyXP"          "0"
 	    "BountyGoldMin"       "0"
@@ -741,7 +751,7 @@
 	    "BoundsHullName"      "DOTA_HULL_SIZE_HERO"
 	
 	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
-	    "MovementSpeed"       "495"
+	    "MovementSpeed"       "425"
 	    "MovementTurnRate"      "1.0"
 	    "FollowRange"       "250"
 	
@@ -750,11 +760,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    
-	    
-	
-	    "VisionDaytimeRange"    "0"
-	    "VisionNighttimeRange"    "0"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	"npc_witch_doctor_totem"
 	{
@@ -769,14 +776,14 @@
 	    "MagicalResistance"       "0"
 	
 	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
-	    "AttackDamageMin"     "1"
-	    "AttackDamageMax"     "2"
+	    "AttackDamageMin"     "0"
+	    "AttackDamageMax"     "0"
 	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
 	    "AttackRate"        "0.5"
 	    "AttackAnimationPoint"    "0.1"
 	    "AttackAcquisitionRange"  "800"
-	    "AttackRange"       "600"
-	    "ProjectileModel"     "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf"
+	    "AttackRange"       "500"
+	    "ProjectileModel"     "particles/heroes/witch_doctor/witch_doctor_totem_projectile.vpcf"
 	    "ProjectileSpeed"     "1100"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
@@ -872,11 +879,12 @@
 	"npc_witch_doctor_zombie"
 	{
 	    "BaseClass"         "npc_dota_creature"
-	    "Model"           "models/heroes/undying/undying_minion_torso.vmdl"
-	    "SoundSet"                  "Undying_Zombie"
+	    "Model"             "models/heroes/undying/undying_minion_torso.vmdl"
+	    "SoundSet"          "Undying_Zombie"
 	    
 	    "HealthBarOffset"   "110"
 	    "Level"           "1"
+	    "IsSummoned"                "1"
 	    
 	    "Ability1"          ""
 	    "Ability2"          ""
@@ -892,11 +900,8 @@
 	    "AttackAcquisitionRange"    "150"
 	    "AttackRange"   "100"
 	    
-	    "AttackDamageMin"        "15"
-	    "AttackDamageMax"        "20"
-	
-	    "AttackRate"        "1.5"
-	    "AttackAnimationPoint"        "0.27"
+	    "AttackDamageMin"        "0"
+	    "AttackDamageMax"        "0"
 	
 	    "BountyXP"          "0"
 	    "BountyGoldMin"       "0"
@@ -905,7 +910,7 @@
 	    "BoundsHullName"      "DOTA_HULL_SIZE_HERO"
 	
 	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
-	    "MovementSpeed"       "495"
+	    "MovementSpeed"       "425"
 	    "MovementTurnRate"      "1.0"
 	    "FollowRange"       "250"
 	
@@ -914,11 +919,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    
-	    
-	
-	    "VisionDaytimeRange"    "0"
-	    "VisionNighttimeRange"    "0"
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
 	} 
 	"npc_boss_doom"
 	{

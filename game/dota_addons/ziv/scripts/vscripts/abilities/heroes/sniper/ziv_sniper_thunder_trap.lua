@@ -6,6 +6,7 @@ function CreateTrapUnit( keys )
 	local _duration = ability:GetLevelSpecialValueFor("trap_duration", ability:GetLevel())
 
 	local trap = CreateUnitByName("npc_thunder_trap", target, false, caster, caster, caster:GetTeamNumber())
+	trap:AddNewModifier(caster,ability,"modifier_hide_health_bar",{})
 
 	InitAbilities(trap)
 
@@ -80,7 +81,8 @@ function Explode( keys )
 
 		Timers:CreateTimer(0.6, function (  )
 			trap:RemoveModifierByName("dummy_unit")
-			trap:SetRenderMode(10)
+			trap:SetModel("models/development/invisiblebox.vmdl")
+			trap:SetOriginalModel("models/development/invisiblebox.vmdl")
 			trap:RemoveSelf()
 		end)
 	end

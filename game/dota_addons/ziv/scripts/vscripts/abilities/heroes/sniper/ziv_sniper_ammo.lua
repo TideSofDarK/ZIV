@@ -9,8 +9,13 @@ if IsServer() then
 
 		if hero:HasModifier("ziv_sniper_ammo_poison") then
 			modifier = "modifier_ammo_poison_debuff"
-		elseif hero:HasModifier("ziv_sniper_ammo_ice") then
-			modifier = "modifier_ammo_ice_debuff"
+		elseif hero:HasModifier("ziv_sniper_ammo_frag") then
+			DoToUnitsInRadius(hero, target:GetAbsOrigin(), 128, nil, nil, nil, function (creep)
+				if creep ~= target then
+					DealDamage( hero, creep, GetRuneDamage(hero, 1.0, "ziv_sniper_ammo_frag"), DAMAGE_TYPE_PHYSICAL, true )
+					TimedEffect("particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_base_attack_explosion.vpcf", creep, 1.0, 3)
+				end
+			end)
 		end
 
 		if modifier then

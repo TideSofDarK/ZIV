@@ -1,20 +1,24 @@
 "item_rune_witch_doctor_spawn_count"
 {
-  "ID"		"1609"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "BaseClass"           "item_datadriven"
+  "ID"		                  "1609"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"               "item_datadriven"
   "AbilityTextureName"      "item_rune_witch_doctor_spawn_count"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
-  "ItemStackable"         "1"
-  "ItemPermanent"         "0"
-  "ItemInitialCharges"            "1"
+  "ItemStackable"           "1"
+  "ItemPermanent"           "0"
+  "ItemInitialCharges"      "1"
 
-  "MaxUpgradeLevel"       "1"
-  "ItemBaseLevel"         "1"
+  "MaxUpgradeLevel"         "1"
+  "ItemBaseLevel"           "1"
 
-  "FortifyModifiersCount" "1"
+  "Tooltip"   "count"
+  "Type"      "Int"
+  "Method"    "Add"
+
+  "FortifyModifiersCount"   "1"
   "FortifyModifiers"
   {
     "ziv_witch_doctor_spawn_count"

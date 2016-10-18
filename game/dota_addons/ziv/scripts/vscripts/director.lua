@@ -59,8 +59,9 @@ function Director:Init()
 		end
 	end
 	
-	Director.scenario = Director:FindMapScenario(Director:GetMapName())
+	Director.WEARABLES_RNG = PseudoRNG.create( 0.3 )
 
+	Director.scenario = Director:FindMapScenario(Director:GetMapName())
 	if Director.scenario then
 		Director.scenario:Init()
 	end
@@ -356,7 +357,7 @@ function Director:SpawnCreeps( spawn_table )
 						for k,v in pairs(visuals.wearables_table_lord) do
 							Wearables:AttachWearable(creep, v)
 						end
-					elseif visuals.wearables_table then
+					elseif visuals.wearables_table and Director.WEARABLES_RNG:Next() then
 						for k,v in pairs(visuals.wearables_table) do
 							Wearables:AttachWearable(creep, v)
 						end

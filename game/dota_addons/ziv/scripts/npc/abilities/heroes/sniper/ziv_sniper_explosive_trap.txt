@@ -10,11 +10,13 @@
     "particle"      "particles/status_fx/status_effect_stickynapalm.vpcf"
     "particle"      "particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf"   
     "particle"      "particles/units/heroes/hero_batrider/batrider_flamebreak_explosion.vpcf"
-    "particle"  "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
-    "particle"  "particles/neutral_fx/roshan_slam_debris_small.vpcf"
-    "particle"  "particles/generic_gameplay/dust_impact_large.vpcf"
-    "particle"  "particles/econ/courier/courier_mechjaw/mechjaw_death_sparks.vpcf"
+    "particle"      "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
+    "particle"      "particles/neutral_fx/roshan_slam_debris_small.vpcf"
+    "particle"      "particles/generic_gameplay/dust_impact_large.vpcf"
+    "particle"      "particles/econ/courier/courier_mechjaw/mechjaw_death_sparks.vpcf"
   }
+
+  "AbilityCastAnimation"    "ACT_DOTA_ATTACK"
 
   "AbilityCastRange"        "400"
   "AbilityCastPoint"        "0.001"

@@ -1,8 +1,12 @@
 "ziv_witch_doctor_blink"
 {
-  "BaseClass"           "ability_datadriven"
+  "BaseClass"           "ability_lua"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
   "AbilityTextureName"            "ziv_empty"
+
+  "AbilityCooldown" "1.5"
+
+  "ScriptFile"                  "abilities/heroes/witch_doctor/ziv_witch_doctor_blink.lua"
 
   "precache"
   {
@@ -20,55 +24,5 @@
     "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_h1.vpcf"
     "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_h2.vpcf"
     "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_h1.vpcf"
-  }
-
-  "AbilityCastRange"        "700"
-  "AbilityCastPoint"        "0.3"
-  "AbilityCooldown"       "0.9"
-  "AbilityCastAnimation"      ""
-
-  "AbilityManaCost"       "25"
-
-  "MaxLevel"  "7"
-
-  "OnSpellStart"
-  {
-    "RunScript"
-    {
-      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_blink.lua"
-      "Function"    "Blink"
-      "Target"       "POINT"
-    }
-    "FireEffect"
-    {
-      "EffectName"    "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
-      "EffectAttachType"  "follow_origin"
-      "ControlPoints"
-      {
-        "01"    "80 80 80"
-      }
-    }
-    "ApplyModifier"
-    {
-      "ModifierName"  "modifier_blink_casting"
-      "Target"     "CASTER"
-    }
-  }
-
-  "Modifiers"
-  {
-    "modifier_blink_casting"
-    {
-      "Duration" "0.4"
-
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-
-      "States"
-      {
-        "MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
-      }
-    }
   }
 }

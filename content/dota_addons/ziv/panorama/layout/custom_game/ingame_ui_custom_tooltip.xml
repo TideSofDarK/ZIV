@@ -248,6 +248,8 @@
                                                 finalValue = Util.ConvertValue(buffName, finalValue, stackCount);
                                             } else if (itemKV["Tooltip"] == "AbilityCooldown") {
                                                 FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCooldown"), "cooldown", Util.ConvertValue(buffName, abilityKV["AbilityCooldown"], stackCount), "#3fb568");
+                                            } else if (itemKV["Tooltip"] == "AbilityCastPoint") {
+                                                FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipCastPoint"), "energy_cost", Util.ConvertValue(buffName, abilityKV["AbilityCastPoint"], stackCount), "#3fb568");
                                             } else if (itemKV["Tooltip"] == "AbilityManaCost") {
                                                 FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipEnergyCost"), "energy_cost", Util.ConvertValue(buffName, abilityKV["AbilityManaCost"], stackCount), "#3fb568");
                                             } else if (itemKV["Tooltip"] == "New") {

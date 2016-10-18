@@ -4,6 +4,8 @@
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "AbilityTextureName"            "ziv_empty"
 
+  "AbilityCastPoint"		"0.3"
+
   "MaxLevel"  "1"
 
   "ScriptFile"                  "abilities/heroes/sniper/ziv_sniper_ammo.lua"

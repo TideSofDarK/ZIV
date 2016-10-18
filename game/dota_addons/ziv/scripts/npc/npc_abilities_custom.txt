@@ -5977,6 +5977,8 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "AbilityTextureName"            "ziv_empty"
 	
+	  "AbilityCastPoint"		"0.3"
+	
 	  "MaxLevel"  "1"
 	
 	  "ScriptFile"                  "abilities/heroes/sniper/ziv_sniper_ammo.lua"
@@ -6012,11 +6014,13 @@
 	    "particle"      "particles/status_fx/status_effect_stickynapalm.vpcf"
 	    "particle"      "particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf"   
 	    "particle"      "particles/units/heroes/hero_batrider/batrider_flamebreak_explosion.vpcf"
-	    "particle"  "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
-	    "particle"  "particles/neutral_fx/roshan_slam_debris_small.vpcf"
-	    "particle"  "particles/generic_gameplay/dust_impact_large.vpcf"
-	    "particle"  "particles/econ/courier/courier_mechjaw/mechjaw_death_sparks.vpcf"
+	    "particle"      "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
+	    "particle"      "particles/neutral_fx/roshan_slam_debris_small.vpcf"
+	    "particle"      "particles/generic_gameplay/dust_impact_large.vpcf"
+	    "particle"      "particles/econ/courier/courier_mechjaw/mechjaw_death_sparks.vpcf"
 	  }
+	
+	  "AbilityCastAnimation"    "ACT_DOTA_ATTACK"
 	
 	  "AbilityCastRange"        "400"
 	  "AbilityCastPoint"        "0.001"
@@ -6402,12 +6406,14 @@
 	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
 	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"      
 	    "particle"      "particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf"
-	    "particle"  "particles/heroes/sniper/sniper_thunder_trap_sparks.vpcf"
-	    "particle"  "particles/units/heroes/hero_ursa/ursa_earthshock_dust.vpcf"
-	    "particle"  "particles/units/heroes/hero_ursa/ursa_dust_hit.vpcf"
-	    "particle"  "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
-	    "particle"  "particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_ground_smoke.vpcf"
+	    "particle"      "particles/heroes/sniper/sniper_thunder_trap_sparks.vpcf"
+	    "particle"      "particles/units/heroes/hero_ursa/ursa_earthshock_dust.vpcf"
+	    "particle"      "particles/units/heroes/hero_ursa/ursa_dust_hit.vpcf"
+	    "particle"      "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+	    "particle"      "particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_ground_smoke.vpcf"
 	  }
+	
+	  "AbilityCastAnimation"    "ACT_DOTA_ATTACK"
 	
 	  "AbilityCastRange"        "400"
 	  "AbilityCastPoint"        "0.001"
@@ -6486,9 +6492,13 @@
 	}
 	"ziv_witch_doctor_blink"
 	{
-	  "BaseClass"           "ability_datadriven"
+	  "BaseClass"           "ability_lua"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
 	  "AbilityTextureName"            "ziv_empty"
+	
+	  "AbilityCooldown" "1.5"
+	
+	  "ScriptFile"                  "abilities/heroes/witch_doctor/ziv_witch_doctor_blink.lua"
 	
 	  "precache"
 	  {
@@ -6507,56 +6517,6 @@
 	    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_h2.vpcf"
 	    "particle"      "particles/heroes/witch_doctor/witch_doctor_blink_fx_h1.vpcf"
 	  }
-	
-	  "AbilityCastRange"        "700"
-	  "AbilityCastPoint"        "0.3"
-	  "AbilityCooldown"       "0.9"
-	  "AbilityCastAnimation"      ""
-	
-	  "AbilityManaCost"       "25"
-	
-	  "MaxLevel"  "7"
-	
-	  "OnSpellStart"
-	  {
-	    "RunScript"
-	    {
-	      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_blink.lua"
-	      "Function"    "Blink"
-	      "Target"       "POINT"
-	    }
-	    "FireEffect"
-	    {
-	      "EffectName"    "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
-	      "EffectAttachType"  "follow_origin"
-	      "ControlPoints"
-	      {
-	        "01"    "80 80 80"
-	      }
-	    }
-	    "ApplyModifier"
-	    {
-	      "ModifierName"  "modifier_blink_casting"
-	      "Target"     "CASTER"
-	    }
-	  }
-	
-	  "Modifiers"
-	  {
-	    "modifier_blink_casting"
-	    {
-	      "Duration" "0.4"
-	
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	
-	      "States"
-	      {
-	        "MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
-	      }
-	    }
-	  }
 	}
 	"ziv_witch_doctor_curse"
 	{
@@ -6569,84 +6529,97 @@
 	  "AbilityCastRange"        "700"
 	  "AbilityCastPoint"        "0.3"
 	  "AbilityCooldown"       "0.9"
-	  "AbilityCastAnimation"      ""
+	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
 	
-	  "AbilityManaCost"       "25"
+	  "AbilityManaCost"       "30"
 	
-	  "MaxLevel"  "7"
+	  "MaxLevel"  "1"
 	
 	  "precache"
 	  {
-	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
-	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
-	    "soundfile"      "soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
-	    "particle"      "particles/econ/courier/courier_trail_cursed/courier_cursed_ambient_c.vpcf"
+	    "soundfile"       "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+	    "soundfile"       "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
+	    "soundfile"       "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
+	    "particle"        "particles/status_fx/status_effect_stickynapalm.vpcf"
+	    "particle"        "particles/heroes/witch_doctor/witch_doctor_curse_debuff.vpcf"
+	    "particle"        "particles/heroes/witch_doctor/witch_doctor_curse.vpcf"
 	  }
 	
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
-	      "var_type"      "FIELD_FLOAT"
-	      "damage_amp"      "1.3"
+	      "var_type"                    "FIELD_FLOAT"
+	      "damage_amp"                  "0.85"
 	    }
 	    "02"
 	    {
-	      "var_type"      "FIELD_FLOAT"
-	      "tick"    "1.0"
+	      "var_type"                    "FIELD_INTEGER"
+	      "slow"                        "80"
 	    }
 	    "03"
 	    {
-	      "var_type"      "FIELD_FLOAT"
-	      "duration"    "6"
+	      "var_type"                    "FIELD_INTEGER"
+	      "incoming_damage_bonus"       "10"
 	    }
 	    "04"
 	    {
-	      "var_type"  "FIELD_INTEGER"
-	      "slow" "40"
+	      "var_type"                    "FIELD_FLOAT"
+	      "duration"                    "3"
+	    }
+	  }
+	
+	  "OnAbilityPhaseStart"
+	  {
+	    "FireSound"
+	    {
+	      "EffectName"        "Hero_Silencer.Curse.Cast"
+	      "Target"            "CASTER"
 	    }
 	  }
 	
 	  "OnSpellStart"
 	  {
-	    "FireEffect"
+	    "RunScript"
 	    {
-	      "EffectName"    "particles/heroes/witch_doctor/witch_doctor_curse.vpcf"
-	      "EffectAttachType"  "start_at_customorigin"
-	      "TargetPoint"       "POINT"
+	      "ScriptFile"        "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
+	      "Function"          "CreateCurseThinker"
+	      "Target"            "POINT"
 	    }
 	
 	    "RunScript"
 	    {
-	      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
-	      "Function"    "Curse"
-	      "Target"       "POINT"
+	      "ScriptFile"        "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
+	      "Function"          "Curse"
+	      "Target"            "POINT"
 	    }
 	  }
 	
 	  "Modifiers"
 	  {
-	    "modifier_witch_doctor_curse"
+	    "modifier_witch_doctor_curse_thinker"
 	    {
-	      "Duration" "%duration"
-	
-	      "Passive"      "0"
 	      "IsHidden"      "0"
 	      "IsDebuff"      "0"
-	  
-	      "EffectName"    "particles/econ/courier/courier_trail_cursed/courier_cursed_ambient_c.vpcf"
-	      "EffectAttachType"  "follow_origin"
-	  
-	      "ThinkInterval"  "%tick"
+	
+	      "ThinkInterval"  "0.1"
 	      "OnIntervalThink"
 	      {
 	        "RunScript"
 	        {
-	          "ScriptFile"    "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
-	          "Function"      "Damage"
-	          "Target"        "TARGET"
+	          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
+	          "Function"    "Curse"
+	          "Target"      "TARGET"
 	        }
 	      }
+	    }
+	    "modifier_witch_doctor_curse_slow"
+	    {
+	      "Duration" "0.1"
+	
+	      "Passive"      "0"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
 	
 	      "Properties"
 	      {
@@ -6655,10 +6628,10 @@
 	    }
 	  }
 	}
-	"ziv_witch_doctor_lifesteal"
+	"ziv_witch_doctor_soul_sacrifice"
 	{
 	  "BaseClass"           "ability_datadriven"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "AbilityTextureName"            "ziv_empty"
 	
 	  "precache"
@@ -6667,38 +6640,51 @@
 	    "particle" "particles/units/heroes/hero_juggernaut/juggernaut_healing_ward_var02_flame.vpcf"
 	  }
 	
-	  "MaxLevel"  "7"
+	  "MaxLevel"  "1"
 	
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
-	      "var_type"      "FIELD_FLOAT"
-	      "lifesteal_percent"    "0.02"
+	      "var_type"              "FIELD_FLOAT"
+	      "hp_to_ep_ratio"        "1.4"
+	    }
+	    "02"
+	    {
+	      "var_type"              "FIELD_FLOAT"
+	      "hp_to_ep_per_second"   "17"
+	    }
+	    "03"
+	    {
+	      "var_type"              "FIELD_FLOAT"
+	      "tick"                  "0.03"
+	    }
+	  }
+	
+	  "OnSpellStart"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_soul_sacrifice.lua"
+	      "Function"    "Toggle"
 	    }
 	  }
 	
 	  "Modifiers"
 	  {
-	    "modifier_passives"
+	    "modifier_soul_sacrifice"
 	    {
-	      "Passive"      "1"
+	      "Passive"      "0"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
-	
-	      "OnDealDamage"
+	    
+	      "ThinkInterval"  "%tick"
+	      "OnIntervalThink"
 	      {
-	        "FireEffect"
-	        {
-	          "EffectName"        "particles/heroes/witch_doctor/witch_doctor_lifesteal.vpcf"
-	          "EffectAttachType"  "follow_origin"
-	          "Target"            "CASTER"
-	        }
 	        "RunScript"
 	        {
-	          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_lifesteal.lua"
-	          "Function"    "Lifesteal"
-	          "Damage" "%attack_damage"
+	          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_soul_sacrifice.lua"
+	          "Function"    "Sacrifice"
 	        }
 	      }
 	    }
@@ -6727,34 +6713,29 @@
 	
 	  "AbilityManaCost"       "25"
 	
-	  "MaxLevel"  "7"
+	  "MaxLevel"  "1"
 	
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
-	      "var_type"      "FIELD_FLOAT"
-	      "damage_amp"      "1.5"
-	    }
-	    "02"
-	    {
-	      "var_type"      "FIELD_FLOAT"
-	      "tick"    "1.0"
+	      "var_type"                  "FIELD_FLOAT"
+	      "skeleton_damage_amp"       "1.5"
 	    }
 	    "03"
 	    {
-	      "var_type"      "FIELD_FLOAT"
-	      "duration"    "6"
+	      "var_type"                  "FIELD_FLOAT"
+	      "duration"                  "6"
 	    }
 	    "04"
 	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "count"    "6"
+	      "var_type"                  "FIELD_INTEGER"
+	      "count"                     "4"
 	    }
 	    "05"
 	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "skeleton_attack_speed"    "100"
+	      "var_type"                  "FIELD_INTEGER"
+	      "skeleton_attack_speed"     "50"
 	    }
 	  }
 	
@@ -6780,6 +6761,16 @@
 	
 	      "StatusEffectName"     "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"      
 	      "StatusEffectPriority"  "10"
+	
+	      "OnAttackLanded"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_spawn.lua"
+	          "Function"    "SkeletonHitImpact"
+	          "Target"      "TARGET"
+	        }
+	      }
 	
 	      "Properties"
 	      {
@@ -6817,34 +6808,39 @@
 	
 	  "AbilityManaCost"       "25"
 	
-	  "MaxLevel"  "7"
+	  "MaxLevel"  "1"
 	
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
 	      "var_type"      "FIELD_INTEGER"
-	      "slow"      "-40"
+	      "zombie_damage_amp"      "1.1"
 	    }
 	    "02"
 	    {
 	      "var_type"      "FIELD_INTEGER"
-	      "slow_duration"    "5"
+	      "attack_slow"      "55"
 	    }
 	    "03"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "attack_slow_duration"    "5"
+	    }
+	    "04"
 	    {
 	      "var_type"      "FIELD_FLOAT"
 	      "duration"    "6"
 	    }
-	    "04"
-	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "count"    "6"
-	    }
 	    "05"
 	    {
 	      "var_type"      "FIELD_INTEGER"
-	      "zombie_attack_speed"    "100"
+	      "count"    "3"
+	    }
+	    "06"
+	    {
+	      "var_type"      "FIELD_INTEGER"
+	      "zombie_attack_speed"    "50"
 	    }
 	  }
 	
@@ -6854,9 +6850,9 @@
 	    {
 	      "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_spawn.lua"
 	      "Function"    "WDSpawn"
-	      "creep" "npc_witch_doctor_zombie"
-	      "modifier"  "modifier_witch_doctor_zombie"
-	      "Target"       "POINT"
+	      "creep"       "npc_witch_doctor_zombie"
+	      "modifier"    "modifier_witch_doctor_zombie"
+	      "Target"      "POINT"
 	    }
 	  }
 	
@@ -6880,11 +6876,11 @@
 	
 	      "OnAttackLanded"
 	      {
-	        "ApplyModifier"
+	        "RunScript"
 	        {
-	          "ModifierName"  "modifier_witch_doctor_zombie_slow"
-	          "Target"     "TARGET"
-	          "Duration"    "%slow_duration"
+	          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_spawn.lua"
+	          "Function"    "ZombieHitImpact"
+	          "Target"      "TARGET"
 	        }
 	      }
 	    
@@ -6916,7 +6912,7 @@
 	      
 	      "Properties"
 	      {
-	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1" 
 	      }
 	    }
 	  }
@@ -6940,19 +6936,19 @@
 	
 	  "AbilityManaCost"       "75"
 	
-	  "MaxLevel"  "7"
+	  "MaxLevel"  "1"
 	
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
 	      "var_type"      "FIELD_FLOAT"
-	      "damage_amp"    "4.0"
+	      "damage_amp"    "2.0"
 	    }
 	    "02"
 	    {
 	      "var_type"  "FIELD_INTEGER"
-	      "totem_targets"  "7"
+	      "totem_targets"  "3"
 	    }
 	    "03"
 	    {
@@ -6989,8 +6985,8 @@
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
 	
-	      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
-	      "Attributes" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
+	      "Priority"                      "MODIFIER_PRIORITY_ULTRA"
+	      "Attributes"                    "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
 	
 	      "OnDestroy"
 	      {
@@ -6998,6 +6994,15 @@
 	        {
 	          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
 	          "Function"    "RemoveTotem"
+	        }
+	      }
+	
+	      "OnAttackLanded"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+	          "Function"    "SplitShotImpact"
 	        }
 	      }
 	      
@@ -7017,6 +7022,7 @@
 	      }
 	      "Properties"
 	      {
+	        "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"  "1"
 	        "MODIFIER_PROPERTY_DISABLE_TURNING" "1"
 	        "MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "1"
 	      }
@@ -7044,24 +7050,24 @@
 	
 	  "AbilityManaCost"       "75"
 	
-	  "MaxLevel"  "7"
+	  "MaxLevel"  "1"
 	
 	  "AbilitySpecial"
 	  {
 	    "01"
 	    {
-	      "var_type"      "FIELD_FLOAT"
-	      "damage_amp"    "4.0"
+	      "var_type"          "FIELD_FLOAT"
+	      "force"             "86"
 	    }
 	    "02"
 	    {
-	      "var_type"  "FIELD_FLOAT"
-	      "totem_duration"  "8.0"
+	      "var_type"          "FIELD_FLOAT"
+	      "totem_duration"    "4.0"
 	    }
 	    "03"
 	    {
-	      "var_type"  "FIELD_INTEGER"
-	      "radius"  "500"
+	      "var_type"          "FIELD_INTEGER"
+	      "radius"            "500"
 	    }
 	  }
 	
@@ -7090,15 +7096,6 @@
 	
 	      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
 	      "Attributes" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
-	
-	      "OnDestroy"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
-	          "Function"    "RemoveTotem"
-	        }
-	      }
 	
 	      "ThinkInterval"  "0.4"
 	      "OnIntervalThink"
@@ -7575,6 +7572,20 @@
 	        {
 	          "ScriptFile"  "abilities/ziv_creeps.lua"
 	          "Function"    "CheckForHeroes"
+	        }
+	      }
+	
+	      "OnTakeDamage"
+	      {
+	        "RemoveModifier"
+	        {
+	          "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
+	          "Target"     "CASTER"
+	        }
+	        "RemoveModifier"
+	        {
+	          "ModifierName"  "ziv_creep_normal_behavior_logic"
+	          "Target"     "CASTER"
 	        }
 	      }
 	    }

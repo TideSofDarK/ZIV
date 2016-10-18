@@ -14,13 +14,17 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"   "totem_duration"
+  "Type"      "Float"
+  "Method"    "Add"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
     "ziv_witch_doctor_totem2_duration"
     {
-      "min" "1"
-      "max" "6"
+      "min" "10"
+      "max" "350"
     }
   }
 }

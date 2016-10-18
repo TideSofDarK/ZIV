@@ -12,8 +12,8 @@ function DragonComes( keys )
 	local explosion_damage = GetRuneDamage(caster, GetSpecial(ability, "explosion_damage_amp"), "")
 
 	local burn_duration = ability:GetSpecialValueFor("burn_duration")
-	local burn_damage = ability:GetSpecialValueFor("burn_damage_amp") * caster:GetAverageTrueAttackDamage()
-
+	local burn_damage = GetRuneDamage(caster, ability:GetSpecialValueFor("burn_damage_amp"), "")
+	
 	local flee_seconds = 14
 
 	target["3"] = target["3"] - 128

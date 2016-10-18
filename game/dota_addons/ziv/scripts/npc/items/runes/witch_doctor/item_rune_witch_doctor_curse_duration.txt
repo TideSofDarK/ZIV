@@ -14,13 +14,17 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"   "duration"
+  "Type"      "Float"
+  "Method"    "Add"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
     "ziv_witch_doctor_curse_duration"
     {
-      "min" "1"
-      "max" "4"
+      "min" "10"
+      "max" "220"
     }
   }
 }

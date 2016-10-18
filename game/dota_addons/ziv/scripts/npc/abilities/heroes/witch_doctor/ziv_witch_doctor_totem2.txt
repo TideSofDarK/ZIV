@@ -19,24 +19,24 @@
 
   "AbilityManaCost"       "75"
 
-  "MaxLevel"  "7"
+  "MaxLevel"  "1"
 
   "AbilitySpecial"
   {
     "01"
     {
-      "var_type"      "FIELD_FLOAT"
-      "damage_amp"    "4.0"
+      "var_type"          "FIELD_FLOAT"
+      "force"             "86"
     }
     "02"
     {
-      "var_type"  "FIELD_FLOAT"
-      "totem_duration"  "8.0"
+      "var_type"          "FIELD_FLOAT"
+      "totem_duration"    "4.0"
     }
     "03"
     {
-      "var_type"  "FIELD_INTEGER"
-      "radius"  "500"
+      "var_type"          "FIELD_INTEGER"
+      "radius"            "500"
     }
   }
 
@@ -65,15 +65,6 @@
 
       "Priority"                     "MODIFIER_PRIORITY_ULTRA"
       "Attributes" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
-
-      "OnDestroy"
-      {
-        "RunScript"
-        {
-          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
-          "Function"    "RemoveTotem"
-        }
-      }
 
       "ThinkInterval"  "0.4"
       "OnIntervalThink"

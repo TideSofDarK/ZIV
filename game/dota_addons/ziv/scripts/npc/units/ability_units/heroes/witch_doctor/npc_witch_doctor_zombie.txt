@@ -1,11 +1,12 @@
 "npc_witch_doctor_zombie"
 {
     "BaseClass"         "npc_dota_creature"
-    "Model"           "models/heroes/undying/undying_minion_torso.vmdl"
-    "SoundSet"                  "Undying_Zombie"
+    "Model"             "models/heroes/undying/undying_minion_torso.vmdl"
+    "SoundSet"          "Undying_Zombie"
     
     "HealthBarOffset"   "110"
     "Level"           "1"
+    "IsSummoned"                "1"
     
     "Ability1"          ""
     "Ability2"          ""
@@ -21,11 +22,8 @@
     "AttackAcquisitionRange"    "150"
     "AttackRange"   "100"
     
-    "AttackDamageMin"        "15"
-    "AttackDamageMax"        "20"
-
-    "AttackRate"        "1.5"
-    "AttackAnimationPoint"        "0.27"
+    "AttackDamageMin"        "0"
+    "AttackDamageMax"        "0"
 
     "BountyXP"          "0"
     "BountyGoldMin"       "0"
@@ -34,7 +32,7 @@
     "BoundsHullName"      "DOTA_HULL_SIZE_HERO"
 
     "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"       "495"
+    "MovementSpeed"       "425"
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 
@@ -43,9 +41,6 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    
-    
-
-    "VisionDaytimeRange"    "0"
-    "VisionNighttimeRange"    "0"
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
 } 

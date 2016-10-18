@@ -1,9 +1,9 @@
-"item_rune_witch_doctor_totem_radius"
+"item_rune_witch_doctor_soul_sacrifice_ratio"
 {
   "ID"		"1609"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_witch_doctor_totem_radius"
+  "AbilityTextureName"      "item_rune_witch_doctor_soul_sacrifice_ratio"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
@@ -14,13 +14,18 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"   "hp_to_ep_ratio"
+  "Type"      "Float"
+  "Method"    "Add"
+  "Reduction" "1"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_witch_doctor_totem_radius"
+    "ziv_witch_doctor_soul_sacrifice_ratio"
     {
-      "min" "10"
-      "max" "100"
+      "min" "5"
+      "max" "390"
     }
   }
 }

@@ -102,9 +102,7 @@ LinkLuaModifier("modifier_command_restricted", "abilities/tools/modifier_command
 LinkLuaModifier("modifier_boss_ai", "abilities/tools/modifier_boss_ai.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hide", "abilities/tools/modifier_hide.lua", LUA_MODIFIER_MOTION_NONE)
 
-LinkLuaModifier("modifier_wearable_visuals", "abilities/tools/modifier_wearable_visuals", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_wearable_visuals_status_fx", "abilities/tools/modifier_wearable_visuals", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_wearable_visuals_activity", "abilities/tools/modifier_wearable_visuals", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_witch_doctor_curse_debuff", "abilities/heroes/witch_doctor/modifier_witch_doctor_curse_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 
 function ZIV:PostLoadPrecache()
   DebugPrint("[ZIV] Performing Post-Load precache")    
@@ -208,12 +206,6 @@ function ZIV:OnGameInProgress()
       end
 
       return 0.5
-    end)
-
-  Timers:CreateTimer(30, -- Start this timer 30 game-time seconds later
-    function()
-      DebugPrint("This function is called 30 seconds after the game begins, and every 30 seconds thereafter")
-      return 30.0 -- Rerun this timer every 30 game-time seconds 
     end)
 end
 

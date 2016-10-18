@@ -14,13 +14,17 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
+  "Tooltip"   "force"
+  "Type"      "Int"
+  "Method"    "Add"
+
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
     "ziv_witch_doctor_totem2_force"
     {
       "min" "5"
-      "max" "35"
+      "max" "45"
     }
   }
 }

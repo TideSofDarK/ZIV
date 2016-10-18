@@ -17,19 +17,19 @@
 
   "AbilityManaCost"       "75"
 
-  "MaxLevel"  "7"
+  "MaxLevel"  "1"
 
   "AbilitySpecial"
   {
     "01"
     {
       "var_type"      "FIELD_FLOAT"
-      "damage_amp"    "4.0"
+      "damage_amp"    "2.0"
     }
     "02"
     {
       "var_type"  "FIELD_INTEGER"
-      "totem_targets"  "7"
+      "totem_targets"  "3"
     }
     "03"
     {
@@ -66,8 +66,8 @@
       "IsHidden"      "1"
       "IsDebuff"      "0"
 
-      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
-      "Attributes" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
+      "Priority"                      "MODIFIER_PRIORITY_ULTRA"
+      "Attributes"                    "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
 
       "OnDestroy"
       {
@@ -75,6 +75,15 @@
         {
           "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
           "Function"    "RemoveTotem"
+        }
+      }
+
+      "OnAttackLanded"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/heroes/witch_doctor/ziv_witch_doctor_totem.lua"
+          "Function"    "SplitShotImpact"
         }
       }
       
@@ -94,6 +103,7 @@
       }
       "Properties"
       {
+        "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"  "1"
         "MODIFIER_PROPERTY_DISABLE_TURNING" "1"
         "MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "1"
       }
