@@ -29,6 +29,8 @@
     "particle"  "particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire_explosion_c.vpcf"
     "particle"  "particles/heroes/knight/knight_slash_ring.vpcf"
     "particle"  "particles/heroes/knight/knight_slash_trail.vpcf"
+    "particle"  "particles/heroes/knight/knight_slash_projectile.vpcf"
+    "particle"  "particles/units/heroes/hero_nevermore/nevermore_base_attack_impact.vpcf"
   }
 
   "AbilitySpecial"
@@ -37,6 +39,18 @@
     {
       "var_type" "FIELD_FLOAT"
       "damage_amp" "2.3"
+    }
+  }
+
+  "OnProjectileHitUnit"
+  {
+    "DeleteOnHit"  "0"
+
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/knight/ziv_knight_slash.lua"
+      "Function"    "ProjectileImpact"
+      "Target"      "TARGET"
     }
   }
 

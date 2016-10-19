@@ -25,11 +25,6 @@
       "var_type"            "FIELD_INTEGER"
       "parry_chance"        "20"
     }
-    "03"
-    {
-      "var_type"            "FIELD_INTEGER"
-      "bonus_armor"        "4"
-    }
   }
 
   "Modifiers"
@@ -39,11 +34,6 @@
       "Passive" "1"
       "IsHidden"      "1"
       "IsDebuff"      "0"
-
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
-      }
 
       "OnAttacked"
       {

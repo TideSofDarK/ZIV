@@ -7,7 +7,7 @@ Director.HERO_SPAWN_TIME = 5.0
 Director.TEAM_ASSIGNMENT_AUTO = 0
 Director.TEAM_ASSIGNMENT_MANUAL = 1
 
-Director.scenario = nil
+Director.scenario = Director.scenario or nil
 
 Director.BASIC_PACK_COUNT = 12
 Director.BASIC_PACK_SPREAD = 820

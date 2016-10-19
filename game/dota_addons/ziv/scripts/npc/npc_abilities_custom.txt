@@ -4721,12 +4721,12 @@
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
 	  "AbilityTextureName"            "ziv_empty"
 	
-	  "AbilityCastRange"        "600"
+	  "AbilityCastRange"        "2000"
 	  "AbilityCastPoint"        "0.01"
-	  "AbilityCooldown"         "13"
+	  "AbilityCooldown"         "5"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	
-	  "AbilityManaCost"       "70"
+	  "AbilityManaCost"       "50"
 	  
 	  "MaxLevel"          "7"
 	
@@ -4759,7 +4759,7 @@
 	    "04"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "maximum_distance"            "600"
+	      "maximum_distance"            "700"
 	    }
 	  }
 	
@@ -4781,6 +4781,12 @@
 	
 	  "Modifiers"
 	  {
+	    "modifier_dash_hit"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "1"
+	    }
 	    "modifier_dash_running"
 	    {
 	      "IsHidden"      "1"
@@ -5046,11 +5052,6 @@
 	      "var_type"            "FIELD_INTEGER"
 	      "parry_chance"        "20"
 	    }
-	    "03"
-	    {
-	      "var_type"            "FIELD_INTEGER"
-	      "bonus_armor"        "4"
-	    }
 	  }
 	
 	  "Modifiers"
@@ -5060,11 +5061,6 @@
 	      "Passive" "1"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
-	
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
-	      }
 	
 	      "OnAttacked"
 	      {
@@ -5121,6 +5117,8 @@
 	    "particle"  "particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire_explosion_c.vpcf"
 	    "particle"  "particles/heroes/knight/knight_slash_ring.vpcf"
 	    "particle"  "particles/heroes/knight/knight_slash_trail.vpcf"
+	    "particle"  "particles/heroes/knight/knight_slash_projectile.vpcf"
+	    "particle"  "particles/units/heroes/hero_nevermore/nevermore_base_attack_impact.vpcf"
 	  }
 	
 	  "AbilitySpecial"
@@ -5129,6 +5127,18 @@
 	    {
 	      "var_type" "FIELD_FLOAT"
 	      "damage_amp" "2.3"
+	    }
+	  }
+	
+	  "OnProjectileHitUnit"
+	  {
+	    "DeleteOnHit"  "0"
+	
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_slash.lua"
+	      "Function"    "ProjectileImpact"
+	      "Target"      "TARGET"
 	    }
 	  }
 	
@@ -5157,7 +5167,7 @@
 	  "AbilityCooldown"         "20"
 	  "AbilityChannelTime"      "7"
 	
-	  "AbilityManaCost"       "60"
+	  "AbilityManaCost"       "20"
 	  
 	  "MaxLevel"          "7"
 	
@@ -5174,12 +5184,12 @@
 	    "01"
 	    {
 	      "var_type"            "FIELD_FLOAT"
-	      "damage_amp"            "0.08"
+	      "damage_amp"            "0.04"
 	    }
 	    "02"
 	    {
 	      "var_type"            "FIELD_FLOAT"
-	      "heal_amp"            "0.1"
+	      "heal_amp"            "0.9"
 	    }
 	    "03"
 	    {
@@ -5250,7 +5260,7 @@
 	
 	      "Properties"
 	      {
-	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "99999"
+	        "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
 	      }
 	    }
 	
@@ -5259,18 +5269,14 @@
 	      "Passive"      "0"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
-	    
+	
 	      "OnAttacked"
 	      {
-	        "Heal"
-	        {
-	          "Target"        "CASTER"
-	          "HealAmount"  "%heal_amp * %attack_damage"
-	        }
 	        "RunScript"
 	        {
 	          "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
 	          "Function"    "OnAttacked"
+	          "attack_damage" "%attack_damage"
 	        }
 	      }
 	    }

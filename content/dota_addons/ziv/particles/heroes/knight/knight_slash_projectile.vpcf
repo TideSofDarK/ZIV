@@ -1,0 +1,147 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 16
+	m_flConstantRadius = 2.1
+	m_bShouldSort = false
+	m_flMaxRecreationTime = -1.0
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderModels"
+			m_ModelList = 
+			[
+				{
+					m_model = resource:"models/heroes/vengeful/vengeful_weapon.vmdl"
+				},
+			]
+			m_bAnimated = true
+			m_nLOD = 1
+			m_bDisableOperator = true
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_SetControlPointsToParticle"
+			m_bSetOrientation = true
+			m_nFirstControlPoint = 3
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 1.0
+		},
+		{
+			_class = "C_OP_MovementPlaceOnGround"
+			m_nRefCP1 = 3
+			m_CollisionGroupName = "DEBRIS"
+			m_flTraceOffset = 256.0
+			m_flMaxTraceLength = 1024.0
+			m_bIncludeWater = true
+			m_flOffset = 128.0
+			m_flTolerance = 96.0
+			m_nLerpCP = 3
+		},
+		{
+			_class = "C_OP_RemapVelocityToVector"
+			m_nFieldOutput = 21
+			m_bNormalize = true
+			m_bDisableOperator = true
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_CreateWithinSphere"
+		},
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 0.2
+			m_fLifetimeMax = 0.2
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 248, 22, 22, 255 ]
+			m_ColorMax = [ 237, 94, 0, 255 ]
+		},
+		{
+			_class = "C_INIT_NormalAlignToCP"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_VelocityFromCP"
+			m_nControlPoint = 1
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+			m_flDegreesMin = -90.0
+			m_flDegreesMax = -90.0
+			m_nFieldOutput = 12
+			m_bRandomlyFlipDirection = false
+			m_bDisableOperator = true
+			m_flRotationRandExponent = 0.0
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+			m_flDegreesMin = 90.0
+			m_flDegreesMax = 90.0
+			m_nFieldOutput = 20
+			m_bDisableOperator = true
+			m_flRotationRandExponent = 0.0
+			m_bRandomlyFlipDirection = false
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 1
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/heroes/knight/knight_slash_projectile_a.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/knight/knight_slash_projectile_b.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_bEndCap = true
+			m_ChildRef = resource:"particles/heroes/knight/knight_slash_projectile_c.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/knight/knight_slash_projectile_e.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/knight/knight_slash_projectile_f.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/knight/knight_slash_projectile_g.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/knight/knight_slash_projectile_h.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/knight/knight_slash_projectile_i.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/knight/knight_slash_projectile_l.vpcf"
+			m_bDisableChild = true
+		},
+	]
+	m_ConstantColor = [ 255, 111, 8, 255 ]
+}

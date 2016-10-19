@@ -108,7 +108,7 @@ function BeginMoveState()
 function OnLeftButtonPressed()
 {
 	var targetIndex = GetMouseCastTarget();
-	$.Msg("asd");
+	
 	if (GameUI.IsShiftDown()) {
 		BeginMoveState();
 	} else if ( targetIndex != -1 && Entities.IsEnemy( targetIndex )) {

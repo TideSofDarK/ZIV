@@ -9,7 +9,7 @@
   "AbilityCooldown"         "20"
   "AbilityChannelTime"      "7"
 
-  "AbilityManaCost"       "60"
+  "AbilityManaCost"       "20"
   
   "MaxLevel"          "7"
 
@@ -26,12 +26,12 @@
     "01"
     {
       "var_type"            "FIELD_FLOAT"
-      "damage_amp"            "0.08"
+      "damage_amp"            "0.04"
     }
     "02"
     {
       "var_type"            "FIELD_FLOAT"
-      "heal_amp"            "0.1"
+      "heal_amp"            "0.9"
     }
     "03"
     {
@@ -102,7 +102,7 @@
 
       "Properties"
       {
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "99999"
+        "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
       }
     }
 
@@ -111,18 +111,14 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
-    
+
       "OnAttacked"
       {
-        "Heal"
-        {
-          "Target"        "CASTER"
-          "HealAmount"  "%heal_amp * %attack_damage"
-        }
         "RunScript"
         {
           "ScriptFile"  "abilities/heroes/knight/ziv_knight_stone_form.lua"
           "Function"    "OnAttacked"
+          "attack_damage" "%attack_damage"
         }
       }
     }

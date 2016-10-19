@@ -4,12 +4,12 @@
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
   "AbilityTextureName"            "ziv_empty"
 
-  "AbilityCastRange"        "600"
+  "AbilityCastRange"        "2000"
   "AbilityCastPoint"        "0.01"
-  "AbilityCooldown"         "13"
+  "AbilityCooldown"         "5"
   "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 
-  "AbilityManaCost"       "70"
+  "AbilityManaCost"       "50"
   
   "MaxLevel"          "7"
 
@@ -42,7 +42,7 @@
     "04"
     {
       "var_type"            "FIELD_INTEGER"
-      "maximum_distance"            "600"
+      "maximum_distance"            "700"
     }
   }
 
@@ -64,6 +64,12 @@
 
   "Modifiers"
   {
+    "modifier_dash_hit"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "1"
+    }
     "modifier_dash_running"
     {
       "IsHidden"      "1"

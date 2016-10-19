@@ -63,4 +63,6 @@ function OnAttacked( keys )
 	if stacks >= ability:GetLevelSpecialValueFor("max_targets",ability:GetLevel()-1) + GRMSC("ziv_knight_stone_form_targets", caster) then
 		ability:EndChannel(false)
 	end
+
+	caster:Heal(keys.attack_damage * GetSpecial(ability, "heal_amp"), ability)
 end

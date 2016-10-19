@@ -50,5 +50,7 @@ function OrbOnHit( keys )
 		end
 		
 		DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_orb_damage"), DAMAGE_TYPE_FIRE)
+
+		TimedEffect("particles/heroes/knight/knight_orb_attack_o.vpcf", v, 3.0, 1, PATTACH_POINT_FOLLOW)
 	end)
 end

@@ -67,20 +67,25 @@ function Knockback( keys )
 	local target = keys.target
 	local ability = keys.ability
 
-	if target:HasModifier("modifier_knockback") == true then return end
+	if target:HasModifier("modifier_knockback") or target:HasModifier("modifier_dash_hit") then return end
 
-	local knockbackModifierTable =
-    {
-        should_stun = 1,
-        knockback_duration = 1,
-        duration = 1,
-        knockback_distance = 100 + GRMSC("ziv_knight_dash_force", caster),
-        knockback_height = 50,
-        center_x = caster:GetAbsOrigin().x,
-        center_y = caster:GetAbsOrigin().y,
-        center_z = caster:GetAbsOrigin().z
-    }
-	target:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
+	local force = GRMSC("ziv_knight_dash_force", caster)
+	if force > 0 then
+		local knockbackModifierTable =
+	    {
+	        should_stun = 1,
+	        knockback_duration = 0.75,
+	        duration = 0.75,
+	        knockback_distance = force,
+	        knockback_height = 50,
+	        center_x = caster:GetAbsOrigin().x,
+	        center_y = caster:GetAbsOrigin().y,
+	        center_z = caster:GetAbsOrigin().z
+	    }
+		target:AddNewModifier( caster, ability, "modifier_knockback", knockbackModifierTable )
+	end
 
     DealDamage(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_dash_damage"), DAMAGE_TYPE_FIRE)
+
+    ability:ApplyDataDrivenModifier(caster,target,"modifier_dash_hit",{duration = 1.0})
 end
