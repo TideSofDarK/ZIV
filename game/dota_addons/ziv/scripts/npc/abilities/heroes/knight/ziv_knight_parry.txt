@@ -27,6 +27,33 @@
     }
   }
 
+  "OnUpgrade"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/knight/ziv_knight_parry.lua"
+      "Function"    "EquipShield"
+    }
+  }
+
+  "OnOwnerSpawned"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/knight/ziv_knight_parry.lua"
+      "Function"    "EquipShield"
+    }
+  }
+
+  "OnOwnerDied"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/knight/ziv_knight_parry.lua"
+      "Function"    "UnequipShield"
+    }
+  }
+
   "Modifiers"
   {
     "modifier_knight_parry_passive"

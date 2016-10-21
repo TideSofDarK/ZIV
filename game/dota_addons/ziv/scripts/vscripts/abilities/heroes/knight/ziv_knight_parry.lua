@@ -1,3 +1,17 @@
+function UnequipShield( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+
+	Wearables:Remove(caster)
+end
+
+function EquipShield( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+
+	Wearables:AttachWearable(caster, "models/items/sven/arms_of_the_rogue/arms_of_the_rogue.vmdl")
+end
+
 function Parry( keys )
 	local caster = keys.caster
 	local attacker = keys.attacker

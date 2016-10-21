@@ -24,6 +24,8 @@ function LaunchOrb( keys )
 
 	keys.projectile_speed = GetSpecial(ability, "projectile_speed") + GRMSC("ziv_knight_orb_projectile_speed", caster)
 
+	keys.attack_sound = "Hero_DragonKnight.AttackOrb"
+
 	keys.attachment = "attach_attack1"
 	keys.interruptable = false
 	keys.standard_targeting = true

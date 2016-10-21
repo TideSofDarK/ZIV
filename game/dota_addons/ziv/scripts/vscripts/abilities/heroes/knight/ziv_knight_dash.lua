@@ -30,7 +30,7 @@ function Dash( keys )
 	end)
 
 	Timers:CreateTimer(ability.duration / 1.5, function (  )
-		StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.1, translate="iron"})
+		StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_ATTACK_EVENT, rate=1.5})
 		
 		Timers:CreateTimer(0.2, function (  )
 			caster:EmitSound("Hero_EarthShaker.IdleSlam")
@@ -39,12 +39,17 @@ function Dash( keys )
 			local ground = TimedEffect( "particles/units/heroes/hero_lone_druid/lone_druid_bear_entangle_ground_rocks.vpcf", caster, 1.0, 5 )
 			local rocks = TimedEffect( "particles/units/heroes/hero_visage/visage_stone_form.vpcf", caster, 0.5 )
 
-			ParticleManager:SetParticleControlEnt(ground, 5, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
-			ParticleManager:SetParticleControlEnt(rocks, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
+			local hit_position = caster:GetAbsOrigin() + (caster:GetForwardVector() * 140)
+
+			ParticleManager:SetParticleControl(ground,5,hit_position)
+			ParticleManager:SetParticleControl(rocks,0,hit_position)
+
+			-- ParticleManager:SetParticleControlEnt(ground, 5, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
+			-- ParticleManager:SetParticleControlEnt(rocks, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
 		end)
-		Timers:CreateTimer(0.4, function (  )
-			FreezeAnimation(caster, 0.15)
-		end)
+		-- Timers:CreateTimer(0.4, function (  )
+		-- 	FreezeAnimation(caster, 0.15)
+		-- end)
 	end)
 end
 

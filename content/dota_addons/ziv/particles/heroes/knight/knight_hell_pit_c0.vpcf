@@ -1,0 +1,126 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderModels"
+			m_ModelList = 
+			[
+				{
+					m_model = resource:"models/items/disruptor/resistive_pinfold_back/resistive_pinfold_ground_spike.vmdl"
+				},
+			]
+			m_bOrientZ = true
+			m_nSkin = 1
+			m_nSubModelField = 9
+			m_bUseRawMeshGroup = true
+			m_bScaleAnimationRate = true
+			m_bAnimated = true
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RingWave"
+			m_flParticlesPerOrbit = 9.0
+			m_bEvenDistribution = true
+			m_nControlPointNumber = 10
+		},
+		{
+			_class = "C_INIT_RandomSequence"
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ 0.0, 0.0, 128.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 128.0 ]
+		},
+		{
+			_class = "C_INIT_PositionPlaceOnGround"
+			m_flMaxTraceLength = 512.0
+			m_bSetNormal = true
+			m_flOffset = -20.0
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+			m_flDegreesMin = 5.0
+			m_flDegreesMax = 15.0
+			m_bRandomlyFlipDirection = false
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 248, 126, 20, 255 ]
+			m_ColorMax = [ 236, 71, 34, 255 ]
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 0.45
+			m_flRadiusRandExponent = 2.0
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+			m_flDegreesMax = 0.0
+			m_nFieldOutput = 12
+			m_bRandomlyFlipDirection = false
+		},
+		{
+			_class = "C_INIT_RemapScalar"
+			m_nFieldInput = 3
+			m_nFieldOutput = 10
+			m_flInputMin = 0.35
+			m_flOutputMin = 3.0
+			m_flOutputMax = 4.0
+			m_flInputMax = 0.6
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 1
+		},
+	]
+	m_flConstantLifespan = 0.25
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_Orient2DRelToCP"
+			m_nFieldOutput = 12
+		},
+		{
+			_class = "C_OP_RadiusDecay"
+			m_flMinRadius = 0.05
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_Rate = -2.0
+			m_flEndTime = 999.0
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_RemapScalarOnceTimed"
+			m_nFieldInput = 13
+			m_nFieldOutput = 13
+			m_flInputMin = 1.0
+			m_flOutputMin = 2.0
+			m_flOutputMax = 2.0
+			m_flRemapTime = 0.4
+		},
+		{
+			_class = "C_OP_SetControlPointsToModelParticles"
+			m_nFirstControlPoint = 6
+		},
+	]
+	m_flConstantRadius = 3.0
+	m_flDepthSortBias = 30.0
+	m_nConstantSequenceNumber1 = 1
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/heroes/knight/knight_hell_pit_c0a.vpcf"
+		},
+	]
+	m_nMaxParticles = 1
+	m_ConstantColor = [ 236, 194, 59, 255 ]
+}

@@ -1,0 +1,12 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "projected_dota.vfx"
+
+	//---- Color ----
+	TextureColor "materials/particle/heroes/knight/baphomet_color.tga"
+
+	//---- Translucency ----
+	TextureTranslucency "materials/particle/heroes/knight/baphomet_color.tga"
+}
