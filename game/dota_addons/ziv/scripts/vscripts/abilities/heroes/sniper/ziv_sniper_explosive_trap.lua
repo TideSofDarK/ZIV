@@ -61,7 +61,7 @@ function Explode( keys )
 			for k,v in pairs(units_in_radius) do
 				ability:ApplyDataDrivenModifier(caster, v, "modifier_explosive_trap_effect", {})
 				
-				DealDamage( caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_sniper_explosive_trap_damage"), DAMAGE_TYPE_FIRE )
+				Damage:Deal( caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_sniper_explosive_trap_damage"), DAMAGE_TYPE_FIRE )
 			end
 		end
 

@@ -25,7 +25,7 @@ if IsServer() then
             return
         end
 
-        DealDamage( caster, target, GetRuneDamage(caster, 1.0, "ziv_sniper_ammo_poison") * self.tick, DAMAGE_TYPE_DARK, true )
+        Damage:Deal( caster, target, GetRuneDamage(caster, 1.0, "ziv_sniper_ammo_poison") * self.tick, DAMAGE_TYPE_DARK, true )
 
         return self.tick
     end

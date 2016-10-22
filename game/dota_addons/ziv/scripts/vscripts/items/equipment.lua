@@ -13,15 +13,19 @@ function Equipment:Unequip( unit, item )
 		if modifiers then
 			for id,gem_table in pairs(modifiers) do
 				for k,v in pairs(gem_table) do
-					if unit:HasModifier(k) then
-						if unit:HasModifier(k) == false then
-							unit:FindAbilityByName("ziv_passive_hero"):ApplyDataDrivenModifier(unit,unit,k,{})
-						end
+					if Damage[k] then -- Custom resistances
+						Damage:ModifyResist(unit, Damage[k], -v)
+					else
+						if unit:HasModifier(k) then
+							if unit:HasModifier(k) == false then
+								unit:FindAbilityByName("ziv_passive_hero"):ApplyDataDrivenModifier(unit,unit,k,{})
+							end
 
-						local new_count = unit:GetModifierStackCount(k, unit) - v
-						unit:SetModifierStackCount(k, unit, new_count)
-						if new_count <= 0 then
-							unit:RemoveModifierByName(k)
+							local new_count = unit:GetModifierStackCount(k, unit) - v
+							unit:SetModifierStackCount(k, unit, new_count)
+							if new_count <= 0 then
+								unit:RemoveModifierByName(k)
+							end
 						end
 					end
 				end
@@ -53,11 +57,15 @@ function Equipment:Equip( unit, item )
 			for id,gem_table in pairs(modifiers) do
 				for k,v in pairs(gem_table) do
 					if k ~= "gem" then
-						if unit:HasModifier(k) then
-							unit:SetModifierStackCount(k, unit, v + unit:GetModifierStackCount(k, unit))
+						if Damage[k] then -- Custom resistances
+							Damage:ModifyResist(unit, Damage[k], v)
 						else
-							fortify_modifiers_ability:ApplyDataDrivenModifier(unit, unit, k, {})
-							unit:SetModifierStackCount(k, unit, v)
+							if unit:HasModifier(k) then
+								unit:SetModifierStackCount(k, unit, v + unit:GetModifierStackCount(k, unit))
+							else
+								fortify_modifiers_ability:ApplyDataDrivenModifier(unit, unit, k, {})
+								unit:SetModifierStackCount(k, unit, v)
+							end
 						end
 					end
 				end

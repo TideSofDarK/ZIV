@@ -61,7 +61,7 @@ function ZombieHitImpact( keys )
 
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_witch_doctor_zombie_slow",{duration=GetSpecial(ability, "attack_slow_duration")})
 	target:SetModifierStackCount("modifier_witch_doctor_zombie_slow",caster,GetSpecial(ability, "attack_slow"))
-	DealDamage( caster, target, GetRuneDamage(caster, GetSpecial(ability, "zombie_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL )
+	Damage:Deal( caster, target, GetRuneDamage(caster, GetSpecial(ability, "zombie_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL )
 end
 
 function SkeletonHitImpact( keys )
@@ -70,5 +70,5 @@ function SkeletonHitImpact( keys )
 	local attacker = keys.attacker
 	local ability = keys.ability
 
-	DealDamage( caster, target, GetRuneDamage(caster, GetSpecial(ability, "skeleton_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL )
+	Damage:Deal( caster, target, GetRuneDamage(caster, GetSpecial(ability, "skeleton_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL )
 end

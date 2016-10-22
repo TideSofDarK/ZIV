@@ -6,10 +6,10 @@ function OnDamageTick( keys )
 	local damage = GetRuneDamage(caster, GetSpecial(ability, "burn_damage_amp"), "ziv_samurai_reign_of_fire_damage")
 
 	-- PopupCriticalDamage(target, damage)
-	DealDamage(caster, target, damage, DAMAGE_TYPE_FIRE)
+	Damage:Deal(caster, target, damage, DAMAGE_TYPE_FIRE)
 end
 
-function OnDealDamage( keys )
+function OnDamage:Deal( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local damage = keys.Damage

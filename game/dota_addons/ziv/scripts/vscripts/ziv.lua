@@ -32,8 +32,6 @@ require('libraries/modmaker')
 require('libraries/traps')
 -- Particles
 require('libraries/particles')
--- Damage
-require('libraries/damage')
 -- Random
 require('libraries/random')
 require('libraries/pseudoRNG')
@@ -53,6 +51,9 @@ require('items/vials')
 require('items/runes')
 -- Game setup
 require('gamesetup')
+
+-- Damage
+require('damage')
 
 -- Character management
 require('characters')
@@ -249,6 +250,7 @@ function ZIV:InitZIV()
   Items:Init()
   Trade:Init()
   Loot:Init()
+  Damage:Init()
 
   Attributes:Init()
 

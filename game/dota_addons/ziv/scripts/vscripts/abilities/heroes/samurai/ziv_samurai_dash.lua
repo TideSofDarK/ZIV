@@ -80,6 +80,6 @@ function DealDashDamage( keys )
 		
 		keys.ability:ApplyDataDrivenModifier(caster,target,"modifier_dash_hit",{duration=1.0})
 
-		DealDamage( caster, target, GetRuneDamage(caster, 0, "ziv_samurai_dash_damage"), DAMAGE_TYPE_PHYSICAL )
+		Damage:Deal( caster, target, GetRuneDamage(caster, 0, "ziv_samurai_dash_damage"), DAMAGE_TYPE_PHYSICAL )
 	end
 end

@@ -356,8 +356,8 @@
 	
 	    "SecondName"    "knight"
 	
-	    "Playstyle" "hitnrun"
-	    "PrimaryDamageType" "DAMAGE_TYPE_MAGICAL"
+	    "Playstyle" "nobrain"
+	    "PrimaryDamageType" "DAMAGE_TYPE_PHYSICAL"
 	    "CreationSound" "dragon_knight_drag_spawn_04"
 	
 	    "EquipmentSlots" "torso;sword;gloves;ring;pants;boots"
@@ -371,7 +371,7 @@
 	    "Ability3"        "ziv_knight_parry"
 	    "Ability4"        "ziv_knight_orb" 
 	    "Ability5"        "ziv_knight_slash"
-	    "Ability6"        "ziv_knight_dash"
+	    "Ability6"        "ziv_knight_orb"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""

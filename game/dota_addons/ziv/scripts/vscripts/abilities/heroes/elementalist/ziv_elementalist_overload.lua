@@ -27,8 +27,8 @@ function Overload( keys )
 			ParticleManager:SetParticleControl(arc, 0, caster:GetAbsOrigin() + Vector(0,0,48))
 			ParticleManager:SetParticleControl(arc, 1, v:GetAbsOrigin() + Vector(0,0,48))
 
-			DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp_lightning"), "ziv_elementalist_overload_lightning_damage"), DAMAGE_TYPE_LIGHTNING) 
-			DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp_cold"), "ziv_elementalist_overload_cold_damage"), DAMAGE_TYPE_COLD)
+			Damage:Deal(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp_lightning"), "ziv_elementalist_overload_lightning_damage"), DAMAGE_TYPE_LIGHTNING) 
+			Damage:Deal(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp_cold"), "ziv_elementalist_overload_cold_damage"), DAMAGE_TYPE_COLD)
 
 			ability:ApplyDataDrivenModifier(caster,v,"modifier_overload_frozen",{})
 
@@ -36,7 +36,7 @@ function Overload( keys )
 
 			Timers:CreateTimer(((caster:GetAbsOrigin() - v:GetAbsOrigin()):Length2D() / speed) + 0.2, function (  )
 				local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_overload_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
-				DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp_fire"), "ziv_elementalist_overload_fire_damage"), DAMAGE_TYPE_FIRE)
+				Damage:Deal(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp_fire"), "ziv_elementalist_overload_fire_damage"), DAMAGE_TYPE_FIRE)
 
 				ability:ApplyDataDrivenModifier(caster,v,"modifier_overload_burn",{})
 				v:EmitSound("Item.Maelstrom.Chain_Lightning.Jump")

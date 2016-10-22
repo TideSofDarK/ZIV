@@ -17,24 +17,7 @@
   
   "Modifiers"
   {
-    "modifier_agression"
-    {
-      "Passive"      "1"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-
-      "ThinkInterval"  "0.3"
-      "OnIntervalThink"
-      {
-        "RunScript"
-        {
-          "ScriptFile"  "libraries/abilities.lua"
-          "Function"    "HeroAggression"
-        }
-      }
-    }
-
-    "modifier_passive_attack_speed"
+    "modifier_passive_hero"
     {
       "Passive"      "1"
       "IsHidden"      "0"
@@ -53,40 +36,44 @@
       }
     }
 
-    "modifier_all_resistances"
+    // Custom resistances, works through damage.lua
+
+    "ALL_RESISTANCES"
     {
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
     }
 
-    "modifier_fire_resistance"
+    "FIRE_RESISTANCE"
     {
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
     }
 
-    "modifier_cold_resistance"
+    "COLD_RESISTANCE"
     {
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
     }
 
-    "modifier_lightning_resistance"
+    "LIGHTNING_RESISTANCE"
     {
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
     }
 
-    "modifier_dark_resistance"
+    "DARK_RESISTANCE"
     {
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
     }
+
+    // Generic modifiers
 
     "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
     {
@@ -99,7 +86,6 @@
         "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
       }
     }
-
     "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"
     {
       "Passive"      "0"

@@ -20,9 +20,9 @@ function HellPit( keys )
 
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_hell_pit_cage", { duration = GetSpecial(ability, "root_duration") })
 
-			DealDamage( caster, unit, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_FIRE)
+			Damage:Deal( caster, unit, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_FIRE)
 
-			unit:EmitSound("Hero_Nevermore.Shadowraze.Arcana")
+			unit:EmitSound("Hero_Nevermore.Shadowraze")
 		end)
 		t = t + delay
 	end )

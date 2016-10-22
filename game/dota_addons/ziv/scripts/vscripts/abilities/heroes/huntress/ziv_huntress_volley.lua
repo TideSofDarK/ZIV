@@ -51,7 +51,7 @@ function VolleyHit(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 		
-	DealDamage(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_huntress_volley_damage"), DAMAGE_TYPE_PHYSICAL)
+	Damage:Deal(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_huntress_volley_damage"), DAMAGE_TYPE_PHYSICAL)
 
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_volley_slow",{})
 

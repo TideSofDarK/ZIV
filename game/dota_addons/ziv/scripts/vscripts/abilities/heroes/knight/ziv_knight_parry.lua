@@ -54,6 +54,6 @@ function Parry( keys )
 	    }
 		attacker:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
 
-	    DealDamage(caster, attacker, GetRuneDamage(caster, GetSpecial(ability, "parry_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
+	    Damage:Deal(caster, attacker, GetRuneDamage(caster, GetSpecial(ability, "parry_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
     end
 end

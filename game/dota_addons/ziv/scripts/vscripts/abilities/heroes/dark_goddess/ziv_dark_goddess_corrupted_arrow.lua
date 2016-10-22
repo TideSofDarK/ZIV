@@ -59,7 +59,7 @@ function RestoreEnergy( keys )
 	local target = keys.target
 	local ability = keys.ability
 
-	DealDamage(caster, target, GetRuneDamage(caster, GetSpecial(ability, "spirit_damage_amp"), ""), DAMAGE_TYPE_DARK)
+	Damage:Deal(caster, target, GetRuneDamage(caster, GetSpecial(ability, "spirit_damage_amp"), ""), DAMAGE_TYPE_DARK)
 
 	local energy_restored = ability:GetSpecialValueFor("energy_restored")
 	
@@ -88,5 +88,5 @@ function AdditionalDamage( keys )
 
 	target:EmitSound("Hero_Spectre.PreAttack")
 
-	DealDamage(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_DARK)
+	Damage:Deal(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_DARK)
 end

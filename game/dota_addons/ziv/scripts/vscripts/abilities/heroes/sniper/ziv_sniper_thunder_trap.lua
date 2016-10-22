@@ -65,7 +65,7 @@ function Explode( keys )
 
 				ability:ApplyDataDrivenModifier(caster, v, "modifier_thunder_trap_effect", {})
 	
-				DealDamage( caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_sniper_thunder_trap_damage"), DAMAGE_TYPE_LIGHTNING )
+				Damage:Deal( caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_sniper_thunder_trap_damage"), DAMAGE_TYPE_LIGHTNING )
 			end
 		end
 

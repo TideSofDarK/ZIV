@@ -35,7 +35,7 @@ function ColdBlastTick( keys )
 
 		local damage = GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "") * GetSpecial(ability, "tick")
 
-		DealDamage(caster, v, damage, DAMAGE_TYPE_COLD)
+		Damage:Deal(caster, v, damage, DAMAGE_TYPE_COLD)
 
 		v:EmitSound("Hero_Invoker.IceWall.Slow")
 	end)

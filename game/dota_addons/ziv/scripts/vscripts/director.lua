@@ -322,7 +322,7 @@ function Director:SpawnCreeps( spawn_table )
 					if spawn_table.Lord == true then
 						creep:AddAbility("ziv_unique_hpbar")
 
-						creep:SetModelScale(creep:GetModelScale() * 1.25)
+						creep:SetModelScale(creep:GetModelScale() * 1.15)
 
 						creep:AddAbility(Director:GetRandomModifier(Director.color_modifier_list))
 

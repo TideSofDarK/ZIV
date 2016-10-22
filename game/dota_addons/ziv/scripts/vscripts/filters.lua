@@ -31,7 +31,7 @@ function ZIV:DamageFilter( filterTable )
     if victim:IsHero() == false and attacker:IsHero() == false then
         if attacker:GetPlayerOwnerID() >= 0 then
             attacker = PlayerResource:GetPlayer(attacker:GetPlayerOwnerID()):GetAssignedHero()
-            DealDamage( attacker, victim, damage, damage_type )
+            Damage:Deal( attacker, victim, damage, damage_type )
         end
 
         return false

@@ -25,7 +25,7 @@ function Blast( caster, ability, position )
 	ParticleManager:SetParticleControl(particle, 0, position)
 
 	DoToUnitsInRadius( caster, position, ability:GetCastRange() / 5, nil, nil, nil, function ( target )
-		DealDamage(caster, target, GetSpecial(ability, "damage_percent") * target:GetMaxHealth() / 2, DAMAGE_TYPE_FIRE)
-		DealDamage(caster, target, GetSpecial(ability, "damage_percent") * target:GetMaxHealth() / 2, DAMAGE_TYPE_PHYSICAL)
+		Damage:Deal(caster, target, GetSpecial(ability, "damage_percent") * target:GetMaxHealth() / 2, DAMAGE_TYPE_FIRE)
+		Damage:Deal(caster, target, GetSpecial(ability, "damage_percent") * target:GetMaxHealth() / 2, DAMAGE_TYPE_PHYSICAL)
 	end )
 end

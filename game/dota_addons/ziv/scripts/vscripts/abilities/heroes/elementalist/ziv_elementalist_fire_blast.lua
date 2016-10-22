@@ -8,7 +8,7 @@ function FireBlastImpact( keys )
 		damage = damage * GetSpecial(ability, "crit_damage")
 	end
 
-	DealDamage(caster, target, damage, DAMAGE_TYPE_FIRE)
+	Damage:Deal(caster, target, damage, DAMAGE_TYPE_FIRE)
 
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_fire_blast_effect",{})
 end

@@ -67,7 +67,7 @@ function StartAttack( keys )
 					v:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
 				end
 				
-			    DealDamage( caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), damage_type )
+			    Damage:Deal( caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), damage_type )
 	    	end
 		end)
 	end)

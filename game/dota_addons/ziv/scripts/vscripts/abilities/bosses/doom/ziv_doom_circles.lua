@@ -31,6 +31,6 @@ function CircleThink(keys)
 	for k,v in pairs(units) do
 		ability:ApplyDataDrivenModifier(caster,v,"modifier_doom_circle_damage",{})
 
-		DealDamage(caster, v, GetSpecial(ability, "damage_percent") * v:GetMaxHealth(), DAMAGE_TYPE_FIRE)
+		Damage:Deal(caster, v, GetSpecial(ability, "damage_percent") * v:GetMaxHealth(), DAMAGE_TYPE_FIRE)
 	end
 end

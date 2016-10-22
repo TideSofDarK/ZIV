@@ -85,7 +85,7 @@ function WolfAttack( keys )
 		damage = damage * ((GetSpecial(ability, "wolf_crit_damage") + GRMSC("ziv_beastmaster_pet1_crit_damage", caster)) / 100)
 	end
 
-	DealDamage(caster,target,damage, DAMAGE_TYPE_PHYSICAL)
+	Damage:Deal(caster,target,damage, DAMAGE_TYPE_PHYSICAL)
 end
 
 function BearAttack( keys )
@@ -99,5 +99,5 @@ function BearAttack( keys )
 		target:AddNewModifier(caster,ability,"modifier_stunned",{duration = GetSpecial(ability, "bear_stun_duration")})
 	end
 
-	DealDamage(caster,target,damage,DAMAGE_TYPE_PHYSICAL)
+	Damage:Deal(caster,target,damage,DAMAGE_TYPE_PHYSICAL)
 end

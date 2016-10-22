@@ -116,10 +116,10 @@ function BleedDamage( keys )
 	local ability = keys.ability
 
 	if target:HasModifier("modifier_glaive_bleeding") then
-		DealDamage( caster, target, GetRuneDamage(caster, GetSpecial(ability, "bleeding_damage_amp"), "ziv_dark_goddess_glaive_bleed_damage"), DAMAGE_TYPE_PHYSICAL )
+		Damage:Deal( caster, target, GetRuneDamage(caster, GetSpecial(ability, "bleeding_damage_amp"), "ziv_dark_goddess_glaive_bleed_damage"), DAMAGE_TYPE_PHYSICAL )
 		caster:EmitSound("Hero_Pudge.Dismember")
 	else 
-		DealDamage( caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_PHYSICAL )
+		Damage:Deal( caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_PHYSICAL )
 		caster:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
 	end
 end

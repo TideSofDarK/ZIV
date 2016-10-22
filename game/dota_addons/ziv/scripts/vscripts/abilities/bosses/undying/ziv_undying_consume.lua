@@ -12,7 +12,7 @@ function Consume( keys )
 			StartAnimation(target, {duration=0.5, activity=ACT_DOTA_DISABLED, rate=2.0})
 
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_undying_consume", {duration = 0.5})
-			DealDamage(caster, target, target:GetHealth() * GetSpecial(ability, "hp_percent"), DAMAGE_TYPE_PHYSICAL)
+			Damage:Deal(caster, target, target:GetHealth() * GetSpecial(ability, "hp_percent"), DAMAGE_TYPE_PHYSICAL)
 
 			return 0.5
 		else

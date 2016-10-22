@@ -1715,24 +1715,7 @@
 	  
 	  "Modifiers"
 	  {
-	    "modifier_agression"
-	    {
-	      "Passive"      "1"
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	
-	      "ThinkInterval"  "0.3"
-	      "OnIntervalThink"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "libraries/abilities.lua"
-	          "Function"    "HeroAggression"
-	        }
-	      }
-	    }
-	
-	    "modifier_passive_attack_speed"
+	    "modifier_passive_hero"
 	    {
 	      "Passive"      "1"
 	      "IsHidden"      "0"
@@ -1751,40 +1734,44 @@
 	      }
 	    }
 	
-	    "modifier_all_resistances"
+	    // Custom resistances, works through damage.lua
+	
+	    "ALL_RESISTANCES"
 	    {
 	      "Passive"      "0"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
 	    }
 	
-	    "modifier_fire_resistance"
+	    "FIRE_RESISTANCE"
 	    {
 	      "Passive"      "0"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
 	    }
 	
-	    "modifier_cold_resistance"
+	    "COLD_RESISTANCE"
 	    {
 	      "Passive"      "0"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
 	    }
 	
-	    "modifier_lightning_resistance"
+	    "LIGHTNING_RESISTANCE"
 	    {
 	      "Passive"      "0"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
 	    }
 	
-	    "modifier_dark_resistance"
+	    "DARK_RESISTANCE"
 	    {
 	      "Passive"      "0"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
 	    }
+	
+	    // Generic modifiers
 	
 	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
 	    {
@@ -1797,7 +1784,6 @@
 	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
 	      }
 	    }
-	
 	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"
 	    {
 	      "Passive"      "0"
@@ -4916,20 +4902,16 @@
 	"ziv_knight_molten_shell"
 	{
 	  "BaseClass"                 "ability_datadriven"
-	  "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET" //DOTA_ABILITY_BEHAVIOR_PASSIVE
 	  "AbilityTextureName"        "ziv_empty"
 	
-	  "AbilityCastPoint"          "0.25"
-	  "AbilityCooldown"           "1.35"
-	  "AbilityManaCost"           "20"
-	
-	  "AbilityCastAnimation"      "ACT_DOTA_NONE"
+	  "AbilityCooldown"           "2.5"
 	
 	  "MaxLevel"  "1"
 	
 	  "precache"
 	  {
-	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"       
+	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"       
 	    "particle"      "particles/heroes/knight/knight_molten_shell.vpcf"
 	  }
 	
@@ -4938,22 +4920,22 @@
 	    "01"
 	    {
 	      "var_type"                    "FIELD_FLOAT"
-	      "fire_damage_reduction"       "100"
+	      "fire_damage_reduction"       "80"
 	    }
 	    "02"
 	    {
 	      "var_type"                    "FIELD_FLOAT"
-	      "cold_damage_reduction"       "60"
+	      "cold_damage_reduction"       "50"
 	    }
 	    "03"
 	    {
 	      "var_type"                    "FIELD_FLOAT"
-	      "lightning_damage_reduction"  "80"
+	      "lightning_damage_reduction"  "70"
 	    }
 	    "04"
 	    {
 	      "var_type"                    "FIELD_FLOAT"
-	      "dark_damage_reduction"       "60"
+	      "dark_damage_reduction"       "50"
 	    }
 	    "05"
 	    {
@@ -4963,7 +4945,7 @@
 	    "06"
 	    {
 	      "var_type"                    "FIELD_FLOAT"
-	      "duration"                    "1.2"
+	      "duration"                    "2.0"
 	    }
 	  }
 	
@@ -4971,18 +4953,61 @@
 	  {
 	    "RunScript"
 	    {
-	      "ScriptFile"  "abilities/heroes/knight/ziv_knight_molten_shell.lua"
-	      "Function"    "MoltenShell"
+	      "ScriptFile"      "abilities/heroes/knight/ziv_knight_molten_shell.lua"
+	      "Function"        "MoltenShell"
+	    }
+	  }
+	
+	  "OnUpgrade"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"      "abilities/heroes/knight/ziv_knight_molten_shell.lua"
+	      "Function"        "ResetThreshold"
+	    }
+	  }
+	
+	  "OnOwnerSpawned"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"      "abilities/heroes/knight/ziv_knight_molten_shell.lua"
+	      "Function"        "ResetThreshold"
 	    }
 	  }
 	
 	  "Modifiers"
 	  {
+	    "modifier_molten_shell_buff"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "StatusEffectName"     "particles/status_fx/status_effect_statue.vpcf"      
+	      "StatusEffectPriority"  "1"
+	
+	      "EffectName" "particles/units/heroes/hero_sven/sven_warcry_armor_buff_model.vpcf"
+	      "EffectAttachType"  "follow_overhead"
+	    }
+	
 	    "modifier_molten_shell"
 	    {
 	      "Passive"      "1"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
+	
+	      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
+	
+	      "OnTakeDamage"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"      "abilities/heroes/knight/ziv_knight_molten_shell.lua"
+	          "Function"        "OnTakeDamage"
+	          "attack_damage"   "%attack_damage"
+	        }
+	      }
 	    }
 	  }
 	}
@@ -5208,7 +5233,9 @@
 	
 	  "precache"
 	  {
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
 	    "particle"  "particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire_explosion_c.vpcf"
+	    "particle"  "particles/heroes/knight/knight_slash_swipe.vpcf"
 	    "particle"  "particles/heroes/knight/knight_slash_ring.vpcf"
 	    "particle"  "particles/heroes/knight/knight_slash_trail.vpcf"
 	    "particle"  "particles/heroes/knight/knight_slash_projectile.vpcf"
@@ -5219,8 +5246,18 @@
 	  {
 	    "01"
 	    {
-	      "var_type" "FIELD_FLOAT"
-	      "damage_amp" "2.3"
+	      "var_type"          "FIELD_FLOAT"
+	      "damage_amp"        "2.3"
+	    }
+	    "02"
+	    {
+	      "var_type"          "FIELD_FLOAT"
+	      "secondary_damage"  "50"
+	    }
+	    "03"
+	    {
+	      "var_type"          "FIELD_FLOAT"
+	      "radius"            "300"
 	    }
 	  }
 	

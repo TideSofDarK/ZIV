@@ -23,7 +23,7 @@ function Blink( keys )
 
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), target,  nil, GetSpecial(ability, "damage_radius") + GRMSC("ziv_huntress_blink_arrow_radius", caster), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		for k,v in pairs(units) do
-			DealDamage(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
+			Damage:Deal(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
 		end
 	end)
 

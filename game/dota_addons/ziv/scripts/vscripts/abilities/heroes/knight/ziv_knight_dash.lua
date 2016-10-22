@@ -90,7 +90,7 @@ function Knockback( keys )
 		target:AddNewModifier( caster, ability, "modifier_knockback", knockbackModifierTable )
 	end
 
-    DealDamage(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_dash_damage"), DAMAGE_TYPE_FIRE)
+    Damage:Deal(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_dash_damage"), DAMAGE_TYPE_FIRE)
 
     ability:ApplyDataDrivenModifier(caster,target,"modifier_dash_hit",{duration = 1.0})
 end

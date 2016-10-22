@@ -18,6 +18,6 @@ function AttackImpact( keys )
 	local target = keys.target
 	local ability = keys.ability
 
-	DealDamage(caster, target, GetSpecial(ability, "damage_percent") * target:GetMaxHealth() / 2, DAMAGE_TYPE_PHYSICAL)
-	DealDamage(caster, target, GetSpecial(ability, "damage_percent") * target:GetMaxHealth() / 2, DAMAGE_TYPE_FIRE)
+	Damage:Deal(caster, target, GetSpecial(ability, "damage_percent") * target:GetMaxHealth() / 2, DAMAGE_TYPE_PHYSICAL)
+	Damage:Deal(caster, target, GetSpecial(ability, "damage_percent") * target:GetMaxHealth() / 2, DAMAGE_TYPE_FIRE)
 end

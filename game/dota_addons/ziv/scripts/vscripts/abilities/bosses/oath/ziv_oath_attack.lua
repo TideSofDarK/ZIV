@@ -33,7 +33,7 @@ function AttackImpact( keys )
 
 	local damage = GetSpecial(ability, "damage_percent") * target:GetMaxHealth()
 
-	local fire_damage = DealDamage(caster, target, damage/2, DAMAGE_TYPE_FIRE, true)
-	local physical_damage = DealDamage(caster, target, damage/2, DAMAGE_TYPE_PHYSICAL, true)
+	local fire_damage = Damage:Deal(caster, target, damage/2, DAMAGE_TYPE_FIRE, true)
+	local physical_damage = Damage:Deal(caster, target, damage/2, DAMAGE_TYPE_PHYSICAL, true)
 	PopupDamage(target:GetPlayerOwner(), target, fire_damage + physical_damage, 0.5)
 end

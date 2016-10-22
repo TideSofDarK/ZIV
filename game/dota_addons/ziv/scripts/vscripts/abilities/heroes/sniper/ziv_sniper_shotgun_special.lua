@@ -21,7 +21,7 @@ function ShotgunSpecial(keys)
 	keys.attack_sound = "null"
 	keys.on_hit = (function ( keys )
 		ammo:ApplyAmmo(keys.target)
-		DealDamage(caster, keys.target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_sniper_shotgun_special_damage"), DAMAGE_TYPE_PHYSICAL)
+		Damage:Deal(caster, keys.target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_sniper_shotgun_special_damage"), DAMAGE_TYPE_PHYSICAL)
 		if GetChance(GetSpecial(ability, "knockback_chance")) then
 			local duration = GetRunePercentIncrease(0.3,"ziv_sniper_shotgun_special_force",caster)
 			local knockbackModifierTable =

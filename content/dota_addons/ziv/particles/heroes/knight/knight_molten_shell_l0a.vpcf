@@ -11,7 +11,7 @@
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
 			m_bAdditive = true
 			m_flOverbrightFactor = 3.0
-			m_hTexture = resource:"materials/particle/electrical_arc_white/electrical_arc_white.vtex"
+			m_hTexture = resource:"materials/particle/fire_particle_4/fire_particle_4_flat.vtex"
 		},
 	]
 	m_Operators = 

@@ -66,7 +66,7 @@ function SplitShotImpact( keys )
     local target = keys.target
     local ability = keys.ability
 
-    DealDamage( caster, target, GetRuneDamage(caster, GetSpecial(ability, "ballista_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL )
+    Damage:Deal( caster, target, GetRuneDamage(caster, GetSpecial(ability, "ballista_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL )
 
     EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Mirana.ProjectileImpact", target)
 end

@@ -30,7 +30,7 @@ function Cleave( keys )
 			TimedEffect("particles/units/heroes/hero_riki/riki_backstab_hit_blood.vpcf", v, 1.0, 0, PATTACH_POINT_FOLLOW)
 			TimedEffect("particles/units/heroes/hero_dazzle/dazzle_poison_touch_blood.vpcf", v, 1.0, 0, PATTACH_POINT_FOLLOW)
 
-			DealDamage(caster,v,GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
+			Damage:Deal(caster,v,GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
 
 			if GetRuneChance("ziv_beastmaster_cleave_stun_chance",caster) then
 				v:AddNewModifier(caster,ability,"modifier_stunned",{duration = 0.1})
