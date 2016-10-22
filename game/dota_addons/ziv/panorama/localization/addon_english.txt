@@ -184,7 +184,7 @@
 	"ziv_knight_parry_cd"	"% reduction of Parry cooldown"
 	"ziv_knight_parry_force"	"to Parry knockback force"
 	"ziv_knight_slash_projectile_chance"	"% chance of firing double projectile with Slash"
-	"ziv_knight_slash_aoe_chance"	"% chance of dealing AOE damage with Slash"
+	"ziv_knight_slash_aoe_damage"	"increased damage to secondary targets with Slash"
 	"ziv_knight_slash_damage"	"to Slash damage"
 	"ziv_knight_slash_stun_chance"	"% chance of stun with Slash"
 	"ziv_knight_orb_burn_chance"	"% chance of applying Burn with Fire Orb"

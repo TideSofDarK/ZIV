@@ -1,4 +1,4 @@
-"item_rune_knight_slash_aoe_chance"
+"item_rune_knight_slash_aoe_damage"
 {
   "ID"    "1656"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -14,16 +14,17 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
-  "Tooltip"     "New"
+  "Tooltip"     "secondary_damage"
   "Type"        "Int"
+  "Method"      "Add"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_knight_slash_aoe_chance"
+    "ziv_knight_slash_aoe_damage"
     {
-      "min" "10"
-      "max" "70"
+      "min" "2"
+      "max" "31"
     }
   }
 }
