@@ -71,8 +71,9 @@ function Slash( keys )
 		TimedEffect("particles/heroes/knight/knight_slash_ring.vpcf", target, 1.0)
 		DoToUnitsInRadius( caster, caster:GetAbsOrigin(), GetSpecial(ability, "radius"), target_team, target_type, target_flags, function ( v )
 			if target ~= v then
+				local secondary_damage = damage * ((GetSpecial(ability, "secondary_damage") + GRMSC("ziv_knight_slash_aoe_damage", caster)) / 100)
 				TimedEffect("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire_explosion_c.vpcf", v, 1.0, 3, PATTACH_POINT_FOLLOW)
-				Damage:Deal(caster, v, damage * (GetSpecial(ability, "secondary_damage") / 100), DAMAGE_TYPE_PHYSICAL)
+				Damage:Deal(caster, v, secondary_damage, DAMAGE_TYPE_PHYSICAL)
 			end
 		end )
 	end)
