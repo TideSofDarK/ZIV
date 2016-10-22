@@ -1,0 +1,30 @@
+"item_rune_hell_pit_damage"
+{
+  "ID"    "1656"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"           "item_datadriven"
+  "AbilityTextureName"      "item_rune_hell_pit_damage"
+  "Model"                   "models/items/gem_topaz.vmdl"
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+
+  "ItemStackable"         "1"
+  "ItemPermanent"         "0"
+  "ItemInitialCharges"            "1"
+
+  "MaxUpgradeLevel"       "1"
+  "ItemBaseLevel"         "1"
+
+  "Tooltip"   "damage_amp"
+  "Type"      "Float"
+  "Method"    "Add"
+
+  "FortifyModifiersCount" "1"
+  "FortifyModifiers"
+  {
+    "ziv_knight_hell_pit_damage"
+    {
+      "min" "1"
+      "max" "25"
+    }
+  }
+}

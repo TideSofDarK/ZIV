@@ -2110,6 +2110,125 @@
 	    }
 	  }
 	}
+	"item_rune_hell_pit_cd"
+	{
+	  "ID"    "1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_hell_pit_cd"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "AbilityCooldown"
+	  "Reduction" "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_knight_hell_pit_cd"
+	    {
+	      "min" "2"
+	      "max" "25"
+	    }
+	  }
+	}
+	"item_rune_hell_pit_damage"
+	{
+	  "ID"    "1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_hell_pit_damage"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "damage_amp"
+	  "Type"      "Float"
+	  "Method"    "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_knight_hell_pit_damage"
+	    {
+	      "min" "1"
+	      "max" "25"
+	    }
+	  }
+	}
+	"item_rune_hell_pit_duration"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_hell_pit_duration"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip" "root_duration"
+	  "Type"    "Float"
+	  "Method"  "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_knight_hell_pit_duration"
+	    {
+	      "min" "5"
+	      "max" "80"
+	    }
+	  }
+	}
+	"item_rune_hell_pit_radius"
+	{
+	  "ID"    "1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_hell_pit_radius"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "radius"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_knight_hell_pit_radius"
+	    {
+	      "min" "10"
+	      "max" "65"
+	    }
+	  }
+	}
 	"item_rune_knight_dash_damage"
 	{
 	  "ID"    "1656"
@@ -2402,6 +2521,66 @@
 	    {
 	      "min" "3"
 	      "max" "20"
+	    }
+	  }
+	}
+	"item_rune_molten_shell_cd"
+	{
+	  "ID"    "1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_molten_shell_cd"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "AbilityCooldown"
+	  "Reduction" "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_knight_molten_shell_cd"
+	    {
+	      "min" "2"
+	      "max" "32"
+	    }
+	  }
+	}
+	"item_rune_molten_shell_threshold"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_molten_shell_threshold"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "damage_threshold"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	  "Reduction" "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_knight_molten_shell_threshold"
+	    {
+	      "min" "1"
+	      "max" "45"
 	    }
 	  }
 	}

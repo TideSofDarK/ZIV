@@ -4822,7 +4822,7 @@
 	
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.25"
-		"AbilityCooldown"				"5.35"
+		"AbilityCooldown"				"6.35"
 		"AbilityManaCost"				"40"
 	
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
@@ -4902,7 +4902,7 @@
 	"ziv_knight_molten_shell"
 	{
 	  "BaseClass"                 "ability_datadriven"
-	  "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET" //DOTA_ABILITY_BEHAVIOR_PASSIVE
+	  "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE" //DOTA_ABILITY_BEHAVIOR_NO_TARGET
 	  "AbilityTextureName"        "ziv_empty"
 	
 	  "AbilityCooldown"           "2.5"
@@ -4940,7 +4940,7 @@
 	    "05"
 	    {
 	      "var_type"                    "FIELD_FLOAT"
-	      "damage_threshold"            "100"
+	      "damage_threshold"            "120"
 	    }
 	    "06"
 	    {

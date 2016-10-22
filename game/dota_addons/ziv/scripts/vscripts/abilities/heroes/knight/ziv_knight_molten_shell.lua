@@ -2,7 +2,7 @@ function MoltenShell( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
-	ability:StartCooldown(ability:GetCooldown(1))
+	StartRuneCooldown(ability,"ziv_knight_molten_shell_cd",caster)
 
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=2.2, translate="sven_warcry", translate2="sven_shield"})
 
@@ -47,5 +47,7 @@ function ResetThreshold( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
-	caster:SetModifierStackCount("modifier_molten_shell",caster,GetSpecial(ability, "damage_threshold"))
+	local threshold = GetSpecial(ability, "damage_threshold") - GRMSC("ziv_knight_molten_shell_threshold", caster)
+
+	caster:SetModifierStackCount("modifier_molten_shell",caster,)
 end

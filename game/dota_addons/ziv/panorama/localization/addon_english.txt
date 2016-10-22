@@ -179,6 +179,13 @@
 	"ziv_beastmaster_pet2_as"	"to Bear attack speed"
 	"ziv_beastmaster_pet2_stun_chance"	"% additional Bear stun chance"
 
+
+	"ziv_knight_hell_pit_cd"			"% reduction of Hell Pit cooldown"
+	"ziv_knight_hell_pit_damage"		"to Hell Pit damage"
+	"ziv_knight_hell_pit_duration"		"to Hell Pit root duration"
+	"ziv_knight_hell_pit_radius"		"to Hell Pit radius"
+	"ziv_knight_molten_shell_cd"		"% reduction of Molten Shell cooldown"
+	"ziv_knight_molten_shell_threshold"	"reduction of Molten Shell damage threshold"
 	"ziv_knight_dash_force"		"to Dash knockback force"
 	"ziv_knight_dash_damage"	"to Dash knockback force"
 	"ziv_knight_parry_cd"	"% reduction of Parry cooldown"
