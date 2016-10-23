@@ -8,7 +8,7 @@ function Dash( keys )
 
 	local ability_level = ability:GetLevel() - 1
 
-	StartAnimation(caster, {duration=0.44, activity=ACT_DOTA_RUN, rate=2.3})
+	StartAnimation(caster, {duration=-1, activity=ACT_DOTA_RUN, rate=2.0})
 
 	ability.direction = (target - caster:GetAbsOrigin()):Normalized()
 
@@ -30,12 +30,13 @@ function Dash( keys )
 	end)
 
 	Timers:CreateTimer(ability.duration / 1.5, function (  )
-		StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_ATTACK_EVENT, rate=1.5})
-		
-		Timers:CreateTimer(0.2, function (  )
-			caster:EmitSound("Hero_EarthShaker.IdleSlam")
+		Timers:CreateTimer(0.15, function (  )
+			StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_5, rate=2.5})
 		end)
 		Timers:CreateTimer(0.3, function (  )
+			caster:EmitSound("Hero_EarthShaker.IdleSlam")
+		end)
+		Timers:CreateTimer(0.4, function (  )
 			local ground = TimedEffect( "particles/units/heroes/hero_lone_druid/lone_druid_bear_entangle_ground_rocks.vpcf", caster, 1.0, 5 )
 			local rocks = TimedEffect( "particles/units/heroes/hero_visage/visage_stone_form.vpcf", caster, 0.5 )
 
@@ -44,8 +45,25 @@ function Dash( keys )
 			ParticleManager:SetParticleControl(ground,5,hit_position)
 			ParticleManager:SetParticleControl(rocks,0,hit_position)
 
-			-- ParticleManager:SetParticleControlEnt(ground, 5, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
-			-- ParticleManager:SetParticleControlEnt(rocks, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
+			DoToUnitsInRadius( caster, hit_position, 300, target_team, target_type, target_flags, function ( v )
+				Damage:Deal(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_dash_damage"), DAMAGE_TYPE_PHYSICAL)
+
+				local force = GRMSC("ziv_knight_dash_force", caster)
+				if force > 0 then
+					local knockbackModifierTable =
+				    {
+				        should_stun = 1,
+				        knockback_duration = 0.4,
+				        duration = 0.4,
+				        knockback_distance = force,
+				        knockback_height = 75,
+				        center_x = caster:GetAbsOrigin().x,
+				        center_y = caster:GetAbsOrigin().y,
+				        center_z = caster:GetAbsOrigin().z
+				    }
+					v:AddNewModifier( caster, ability, "modifier_knockback", knockbackModifierTable )
+				end
+			end )
 		end)
 		-- Timers:CreateTimer(0.4, function (  )
 		-- 	FreezeAnimation(caster, 0.15)
@@ -65,32 +83,4 @@ function DashHorizontal( keys )
 	else
 		caster:InterruptMotionControllers(true)
 	end
-end
-
-function Knockback( keys )
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-
-	if target:HasModifier("modifier_knockback") or target:HasModifier("modifier_dash_hit") then return end
-
-	local force = GRMSC("ziv_knight_dash_force", caster)
-	if force > 0 then
-		local knockbackModifierTable =
-	    {
-	        should_stun = 1,
-	        knockback_duration = 0.75,
-	        duration = 0.75,
-	        knockback_distance = force,
-	        knockback_height = 50,
-	        center_x = caster:GetAbsOrigin().x,
-	        center_y = caster:GetAbsOrigin().y,
-	        center_z = caster:GetAbsOrigin().z
-	    }
-		target:AddNewModifier( caster, ability, "modifier_knockback", knockbackModifierTable )
-	end
-
-    Damage:Deal(caster, target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_dash_damage"), DAMAGE_TYPE_FIRE)
-
-    ability:ApplyDataDrivenModifier(caster,target,"modifier_dash_hit",{duration = 1.0})
 end

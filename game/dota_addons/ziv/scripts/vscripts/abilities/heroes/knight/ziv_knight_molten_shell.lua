@@ -49,5 +49,5 @@ function ResetThreshold( keys )
 
 	local threshold = GetSpecial(ability, "damage_threshold") - GRMSC("ziv_knight_molten_shell_threshold", caster)
 
-	caster:SetModifierStackCount("modifier_molten_shell",caster,)
+	caster:SetModifierStackCount("modifier_molten_shell",caster,threshold)
 end

@@ -64,12 +64,6 @@
 
   "Modifiers"
   {
-    "modifier_dash_hit"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "1"
-    }
     "modifier_dash_running"
     {
       "IsHidden"      "1"
@@ -82,30 +76,6 @@
         "MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
         "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"    "MODIFIER_STATE_VALUE_ENABLED"
         "MODIFIER_STATE_DISARMED" "MODIFIER_STATE_VALUE_ENABLED"
-      }
-
-      "ThinkInterval"  "0.03"
-      "OnIntervalThink"
-      {
-        "ActOnTargets"
-        {
-          "Target"
-          {
-            "Center"    "CASTER"
-            "Radius"   "175"
-            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-            "Types"   "DOTA_UNIT_TARGET_BASIC"
-          }
-        
-          "Action"    
-          {
-            "RunScript"
-            {
-              "ScriptFile"  "abilities/heroes/knight/ziv_knight_dash.lua"
-              "Function"    "Knockback"
-            }
-          }
-        }
       }
     }
   }

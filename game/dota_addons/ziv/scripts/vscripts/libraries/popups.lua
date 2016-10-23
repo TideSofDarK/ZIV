@@ -124,10 +124,10 @@ function PopupDamage(player, target, number, coef)
     end
 
     local pidx = ParticleManager:CreateParticleForPlayer("particles/ziv_damage_alt.vpcf", PATTACH_ABSORIGIN, target, player) -- target:GetOwner()
-        
+
     ParticleManager:SetParticleControl(pidx, 0, position + offset)
     ParticleManager:SetParticleControl(pidx, 1, Vector(digits, 0, 0))
     ParticleManager:SetParticleControl(pidx, 2, Vector(round(tonumber(final_number)), 0, 0))
-    ParticleManager:SetParticleControl(pidx, 3, Vector(5 + (12 * coef), 0, 0)) 
+    ParticleManager:SetParticleControl(pidx, 3, Vector(4 + (12 * coef), 0, 0)) 
     ParticleManager:SetParticleControl(pidx, 4, color)  
 end

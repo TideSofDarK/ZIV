@@ -85,7 +85,7 @@ function SimulateMeleeAttack( keys )
     ParticleManager:CreateParticle(keys.attack_particle,PATTACH_ABSORIGIN,caster)
   end 
 
-  StartAnimation(caster, {duration=base_attack_time, activity=activity, rate=rate})
+  StartAnimation(caster, {duration=base_attack_time, activity=activity, rate=rate, translate=keys.translate, translate2=keys.translate2})
 
   caster:SetForwardVector(UnitLookAtPoint( caster, target ))
   caster:Stop()
@@ -102,7 +102,7 @@ function SimulateMeleeAttack( keys )
     elseif kv["SoundSet"] then
       caster:EmitSound(kv["SoundSet"]..".Attack")
     end
-
+    
     if keys.on_impact then
       keys.on_impact(caster)
     else
@@ -116,7 +116,7 @@ function SimulateMeleeAttack( keys )
         end
 
         local new_keys = keys
-
+        
         if keys.on_hit then
           new_keys.target = v
           keys.on_hit(new_keys)
@@ -160,7 +160,7 @@ function SimulateRangeAttack( keys )
     ability:StartCooldown( base_attack_time )
   end
   
-  StartAnimation(caster, {duration=base_attack_time, activity=ACT_DOTA_ATTACK, rate=rate, translate=keys.translate})
+  StartAnimation(caster, {duration=base_attack_time, activity=ACT_DOTA_ATTACK, rate=rate, translate=keys.translate, translate2=keys.translate2})
   
   caster:SetForwardVector(UnitLookAtPoint( caster, target ))
   caster:Stop()

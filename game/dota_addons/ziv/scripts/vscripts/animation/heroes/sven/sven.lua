@@ -258,7 +258,6 @@ model:CreateSequence(
 	}
 )
 
-
 model:CreateSequence(
 	{
 		name = "attack_charge",
@@ -266,7 +265,32 @@ model:CreateSequence(
 			{ "attack01" }
 		},
 		activities = {
-			{ name = "ACT_DOTA_ATTACK_EVENT", weight = 1 }
+			{ name = "ACT_DOTA_CAST_ABILITY_5", weight = 1 }
+		}
+	}
+)
+
+
+model:CreateSequence(
+	{
+		name = "attack_slash_1",
+		sequences = {
+			{ "attack02_anim" }
+		},
+		activities = {
+			{ name = "ACT_DOTA_ATTACK_EVENT", weight = 1 },
+		}
+	}
+)
+
+model:CreateSequence(
+	{
+		name = "attack_slash_2",
+		sequences = {
+			{ "free_to_play_attack03_anim" }
+		},
+		activities = {
+			{ name = "ACT_DOTA_ATTACK2", weight = 1 }
 		}
 	}
 )

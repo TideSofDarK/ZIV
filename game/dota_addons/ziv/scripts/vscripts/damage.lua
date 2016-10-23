@@ -48,18 +48,18 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup)
 		local resistance = 0
 
 		if damage_type == DAMAGE_TYPE_FIRE then
-			resistance = Damage:GetResist( unit, Damage.FIRE_RESISTANCE )
+			resistance = Damage:GetResist( victim, Damage.FIRE_RESISTANCE )
 		elseif damage_type == DAMAGE_TYPE_COLD then
-			resistance = Damage:GetResist( unit, Damage.COLD_RESISTANCE )
+			resistance = Damage:GetResist( victim, Damage.COLD_RESISTANCE )
 		elseif damage_type == DAMAGE_TYPE_LIGHTNING then
-			resistance = Damage:GetResist( unit, Damage.LIGHTNING_RESISTANCE )
+			resistance = Damage:GetResist( victim, Damage.LIGHTNING_RESISTANCE )
 		elseif damage_type == DAMAGE_TYPE_DARK then
-			resistance = Damage:GetResist( unit, Damage.DARK_RESISTANCE )
+			resistance = Damage:GetResist( victim, Damage.DARK_RESISTANCE )
 		end
 
 		damage = damage - (damage * (resistance/100))
 	end
-
+	
 	local min_damage = damage * 0.75
 	local max_damage = damage * 1.25
 	local coef = max_damage - damage

@@ -15,8 +15,8 @@
 		},
 		{
 			_class = "C_OP_BasicMovement"
-			m_Gravity = [ 0.0, 0.0, 300.0 ]
-			m_fDrag = 0.204
+			m_Gravity = [ 0.0, 0.0, -300.0 ]
+			m_fDrag = 0.1
 		},
 		{
 			_class = "C_OP_FadeInSimple"
@@ -25,7 +25,7 @@
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.45
+			m_flFadeOutTime = 0.5
 		},
 		{
 			_class = "C_OP_RemapCPtoScalar"
@@ -34,6 +34,18 @@
 			m_flInputMax = 30.0
 			m_flOutputMin = 1.0
 			m_flOutputMax = 30.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flStartTime = 0.25
+			m_flEndScale = 0.0
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndTime = 0.25
+			m_flStartScale = 0.0
+			m_bEaseInAndOut = true
 		},
 	]
 	m_Renderers = 
@@ -49,8 +61,8 @@
 	[
 		{
 			_class = "C_INIT_PositionOffset"
-			m_OffsetMin = [ 0.0, 0.0, 128.0 ]
-			m_OffsetMax = [ 0.0, 0.0, 128.0 ]
+			m_OffsetMin = [ 0.0, 0.0, 100.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 100.0 ]
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"

@@ -13,8 +13,18 @@ function Slash( keys )
 	local target = keys.target
 	local ability = keys.ability
 
+	ability.slash_activity = ability.slash_activity or ACT_DOTA_ATTACK_EVENT
+	if ability.slash_activity == ACT_DOTA_ATTACK_EVENT then
+		ability.slash_activity = ACT_DOTA_ATTACK2
+	else
+		ability.slash_activity = ACT_DOTA_ATTACK_EVENT
+	end
+
+	keys.activity = ability.slash_activity
+
 	keys.on_hit = (function ( keys )
 		local target = keys.target
+		if not target then return end
 
 		local damage = GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_slash_damage")
 
@@ -34,13 +44,13 @@ function Slash( keys )
 				TreeBehavior = PROJECTILES_NOTHING,
 				bCutTrees = true,
 				bTreeFullCollision = false,
-				WallBehavior = PROJECTILES_DESTROY,
+				WallBehavior = PROJECTILES_NOTHING,
 				GroundBehavior = PROJECTILES_NOTHING,
 				fGroundOffset = 80,
 				nChangeMax = 1,
 				bRecreateOnChange = true,
 				bZCheck = false,
-				bGroundLock = true,
+				bGroundLock = false,
 				bProvidesVision = false,
 				draw = false,
 				UnitTest = function(self, unit) return (unit:entindex() ~= target:entindex() or restrict) and unit:GetUnitName() ~= "npc_dummy_unit" and unit:GetTeamNumber() ~= caster:GetTeamNumber() end,
@@ -68,7 +78,7 @@ function Slash( keys )
 
 		Damage:Deal(caster, target, damage, DAMAGE_TYPE_PHYSICAL)
 
-		TimedEffect("particles/heroes/knight/knight_slash_ring.vpcf", target, 1.0)
+		-- TimedEffect("particles/heroes/knight/knight_slash_ring.vpcf", target, 1.0)
 		DoToUnitsInRadius( caster, caster:GetAbsOrigin(), GetSpecial(ability, "radius"), target_team, target_type, target_flags, function ( v )
 			if target ~= v then
 				local secondary_damage = damage * ((GetSpecial(ability, "secondary_damage") + GRMSC("ziv_knight_slash_aoe_damage", caster)) / 100)
@@ -82,6 +92,8 @@ function Slash( keys )
 		local swipe = ParticleManager:CreateParticle("particles/heroes/knight/knight_slash_swipe.vpcf",PATTACH_CUSTOMORIGIN,nil)
 		ParticleManager:SetParticleControl(swipe,0,caster:GetAbsOrigin() + (caster:GetForwardVector() * 45))
 		ParticleManager:SetParticleControlOrientation(swipe,2,caster:GetForwardVector(),caster:GetRightVector(), caster:GetUpVector())
+
+		keys.on_hit(keys)
 	end
 
 	SimulateMeleeAttack( keys )
