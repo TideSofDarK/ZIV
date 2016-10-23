@@ -96,17 +96,19 @@ function SimulateMeleeAttack( keys )
     caster:EmitSound(kv["SoundSet"]..".PreAttack")
   end
 
+  if not keys.attack_sound and kv["SoundSet"] then
+    keys.attack_sound = kv["SoundSet"]..".Attack"
+  end
+
   Timers:CreateTimer(duration, function()
-    if keys.attack_sound then
-      caster:EmitSound(keys.attack_sound)
-    elseif kv["SoundSet"] then
-      caster:EmitSound(kv["SoundSet"]..".Attack")
-    end
-    
     if keys.on_impact then
-      keys.on_impact(caster)
+      keys.on_impact(keys)
     else
       local units = FindUnitsInRadius(caster:GetTeamNumber(),target,nil,75,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
+
+      if #units > 0 then
+        caster:EmitSound(keys.attack_sound)
+      end
 
       for k,v in pairs(units) do
         if keys.impact_sound then

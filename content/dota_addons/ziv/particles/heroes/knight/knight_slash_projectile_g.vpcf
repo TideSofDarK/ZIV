@@ -48,8 +48,8 @@
 	[
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMax = 0.25
-			m_fLifetimeMin = 0.25
+			m_fLifetimeMax = 0.3
+			m_fLifetimeMin = 0.3
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
@@ -62,8 +62,8 @@
 		{
 			_class = "C_INIT_PositionOffset"
 			m_nControlPointNumber = 3
-			m_OffsetMin = [ -10.0, 0.0, 0.0 ]
-			m_OffsetMax = [ -10.0, 12.0, 0.0 ]
+			m_OffsetMin = [ 12.0, 0.0, 0.0 ]
+			m_OffsetMax = [ 10.0, 0.0, 0.0 ]
 			m_bLocalCoords = true
 		},
 		{
@@ -78,8 +78,8 @@
 		},
 		{
 			_class = "C_INIT_RandomSequence"
-			m_nSequenceMax = 32
-			m_bLinear = true
+			m_nSequenceMax = 24
+			m_nSequenceMin = 20
 		},
 		{
 			_class = "C_INIT_RandomColor"
@@ -94,6 +94,7 @@
 		},
 		{
 			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 50.0
 		},
 	]
 }

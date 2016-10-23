@@ -1,0 +1,56 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "multiblend.vfx"
+
+	//---- Normal Maps ----
+	F_NORMAL_MAP 1
+
+	//---- Layer 0 ----
+	g_flTexCoordRotate0 "0.000"
+	g_flTexCoordScale0 "2.000"
+	g_vColorTint0 "[0.870588 0.807843 0.466667 1.000000]"
+	g_vTexCoordOffset0 "[0.000 0.000]"
+	g_vTexCoordScroll0 "[0.000 0.000]"
+	TextureColor0 "materials/blends/tile_ground001_color.png"
+	TextureNormal0 "materials/default/default_normal.tga"
+
+	//---- Layer 1 ----
+	g_flTexCoordRotate1 "0.000"
+	g_flTexCoordScale1 "2.000"
+	g_vColorTint1 "[0.815686 0.776471 0.486275 0.000000]"
+	g_vTexCoordOffset1 "[0.000 0.000]"
+	g_vTexCoordScroll1 "[0.000 0.000]"
+	TextureColor1 "materials/blends/tile_ground001_2_color.png"
+	TextureNormal1 "materials/default/default_normal.tga"
+	TextureRevealMask1 "materials/default/default_blend.tga"
+
+	//---- Layer 2 ----
+	g_flTexCoordRotate2 "0.000"
+	g_flTexCoordScale2 "2.000"
+	g_vColorTint2 "[0.866667 0.776471 0.462745 0.000000]"
+	g_vTexCoordOffset2 "[0.000 0.000]"
+	g_vTexCoordScroll2 "[0.000 0.000]"
+	TextureColor2 "materials/blends/tile_ground001_color.png"
+	TextureNormal2 "materials/default/default_normal.tga"
+	TextureRevealMask2 "materials/default/default_blend.tga"
+
+	//---- Layer 3 ----
+	g_flTexCoordRotate3 "0.000"
+	g_flTexCoordScale3 "1.000"
+	g_vColorTint3 "[0.921569 0.937255 0.580392 0.000000]"
+	g_vTexCoordOffset3 "[0.000 0.000]"
+	g_vTexCoordScroll3 "[0.000 0.000]"
+	TextureColor3 "materials/blends/sand002_color.png"
+	TextureNormal3 "materials/blends/sand002_normal.png"
+	TextureRevealMask3 "materials/default/default_blend.tga"
+
+	//---- Normal Map ----
+	g_flBumpStrength "1.667"
+
+	Attributes
+	{
+		dota.nav.walkable "1"
+	}
+}

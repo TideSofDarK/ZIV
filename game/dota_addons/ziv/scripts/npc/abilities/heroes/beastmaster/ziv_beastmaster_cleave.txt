@@ -28,13 +28,18 @@
   {
     "01"
     {
-      "var_type" "FIELD_FLOAT"
-      "damage_amp" "1.5"
+      "var_type"      "FIELD_FLOAT"
+      "damage_amp"    "1.5"
     }
     "02"
     {
-      "var_type" "FIELD_FLOAT"
-      "radius" "300"
+      "var_type"      "FIELD_FLOAT"
+      "radius"        "300"
+    }
+    "03"
+    {
+      "var_type"      "FIELD_FLOAT"
+      "attack_speed"  "150"
     }
   }
 

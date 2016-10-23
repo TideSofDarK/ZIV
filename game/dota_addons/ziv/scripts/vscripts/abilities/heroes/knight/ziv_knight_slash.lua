@@ -26,6 +26,8 @@ function Slash( keys )
 		local target = keys.target
 		if not target then return end
 
+		caster:EmitSound(keys.attack_sound)
+
 		local damage = GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_slash_damage")
 
 		local FireProjectile = function (restrict)

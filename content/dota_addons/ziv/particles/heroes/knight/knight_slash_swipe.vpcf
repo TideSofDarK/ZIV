@@ -128,6 +128,7 @@
 	[
 		{
 			m_ChildRef = resource:"particles/heroes/knight/knight_slash_swipe_a.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/knight/knight_slash_swipe_b.vpcf"
@@ -136,6 +137,9 @@
 		{
 			m_ChildRef = resource:"particles/heroes/knight/knight_slash_swipe_c.vpcf"
 			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/knight/knight_slash_swipe_d.vpcf"
 		},
 	]
 }

@@ -153,24 +153,6 @@ function ZIV:OnHeroInGame(hero)
     local player = PlayerResource:GetPlayer(pid)
 
     local hero_name = hero:GetUnitName()
-
-    local camera_target = CreateUnitByName("npc_dummy_unit",hero:GetAbsOrigin() + Vector(0,325,0),false,hero,hero,hero:GetTeamNumber())
-    InitAbilities(camera_target)
-
-    Timers:CreateTimer(function ()
-      AddFOWViewer(hero:GetTeamNumber(), hero:GetAbsOrigin(), hero:GetCurrentVisionRange(), 0.03, false)
-
-      if GetZIVSpecificSetting(pid, "Controls") == false then
-        PlayerResource:SetCameraTarget(pid, camera_target)
-      else
-        PlayerResource:SetCameraTarget(pid, nil)
-      end
-      
-      -- local heroY = math.floor(hero:GetAbsOrigin().y / 128)
-      -- local offset =  - (camera_target:GetAbsOrigin().y/25)
-      camera_target:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,ZIV_CameraZValueA,0))
-      return 0.03
-    end)
   end)
 end
 

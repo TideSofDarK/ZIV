@@ -2,42 +2,65 @@ if Damage == nil then
     _G.Damage = class({})
 end
 
-Damage.ALL_RESISTANCES 			= 0
-Damage.FIRE_RESISTANCE 			= 1
-Damage.COLD_RESISTANCE 			= 2
-Damage.LIGHTNING_RESISTANCE 	= 3
-Damage.DARK_RESISTANCE 			= 4
+Damage.ALL_RESISTANCES 				= 0
+Damage.FIRE_RESISTANCE 				= 1
+Damage.COLD_RESISTANCE 				= 2
+Damage.LIGHTNING_RESISTANCE 		= 3
+Damage.DARK_RESISTANCE 				= 4
 
-DAMAGE_TYPE_FIRE 		= 9
-DAMAGE_TYPE_COLD 		= 10
-DAMAGE_TYPE_LIGHTNING 	= 11
-DAMAGE_TYPE_DARK 		= 12
+Damage.FIRE_DAMAGE_INCREASE 		= 5
+Damage.COLD_DAMAGE_INCREASE 		= 6
+Damage.LIGHTNING_DAMAGE_INCREASE 	= 7
+Damage.DARK_DAMAGE_INCREASE 		= 8
+
+Damage.ESSENCE_PARTICLES = {}
+Damage.ESSENCE_PARTICLES[1] = "particles/creeps/ziv_creep_essence_a.vpcf"
+Damage.ESSENCE_PARTICLES[2] = "particles/creeps/ziv_creep_essence_b.vpcf"
+
+Damage.BONES_PARTICLES = {}
+Damage.BONES_PARTICLES[1] = "particles/creeps/ziv_creep_bones_a.vpcf"
+Damage.BONES_PARTICLES[2] = "particles/creeps/ziv_creep_bones_b.vpcf"
+
+Damage.BLOOD_PARTICLES = {}
+Damage.BLOOD_PARTICLES[1] = "particles/creeps/ziv_creep_blood_a.vpcf"
+Damage.BLOOD_PARTICLES[2] = "particles/creeps/ziv_creep_blood_b.vpcf"
+Damage.BLOOD_PARTICLES[3] = "particles/creeps/ziv_creep_blood_c.vpcf"
+Damage.BLOOD_PARTICLES[4] = "particles/creeps/ziv_creep_blood_d.vpcf"
+
+DAMAGE_TYPE_FIRE 					= 9
+DAMAGE_TYPE_COLD 					= 10
+DAMAGE_TYPE_LIGHTNING 				= 11
+DAMAGE_TYPE_DARK 					= 12
 
 function Damage:Init()
-	PlayerTables:CreateTable("resistances", {}, true)
+	PlayerTables:CreateTable("damage", {}, true)
 end
 
-function Damage:ModifyResist(unit, resist, amount, time)
-	local unit_resistances = PlayerTables:GetTableValue("resistances", unit:entindex()) or {}
+function Damage:Modify(unit, value, amount, time)
+	local values = PlayerTables:GetTableValue("damage", unit:entindex()) or {}
 
-	unit_resistances[resist] = unit_resistances[resist] or 0
-	unit_resistances[resist] = unit_resistances[resist] + amount
+	values[value] = values[value] or 0
+	values[value] = values[value] + amount
 
-	PlayerTables:SetTableValue("resistances", unit:entindex(), unit_resistances)
+	PlayerTables:SetTableValue("damage", unit:entindex(), values)
 
 	if time then
 		Timers:CreateTimer(time, function (  )
-			Damage:ModifyResist(unit, resist, -amount)
+			Damage:Modify(unit, value, -amount)
 		end)
 	end
 end
 
+function Damage:GetValue( unit, value )
+	local values = PlayerTables:GetTableValue("damage", unit:entindex()) or {}
+	return values[value] or 0
+end
+
 function Damage:GetResist( unit, resist )
-	local unit_resistances = PlayerTables:GetTableValue("resistances", unit:entindex()) or {}
-	if resist ~= ALL_RESISTANCES then
-		return (unit_resistances[resist] or 0) + (unit_resistances[ALL_RESISTANCES] or 0)
+	if resist == Damage.ALL_RESISTANCES then
+		return Damage:GetValue( unit, resist )
 	else
-		return unit_resistances[resist] or 0
+		return Damage:GetValue( unit, resist ) + Damage:GetValue( unit, Damage.ALL_RESISTANCES )
 	end
 end
 
@@ -72,12 +95,14 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup)
 		damage = damage,
 		damage_type = DAMAGE_TYPE_PURE
 	}
+	ApplyDamage(damage_table)
 
 	if math.random(0, 1) == 0 then
 		StartAnimation(victim, {duration=0.3, activity=ACT_DOTA_FLINCH, rate=1.5})
 	end
+
+	Damage:BloodParticle( victim )
 	
-	ApplyDamage(damage_table)
 	if attacker.GetPlayerOwnerID and 
 		attacker:GetPlayerOwnerID() >= 0 and 
 		GetZIVSpecificSetting(attacker:GetPlayerOwnerID(), "Damage") 
@@ -89,4 +114,20 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup)
 	-- PopupExperience(victim, math.ceil(damage))
 
 	return round(damage)
+end
+
+function Damage:BloodParticle( unit )
+	local particle_name = GetRandomElement(Damage.BLOOD_PARTICLES)
+
+	local unitKV = ZIV.UnitKVs[unit:GetUnitName()]
+	local particle_type = unitKV["ImpactParticleType"]
+	if particle_type then
+		if particle_type == "Essence" then
+			particle_name = GetRandomElement(Damage.ESSENCE_PARTICLES)
+		elseif particle_type == "Bones" then
+			particle_name = GetRandomElement(Damage.BONES_PARTICLES)
+		elseif particle_type == "No" then return end
+	end
+
+	local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, unit)
 end

@@ -7,7 +7,9 @@ function StartAttack( keys )
 
 	keys.bonus_attack_speed = GRMSC("ziv_samurai_execution_as", caster)
 
-	keys.on_impact = (function ( caster )
+	keys.on_impact = (function ( keys )
+		caster:EmitSound(keys.attack_sound)
+		
 		local cold = caster:HasModifier("modifier_cold_touch") 
 
 		local trail = "particles/heroes/samurai/samurai_execution_trail_fire.vpcf"

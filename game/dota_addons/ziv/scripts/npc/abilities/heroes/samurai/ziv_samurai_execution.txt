@@ -7,7 +7,7 @@
   "AbilityCastAnimation"      ""
 
   "AbilityCastPoint"        "0.04"
-  "AbilityCastRange"        "128"
+  "AbilityCastRange"        "150"
 
   "AbilityManaCost"       "7"
   

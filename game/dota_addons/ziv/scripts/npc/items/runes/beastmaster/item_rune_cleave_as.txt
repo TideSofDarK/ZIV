@@ -1,9 +1,9 @@
-"item_rune_cleave_speed"
+"item_rune_cleave_as"
 {
   "ID"		"1513"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_cleave_speed"
+  "AbilityTextureName"      "item_rune_cleave_as"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
@@ -14,16 +14,17 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
-  "Tooltip" "AbilityCooldown"
-  "Reduction" "1"
+  "Tooltip"   "attack_speed"
+  "Type"      "Int"
+  "Method"    "Add"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_beastmaster_cleave_speed"
+    "ziv_beastmaster_cleave_as"
     {
-      "min" "2"
-      "max" "30"
+      "min" "10"
+      "max" "85"
     }
   }
 }

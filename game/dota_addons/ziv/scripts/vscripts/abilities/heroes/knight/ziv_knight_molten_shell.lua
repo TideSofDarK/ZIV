@@ -14,10 +14,10 @@ function MoltenShell( keys )
 
 	local duration = GetSpecial(ability, "duration")
 
-	Damage:ModifyResist(caster, Damage.FIRE_RESISTANCE, GetSpecial(ability, "fire_damage_reduction"), duration)
-	Damage:ModifyResist(caster, Damage.COLD_RESISTANCE, GetSpecial(ability, "cold_damage_reduction"), duration)
-	Damage:ModifyResist(caster, Damage.LIGHTNING_RESISTANCE, GetSpecial(ability, "lightning_damage_reduction"), duration)
-	Damage:ModifyResist(caster, Damage.DARK_RESISTANCE, GetSpecial(ability, "dark_damage_reduction"), duration)
+	Damage:Modify(caster, Damage.FIRE_RESISTANCE, GetSpecial(ability, "fire_damage_reduction"), duration)
+	Damage:Modify(caster, Damage.COLD_RESISTANCE, GetSpecial(ability, "cold_damage_reduction"), duration)
+	Damage:Modify(caster, Damage.LIGHTNING_RESISTANCE, GetSpecial(ability, "lightning_damage_reduction"), duration)
+	Damage:Modify(caster, Damage.DARK_RESISTANCE, GetSpecial(ability, "dark_damage_reduction"), duration)
 
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_molten_shell_buff",{duration = duration})
 

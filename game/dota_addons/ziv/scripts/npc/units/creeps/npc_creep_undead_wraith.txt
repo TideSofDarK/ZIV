@@ -3,6 +3,8 @@
     "BaseClass"         "npc_dota_creature"
     "SoundSet"                  "n_creep_Ranged"
 
+    "ImpactParticleType" "Essence"
+
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl"
     "ModelScale"    "1.45"
@@ -44,6 +46,8 @@
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"                  "n_creep_Ranged"
+
+    "ImpactParticleType" "Essence"
 
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_frost.vmdl"
@@ -87,6 +91,8 @@
     "BaseClass"         "npc_dota_creature"
     "SoundSet"                  "n_creep_Ranged"
 
+    "ImpactParticleType" "Essence"
+
     "HealthBarOffset"   "200"
     "Model"           "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_red.vmdl"
     "ModelScale"    "1.45"
@@ -128,6 +134,8 @@
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"                  "n_creep_Ranged"
+
+    "ImpactParticleType" "Essence"
 
     "Wearables"
     {

@@ -11,6 +11,37 @@ var abilityCasting = [];
 var abilityTimings = [];
 var abilityDelay = 0.2;
 
+(function UpdateCamera()
+{
+	GameUI.SetCameraTarget(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ));
+	
+	$.Schedule( 1.0/30.0, UpdateCamera );
+	var minStep = 0.5;
+	var heroY = Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2];
+	var target = heroY - heightOffset;
+	target = Math.max(0, Math.min(clampOffset, target));
+	var delta = ( target - offset );
+	if ( Math.abs( delta ) < minStep )
+	{
+		delta = target;
+	}
+	else
+	{
+		var step = delta * 0.3;
+		if ( Math.abs( step ) < minStep )
+		{
+			if ( delta > 0 )
+				step = minStep;
+			else
+				step = -minStep;
+		}
+		offset += step;
+	}
+
+	GameUI.SetCameraLookAtPositionHeightOffset(offset - 150 + (heroY * 0.1)); 
+	return;
+})();
+
 function BeginPickUpState( targetEntIndex )
 {
 	var order = {
@@ -31,34 +62,6 @@ function BeginPickUpState( targetEntIndex )
 		}	
 	})();
 }
-
-(function SmoothCameraZ()
-{
-	$.Schedule( 1.0/60.0, SmoothCameraZ );
-	var minStep = 0.5;
-	var target = Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2] - heightOffset;
-	target = Math.max(0, Math.min(clampOffset, target));
-	var delta = ( target - offset );
-	if ( Math.abs( delta ) < minStep )
-	{
-		delta = target;
-	}
-	else
-	{
-		var step = delta * 0.3;
-		if ( Math.abs( step ) < minStep )
-		{
-			if ( delta > 0 )
-				step = minStep;
-			else
-				step = -minStep;
-		}
-		offset += step;
-	}
-
-	GameUI.SetCameraLookAtPositionHeightOffset(offset); 
-	return;
-})();
 
 function BeginMoveState()
 {
@@ -277,6 +280,5 @@ function ZIVCastAbility(number, pressing, single) {
 
     // Camera
 	GameUI.SetCameraPitchMax( 55 );
-	// GameUI.SetCameraYaw( 45 );
 	GameUI.SetCameraLookAtPositionHeightOffset(Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2]/2); 
 })();

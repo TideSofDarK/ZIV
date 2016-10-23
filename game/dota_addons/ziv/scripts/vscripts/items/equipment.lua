@@ -14,7 +14,7 @@ function Equipment:Unequip( unit, item )
 			for id,gem_table in pairs(modifiers) do
 				for k,v in pairs(gem_table) do
 					if Damage[k] then -- Custom resistances
-						Damage:ModifyResist(unit, Damage[k], -v)
+						Damage:Modify(unit, Damage[k], -v)
 					else
 						if unit:HasModifier(k) then
 							if unit:HasModifier(k) == false then
@@ -58,7 +58,7 @@ function Equipment:Equip( unit, item )
 				for k,v in pairs(gem_table) do
 					if k ~= "gem" then
 						if Damage[k] then -- Custom resistances
-							Damage:ModifyResist(unit, Damage[k], v)
+							Damage:Modify(unit, Damage[k], v)
 						else
 							if unit:HasModifier(k) then
 								unit:SetModifierStackCount(k, unit, v + unit:GetModifierStackCount(k, unit))

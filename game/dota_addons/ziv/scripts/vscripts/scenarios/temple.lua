@@ -69,6 +69,17 @@ function Temple:NextStage()
 					-- for k,v in pairs(Entities:FindAllByName("ziv_temple_portal")) do
 						
 					-- end
+					-- local shit= Entities:FindAllInSphere(Vector(0,0,0), 40000)
+					-- for k,v in pairs(shit) do
+					-- 	if v.GetClassname then
+					-- 		print(k,v:GetClassname())
+					-- 	else
+					-- 		print(k, type(v))
+					-- 	end
+					-- end
+					DoToAllHeroes(function ( hero )
+						ParticleManager:CreateParticle("particles/rain_fx/econ_weather_sirocco.vpcf", PATTACH_EYES_FOLLOW, hero)
+					end)
 					Temple:NextStage()
 				end)
 			elseif Temple.stage == Temple.STAGE_SECOND then

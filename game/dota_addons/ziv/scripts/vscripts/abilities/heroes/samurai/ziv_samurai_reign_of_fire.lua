@@ -9,7 +9,7 @@ function OnDamageTick( keys )
 	Damage:Deal(caster, target, damage, DAMAGE_TYPE_FIRE)
 end
 
-function OnDamage:Deal( keys )
+function OnDealDamage( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local damage = keys.Damage

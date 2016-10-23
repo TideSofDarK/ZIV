@@ -45,7 +45,7 @@ function Dash( keys )
 			ParticleManager:SetParticleControl(ground,5,hit_position)
 			ParticleManager:SetParticleControl(rocks,0,hit_position)
 
-			DoToUnitsInRadius( caster, hit_position, 300, target_team, target_type, target_flags, function ( v )
+			DoToUnitsInRadius( caster, hit_position, 128, target_team, target_type, target_flags, function ( v )
 				Damage:Deal(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_dash_damage"), DAMAGE_TYPE_PHYSICAL)
 
 				local force = GRMSC("ziv_knight_dash_force", caster)

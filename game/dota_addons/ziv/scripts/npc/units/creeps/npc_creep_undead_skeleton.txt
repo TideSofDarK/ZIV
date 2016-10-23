@@ -3,6 +3,8 @@
     "BaseClass"         "npc_dota_creature"
     "SoundSet"  "n_creep_skeleton_melee"
 
+    "ImpactParticleType" "Bones"
+
     "Wearables"
     {
         "Creep"

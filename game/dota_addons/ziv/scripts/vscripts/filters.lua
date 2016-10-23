@@ -1,3 +1,6 @@
+PATHFINDING_RATIO = -20
+PATHFINDING_THRESHOLD = 256
+
 function ZIV:FilterExecuteOrder( filterTable )
     local units = filterTable["units"]
     local order_type = filterTable["order_type"]
@@ -13,6 +16,31 @@ function ZIV:FilterExecuteOrder( filterTable )
 
     if filterTable.queue > 0 then
         filterTable.queue = 0
+    end
+
+    if order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+        local position = Vector(filterTable.position_x, filterTable.position_y, filterTable.position_z)
+        issuerUnit:SetForwardVector(UnitLookAtPoint( issuerUnit, position ))
+        issuerUnit:Stop()
+
+        local distance = Distance(issuerUnit, position)
+
+        for i=distance,0,PATHFINDING_RATIO do
+            local target = issuerUnit:GetAbsOrigin() + (((position - issuerUnit:GetAbsOrigin()):Normalized()) * i)
+            target.z = GetGroundHeight(target, issuerUnit)
+
+            local path_length = GridNav:FindPathLength(issuerUnit:GetAbsOrigin(),target)
+            local new_distance = Distance(issuerUnit, target)
+
+            if path_length ~= -1 and math.abs(path_length - new_distance) < PATHFINDING_THRESHOLD then
+                
+                filterTable.position_x = target.x
+                filterTable.position_y = target.y
+                filterTable.position_z = target.z
+
+                break
+            end
+        end
     end
 
     return true

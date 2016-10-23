@@ -172,13 +172,12 @@
 	"ziv_beastmaster_leap_damage"	"physical damage on hit"
 	"ziv_beastmaster_leap_force"	"to Leap force"
 	"ziv_beastmaster_cleave_aoe"	"to Cleave radius"
-	"ziv_beastmaster_cleave_speed"	"to Cleave speed"
+	"ziv_beastmaster_cleave_as"	"to Cleave attack sspeed"
 	"ziv_beastmaster_cleave_stun_chance"	"chance of stun with Cleave"
 	"ziv_beastmaster_pet_as"	"to Wolf attack speed"
 	"ziv_beastmaster_pet_crit_chance"	"% additional Wolf crit chance"
 	"ziv_beastmaster_pet2_as"	"to Bear attack speed"
 	"ziv_beastmaster_pet2_stun_chance"	"% additional Bear stun chance"
-
 
 	"ziv_knight_hell_pit_cd"			"% reduction of Hell Pit cooldown"
 	"ziv_knight_hell_pit_damage"		"to Hell Pit damage"

@@ -73,14 +73,7 @@ function DamageTick( keys )
 	end
 
 	for k,v in pairs(units_in_radius) do
-		local target = v
-
-		local particle = ParticleManager:CreateParticle(
-				"particles/creeps/ziv_creep_blood_a.vpcf", 
-				PATTACH_ABSORIGIN_FOLLOW, 
-				target)
-
-		ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true) 
+		local target = v 
 
 		local damage_type = DAMAGE_TYPE_FIRE
 		if caster:HasModifier("modifier_cold_touch") then
