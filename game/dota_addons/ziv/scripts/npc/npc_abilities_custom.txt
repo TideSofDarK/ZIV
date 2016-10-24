@@ -1771,6 +1771,34 @@
 	      "IsDebuff"      "0"
 	    }
 	
+	    "FIRE_DAMAGE_INCREASE"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    }
+	
+	    "COLD_DAMAGE_INCREASE"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    }
+	
+	    "LIGHTNING_DAMAGE_INCREASE"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    }
+	
+	    "DARK_DAMAGE_INCREASE"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	    }
+	
 	    // Generic modifiers
 	
 	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"

@@ -67,7 +67,22 @@ end
 function Damage:Deal( attacker, victim, damage, damage_type, no_popup)
 	local damage_type = damage_type
 	local damage = damage
+
 	if damage_type >= DAMAGE_TYPE_FIRE then
+		local increase = 0
+
+		if damage_type == DAMAGE_TYPE_FIRE then
+			increase = Damage:GetValue( attacker, Damage.FIRE_DAMAGE_INCREASE )
+		elseif damage_type == DAMAGE_TYPE_COLD then
+			increase = Damage:GetValue( attacker, Damage.COLD_DAMAGE_INCREASE )
+		elseif damage_type == DAMAGE_TYPE_LIGHTNING then
+			increase = Damage:GetValue( attacker, Damage.LIGHTNING_DAMAGE_INCREASE )
+		elseif damage_type == DAMAGE_TYPE_DARK then
+			increase = Damage:GetValue( attacker, Damage.DARK_DAMAGE_INCREASE )
+		end
+
+		damage = damage + (damage * (increase/100))
+
 		local resistance = 0
 
 		if damage_type == DAMAGE_TYPE_FIRE then
@@ -81,6 +96,8 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup)
 		end
 
 		damage = damage - (damage * (resistance/100))
+	elseif damage_type == DAMAGE_TYPE_PHYSICAL then
+		
 	end
 	
 	local min_damage = damage * 0.75

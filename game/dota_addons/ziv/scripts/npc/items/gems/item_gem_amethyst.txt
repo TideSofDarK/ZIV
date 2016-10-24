@@ -1,0 +1,41 @@
+"item_gem_amethyst"
+{
+  "ID"		                  "1003"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"               "item_datadriven"
+  "AbilityTextureName"      "item_gem_amethyst"
+  "Model"                   "models/items/gem_amethyst.vmdl" 
+  // "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+
+  "ItemStackable"         "1"
+  "ItemPermanent"         "0"
+  "ItemInitialCharges"            "1"
+
+  "MaxUpgradeLevel"       "1"
+  "ItemBaseLevel"         "1"
+
+  "FortifyModifiersCount" "2"
+  "FortifyModifiers"
+  {
+    "MODIFIER_PROPERTY_STATS_ALL_BONUS"
+    {
+      "min" "1"
+      "max" "8"
+    }
+    "ALL_RESISTANCES"
+    {
+      "min" "1"
+      "max" "6"
+    }
+    "DARK_RESISTANCE"
+    {
+      "min" "4"
+      "max" "12"
+    }
+    "DARK_DAMAGE_INCREASE"
+    {
+      "min" "1"
+      "max" "17"
+    }
+  }
+}

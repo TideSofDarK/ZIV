@@ -5,8 +5,8 @@
 		m_meshList = 
 		[
 			{
-				m_meshName = "gem_malachite"
-				m_meshFile = "models/items/gem_malachite.fbx"
+				m_meshName = "gem_ruby"
+				m_meshFile = "models/items/gem_ruby.fbx"
 				m_materialSearchPath = ""
 				m_bSkinParentedObjects = true
 				m_bLegacySkinParentedTransforms = false
@@ -45,34 +45,7 @@
 	{
 		m_pObject = null
 	}
-	m_pHitBoxSetLists = 
-	[
-		{
-			m_pObject = 
-			{
-				m_HitBoxSets = 
-				[
-					{
-						m_name = "default"
-						m_HitBoxes = 
-						[
-							{
-								m_name = "AnimBone"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "AnimBone"
-								m_vMinBounds = [ 7.794189, -18.899673, -9.51247 ]
-								m_vMaxBounds = [ 40.903206, 24.087357, 15.430084 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
-							},
-						]
-					},
-				]
-				m_AutoCreateSetName = ""
-			}
-		},
-	]
+	m_pHitBoxSetLists = [  ]
 	m_pAttachmentLists = [  ]
 	m_pAnimGroup = 
 	{
@@ -95,16 +68,16 @@
 			m_Vanim = 
 			[
 				{
-					m_Animationname = "gem_malachite"
-					m_Filepath = "models/items/gem_malachite.fbx"
+					m_Animationname = "gem_ruby"
+					m_Filepath = "models/items/gem_ruby.fbx"
 					m_nStartframe = 0
 					m_nEndframe = 40
-					m_flFps = 7.0
+					m_flFps = 14.0
 					m_Loop = 
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
+						m_nSmoothLoopStart = 5
 						m_nSmoothLoopEnd = 0
 						m_StartLoop = 
 						{
@@ -177,8 +150,8 @@
 		m_vMaterialRemapList = 
 		[
 			{
-				m_sSearchMaterial = "malachit.vmat"
-				m_sReplaceMaterial = "materials/models/items/gem_malachit.vmat"
+				m_sSearchMaterial = "topaz.vmat"
+				m_sReplaceMaterial = "materials/models/items/gem_ruby.vmat"
 			},
 		]
 	}

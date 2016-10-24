@@ -554,14 +554,14 @@
 	  "MaxUpgradeLevel"         "1"
 	  "ItemBaseLevel"           "1"
 	}
-	"item_gem_malachite"
+	"item_gem_amethyst"
 	{
-	  "ID"		"1003"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_gem_malachite"
-	  "Model"                   "models/items/gem_malachite.vmdl" 
-	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	  "ID"		                  "1003"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_gem_amethyst"
+	  "Model"                   "models/items/gem_amethyst.vmdl" 
+	  // "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
 	  "ItemStackable"         "1"
 	  "ItemPermanent"         "0"
@@ -573,36 +573,77 @@
 	  "FortifyModifiersCount" "2"
 	  "FortifyModifiers"
 	  {
-	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
+	    "MODIFIER_PROPERTY_STATS_ALL_BONUS"
 	    {
-	      "min" "15"
-	      "max" "40"
+	      "min" "1"
+	      "max" "8"
 	    }
-	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"
+	    "ALL_RESISTANCES"
 	    {
-	      "min" "15"
-	      "max" "30"
+	      "min" "1"
+	      "max" "6"
 	    }
-	    "MODIFIER_PROPERTY_EVASION_CONSTANT"
+	    "DARK_RESISTANCE"
 	    {
 	      "min" "4"
 	      "max" "12"
 	    }
+	    "DARK_DAMAGE_INCREASE"
+	    {
+	      "min" "1"
+	      "max" "17"
+	    }
+	  }
+	}
+	"item_gem_malachite"
+	{
+	  "ID"		"1003"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_gem_malachite"
+	  "Model"                   "models/items/gem_malachite.vmdl" 
+	  // "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "2"
+	  "FortifyModifiers"
+	  {
 	    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
+	    {
+	      "min" "1"
+	      "max" "15"
+	    }
+	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
+	    {
+	      "min" "5"
+	      "max" "30"
+	    }
+	    "LIGHTNING_RESISTANCE"
 	    {
 	      "min" "5"
 	      "max" "15"
 	    }
+	    "LIGHTNING_DAMAGE_INCREASE"
+	    {
+	      "min" "8"
+	      "max" "20"
+	    }
 	  }
 	}
-	"item_gem_topaz"
+	"item_gem_ruby"
 	{
 	  "ID"		"1004"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_gem_topaz"
-	  "Model"                   "models/items/gem_topaz.vmdl"
-	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	  "AbilityTextureName"      "item_gem_ruby"
+	  "Model"                   "models/items/gem_ruby.vmdl"
+	  // "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
 	  "ItemStackable"         "1"
 	  "ItemPermanent"         "0"
@@ -614,27 +655,63 @@
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
-	    "MODIFIER_PROPERTY_STATS_ALL_BONUS"
-	    {
-	      "min" "4"
-	      "max" "11"
-	    }
 	    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"
 	    {
 	      "min" "5"
 	      "max" "15"
 	    }
-	    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
+	    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
+	    {
+	      "min" "8"
+	      "max" "20"
+	    }
+	    "FIRE_RESISTANCE"
 	    {
 	      "min" "5"
 	      "max" "15"
 	    }
+	    "FIRE_DAMAGE_INCREASE"
+	    {
+	      "min" "8"
+	      "max" "20"
+	    }
+	  }
+	}
+	"item_gem_topaz"
+	{
+	  "ID"		"1004"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_gem_topaz"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  // "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
 	    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"
 	    {
 	      "min" "5"
 	      "max" "15"
 	    }
-	    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
+	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"
+	    {
+	      "min" "5"
+	      "max" "30"
+	    }
+	    "COLD_RESISTANCE"
+	    {
+	      "min" "5"
+	      "max" "15"
+	    }
+	    "COLD_DAMAGE_INCREASE"
 	    {
 	      "min" "8"
 	      "max" "20"

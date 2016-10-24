@@ -5,7 +5,7 @@
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_gem_topaz"
   "Model"                   "models/items/gem_topaz.vmdl"
-  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+  // "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
   "ItemStackable"         "1"
   "ItemPermanent"         "0"
@@ -17,27 +17,22 @@
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "MODIFIER_PROPERTY_STATS_ALL_BONUS"
-    {
-      "min" "4"
-      "max" "11"
-    }
-    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"
-    {
-      "min" "5"
-      "max" "15"
-    }
-    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
-    {
-      "min" "5"
-      "max" "15"
-    }
     "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"
     {
       "min" "5"
       "max" "15"
     }
-    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
+    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"
+    {
+      "min" "5"
+      "max" "30"
+    }
+    "COLD_RESISTANCE"
+    {
+      "min" "5"
+      "max" "15"
+    }
+    "COLD_DAMAGE_INCREASE"
     {
       "min" "8"
       "max" "20"

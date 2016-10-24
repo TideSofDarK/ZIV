@@ -1,10 +1,10 @@
-"item_gem_malachite"
+"item_gem_ruby"
 {
-  "ID"		"1003"
+  "ID"		"1004"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_gem_malachite"
-  "Model"                   "models/items/gem_malachite.vmdl" 
+  "AbilityTextureName"      "item_gem_ruby"
+  "Model"                   "models/items/gem_ruby.vmdl"
   // "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
   "ItemStackable"         "1"
@@ -14,25 +14,25 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
-  "FortifyModifiersCount" "2"
+  "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
-    {
-      "min" "1"
-      "max" "15"
-    }
-    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
-    {
-      "min" "5"
-      "max" "30"
-    }
-    "LIGHTNING_RESISTANCE"
+    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"
     {
       "min" "5"
       "max" "15"
     }
-    "LIGHTNING_DAMAGE_INCREASE"
+    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
+    {
+      "min" "8"
+      "max" "20"
+    }
+    "FIRE_RESISTANCE"
+    {
+      "min" "5"
+      "max" "15"
+    }
+    "FIRE_DAMAGE_INCREASE"
     {
       "min" "8"
       "max" "20"

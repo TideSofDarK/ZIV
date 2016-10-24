@@ -61,6 +61,11 @@
 	"slot_torso"									"Torso"
 
 	// Common modifiers
+	"FIRE_DAMAGE_INCREASE" 							"% increased fire damage"
+	"COLD_DAMAGE_INCREASE" 							"% increased cold damage"
+	"LIGHTNING_DAMAGE_INCREASE" 					"% increased lightning damage"
+	"DARK_DAMAGE_INCREASE" 							"% increased dark damage"
+
 	"ALL_RESISTANCES" 								"to all magic resistances"
 	"FIRE_RESISTANCE" 								"to fire resistance"
 	"COLD_RESISTANCE" 								"to cold resistance"
@@ -301,6 +306,8 @@
 	"item_forging_dial_Fortify" "Randomizes values of ALL fortified modifiers. Use with caution!"
 	"item_forging_seal_of_lore_Fortify" "Adds additional socket to weapon or armor."
 
-	"item_gem_malachite_Fortify" "random modifier from list (attack speed, move speed, evasion, bonus agility)"
-	"item_gem_topaz_Fortify" "random modifier from list (bonus to single stat, bonus to all stats, bonus armor)"
+	"item_gem_amethyst_Fortify" "random modifier from list (all stats, all resistances, dark resistance, dark damage)"
+	"item_gem_ruby_Fortify" "random modifier from list (strength, armor, fire resistance, fire damage)"
+	"item_gem_malachite_Fortify" "random modifier from list (agility, attack speed, lightning resistance, lightning damage)"
+	"item_gem_topaz_Fortify" "random modifier from list (intelligence, move speed, cold resistance, cold damage)"
 }
