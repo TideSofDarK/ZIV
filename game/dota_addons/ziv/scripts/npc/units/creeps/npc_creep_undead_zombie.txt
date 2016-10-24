@@ -40,8 +40,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "2"
-    "AttackDamageMax"     "4"
+    "AttackDamageMin"     "32"
+    "AttackDamageMax"     "54"
     "AttackRate"        "1"
     "AttackAnimationPoint"    "0.5"
     "AttackRange"       "100"
@@ -57,7 +57,7 @@
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 
-    "StatusHealth"        "100"
+    "StatusHealth"        "300"
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"

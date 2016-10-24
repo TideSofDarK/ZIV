@@ -3,6 +3,8 @@
     "BaseClass"         "npc_dota_creature"
     "SoundSet"  "n_creep_skeleton_melee"
 
+    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP"
+
     "Group"                     "greevils_a"
     "Wearables"
     {
@@ -41,8 +43,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "5"
-    "AttackDamageMax"     "11"
+    "AttackDamageMin"     "35"
+    "AttackDamageMax"     "55"
     "AttackRate"                "0.9"
     "AttackAnimationPoint"      "0.33"
     "AttackAcquisitionRange"    "150"
@@ -59,7 +61,7 @@
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 
-    "StatusHealth"        "100"
+    "StatusHealth"        "300"
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
@@ -72,6 +74,8 @@
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"  "n_creep_skeleton_melee"
+
+    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP"
     
     "HealthBarOffset"   "200"
     "Model"           "models/courier/greevil/greevil.vmdl"
@@ -84,8 +88,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "6"
-    "AttackDamageMax"     "10"
+    "AttackDamageMin"     "40"
+    "AttackDamageMax"     "51"
     "AttackRate"                "0.9"
     "AttackAnimationPoint"      "0.33"
     "AttackAcquisitionRange"    "150"
@@ -102,7 +106,7 @@
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 
-    "StatusHealth"        "100"
+    "StatusHealth"        "320"
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"

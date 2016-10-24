@@ -153,6 +153,11 @@ function ZIV:OnHeroInGame(hero)
     local player = PlayerResource:GetPlayer(pid)
 
     local hero_name = hero:GetUnitName()
+
+    Timers:CreateTimer(function ()
+      AddFOWViewer(hero:GetTeamNumber(), hero:GetAbsOrigin(), hero:GetCurrentVisionRange(), 0.03, false)
+      return 0.03
+    end)
   end)
 end
 

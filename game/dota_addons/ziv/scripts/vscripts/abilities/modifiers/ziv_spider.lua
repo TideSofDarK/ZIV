@@ -6,6 +6,9 @@ function Descent(args)
 
 	if not caster.descended then
 		Timers:CreateTimer(math.random(0.0, 1.1), function (  )
+			if not caster:IsNull() and caster:IsAlive() then
+				return false
+			end 
 			local time = 2.5
 			local distance = 1500
 

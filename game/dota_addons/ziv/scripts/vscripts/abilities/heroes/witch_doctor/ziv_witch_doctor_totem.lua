@@ -22,7 +22,7 @@ function CreateTotem( keys )
 		end)
 
 		keys.totem = totem
-	end, caster:GetPlayerOwnerID()
+	end, caster:GetPlayerOwnerID())
 end
 
 function CreateTotem2( keys )

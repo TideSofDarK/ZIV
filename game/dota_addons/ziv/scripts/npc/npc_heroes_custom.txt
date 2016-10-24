@@ -43,11 +43,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-	    "AttributeBaseStrength"   "8"
+	    "AttributeBaseStrength"   "28"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "3"
+	    "AttributeBaseIntelligence" "12"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "4"
+	    "AttributeBaseAgility"    "14"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -114,11 +114,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-	    "AttributeBaseStrength"   "4"
+	    "AttributeBaseStrength"   "16"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "5"
+	    "AttributeBaseIntelligence" "20"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "6"
+	    "AttributeBaseAgility"    "24"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -185,11 +185,11 @@
 	    "ProjectileSpeed"     "1150"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_INTELLECT"
-	    "AttributeBaseStrength"   "4"
+	    "AttributeBaseStrength"   "14"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "8"
+	    "AttributeBaseIntelligence" "30"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "5"
+	    "AttributeBaseAgility"    "16"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -255,11 +255,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-	    "AttributeBaseStrength"   "5"
+	    "AttributeBaseStrength"   "20"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "2"
+	    "AttributeBaseIntelligence" "12"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "7"
+	    "AttributeBaseAgility"    "20"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -323,11 +323,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-	    "AttributeBaseStrength"   "4"
+	    "AttributeBaseStrength"   "14"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "3"
+	    "AttributeBaseIntelligence" "16"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "7"
+	    "AttributeBaseAgility"    "17"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -398,11 +398,11 @@
 	    "ProjectileSpeed"     "600"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-	    "AttributeBaseStrength"   "7"
+	    "AttributeBaseStrength"   "28"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "2"
+	    "AttributeBaseIntelligence" "13"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "3"
+	    "AttributeBaseAgility"    "16"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -466,11 +466,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-	    "AttributeBaseStrength"   "4"
+	    "AttributeBaseStrength"   "14"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "4"
+	    "AttributeBaseIntelligence" "12"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "7"
+	    "AttributeBaseAgility"    "25"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -534,11 +534,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_INTELLECT"
-	    "AttributeBaseStrength"   "6"
+	    "AttributeBaseStrength"   "12"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "6"
+	    "AttributeBaseIntelligence" "22"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "5"
+	    "AttributeBaseAgility"    "15"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"

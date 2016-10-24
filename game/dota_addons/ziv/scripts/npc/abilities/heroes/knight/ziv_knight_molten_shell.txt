@@ -6,7 +6,7 @@
 
   "AbilityCooldown"           "2.5"
 
-  "MaxLevel"  "1"
+  "MaxLevel"                  "1"
 
   "precache"
   {
@@ -42,6 +42,11 @@
       "damage_threshold"            "120"
     }
     "06"
+    {
+      "var_type"                    "FIELD_FLOAT"
+      "hp_regen"                    "5"
+    }
+    "07"
     {
       "var_type"                    "FIELD_FLOAT"
       "duration"                    "2.0"
@@ -88,6 +93,11 @@
 
       "EffectName" "particles/units/heroes/hero_sven/sven_warcry_armor_buff_model.vpcf"
       "EffectAttachType"  "follow_overhead"
+
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.01"
+      }
     }
 
     "modifier_molten_shell"

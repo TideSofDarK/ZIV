@@ -44,13 +44,8 @@
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
-    "TeamName"          "DOTA_TEAM_GOODGUYS"
-    
-    
-    
+    "TeamName"          "DOTA_TEAM_GOODGUYS" 
 
-    "VisionDaytimeRange"    "0"
-    "VisionNighttimeRange"    "0"
-
-    "AttackDesire"        "1.5"
+    "VisionDaytimeRange"    "500"
+    "VisionNighttimeRange"    "500"
 } 

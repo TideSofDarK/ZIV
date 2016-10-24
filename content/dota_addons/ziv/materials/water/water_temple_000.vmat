@@ -13,7 +13,7 @@ Layer0
 	TextureColor "materials/water/water_temple_color.tga"
 
 	//---- Flow ----
-	g_flFlowTimeScale "1.000"
+	g_flFlowTimeScale "0.237"
 
 	//---- Flow Color ----
 	g_flColorFlowLerpExp "1.000"
@@ -41,13 +41,13 @@ Layer0
 	g_flLowEndReflectionPower "2.247"
 	g_flLowEndSurfaceFactor "0.224"
 	g_flLowEndSurfaceMinimumColor "0.104"
-	g_flLowEndSurfaceOpacity "0.910"
+	g_flLowEndSurfaceOpacity "0.757"
 	g_vLowEndReflectionColor "[0.709804 0.784314 0.764706 0.000000]"
 	g_vLowEndReflectionDir "[-0.030 -1.000 0.273]"
-	g_vLowEndSurfaceColor "[0.086275 0.286275 0.552941 1.000000]"
+	g_vLowEndSurfaceColor "[0.109804 0.352941 0.670588 1.000000]"
 
 	//---- Normal Map ----
-	g_flBumpStrength "0.250"
+	g_flBumpStrength "0.355"
 	TextureNormal "materials/water/water_temple_normal.tga"
 
 	//---- Reflections ----
@@ -59,7 +59,7 @@ Layer0
 	g_flRefractionAmount "0.060"
 	g_flWaterDepth "35.000"
 	g_vRefractionTint "[1.000000 1.000000 1.000000 0.000000]"
-	g_vWaterFogColor "[0.725490 0.725490 0.725490 0.000000]"
+	g_vWaterFogColor "[0.705882 0.878431 0.823529 0.000000]"
 
 	//---- Specular ----
 	g_flBaseBloom "0.053"
