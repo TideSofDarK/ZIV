@@ -3,6 +3,8 @@
     "BaseClass"             "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
 
+    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP"
+
     "Wearables"
     {
         "Creep"
@@ -25,6 +27,12 @@
             {
                 "1" "models/heroes/lion/lion_demonarm.vmdl"
                 "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+            }
+            "5"
+            {
+                "1" "models/items/centaur/armor_sleek_1/armor_sleek_1.vmdl"
+                "2" "models/heroes/nightstalker/nightstalker_legarmor_night.vmdl"
+                "3" "models/items/lion/demon_glove/demon_glove.vmdl"
             }
         }
         "Lord"
@@ -49,8 +57,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "8"
-    "AttackDamageMax"     "12"
+    "AttackDamageMin"     "35"
+    "AttackDamageMax"     "52"
     "AttackRate"            "1.5"
     "AttackAnimationPoint"  "0.3"
     "AttackRange"   "100"
@@ -62,11 +70,11 @@
     "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
 
     "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"       "330"
+    "MovementSpeed"       "320"
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 
-    "StatusHealth"        "75"
+    "StatusHealth"        "350"
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
@@ -126,8 +134,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "8"
-    "AttackDamageMax"     "12"
+    "AttackDamageMin"     "35"
+    "AttackDamageMax"     "52"
     "AttackRate"            "155"
     "AttackAnimationPoint"      "0.3"
     "AttackRange"   "100"
@@ -143,7 +151,7 @@
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 
-    "StatusHealth"        "75"
+    "StatusHealth"        "375"
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"

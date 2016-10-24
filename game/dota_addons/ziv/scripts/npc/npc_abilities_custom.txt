@@ -3355,7 +3355,7 @@
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"ziv_empty"
+		"AbilityTextureName"			"ziv_elementalist_barrier"
 	
 		"MaxLevel" "1"
 	
@@ -4910,7 +4910,7 @@
 	
 	  "AbilityCooldown"           "2.5"
 	
-	  "MaxLevel"  "1"
+	  "MaxLevel"                  "1"
 	
 	  "precache"
 	  {
@@ -4946,6 +4946,11 @@
 	      "damage_threshold"            "120"
 	    }
 	    "06"
+	    {
+	      "var_type"                    "FIELD_FLOAT"
+	      "hp_regen"                    "5"
+	    }
+	    "07"
 	    {
 	      "var_type"                    "FIELD_FLOAT"
 	      "duration"                    "2.0"
@@ -4992,6 +4997,11 @@
 	
 	      "EffectName" "particles/units/heroes/hero_sven/sven_warcry_armor_buff_model.vpcf"
 	      "EffectAttachType"  "follow_overhead"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.01"
+	      }
 	    }
 	
 	    "modifier_molten_shell"
@@ -7456,6 +7466,22 @@
 	  
 	  "Modifiers"
 	  {
+	    "ziv_creep_ai"
+	    {
+	      "Passive"      "1"
+	      "IsHidden"      "0"
+	      "IsDebuff"      "0"
+	    
+	      "OnCreated"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "abilities/ziv_creeps.lua"
+	          "Function"    "InitAI"
+	        }
+	      }
+	    }
+	
 	    "ziv_creep_normal_behavior_logic"
 	    {
 	      "Passive"                         "1"

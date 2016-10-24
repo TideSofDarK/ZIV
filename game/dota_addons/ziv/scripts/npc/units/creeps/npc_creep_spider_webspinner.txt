@@ -4,6 +4,8 @@
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 
+    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+
     "Group"                     "spiders_a"
     
     "HealthBarOffset"           "150"
@@ -17,8 +19,8 @@
     "MagicalResistance"         "0"
 
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "4"
-    "AttackDamageMax"           "8"
+    "AttackDamageMin"           "34"
+    "AttackDamageMax"           "48"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
     "AttackAcquisitionRange"    "400"
@@ -35,7 +37,7 @@
     "MovementTurnRate"          "1.0"
     "FollowRange"               "250"
 
-    "StatusHealth"              "100"
+    "StatusHealth"              "260"
     "StatusHealthRegen"         "0"
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
@@ -50,6 +52,8 @@
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 
+    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+
     "Group"                     "spiders_a"
     
     "HealthBarOffset"           "150"
@@ -63,8 +67,8 @@
     "MagicalResistance"         "0"
 
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "5"
-    "AttackDamageMax"           "9"
+    "AttackDamageMin"           "35"
+    "AttackDamageMax"           "49"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
     "AttackAcquisitionRange"    "400"
@@ -81,7 +85,7 @@
     "MovementTurnRate"          "1.0"
     "FollowRange"               "250"
 
-    "StatusHealth"              "100"
+    "StatusHealth"              "260"
     "StatusHealthRegen"         "0"
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
@@ -96,6 +100,8 @@
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 
+    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+
     "Group"                     "spiders_b"
     
     "HealthBarOffset"           "150"
@@ -109,8 +115,8 @@
     "MagicalResistance"         "0"
 
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "3"
-    "AttackDamageMax"           "10"
+    "AttackDamageMin"           "33"
+    "AttackDamageMax"           "50"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
     "AttackAcquisitionRange"    "400"
@@ -127,7 +133,7 @@
     "MovementTurnRate"          "1.0"
     "FollowRange"               "250"
 
-    "StatusHealth"              "100"
+    "StatusHealth"              "260"
     "StatusHealthRegen"         "0"
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
@@ -141,6 +147,8 @@
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+
+    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
     
     "HealthBarOffset"           "150"
     "Model"                     "models/items/broodmother/spiderling/thistle_crawler/thistle_crawler.vmdl"
@@ -153,8 +161,8 @@
     "MagicalResistance"         "0"
 
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "4"
-    "AttackDamageMax"           "10"
+    "AttackDamageMin"           "34"
+    "AttackDamageMax"           "50"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
     "AttackAcquisitionRange"    "400"
@@ -171,7 +179,7 @@
     "MovementTurnRate"          "1.0"
     "FollowRange"               "250"
 
-    "StatusHealth"              "100"
+    "StatusHealth"              "260"
     "StatusHealthRegen"         "0"
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
@@ -186,6 +194,8 @@
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 
+    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+
     "Group"                     "spiders_b"
     
     "HealthBarOffset"           "150"
@@ -199,8 +209,8 @@
     "MagicalResistance"         "0"
 
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "5"
-    "AttackDamageMax"           "9"
+    "AttackDamageMin"           "35"
+    "AttackDamageMax"           "49"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
     "AttackAcquisitionRange"    "400"
@@ -217,7 +227,7 @@
     "MovementTurnRate"          "1.0"
     "FollowRange"               "250"
 
-    "StatusHealth"              "100"
+    "StatusHealth"              "260"
     "StatusHealthRegen"         "0"
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
@@ -231,6 +241,8 @@
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+
+    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
     
     "HealthBarOffset"           "150"
     "Model"                     "models/items/broodmother/spiderling/araknarok_broodmother_araknarok_spiderling/araknarok_broodmother_araknarok_spiderling.vmdl"
@@ -243,8 +255,8 @@
     "MagicalResistance"         "0"
 
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "1"
-    "AttackDamageMax"           "3"
+    "AttackDamageMin"           "31"
+    "AttackDamageMax"           "43"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
     "AttackAcquisitionRange"    "400"
@@ -261,7 +273,7 @@
     "MovementTurnRate"          "1.0"
     "FollowRange"               "250"
 
-    "StatusHealth"              "100"
+    "StatusHealth"              "260"
     "StatusHealthRegen"         "0"
     "StatusMana"                "0"
     "StatusManaRegen"           "0"
@@ -275,6 +287,8 @@
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+
+    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
     
     "HealthBarOffset"           "150"
     "Model"                     "models/items/broodmother/spiderling/amber_queen_spiderling_2/amber_queen_spiderling_2.vmdl"
@@ -287,8 +301,8 @@
     "MagicalResistance"         "0"
 
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "1"
-    "AttackDamageMax"           "3"
+    "AttackDamageMin"           "31"
+    "AttackDamageMax"           "43"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
     "AttackAcquisitionRange"    "400"
@@ -305,7 +319,7 @@
     "MovementTurnRate"          "1.0"
     "FollowRange"               "250"
 
-    "StatusHealth"              "100"
+    "StatusHealth"              "260"
     "StatusHealthRegen"         "0"
     "StatusMana"                "0"
     "StatusManaRegen"           "0"

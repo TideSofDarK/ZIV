@@ -54,8 +54,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    	"DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     		"8"
-    "AttackDamageMax"     		"12"
+    "AttackDamageMin"     		"35"
+    "AttackDamageMax"     		"55"
 	"AttackRate"				"1.5"
 	"AttackAnimationPoint"		"0.3"
     "AttackRange"   			"100"
@@ -71,7 +71,7 @@
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 
-    "StatusHealth"        "75"
+    "StatusHealth"        "355"
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
@@ -135,8 +135,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    	"DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     		"8"
-    "AttackDamageMax"     		"12"
+    "AttackDamageMin"     		"35"
+    "AttackDamageMax"     		"55"
 	"AttackRate"				"1.3"
 	"AttackAnimationPoint"		"0.5"
     "AttackRange"   			"100"
@@ -152,7 +152,7 @@
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 
-    "StatusHealth"        "75"
+    "StatusHealth"        "375"
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"

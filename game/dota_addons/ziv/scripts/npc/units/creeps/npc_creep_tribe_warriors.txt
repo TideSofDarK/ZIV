@@ -49,8 +49,8 @@
     "MagicalResistance"       "0"
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "8"
-    "AttackDamageMax"     "12"
+    "AttackDamageMin"     "38"
+    "AttackDamageMax"     "55"
     "AttackRate"                "0.75"
     "AttackAnimationPoint"      "0.56"
     "AttackAcquisitionRange"    "150"
@@ -67,7 +67,7 @@
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 
-    "StatusHealth"        "75"
+    "StatusHealth"        "345"
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
@@ -80,6 +80,8 @@
 {
     "BaseClass"             "npc_dota_creature"
     "SoundSet"              "Creep_Good_Range"
+
+    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP | AI_FLAGS_MOVE_DURING_FIGHT | AI_FLAGS_TRY_TO_KEEP_DISTANCE"
 
     "Group"                 "tribe_warriors"
     "Colors"
@@ -134,8 +136,8 @@
 
     "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageType"          "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-    "AttackDamageMin"           "2"
-    "AttackDamageMax"           "7"
+    "AttackDamageMin"           "17"
+    "AttackDamageMax"           "26"
     "AttackRate"                "1.00"
     "AttackAnimationPoint"      "0.60"
     "AttackAcquisitionRange"    "600"
@@ -155,7 +157,7 @@
     "MovementTurnRate"      "1.0"
     "FollowRange"       "250"
 
-    "StatusHealth"        "110"
+    "StatusHealth"        "260"
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"

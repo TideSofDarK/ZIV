@@ -16,6 +16,22 @@
   
   "Modifiers"
   {
+    "ziv_creep_ai"
+    {
+      "Passive"      "1"
+      "IsHidden"      "0"
+      "IsDebuff"      "0"
+    
+      "OnCreated"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/ziv_creeps.lua"
+          "Function"    "InitAI"
+        }
+      }
+    }
+
     "ziv_creep_normal_behavior_logic"
     {
       "Passive"                         "1"

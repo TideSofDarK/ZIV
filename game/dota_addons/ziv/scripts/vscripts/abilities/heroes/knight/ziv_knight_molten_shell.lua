@@ -20,6 +20,7 @@ function MoltenShell( keys )
 	Damage:Modify(caster, Damage.DARK_RESISTANCE, GetSpecial(ability, "dark_damage_reduction"), duration)
 
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_molten_shell_buff",{duration = duration})
+	caster:SetModifierStackCount("modifier_molten_shell_buff",caster,GetSpecial(ability, "hp_regen") * 100)
 
 	caster:EmitSound("Hero_Juggernaut.OmniSlash")
 end

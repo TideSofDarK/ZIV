@@ -2,7 +2,7 @@
 {
 	"BaseClass"				"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	"AbilityTextureName"			"ziv_empty"
+	"AbilityTextureName"			"ziv_elementalist_barrier"
 
 	"MaxLevel" "1"
 

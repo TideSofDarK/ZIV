@@ -1,0 +1,157 @@
+"npc_creep_bandits_troll_berserker"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Ranged"
+
+    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP | AI_FLAGS_MOVE_DURING_FIGHT | AI_FLAGS_TRY_TO_KEEP_DISTANCE"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/blood_seeker/war_helmet.vmdl"
+                "2" "models/items/bounty_hunter/pangolin_shoulder_armor.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/dragon_knight/fire_tribunal_helm/fire_tribunal_helm.vmdl"
+            }
+            "3" 
+            {
+                "1" "models/items/omniknight/helm_heavenly_light/helm_heavenly_light.vmdl"
+                "2" "models/items/lanaya/hiddenflower_armor/hiddenflower_armor.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/heroes/troll_warlord/mesh/troll_warlord_armor_model_lod0.vmdl"
+                "2"     "models/items/clinkz/lost_viking_helmet/lost_viking_helmet.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "200"
+    "Model"           "models/creeps/neutral_creeps/n_creep_forest_trolls/n_creep_forest_troll_berserker.vmdl"
+    "ModelScale"    "0.9"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"     "20"
+    "AttackDamageMax"     "30"
+    "AttackRate"                "1.6"
+    "AttackAnimationPoint"      "0.3"
+    "AttackAcquisitionRange"    "300"
+    "AttackRange"               "500"
+    "ProjectileModel"           "particles/base_attacks/ranged_badguy.vpcf"
+    "ProjectileSpeed"           "1200"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "320"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "325"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 
+
+"npc_creep_bandits_troll_shaman"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "Hero_Razor"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+
+    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP | AI_FLAGS_MOVE_DURING_FIGHT | AI_FLAGS_TRY_TO_KEEP_DISTANCE"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/shadowshaman/true_crow_pelt/true_crow_pelt.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/shadowshaman/vagabond_hat/vagabond_hat.vmdl"
+            }
+            "3" 
+            {
+                "1" "models/items/shadowshaman/shades_head/shades_head.vmdl"
+                "2" "models/heroes/troll_warlord/troll_warlord_shoulders.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/juggernaut/immortal_warlord_pants/immortal_warlord_pants.vmdl"
+                "2"     "models/items/clinkz/lost_viking_helmet/lost_viking_helmet.vmdl"
+            }
+        }
+    }
+
+    "precache"
+    {
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+        "particle"  "particles/creeps/ziv_troll_shaman_projectile.vpcf"
+    }
+    
+    "HealthBarOffset"   "200"
+    "Model"           "models/creeps/neutral_creeps/n_creep_forest_trolls/n_creep_forest_troll_high_priest.vmdl"
+    "ModelScale"    "0.9"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"     "15"
+    "AttackDamageMax"     "27"
+    "AttackRate"                "1.8"
+    "AttackAnimationPoint"      "0.3"
+    "AttackAcquisitionRange"    "300"
+    "AttackRange"               "500"
+    "ProjectileModel"           "particles/creeps/ziv_troll_shaman_projectile.vpcf"
+    "ProjectileSpeed"           "1200"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "320"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "325"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 

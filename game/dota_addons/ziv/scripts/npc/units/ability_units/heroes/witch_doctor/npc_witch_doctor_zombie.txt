@@ -43,4 +43,6 @@
 
     "VisionDaytimeRange"    "1000"
     "VisionNighttimeRange"    "1000"
+
+    "AttackDesire" "1.5"
 } 
