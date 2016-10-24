@@ -19,7 +19,7 @@ function modifier_boss_ai:OnTakeDamage( params )
             attacker = params.attacker:entindex()
           end
           
-          params.unit.ai.aggroTable[attacker] = (params.unit.ai.aggroTable[attacker] or 0) + params.damage
+          params.unit.sfm:AddAggro(attacker, params.damage)
         end
     end
 end

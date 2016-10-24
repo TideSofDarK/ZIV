@@ -1,5 +1,7 @@
 function Start( keys )
-	AI:BossStart( keys )
+  local caster = keys.caster
+  
+	AI:BossStart( keys, SFM(caster) )
 end
 
 function Divide( keys )
