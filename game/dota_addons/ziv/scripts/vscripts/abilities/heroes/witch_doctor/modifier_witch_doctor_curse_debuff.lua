@@ -10,7 +10,7 @@ if IsServer() then
         local caster = self:GetCaster()
         local target = self:GetParent()
 
-        Damage:Deal( caster, target, GetRuneDamage(caster, GetSpecial(self:GetAbility(), "damage_amp"), "ziv_witch_doctor_curse_damage") * self.tick, DAMAGE_TYPE_DARK, true )
+        Damage:Deal( caster, target, GetRuneDamage(caster, GetSpecial(self:GetAbility(), "damage_amp"), "ziv_witch_doctor_curse_damage") * self.tick, DAMAGE_TYPE_DARK, true, true )
 
         return self.tick
     end

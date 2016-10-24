@@ -64,7 +64,7 @@ function Damage:GetResist( unit, resist )
 	end
 end
 
-function Damage:Deal( attacker, victim, damage, damage_type, no_popup)
+function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 	local damage_type = damage_type
 	local damage = damage
 
@@ -97,7 +97,7 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup)
 
 		damage = damage - (damage * (resistance/100))
 	elseif damage_type == DAMAGE_TYPE_PHYSICAL then
-		
+
 	end
 	
 	local min_damage = damage * 0.75
@@ -118,7 +118,9 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup)
 		StartAnimation(victim, {duration=0.3, activity=ACT_DOTA_FLINCH, rate=1.5})
 	end
 
-	Damage:BloodParticle( victim )
+	if not no_blood then
+		Damage:BloodParticle( victim )
+	end
 	
 	if attacker.GetPlayerOwnerID and 
 		attacker:GetPlayerOwnerID() >= 0 and 

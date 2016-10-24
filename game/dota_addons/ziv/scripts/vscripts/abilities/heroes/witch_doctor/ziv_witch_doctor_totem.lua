@@ -3,24 +3,26 @@ function CreateTotem( keys )
 	local target = keys.target_points[1]
 	local ability = keys.ability
 
-	StartSoundEvent("Hero_WitchDoctor.Death_WardBuild",caster)
+	PrecacheUnitByNameAsync("npc_witch_doctor_totem", function (  )
+		StartSoundEvent("Hero_WitchDoctor.Death_WardBuild",caster)
 
-	local duration = ability:GetLevelSpecialValueFor("totem_duration", ability:GetLevel())
+		local duration = ability:GetLevelSpecialValueFor("totem_duration", ability:GetLevel())
 
-	local totem = CreateUnitByName("npc_witch_doctor_totem", target, false, nil, caster:GetPlayerOwner(), caster:GetTeamNumber())
-	totem:AddNewModifier(totem, ability, "modifier_kill", {duration = duration})
-	ability:ApplyDataDrivenModifier(caster,totem,"modifier_witch_doctor_totem",{duration = duration})
-	totem:SetModifierStackCount("modifier_witch_doctor_totem",caster,GRMSC("ziv_witch_doctor_totem_range", caster))
+		local totem = CreateUnitByName("npc_witch_doctor_totem", target, false, nil, caster:GetPlayerOwner(), caster:GetTeamNumber())
+		totem:AddNewModifier(totem, ability, "modifier_kill", {duration = duration})
+		ability:ApplyDataDrivenModifier(caster,totem,"modifier_witch_doctor_totem",{duration = duration})
+		totem:SetModifierStackCount("modifier_witch_doctor_totem",caster,GRMSC("ziv_witch_doctor_totem_range", caster))
 
-	Timers:CreateTimer(0.6, function (  )
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf",PATTACH_POINT,totem)
-		ParticleManager:SetParticleControlEnt(particle, 0, totem, PATTACH_POINT_FOLLOW, "attach_attack1", totem:GetAbsOrigin(), false)
-		ParticleManager:SetParticleControlEnt(particle, 2, totem, PATTACH_POINT_FOLLOW, "attach_attack1", totem:GetAbsOrigin(), false)
+		Timers:CreateTimer(0.6, function (  )
+			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf",PATTACH_POINT,totem)
+			ParticleManager:SetParticleControlEnt(particle, 0, totem, PATTACH_POINT_FOLLOW, "attach_attack1", totem:GetAbsOrigin(), false)
+			ParticleManager:SetParticleControlEnt(particle, 2, totem, PATTACH_POINT_FOLLOW, "attach_attack1", totem:GetAbsOrigin(), false)
 
-		AddChildParticle( totem, particle )
-	end)
+			AddChildParticle( totem, particle )
+		end)
 
-	keys.totem = totem
+		keys.totem = totem
+	end, caster:GetPlayerOwnerID()
 end
 
 function CreateTotem2( keys )
@@ -28,21 +30,23 @@ function CreateTotem2( keys )
 	local target = keys.target_points[1]
 	local ability = keys.ability
 
-	local duration = ability:GetLevelSpecialValueFor("totem_duration", ability:GetLevel()) + (GRMSC("ziv_witch_doctor_totem2_duration", caster) / 100)
+	PrecacheUnitByNameAsync("npc_witch_doctor_totem2", function (  )
+		local duration = ability:GetLevelSpecialValueFor("totem_duration", ability:GetLevel()) + (GRMSC("ziv_witch_doctor_totem2_duration", caster) / 100)
 
-	local totem = CreateUnitByName("npc_witch_doctor_totem2", target, false, nil, caster:GetPlayerOwner(), caster:GetTeamNumber())
-	totem:AddNewModifier(totem, ability, "modifier_kill", {duration = duration})
-	ability:ApplyDataDrivenModifier(totem,totem,"modifier_witch_doctor_totem2",{duration = duration})
+		local totem = CreateUnitByName("npc_witch_doctor_totem2", target, false, nil, caster:GetPlayerOwner(), caster:GetTeamNumber())
+		totem:AddNewModifier(totem, ability, "modifier_kill", {duration = duration})
+		ability:ApplyDataDrivenModifier(totem,totem,"modifier_witch_doctor_totem2",{duration = duration})
 
-	Timers:CreateTimer(0.3, function (  )
-		local particle = ParticleManager:CreateParticle("particles/heroes/witch_doctor/witch_doctor_totem2_fx.vpcf",PATTACH_OVERHEAD_FOLLOW,totem)
+		Timers:CreateTimer(0.3, function (  )
+			local particle = ParticleManager:CreateParticle("particles/heroes/witch_doctor/witch_doctor_totem2_fx.vpcf",PATTACH_OVERHEAD_FOLLOW,totem)
 
-		AddChildParticle( totem, particle )
+			AddChildParticle( totem, particle )
 
-		if totem:IsNull() ~= true and totem:IsAlive() ~= false then return 0.8 end
-	end)
+			if totem:IsNull() ~= true and totem:IsAlive() ~= false then return 0.8 end
+		end)
 
-	keys.totem = totem
+		keys.totem = totem
+	end, caster:GetPlayerOwnerID())
 end
 
 function RemoveTotem( keys )
