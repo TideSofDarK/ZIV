@@ -19,7 +19,7 @@ function modifier_boss_ai:OnTakeDamage( params )
             attacker = params.attacker:entindex()
           end
           
-          params.unit.sfm:AddAggro(attacker, params.damage)
+          params.unit.sfm.aggro:Add(attacker, params.damage)
         end
     end
 end
