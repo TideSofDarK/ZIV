@@ -18,9 +18,6 @@
 			<Label id="AttributesHeadline" class="Headline" text="#status_attr">
 			</Label>
 
-			<Panel class="CBR" hittest="true">
-			</Panel>
-
 			<Panel id="Attributes" hittest="true">
 				<Label class="Attribute" id="Str" text="">
 				</Label>
@@ -30,33 +27,52 @@
 				</Label>
 			</Panel>
 
-			<Panel class="CBR" hittest="true">
-			</Panel>
-
 			<Label id="StatusHeadline" class="Headline" text="#status_status">
 			</Label>
 
-			<Panel class="CBR" hittest="true">
-			</Panel>
-
-			<Panel id="status_strings" hittest="true">
+			<Panel id="StatusStrings" hittest="true">
 				<Label class="StatusLabel" id="HP" text="500">
 				</Label>
-				<Label class="StatusLabel" id="MP" text="500">
+				<Label class="StatusLabel" id="HPRegen" text="500">
 				</Label>
-				<Label class="StatusLabel" id="AD" text="500">
+				<Label class="StatusLabel" id="EP" text="500">
 				</Label>
+				<Label class="StatusLabel" id="EPRegen" text="500">
+				</Label>
+
+				<Label id="StatusDefence" class="Headline StatusHeadline" text="#status_defence"/>
+
 				<Label class="StatusLabel" id="ARMOR" text="500">
 				</Label>
+
 				<Label class="StatusLabel" id="EVASION" text="500">
 				</Label>
-				<Label class="StatusLabel" id="MDA" text="500">
+
+				<Label class="StatusLabel" id="FireResistance" text="500">
 				</Label>
+				<Label class="StatusLabel" id="ColdResistance" text="500">
+				</Label>
+				<Label class="StatusLabel" id="LightningResistance" text="500">
+				</Label>
+				<Label class="StatusLabel" id="DarkResistance" text="500">
+				</Label>
+
+				<Label id="StatusOffence" class="Headline StatusHeadline" text="#Offence"/>
+
+				<Label class="StatusLabel" id="AD" text="500">
+				</Label>
+
+				<Label class="StatusLabel" id="FireIncrease" text="500">
+				</Label>
+				<Label class="StatusLabel" id="ColdIncrease" text="500">
+				</Label>
+				<Label class="StatusLabel" id="LightningIncrease" text="500">
+				</Label>
+				<Label class="StatusLabel" id="DarkIncrease" text="500">
+				</Label>
+
 				<Label class="StatusLabel" id="CTC" text="500">
 				</Label>
-			</Panel>
-
-			<Panel class="CBR" hittest="true">
 			</Panel>
 		</Panel>
 	</Panel>

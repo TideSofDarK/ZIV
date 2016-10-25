@@ -288,15 +288,37 @@
 	"cast_point"	"Cast Point: "
 	"cooldown"		"Cooldown: "
 
-	"status_attr"	"Attributes"
-	"status_status"	"Status"
-	"status_hp"	"Health Points: "
-	"status_mp"	"Mana Points: "
-	"status_ad"	"Attack Damage: "
-	"status_armor"	"Armor: "
-	"status_evasion"	"Chance to Dodge: "
-	"status_mda"	"Spell Amplify: "
-	"status_ctc"	"Chance to crit: "
+	// Status window
+	"status_attr"						"Attributes"
+
+	"status_status"						"Status"
+
+	"status_hp"							"Health Points: "
+	"status_hp_regen"					"Health Regen: "
+	"status_ep"							"Energy Points: "
+	"status_ep_regen"					"Energy Regen: "
+
+	"status_defence"					"Defence"
+
+	"status_armor"						"Armor: "
+
+	"status_evasion"					"Chance to Dodge: "
+
+	"status_fire_resistance"			"Fire Resistance: "
+	"status_cold_resistance"			"Cold Resistance: "
+	"status_lightning_resistance"		"Lightning Resistance: "
+	"status_dark_resistance"			"Dark Resistance: "
+
+	"status_offence"					"Offence"
+
+	"status_ad"							"Base Damage: "
+
+	"status_fire_increase"				"Fire Damage Increase: "
+	"status_cold_increase"				"Cold Damage Increase: "
+	"status_lightning_increase"			"Lightning Damage Increase: "
+	"status_dark_increase"				"Dark Damage Increase: "
+
+	"status_ctc"						"Chance to crit: "
 
 	// Fortifying
 	"dragfortify"				"Drag and drop weapon or armor from inventory to fortify"

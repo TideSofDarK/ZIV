@@ -38,7 +38,7 @@ var abilityDelay = 0.2;
 		offset += step;
 	}
 
-	GameUI.SetCameraLookAtPositionHeightOffset(offset - 150 + (heroY * 0.1)); 
+	GameUI.SetCameraLookAtPositionHeightOffset(offset - 150 + (heroY * 0.01)); 
 	return;
 })();
 
@@ -232,6 +232,9 @@ function ZIVCastAbility(number, pressing, single) {
 
     Game.AddCommand("+ZIVShowMinimap", GameUI.CustomUIConfig().ChangeMinimapMode, "", 0); 
 	Game.AddCommand("-ZIVShowMinimap", GameUI.CustomUIConfig().ChangeMinimapMode, "", 0); 
+
+    Game.AddCommand("+ZIVShowStatus", GameUI.CustomUIConfig().ToggleStatusWindow, "", 0); 
+	Game.AddCommand("+ZIVShowEquipment", GameUI.CustomUIConfig().ToggleEquipmentWindow, "", 0); 
 
     //Mouse
     GameUI.SetMouseCallback( function( eventName, arg ) {

@@ -155,9 +155,9 @@ function ToggleStatusWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_status", {} );
 }
 
-function OpenInventoryWindow() {
-	GameEvents.SendCustomGameEventToServer( "ziv_open_inventory", {} );
-}
+// function OpenInventoryWindow() {
+// 	GameEvents.SendCustomGameEventToServer( "ziv_open_inventory", {} );
+// }
 
 function OpenCraftingWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_crafting", {} );
@@ -180,6 +180,9 @@ function ToggleSettingsWindow() {
 	UpdateHPAndMP();
 
 	GameUI.CustomUIConfig().ingame_ui = $.GetContextPanel();
+
+	GameUI.CustomUIConfig().ToggleStatusWindow = ToggleStatusWindow;
+	GameUI.CustomUIConfig().ToggleEquipmentWindow = ToggleEquipmentWindow;
 
 	// GameUI.CustomUIConfig().hudRoot.FindChildTraverse("RadarButton").DeleteAsync(0.0);
 })();

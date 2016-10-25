@@ -12,6 +12,7 @@ function Attributes:Init()
     local DEFAULT_MANA_REGEN_PER_INT = 0.04
     local DEFAULT_ARMOR_PER_AGI = 0.14
     local DEFAULT_ATKSPD_PER_AGI = 1
+    local DEFAULT_DAMAGE_PER_ATTRIBUTE = 1
 
     Attributes.hp_adjustment = v.HP_PER_STR - DEFAULT_HP_PER_STR
     Attributes.hp_regen_adjustment = v.HP_REGEN_PER_STR - DEFAULT_HP_REGEN_PER_STR
@@ -19,6 +20,7 @@ function Attributes:Init()
     Attributes.mana_regen_adjustment = v.MANA_REGEN_PER_INT - DEFAULT_MANA_REGEN_PER_INT
     Attributes.armor_adjustment = v.ARMOR_PER_AGI - DEFAULT_ARMOR_PER_AGI
     Attributes.attackspeed_adjustment = v.ATKSPD_PER_AGI - DEFAULT_ATKSPD_PER_AGI
+    Attributes.damage_adjustment = v.DAMAGE_PER_ATTRIBUTE - DEFAULT_DAMAGE_PER_ATTRIBUTE
 
     Attributes.applier = CreateItem("item_stat_modifier", nil, nil)
 end
@@ -101,6 +103,11 @@ function Attributes:ModifyBonuses(hero)
             local mana_regen_stacks = math.abs(intellect * Attributes.mana_regen_adjustment * 100)
             hero:SetModifierStackCount("modifier_base_mana_regen_fix", Attributes.applier, mana_regen_stacks)
         end
+
+        if not hero:HasModifier("modifier_damage_bonus_fix") then
+            Attributes.applier:ApplyDataDrivenModifier(hero, hero, "modifier_damage_bonus_fix", {})
+        end
+        hero:SetModifierStackCount("modifier_damage_bonus_fix", Attributes.applier, hero:GetBonusDamageFromPrimaryStat())
 
         -- Update the stored values for next timer cycle
         hero.strength = strength

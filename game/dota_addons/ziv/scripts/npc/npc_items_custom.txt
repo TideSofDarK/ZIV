@@ -268,6 +268,16 @@
 	
 		"Modifiers"
 		{
+			"modifier_damage_bonus_fix"
+			{
+				"IsHidden"			"1"  
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"-1"
+				}
+			}
 	
 			"modifier_health_bonus_fix"
 			{
