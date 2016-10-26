@@ -287,7 +287,7 @@ function SFM( caster )
           return
         end
       
-      print('State: ', self.state)
+      --print('State: ', self.state)
       self:UpdateState()
       
       local funct = self.states[self.state]
