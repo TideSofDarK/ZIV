@@ -1558,12 +1558,12 @@
 	    "02"
 	    {
 	      "var_type"      "FIELD_INTEGER"
-	      "creeps_min"      "5"
+	      "creeps_min"      "3"
 	    }
 	    "03"
 	    {
 	      "var_type"      "FIELD_INTEGER"
-	      "creeps_max"      "9"
+	      "creeps_max"      "5"
 	    }
 	  }
 	
@@ -7406,7 +7406,7 @@
 	    }
 	  }
 	}
-	"ziv_boss_hpbar"
+	"ziv_boss"
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -7416,34 +7416,19 @@
 	
 	  "Modifiers"
 	  {
-	    "modifier_boss_hpbar"
+	    "modifier_boss_hide_hpbar"
 	    {
-	      "Passive"      "1"
+	      "Passive"       "1"
 	      "IsHidden"      "1"
 	      "IsDebuff"      "0"
 	
-	      "Priority"                     "MODIFIER_PRIORITY_ULTRA"
+	      "Priority"                  "MODIFIER_PRIORITY_ULTRA"
 	
-	      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
+	      "Attributes"                "MODIFIER_ATTRIBUTE_PERMANENT"
 	
 	      "States"
 	      {
 	        "MODIFIER_STATE_NO_HEALTH_BAR"    "MODIFIER_STATE_VALUE_ENABLED"
-	      }
-	    }
-	    "modifier_boss_hpbar_panel_spawner"
-	    {
-	      "Passive"      "1"
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	
-	      "OnDestroy"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"  "director.lua"
-	          "Function"    "SetupBossHPBar"
-	        }
 	      }
 	    }
 	  }

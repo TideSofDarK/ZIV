@@ -86,7 +86,8 @@ require('libraries/attributes')
 -- Scenarios
 require('scenarios/temple')
 
--- Debug commands
+-- Debug 
+require('debug_panel')
 require('commands')
 
 -- Networking stuff
@@ -213,9 +214,6 @@ function ZIV:InitZIV()
   Convars:RegisterCommand( "aath",  Dynamic_Wrap(ZIV, 'AddAbilityToHero'), "", FCVAR_CHEAT )
   Convars:RegisterCommand( "vt",  Dynamic_Wrap(ZIV, 'Test'), "", FCVAR_CHEAT )
 
-  GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( ZIV, "FilterExecuteOrder" ), self )
-  GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( ZIV, "DamageFilter" ), self )
-
   ZIV.ItemKVs = LoadKeyValues("scripts/npc/npc_items_custom.txt")
   ZIV.AbilityKVs = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
   ZIV.UnitKVs = LoadKeyValues("scripts/npc/npc_units_custom.txt")
@@ -232,12 +230,16 @@ function ZIV:InitZIV()
 
   GameSetup:Init()
 
+  Filters:Init()
   Characters:Init() 
   Director:Init()
   Items:Init()
   Trade:Init()
   Loot:Init()
   Damage:Init()
+  if IsInToolsMode() then
+    Debug:Init()
+  end
 
   Attributes:Init()
 

@@ -23,7 +23,7 @@ function OnTombSpawned( keys )
 
 	Director:SpawnPack(
 		{
-		Level = 1,
+		Type = "undead",
 		SpawnBasic = true,
 		SpawnLord = false,
 		BasicSpread = 300,

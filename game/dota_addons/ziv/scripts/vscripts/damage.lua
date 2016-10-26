@@ -139,6 +139,10 @@ function Damage:BloodParticle( unit )
 	local particle_name = GetRandomElement(Damage.BLOOD_PARTICLES)
 
 	local unitKV = ZIV.UnitKVs[unit:GetUnitName()]
+	if not unitKV then
+		return
+	end
+	
 	local particle_type = unitKV["ImpactParticleType"]
 	if particle_type then
 		if particle_type == "Essence" then

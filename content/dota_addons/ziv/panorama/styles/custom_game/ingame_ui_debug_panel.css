@@ -1,0 +1,25 @@
+Label {
+	font-size: 25px;
+}
+
+TextButton {
+	border: 2px solid #ffffffFF;
+}
+
+TextButton:hover {
+	wash-color: #bbbbbb;
+}
+
+.DebugRoot {
+	align: right center;
+	width: 400px;
+	height: 500px;
+
+	background-color: #000000;
+}
+
+#BossPanel {
+	margin: 10px;
+
+	flow-children: down;
+}

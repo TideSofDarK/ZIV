@@ -1,4 +1,4 @@
-"npc_creep_undead_wraith"
+"npc_creep_essence_wraith"
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"                  "n_creep_Ranged"
@@ -42,7 +42,7 @@
     "VisionNighttimeRange"    "1000"
 } 
 
-"npc_creep_undead_wraith_a"
+"npc_creep_essence_wraith_a"
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"                  "n_creep_Ranged"
@@ -86,7 +86,7 @@
     "VisionNighttimeRange"    "1000"
 } 
 
-"npc_creep_undead_wraith_b"
+"npc_creep_essence_wraith_b"
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"                  "n_creep_Ranged"
@@ -130,7 +130,7 @@
     "VisionNighttimeRange"    "1000"
 } 
 
-"npc_creep_undead_wraith_c"
+"npc_creep_essence_wraith_c"
 {
     "BaseClass"         "npc_dota_creature"
     "SoundSet"                  "n_creep_Ranged"

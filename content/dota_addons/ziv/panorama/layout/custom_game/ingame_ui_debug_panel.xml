@@ -1,0 +1,19 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_debug_panel.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/ingame_ui_debug_panel.js" />
+	</scripts>
+	<Panel class="DebugRoot BasicShadow WindowAnimation" hittest="true">
+		<Panel id="BossPanel">
+			<Label id="BossName" class="DebugLabel" text="No Boss"/>
+			<DropDown id="BossesDropDown" oninputsubmit="OnDropDownChanged()"/>
+			<TextButton id="SpawnBoss" text="Spawn Boss" onactivate="SpawnBoss()" />
+			<TextButton id="RemoveBoss" text="Remove Boss" onactivate="RemoveBoss()" />
+			<TextButton id="HealBoss" text="Heal Boss" onactivate="HealBoss()" />
+		</Panel>
+	</Panel>
+</root>

@@ -1,3 +1,17 @@
+function CDOTA_BaseNPC:AddOnDiedCallback( callback )
+  self._OnDiedCallbacks = self._OnDiedCallbacks or {}
+
+  local callback_string = DoUniqueString("callback")
+
+  self._OnDiedCallbacks[callback_string] = callback
+
+  return callback_string
+end
+
+function CDOTA_BaseNPC:RemoveOnDiedCallback( callback_string )
+  self._OnDiedCallbacks[callback_string] = nil
+end
+
 function ShallowCopy(orig)
     local orig_type = type(orig)
     local copy

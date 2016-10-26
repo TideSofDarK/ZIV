@@ -17,6 +17,7 @@ Director.color_modifier_list = Director.color_modifier_list or {}
 Director.creep_modifier_list = Director.creep_modifier_list or {}
 Director.lord_modifier_list = Director.lord_modifier_list or {}
 Director.creep_list = Director.creep_list or {}
+Director.boss_list = Director.boss_list or {}
 
 Director.current_session_creep_count = 0
 
@@ -56,6 +57,12 @@ function Director:Init()
 	for k,v in pairs(ZIV.UnitKVs) do
 		if string.match(k, "creep_") then
 			Director.creep_list[k] = v
+		end
+	end
+
+	for k,v in pairs(ZIV.UnitKVs) do
+		if string.match(k, "npc_boss_") then
+			Director.boss_list[k] = v
 		end
 	end
 	
@@ -336,6 +343,12 @@ function Director:SpawnCreeps( spawn_table )
 						if not creep:FindAbilityByName(new_modifier) then
 							creep:AddAbility(new_modifier)
 						end
+
+						creep.worldPanel = WorldPanels:CreateWorldPanelForAll({
+							layout = "file://{resources}/layout/custom_game/worldpanels/healthbar.xml",
+							entity = creep:GetEntityIndex(),
+							entityHeight = 345,
+						})
 					end
 
 					creep:AddAbility("ziv_creep_normal_behavior")
@@ -375,21 +388,21 @@ function Director:SpawnCreeps( spawn_table )
 	end
 end
 
--- Misc functions
-function CreateUniqueHPBar( keys )
-	local caster = keys.caster
-
-	if not caster.worldPanel then
-		caster.worldPanel = WorldPanels:CreateWorldPanelForAll(
-			{layout = "file://{resources}/layout/custom_game/worldpanels/healthbar.xml",
-			entity = caster:GetEntityIndex(),
-			entityHeight = 325,
-			})
+function Director:SpawnBoss( boss_name )
+	local boss_name = boss_name
+	if not boss_name then
+		boss_name = GetRandomElement(Director.boss_list)
 	end
-end
+	print(boss_name)
+	PrecacheUnitByNameAsync(boss_name,function ()
+		CreateUnitByNameAsync(boss_name,Vector(0,0,0),true,nil,nil,DOTA_TEAM_NEUTRALS,function ( boss )
+			Director:SetupCustomUI( "boss_hpbar", { boss = boss:entindex() } )
+			print("spawned")
+			CustomNetTables:SetTableValue( "scenario", "boss", {entindex = boss:entindex()} )
 
-function SetupBossHPBar( keys )
-	local caster = keys.caster
+			boss:AddOnDiedCallback( function (  )
 
-	Director:SetupCustomUI( "boss_hpbar", { boss = caster:entindex() } )
+			end )
+		end)
+	end,0)
 end

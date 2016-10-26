@@ -16,7 +16,7 @@
     "Ability4"                  "ziv_empty4"
     "Ability5"                  "ziv_empty5"
     "Ability6"                  "ziv_skeleton_passive"
-    "Ability7"                  "ziv_unique_hpbar"
+    "Ability7"                  "ziv_boss"
 
     "ArmorPhysical"             "0"
     "MagicalResistance"         "0"

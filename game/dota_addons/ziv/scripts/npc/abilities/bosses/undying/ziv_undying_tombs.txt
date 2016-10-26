@@ -30,12 +30,12 @@
     "02"
     {
       "var_type"      "FIELD_INTEGER"
-      "creeps_min"      "5"
+      "creeps_min"      "3"
     }
     "03"
     {
       "var_type"      "FIELD_INTEGER"
-      "creeps_max"      "9"
+      "creeps_max"      "5"
     }
   }
 

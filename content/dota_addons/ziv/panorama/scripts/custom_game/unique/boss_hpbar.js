@@ -8,6 +8,11 @@ function UpdateBar() {
 	var args = $.GetContextPanel().args;
 	if (!args) { $.Schedule(0.1, UpdateBar); return 0; }
 
+	if (!Entities.IsValidEntity( args.boss )) {
+		RemoveBar();
+		return;
+	}
+
 	var hp = Entities.GetHealth(args.boss)
 	var maxHP = Entities.GetMaxHealth(args.boss)
 
@@ -23,23 +28,22 @@ function UpdateBar() {
 
 		$.Schedule(0.1, UpdateBar);
 	} else {
-		hpBar.style.width = 0 + "px;";
-		hpLabel.text = 0 + "/" + 0;
-
-		$("#HPBarGlass").AddClass("HPBarGlassBroken");
-
-		Game.EmitSound("ui.npe_objective_complete");
-
-		$.Schedule(2.5, RemoveBar);
+		RemoveBar();
 	}
 }
 
 function RemoveBar() {
-	var panel = $.GetContextPanel();
-	panel.AddClass("BossHPRootOutro");
-	// $.Schedule(3.0, function () {
-	panel.DeleteAsync(3.0);
-	// });
+	hpBar.style.width = 0 + "px;";
+	hpLabel.text = 0 + "/" + 0;
+
+	$("#HPBarGlass").AddClass("HPBarGlassBroken");
+
+	Game.EmitSound("ui.npe_objective_complete");
+
+	$.Schedule(2.5, function () {
+		$.GetContextPanel().AddClass("BossHPRootOutro");
+		$.GetContextPanel().DeleteAsync(2.0);
+	});
 }
 
 (function () {

@@ -6,9 +6,9 @@ end
 
 -- Init AI
 function AI:BossStart( keys, sfm )
-  caster = keys.caster
+	caster = keys.caster
 	caster:AddNewModifier(caster,nil,"modifier_boss_ai",{})
-
-  sfm:Think()
+	caster.sfm = SFM( caster )
+	caster.sfm:Think()
 end
 

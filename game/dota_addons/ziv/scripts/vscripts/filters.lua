@@ -1,7 +1,16 @@
+if Filters == nil then
+    _G.Filters = class({})
+end
+
 PATHFINDING_RATIO = -20
 PATHFINDING_THRESHOLD = 256
 
-function ZIV:FilterExecuteOrder( filterTable )
+function Filters:Init(  )
+    GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( Filters, "FilterExecuteOrder" ), self )
+    GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( Filters, "DamageFilter" ), self )
+end
+
+function Filters:FilterExecuteOrder( filterTable )
     local units = filterTable["units"]
     local order_type = filterTable["order_type"]
     local issuer = filterTable["issuer_player_id_const"]
@@ -46,7 +55,7 @@ function ZIV:FilterExecuteOrder( filterTable )
     return true
 end
 
-function ZIV:DamageFilter( filterTable )
+function Filters:DamageFilter( filterTable )
     local attacker = EntIndexToHScript(filterTable["entindex_attacker_const"])
     local victim = EntIndexToHScript(filterTable["entindex_victim_const"])
     local damage = filterTable["damage"]
