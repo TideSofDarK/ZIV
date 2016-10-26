@@ -10,7 +10,9 @@ function Debug:Init()
 end
 
 function Debug:CreateBoss( args )
-	Director:SpawnBoss( args.boss_name )
+  local player = PlayerResource:GetPlayer(args.PlayerID)
+  local position = player:GetAssignedHero():GetAbsOrigin()
+	Director:SpawnBoss( args.boss_name, position )
 end
 
 function Debug:RemoveBoss( args )

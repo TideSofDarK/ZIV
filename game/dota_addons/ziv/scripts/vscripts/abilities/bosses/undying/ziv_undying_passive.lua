@@ -1,3 +1,3 @@
 function Start( keys )
-	AI:BossStart( keys )
+	--AI:BossStart( keys, SFM(caster) )
 end

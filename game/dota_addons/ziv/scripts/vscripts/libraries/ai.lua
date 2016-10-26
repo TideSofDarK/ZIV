@@ -5,13 +5,13 @@ if AI == nil then
 end
 
 -- Init boss AI
-function AI:BossStart( keys, sfm )
-	caster = keys.caster
-	caster:AddNewModifier(caster,nil,"modifier_boss_ai",{})
+function AI:BossStart( boss )
+  -- Add SFM to boss
+  SFM(boss)
+	boss:AddNewModifier(boss, nil,"modifier_boss_ai",{})
 
-	caster.sfm = SFM( caster )
-	caster.sfm.aggro:SetMode(AggroMode.Random, 10)
-	caster.sfm:Think()
+	boss.sfm.aggro:SetMode(AggroMode.Random, 10)
+	boss.sfm:Think()
 end
 
 function AI:CreepStart( unit )

@@ -388,14 +388,15 @@ function Director:SpawnCreeps( spawn_table )
 	end
 end
 
-function Director:SpawnBoss( boss_name )
+function Director:SpawnBoss( boss_name, position )
 	local boss_name = boss_name
 	if not boss_name then
 		boss_name = GetRandomElement(Director.boss_list)
 	end
 
 	PrecacheUnitByNameAsync(boss_name,function ()
-		CreateUnitByNameAsync(boss_name,Vector(0,0,0),true,nil,nil,DOTA_TEAM_NEUTRALS,function ( boss )
+		CreateUnitByNameAsync(boss_name,position,true,nil,nil,DOTA_TEAM_NEUTRALS,function ( boss )
+      AI:BossStart( boss )
 			Director:SetupCustomUI( "boss_hpbar", { boss = boss:entindex() } )
 			print("spawned")
 			CustomNetTables:SetTableValue( "scenario", "boss", {entindex = boss:entindex()} )

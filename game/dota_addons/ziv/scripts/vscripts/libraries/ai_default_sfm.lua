@@ -2,9 +2,9 @@
 -- Aggro handlers
 ---------------------------------
 AggroMode = {
-  Default = 1,
-  Random = 2,
-  Weakest = 3
+  Default = 0,
+  Random = 1,
+  Weakest = 2
 }
 
 function AggroTable()
@@ -94,10 +94,6 @@ function AggroTable()
       if self:GetCurrentTime() >= self.nextAggroTime or self.unit == nil then
         hero = self:GetRandomHero()
         self.nextAggroTime = self:GetCurrentTime() + self.time
-        
-        if hero ~= nil then
-          print(self.nextAggroTime..' '..hero)
-        end
       else
         hero = self.unit
       end
@@ -137,10 +133,17 @@ end
 ---------------------------------
 -- SFM handlers
 ---------------------------------
+SFMStates = {
+  Idle = 0,
+  Casting = 1,
+  Chasing = 2
+}
+
 function SFM( caster )
   local sfm = {}
   
-  sfm.state = 'idle'
+  sfm.state = SFMStates.Idle
+  sfm.isStateLocked = false
   sfm.caster = caster
   caster.sfm = sfm
   sfm.spawnPoint = caster:GetAbsOrigin()
@@ -149,6 +152,16 @@ function SFM( caster )
   ---------------------------------
   -- Functions
   --------------------------------- 
+  function sfm:SetState(state, isDebug)
+    if not self.isStateLocked or isDebug then
+      self.state = state
+    end
+  end
+  
+  function sfm:LockState(isStateLocked)
+    sfm.isStateLocked = isStateLocked
+  end
+  
   function sfm:IsInAbilityPhase()
       for i=0,16 do
         local ability = self.caster:GetAbilityByIndex(i)
@@ -223,47 +236,47 @@ function SFM( caster )
     end  
   end    
 
-  function sfm:ChangeState()
+  function sfm:UpdateState()
     local hero = self.aggro:GetAggroUnit()
     if hero == nil then
-        self.state = 'idle'
+        sfm:SetState(SFMStates.Idle)
         return    
     end
     
     local length = (hero:GetAbsOrigin() - self.caster:GetAbsOrigin()):Length2D()
     
-    if self.state == 'idle' then
+    if self.state == SFMStates.Idle then
       if length > 500 then
-        self.state = 'chasing'
+        sfm:SetState(SFMStates.Chasing)
         return
       end
       
       if hero:IsAlive() and length < 700 then
-        self.state = 'casting'
+        sfm:SetState(SFMStates.Casting)
         return
       end
     end
     
-    if self.state == 'chasing' then
+    if self.state == SFMStates.Chasing then
       if not hero:IsAlive() or length > 1000 then
-        self.state = 'idle'
+        sfm:SetState(SFMStates.Idle)
         return
       end
       
       if length < 700 then
-        self.state = 'casting'
+        sfm:SetState(SFMStates.Casting)
         return
       end
     end
     
-    if self.state == 'casting' then
+    if self.state == SFMStates.Casting then
       if length > 700 and length < 1000 then
-        self.state = 'chasing'
+        sfm:SetState(SFMStates.Chasing)
         return
       end
       
       if not hero:IsAlive() then
-        self.state = 'idle'
+        sfm:SetState(SFMStates.Idle)
       end      
     end
   end    
@@ -274,8 +287,8 @@ function SFM( caster )
           return
         end
       
-      --print('State: ', self.state)
-      self:ChangeState()
+      print('State: ', self.state)
+      self:UpdateState()
       
       local funct = self.states[self.state]
       if funct ~= nil then
@@ -291,11 +304,10 @@ function SFM( caster )
   ---------------------------------
   -- Bindings
   ---------------------------------  
-  sfm.states = { 
-    idle = sfm.Idle, 
-    chasing = sfm.Chasing,
-    casting = sfm.Casting
-  }
+  sfm.states = {}
+  sfm.states[SFMStates.Idle] = sfm.Idle 
+  sfm.states[SFMStates.Chasing] = sfm.Chasing
+  sfm.states[SFMStates.Casting] = sfm.Casting
   
   return sfm
 end
