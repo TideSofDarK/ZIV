@@ -3,7 +3,7 @@
     "BaseClass"         "npc_dota_creature"
     "SoundSet"  "n_creep_skeleton_melee"
 
-    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP"
+    "AIFlags"   "FleeOnLowHP"
 
     "Group"                     "greevils_a"
     "Wearables"
@@ -75,7 +75,7 @@
     "BaseClass"         "npc_dota_creature"
     "SoundSet"  "n_creep_skeleton_melee"
 
-    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP"
+    "AIFlags"   "FleeOnLowHP"
     
     "HealthBarOffset"   "200"
     "Model"           "models/courier/greevil/greevil.vmdl"

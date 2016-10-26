@@ -16,7 +16,6 @@ function Update() {
 	var status = CustomNetTables.GetTableValue( "hero_status", Players.GetLocalPlayer());
 	var damage = PlayerTables.GetTableValue( "damage", queryUnit);
 
-	$.Msg("url('file://{images}/custom_game/heroes/" + name + "_ziv.jpg');");
 	$("#HiRes").style.backgroundImage = "url('file://{images}/custom_game/heroes/" + name + "_ziv.jpg');";
 	$("#HeroNameLabel").text = "";
 	$("#HeroNameLabel").text = $.Localize(name) + "<br>" + "<span class=\"LevelAndLeague\">" + "    " + $.Localize("level") + " " + Entities.GetLevel(queryUnit) + " | " + "Softcore" + "</span>";

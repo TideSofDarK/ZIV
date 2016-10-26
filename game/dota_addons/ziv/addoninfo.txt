@@ -61,5 +61,11 @@
 			"Command"   "+ZIVShowEquipment"
 			"Name"	  "Show Inventory"
 		}
+		"09"
+		{
+			"Key"	   "f5"
+			"Command"   "+ZIVShowDebugPanel"
+			"Name"	  "Show Debug Panel"
+		}
 	}
 }

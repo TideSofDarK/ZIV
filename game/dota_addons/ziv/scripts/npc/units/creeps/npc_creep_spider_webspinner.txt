@@ -4,7 +4,7 @@
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 
-    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+    "AIFlags"                   "FleeOnLowHP"
 
     "Group"                     "spiders_a"
     
@@ -52,7 +52,7 @@
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 
-    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+    "AIFlags"                   "FleeOnLowHP"
 
     "Group"                     "spiders_a"
     
@@ -100,7 +100,7 @@
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 
-    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+    "AIFlags"                   "FleeOnLowHP"
 
     "Group"                     "spiders_b"
     
@@ -148,7 +148,7 @@
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 
-    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+    "AIFlags"                   "FleeOnLowHP"
     
     "HealthBarOffset"           "150"
     "Model"                     "models/items/broodmother/spiderling/thistle_crawler/thistle_crawler.vmdl"
@@ -194,7 +194,7 @@
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 
-    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+    "AIFlags"                   "FleeOnLowHP"
 
     "Group"                     "spiders_b"
     
@@ -242,7 +242,7 @@
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 
-    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+    "AIFlags"                   "FleeOnLowHP"
     
     "HealthBarOffset"           "150"
     "Model"                     "models/items/broodmother/spiderling/araknarok_broodmother_araknarok_spiderling/araknarok_broodmother_araknarok_spiderling.vmdl"
@@ -288,7 +288,7 @@
     "SoundSet"                  "Hero_BroodMother"                  
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 
-    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+    "AIFlags"                   "FleeOnLowHP"
     
     "HealthBarOffset"           "150"
     "Model"                     "models/items/broodmother/spiderling/amber_queen_spiderling_2/amber_queen_spiderling_2.vmdl"

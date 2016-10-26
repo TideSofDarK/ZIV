@@ -1,24 +1,3 @@
-AI_FLAGS_FLEE_ON_LOW_HP 		= 0
-AI_FLAGS_MOVE_DURING_FIGHT 		= 1
-AI_FLAGS_TRY_TO_KEEP_DISTANCE 	= 2
-
-function InitAI( keys )
-	local caster = keys.caster
-	local ability = keys.ability
-
-	local flags_string = ZIV.UnitKVs[caster:GetUnitName()]["AIFlags"]
-	if flags_string then
-		local flags = KeyValues:Split(flags_string, " | ")
-		PrintTable(falgs)
-		for k,v in pairs(flags) do
-			print(caster:GetUnitName(), v)
-			if _G[v] then
-				print(caster:GetUnitName(), v)
-			end
-		end
-	end
-end
-
 function AggroNearbyCreeps(keys)
 	local caster = keys.caster
 	local ability = keys.ability

@@ -1146,7 +1146,7 @@
 	    "BaseClass"             "npc_dota_creature"
 	    "SoundSet"                  "n_creep_Ranged"
 	
-	    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP | AI_FLAGS_MOVE_DURING_FIGHT | AI_FLAGS_TRY_TO_KEEP_DISTANCE"
+	    "AIFlags"   "FleeOnLowHP | MoveDuringFight | TryToKeepDistance"
 	
 	    "Wearables"
 	    {
@@ -1223,7 +1223,7 @@
 	    "SoundSet"                  "Hero_Razor"
 	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
 	
-	    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP | AI_FLAGS_MOVE_DURING_FIGHT | AI_FLAGS_TRY_TO_KEEP_DISTANCE"
+	    "AIFlags"   "FleeOnLowHP | MoveDuringFight | TryToKeepDistance"
 	
 	    "Wearables"
 	    {
@@ -1303,7 +1303,7 @@
 	    "BaseClass"             "npc_dota_creature"
 	    "SoundSet"                  "n_creep_Melee"
 	
-	    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP"
+	    "AIFlags"   "FleeOnLowHP"
 	
 	    "Wearables"
 	    {
@@ -1695,7 +1695,7 @@
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"  "n_creep_skeleton_melee"
 	
-	    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP"
+	    "AIFlags"   "FleeOnLowHP"
 	
 	    "Group"                     "greevils_a"
 	    "Wearables"
@@ -1767,7 +1767,7 @@
 	    "BaseClass"         "npc_dota_creature"
 	    "SoundSet"  "n_creep_skeleton_melee"
 	
-	    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP"
+	    "AIFlags"   "FleeOnLowHP"
 	    
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/courier/greevil/greevil.vmdl"
@@ -2019,7 +2019,7 @@
 	    "SoundSet"                  "Hero_BroodMother"                  
 	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 	
-	    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+	    "AIFlags"                   "FleeOnLowHP"
 	
 	    "Group"                     "spiders_a"
 	    
@@ -2067,7 +2067,7 @@
 	    "SoundSet"                  "Hero_BroodMother"                  
 	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 	
-	    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+	    "AIFlags"                   "FleeOnLowHP"
 	
 	    "Group"                     "spiders_a"
 	    
@@ -2115,7 +2115,7 @@
 	    "SoundSet"                  "Hero_BroodMother"                  
 	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 	
-	    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+	    "AIFlags"                   "FleeOnLowHP"
 	
 	    "Group"                     "spiders_b"
 	    
@@ -2163,7 +2163,7 @@
 	    "SoundSet"                  "Hero_BroodMother"                  
 	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 	
-	    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+	    "AIFlags"                   "FleeOnLowHP"
 	    
 	    "HealthBarOffset"           "150"
 	    "Model"                     "models/items/broodmother/spiderling/thistle_crawler/thistle_crawler.vmdl"
@@ -2209,7 +2209,7 @@
 	    "SoundSet"                  "Hero_BroodMother"                  
 	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 	
-	    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+	    "AIFlags"                   "FleeOnLowHP"
 	
 	    "Group"                     "spiders_b"
 	    
@@ -2257,7 +2257,7 @@
 	    "SoundSet"                  "Hero_BroodMother"                  
 	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 	
-	    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+	    "AIFlags"                   "FleeOnLowHP"
 	    
 	    "HealthBarOffset"           "150"
 	    "Model"                     "models/items/broodmother/spiderling/araknarok_broodmother_araknarok_spiderling/araknarok_broodmother_araknarok_spiderling.vmdl"
@@ -2303,7 +2303,7 @@
 	    "SoundSet"                  "Hero_BroodMother"                  
 	    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 	
-	    "AIFlags"                   "AI_FLAGS_FLEE_ON_LOW_HP"
+	    "AIFlags"                   "FleeOnLowHP"
 	    
 	    "HealthBarOffset"           "150"
 	    "Model"                     "models/items/broodmother/spiderling/amber_queen_spiderling_2/amber_queen_spiderling_2.vmdl"
@@ -2425,7 +2425,7 @@
 	    "BaseClass"             "npc_dota_creature"
 	    "SoundSet"              "Creep_Good_Range"
 	
-	    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP | AI_FLAGS_MOVE_DURING_FIGHT | AI_FLAGS_TRY_TO_KEEP_DISTANCE"
+	    "AIFlags"   "FleeOnLowHP | MoveDuringFight | TryToKeepDistance"
 	
 	    "Group"                 "tribe_warriors"
 	    "Colors"

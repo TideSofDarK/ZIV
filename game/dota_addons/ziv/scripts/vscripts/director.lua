@@ -393,7 +393,7 @@ function Director:SpawnBoss( boss_name )
 	if not boss_name then
 		boss_name = GetRandomElement(Director.boss_list)
 	end
-	print(boss_name)
+
 	PrecacheUnitByNameAsync(boss_name,function ()
 		CreateUnitByNameAsync(boss_name,Vector(0,0,0),true,nil,nil,DOTA_TEAM_NEUTRALS,function ( boss )
 			Director:SetupCustomUI( "boss_hpbar", { boss = boss:entindex() } )

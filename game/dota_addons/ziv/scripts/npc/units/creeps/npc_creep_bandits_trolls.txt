@@ -3,7 +3,7 @@
     "BaseClass"             "npc_dota_creature"
     "SoundSet"                  "n_creep_Ranged"
 
-    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP | AI_FLAGS_MOVE_DURING_FIGHT | AI_FLAGS_TRY_TO_KEEP_DISTANCE"
+    "AIFlags"   "FleeOnLowHP | MoveDuringFight | TryToKeepDistance"
 
     "Wearables"
     {
@@ -80,7 +80,7 @@
     "SoundSet"                  "Hero_Razor"
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
 
-    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP | AI_FLAGS_MOVE_DURING_FIGHT | AI_FLAGS_TRY_TO_KEEP_DISTANCE"
+    "AIFlags"   "FleeOnLowHP | MoveDuringFight | TryToKeepDistance"
 
     "Wearables"
     {

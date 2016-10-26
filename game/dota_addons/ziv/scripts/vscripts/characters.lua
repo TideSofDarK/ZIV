@@ -80,20 +80,7 @@ function Characters:SpawnCharacter( pID, args )
       hero:AddAbility(abilities[tostring(i)])
     end
 
-    Characters:CreateCharacterInventory( pID, hero )
-
-    if equipment then
-      for k,v in pairs(equipment) do
-        local item = Items:Create(v.item, hero)
-        item.fortify_modifiers = v.fortify_modifiers
-        item.built_in_modifiers = v.built_in_modifiers
-        
-        Timers:CreateTimer(function ()
-          Characters:GetInventory(pID):AddItem(item)
-          Characters:GetInventory(pID):ActivateItem(hero, item, pID)
-          end)
-      end
-    end
+    Characters:SetupCharacterContainers( pID, hero )
 
     if inventory then
       for k,v in pairs(inventory) do
@@ -103,7 +90,26 @@ function Characters:SpawnCharacter( pID, args )
 
         Timers:CreateTimer(0.5, function () -- wait a bit longer so add inventory items only once all equipment is on
           Characters:GetInventory(pID):AddItem(item)
-          end)
+        end)
+      end
+    end
+
+    if equipment then
+      for k,v in pairs(equipment) do
+        local item = Items:Create(v.item, hero)
+        item.fortify_modifiers = v.fortify_modifiers
+        item.built_in_modifiers = v.built_in_modifiers
+        
+        -- Timers:CreateTimer(function ()
+          local item_slot = ZIV.ItemKVs[v.item]["Slot"]
+          for i,slot in ipairs(KeyValues:Split(ZIV.HeroesKVs[hero:GetUnitName()]["EquipmentSlots"], ';')) do
+            if slot == item_slot then
+              hero.equipment:AddItem(item, i)
+              Equipment:Equip( hero, item )
+              break
+            end
+          end
+        -- end)
       end
     end
 
@@ -111,7 +117,7 @@ function Characters:SpawnCharacter( pID, args )
   end, pID)
 end
 
-function Characters:CreateCharacterInventory( pID, hero )
+function Characters:SetupCharacterContainers( pID, hero )
   hero.inventory = Equipment:CreateInventory( hero )
   Containers:SetDefaultInventory(hero, hero.inventory)
 

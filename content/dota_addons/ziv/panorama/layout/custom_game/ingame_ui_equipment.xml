@@ -10,7 +10,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_equipment.js" />
 	</scripts>
-	<Panel class="EquipmentRoot WindowAnimation WindowClosed" hittest="true">
+	<Panel class="EquipmentRoot BasicShadow WindowAnimation WindowClosed" hittest="true">
 		<Panel id="Equipment" hittest="true">
 
 		</Panel>

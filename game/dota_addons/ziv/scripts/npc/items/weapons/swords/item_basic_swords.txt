@@ -22,7 +22,7 @@
     "01"
     {
       "var_type"      "FIELD_INTEGER"
-      "damage"      "6"
+      "damage"      "20"
     }
   }
   
@@ -85,7 +85,7 @@
     "01"
     {
       "var_type"        "FIELD_INTEGER"
-      "damage"          "4"
+      "damage"          "24"
     }
     "02"
     {
@@ -130,7 +130,6 @@
   }
 }
 
-
 "item_bastard_sword"
 {
   "ID"    "1152"
@@ -155,7 +154,7 @@
     "01"
     {
       "var_type"      "FIELD_INTEGER"
-      "damage"      "5"
+      "damage"      "25"
     }
     "02"
     {

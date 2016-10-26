@@ -7,7 +7,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_debug_panel.js" />
 	</scripts>
-	<Panel class="DebugRoot BasicShadow WindowAnimation" hittest="true">
+	<Panel class="DebugRoot BasicShadow WindowAnimation WindowClosed" hittest="true">
 		<Panel id="BossPanel">
 			<Label id="BossName" class="DebugLabel" text="No Boss"/>
 			<DropDown id="BossesDropDown" oninputsubmit="OnDropDownChanged()"/>

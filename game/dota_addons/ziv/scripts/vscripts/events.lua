@@ -61,6 +61,12 @@ function ZIV:OnEntityHurt(keys)
       damagingAbility = EntIndexToHScript( keys.entindex_inflictor )
     end
 
+    if entVictim._OnTakeDamageCallbacks then
+      for k,v in pairs(entVictim._OnTakeDamageCallbacks) do
+        if v(keys.damage) then entVictim._OnTakeDamageCallbacks[k] = nil end
+      end
+    end
+
     if entCause.OnDamageDealCallbacks then
       for i,v in ipairs(entCause.OnDamageDealCallbacks) do
         if v then
@@ -276,6 +282,12 @@ function ZIV:OnEntityKilled( keys )
 
   -- Hardcoded callback
   if killedUnit.on_kill then killedUnit:on_kill() end
+
+  if killedUnit._OnDiedCallbacks then
+    for k,v in pairs(killedUnit._OnDiedCallbacks) do
+      v()
+    end
+  end
 
   -- Customly attached particles
   if killedUnit.particles then

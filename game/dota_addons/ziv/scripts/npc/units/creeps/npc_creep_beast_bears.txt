@@ -3,7 +3,7 @@
     "BaseClass"             "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
 
-    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP"
+    "AIFlags"   "FleeOnLowHP"
 
     "Wearables"
     {

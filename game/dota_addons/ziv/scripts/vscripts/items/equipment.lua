@@ -38,10 +38,10 @@ function Equipment:Unequip( unit, item )
 end
 
 function Equipment:Equip( unit, item )
-	local itemName = item:GetName()
+	local item_name = item:GetName()
 
 	for i=1,2 do
-		local custom_skill = ZIV.ItemKVs[itemName]["CustomSkill"..tostring(i)]
+		local custom_skill = ZIV.ItemKVs[item_name]["CustomSkill"..tostring(i)]
 		if custom_skill then
 			for k,v in pairs(custom_skill) do
 				unit:RemoveAbility(unit:GetAbilityByIndex(tonumber(k)):GetName())
@@ -122,9 +122,7 @@ function Equipment:CreateInventory( hero )
 				toContainer:RemoveItem(item2)
 				addItem = item2
 
-				print("dcis")
 				if unit.equipment.id == container.id then
-					print("dcis1")
 					local toSlotName = KeyValues:Split(ZIV.HeroesKVs[unit:GetUnitName()]["EquipmentSlots"], ';')[fromSlot]
 
 					if ZIV.ItemKVs[addItem:GetName()]["Slot"] and string.match(toSlotName, ZIV.ItemKVs[addItem:GetName()]["Slot"]) then

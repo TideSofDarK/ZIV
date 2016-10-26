@@ -204,6 +204,9 @@
 	"ziv_knight_orb_projectile_speed"	"to Fire Orb projectile speed"
 
 	// Character presets
+	"magma_knight_preset_a"	"Fiery Knight"
+	"magma_knight_preset_a_Tooltip"	""
+
 	"mercenary_preset_a" "SMG"
 	"mercenary_preset_a_Tooltip" "Equipped with SMG and basic SMG rune set"
 	"mercenary_preset_b" "Shotgun"

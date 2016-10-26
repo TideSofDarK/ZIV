@@ -19,6 +19,14 @@ function HealBoss() {
 	GameEvents.SendCustomGameEventToServer("ziv_debug_heal_boss", {});
 }
 
+function ChangeBossState() {
+	GameEvents.SendCustomGameEventToServer("ziv_debug_change_boss_state", {});
+}
+
+function Toggle() {
+	$.GetContextPanel().ToggleClass("WindowClosed");
+}
+
 (function() {
 	var units = PlayerTables.GetTableValue("kvs", "units");
 
@@ -33,4 +41,7 @@ function HealBoss() {
         	$("#BossesDropDown").SetSelected(name);
 		}
 	}
+
+	Game.AddCommand("+ZIVShowDebugPanel", Toggle, "", 0); 
+	Game.AddCommand("-ZIVShowDebugPanel", undefined, "", 0); 
 })();

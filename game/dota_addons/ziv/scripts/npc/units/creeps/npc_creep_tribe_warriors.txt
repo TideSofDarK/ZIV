@@ -81,7 +81,7 @@
     "BaseClass"             "npc_dota_creature"
     "SoundSet"              "Creep_Good_Range"
 
-    "AIFlags"   "AI_FLAGS_FLEE_ON_LOW_HP | AI_FLAGS_MOVE_DURING_FIGHT | AI_FLAGS_TRY_TO_KEEP_DISTANCE"
+    "AIFlags"   "FleeOnLowHP | MoveDuringFight | TryToKeepDistance"
 
     "Group"                 "tribe_warriors"
     "Colors"
