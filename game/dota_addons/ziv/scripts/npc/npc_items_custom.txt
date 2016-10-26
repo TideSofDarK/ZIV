@@ -2156,6 +2156,37 @@
 	    }
 	  }
 	}
+	"item_rune_hell_pit_disarm_chance"
+	{
+	  "ID"		"1656"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_hell_pit_disarm_chance"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "Rarity"  "2"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"     "New"
+	  "Type"        "Int"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_knight_hell_pit_disarm_chance"
+	    {
+	      "min" "5"
+	      "max" "80"
+	    }
+	  }
+	}
 	"item_rune_hell_pit_duration"
 	{
 	  "ID"		"1656"

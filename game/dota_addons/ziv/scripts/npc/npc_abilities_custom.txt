@@ -4925,6 +4925,16 @@
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_hell_pit_cage_disarm"
+			{
+				"IsHidden"      "1"
+				"IsDebuff"      "1"
+	
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 	}
 	"ziv_knight_molten_shell"
