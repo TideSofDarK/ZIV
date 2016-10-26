@@ -6,6 +6,7 @@
   "AbilityTextureName"      "item_basic_smg"
 
   "Slot"  "gun"
+  "EquipSound"  "ui.inv_equip_gun"
   "CustomSkill1"  
   {
     "3" "ziv_sniper_smg_special"
@@ -22,38 +23,23 @@
   "ItemPurchasable"       "0"
   "ItemSellable"          "0"
   "ItemShareability"        "ITEM_NOT_SHAREABLE"
-  
-  "OnSpellStart"
+
+  "BaseModifiers"
   {
-    "RunScript"
+    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
     {
-      "ScriptFile"  "items/equipment.lua"
-      "Function"    "Equip"
+      "min" "10"
+      "max" "22"
     }
-    "ApplyModifier"
+    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
     {
-      "ModifierName"  "modifier_basic_smg_equipped_gun"
-      "Target"     "CASTER"
+      "min" "0"
+      "max" "4"
     }
-    "FireSound"
+    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
     {
-      "EffectName"  "ui.inv_equip_gun"
-      "Target"     "CASTER"
-    }
-  }
-  
-  "Modifiers"
-  {
-    "modifier_basic_smg_equipped_gun"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsBuff"      "1"
-    
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
-      }
+      "min" "5"
+      "max" "60"
     }
   }
 }

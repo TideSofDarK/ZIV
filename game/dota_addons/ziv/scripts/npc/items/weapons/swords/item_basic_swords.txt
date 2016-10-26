@@ -1,13 +1,14 @@
 "item_basic_sword"
 {
   "ID"		"1150"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_basic_sword"
   "Model"                   "models/items/basic_sword.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 
   "Slot"  "sword"
+  "EquipSound"  "ui.inv_equip_metalblade"
 
   "ItemStackable" "0"
   "ItemPermanent" "0"
@@ -17,46 +18,12 @@
   "ItemSellable"          "0"
   "ItemShareability"        "ITEM_NOT_SHAREABLE"
 
-  "AbilitySpecial"
+  "BaseModifiers"
   {
-    "01"
+    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
     {
-      "var_type"      "FIELD_INTEGER"
-      "damage"      "20"
-    }
-  }
-  
-  "OnSpellStart"
-  {
-    "RunScript"
-    {
-      "ScriptFile"  "items/equipment.lua"
-      "Function"    "Equip"
-    }
-    "ApplyModifier"
-    {
-      "ModifierName"  "modifier_basic_sword_equipped_sword"
-      "Target"     "CASTER"
-    }
-    "FireSound"
-    {
-      "EffectName"  "ui.inv_equip_metalblade"
-      "Target"     "CASTER"
-    }
-  }
-  
-  "Modifiers"
-  {
-    "modifier_basic_sword_equipped_sword"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsBuff"      "1"
-    
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%damage"
-      }
+      "min" "10"
+      "max" "28"
     }
   }
 }
@@ -64,13 +31,14 @@
 "item_scarred_sword"
 {
   "ID"    "1151"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_scarred_sword"
   "Model"                   "models/items/basic_sword.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
   "Slot"  "sword"
+  "EquipSound"  "ui.inv_equip_metalblade"
 
   "ItemStackable" "0"
   "ItemPermanent" "0"
@@ -79,53 +47,18 @@
   "ItemPurchasable"       "0"
   "ItemSellable"          "0"
   "ItemShareability"        "ITEM_NOT_SHAREABLE"
-
-  "AbilitySpecial"
-  {
-    "01"
-    {
-      "var_type"        "FIELD_INTEGER"
-      "damage"          "24"
-    }
-    "02"
-    {
-      "var_type"        "FIELD_INTEGER"
-      "dexterity"       "2"
-    }
-  }
   
-  "OnSpellStart"
+  "BaseModifiers"
   {
-    "RunScript"
+    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
     {
-      "ScriptFile"  "items/equipment.lua"
-      "Function"    "Equip"
+      "min" "10"
+      "max" "22"
     }
-    "ApplyModifier"
+    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
     {
-      "ModifierName"  "modifier_scarred_sword_equipped_sword"
-      "Target"     "CASTER"
-    }
-    "FireSound"
-    {
-      "EffectName"  "ui.inv_equip_metalblade"
-      "Target"     "CASTER"
-    }
-  }
-  
-  "Modifiers"
-  {
-    "modifier_scarred_sword_equipped_sword"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsBuff"      "1"
-    
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"  "%damage"
-        "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"     "%dexterity"
-      }
+      "min" "1"
+      "max" "6"
     }
   }
 }
@@ -133,13 +66,14 @@
 "item_bastard_sword"
 {
   "ID"    "1152"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_bastard_sword"
   "Model"                   "models/items/basic_sword.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 
   "Slot"  "sword"
+  "EquipSound"  "ui.inv_equip_metalblade"
 
   "ItemStackable" "0"
   "ItemPermanent" "0"
@@ -148,53 +82,18 @@
   "ItemPurchasable"       "0"
   "ItemSellable"          "0"
   "ItemShareability"        "ITEM_NOT_SHAREABLE"
-
-  "AbilitySpecial"
-  {
-    "01"
-    {
-      "var_type"      "FIELD_INTEGER"
-      "damage"      "25"
-    }
-    "02"
-    {
-      "var_type"        "FIELD_INTEGER"
-      "strength"       "1"
-    }
-  }
   
-  "OnSpellStart"
+  "BaseModifiers"
   {
-    "RunScript"
+    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
     {
-      "ScriptFile"  "items/equipment.lua"
-      "Function"    "Equip"
+      "min" "10"
+      "max" "22"
     }
-    "ApplyModifier"
+    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"
     {
-      "ModifierName"  "modifier_bastard_sword_equipped_sword"
-      "Target"     "CASTER"
-    }
-    "FireSound"
-    {
-      "EffectName"  "ui.inv_equip_metalblade"
-      "Target"     "CASTER"
-    }
-  }
-  
-  "Modifiers"
-  {
-    "modifier_bastard_sword_equipped_sword"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsBuff"      "1"
-    
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"    "%damage"
-        "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"      "%strength"
-      }
+      "min" "1"
+      "max" "6"
     }
   }
 }

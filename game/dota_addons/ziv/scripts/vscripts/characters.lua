@@ -38,6 +38,8 @@ function Characters:CreateCharacter( args )
     for item_name,sockets in pairs(presets[new_character_table.preset]) do
       local item = Items:Create(item_name, player)
 
+      Loot:AddModifiers( item )
+
       if GetTableLength(sockets) > 0 then
         for seed,tool_name in pairs(sockets) do
           local tool = Items:Create(tool_name, player)
@@ -50,7 +52,7 @@ function Characters:CreateCharacter( args )
         end
       end
 
-      table.insert(new_character_table.equipment, { item = item_name, fortify_modifiers = item.fortify_modifiers })
+      table.insert(new_character_table.equipment, { item = item_name, built_in_modifiers = item.built_in_modifiers, fortify_modifiers = item.fortify_modifiers })
     end
   end
 
@@ -88,6 +90,8 @@ function Characters:SpawnCharacter( pID, args )
         item.fortify_modifiers = v.fortify_modifiers
         item.built_in_modifiers = v.built_in_modifiers
 
+        Items:UpdateItem(item)
+
         Timers:CreateTimer(0.5, function () -- wait a bit longer so add inventory items only once all equipment is on
           Characters:GetInventory(pID):AddItem(item)
         end)
@@ -99,8 +103,10 @@ function Characters:SpawnCharacter( pID, args )
         local item = Items:Create(v.item, hero)
         item.fortify_modifiers = v.fortify_modifiers
         item.built_in_modifiers = v.built_in_modifiers
+
+        Items:UpdateItem(item)
         
-        -- Timers:CreateTimer(function ()
+        Timers:CreateTimer(function ()
           local item_slot = ZIV.ItemKVs[v.item]["Slot"]
           for i,slot in ipairs(KeyValues:Split(ZIV.HeroesKVs[hero:GetUnitName()]["EquipmentSlots"], ';')) do
             if slot == item_slot then
@@ -109,7 +115,7 @@ function Characters:SpawnCharacter( pID, args )
               break
             end
           end
-        -- end)
+        end)
       end
     end
 

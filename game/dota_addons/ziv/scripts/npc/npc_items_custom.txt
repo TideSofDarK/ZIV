@@ -344,6 +344,7 @@
 	  "Model"                   "models/items/basic_coat.vmdl" 
 	
 	  "Slot"  "torso"
+	  "EquipSound"  "ui.inv_equip_leather"
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"
@@ -352,53 +353,18 @@
 	  "ItemPurchasable"       "0"
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
-	
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "armor"           "5"
-	    }
-	    "02"
-	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "strength"        "2"
-	    }
-	  }
 	  
-	  "OnSpellStart"
+	  "BaseModifiers"
 	  {
-	    "RunScript"
+	    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
 	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
+	      "min" "8"
+	      "max" "22"
 	    }
-	    "ApplyModifier"
+	    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"
 	    {
-	      "ModifierName"  "modifier_basic_coat_equipped_torso"
-	      "Target"     "CASTER"
-	    }
-	    "FireSound"
-	    {
-	      "EffectName"  "ui.inv_equip_leather"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_basic_coat_equipped_torso"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"      "%strength"
-	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"      "%armor"
-	      }
+	      "min" "0"
+	      "max" "6"
 	    }
 	  }
 	}
@@ -412,6 +378,7 @@
 	  "Model"                   "models/items/basic_coat.vmdl" 
 	
 	  "Slot"  "torso"
+	  "EquipSound"  "ui.inv_equip_leather"
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"
@@ -420,47 +387,13 @@
 	  "ItemPurchasable"       "0"
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
-	
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "armor"      "6"
-	    }
-	  }
 	  
-	  "OnSpellStart"
+	  "BaseModifiers"
 	  {
-	    "RunScript"
+	    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
 	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
-	    }
-	    "ApplyModifier"
-	    {
-	      "ModifierName"  "modifier_arrow_proof_coat_equipped_torso"
-	      "Target"     "CASTER"
-	    }
-	    "FireSound"
-	    {
-	      "EffectName"  "ui.inv_equip_leather"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_arrow_proof_coat_equipped_torso"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-	      }
+	      "min" "10"
+	      "max" "35"
 	    }
 	  }
 	}
@@ -474,6 +407,7 @@
 	  "Model"                   "models/items/basic_coat.vmdl" 
 	
 	  "Slot"  "torso"
+	  "EquipSound"  "ui.inv_equip_leather"
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"
@@ -482,53 +416,18 @@
 	  "ItemPurchasable"       "0"
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
-	
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "armor"      "2"
-	    }
-	    "02"
-	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "intelligence"      "2"
-	    }
-	  }
 	  
-	  "OnSpellStart"
+	  "BaseModifiers"
 	  {
-	    "RunScript"
+	    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
 	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
+	      "min" "10"
+	      "max" "25"
 	    }
-	    "ApplyModifier"
+	    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"
 	    {
-	      "ModifierName"  "modifier_tribe_coat_equipped_torso"
-	      "Target"     "CASTER"
-	    }
-	    "FireSound"
-	    {
-	      "EffectName"  "ui.inv_equip_leather"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_tribe_coat_equipped_torso"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%intelligence"
-	        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"  "%armor"
-	      }
+	      "min" "0"
+	      "max" "6"
 	    }
 	  }
 	}
@@ -4032,11 +3931,12 @@
 	"item_basic_bow"
 	{
 	  "ID"		"1025"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_basic_bow"
 	
 	  "Slot"  "bow"
+	  "EquipSound"  "ui.inv_equip_wood"
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"
@@ -4045,53 +3945,18 @@
 	  "ItemPurchasable"       "0"
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
-	
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "damage"          "4"
-	    }
-	    "02"
-	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "attack_speed"    "40"
-	    }
-	  }
 	  
-	  "OnSpellStart"
+	  "BaseModifiers"
 	  {
-	    "RunScript"
+	    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
 	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
+	      "min" "12"
+	      "max" "35"
 	    }
-	    "ApplyModifier"
+	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"
 	    {
-	      "ModifierName"  "modifier_basic_bow_equipped_bow"
-	      "Target"     "CASTER"
-	    }
-	    "FireSound"
-	    {
-	      "EffectName"  "ui.inv_equip_wood"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_basic_bow_equipped_bow"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%damage"
-	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed"
-	      }
+	      "min" "0"
+	      "max" "35"
 	    }
 	  }
 	}
@@ -4099,11 +3964,12 @@
 	"item_tribe_bow"
 	{
 	  "ID"    "1025"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_tribe_bow"
 	
 	  "Slot"  "bow"
+	  "EquipSound"  "ui.inv_equip_wood"
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"
@@ -4113,52 +3979,17 @@
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
 	
-	  "AbilitySpecial"
+	  "BaseModifiers"
 	  {
-	    "01"
+	    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
 	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "damage"          "2"
+	      "min" "15"
+	      "max" "30"
 	    }
-	    "02"
+	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
 	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "attack_speed"    "60"
-	    }
-	  }
-	  
-	  "OnSpellStart"
-	  {
-	    "RunScript"
-	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
-	    }
-	    "ApplyModifier"
-	    {
-	      "ModifierName"  "modifier_tribe_bow_equipped_bow"
-	      "Target"     "CASTER"
-	    }
-	    "FireSound"
-	    {
-	      "EffectName"  "ui.inv_equip_wood"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_tribe_bow_equipped_bow"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%damage"
-	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed"
-	      }
+	      "min" "0"
+	      "max" "60"
 	    }
 	  }
 	}
@@ -4166,11 +3997,12 @@
 	"item_craft_bow"
 	{
 	  "ID"    "1025"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_craft_bow"
 	
 	  "Slot"  "bow"
+	  "EquipSound"  "ui.inv_equip_wood"
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"
@@ -4180,52 +4012,22 @@
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
 	
-	  "AbilitySpecial"
+	  "BaseModifiers"
 	  {
-	    "01"
+	    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
 	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "strength"        "2"
+	      "min" "10"
+	      "max" "22"
 	    }
-	    "02"
+	    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
 	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "dexterity"       "2"
+	      "min" "0"
+	      "max" "4"
 	    }
-	  }
-	  
-	  "OnSpellStart"
-	  {
-	    "RunScript"
+	    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"
 	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
-	    }
-	    "ApplyModifier"
-	    {
-	      "ModifierName"  "modifier_craft_bow_equipped_bow"
-	      "Target"     "CASTER"
-	    }
-	    "FireSound"
-	    {
-	      "EffectName"  "ui.inv_equip_wood"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_craft_bow_equipped_bow"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"      "%strength"
-	        "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"       "%dexterity"
-	      }
+	      "min" "0"
+	      "max" "4"
 	    }
 	  }
 	}
@@ -4237,6 +4039,7 @@
 	  "AbilityTextureName"      "item_basic_shotgun"
 	
 	  "Slot"  "gun"
+	  "EquipSound"  "ui.inv_equip_gun"
 	  "CustomSkill1"  
 	  {
 	    "3" "ziv_sniper_shotgun_special"
@@ -4254,52 +4057,17 @@
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
 	
-	  "AbilitySpecial"
+	  "BaseModifiers"
 	  {
-	    "01"
+	    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
 	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "damage"          "7"
+	      "min" "10"
+	      "max" "28"
 	    }
-	    "02"
+	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
 	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "attack_speed"    "-60"
-	    }
-	  }
-	  
-	  "OnSpellStart"
-	  {
-	    "RunScript"
-	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
-	    }
-	    "ApplyModifier"
-	    {
-	      "ModifierName"  "modifier_basic_shotgun_equipped_gun"
-	      "Target"     "CASTER"
-	    }
-	    "FireSound"
-	    {
-	      "EffectName"  "ui.inv_equip_gun"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_basic_shotgun_equipped_gun"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%damage"
-	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed"
-	      }
+	      "min" "-5"
+	      "max" "-55"
 	    }
 	  }
 	}
@@ -4312,6 +4080,7 @@
 	  "AbilityTextureName"      "item_enhanced_shotgun"
 	
 	  "Slot"  "gun"
+	  "EquipSound"  "ui.inv_equip_gun"
 	  "CustomSkill1"  
 	  {
 	    "3" "ziv_sniper_shotgun_special"
@@ -4328,59 +4097,23 @@
 	  "ItemPurchasable"       "0"
 	  "ItemSellable"          "0"
 	  "ItemShareability"      "ITEM_NOT_SHAREABLE"
-	
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "damage"          "5"
-	    }
-	    "02"
-	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "attack_speed"    "-70"
-	    }
-	    "03"
-	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "move_speed"      "20"
-	    }
-	  }
 	  
-	  "OnSpellStart"
+	  "BaseModifiers"
 	  {
-	    "RunScript"
+	    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
 	    {
-	      "ScriptFile"    "items/equipment.lua"
-	      "Function"      "Equip"
+	      "min" "10"
+	      "max" "28"
 	    }
-	    "ApplyModifier"
+	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
 	    {
-	      "ModifierName"  "modifier_enhanced_shotgun_equipped_gun"
-	      "Target"        "CASTER"
+	      "min" "-30"
+	      "max" "-70"
 	    }
-	    "FireSound"
+	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"
 	    {
-	      "EffectName"    "ui.inv_equip_gun"
-	      "Target"        "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_enhanced_shotgun_equipped_gun"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%damage"
-	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed"
-	        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"    "%move_speed"
-	      }
+	      "min" "0"
+	      "max" "35"
 	    }
 	  }
 	}
@@ -4393,6 +4126,7 @@
 	  "AbilityTextureName"      "item_craft_shotgun"
 	
 	  "Slot"  "gun"
+	  "EquipSound"  "ui.inv_equip_gun"
 	  "CustomSkill1"  
 	  {
 	    "3" "ziv_sniper_shotgun_special"
@@ -4410,52 +4144,17 @@
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
 	
-	  "AbilitySpecial"
+	  "BaseModifiers"
 	  {
-	    "01"
+	    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
 	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "damage"          "8"
+	      "min" "10"
+	      "max" "28"
 	    }
-	    "02"
+	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_REDUCE"
 	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "attack_speed"    "-100"
-	    }
-	  }
-	  
-	  "OnSpellStart"
-	  {
-	    "RunScript"
-	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
-	    }
-	    "ApplyModifier"
-	    {
-	      "ModifierName"  "modifier_craft_shotgun_equipped_gun"
-	      "Target"     "CASTER"
-	    }
-	    "FireSound"
-	    {
-	      "EffectName"  "ui.inv_equip_gun"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_craft_shotgun_equipped_gun"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%damage"
-	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed"
-	      }
+	      "min" "-10"
+	      "max" "-60"
 	    }
 	  }
 	}
@@ -4467,6 +4166,7 @@
 	  "AbilityTextureName"      "item_basic_smg"
 	
 	  "Slot"  "gun"
+	  "EquipSound"  "ui.inv_equip_gun"
 	  "CustomSkill1"  
 	  {
 	    "3" "ziv_sniper_smg_special"
@@ -4483,51 +4183,37 @@
 	  "ItemPurchasable"       "0"
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
-	  
-	  "OnSpellStart"
+	
+	  "BaseModifiers"
 	  {
-	    "RunScript"
+	    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
 	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
+	      "min" "10"
+	      "max" "22"
 	    }
-	    "ApplyModifier"
+	    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
 	    {
-	      "ModifierName"  "modifier_basic_smg_equipped_gun"
-	      "Target"     "CASTER"
+	      "min" "0"
+	      "max" "4"
 	    }
-	    "FireSound"
+	    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
 	    {
-	      "EffectName"  "ui.inv_equip_gun"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_basic_smg_equipped_gun"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
-	      }
+	      "min" "5"
+	      "max" "60"
 	    }
 	  }
 	}
 	"item_basic_sword"
 	{
 	  "ID"		"1150"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_basic_sword"
 	  "Model"                   "models/items/basic_sword.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
 	  "Slot"  "sword"
+	  "EquipSound"  "ui.inv_equip_metalblade"
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"
@@ -4537,46 +4223,12 @@
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
 	
-	  "AbilitySpecial"
+	  "BaseModifiers"
 	  {
-	    "01"
+	    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
 	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "damage"      "20"
-	    }
-	  }
-	  
-	  "OnSpellStart"
-	  {
-	    "RunScript"
-	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
-	    }
-	    "ApplyModifier"
-	    {
-	      "ModifierName"  "modifier_basic_sword_equipped_sword"
-	      "Target"     "CASTER"
-	    }
-	    "FireSound"
-	    {
-	      "EffectName"  "ui.inv_equip_metalblade"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_basic_sword_equipped_sword"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%damage"
-	      }
+	      "min" "10"
+	      "max" "28"
 	    }
 	  }
 	}
@@ -4584,13 +4236,14 @@
 	"item_scarred_sword"
 	{
 	  "ID"    "1151"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_scarred_sword"
 	  "Model"                   "models/items/basic_sword.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
 	  "Slot"  "sword"
+	  "EquipSound"  "ui.inv_equip_metalblade"
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"
@@ -4599,53 +4252,18 @@
 	  "ItemPurchasable"       "0"
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
-	
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "damage"          "24"
-	    }
-	    "02"
-	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "dexterity"       "2"
-	    }
-	  }
 	  
-	  "OnSpellStart"
+	  "BaseModifiers"
 	  {
-	    "RunScript"
+	    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
 	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
+	      "min" "10"
+	      "max" "22"
 	    }
-	    "ApplyModifier"
+	    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
 	    {
-	      "ModifierName"  "modifier_scarred_sword_equipped_sword"
-	      "Target"     "CASTER"
-	    }
-	    "FireSound"
-	    {
-	      "EffectName"  "ui.inv_equip_metalblade"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_scarred_sword_equipped_sword"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"  "%damage"
-	        "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"     "%dexterity"
-	      }
+	      "min" "1"
+	      "max" "6"
 	    }
 	  }
 	}
@@ -4653,13 +4271,14 @@
 	"item_bastard_sword"
 	{
 	  "ID"    "1152"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_bastard_sword"
 	  "Model"                   "models/items/basic_sword.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
 	  "Slot"  "sword"
+	  "EquipSound"  "ui.inv_equip_metalblade"
 	
 	  "ItemStackable" "0"
 	  "ItemPermanent" "0"
@@ -4668,53 +4287,18 @@
 	  "ItemPurchasable"       "0"
 	  "ItemSellable"          "0"
 	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
-	
-	  "AbilitySpecial"
-	  {
-	    "01"
-	    {
-	      "var_type"      "FIELD_INTEGER"
-	      "damage"      "25"
-	    }
-	    "02"
-	    {
-	      "var_type"        "FIELD_INTEGER"
-	      "strength"       "1"
-	    }
-	  }
 	  
-	  "OnSpellStart"
+	  "BaseModifiers"
 	  {
-	    "RunScript"
+	    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
 	    {
-	      "ScriptFile"  "items/equipment.lua"
-	      "Function"    "Equip"
+	      "min" "10"
+	      "max" "22"
 	    }
-	    "ApplyModifier"
+	    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"
 	    {
-	      "ModifierName"  "modifier_bastard_sword_equipped_sword"
-	      "Target"     "CASTER"
-	    }
-	    "FireSound"
-	    {
-	      "EffectName"  "ui.inv_equip_metalblade"
-	      "Target"     "CASTER"
-	    }
-	  }
-	  
-	  "Modifiers"
-	  {
-	    "modifier_bastard_sword_equipped_sword"
-	    {
-	      "Passive"      "0"
-	      "IsHidden"      "1"
-	      "IsBuff"      "1"
-	    
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"    "%damage"
-	        "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"      "%strength"
-	      }
+	      "min" "1"
+	      "max" "6"
 	    }
 	  }
 	}

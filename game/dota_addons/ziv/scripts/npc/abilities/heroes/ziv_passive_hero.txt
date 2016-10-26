@@ -103,6 +103,18 @@
 
     // Generic modifiers
 
+    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+  
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+      }
+    }
+
     "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
     {
       "Passive"      "0"
@@ -114,6 +126,7 @@
         "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
       }
     }
+
     "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"
     {
       "Passive"      "0"
@@ -123,6 +136,18 @@
       "Properties"
       {
         "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
+      }
+    }
+
+    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_REDUCE"
+    {
+      "Passive"      "0"
+      "IsHidden"      "1"
+      "IsDebuff"      "0"
+  
+      "Properties"
+      {
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
       }
     }
 

@@ -126,28 +126,40 @@ function Loot:GenerateCaption( item )
 end
 
 function Loot:AddModifiers( item )
-	local modifier_count = item.rarity + math.random(0, 1)
-
 	item.built_in_modifiers = item.built_in_modifiers or {}
 
-	local all_modifiers = Loot.CommonModifiers
-
-	for i=1,modifier_count do
-		local seed = math.random(1, GetTableLength(all_modifiers))
-		local x = 1
-		for k,v in pairs(all_modifiers) do
-			if x == seed then
+	local base_modifiers = ZIV.ItemKVs[item:GetName()].BaseModifiers
+	if base_modifiers then
+		for k,v in pairs(base_modifiers) do
+			local value = RandomModifierValue( tonumber(v["min"]), tonumber(v["max"]) )
+			if value ~= 0 then
 				local new_modifier = {}
-				new_modifier[k] = math.random(tonumber(v["min"]), tonumber(v["max"]))
-
+				new_modifier[k] = value
 				table.insert(item.built_in_modifiers, new_modifier)
-				break
 			end
-			x = x + 1
 		end
 	end
 
-	Loot:GenerateCaption( item )
+	if item.rarity then
+		local modifier_count = item.rarity + math.random(0, 1)
+
+		for i=1,modifier_count do
+			local seed = math.random(1, GetTableLength(Loot.CommonModifiers))
+			local x = 1
+			for k,v in pairs(Loot.CommonModifiers) do
+				if x == seed then
+					local new_modifier = {}
+					new_modifier[k] = math.random(tonumber(v["min"]), tonumber(v["max"]))
+
+					table.insert(item.built_in_modifiers, new_modifier)
+					break
+				end
+				x = x + 1
+			end
+		end
+
+		Loot:GenerateCaption( item )
+	end
 
 	Items:UpdateItem(item)
 end

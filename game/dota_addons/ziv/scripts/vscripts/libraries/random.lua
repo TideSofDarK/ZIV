@@ -1,3 +1,7 @@
+function RandomModifierValue( a, b )
+	return math.random(math.min(a, b), math.max(a, b))
+end
+
 function GetRandomNumberBasedOnLevel(min, max, level, coef, float)
 	coef = coef or 0.2
 
