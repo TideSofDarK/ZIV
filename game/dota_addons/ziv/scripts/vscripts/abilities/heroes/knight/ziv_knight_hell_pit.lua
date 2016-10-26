@@ -23,6 +23,9 @@ function HellPit( keys )
 			local duration = GetSpecial(ability, "root_duration") + (GRMSC("ziv_knight_hell_pit_duration", caster) / 100)
 
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_hell_pit_cage", { duration = duration })
+			if GetRuneChance("ziv_knight_hell_pit_disarm_chance", caster) then
+				ability:ApplyDataDrivenModifier(caster,unit,"modifier_hell_pit_cage_disarm", { duration = duration })
+			end
 
 			Damage:Deal( caster, unit, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_knight_hell_pit_damage"), DAMAGE_TYPE_FIRE)
 

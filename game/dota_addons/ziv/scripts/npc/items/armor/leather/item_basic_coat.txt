@@ -7,6 +7,7 @@
   "Model"                   "models/items/basic_coat.vmdl" 
 
   "Slot"  "torso"
+  "EquipSound"  "ui.inv_equip_leather"
 
   "ItemStackable" "0"
   "ItemPermanent" "0"
@@ -15,53 +16,18 @@
   "ItemPurchasable"       "0"
   "ItemSellable"          "0"
   "ItemShareability"        "ITEM_NOT_SHAREABLE"
-
-  "AbilitySpecial"
-  {
-    "01"
-    {
-      "var_type"        "FIELD_INTEGER"
-      "armor"           "5"
-    }
-    "02"
-    {
-      "var_type"        "FIELD_INTEGER"
-      "strength"        "2"
-    }
-  }
   
-  "OnSpellStart"
+  "BaseModifiers"
   {
-    "RunScript"
+    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
     {
-      "ScriptFile"  "items/equipment.lua"
-      "Function"    "Equip"
+      "min" "8"
+      "max" "22"
     }
-    "ApplyModifier"
+    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"
     {
-      "ModifierName"  "modifier_basic_coat_equipped_torso"
-      "Target"     "CASTER"
-    }
-    "FireSound"
-    {
-      "EffectName"  "ui.inv_equip_leather"
-      "Target"     "CASTER"
-    }
-  }
-  
-  "Modifiers"
-  {
-    "modifier_basic_coat_equipped_torso"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsBuff"      "1"
-    
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"      "%strength"
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"      "%armor"
-      }
+      "min" "0"
+      "max" "6"
     }
   }
 }
@@ -75,6 +41,7 @@
   "Model"                   "models/items/basic_coat.vmdl" 
 
   "Slot"  "torso"
+  "EquipSound"  "ui.inv_equip_leather"
 
   "ItemStackable" "0"
   "ItemPermanent" "0"
@@ -83,47 +50,13 @@
   "ItemPurchasable"       "0"
   "ItemSellable"          "0"
   "ItemShareability"        "ITEM_NOT_SHAREABLE"
-
-  "AbilitySpecial"
-  {
-    "01"
-    {
-      "var_type"      "FIELD_INTEGER"
-      "armor"      "6"
-    }
-  }
   
-  "OnSpellStart"
+  "BaseModifiers"
   {
-    "RunScript"
+    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
     {
-      "ScriptFile"  "items/equipment.lua"
-      "Function"    "Equip"
-    }
-    "ApplyModifier"
-    {
-      "ModifierName"  "modifier_arrow_proof_coat_equipped_torso"
-      "Target"     "CASTER"
-    }
-    "FireSound"
-    {
-      "EffectName"  "ui.inv_equip_leather"
-      "Target"     "CASTER"
-    }
-  }
-  
-  "Modifiers"
-  {
-    "modifier_arrow_proof_coat_equipped_torso"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsBuff"      "1"
-    
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-      }
+      "min" "10"
+      "max" "35"
     }
   }
 }
@@ -137,6 +70,7 @@
   "Model"                   "models/items/basic_coat.vmdl" 
 
   "Slot"  "torso"
+  "EquipSound"  "ui.inv_equip_leather"
 
   "ItemStackable" "0"
   "ItemPermanent" "0"
@@ -145,53 +79,18 @@
   "ItemPurchasable"       "0"
   "ItemSellable"          "0"
   "ItemShareability"        "ITEM_NOT_SHAREABLE"
-
-  "AbilitySpecial"
-  {
-    "01"
-    {
-      "var_type"      "FIELD_INTEGER"
-      "armor"      "2"
-    }
-    "02"
-    {
-      "var_type"      "FIELD_INTEGER"
-      "intelligence"      "2"
-    }
-  }
   
-  "OnSpellStart"
+  "BaseModifiers"
   {
-    "RunScript"
+    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
     {
-      "ScriptFile"  "items/equipment.lua"
-      "Function"    "Equip"
+      "min" "10"
+      "max" "25"
     }
-    "ApplyModifier"
+    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"
     {
-      "ModifierName"  "modifier_tribe_coat_equipped_torso"
-      "Target"     "CASTER"
-    }
-    "FireSound"
-    {
-      "EffectName"  "ui.inv_equip_leather"
-      "Target"     "CASTER"
-    }
-  }
-  
-  "Modifiers"
-  {
-    "modifier_tribe_coat_equipped_torso"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsBuff"      "1"
-    
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%intelligence"
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"  "%armor"
-      }
+      "min" "0"
+      "max" "6"
     }
   }
 }

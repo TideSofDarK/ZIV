@@ -23,7 +23,9 @@
 	"lockin"										"Выбрать героя"
 	"lockedin"										"Ожидание начала игры"
 
+	"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"к базовому урону"
 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "к скорости атаки"
+	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_REDUCE" 	"к скорости атаки"
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "к скорости передвижения"
 	"MODIFIER_PROPERTY_EVASION_CONSTANT" "к уклонению"
 	"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "к ловкости"
