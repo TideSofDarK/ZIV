@@ -1,3 +1,142 @@
+---------------------------------
+-- Aggro handlers
+---------------------------------
+AggroMode = {
+  Default = 1,
+  Random = 2,
+  Weakest = 3
+}
+
+function AggroTable()
+  local aggro = {}
+  aggro.table = {}
+  aggro.unit = nil
+  aggro.mode = AggroMode.Default
+  aggro.time = 10  
+  aggro.nextAggroTime = nil
+  
+  ---------------------------------
+  -- Functions
+  ---------------------------------
+  function aggro:GetCurrentTime()
+    local hours, minutes, seconds = string.match(GetSystemTime(), '(%d+)[:](%d+)[:](%d+)')
+    return hours * 3600 + minutes * 60 + seconds
+  end
+  
+  -- Set aggro mode
+  function aggro:SetMode(mode, time)
+    self.mode = mode
+    self.time = time
+    self.nextAggroTime = self:GetCurrentTime()
+  end
+  
+  -- Get unit with max aggro in table
+  function aggro:GetMaxAggroHero()
+    if GetTableLength(self.table) < 1 then
+      return nil
+    end
+    
+    table.sort(self.table)  
+    for k,v in pairs(self.table) do
+      if v == 0 then
+        return nil
+      end
+      
+      return k
+    end
+  end  
+  
+  -- Get random hero in aggro table
+  function aggro:GetRandomHero()
+    local notNullAggro = {}
+    
+    for k,v in pairs(self.table) do
+      if v ~= 0 then
+        table.insert(notNullAggro, k)
+      end
+    end    
+    
+    if #notNullAggro > 0 then
+      local index = RandomInt( 1, #notNullAggro )
+      return notNullAggro[index]
+    else
+      return nil
+    end
+  end
+
+  -- Get weakest hero in aggro table
+  function aggro:GetWeakestHero()
+    local minHP = nil
+    local target = nil
+
+    for heroID,_ in pairs(self.table) do
+      if heroID ~= nil then
+        local hero = EntIndexToHScript(heroID)
+        local HP = hero:GetHealth()
+        if hero:IsAlive() and (minHP == nil or HP < minHP) then
+          minHP = HP
+          target = heroID
+        end
+      end
+    end
+
+    return target
+  end
+  
+  -- Get aggro unit by current aggro rules
+  function aggro:GetAggroUnit()
+    local hero
+    
+    if self.mode == AggroMode.Default then
+      hero = self:GetMaxAggroHero()
+      
+    elseif self.mode == AggroMode.Random then
+      if self:GetCurrentTime() >= self.nextAggroTime or self.unit == nil then
+        hero = self:GetRandomHero()
+        self.nextAggroTime = self:GetCurrentTime() + self.time
+        
+        if hero ~= nil then
+          print(self.nextAggroTime..' '..hero)
+        end
+      else
+        hero = self.unit
+      end
+      
+    elseif self.mode == AggroMode.Weakest then
+      hero = self:GetWeakestHero()
+    end
+    
+    if hero ~= nil then
+      self.unit = hero
+      return EntIndexToHScript(hero)
+    end
+    
+    return nil
+  end
+  
+  -- Update aggro state for dead units
+  function aggro:Update()
+    for k,v in pairs(self.table) do
+      if not EntIndexToHScript(k):IsAlive() then
+        self.table[k] = 0
+        if self.unit == k then
+          self.unit = nil
+        end
+      end
+    end
+  end    
+  
+  -- Add aggro value
+  function aggro:Add( attacker, damage )
+    self.table[attacker] = (self.table[attacker] or 0) + damage
+  end
+  
+  return aggro
+end
+
+---------------------------------
+-- SFM handlers
+---------------------------------
 function SFM( caster )
   local sfm = {}
   
@@ -5,39 +144,11 @@ function SFM( caster )
   sfm.caster = caster
   caster.sfm = sfm
   sfm.spawnPoint = caster:GetAbsOrigin()
-  sfm.aggroTable = {}
+  sfm.aggro = AggroTable()
   
   ---------------------------------
   -- Functions
-  ---------------------------------
-  function sfm:GetMaxAggro()
-    if GetTableLength(self.aggroTable) < 1 then
-      return nil
-    end
-    
-    table.sort(self.aggroTable)  
-    for k,v in pairs(self.aggroTable) do
-      if v == 0 then
-        return nil
-      end
-      
-      return EntIndexToHScript(k)
-    end
-  end  
-  
-  function sfm:CheckAggroTable()
-    for k,v in pairs(self.aggroTable) do
-      if not EntIndexToHScript(k):IsAlive() then
-        self.aggroTable[k] = 0
-      end
-    end
-  end    
-  
-  function sfm:AddAggro( attacker, damage )
-    local aggroTable = self.aggroTable
-    aggroTable[attacker] = (aggroTable[attacker] or 0) + damage
-  end
-  
+  --------------------------------- 
   function sfm:IsInAbilityPhase()
       for i=0,16 do
         local ability = self.caster:GetAbilityByIndex(i)
@@ -63,7 +174,7 @@ function SFM( caster )
   -- Chasing handlers
   -----------------------------
   function sfm:Chasing()
-    local hero = sfm:GetMaxAggro()
+    local hero = sfm.aggro:GetAggroUnit()
     if hero ~= nil then
       sfm.caster:MoveToTargetToAttack(hero)
     end
@@ -77,7 +188,7 @@ function SFM( caster )
       return
     end
     
-    local hero = sfm:GetMaxAggro()
+    local hero = sfm.aggro:GetAggroUnit()
     if hero == nil then
       return
     end
@@ -113,7 +224,7 @@ function SFM( caster )
   end    
 
   function sfm:ChangeState()
-    local hero = self:GetMaxAggro()
+    local hero = self.aggro:GetAggroUnit()
     if hero == nil then
         self.state = 'idle'
         return    
@@ -171,7 +282,7 @@ function SFM( caster )
         funct()
       end
       
-      self:CheckAggroTable()
+      self.aggro:Update()
     
       return 0.5
     end)
