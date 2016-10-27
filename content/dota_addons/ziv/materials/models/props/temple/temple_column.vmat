@@ -18,15 +18,15 @@ Layer0
 	F_ALPHA_TEST 1
 
 	//---- Color ----
-	g_vColorTint "[0.909804 0.921569 0.643137 0.000000]"
-	g_vColorTint2 "[0.952941 0.933333 0.635294 0.000000]"
+	g_vColorTint "[0.929412 0.941177 0.694118 0.000000]"
+	g_vColorTint2 "[0.949020 0.933333 0.713726 0.000000]"
 	g_vTexCoordOffset "[0.000 0.000]"
 	g_vTexCoordScale "[1.000 1.000]"
 	TextureColor "materials/models/props/temple/temple_column_color.png"
 	TextureTintMask "materials/models/props/temple/temple_column_mask.png"
 
 	//---- Normal Map ----
-	g_flBumpStrength "1.000"
+	g_flBumpStrength "0.118"
 	TextureNormal "materials/models/props/temple/temple_column_normal.png"
 
 	//---- Self Illum ----

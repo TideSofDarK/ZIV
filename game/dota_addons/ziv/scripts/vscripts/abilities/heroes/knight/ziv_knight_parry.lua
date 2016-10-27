@@ -61,7 +61,5 @@ function Parry( keys )
     	ParticleManager:SetParticleControl(projectileFX, 1, (attacker:GetAbsOrigin() +(attacker:GetForwardVector() * -500)))
     	ParticleManager:SetParticleControl(projectileFX, 2, Vector(900, 0, 0))
     	ParticleManager:SetParticleControl(projectileFX, 3, (attacker:GetAbsOrigin() +(attacker:GetForwardVector() * -500)))
-
-
     end
 end

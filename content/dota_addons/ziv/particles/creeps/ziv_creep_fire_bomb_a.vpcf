@@ -90,6 +90,7 @@
 			m_flMaxTraceLength = 512.0
 			m_bSetNormal = true
 			m_flOffset = 3.0
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_INIT_RemapParticleCountToScalar"

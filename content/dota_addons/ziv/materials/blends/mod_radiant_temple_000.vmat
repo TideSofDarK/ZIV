@@ -20,11 +20,11 @@ Layer0
 	//---- Layer 0 ----
 	g_flTexCoordRotate0 "0.000"
 	g_flTexCoordScale0 "4.000"
-	g_vColorTint0 "[0.870588 0.807843 0.466667 1.000000]"
+	g_vColorTint0 "[0.866667 0.776471 0.462745 1.000000]"
 	g_vTexCoordOffset0 "[0.000 0.000]"
 	g_vTexCoordScroll0 "[0.000 0.000]"
 	TextureBloom0 "materials/default/default_bloom.tga"
-	TextureColor0 "materials/blends/tile_ground001b_color.png"
+	TextureColor0 "materials/blends/tile_ground001_2_color.png"
 	TextureNormal0 "materials/blends/tile_ground001b_normal.png"
 	TextureReflectance0 "materials/blends/tile_ground001b_refl.png"
 	TextureSelfIllumMask0 "materials/default/default_selfillum.tga"

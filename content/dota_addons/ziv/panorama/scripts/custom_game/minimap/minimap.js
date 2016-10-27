@@ -217,7 +217,7 @@ function UpdateMinimap()
 
 	$.Schedule(0.05, UpdateMinimap);
 
-	$("#FogMap").RunJavascript('LoadImage("http://puu.sh/rBIaa/9340a006d3.png");');  
+	$("#FogMap").RunJavascript('LoadImage("http://puu.sh/rXDr6/5613600704.png");');  
 }
 
 function MinimapClick()
