@@ -110,12 +110,11 @@ CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_7] = 1
 CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_8] = 1
 
 -- ZIV Specific Settings
-ZIV_CameraZValueA = -150
-
 ZIV_CustomSettingDamage_DEFAULT = 1
 ZIV_CustomSettingAutoEquip_DEFAULT = 1
 ZIV_CustomSettingShowTooltip_DEFAULT = 1
 ZIV_CustomSettingControls_DEFAULT = 0
+ZIV_CustomSettingMinimap_DEFAULT = 1
 
 function GetZIVSpecificSetting(pID, setting) 
 	local settings_storage = CustomNetTables:GetTableValue("settings", tostring(pID))

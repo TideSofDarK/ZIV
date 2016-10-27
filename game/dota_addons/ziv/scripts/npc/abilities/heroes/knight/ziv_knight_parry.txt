@@ -11,6 +11,7 @@
   "precache"
   {
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+    "particle"  "particles/heroes/knight/knight_parry.vpcf"
   }
   
   "AbilitySpecial"

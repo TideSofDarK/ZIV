@@ -128,7 +128,8 @@ function ZIV:OnAllPlayersLoaded()
         CustomSettingDamage = ZIV_CustomSettingDamage_DEFAULT, 
         CustomSettingAutoEquip = ZIV_CustomSettingAutoEquip_DEFAULT,
         CustomSettingShowTooltip = ZIV_CustomSettingShowTooltip_DEFAULT,
-        CustomSettingControls = ZIV_CustomSettingControls_DEFAULT
+        CustomSettingControls = ZIV_CustomSettingControls_DEFAULT,
+        CustomSettingMinimap = ZIV_CustomSettingMinimap_DEFAULT,
         })
     end)
 

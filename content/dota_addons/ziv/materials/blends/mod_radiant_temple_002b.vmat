@@ -1,0 +1,36 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- Normal Maps ----
+	F_NORMAL_MAP 1
+
+	//---- Specular ----
+	F_SPECULAR 1
+
+	//---- Color ----
+	g_vColorTint "[0.913726 0.929412 0.572549 0.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "materials/blends/temple_trim002b_color.png"
+
+	//---- Normal Map ----
+	g_flBumpStrength "0.355"
+	TextureNormal "materials/blends/temple_trim002b_normal.png"
+
+	//---- Self Illum ----
+	TextureSelfIllumMask "materials/default/default_selfillum.tga"
+
+	//---- Specular ----
+	g_flSpecularBloom "0.000"
+	g_flSpecularIntensity "1.000"
+	TextureBloom "materials/default/default_bloom.tga"
+	TextureReflectance "materials/blends/temple_trim002_refl.png"
+
+	Attributes
+	{
+		dota.nav.walkable "1"
+	}
+}

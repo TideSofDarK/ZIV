@@ -15,7 +15,6 @@
 			_class = "C_OP_RenderDeferredLight"
 			m_bUseTexture = true
 			m_ColorScale = [ 33, 242, 131 ]
-			m_flAlphaScale = 5.0
 			m_flStartFalloff = 0.2
 			m_hTexture = resource:"materials/particle/particle_light_mask_circfade.vtex"
 		},

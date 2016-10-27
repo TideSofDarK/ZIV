@@ -34,4 +34,9 @@
 	{
 
 	}
+
+	"ziv_disable_minimap"
+	{
+
+	}
 }

@@ -1,0 +1,31 @@
+"ziv_creep_modifier_fire_bomb"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityTextureName"            "ziv_empty"
+  
+  "MaxLevel"          "1"
+
+  "precache"
+  {
+    "particle"  "particles/creeps/ziv_creep_fire_bomb.vpcf"
+  }
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"            "FIELD_INTEGER"
+      "damage_percent" "20"
+    }
+  }
+
+  "OnUpgrade"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/modifiers/ziv_creep_modifier_fire_bomb.lua"
+      "Function"    "InitFireBomb"
+    }
+  }
+}

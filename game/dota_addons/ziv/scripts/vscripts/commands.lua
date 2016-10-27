@@ -117,7 +117,7 @@ function ZIV:AddItemToContainer(item, count)
   end
 end
 
-function ZIV:SpawnBasicPack(count, pack_type)
+function ZIV:SpawnBasicPack(count, pack_type, modifier)
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
@@ -131,6 +131,7 @@ function ZIV:SpawnBasicPack(count, pack_type)
           Count = tonumber(count) or 10,
           Type = pack_type or "creep",
           Position = hero:GetAbsOrigin(),
+          BasicModifier = "ziv_creep_modifier_fire_bomb",
           LordModifier = "ziv_creep_lord_modifier_regen_aura",
           SpawnLord = true
         }

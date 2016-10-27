@@ -298,8 +298,14 @@ function ChangeMinimapMode()
 	}
 }
 
+function Toggle() {
+	$.GetContextPanel().DeleteAsync(0.0);
+	$.GetContextPanel().RemoveAndDeleteChildren();
+}
+
 (function()
 {
+	GameEvents.Subscribe("ziv_disable_minimap", Toggle);
 	GameEvents.Subscribe("custom_minimap_event", MinimapEvent);
 
 	if (!GameUI.CustomUIConfig().ChangeMinimapMode)

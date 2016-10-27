@@ -5,68 +5,70 @@ Layer0
 	shader "water_dota.vfx"
 
 	//---- Flow ----
-	F_FLOW_COLOR 1
 	F_FLOW_NORMALS 1
+
+	//---- Reflection ----
+	F_USE_FOG_COLOR 1
 
 	//---- Color ----
 	g_vTexCoordScale "[1.000 1.000]"
-	TextureColor "materials/water/water_temple_color.tga"
 
 	//---- Flow ----
-	g_flFlowTimeScale "0.237"
-
-	//---- Flow Color ----
-	g_flColorFlowLerpExp "1.000"
-	g_flColorFlowTimeIntervalInSeconds "0.600"
-	g_flColorFlowUvScale "10.000"
-	g_flColorFlowUvScrollDistance "0.126"
+	g_flFlowTimeScale "1.000"
 
 	//---- Flow Noise ----
 	g_flNoiseStrength "2.000"
-	g_flNoiseUvScale "0.0010"
-	TextureNoise "materials/water/water_temple_noise.tga"
+	g_flNoiseUvScale "0.0005"
+	TextureNoise "materials/water/water_temple_000_noise.png"
 
 	//---- Flow Normals ----
 	g_flNormalFlowLerpExp "1.000"
 	g_flNormalFlowTimeIntervalInSeconds "0.600"
-	g_flNormalFlowUvScrollDistance "0.126"
-	g_flNormalUvScale "400.000"
+	g_flNormalFlowUvScrollDistance "0.100"
+	g_flNormalUvScale "500.000"
 	g_flWorldPositionScale "1.000"
 	g_flWorldUvScale "1.000"
-	TextureFlow "materials/water/water_temple_flow.tga"
+	TextureFlow "[0.039216 0.078431 0.000000 0.000000]"
 
 	//---- Low End ----
-	g_flLowEndBaseBloom "0.010"
-	g_flLowEndBloomPower "5.000"
-	g_flLowEndReflectionPower "2.247"
-	g_flLowEndSurfaceFactor "0.224"
-	g_flLowEndSurfaceMinimumColor "0.104"
-	g_flLowEndSurfaceOpacity "0.757"
-	g_vLowEndReflectionColor "[0.709804 0.784314 0.764706 0.000000]"
+	g_flLowEndBaseBloom "1.000"
+	g_flLowEndBloomPower "10.000"
+	g_flLowEndReflectionPower "1.203"
+	g_flLowEndSurfaceFactor "0.448"
+	g_flLowEndSurfaceMinimumColor "0.373"
+	g_flLowEndSurfaceOpacity "0.621"
+	g_vLowEndReflectionColor "[0.137255 0.800000 0.933333 0.000000]"
 	g_vLowEndReflectionDir "[-0.030 -1.000 0.273]"
-	g_vLowEndSurfaceColor "[0.109804 0.352941 0.670588 1.000000]"
+	g_vLowEndSurfaceColor "[0.772549 0.772549 0.772549 0.000000]"
 
 	//---- Normal Map ----
-	g_flBumpStrength "0.355"
-	TextureNormal "materials/water/water_temple_normal.tga"
+	g_flBumpStrength "0.299"
+	TextureNormal "materials/water/water_temple_000_normal.png"
 
 	//---- Reflections ----
-	g_flReflectance "0.284"
-	g_flReflectionAmount "0.045"
-	g_vReflectionTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_flReflectance "0.612"
+	g_flReflectionAmount "0.070"
+	g_vReflectionTint "[0.317647 0.733333 0.925490 1.000000]"
 
 	//---- Refractions ----
-	g_flRefractionAmount "0.060"
-	g_flWaterDepth "35.000"
-	g_vRefractionTint "[1.000000 1.000000 1.000000 0.000000]"
-	g_vWaterFogColor "[0.705882 0.878431 0.823529 0.000000]"
+	g_flRefractionAmount "0.119"
+	g_flWaterDepth "20.000"
+	g_flWaterFogShadowFactor "0.000"
+	g_vRefractionTint "[0.435294 0.749020 0.894118 0.000000]"
+	g_vWaterFogColor "[0.074510 0.572549 0.631373 0.392157]"
 
 	//---- Specular ----
-	g_flBaseBloom "0.053"
+	g_flBaseBloom "0.050"
 	g_flBloomPower "1.000"
 	g_flReflectionPower "1.000"
 	g_vReflectionColor "[1.000000 1.000000 1.000000 0.000000]"
-	g_vReflectionDir "[0.000 0.000 1.000]"
+	g_vReflectionDir "[-0.450 -0.500 0.499]"
+
+	Attributes
+	{
+		mapbuilder.water "1"
+		mapbuilder.nonsolid "1"
+	}
 
 	SystemAttributes
 	{

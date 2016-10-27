@@ -55,5 +55,13 @@ function Parry( keys )
 		attacker:AddNewModifier( caster, nil, "modifier_knockback", knockbackModifierTable )
 
 	    Damage:Deal(caster, attacker, GetRuneDamage(caster, GetSpecial(ability, "parry_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
+
+        projectileFX = ParticleManager:CreateParticle("particles/heroes/knight/knight_parry.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    	ParticleManager:SetParticleControl(projectileFX, 0, caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_hitloc")))
+    	ParticleManager:SetParticleControl(projectileFX, 1, (attacker:GetAbsOrigin() +(attacker:GetForwardVector() * -500)))
+    	ParticleManager:SetParticleControl(projectileFX, 2, Vector(900, 0, 0))
+    	ParticleManager:SetParticleControl(projectileFX, 3, (attacker:GetAbsOrigin() +(attacker:GetForwardVector() * -500)))
+
+
     end
 end

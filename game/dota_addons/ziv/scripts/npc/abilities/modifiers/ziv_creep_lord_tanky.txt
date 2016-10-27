@@ -1,6 +1,0 @@
-"ziv_creep_lord_tanky"
-{
-  "BaseClass" "ability_lua"
-  "ScriptFile" "abilities/modifiers/ziv_creep_lord_tanky"
-  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-}

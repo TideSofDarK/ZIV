@@ -1,0 +1,62 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "multiblend.vfx"
+
+	//---- Color Tint ----
+	F_TINT_MASK 1
+
+	//---- Normal Maps ----
+	F_NORMAL_MAP 1
+
+	//---- Layer 0 ----
+	g_flTexCoordRotate0 "0.000"
+	g_flTexCoordScale0 "1.000"
+	g_vColorTint0 "[1.000000 1.000000 1.000000 0.000000]"
+	g_vColorTintB0 "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset0 "[0.000 0.000]"
+	g_vTexCoordScroll0 "[0.000 0.000]"
+	TextureColor0 "materials/blends/temple_trim001b_color.png"
+	TextureNormal0 "materials/blends/temple_trim001b_normal.png"
+	TextureTintMask0 "materials/blends/temple_trim003b_mask.png"
+
+	//---- Layer 1 ----
+	g_flTexCoordRotate1 "0.000"
+	g_flTexCoordScale1 "1.000"
+	g_vColorTint1 "[1.000000 1.000000 1.000000 0.000000]"
+	g_vColorTintB1 "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset1 "[0.000 0.000]"
+	g_vTexCoordScroll1 "[0.000 0.000]"
+	TextureColor1 "materials/blends/temple_trim003b_color.png"
+	TextureNormal1 "materials/blends/temple_trim001c_normal.png"
+	TextureRevealMask1 "materials/default/default_blend.tga"
+	TextureTintMask1 "materials/blends/temple_trim003b_mask.png"
+
+	//---- Layer 2 ----
+	g_flTexCoordRotate2 "0.000"
+	g_flTexCoordScale2 "1.000"
+	g_vColorTint2 "[1.000000 1.000000 1.000000 0.000000]"
+	g_vColorTintB2 "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset2 "[0.000 0.000]"
+	g_vTexCoordScroll2 "[0.000 0.000]"
+	TextureColor2 "materials/blends/temple_trim001c_color.png"
+	TextureNormal2 "materials/blends/temple_trim001c_normal.png"
+	TextureRevealMask2 "materials/default/default_blend.tga"
+	TextureTintMask2 "materials/default/default_mask.tga"
+
+	//---- Layer 3 ----
+	g_flTexCoordRotate3 "0.000"
+	g_flTexCoordScale3 "1.000"
+	g_vColorTint3 "[1.000000 1.000000 1.000000 0.000000]"
+	g_vColorTintB3 "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset3 "[0.000 0.000]"
+	g_vTexCoordScroll3 "[0.000 0.000]"
+	TextureColor3 "materials/blends/temple_trim001c_color.png"
+	TextureNormal3 "materials/blends/temple_trim001c_normal.png"
+	TextureRevealMask3 "materials/default/default_blend.tga"
+	TextureTintMask3 "materials/default/default_mask.tga"
+
+	//---- Normal Map ----
+	g_flBumpStrength "1.000"
+}

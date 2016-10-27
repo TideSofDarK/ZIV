@@ -38,6 +38,16 @@ function CustomSettingControls() {
 		"value" : table } );
 }
 
+function CustomSettingMinimap() {
+	var table = CustomNetTables.GetTableValue( "settings", pID );
+	table["CustomSettingMinimap"] = $("#CustomSettingMinimap").checked == true ? 1 : 0;
+	GameEvents.SendCustomGameEventToServer( "ziv_write_to_nettable", { 
+		"name" : "settings", 
+		"key" : pID,
+		"value" : table } );
+	GameEvents.SendEventClientSide( "ziv_disable_minimap", {} );
+}
+
 function Toggle() {
 	$.GetContextPanel().ToggleClass("WindowClosed");
 	if ($.GetContextPanel().BHasClass("WindowClosed")) {
@@ -54,7 +64,7 @@ function Toggle() {
 
 	var children = $("#Checkboxes").Children();
 	var settings = CustomNetTables.GetTableValue( "settings", pID );
-	$.Msg(settings);
+
 	for (var i = 0; i < children.length; i++) {
 		children[i].checked = settings[children[i].id] == 1;
 	}

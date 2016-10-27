@@ -1,0 +1,70 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "multiblend.vfx"
+
+	//---- Normal Maps ----
+	F_NORMAL_MAP 1
+
+	//---- Specular ----
+	F_SPECULAR 1
+
+	//---- Global ----
+	g_flSpecularBloom "0.000"
+	g_flSpecularIntensity "1.000"
+
+	//---- Layer 0 ----
+	g_flTexCoordRotate0 "0.000"
+	g_flTexCoordScale0 "1.000"
+	g_vColorTint0 "[0.909804 0.886275 0.474510 1.000000]"
+	g_vTexCoordOffset0 "[0.000 0.000]"
+	g_vTexCoordScroll0 "[0.000 0.000]"
+	TextureBloom0 "materials/default/default_bloom.tga"
+	TextureColor0 "materials/blends/temple_trim001b_color.png"
+	TextureNormal0 "materials/blends/temple_trim001b_normal.png"
+	TextureReflectance0 "materials/blends/temple_trim001b_refl.png"
+	TextureSelfIllumMask0 "materials/default/default_selfillum.tga"
+
+	//---- Layer 1 ----
+	g_flTexCoordRotate1 "0.000"
+	g_flTexCoordScale1 "1.000"
+	g_vColorTint1 "[0.870588 0.835294 0.466667 1.000000]"
+	g_vTexCoordOffset1 "[0.000 0.000]"
+	g_vTexCoordScroll1 "[0.000 0.000]"
+	TextureBloom1 "materials/default/default_bloom.tga"
+	TextureColor1 "materials/blends/temple_trim003b_color.png"
+	TextureNormal1 "materials/blends/temple_trim001c_normal.png"
+	TextureReflectance1 "materials/blends/temple_trim001b_refl.png"
+	TextureRevealMask1 "materials/default/default_blend.tga"
+	TextureSelfIllumMask1 "materials/default/default_selfillum.tga"
+
+	//---- Layer 2 ----
+	g_flTexCoordRotate2 "0.000"
+	g_flTexCoordScale2 "1.000"
+	g_vColorTint2 "[0.870588 0.835294 0.466667 1.000000]"
+	g_vTexCoordOffset2 "[0.000 0.000]"
+	g_vTexCoordScroll2 "[0.000 0.000]"
+	TextureBloom2 "materials/default/default_bloom.tga"
+	TextureColor2 "materials/blends/temple_trim001c_color.png"
+	TextureNormal2 "materials/blends/temple_trim001c_normal.png"
+	TextureReflectance2 "materials/blends/temple_trim001c_refl.png"
+	TextureRevealMask2 "materials/default/default_blend.tga"
+	TextureSelfIllumMask2 "materials/default/default_selfillum.tga"
+
+	//---- Layer 3 ----
+	g_flTexCoordRotate3 "0.000"
+	g_flTexCoordScale3 "1.000"
+	g_vColorTint3 "[0.870588 0.835294 0.466667 1.000000]"
+	g_vTexCoordOffset3 "[0.000 0.000]"
+	g_vTexCoordScroll3 "[0.000 0.000]"
+	TextureBloom3 "materials/default/default_bloom.tga"
+	TextureColor3 "materials/blends/temple_trim001c_color.png"
+	TextureNormal3 "materials/blends/temple_trim001c_normal.png"
+	TextureReflectance3 "materials/blends/temple_trim001c_refl.png"
+	TextureRevealMask3 "materials/default/default_blend.tga"
+	TextureSelfIllumMask3 "materials/default/default_selfillum.tga"
+
+	//---- Normal Map ----
+	g_flBumpStrength "1.000"
+}

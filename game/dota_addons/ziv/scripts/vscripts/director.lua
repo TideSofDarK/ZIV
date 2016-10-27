@@ -194,7 +194,6 @@ function Director:SpawnPack( pack_table )
 
 			basic_table.Count = pack_table.Count or Director.BASIC_PACK_COUNT
 			basic_table.RandomizeCount = pack_table.RandomizeCount or true
-			basic_table.BasicModifier = basic_modifier
 			basic_table.Spread = pack_table.BasicSpread
 			basic_table.Type = pack_table.Type or "creep"
 

@@ -5178,6 +5178,7 @@
 	  "precache"
 	  {
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+	    "particle"  "particles/heroes/knight/knight_parry.vpcf"
 	  }
 	  
 	  "AbilitySpecial"
@@ -7296,11 +7297,42 @@
 	    }
 	  }
 	}
-	"ziv_creep_lord_tanky"
+	"ziv_creep_lord_modifier_tanky"
 	{
 	  "BaseClass" "ability_lua"
 	  "ScriptFile" "abilities/modifiers/ziv_creep_lord_tanky"
 	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+	"ziv_creep_modifier_fire_bomb"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "AbilityTextureName"            "ziv_empty"
+	  
+	  "MaxLevel"          "1"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/creeps/ziv_creep_fire_bomb.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "damage_percent" "20"
+	    }
+	  }
+	
+	  "OnUpgrade"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/modifiers/ziv_creep_modifier_fire_bomb.lua"
+	      "Function"    "InitFireBomb"
+	    }
+	  }
 	}
 	"ziv_creep_modifier_frenzy"
 	{

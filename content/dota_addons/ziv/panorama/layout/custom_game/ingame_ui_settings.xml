@@ -16,6 +16,7 @@
 			<DOTASettingsCheckbox id="CustomSettingAutoEquip" text="#settings_autoequip" onactivate="CustomSettingAutoEquip()" />
 			<DOTASettingsCheckbox id="CustomSettingShowTooltip" text="#settings_show_tooltip" onactivate="CustomSettingShowTooltip()" />
 			<DOTASettingsCheckbox id="CustomSettingControls" text="#settings_controls" onactivate="CustomSettingControls()" />
+			<DOTASettingsCheckbox id="CustomSettingMinimap" text="#settings_minimap" onactivate="CustomSettingMinimap()" />
 		</Panel>
 
 		<!--

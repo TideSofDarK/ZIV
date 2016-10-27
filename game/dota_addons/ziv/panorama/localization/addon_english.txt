@@ -26,6 +26,7 @@
 	"settings_autoequip" "Auto equip better items"
 	"settings_show_tooltip" "Show item tooltip when its on the ground"
 	"settings_controls" "Dota 2-like controls style(deprecated)"
+	"settings_minimap" "Minimap (disable to improve perfromance)"
 
 	// Scenarios
 	"objectives" 			"Objectives"
