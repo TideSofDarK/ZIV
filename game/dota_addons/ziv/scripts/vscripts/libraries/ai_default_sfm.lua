@@ -244,9 +244,10 @@ function SFM( caster )
     end
     
     local length = (hero:GetAbsOrigin() - self.caster:GetAbsOrigin()):Length2D()
+    local spawnLength = (self.spawnPoint - self.caster:GetAbsOrigin()):Length2D()
     
     if self.state == SFMStates.Idle then
-      if length > 500 then
+      if length > 500 and length < 1000 and spawnLength < 1000 then
         sfm:SetState(SFMStates.Chasing)
         return
       end
@@ -275,7 +276,7 @@ function SFM( caster )
         return
       end
       
-      if not hero:IsAlive() then
+      if not hero:IsAlive() or spawnLength > 1000 then
         sfm:SetState(SFMStates.Idle)
       end      
     end

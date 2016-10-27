@@ -2,9 +2,19 @@ var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 var Util = GameUI.CustomUIConfig().Util;
 
 var selectedBoss = "";
+var states = {
+	idle: 0,
+	casting: 1,
+	chasing: 2
+}
+
 
 function OnDropDownChanged() {
 	selectedBoss = $("#BossesDropDown").GetSelected().id;
+}
+
+function OnStateDropDownChanged() {
+	GameEvents.SendCustomGameEventToServer("ziv_debug_change_boss_state", { boss_name: selectedBoss, state: states[$("#BossesStateDropDown").GetSelected().id] });
 }
 
 function SpawnBoss() {
@@ -21,6 +31,10 @@ function HealBoss() {
 
 function ChangeBossState() {
 	GameEvents.SendCustomGameEventToServer("ziv_debug_change_boss_state", {});
+}
+
+function LockState() {
+
 }
 
 function Toggle() {
@@ -41,6 +55,14 @@ function Toggle() {
         	$("#BossesDropDown").SetSelected(name);
 		}
 	}
+
+	for (var k of Object.keys(states)) {
+		var stateEntry = $.CreatePanel("Label", $("#BossesStateDropDown"), k);
+		stateEntry.text = k;
+    	stateEntry.AddClass("DropDownChild");
+    	$("#BossesStateDropDown").AddOption(stateEntry);
+	}
+	$("#BossesStateDropDown").SetSelected("idle");
 
 	Game.AddCommand("+ZIVShowDebugPanel", Toggle, "", 0); 
 	Game.AddCommand("-ZIVShowDebugPanel", undefined, "", 0); 

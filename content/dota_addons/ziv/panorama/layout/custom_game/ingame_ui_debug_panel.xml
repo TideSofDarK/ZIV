@@ -14,6 +14,9 @@
 			<TextButton id="SpawnBoss" text="Spawn Boss" onactivate="SpawnBoss()" />
 			<TextButton id="RemoveBoss" text="Remove Boss" onactivate="RemoveBoss()" />
 			<TextButton id="HealBoss" text="Heal Boss" onactivate="HealBoss()" />
+
+			<DropDown id="BossesStateDropDown" oninputsubmit="OnStateDropDownChanged()"/>
+			<TextButton id="LockState" text="Lock state" onactivate="LockState()" />
 		</Panel>
 	</Panel>
 </root>
