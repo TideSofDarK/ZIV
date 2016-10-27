@@ -27,6 +27,7 @@ function Debug:ChangeBossState( args )
 	local boss = EntIndexToHScript(CustomNetTables:GetTableValue( "scenario", "boss" ).entindex)
 	if boss then
     boss.sfm:SetState(args.state, true)
+    boss.sfm:LockState(true)
   end  
 end
 
