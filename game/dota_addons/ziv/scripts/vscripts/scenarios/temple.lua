@@ -159,6 +159,11 @@ function Temple:SpawnCreeps()
 				if distance < Temple.SPAWN_THRESHOLD and not v.creeps then --GetTableLength(v.creeps) == 0
 					v.creeps = v.creeps or {}
 
+					local basic_modifier
+					if math.random(1,3) == 1 then
+						basic_modifier = "random"
+					end
+
 					Director:SpawnPack({
 				        SpawnBasic = true,
 				        Count = math.random(Temple.SPAWN_MIN, Temple.SPAWN_MAX),
@@ -166,6 +171,7 @@ function Temple:SpawnCreeps()
 				        CheckHeight = true,
 				        Spread = Temple.SPAWN_SPREAD,
 				        SpawnLord = math.random(1,2) == 1,
+				        BasicModifier = basic_modifier,
 				        Table = v.creeps,
 				        CheckTable = Characters.current_session_characters
 				    })
