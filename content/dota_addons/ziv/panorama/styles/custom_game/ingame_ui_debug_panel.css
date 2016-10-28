@@ -3,11 +3,26 @@ Label {
 }
 
 TextButton {
-	border: 2px solid #ffffffFF;
+	width: fill-parent-flow(1);
+	height: 40px;
+
+	border: 2px solid #5e686966;
+
+	margin: 0 5px 0 5px;
+	text-align: center;
+	background-color: #000000;
+}
+
+TextButton Label {
+	align: center center;
 }
 
 TextButton:hover {
 	wash-color: #bbbbbb;
+}
+
+DOTASettingsCheckbox {
+	margin: 0px;
 }
 
 .DebugRoot {
@@ -16,10 +31,45 @@ TextButton:hover {
 	height: 500px;
 
 	background-color: #000000;
+	border: 2px solid #AEA998;
+
+}
+
+.full-panel {
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+
+	border: 3px solid #41626E;
+
+	background-color: #101D21;
+
+	box-shadow: inset #000000bb 4px 4px 4px 4px;
 }
 
 #BossPanel {
 	margin: 10px;
 
 	flow-children: down;
+}
+
+#BossesDropDown, 
+#BossesStateDropDown {
+	width: 220px;
+	margin-right: 10px;
+}
+
+.spawn-panel,
+.state-panel {
+	margin: 0 0 10px 0;
+	flow-children: right;
+}
+
+#LockState {
+	vertical-align: center;
+}
+
+.slider {
+	width: 100%;
+	height: 80px;
 }

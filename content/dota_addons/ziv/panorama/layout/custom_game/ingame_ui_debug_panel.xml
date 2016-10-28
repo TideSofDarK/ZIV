@@ -8,15 +8,21 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_debug_panel.js" />
 	</scripts>
 	<Panel class="DebugRoot BasicShadow WindowAnimation WindowClosed" hittest="true">
-		<Panel id="BossPanel">
-			<Label id="BossName" class="DebugLabel" text="No Boss"/>
-			<DropDown id="BossesDropDown" oninputsubmit="OnDropDownChanged()"/>
-			<TextButton id="SpawnBoss" text="Spawn Boss" onactivate="SpawnBoss()" />
-			<TextButton id="RemoveBoss" text="Remove Boss" onactivate="RemoveBoss()" />
-			<TextButton id="HealBoss" text="Heal Boss" onactivate="HealBoss()" />
-
-			<DropDown id="BossesStateDropDown" oninputsubmit="OnStateDropDownChanged()"/>
-			<TextButton id="LockState" text="Lock state" onactivate="LockState()" />
+		<Panel class="full-panel">
+			<Panel id="BossPanel">
+				<Label id="BossName" class="DebugLabel" text="No Boss"/>
+				<Panel class="spawn-panel">
+					<DropDown id="BossesDropDown" oninputsubmit="OnDropDownChanged()"/>
+					<TextButton id="SpawnBoss" text="+" onactivate="SpawnBoss()" />
+					<TextButton id="RemoveBoss" text="-" onactivate="RemoveBoss()" />
+				</Panel>
+				<Label class="DebugLabel" text="States"/>
+				<Panel class="state-panel">
+					<DropDown id="BossesStateDropDown" oninputsubmit="OnStateDropDownChanged()"/>
+					<DOTASettingsCheckbox id="LockState" text="Lock" onactivate="LockState()" />
+				</Panel>
+				<DOTASettingsSlider class="slider" id="BossHealth" min="0" max="100" text="Health percentage"/>
+			</Panel>
 		</Panel>
 	</Panel>
 </root>
