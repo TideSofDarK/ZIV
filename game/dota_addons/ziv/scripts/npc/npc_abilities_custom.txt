@@ -6482,6 +6482,7 @@
 	    "soundfile"       "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
 	    "soundfile"       "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
 	    "soundfile"       "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
+	    "soundfile"       "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
 	    "particle"        "particles/status_fx/status_effect_stickynapalm.vpcf"
 	    "particle"        "particles/heroes/witch_doctor/witch_doctor_curse_debuff.vpcf"
 	    "particle"        "particles/heroes/witch_doctor/witch_doctor_curse.vpcf"
@@ -6497,7 +6498,7 @@
 	    "02"
 	    {
 	      "var_type"                    "FIELD_INTEGER"
-	      "slow"                        "80"
+	      "slow"                        "70"
 	    }
 	    "03"
 	    {
@@ -6511,17 +6512,14 @@
 	    }
 	  }
 	
-	  "OnAbilityPhaseStart"
+	  "OnSpellStart"
 	  {
 	    "FireSound"
 	    {
-	      "EffectName"        "Hero_Silencer.Curse.Cast"
+	      "EffectName"        "Hero_Pugna.NetherBlastPreCast"
 	      "Target"            "CASTER"
 	    }
-	  }
 	
-	  "OnSpellStart"
-	  {
 	    "RunScript"
 	    {
 	      "ScriptFile"        "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"
@@ -6745,7 +6743,7 @@
 	
 	  "AbilityCastRange"        "700"
 	  "AbilityCastPoint"        "0.3"
-	  "AbilityCooldown"       "0.9"
+	  "AbilityCooldown"       "2.15"
 	  "AbilityCastAnimation"      ""
 	
 	  "AbilityManaCost"       "25"
@@ -6868,7 +6866,7 @@
 	  "precache"
 	  {
 	    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"     
-	    "particle"      "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf"
+	    "particle"      "particles/heroes/witch_doctor/witchdoctor_totem_skull.vpcf"
 	  }
 	
 	  "AbilityCastRange"        "400"
@@ -7532,69 +7530,78 @@
 	          "Function"    "InitAI"
 	        }
 	      }
-	    }
 	
-	    "ziv_creep_normal_behavior_logic"
-	    {
-	      "Passive"                         "1"
-	      "IsHidden"                        "1"   
-	
-	      "ThinkInterval"                   "1.0"
-	      "OnIntervalThink"
+	      "OnAttack"
 	      {
 	        "RunScript"
 	        {
 	          "ScriptFile"  "abilities/ziv_creeps.lua"
-	          "Function"    "CheckForHeroes"
-	        }
-	      }
-	
-	      "OnTakeDamage"
-	      {
-	        "RemoveModifier"
-	        {
-	          "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
-	          "Target"     "CASTER"
-	        }
-	        "RemoveModifier"
-	        {
-	          "ModifierName"  "ziv_creep_normal_behavior_logic"
-	          "Target"     "CASTER"
+	          "Function"    "CheckRange"
 	        }
 	      }
 	    }
 	
-	    "ziv_creep_normal_behavior_disable_autoattack"
-	    {
-	      "Passive"                         "1"
-	      "IsHidden"                        "1" 
-	      "IsPurgable"                      "0"
+	    // "ziv_creep_normal_behavior_logic"
+	    // {
+	    //   "Passive"                         "1"
+	    //   "IsHidden"                        "1"   
 	
-	      "Properties"
-	      {
-	        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
-	      }
-	    }
+	    //   "ThinkInterval"                   "1.0"
+	    //   "OnIntervalThink"
+	    //   {
+	    //     "RunScript"
+	    //     {
+	    //       "ScriptFile"  "abilities/ziv_creeps.lua"
+	    //       "Function"    "CheckForHeroes"
+	    //     }
+	    //   }
+	
+	    //   "OnTakeDamage"
+	    //   {
+	    //     "RemoveModifier"
+	    //     {
+	    //       "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
+	    //       "Target"     "CASTER"
+	    //     }
+	    //     "RemoveModifier"
+	    //     {
+	    //       "ModifierName"  "ziv_creep_normal_behavior_logic"
+	    //       "Target"     "CASTER"
+	    //     }
+	    //   }
+	    // }
+	
+	    // "ziv_creep_normal_behavior_disable_autoattack"
+	    // {
+	    //   "Passive"                         "1"
+	    //   "IsHidden"                        "1" 
+	    //   "IsPurgable"                      "0"
+	
+	    //   "Properties"
+	    //   {
+	    //     "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
+	    //   }
+	    // }
 	    
-	    "ziv_creep_normal_behavior_untouched"
-	    {
-	      "Passive"                        "1"
-	      "IsHidden"                        "1"    
+	    // "ziv_creep_normal_behavior_untouched"
+	    // {
+	    //   "Passive"                        "1"
+	    //   "IsHidden"                        "1"    
 	
-	      "States"
-	      {
-	        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
-	      }
+	    //   "States"
+	    //   {
+	    //     "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	    //   }
 	
-	      "OnTakeDamage"
-	      {
-	        "RemoveModifier"
-	        {
-	          "ModifierName"  "ziv_creep_normal_behavior_untouched"
-	          "Target"          "CASTER"
-	        }
-	      }
-	    }
+	    //   "OnTakeDamage"
+	    //   {
+	    //     "RemoveModifier"
+	    //     {
+	    //       "ModifierName"  "ziv_creep_normal_behavior_untouched"
+	    //       "Target"          "CASTER"
+	    //     }
+	    //   }
+	    // }
 	  }
 	}
 	"ziv_disable_autoattack"

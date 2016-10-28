@@ -7,7 +7,7 @@
   "precache"
   {
     "soundfile"     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"     
-    "particle"      "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf"
+    "particle"      "particles/heroes/witch_doctor/witchdoctor_totem_skull.vpcf"
   }
 
   "AbilityCastRange"        "400"

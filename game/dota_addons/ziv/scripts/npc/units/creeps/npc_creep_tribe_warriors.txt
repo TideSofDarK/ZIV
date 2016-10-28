@@ -53,7 +53,7 @@
     "AttackDamageMax"     "55"
     "AttackRate"                "0.75"
     "AttackAnimationPoint"      "0.56"
-    "AttackAcquisitionRange"    "150"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"   "100"
 
     "BountyXP"          "0"
@@ -140,7 +140,7 @@
     "AttackDamageMax"           "26"
     "AttackRate"                "1.00"
     "AttackAnimationPoint"      "0.60"
-    "AttackAcquisitionRange"    "600"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"               "750"
     "AttackRangeBuffer"         "750"
     "ProjectileModel"           "particles/creeps/ziv_tribe_archer_projectile.vpcf"

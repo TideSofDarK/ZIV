@@ -68,6 +68,12 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 	local damage_type = damage_type
 	local damage = damage
 
+	-- Check for modifier_kill 
+	if damage_type == DAMAGE_TYPE_PURE and victim:IsSummoned() and attacker:GetPlayerOwnerID() == attacker:GetPlayerOwnerID() then
+		no_blood = true
+		no_popup = true
+	end
+
 	if damage_type >= DAMAGE_TYPE_FIRE then
 		local increase = 0
 

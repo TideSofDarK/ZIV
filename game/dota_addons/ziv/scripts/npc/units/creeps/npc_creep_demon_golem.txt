@@ -46,6 +46,7 @@
     "AttackRate"                "1.35"
     "AttackAnimationPoint"      "0.3"
     "AttackAcquisitionRange"    "150"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"   "100"
 
     "BountyXP"          "0"

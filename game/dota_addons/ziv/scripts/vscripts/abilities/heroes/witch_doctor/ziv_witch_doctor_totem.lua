@@ -13,15 +13,11 @@ function CreateTotem( keys )
 		ability:ApplyDataDrivenModifier(caster,totem,"modifier_witch_doctor_totem",{duration = duration})
 		totem:SetModifierStackCount("modifier_witch_doctor_totem",caster,GRMSC("ziv_witch_doctor_totem_range", caster))
 
-		Timers:CreateTimer(0.6, function (  )
-			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf",PATTACH_POINT,totem)
-			ParticleManager:SetParticleControlEnt(particle, 0, totem, PATTACH_POINT_FOLLOW, "attach_attack1", totem:GetAbsOrigin(), false)
-			ParticleManager:SetParticleControlEnt(particle, 2, totem, PATTACH_POINT_FOLLOW, "attach_attack1", totem:GetAbsOrigin(), false)
+		local particle = ParticleManager:CreateParticle("particles/heroes/witch_doctor/witchdoctor_totem_skull.vpcf",PATTACH_POINT,totem)
+		ParticleManager:SetParticleControlEnt(particle, 0, totem, PATTACH_POINT_FOLLOW, "attach_attack1", totem:GetAbsOrigin(), false)
+		ParticleManager:SetParticleControl(particle, 2, totem:GetAbsOrigin())
 
-			AddChildParticle( totem, particle )
-		end)
-
-		keys.totem = totem
+		AddChildParticle( totem, particle )
 	end, caster:GetPlayerOwnerID())
 end
 
@@ -44,8 +40,6 @@ function CreateTotem2( keys )
 
 			if totem:IsNull() ~= true and totem:IsAlive() ~= false then return 0.8 end
 		end)
-
-		keys.totem = totem
 	end, caster:GetPlayerOwnerID())
 end
 

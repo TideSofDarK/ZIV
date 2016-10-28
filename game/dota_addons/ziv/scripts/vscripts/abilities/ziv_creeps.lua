@@ -19,3 +19,24 @@ function CheckForHeroes(keys)
 		end
 	end
 end
+
+function CheckRange( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+
+	local target = caster:GetAttackTarget()
+
+	if not caster:IsRangedAttacker() then return end
+
+	if GridNav:FindPathLength(target:GetAbsOrigin(), caster:GetAbsOrigin()) > caster:GetAttackRange() then
+		caster:MoveToNPC(target)
+
+		Timers:CreateTimer(1.5, function ()
+			if target:IsAlive() then
+				caster:MoveToTargetToAttack(target)
+			else
+
+			end
+		end)
+	end
+end

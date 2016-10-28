@@ -323,7 +323,7 @@ function Director:SpawnCreeps( spawn_table )
 						creep:AddNewModifier(creep,nil,"modifier_kill",{duration=tonumber(spawn_table.Duration)})
 					end
 
-					creep:SetAngles(0, math.random(0, 360), 0)
+					SetRandomAngle( creep )
 
 					if spawn_table.Lord == true then
 						creep:AddAbility("ziv_unique_hpbar")

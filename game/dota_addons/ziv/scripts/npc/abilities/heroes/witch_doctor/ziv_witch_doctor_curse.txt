@@ -20,6 +20,7 @@
     "soundfile"       "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
     "soundfile"       "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
     "soundfile"       "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
+    "soundfile"       "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
     "particle"        "particles/status_fx/status_effect_stickynapalm.vpcf"
     "particle"        "particles/heroes/witch_doctor/witch_doctor_curse_debuff.vpcf"
     "particle"        "particles/heroes/witch_doctor/witch_doctor_curse.vpcf"
@@ -35,7 +36,7 @@
     "02"
     {
       "var_type"                    "FIELD_INTEGER"
-      "slow"                        "80"
+      "slow"                        "70"
     }
     "03"
     {
@@ -49,17 +50,14 @@
     }
   }
 
-  "OnAbilityPhaseStart"
+  "OnSpellStart"
   {
     "FireSound"
     {
-      "EffectName"        "Hero_Silencer.Curse.Cast"
+      "EffectName"        "Hero_Pugna.NetherBlastPreCast"
       "Target"            "CASTER"
     }
-  }
 
-  "OnSpellStart"
-  {
     "RunScript"
     {
       "ScriptFile"        "abilities/heroes/witch_doctor/ziv_witch_doctor_curse.lua"

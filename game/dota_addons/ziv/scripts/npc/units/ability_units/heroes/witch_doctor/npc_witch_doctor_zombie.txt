@@ -1,6 +1,6 @@
 "npc_witch_doctor_zombie"
 {
-    "BaseClass"         "npc_dota_creature"
+    "BaseClass"         "npc_dota_base_additive"
     "Model"             "models/heroes/undying/undying_minion_torso.vmdl"
     "SoundSet"          "Undying_Zombie"
     
@@ -19,7 +19,7 @@
     "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackRate"                "1.6"
     "AttackAnimationPoint"      "0.3"
-    "AttackAcquisitionRange"    "150"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"   "100"
     
     "AttackDamageMin"        "0"
@@ -34,15 +34,17 @@
     "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementSpeed"       "425"
     "MovementTurnRate"      "1.0"
-    "FollowRange"       "250"
 
     "StatusHealth"        "370"
     "StatusHealthRegen"     "0"
     "StatusMana"        "0"
     "StatusManaRegen"     "0"
 
+    "TeamName"                  "DOTA_TEAM_GOODGUYS"            // Team name.
+    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
     "VisionDaytimeRange"    "1000"
     "VisionNighttimeRange"    "1000"
-
-    "AttackDesire" "1.5"
 } 

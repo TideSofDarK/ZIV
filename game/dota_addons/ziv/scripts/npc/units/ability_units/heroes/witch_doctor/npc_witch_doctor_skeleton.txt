@@ -32,7 +32,7 @@
     "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackRate"                "1.0"
     "AttackAnimationPoint"      "0.56"
-    "AttackAcquisitionRange"    "150"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"   "100"
     
     "AttackDamageMin"        "0"

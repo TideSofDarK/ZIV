@@ -58,6 +58,7 @@
     "AttackDamageMax"     		"55"
 	"AttackRate"				"1.5"
 	"AttackAnimationPoint"		"0.3"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"   			"100"
 
     "BountyXP"          "0"
@@ -139,6 +140,7 @@
     "AttackDamageMax"     		"55"
 	"AttackRate"				"1.3"
 	"AttackAnimationPoint"		"0.5"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"   			"100"
 
     "BountyXP"          "0"

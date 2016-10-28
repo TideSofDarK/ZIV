@@ -166,6 +166,10 @@ function Shuffle(list)
     return shuffled
 end
 
+function SetRandomAngle( unit )
+  unit:SetAngles(0, math.random(0, 360), 0)
+end
+
 function GetTableKeys(t)
   local keyset={}
   local n=0

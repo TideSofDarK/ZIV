@@ -20,7 +20,7 @@ function WDSpawn( keys )
 
 	if #units > 0 then
 		for i=1,clamp(#units, 1, count) do
-			SpawnWDCreep(caster, units[i]:GetAbsOrigin(), duration, units[i], ability, keys.creep, keys.modifier)
+			SpawnWDCreep(caster, units[i]:GetAbsOrigin(), duration, units[i], ability, creep_name, keys.modifier)
 		end
 	end
 
@@ -37,6 +37,8 @@ function SpawnWDCreep(caster, pos, duration, target, ability, creep_name, modifi
 				Wearables:AttachWearable(creep, v)
 			end
 		end
+
+		SetRandomAngle( creep )
 
 		ParticleManager:CreateParticle("particles/units/heroes/hero_undying/undying_zombie_spawn_dirt02.vpcf", PATTACH_ABSORIGIN, creep)
 

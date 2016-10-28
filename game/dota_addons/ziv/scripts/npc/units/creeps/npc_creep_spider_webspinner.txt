@@ -23,7 +23,7 @@
     "AttackDamageMax"           "48"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
-    "AttackAcquisitionRange"    "400"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"               "100"
 
     "BountyXP"                  "0"
@@ -71,7 +71,7 @@
     "AttackDamageMax"           "49"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
-    "AttackAcquisitionRange"    "400"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"               "100"
 
     "BountyXP"                  "0"
@@ -119,7 +119,7 @@
     "AttackDamageMax"           "50"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
-    "AttackAcquisitionRange"    "400"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"               "100"
 
     "BountyXP"                  "0"
@@ -165,7 +165,7 @@
     "AttackDamageMax"           "50"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
-    "AttackAcquisitionRange"    "400"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"               "100"
 
     "BountyXP"                  "0"
@@ -213,7 +213,7 @@
     "AttackDamageMax"           "49"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
-    "AttackAcquisitionRange"    "400"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"               "100"
 
     "BountyXP"                  "0"
@@ -259,7 +259,7 @@
     "AttackDamageMax"           "43"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
-    "AttackAcquisitionRange"    "400"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"               "100"
 
     "BountyXP"                  "0"
@@ -305,7 +305,7 @@
     "AttackDamageMax"           "43"
     "AttackRate"                "1"
     "AttackAnimationPoint"      "0.467"
-    "AttackAcquisitionRange"    "400"
+    "AttackAcquisitionRange"    "800"
     "AttackRange"               "100"
 
     "BountyXP"                  "0"

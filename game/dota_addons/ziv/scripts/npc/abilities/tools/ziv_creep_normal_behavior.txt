@@ -30,68 +30,77 @@
           "Function"    "InitAI"
         }
       }
-    }
 
-    "ziv_creep_normal_behavior_logic"
-    {
-      "Passive"                         "1"
-      "IsHidden"                        "1"   
-
-      "ThinkInterval"                   "1.0"
-      "OnIntervalThink"
+      "OnAttack"
       {
         "RunScript"
         {
           "ScriptFile"  "abilities/ziv_creeps.lua"
-          "Function"    "CheckForHeroes"
-        }
-      }
-
-      "OnTakeDamage"
-      {
-        "RemoveModifier"
-        {
-          "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
-          "Target"     "CASTER"
-        }
-        "RemoveModifier"
-        {
-          "ModifierName"  "ziv_creep_normal_behavior_logic"
-          "Target"     "CASTER"
+          "Function"    "CheckRange"
         }
       }
     }
 
-    "ziv_creep_normal_behavior_disable_autoattack"
-    {
-      "Passive"                         "1"
-      "IsHidden"                        "1" 
-      "IsPurgable"                      "0"
+    // "ziv_creep_normal_behavior_logic"
+    // {
+    //   "Passive"                         "1"
+    //   "IsHidden"                        "1"   
 
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
-      }
-    }
+    //   "ThinkInterval"                   "1.0"
+    //   "OnIntervalThink"
+    //   {
+    //     "RunScript"
+    //     {
+    //       "ScriptFile"  "abilities/ziv_creeps.lua"
+    //       "Function"    "CheckForHeroes"
+    //     }
+    //   }
+
+    //   "OnTakeDamage"
+    //   {
+    //     "RemoveModifier"
+    //     {
+    //       "ModifierName"  "ziv_creep_normal_behavior_disable_autoattack"
+    //       "Target"     "CASTER"
+    //     }
+    //     "RemoveModifier"
+    //     {
+    //       "ModifierName"  "ziv_creep_normal_behavior_logic"
+    //       "Target"     "CASTER"
+    //     }
+    //   }
+    // }
+
+    // "ziv_creep_normal_behavior_disable_autoattack"
+    // {
+    //   "Passive"                         "1"
+    //   "IsHidden"                        "1" 
+    //   "IsPurgable"                      "0"
+
+    //   "Properties"
+    //   {
+    //     "MODIFIER_PROPERTY_DISABLE_AUTOATTACK" "1"
+    //   }
+    // }
     
-    "ziv_creep_normal_behavior_untouched"
-    {
-      "Passive"                        "1"
-      "IsHidden"                        "1"    
+    // "ziv_creep_normal_behavior_untouched"
+    // {
+    //   "Passive"                        "1"
+    //   "IsHidden"                        "1"    
 
-      "States"
-      {
-        "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
-      }
+    //   "States"
+    //   {
+    //     "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+    //   }
 
-      "OnTakeDamage"
-      {
-        "RemoveModifier"
-        {
-          "ModifierName"  "ziv_creep_normal_behavior_untouched"
-          "Target"          "CASTER"
-        }
-      }
-    }
+    //   "OnTakeDamage"
+    //   {
+    //     "RemoveModifier"
+    //     {
+    //       "ModifierName"  "ziv_creep_normal_behavior_untouched"
+    //       "Target"          "CASTER"
+    //     }
+    //   }
+    // }
   }
 }
