@@ -26,19 +26,19 @@ function Parry( keys )
 
 	caster:EmitSound("Hero_DragonKnight.DragonTail.Target")
 
-	StartAnimation(caster, {duration=1.3, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.4})
+	StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_ATTACK, rate=5.5, translate="sven_warcry", translate2="sven_shield"})
 
 	local timer = 0
 	
-	Timers:CreateTimer(function (  )
-		local vector = (attacker:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
-		vector.z = 0
-		caster:SetForwardVector(vector)
+	-- Timers:CreateTimer(function (  )
+	-- 	local vector = (attacker:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
+	-- 	vector.z = 0
+	-- 	caster:SetForwardVector(vector)
 		
-		timer = timer + 0.03
-		if timer < 0.2 then return 0.03 end
-		EndAnimation(caster)
-	end)
+	-- 	timer = timer + 0.03
+	-- 	if timer < 0.2 then return 0.03 end
+	-- 	EndAnimation(caster)
+	-- end)
 
     if not attacker:IsRangedAttacker() then
 	   	local knockbackModifierTable =

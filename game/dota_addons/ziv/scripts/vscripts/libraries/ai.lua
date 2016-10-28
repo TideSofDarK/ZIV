@@ -21,7 +21,7 @@ function AI:CreepStart( unit )
 		PrintTable(falgs)
 		for k,v in pairs(flags) do
 			if AI[v] then
-
+				AI[v](nil, unit)
 			end
 		end
 	end
@@ -30,14 +30,27 @@ end
 function AI:FleeOnLowHP(unit)
 	unit:AddOnTakeDamageCallback( function ( damage )
 		if unit:GetHealthPercent() < 35 then
-			print("Asd")
+			unit:MoveToPosition((unit:GetForwardVector() * -600) + unit:GetAbsOrigin())
 			return true
 		end
 	end )
 end
 
 function AI:MoveDuringFight(unit)
+	unit:AddOnAttackLandedCallback(function (target)
+		unit.ai_attacks = (unit.ai_attacks or 0) + 1
+		unit.ai_next_attacks = unit.ai_next_attacks or math.random(2, 5)
 
+		if unit.ai_attacks >= unit.ai_next_attacks then
+			local target = unit:GetAttackTarget()
+			local position = RotatePosition(target:GetAbsOrigin(), QAngle(0,math.random(-20, 20),0), unit:GetAbsOrigin())
+
+			unit:MoveToPosition(position)
+
+			unit.ai_attacks = 0
+			unit.ai_next_attacks = math.random(1, 4)
+		end
+	end)
 end
 
 function AI:TryToKeepDistance(unit)

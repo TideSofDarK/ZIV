@@ -1,3 +1,22 @@
+function OnAttackLanded( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+
+	if caster._OnAttackLandedCallbacks then
+		for k,v in pairs(caster._OnAttackLandedCallbacks) do
+			v(target)
+		end
+	end
+end
+
+function InitAI( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+
+	AI:CreepStart( caster )
+end
+
 function AggroNearbyCreeps(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -24,19 +43,20 @@ function CheckRange( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
-	local target = caster:GetAttackTarget()
+	local target = caster:GetAttackTarget() or keys.target
+	keys.target = target
 
 	if not caster:IsRangedAttacker() then return end
 
 	if GridNav:FindPathLength(target:GetAbsOrigin(), caster:GetAbsOrigin()) > caster:GetAttackRange() then
 		caster:MoveToNPC(target)
 
-		Timers:CreateTimer(1.5, function ()
+		Timers:CreateTimer(0.25, function ()
 			if target:IsAlive() then
-				caster:MoveToTargetToAttack(target)
-			else
-
+				CheckRange( keys )
 			end
 		end)
+	else
+		caster:MoveToTargetToAttack(target)
 	end
 end

@@ -1,3 +1,17 @@
+function CDOTA_BaseNPC:AddOnAttackLandedCallback( callback )
+  self._OnAttackLandedCallbacks = self._OnAttackLandedCallbacks or {}
+
+  local callback_string = DoUniqueString("callback")
+
+  self._OnAttackLandedCallbacks[callback_string] = callback
+
+  return callback_string
+end
+
+function CDOTA_BaseNPC:RemoveOnAttackLandedCallback( callback_string )
+  self._OnAttackLandedCallbacks[callback_string] = nil
+end
+
 function CDOTA_BaseNPC:AddOnTakeDamageCallback( callback )
   self._OnTakeDamageCallbacks = self._OnTakeDamageCallbacks or {}
 

@@ -31,7 +31,16 @@
         }
       }
 
-      "OnAttack"
+      "OnAttackLanded"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "abilities/ziv_creeps.lua"
+          "Function"    "OnAttackLanded"
+        }
+      }
+
+      "OnAttackStart"
       {
         "RunScript"
         {
