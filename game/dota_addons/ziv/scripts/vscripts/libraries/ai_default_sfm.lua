@@ -215,6 +215,7 @@ function SFM( caster )
   sfm.caster = caster
   caster.sfm = sfm
   sfm.spawnPoint = caster:GetAbsOrigin()
+  sfm.returnDistance = 1500
   sfm.abilities = Abilities( caster )
   sfm.aggro = AggroTable()
   
@@ -230,19 +231,6 @@ function SFM( caster )
   function sfm:LockState(isStateLocked)
     sfm.isStateLocked = isStateLocked
   end
-  
-  function sfm:IsInAbilityPhase()
-    for i=0,16 do
-      local ability = self.caster:GetAbilityByIndex(i)
-      if ability then
-        if ability:IsInAbilityPhase() then
-          return true
-        end
-      end
-    end
-    
-    return false
-  end    
   
   -----------------------------
   -- Idle handlers
@@ -305,8 +293,14 @@ function SFM( caster )
     local spawnLength = (self.spawnPoint - self.caster:GetAbsOrigin()):Length2D()
     local maxCastRange = sfm.abilities:GetMaxCastLength()
     
+    -- Return to spawn point if too far
+    if spawnLength + length > sfm.returnDistance then
+      sfm:SetState(SFMStates.Idle)
+      return      
+    end
+    
     if self.state == SFMStates.Idle then
-      if length > maxCastRange and length < 1000 and spawnLength < 1000 then
+      if length > maxCastRange then
         sfm:SetState(SFMStates.Chasing)
         return
       end
@@ -318,7 +312,7 @@ function SFM( caster )
     end
     
     if self.state == SFMStates.Chasing then
-      if not hero:IsAlive() or length > 1000 then
+      if not hero:IsAlive() then
         sfm:SetState(SFMStates.Idle)
         return
       end
@@ -330,12 +324,12 @@ function SFM( caster )
     end
     
     if self.state == SFMStates.Casting then
-      if length > maxCastRange and length < 1000 then
+      if length > maxCastRange then
         sfm:SetState(SFMStates.Chasing)
         return
       end
       
-      if not hero:IsAlive() or spawnLength > 1000 then
+      if not hero:IsAlive() then
         sfm:SetState(SFMStates.Idle)
       end      
     end
