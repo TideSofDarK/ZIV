@@ -1,3 +1,64 @@
+function Abilities( caster )
+  local abilities = {}
+  abilities.caster = caster
+  abilities.table = {}
+  
+  ---------------------------------
+  -- Functions
+  ---------------------------------  
+  function abilities:IsInAbilityPhase()
+    for i=0,16 do
+      local ability = self.caster:GetAbilityByIndex(i)
+      if ability then
+        if ability:IsInAbilityPhase() then
+          return true
+        end
+      end
+    end
+    
+    return false
+  end  
+  
+  function abilities:GetMaxCastLength()
+    local max = 0
+    for _,ability in pairs(self.table) do
+      local castRange = ability:GetCastRange()
+      if castRange > max then
+        max = castRange
+      end
+    end
+    
+    return max
+  end
+  
+  function abilities:Update( hero )
+    -- To prevent abilitity interruption
+    if self:IsInAbilityPhase() then
+      return
+    end
+    
+    self.table = {}
+    for i=0,16 do
+      local ability = self.caster:GetAbilityByIndex(i)
+
+      -- if ability and DOTA_ABILITY_BEHAVIOR_HIDDEN ~= bit.band( DOTA_ABILITY_BEHAVIOR_HIDDEN, ability:GetBehavior() ) and ability:IsCooldownReady() then abilities[ability] = ability:GetCastRange() end 
+      if ability 
+        and DOTA_ABILITY_BEHAVIOR_HIDDEN ~= bit.band( DOTA_ABILITY_BEHAVIOR_HIDDEN, ability:GetBehavior() ) 
+        and ability:IsFullyCastable()
+        and (not ability:GetKeyValue("HPThreshold") or (unit:GetHealth() / unit:GetMaxHealth()) < (ability:GetKeyValue("HPThreshold") / 100))
+        and ability:IsInAbilityPhase() == false
+        and (ability:GetCastRange() >= (hero:GetAbsOrigin() - self.caster:GetAbsOrigin()):Length2D() or DOTA_ABILITY_BEHAVIOR_NO_TARGET == bit.band( DOTA_ABILITY_BEHAVIOR_NO_TARGET, ability:GetBehavior() ))
+        then table.insert(self.table, ability) end 
+    end    
+  end
+  
+  function abilities:GetAvaliable()
+    return self.table
+  end
+  
+  return abilities
+end
+
 ---------------------------------
 -- Aggro handlers
 ---------------------------------
@@ -147,6 +208,7 @@ function SFM( caster )
   sfm.caster = caster
   caster.sfm = sfm
   sfm.spawnPoint = caster:GetAbsOrigin()
+  sfm.abilities = Abilities( caster )
   sfm.aggro = AggroTable()
   
   ---------------------------------
@@ -163,17 +225,17 @@ function SFM( caster )
   end
   
   function sfm:IsInAbilityPhase()
-      for i=0,16 do
-        local ability = self.caster:GetAbilityByIndex(i)
-        if ability then
-          if ability:IsInAbilityPhase() then
-            return true
-          end
+    for i=0,16 do
+      local ability = self.caster:GetAbilityByIndex(i)
+      if ability then
+        if ability:IsInAbilityPhase() then
+          return true
         end
       end
-      
-      return false
-  end  
+    end
+    
+    return false
+  end    
   
   -----------------------------
   -- Idle handlers
@@ -197,7 +259,8 @@ function SFM( caster )
   -- Casting handlers
   -----------------------------
   function sfm:Casting()
-    if sfm:IsInAbilityPhase() then
+    -- To prevent abilitity interruption
+    if sfm.abilities:IsInAbilityPhase() then
       return
     end
     
@@ -207,21 +270,7 @@ function SFM( caster )
     end
     
     local unit = sfm.caster
-
-    local abilities = {}
-    for i=0,16 do
-      local ability = unit:GetAbilityByIndex(i)
-
-      -- if ability and DOTA_ABILITY_BEHAVIOR_HIDDEN ~= bit.band( DOTA_ABILITY_BEHAVIOR_HIDDEN, ability:GetBehavior() ) and ability:IsCooldownReady() then abilities[ability] = ability:GetCastRange() end 
-      if ability 
-        and DOTA_ABILITY_BEHAVIOR_HIDDEN ~= bit.band( DOTA_ABILITY_BEHAVIOR_HIDDEN, ability:GetBehavior() ) 
-        and ability:IsFullyCastable()
-        and (not ability:GetKeyValue("HPThreshold") or (unit:GetHealth() / unit:GetMaxHealth()) < (ability:GetKeyValue("HPThreshold") / 100))
-        and ability:IsInAbilityPhase() == false
-        and (ability:GetCastRange() >= (hero:GetAbsOrigin() - unit:GetAbsOrigin()):Length2D() or DOTA_ABILITY_BEHAVIOR_NO_TARGET == bit.band( DOTA_ABILITY_BEHAVIOR_NO_TARGET, ability:GetBehavior() ))
-        then table.insert(abilities, ability) end 
-    end
-
+    local abilities = sfm.abilities:GetAvaliable()
     local next_ability = GetRandomElement(abilities)
 
     if next_ability then
@@ -243,16 +292,19 @@ function SFM( caster )
         return    
     end
     
+    self.abilities:Update(hero)
+    
     local length = (hero:GetAbsOrigin() - self.caster:GetAbsOrigin()):Length2D()
     local spawnLength = (self.spawnPoint - self.caster:GetAbsOrigin()):Length2D()
+    local maxCastRange = sfm.abilities:GetMaxCastLength()
     
     if self.state == SFMStates.Idle then
-      if length > 500 and length < 1000 and spawnLength < 1000 then
+      if length > maxCastRange and length < 1000 and spawnLength < 1000 then
         sfm:SetState(SFMStates.Chasing)
         return
       end
       
-      if hero:IsAlive() and length < 700 then
+      if hero:IsAlive() and length < maxCastRange then
         sfm:SetState(SFMStates.Casting)
         return
       end
@@ -264,14 +316,14 @@ function SFM( caster )
         return
       end
       
-      if length < 700 then
+      if length < maxCastRange then
         sfm:SetState(SFMStates.Casting)
         return
       end
     end
     
     if self.state == SFMStates.Casting then
-      if length > 700 and length < 1000 then
+      if length > maxCastRange and length < 1000 then
         sfm:SetState(SFMStates.Chasing)
         return
       end
