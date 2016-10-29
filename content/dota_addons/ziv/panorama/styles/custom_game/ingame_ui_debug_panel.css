@@ -53,6 +53,7 @@ DOTASettingsCheckbox {
 	flow-children: down;
 }
 
+DropDownMenu,
 #BossesDropDown, 
 #BossesStateDropDown {
 	width: 220px;
