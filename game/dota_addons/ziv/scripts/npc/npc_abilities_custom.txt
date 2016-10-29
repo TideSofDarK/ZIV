@@ -3286,7 +3286,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityTextureName"			"ziv_empty"
+		"AbilityTextureName"			"ziv_elementalist_ball_lightning"
 	
 		"AbilityCastRange"        "900"
 		"AbilityCastPoint"				"0.001"
@@ -3396,7 +3396,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_ep"		"1.0"
+				"damage_per_ep"		"3.5"
 			}
 		}
 	
@@ -3678,7 +3678,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_elementalist_dark_illusion"
 	
 	  "AbilityCastRange"        "700"
 	  "AbilityCastPoint"        "0.3"
@@ -3795,7 +3795,7 @@
 		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	  	"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	  	"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"ziv_empty"
+		"AbilityTextureName"			"ziv_elementalist_dark_orb"
 	
 		"AbilityCastRange" 	"1600"
 		"AbilityManaCost"	"15"
@@ -4121,7 +4121,7 @@
 	  "AbilityCastRange"        "1100"
 	  "AbilityManaCost"         "60"
 	  "AbilityCastPoint"        "0.5"
-	  "AbilityCooldown"         "4"
+	  "AbilityCooldown"         "1"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	  
 	  "MaxLevel"          "1"

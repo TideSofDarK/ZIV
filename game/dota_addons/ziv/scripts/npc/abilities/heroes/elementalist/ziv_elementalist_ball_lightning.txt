@@ -4,7 +4,7 @@
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-	"AbilityTextureName"			"ziv_empty"
+	"AbilityTextureName"			"ziv_elementalist_ball_lightning"
 
 	"AbilityCastRange"        "900"
 	"AbilityCastPoint"				"0.001"
