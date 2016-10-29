@@ -296,7 +296,7 @@ function SFM( caster )
     -- Return to spawn point if too far
     if spawnLength + length > sfm.returnDistance then
       sfm:SetState(SFMStates.Idle)
-      return      
+      return
     end
     
     if self.state == SFMStates.Idle then
