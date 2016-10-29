@@ -19,13 +19,15 @@ function Divide( keys )
 		local copies = {}
 
 		for i=1,2 do
-			local new_keys = DeepCopy(keys)
-			new_keys.caster = CreateUnitByName(caster:GetUnitName(),caster:GetAbsOrigin(),true,nil,nil,caster:GetTeamNumber())
-			new_keys.caster:SetModelScale(new_keys.caster:GetModelScale() * 0.75)
-			new_keys.caster:RemoveAbility("ziv_doom_passive")
-			new_keys.caster:SetMaxHealth(new_keys.caster:GetMaxHealth()/2)
-			table.insert(copies, new_keys.caster)
-			AI:BossStart( new_keys )
+			--local new_keys = DeepCopy(keys)
+      local copy = CreateUnitByName(caster:GetUnitName(),caster:GetAbsOrigin(),true,nil,nil,caster:GetTeamNumber())
+			copy:SetModelScale(caster:GetModelScale() * 0.75)
+			copy:RemoveAbility("ziv_doom_passive")
+			copy:SetMaxHealth(caster:GetMaxHealth()/2)
+			table.insert(copies, copy)
+			AI:BossStart( copy )
+      
+      copy.sfm.aggro:SetTable(caster.sfm.aggro.table)
 		end
 
 		Timers:CreateTimer(function (  )
