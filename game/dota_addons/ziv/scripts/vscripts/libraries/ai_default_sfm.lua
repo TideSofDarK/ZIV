@@ -183,6 +183,13 @@ function AggroTable()
     end
   end    
   
+  -- Set new aggro table
+  function aggro:SetTable( table )
+    if table ~= nil then
+      self.table = table
+    end
+  end
+  
   -- Add aggro value
   function aggro:Add( attacker, damage )
     self.table[attacker] = (self.table[attacker] or 0) + damage
