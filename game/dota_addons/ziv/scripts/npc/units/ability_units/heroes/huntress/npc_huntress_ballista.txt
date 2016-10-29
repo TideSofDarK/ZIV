@@ -4,7 +4,7 @@
     "Model"                     "models/units/ballista/ballista_top.vmdl"
     "SoundSet"                  "Creep_Good_Engine"
 
-    "ModelScale"                    "1.25"
+    "ModelScale"                    "14.5"
     "Level"                         "4"
     "CanBeDominated"                "1"
 

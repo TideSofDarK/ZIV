@@ -6,7 +6,7 @@
 		[
 			{
 				m_meshName = "ballista_top"
-				m_meshFile = "models/units/ballista/ballista_top.fbx"
+				m_meshFile = "models/units/ballista/ballista_top.dmx"
 				m_materialSearchPath = ""
 				m_bSkinParentedObjects = true
 				m_bLegacySkinParentedTransforms = false
@@ -59,7 +59,7 @@
 						m_influences = 
 						[
 							{
-								m_influenceName = "Bone.001_end"
+								m_influenceName = "Bone.001"
 								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
 								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
 								m_flWeight = 1.0
@@ -105,11 +105,11 @@
 			m_Vanim = 
 			[
 				{
-					m_Animationname = "ballista_attack"
-					m_Filepath = "models/units/ballista/ballista_top.fbx"
+					m_Animationname = "attack"
+					m_Filepath = "models/units/ballista/anims/attack.dmx"
 					m_nStartframe = 0
 					m_nEndframe = 120
-					m_flFps = 250.0
+					m_flFps = 170.0
 					m_Loop = 
 					{
 						m_bLoop = false
@@ -133,7 +133,24 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
 					m_adjustAnimation = 
@@ -187,7 +204,7 @@
 		m_vMaterialRemapList = 
 		[
 			{
-				m_sSearchMaterial = "*"
+				m_sSearchMaterial = "ballista_top_color.vmat"
 				m_sReplaceMaterial = "materials/models/units/ballista_top.vmat"
 			},
 		]
