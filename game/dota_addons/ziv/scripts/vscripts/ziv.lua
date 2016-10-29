@@ -238,9 +238,7 @@ function ZIV:InitZIV()
   Trade:Init()
   Loot:Init()
   Damage:Init()
-  if IsInToolsMode() then
-    Debug:Init()
-  end
+  Debug:Init()
 
   Attributes:Init()
 

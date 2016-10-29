@@ -142,8 +142,15 @@ function Loot:AddModifiers( item )
 
 	if item.rarity then
 		local modifier_count = item.rarity + math.random(0, 1)
+		local existing = {}
 
 		for i=1,modifier_count do
+			local seed
+  			repeat
+  				seed = math.random(1, GetTableLength(Loot.CommonModifiers))
+  			until not existing[seed]
+			existing[seed] = true
+
 			local seed = math.random(1, GetTableLength(Loot.CommonModifiers))
 			local x = 1
 			for k,v in pairs(Loot.CommonModifiers) do

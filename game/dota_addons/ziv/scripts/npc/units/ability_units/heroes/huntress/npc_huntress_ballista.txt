@@ -1,10 +1,10 @@
 "npc_huntress_ballista"
 {
-    "BaseClass"                 "npc_dota_creep_lane"
-    "Model"                     "models/creeps/lane_creeps/creep_good_siege/creep_good_siege.vmdl"
+    "BaseClass"                 "npc_dota_creature"
+    "Model"                     "models/units/ballista/ballista_top.vmdl"
     "SoundSet"                  "Creep_Good_Engine"
 
-    "ModelScale"                    ".65"
+    "ModelScale"                    "1.25"
     "Level"                         "4"
     "CanBeDominated"                "1"
 
@@ -17,8 +17,8 @@
     "AttackDamageMin"           "35"
     "AttackDamageMax"           "45"
     "AttackDamageType"          "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                "0.2"
-    "AttackAnimationPoint"      "0.7"
+    "AttackRate"                "1.100000"
+    "AttackAnimationPoint"      "0.050000"
     "AttackAcquisitionRange"    "800"
     "AttackRange"               "690"
     "ProjectileModel"           "particles/heroes/huntress/huntress_ballista_projectile.vpcf"

@@ -2,7 +2,7 @@
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-  "AbilityTextureName"            "ziv_empty"
+  "AbilityTextureName"            "ziv_elementalist_dark_illusion"
 
   "AbilityCastRange"        "700"
   "AbilityCastPoint"        "0.3"

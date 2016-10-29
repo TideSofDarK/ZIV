@@ -18,7 +18,7 @@
 		"01"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"damage_per_ep"		"1.0"
+			"damage_per_ep"		"3.5"
 		}
 	}
 
