@@ -49,7 +49,26 @@
 	m_pAttachmentLists = [  ]
 	m_pAnimGroup = 
 	{
-		m_pObject = null
+		m_pObject = 
+		{
+			m_Name = ""
+			m_pReferenceSkeleton = 
+			{
+				m_pObject = null
+			}
+			m_pBoneFlagList = 
+			{
+				m_pObject = null
+			}
+			m_pSeqGroup = 
+			{
+				m_pObject = null
+			}
+			m_pAnimGroups = [  ]
+			m_Vanim = [  ]
+			m_sScripts = [  ]
+			m_folderNames = [  ]
+		}
 	}
 	m_pMaterialGroupList = 
 	{

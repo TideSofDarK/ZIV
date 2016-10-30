@@ -12,7 +12,7 @@
 			m_ModelList = 
 			[
 				{
-					m_model = resource:"models/particle/legion_arrow.vmdl"
+					m_model = resource:"models/projectiles/mirana_arrow.vmdl"
 				},
 			]
 			m_bAnimated = true

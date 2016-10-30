@@ -59,9 +59,9 @@
 						m_influences = 
 						[
 							{
-								m_influenceName = "Bone.001"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_influenceName = "main"
+								m_vTranslationOffset = [ -0.0, -1.427374, 0.0 ]
+								m_vRotationOffset = [ 0.0, -0.0, 0.000004 ]
 								m_flWeight = 1.0
 								m_bRoot = false
 							},
@@ -72,7 +72,20 @@
 						m_influences = 
 						[
 							{
-								m_influenceName = "Bone.001"
+								m_influenceName = "main"
+								m_vTranslationOffset = [ 0.0, -1.88191, 0.000001 ]
+								m_vRotationOffset = [ 0.0, -0.0, 0.0 ]
+								m_flWeight = 1.0
+								m_bRoot = false
+							},
+						]
+					},
+					{
+						m_name = "attach_bottom"
+						m_influences = 
+						[
+							{
+								m_influenceName = "bottom"
 								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
 								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
 								m_flWeight = 1.0
@@ -109,7 +122,7 @@
 					m_Filepath = "models/units/ballista/anims/attack.dmx"
 					m_nStartframe = 0
 					m_nEndframe = 120
-					m_flFps = 170.0
+					m_flFps = 130.0
 					m_Loop = 
 					{
 						m_bLoop = false
@@ -204,7 +217,7 @@
 		m_vMaterialRemapList = 
 		[
 			{
-				m_sSearchMaterial = "ballista_top_color.vmat"
+				m_sSearchMaterial = "*"
 				m_sReplaceMaterial = "materials/models/units/ballista_top.vmat"
 			},
 		]

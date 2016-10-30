@@ -419,7 +419,7 @@
 	    "Model"                     "models/units/ballista/ballista_top.vmdl"
 	    "SoundSet"                  "Creep_Good_Engine"
 	
-	    "ModelScale"                    "14.5"
+	    "ModelScale"                    "18.5"
 	    "Level"                         "4"
 	    "CanBeDominated"                "1"
 	
@@ -433,7 +433,7 @@
 	    "AttackDamageMax"           "45"
 	    "AttackDamageType"          "DAMAGE_TYPE_ArmorPhysical"
 	    "AttackRate"                "1.100000"
-	    "AttackAnimationPoint"      "0.050000"
+	    "AttackAnimationPoint"      "0.700000"
 	    "AttackAcquisitionRange"    "800"
 	    "AttackRange"               "690"
 	    "ProjectileModel"           "particles/heroes/huntress/huntress_ballista_projectile.vpcf"

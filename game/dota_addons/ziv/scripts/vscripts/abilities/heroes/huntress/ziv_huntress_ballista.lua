@@ -10,22 +10,21 @@ function SpawnBallista( keys )
 	local ballista = CreateUnitByName("npc_huntress_ballista", target, false, caster, caster, caster:GetTeamNumber())
 	ability:ApplyDataDrivenModifier(ballista,ballista,"modifier_ballista",{})
 
-    local ballista_bottom = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/units/ballista/ballista_bottom.vmdl", DefaultAnim=animation, targetname=DoUniqueString("prop_dynamic")})
-    ballista_bottom:SetAbsOrigin(target)
-
     ability:ApplyDataDrivenModifier(ballista,ballista,"modifier_ballista_as",{})
     ballista:SetModifierStackCount("modifier_ballista_as",ballista,GRMSC("ziv_huntress_ballista_as", caster))
 
 	ballista:AddNewModifier(ballista, nil, "modifier_kill", {duration = _duration})
-    Timers:CreateTimer(_duration, function (  )
-        UTIL_Remove(ballista_bottom)
-    end)
+
+    ballista.bottom = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/units/ballista/ballista_bottom.vmdl", DefaultAnim=animation, targetname=DoUniqueString("prop_dynamic")})
+    ballista.bottom:SetAbsOrigin(target)
+    ballista.bottom:SetModelScale(ballista:GetModelScale())
 end
 
 function BallistaDeath( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
+    UTIL_Remove(caster.bottom)
 	caster:RemoveSelf()
 end
 
