@@ -6,7 +6,7 @@
 		[
 			{
 				m_meshName = "ballista_bottom"
-				m_meshFile = "models/units/ballista/ballista_bottom.fbx"
+				m_meshFile = "models/units/ballista/ballista_bottom.dmx"
 				m_materialSearchPath = ""
 				m_bSkinParentedObjects = true
 				m_bLegacySkinParentedTransforms = false
