@@ -627,6 +627,138 @@
 	    }
 	  }
 	}
+	"item_amethyst_ring"
+	{
+	  "ID"		                  "1002"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_amethyst_ring"
+	  "Model"                   "models/items/basic_coat.vmdl" 
+	
+	  "Slot"  "ring"
+	  "EquipSound"  "Item.DropRingShop"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	  
+	  "BaseModifiers"
+	  {
+	    "DARK_RESISTANCE"
+	    {
+	      "min" "1"
+	      "max" "11"
+	    }
+	    "DARK_DAMAGE_INCREASE"
+	    {
+	      "min" "1"
+	      "max" "35"
+	    }
+	  }
+	}
+	"item_malachite_ring"
+	{
+	  "ID"		                  "1002"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_malachite_ring"
+	  "Model"                   "models/items/basic_coat.vmdl" 
+	
+	  "Slot"  "ring"
+	  "EquipSound"  "Item.DropRingShop"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	  
+	  "BaseModifiers"
+	  {
+	    "LIGHTNING_RESISTANCE"
+	    {
+	      "min" "1"
+	      "max" "11"
+	    }
+	    "LIGHTNING_DAMAGE_INCREASE"
+	    {
+	      "min" "1"
+	      "max" "35"
+	    }
+	  }
+	}
+	"item_ruby_ring"
+	{
+	  "ID"		                  "1002"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_ruby_ring"
+	  "Model"                   "models/items/basic_coat.vmdl" 
+	
+	  "Slot"  "ring"
+	  "EquipSound"  "Item.DropRingShop"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	  
+	  "BaseModifiers"
+	  {
+	    "FIRE_RESISTANCE"
+	    {
+	      "min" "1"
+	      "max" "11"
+	    }
+	    "FIRE_DAMAGE_INCREASE"
+	    {
+	      "min" "1"
+	      "max" "35"
+	    }
+	  }
+	}
+	"item_topaz_ring"
+	{
+	  "ID"		                  "1002"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_topaz_ring"
+	  "Model"                   "models/items/basic_coat.vmdl" 
+	
+	  "Slot"  "ring"
+	  "EquipSound"  "Item.DropRingShop"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	  
+	  "BaseModifiers"
+	  {
+	    "COLD_RESISTANCE"
+	    {
+	      "min" "1"
+	      "max" "11"
+	    }
+	    "COLD_DAMAGE_INCREASE"
+	    {
+	      "min" "1"
+	      "max" "35"
+	    }
+	  }
+	}
 	"item_rune_beastmaster_leap_cd"
 	{
 	  "ID"		"1513"
