@@ -2,15 +2,15 @@ function Barrier( event )
 	local caster = event.caster
 	local ability = event.ability
 	local damage_per_mana = GetSpecial(ability, "damage_per_ep")
-	local absorption_percent = 0.5
-	local damage = event.Damage * absorption_percent
+	local damage_absorption = GetSpecial(ability, "damage_absorption")
+	local damage = event.Damage * damage_absorption
 	local not_reduced_damage = event.Damage - damage
 
 	local caster_mana = caster:GetMana()
 	local mana_needed = damage / damage_per_mana
 
 	local old_health = (caster.old_health or 0) - not_reduced_damage
-	
+
 	if old_health >= 1 then
 		if mana_needed <= caster_mana then
 			caster:SpendMana(mana_needed, ability)

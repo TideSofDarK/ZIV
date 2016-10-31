@@ -197,7 +197,7 @@ function Temple:SpawnCreeps()
 			end
 		end)
 
-		return 1.0
+		return 2.0
 	end)
 end
 

@@ -510,10 +510,13 @@ function CharacterSelectionLock() {
 	var slots = heroKV["EquipmentSlots"].split(';');
 	for (var i = 0; i < previewEquipment.length; i++) {
 		previewEquipment[i].SetImage("file://{images}/custom_game/ingame_ui/slots/" + slots[i] + ".png");
-		for (var x = 0; x < selectedCharacter.equipment.length; x++) {
-			var itemName = selectedCharacter.equipment[x]["item"];
-			if (itemKVs[itemName]["Slot"] == slots[i]) {
+	}
+	for (var x = selectedCharacter.equipment.length - 1; x >= 0; x--) {
+		var itemName = selectedCharacter.equipment[x]["item"];
+		for (var i = 0; i < previewEquipment.length; i++) {
+			if (previewEquipment[i].itemname.match("item") == null && slots[i].match(itemKVs[itemName]["Slot"]) != null) {
 				previewEquipment[i].itemname = itemName;
+				break;
 			}
 		}
 	}

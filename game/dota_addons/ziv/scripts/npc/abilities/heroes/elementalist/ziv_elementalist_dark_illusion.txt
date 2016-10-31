@@ -34,7 +34,7 @@
     "02"
     {
       "var_type"                      "FIELD_INTEGER"
-      "illusion_incoming_damage"      "50"
+      "illusion_incoming_damage"      "100"
     }
     "03"
     {

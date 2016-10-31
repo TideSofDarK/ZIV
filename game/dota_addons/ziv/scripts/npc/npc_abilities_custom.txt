@@ -3282,8 +3282,11 @@
 	}
 	"ziv_elementalist_arc_lightning"
 	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"BaseClass"						"ability_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"ziv_elementalist_arc_lightning"
 	
@@ -3293,7 +3296,7 @@
 		
 		"AbilityManaCost"				"15"
 	
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ALACRITY"
+		"ScriptFile"                  "abilities/heroes/elementalist/ziv_elementalist_arc_lightning.lua"
 	
 		"AbilitySpecial"
 		{
@@ -3318,21 +3321,6 @@
 		{
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 			"particle"					"particles/heroes/elementalist/elementalist_arc_lightning.vpcf"
-		}
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"abilities/heroes/elementalist/ziv_elementalist_arc_lightning.lua"
-				"Function"				"ArcLightning"
-				"Target"				"POINT"
-			}
-		}
-		
-		"Modifiers"
-		{
-	
 		}
 	}
 	"ziv_elementalist_ball_lightning"
@@ -3451,7 +3439,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_ep"		"3.5"
+				"damage_per_ep"			"0.6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_absorption"		"0.6"
 			}
 		}
 	
@@ -3765,7 +3758,7 @@
 	    "02"
 	    {
 	      "var_type"                      "FIELD_INTEGER"
-	      "illusion_incoming_damage"      "50"
+	      "illusion_incoming_damage"      "100"
 	    }
 	    "03"
 	    {
