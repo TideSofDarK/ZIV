@@ -81,16 +81,10 @@ function UpdateItem()
 
 	$.GetContextPanel().SetHasClass( "show_stock", stock >= 0 );
 	$.GetContextPanel().SetHasClass( "out_of_stock", stock === 0 );
-	$.GetContextPanel().SetHasClass( "show_price", price >= 0 );
-	$.GetContextPanel().SetHasClass( "high_price", gold < price );
 
 	$.GetContextPanel().SetHasClass( "no_item", (m_Item == -1) );
 	$.GetContextPanel().SetHasClass( "show_charges", hasCharges );
 	$.GetContextPanel().SetHasClass( "show_alt_charges", hasAltCharges );
-	$.GetContextPanel().SetHasClass( "is_passive", isPassive );
-	//$.GetContextPanel().SetHasClass( "no_mana_cost", (Abilities.GetManaCost( m_Item ) <= 0));
-	//$.Msg(m_QueryUnit, " -- ", m_Item, " -- ", Abilities.GetManaCost( m_Item ), " -- ", Entities.GetMana(m_QueryUnit));
-	$.GetContextPanel().SetHasClass( "low_mana", ((m_QueryUnit !== -1) && Abilities.GetManaCost( m_Item ) > Entities.GetMana(m_QueryUnit)));
 
 	
 
@@ -103,35 +97,10 @@ function UpdateItem()
 		itemImageName = itemKV["AbilityTextureName"] ? itemKV["AbilityTextureName"] : itemName;
 	}
 
-	$( "#HotkeyText" ).text = hotkey;
 	$( "#ItemImage" ).itemname = itemImageName; 
 	$( "#ItemImage" ).contextEntityIndex = m_Item;
 	$( "#ChargeCount" ).text = chargeCount;
-	$( "#AltChargeCount" ).text = altChargeCount;
-
-	$( "#Price" ).text = price;
-	$( "#Stock" ).text = "x" + stock;
-
-
-	var manaCost = Abilities.GetManaCost( m_Item );
-	if (m_Container)
-		$( "#ManaCost" ).text = Abilities.GetManaCost( m_Item );
-	
-	if ( m_QueryUnit == -1 || m_Item == -1 || Items.GetPurchaser( m_Item ) == -1 || Abilities.IsCooldownReady( m_Item ) )
-	{
-		$.GetContextPanel().SetHasClass( "cooldown_ready", true );
-		$.GetContextPanel().SetHasClass( "in_cooldown", false );
-	}
-	else
-	{
-		$.GetContextPanel().SetHasClass( "cooldown_ready", false );
-		$.GetContextPanel().SetHasClass( "in_cooldown", true ); 
-		var cooldownLength = Abilities.GetCooldownLength( m_Item );
-		var cooldownRemaining = Abilities.GetCooldownTimeRemaining( m_Item );
-		var cooldownPercent = Math.ceil( 100 * cooldownRemaining / cooldownLength );
-		$( "#CooldownTimer" ).text = Math.ceil( cooldownRemaining );
-		$( "#CooldownOverlay" ).style.width = cooldownPercent+"%";
-	}
+	// $( "#AltChargeCount" ).text = altChargeCount;
 	
 	$.Schedule( 0.1, UpdateItem );
 }

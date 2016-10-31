@@ -97,7 +97,7 @@ function ExecuteProxy(msg)
       }
       $.Schedule(1/60, fun);
     };
-
+    
     $.Schedule(1/60, fun);    
   }
   else{
@@ -182,20 +182,6 @@ function EmitClientSound(msg)
   }
 }
 
-function UsePanoramaInventory(msg)
-{
-  var use = msg.use;
-  var panInv = $("#PanoramaInventory");
-  if (use === 0){
-    panInv.visible = false;
-    GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_ITEMS, true );
-  }
-  else{
-    panInv.visible = true;
-    GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_ITEMS, false );
-  }
-}
-
 function ScreenHeightWidth()
 {
   var panel = $.GetContextPanel();
@@ -226,19 +212,12 @@ function RegisterEventHandler(name, func)
   GameEvents.Subscribe( "cont_execute_proxy", ExecuteProxy);
   GameEvents.Subscribe( "cont_create_error_message", CreateErrorMessage);
   GameEvents.Subscribe( "cont_emit_client_sound", EmitClientSound);
-  GameEvents.Subscribe( "cont_use_panorama_inventory", UsePanoramaInventory);
 
   GameEvents.Subscribe( "dota_player_update_selected_unit", CheckShop );
   GameEvents.Subscribe( "dota_player_update_query_unit", CheckShop );
 
-  var use = CustomNetTables.GetTableValue( "containers_lua", "use_panorama_inventory" );
-  if (use)
-    UsePanoramaInventory({use:use.value});
-  else
-    UsePanoramaInventory({use:false});
-
-  CheckShopSchedule();
-  CheckCouriers();
+  // CheckShopSchedule();
+  // CheckCouriers();
 
   //$.Msg("container_base: ", panel); 
 

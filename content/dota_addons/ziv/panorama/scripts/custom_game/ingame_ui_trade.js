@@ -80,7 +80,7 @@ function Toggle(args) {
 
 function CreateItemSlot( parent, num ) {
     var itemPanel = $.CreatePanel( "Panel", parent, "Slot_" + num );
-    itemPanel.BLoadLayout( "file://{resources}/layout/custom_game/containers/dota_inventory_item.xml", false, false );
+    itemPanel.BLoadLayout( "file://{resources}/layout/custom_game/containers/inventory_item.xml", false, false );
 }
 
 function GenerateSlots( parent ) {

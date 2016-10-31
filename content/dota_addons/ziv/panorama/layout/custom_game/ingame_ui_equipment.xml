@@ -4,7 +4,6 @@
 		<include src="file://{resources}/styles/custom_game/ingame_ui.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_abilities.css" />
-		<include src="file://{resources}/styles/custom_game/ingame_ui_inventory.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_equipment.css" />
 	</styles>
 	<scripts>

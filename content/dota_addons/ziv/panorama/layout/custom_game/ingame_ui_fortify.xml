@@ -3,7 +3,6 @@
 		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_fortify.css" />
-		<include src="file://{resources}/styles/custom_game/ingame_ui_inventory.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_fortify.js" />

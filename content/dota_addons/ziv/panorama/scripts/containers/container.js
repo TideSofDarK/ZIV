@@ -243,7 +243,7 @@ function NewContainer(id)
   SetHeaderText(pt.headerText);
   SetLayout(pt.layout);
   SetButtons(pt.buttons);
-  panel.SetDraggable(pt.draggable !== 0);
+  panel.SetDraggable(false); //pt.draggable !== 0
   isShop = pt.shop === 1;
 
   if (pt.OnCloseClicked === 0 && $("#CloseButton"))
