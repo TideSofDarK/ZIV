@@ -53,7 +53,7 @@ function panelHandler( panel ) {
     }
   }
   // Init item data
-  $.Schedule(0.1, panel.ItemCheck);
+  $.Schedule(0.2, panel.ItemCheck);
 }
 
 function WorldPanelChange(id, changes, dels)

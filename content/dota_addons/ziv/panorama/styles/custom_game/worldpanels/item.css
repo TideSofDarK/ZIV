@@ -1,6 +1,12 @@
 .Item {
 	/*height: 60px;*/
 	background-color: black;
+
+	visibility: collapse;
+}
+
+.AltPressed .Item {
+	visibility: visible;
 }
 
 #ItemButton {
