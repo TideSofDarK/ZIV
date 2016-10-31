@@ -11,9 +11,9 @@
     "PrimaryDamageType" "DAMAGE_TYPE_DARK"
     "CreationSound" "invoker_invo_begin_01"
 
-    "EquipmentSlots" "torso;ring2;gloves;ring;pants;boots"
+    "EquipmentSlots" "torso;ring;gloves;ring2;pants;boots"
 
-    "ChooseLayout"  "21122"
+    "ChooseLayout"  "21121"
 
     "AbilityLayout"     "5"
 
@@ -23,8 +23,8 @@
     "Ability4"        "ziv_elementalist_barrier"
     "Ability5"        "ziv_elementalist_dark_orb" 
     "Ability6"        "ziv_elementalist_arc_lightning" 
-    "Ability7"        "ziv_elementalist_ball_lightning" 
-    "Ability8"        "ziv_elementalist_dark_illusion"
+    "Ability7"        "ziv_elementalist_dark_illusion" 
+    "Ability8"        ""
     "Ability9"        ""
     "Ability10"       ""
     "Ability11"       ""

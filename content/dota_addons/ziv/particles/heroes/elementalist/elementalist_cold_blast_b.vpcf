@@ -61,7 +61,7 @@
 			_class = "C_INIT_CreateSpiralSphere"
 			m_bUseParticleCount = true
 			m_nDensity = 1
-			m_flInitialRadius = 68.0
+			m_flInitialRadius = 52.0
 			m_nControlPointNumber = 3
 		},
 		{

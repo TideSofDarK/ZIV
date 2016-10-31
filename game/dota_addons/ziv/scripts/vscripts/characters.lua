@@ -109,7 +109,7 @@ function Characters:SpawnCharacter( pID, args )
         Timers:CreateTimer(function ()
           local item_slot = ZIV.ItemKVs[v.item]["Slot"]
           for i,slot in ipairs(KeyValues:Split(ZIV.HeroesKVs[hero:GetUnitName()]["EquipmentSlots"], ';')) do
-            if slot == item_slot then
+            if not hero.equipment:GetItemInSlot(i) and string.match(slot, item_slot) then
               hero.equipment:AddItem(item, i)
               Equipment:Equip( hero, item )
               break

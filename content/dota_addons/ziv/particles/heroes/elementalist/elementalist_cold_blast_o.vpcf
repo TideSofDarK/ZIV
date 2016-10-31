@@ -76,8 +76,8 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMax = 120.0
-			m_flRadiusMin = 120.0
+			m_flRadiusMax = 100.0
+			m_flRadiusMin = 100.0
 		},
 	]
 	m_Emitters = 

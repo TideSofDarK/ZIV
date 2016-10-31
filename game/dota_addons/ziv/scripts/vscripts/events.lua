@@ -303,7 +303,7 @@ function ZIV:OnEntityKilled( keys )
 
   -- Cleanup wearables
   if killedUnit.wearables then
-    Timers:CreateTimer(4.0, function ()
+    Timers:CreateTimer(6.0, function ()
       Wearables:Remove(killedUnit)
     end)
   end

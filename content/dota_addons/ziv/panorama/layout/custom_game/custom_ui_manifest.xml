@@ -100,7 +100,7 @@
   <Panel>
     <!-- CustomUIElements go here.-->
 
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" /> 
+    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" />  -->
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_attachments.xml" />
     <!--<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/containers/container_base.xml" /-->
     <!--<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_progress.xml" /> -->
