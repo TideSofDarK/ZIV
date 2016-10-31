@@ -17,6 +17,45 @@ var entities = [];
 // panel deletion call?
 // Delete call to server for cleanup
 
+function panelHandler( panel ) {
+  panel.SetPanelEvent("onactivate", function() { 
+      var order = {
+        OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_PICKUP_ITEM,
+        TargetIndex : panel.Entity,
+        Queue : false,
+        ShowEffects : false
+      };
+      Game.PrepareUnitOrders( order );
+  });
+
+  panel.ItemCheck = function() {
+    var offScreen = panel.OffScreen;
+    var entity = panel.Entity;
+    
+    if (entity && !offScreen && Entities.IsItemPhysical(entity)){
+      var itemData = PlayerTables.GetTableValue("items", parseInt(panel.Data["item_entity"]));
+      var itemBase = $.Localize("DOTA_Tooltip_ability_" + panel.Data["name"]);
+      if (itemData) {
+        panel.FindChildTraverse("ItemCaptionLabel").text = itemBase;
+        if (panel.Data["name"].match("item_rune_")) {
+          panel.AddClass("RarityBorderRune");
+        } else if (panel.Data["name"].match("item_forging_")) {
+          panel.AddClass("RarityBorderForging");
+        } else {
+          panel.FindChildTraverse("ItemButton").AddClass("RarityBorder" + itemData.rarity);
+          panel.FindChildTraverse("ItemCaptionLabel").AddClass("Rarity" + itemData.rarity);
+        }
+
+        if (itemData.caption) {
+          panel.FindChildTraverse("ItemCaptionLabel").text = itemData.caption;
+        }
+      }
+    }
+  }
+  // Init item data
+  $.Schedule(0.1, panel.ItemCheck);
+}
+
 function WorldPanelChange(id, changes, dels)
 {
   //$.Msg("change ", id, ' -- ', changes, ' -- ', dels);
@@ -32,11 +71,21 @@ function WorldPanelChange(id, changes, dels)
         wp.panel.DeleteAsync(0);
 
       wp.panel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
-      wp.panel.BLoadLayoutSnippet("dummy");//BLoadLayout(changes[k].layout, false, false);
-      wp.panel.WorldPanel = wp;
+
+      if (changes[k].layout == "item")
+      {
+        wp.panel.BLoadLayoutSnippet("item");
+        panelHandler(wp.panel);
+      }
+      else
+      {
+        //wp.panel.BLoadLayoutSnippet("dummy");
+      }
+
       wp.panel.OnEdge = false;
       wp.panel.OffScreen = false;
-      wp.panel.Data = wp.data;
+      //wp.panel.WorldPanel = wp;
+      wp.panel.Data = wp.data;  
       wp.panel.DeleteWorldPanel = function(pan){ 
         return function(){
           pan.DeleteAsync(0);
@@ -68,6 +117,8 @@ function WorldPanelChange(id, changes, dels)
     wp.edge = wp.edge || -1;
     wp.seen = wp.entity ? Entities.IsValidEntity(wp.entity) : null;
 
+    if (wp.entity && wp.panel)
+      wp.panel.Entity = wp.entity;
   }
 
   for (var k in dels){
@@ -99,10 +150,10 @@ function PositionPanels()
 
       pos = Entities.GetAbsOrigin(wp.entity);
       if (entities.indexOf(wp.entity) === -1){
-        wp.panel.visible = false;
+        //wp.panel.visible = false;
         continue;
       }
-      wp.panel.visible = true;
+      //wp.panel.visible = true;
 
       pos[2] += wp.entityHeight || 0;
     }
@@ -205,11 +256,11 @@ function PositionPanels()
     {
       x = -1000;
       y = -1000;
-      wp.panel.visible = false;
+      //wp.panel.visible = false;
     }
     else
     {
-      wp.panel.visible = true;  
+      //wp.panel.visible = true;  
     }
 
     

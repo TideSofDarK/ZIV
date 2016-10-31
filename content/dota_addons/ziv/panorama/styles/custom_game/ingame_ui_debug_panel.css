@@ -45,6 +45,15 @@ DOTASettingsCheckbox {
 	background-color: #101D21;
 
 	box-shadow: inset #000000bb 4px 4px 4px 4px;
+	flow-children: down;
+}
+
+DOTANetGraph {
+	align: center top;
+}
+
+DOTANetGraph #LeftColumn Label {
+	color: red;
 }
 
 #BossPanel {

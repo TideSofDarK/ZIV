@@ -22,7 +22,7 @@ end
 
 function Items:CreateItemPanel( item_container, gc )
 	item_container.worldPanel = WorldPanels:CreateWorldPanelForAll({
-		layout = "file://{resources}/layout/custom_game/worldpanels/item.xml",
+		layout = "item",
 		entity = item_container:GetEntityIndex(),
 		data = {name = item_container:GetContainedItem():GetName(), item_entity = item_container:GetContainedItem():GetEntityIndex() },
 		entityHeight = 150,

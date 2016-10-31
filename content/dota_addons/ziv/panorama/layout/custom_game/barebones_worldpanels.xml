@@ -2,6 +2,10 @@
 	<styles>
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/styles/custom_game/worldpanels/test.css" /> 
+
+	    <include src="file://{resources}/styles/custom_game/worldpanels/item.css" />
+	    <include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+	    <include src="file://{resources}/styles/custom_game/ingame_ui_colors.css" />		
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/barebones_worldpanels.js" /> 
@@ -12,6 +16,15 @@
 		    <Panel class="dummy">
 		    </Panel>
 		</snippet>
+
+		<snippet name="item">
+		  <Panel class="Item">
+		    <Button id="ItemButton">
+		      <Label id="ItemCaptionLabel" class="ItemLabel" html="true"/>
+		    </Button>
+		  </Panel>
+		</snippet>
+		
 	</snippets>
 
   <Panel hittest="false" style="width:100%; height:100%; z-index:1000;">
