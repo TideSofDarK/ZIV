@@ -37,7 +37,7 @@ function End( ability, caster, target )
 		caster:Stop()
 	end)
 
-	ability:StartCooldown(13)
+	ability:StartCooldown(ability:GetCooldown(1))
 end
 
 function DarkIllusion( event )
@@ -48,8 +48,10 @@ function DarkIllusion( event )
 	if ability:GetToggleState() == true then
 		End( ability, caster, target )
 	else
-		TimedEffect( "particles/econ/events/ti4/blink_dagger_start_smoke_ti4.vpcf", caster, 1, 1 )
+		local particle = ParticleManager:CreateParticle("particles/econ/events/ti4/blink_dagger_start_smoke_ti4.vpcf",PATTACH_CUSTOMORIGIN,nil)
+		ParticleManager:SetParticleControl(particle,0,caster:GetAbsOrigin())
 		caster:AddNoDraw()
+		-- caster:SetAbsOrigin(target)
 
 		ability:ApplyDataDrivenModifier(caster,caster,"modifier_dark_illusion_out",{})
 
@@ -58,18 +60,17 @@ function DarkIllusion( event )
 		local duration = ability:GetLevelSpecialValueFor( "illusion_duration", ability:GetLevel() - 1 )
 		caster.illusions = {}
 
-		for i=1,3 do
-			local pos = caster:GetAbsOrigin() + RandomPointInsideCircle(0, 0, 750)
-			if i == 1 then
-				pos = target
-			end
-			table.insert(caster.illusions, CreateIllusion( ability, caster, player, pos, duration ))		
-		end
+		local offset = caster:GetAbsOrigin() + Vector(0,128,0)
+
+		table.insert(caster.illusions, CreateIllusion( ability, caster, player, offset + PointOnCircle(450, 0), duration ))	
+		table.insert(caster.illusions, CreateIllusion( ability, caster, player, offset + PointOnCircle(450, 90), duration ))	
+		table.insert(caster.illusions, CreateIllusion( ability, caster, player, offset + PointOnCircle(450, 180), duration ))	
+		table.insert(caster.illusions, CreateIllusion( ability, caster, player, offset + PointOnCircle(450, 270), duration ))	
 
 		ability:ToggleAbility()
 
 		ability:EndCooldown()
-		ability:StartCooldown(0.75)
+		ability:StartCooldown(GetSpecial(ability, "delay"))
 	end
 end
 
@@ -85,7 +86,7 @@ function CreateIllusion( ability, caster, player, position, duration )
 
 	-- illusion:AddNewModifier(illusion, nil, "modifier_kill", {duration = duration})
 	illusion:AddNewModifier(illusion,nil,"modifier_transparent",{})
-	ability:ApplyDataDrivenModifier(illusion,illusion,"modifier_dark_illusion",{})
+	ability:ApplyDataDrivenModifier(caster,illusion,"modifier_dark_illusion",{})
 
 	TimedEffect( "particles/units/heroes/hero_slark/slark_shadow_dance_dummy.vpcf", illusion, 0.19, 1 )
 
@@ -101,4 +102,11 @@ function CreateIllusion( ability, caster, player, position, duration )
 	illusion:SetAngles(0, math.random(0, 360), 0)
 
 	return illusion
+end
+
+function OnIllusionDied( keys )
+	local caster = keys.caster
+	local target = keys.target
+
+	caster:RemoveModifierByName("modifier_dark_illusion_out")
 end

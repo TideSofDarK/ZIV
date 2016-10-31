@@ -6,9 +6,8 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_status.js" />
-		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
-	<Panel class="Window StatusRoot BasicShadow WindowAnimation WindowClosed" hittestchildren="true" draggable="true">
+	<Panel class="Window StatusRoot BasicShadow WindowAnimation WindowClosed" hittestchildren="true">
 		<Panel id="HiRes">
 			<Label id="HeroNameLabel" text="Name" html="true">
 			</Label>

@@ -67,11 +67,11 @@
 	"LIGHTNING_DAMAGE_INCREASE" 					"% increased lightning damage"
 	"DARK_DAMAGE_INCREASE" 							"% increased dark damage"
 
-	"ALL_RESISTANCES" 								"to all magic resistances"
-	"FIRE_RESISTANCE" 								"to fire resistance"
-	"COLD_RESISTANCE" 								"to cold resistance"
-	"LIGHTNING_RESISTANCE" 							"to lightning resistance"
-	"DARK_RESISTANCE" 								"to dark resistance"
+	"ALL_RESISTANCES" 								"% to all magic resistances"
+	"FIRE_RESISTANCE" 								"% to fire resistance"
+	"COLD_RESISTANCE" 								"% to cold resistance"
+	"LIGHTNING_RESISTANCE" 							"% to lightning resistance"
+	"DARK_RESISTANCE" 								"% to dark resistance"
 
 	"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 				"to base damage"
 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" 			"to attack speed"
@@ -207,6 +207,8 @@
 	"ziv_knight_orb_projectile_speed"	"to Fire Orb projectile speed"
 
 	// Character presets
+	"elementalist_preset_a" "Ice and Thunder"
+
 	"magma_knight_preset_a"	"Fiery Knight"
 	"magma_knight_preset_a_Tooltip"	""
 
