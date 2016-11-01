@@ -99,7 +99,6 @@ function Director:SetupMap()
 end
 
 function Director:GetRandomModifier(list)
-
 	local seed = math.random(1, GetTableLength(list))
 
 	local i = 1

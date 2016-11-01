@@ -39,7 +39,7 @@ function Slash( keys )
 				fEndRadius = 100,
 				Source = caster,
 				fExpireTime = 8.0,
-				vVelocity = caster:GetForwardVector() * 1200,
+				vVelocity = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Normalized() * -1200,
 				UnitBehavior = PROJECTILES_NOTHING,
 				bMultipleHits = false,
 				bIgnoreSource = true,

@@ -6,6 +6,8 @@
 	horizontal-align: left;
 
 	flow-children: none;
+
+	z-index: 1;
 }
 
 #ObeliskMap {

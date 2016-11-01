@@ -56,7 +56,7 @@
 				<Label class="StatusLabel" id="DarkResistance" text="500">
 				</Label>
 
-				<Label id="StatusOffence" class="Headline StatusHeadline" text="#Offence"/>
+				<Label id="StatusOffence" class="Headline StatusHeadline" text="#status_offence"/>
 
 				<Label class="StatusLabel" id="AD" text="500">
 				</Label>

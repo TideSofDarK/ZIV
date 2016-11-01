@@ -15,7 +15,7 @@ function Dash( keys )
 	ability.distance = math.max(GetSpecial(ability, "minimum_distance"), math.min(GetSpecial(ability, "maximum_distance"), (caster:GetAbsOrigin() - target):Length2D()))
 
 	ability.speed = GetSpecial(ability, "dash_speed")
-	ability.move_tick = GetSpecial(ability, "dash_speed") / 30
+	ability.move_tick = ability.speed / 30
 	ability.duration = ability.distance/ability.speed
 
 	ability.traveled = 0
@@ -30,13 +30,13 @@ function Dash( keys )
 	end)
 
 	Timers:CreateTimer(ability.duration / 1.5, function (  )
-		Timers:CreateTimer(0.15, function (  )
+		Timers:CreateTimer(0.05, function (  )
 			StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_5, rate=2.5})
 		end)
-		Timers:CreateTimer(0.3, function (  )
+		Timers:CreateTimer(0.15, function (  )
 			caster:EmitSound("Hero_EarthShaker.IdleSlam")
 		end)
-		Timers:CreateTimer(0.4, function (  )
+		Timers:CreateTimer(0.25, function (  )
 			local ground = TimedEffect( "particles/units/heroes/hero_lone_druid/lone_druid_bear_entangle_ground_rocks.vpcf", caster, 1.0, 5 )
 			local rocks = TimedEffect( "particles/units/heroes/hero_visage/visage_stone_form.vpcf", caster, 0.5 )
 
