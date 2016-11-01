@@ -16,6 +16,7 @@
 			m_flAlphaScale = 3.0
 			m_flRadiusScale = 2.25
 			m_hTexture = resource:"materials/models/heroes/mirana/javelin_color.vtex"
+			m_bDisableOperator = true
 		},
 	]
 	m_Operators = 
@@ -26,7 +27,6 @@
 		{
 			_class = "C_OP_Decay"
 			m_nOpEndCapState = 1
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_SetControlPointsToParticle"
@@ -45,6 +45,7 @@
 		},
 		{
 			_class = "C_OP_EndCapTimedDecay"
+			m_nOpEndCapState = 1
 		},
 	]
 	m_Initializers = 
@@ -87,12 +88,6 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_cold_blast_a.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_cold_blast_b.vpcf"
-		},
-		{
 			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_cold_blast_c.vpcf"
 		},
 		{
@@ -106,9 +101,6 @@
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_cold_blast_i.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_cold_blast_k.vpcf"
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_cold_blast_l.vpcf"
@@ -127,13 +119,6 @@
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_cold_blast_x.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_cold_blast_y.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_cold_blast_z.vpcf"
 			m_bDisableChild = true
 		},
 	]

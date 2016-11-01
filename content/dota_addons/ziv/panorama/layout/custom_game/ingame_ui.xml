@@ -40,12 +40,6 @@
 			<Panel class="AbilityOverlayRoot">
 				<Panel id="AbilityList" />
 			</Panel>
-			<Panel hittest="false" id="EquipList">
-			</Panel>
-
-<!-- 			<Button id="EquipmentButton" class="OKButton" onactivate="OpenEquipment()" >
-				<Label text="#equipment" id="EquipmentButtonLabel" class="WindowButtonLabel" />
-			</Button> -->
 
 			<Panel class="GenericBackground" id="Separator" hittest="false"/>
 

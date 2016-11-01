@@ -1,5 +1,8 @@
 "use strict";
 
+GameUI.SetRenderBottomInsetOverride( 0 );
+GameUI.SetRenderTopInsetOverride( 0 );
+
 var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 
 var m_AbilityPanels = []; // created up to a high-water mark, but reused when selection changes
@@ -16,11 +19,6 @@ var HPOrb = $("#HPOrb");
 var SPOrb = $("#SPOrb");
 
 var XPBar = $("#XPBarRoot");
-
-function OnAbilityLearnModeToggled( bEnabled )
-{
-	UpdateAbilityList();
-}
 
 function UpdateAbilityList()
 {
@@ -83,7 +81,7 @@ function UpdateAbilityList()
 
 function UpdateHPAndMP() 
 {
-	$.Schedule( 0.1, UpdateHPAndMP );
+	$.Schedule( 0.2, UpdateHPAndMP );
 
 	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 	var heroKV = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName( queryUnit )];
@@ -100,18 +98,18 @@ function UpdateHPAndMP()
 	var xp 		= 	Entities.GetCurrentXP( queryUnit );
 	var maxXP 	= 	Entities.GetNeededXPToLevel( queryUnit );
 
-	if (heroKV["UsesEnergy"]) {
-		if (heroKV["DarkEnergy"]) {
-			SPOrb1.SwitchClass("Mana", "DarkEnergy");
-			SPOrb2.SwitchClass("Mana", "DarkEnergy");
-			SPOrb3.SwitchClass("Mana", "DarkEnergy");
-		}
-		else {
-			SPOrb1.SwitchClass("Mana", "Energy");
-			SPOrb2.SwitchClass("Mana", "Energy");
-			SPOrb3.SwitchClass("Mana", "Energy");
-		}
-	}
+	// if (heroKV["UsesEnergy"]) {
+	// 	if (heroKV["DarkEnergy"]) {
+	// 		SPOrb1.SwitchClass("Mana", "DarkEnergy");
+	// 		SPOrb2.SwitchClass("Mana", "DarkEnergy");
+	// 		SPOrb3.SwitchClass("Mana", "DarkEnergy");
+	// 	}
+	// 	else {
+	// 		SPOrb1.SwitchClass("Mana", "Energy");
+	// 		SPOrb2.SwitchClass("Mana", "Energy");
+	// 		SPOrb3.SwitchClass("Mana", "Energy");
+	// 	}
+	// }
 
 	// $("#hp").text = hp + "/" + maxHP;
 	// $("#sp").text = mp + "/" + maxMP;
@@ -155,10 +153,6 @@ function ToggleStatusWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_status", {} );
 }
 
-// function OpenInventoryWindow() {
-// 	GameEvents.SendCustomGameEventToServer( "ziv_open_inventory", {} );
-// }
-
 function OpenCraftingWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_crafting", {} );
 }
@@ -169,13 +163,8 @@ function ToggleSettingsWindow() {
 
 (function()
 {
-	GameEvents.Subscribe( "dota_portrait_ability_layout_changed", UpdateAbilityList );
-	GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateAbilityList );
-	GameEvents.Subscribe( "dota_player_update_query_unit", UpdateAbilityList );
 	GameEvents.Subscribe( "dota_ability_changed", UpdateAbilityList );
-	GameEvents.Subscribe( "dota_hero_ability_points_changed", UpdateAbilityList );
-	
-	UpdateAbilityList(); // initial update
+	UpdateAbilityList();
 	
 	UpdateHPAndMP();
 
@@ -184,5 +173,5 @@ function ToggleSettingsWindow() {
 	GameUI.CustomUIConfig().ToggleStatusWindow = ToggleStatusWindow;
 	GameUI.CustomUIConfig().ToggleEquipmentWindow = ToggleEquipmentWindow;
 
-	// GameUI.CustomUIConfig().hudRoot.FindChildTraverse("RadarButton").DeleteAsync(0.0);
+	GameUI.CustomUIConfig().hudRoot.FindChildTraverse("RadarButton").DeleteAsync(0.0);
 })();

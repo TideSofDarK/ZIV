@@ -24,7 +24,6 @@ function Characters:Init()
   CustomGameEventManager:RegisterListener("ziv_get_containers", Dynamic_Wrap(Characters, "SendPlayerContainers"))
 
   Containers:SetDisableItemLimit(true)
-  Containers:UsePanoramaInventory(false)
 end
 
 function Characters:CreateCharacter( args )

@@ -78,7 +78,7 @@ function Temple:NextStage()
 					-- 	end
 					-- end
 					DoToAllHeroes(function ( hero )
-						ParticleManager:CreateParticle("particles/rain_fx/econ_weather_sirocco.vpcf", PATTACH_EYES_FOLLOW, hero)
+						-- ParticleManager:CreateParticleForPlayer("particles/rain_fx/econ_weather_sirocco.vpcf", PATTACH_EYES_FOLLOW, hero, hero:GetPlayerOwner())
 					end)
 					Temple:NextStage()
 				end)

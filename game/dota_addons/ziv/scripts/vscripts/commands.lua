@@ -24,7 +24,15 @@ function ZIV:PrintCreepCount()
     local playerID = cmdPlayer:GetPlayerID()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
-      print(Director.current_session_creep_count)
+      print("creeps:"..tostring(Director.current_session_creep_count))
+      print("entities:"..tostring(#Entities:FindAllInSphere(Vector(0,0,0), 100000)))
+      for k,v in pairs(Entities:FindAllInSphere(Vector(0,0,0), 100000)) do
+        if v:GetClassname() == "npc_dota_creature" then
+          print(v:GetUnitName())
+        else
+          print(k,v:GetClassname())
+        end
+      end
     end
   end
 end

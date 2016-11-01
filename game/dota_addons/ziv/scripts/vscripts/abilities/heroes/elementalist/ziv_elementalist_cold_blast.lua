@@ -19,7 +19,7 @@ function ColdBlastStart( keys )
 	-- StartSoundEventFromPosition("Hero_Ancient_Apparition.IceVortex", target)
 
 	Timers:CreateTimer(duration - 0.03, function () 
-		ParticleManager:DestroyParticle(particle, false)
+		-- ParticleManager:ReleaseParticleIndex(particle)
 		StopSoundEvent("Hero_Invoker.ColdBlast",thinker)
 	end)
 end

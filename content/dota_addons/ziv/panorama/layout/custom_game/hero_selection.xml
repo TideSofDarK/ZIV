@@ -3,6 +3,11 @@
     <include src="file://{resources}/styles/custom_game/hero_selection.css" />
   </styles>
   <script>
+  	var Util = GameUI.CustomUIConfig().Util;
+
+  	(function () {
+  		Util.RemoveChildren(GameUI.CustomUIConfig().hudRoot.FindChildTraverse("CustomUIRoot").FindChildTraverse("CustomUIContainer_GameSetup").FindChildTraverse("CustomUIContainer").Children()[0]);
+  	})();
   </script>
   <Panel class="HeroSelectionRoot">
 

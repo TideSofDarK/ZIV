@@ -1,8 +1,5 @@
 "use strict";
 
-GameUI.SetRenderBottomInsetOverride( 0 );
-GameUI.SetRenderTopInsetOverride( 0 );
-
 var heightOffset = 300;
 var clampOffset = 200;
 var offset = 0;
@@ -15,7 +12,7 @@ var abilityDelay = 0.2;
 {
 	GameUI.SetCameraTarget(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ));
 	
-	$.Schedule( 1.0/30.0, UpdateCamera );
+	$.Schedule( 1.0/15.0, UpdateCamera );
 	var minStep = 0.5;
 	var heroY = Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2];
 	var target = heroY - heightOffset;

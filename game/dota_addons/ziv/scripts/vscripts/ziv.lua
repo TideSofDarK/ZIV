@@ -170,7 +170,7 @@ function ZIV:OnGameInProgress()
     Director.scenario:NextStage()
   end
 
-  Timers:CreateTimer( -- Start this timer 30 game-time seconds later
+  Timers:CreateTimer(
     function()
       ZIV.TRUE_TIME = ZIV.TRUE_TIME + 0.03
       return 0.03

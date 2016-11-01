@@ -92,7 +92,7 @@
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 256.0
+			m_flEmitRate = 128.0
 		},
 	]
 	m_ForceGenerators = 

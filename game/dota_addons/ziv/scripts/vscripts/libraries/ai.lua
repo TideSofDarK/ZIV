@@ -43,6 +43,7 @@ function AI:MoveDuringFight(unit)
 
 		if unit.ai_attacks >= unit.ai_next_attacks then
 			local target = unit:GetAttackTarget()
+			if not target then return end
 			local position = RotatePosition(target:GetAbsOrigin(), QAngle(0,math.random(-20, 20),0), unit:GetAbsOrigin())
 
 			unit:MoveToPosition(position)
