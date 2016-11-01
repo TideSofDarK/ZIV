@@ -5,43 +5,31 @@ if ZIV == nil then
     _G.ZIV = class({})
 end
 
--- This library allow for easily delayed/timed actions
 require('libraries/timers')
--- This library can be used for advancted physics/motion/collision of units.  See PhysicsReadme.txt for more information.
 require('libraries/physics')
--- This library can be used for advanced 3D projectile systems.
 require('libraries/projectiles')
--- This library can be used for sending panorama notifications to the UIs of players/teams/everyone
 require('libraries/notifications')
--- This library can be used for starting customized animations on units from lua
 require('libraries/animations')
--- This library can be used for performing "Frankenstein" attachments on units
 require('libraries/attachments')
 require('libraries/wearables')
--- Some jerky math stuff
 require('libraries/maths')
--- Popup particles
 require('libraries/popups')
--- Containers
 require('libraries/playertables')
--- Worldpanels
 require('libraries/worldpanels')
--- Modmaker
 require('libraries/modmaker')
--- Traps
 require('libraries/traps')
--- Particles
 require('libraries/particles')
--- Random
 require('libraries/random')
 require('libraries/pseudoRNG')
--- Ability-related stuff
 require('libraries/abilities')
--- Keyvalues
 require('libraries/keyvalues')
--- AI
 require('libraries/ai')
--- Items
+require('libraries/containers')
+require('libraries/attributes')
+
+require('internal/ziv')
+require('internal/events')
+
 require('items/items')
 require('items/trade')
 require('items/socketing')
@@ -49,50 +37,24 @@ require('items/crafting')
 require('items/equipment')
 require('items/vials')
 require('items/runes')
--- Game setup
+
 require('gamesetup')
-
--- Damage
 require('damage')
-
--- Character management
 require('characters')
-
--- These internal libraries set up ziv's events and processes.
-require('internal/ziv')
-require('internal/events')
-
--- settings.lua is where you can specify many different properties for your game mode and is one of the core ziv files.
+require('controls')
 require('settings')
--- events.lua is where you can specify the actions to be taken when any event occurs and is one of the core ziv files.
 require('events')
-
 require('filters')
-
 require('director')
 require('loot')
-
 require('minimap')
-
--- Containers
-require('libraries/containers')
-
--- Balance variables
 require('balance')
-
--- Attributes fix
-require('libraries/attributes')
-
--- Scenarios
-require('scenarios/temple')
-
--- Debug 
 require('debug_panel')
 require('commands')
-
--- Networking stuff
 require('libraries/network')
 require('network')
+
+require('scenarios/temple')
 
 LinkLuaModifier("modifier_custom_attack", "abilities/tools/modifier_custom_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_fade_out_in", "abilities/tools/modifier_fade_out_in.lua", LUA_MODIFIER_MOTION_NONE)
@@ -239,6 +201,7 @@ function ZIV:InitZIV()
   Loot:Init()
   Damage:Init()
   Debug:Init()
+  Controls:Init()
 
   Attributes:Init()
 
