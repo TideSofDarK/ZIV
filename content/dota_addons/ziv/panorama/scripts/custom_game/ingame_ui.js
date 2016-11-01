@@ -173,5 +173,7 @@ function ToggleSettingsWindow() {
 	GameUI.CustomUIConfig().ToggleStatusWindow = ToggleStatusWindow;
 	GameUI.CustomUIConfig().ToggleEquipmentWindow = ToggleEquipmentWindow;
 
-	GameUI.CustomUIConfig().hudRoot.FindChildTraverse("RadarButton").DeleteAsync(0.0);
+	if (GameUI.CustomUIConfig().hudRoot.FindChildTraverse("RadarButton")) {
+		GameUI.CustomUIConfig().hudRoot.FindChildTraverse("RadarButton").DeleteAsync(0.0);
+	}
 })();

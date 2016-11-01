@@ -74,14 +74,20 @@ function BeginMoveState(target)
 		{
 			$.Schedule( 1.0/30.0, tic );
 			var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+			var ability = Entities.GetAbility( queryUnit, 3 ); 
+
+			if (Abilities.IsInAbilityPhase(ability)) {
+				return;
+			}
+
+			target = target || GetMouseCastTarget();
+
 			var move = true;
-			if (GameUI.IsShiftDown() || (target || GetMouseCastTarget()) != -1) {
-				var ability = Entities.GetAbility( queryUnit, 3 ); 
-				
+			if (GameUI.IsShiftDown() || target != -1) {
 				if ((Abilities.GetBehavior(ability) & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_NO_TARGET) {
 					GameEvents.SendCustomGameEventToServer("ziv_cast_ability_no_target_remote", {"ability" : ability});
-				} else {
-					GameUI.CustomUIConfig().ZIVCastAbility(4, false, true);
+				} else if ((Abilities.GetBehavior(ability) & DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT) {
+					GameEvents.SendCustomGameEventToServer("ziv_cast_ability_point_target_remote", {"ability" : ability, "target" : GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() ), "target_entity" : target, "force" : true});
 				}
 
 				var dcm = DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT;
@@ -107,10 +113,8 @@ function BeginMoveState(target)
 function OnLeftButtonPressed()
 {
 	var targetIndex = GetMouseCastTarget();
-	
-	if (GameUI.IsShiftDown()) {
-		BeginMoveState(targetIndex);
-	} else if ( targetIndex != -1 && Entities.IsEnemy( targetIndex )) {
+
+	if ( targetIndex != -1 && Entities.IsEnemy( targetIndex )) {
 		BeginMoveState();
 	} else if ( Entities.IsItemPhysical( targetIndex ) ) {
 		BeginPickUpState( targetIndex );

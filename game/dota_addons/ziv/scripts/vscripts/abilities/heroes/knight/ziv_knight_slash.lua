@@ -1,13 +1,21 @@
-function ProjectileImpact( keys )
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
+ziv_knight_slash = class({})
 
-	TimedEffect("particles/units/heroes/hero_nevermore/nevermore_base_attack_impact.vpcf", target, 1.0, 1, PATTACH_POINT_FOLLOW)
+function ziv_knight_slash:GetCastAnimation()
+	return ACT_DOTA_IDLE
 end
 
-function Slash( keys )
-	local keys = keys
+function ziv_knight_slash:GetCastRange()
+	return 150
+end
+
+function ziv_knight_slash:OnSpellStart()
+	local keys = {}
+	keys.target_points = {}
+
+    keys.caster = self:GetCaster()
+    keys.ability = self
+	keys.target_points[1] = self:GetCursorPosition()
+	keys.target = self:GetCursorTarget()
 
 	local caster = keys.caster
 	local target = keys.target
@@ -99,4 +107,12 @@ function Slash( keys )
 	end
 
 	SimulateMeleeAttack( keys )
+end
+
+function ziv_knight_slash:OnProjectileHit(hTarget, vLocation)
+	-- local caster = keys.caster
+	-- local target = keys.target
+	-- local ability = keys.ability
+
+	TimedEffect("particles/units/heroes/hero_nevermore/nevermore_base_attack_impact.vpcf", hTarget, 1.0, 1, PATTACH_POINT_FOLLOW)
 end
