@@ -343,7 +343,7 @@ function Director:SpawnCreeps( spawn_table )
 						end
 
 						creep.worldPanel = WorldPanels:CreateWorldPanelForAll({
-							layout = "file://{resources}/layout/custom_game/worldpanels/healthbar.xml",
+							layout = "healthbar",
 							entity = creep:GetEntityIndex(),
 							entityHeight = 345,
 						})

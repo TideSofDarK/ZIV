@@ -215,7 +215,7 @@ function UpdateMinimap()
 
 	ClearFog(); 
 
-	$.Schedule(0.01, UpdateMinimap);
+	$.Schedule(0.02, UpdateMinimap);
 
 	$("#FogMap").RunJavascript('LoadImage("http://puu.sh/rXDr6/5613600704.png");');  
 }

@@ -12,49 +12,12 @@ const VA_TOP    = 2;
 $.Msg("barebones_worldpanels.js");
 var panels = {};
 var entities = [];
+var handlers = {};
+
 //{panel, position, entity, offsetX, offsetY, hAlign, vAlign, entityHeight, edge}
 
 // panel deletion call?
 // Delete call to server for cleanup
-
-function panelHandler( panel ) {
-  panel.SetPanelEvent("onactivate", function() { 
-      var order = {
-        OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_PICKUP_ITEM,
-        TargetIndex : panel.Entity,
-        Queue : false,
-        ShowEffects : false
-      };
-      Game.PrepareUnitOrders( order );
-  });
-
-  panel.ItemCheck = function() {
-    var offScreen = panel.OffScreen;
-    var entity = panel.Entity;
-    
-    if (entity && !offScreen && Entities.IsItemPhysical(entity)){
-      var itemData = PlayerTables.GetTableValue("items", parseInt(panel.Data["item_entity"]));
-      var itemBase = $.Localize("DOTA_Tooltip_ability_" + panel.Data["name"]);
-      if (itemData) {
-        panel.FindChildTraverse("ItemCaptionLabel").text = itemBase;
-        if (panel.Data["name"].match("item_rune_")) {
-          panel.AddClass("RarityBorderRune");
-        } else if (panel.Data["name"].match("item_forging_")) {
-          panel.AddClass("RarityBorderForging");
-        } else {
-          panel.FindChildTraverse("ItemButton").AddClass("RarityBorder" + itemData.rarity);
-          panel.FindChildTraverse("ItemCaptionLabel").AddClass("Rarity" + itemData.rarity);
-        }
-
-        if (itemData.caption) {
-          panel.FindChildTraverse("ItemCaptionLabel").text = itemData.caption;
-        }
-      }
-    }
-  }
-  // Init item data
-  $.Schedule(0.2, panel.ItemCheck);
-}
 
 function WorldPanelChange(id, changes, dels)
 {
@@ -72,15 +35,13 @@ function WorldPanelChange(id, changes, dels)
 
       wp.panel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
 
-      if (changes[k].layout == "item")
+      if (!!handlers[changes[k].layout])
       {
-        wp.panel.BLoadLayoutSnippet("item");
-        panelHandler(wp.panel);
+        wp.panel.BLoadLayoutSnippet(changes[k].layout);
+        handlers[changes[k].layout](wp.panel);
       }
-      else
-      {
-        //wp.panel.BLoadLayoutSnippet("dummy");
-      }
+      //else
+      //  wp.panel.BLoadLayoutSnippet("dummy");
 
       wp.panel.OnEdge = false;
       wp.panel.OffScreen = false;

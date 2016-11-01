@@ -19,21 +19,26 @@ if (!teamColors) {
 teamColors[DOTATeam_t.DOTA_TEAM_NEUTRALS] = "#b53f51;";
 teamColors[DOTATeam_t.DOTA_TEAM_NOTEAM]   = "#b53f51;";
 
-function HealthCheck()
+function healthbar( panel )
 {
-  var wp = $.GetContextPanel().WorldPanel
-  var offScreen = $.GetContextPanel().OffScreen;
-  if (!offScreen && wp){
-    var ent = wp.entity;
-    if (ent){
-      if (!Entities.IsAlive(ent) || Entities.GetHealth(ent) == Entities.GetMaxHealth(ent)){
-        $.GetContextPanel().style.opacity = "0";
-        $.Schedule(1/30, HealthCheck);
+  $.Msg("Health!");
+
+  panel.HealthCheck = function(){
+    if (panel == null)
+      return;
+
+    var offScreen = panel.OffScreen;
+    var entity = panel.Entity;
+    if (!offScreen && entity){
+      if (!Entities.IsAlive(entity) || Entities.GetHealth(entity) == Entities.GetMaxHealth(entity)){
+        panel.style.opacity = "0";
+
+        $.Schedule(1/30, panel.HealthCheck);
         return;
       }
 
       //var pTeam = Players.GetTeam(Game.GetLocalPlayerID());
-      var team = Entities.GetTeamNumber(ent);
+      var team = Entities.GetTeamNumber(entity);
 
       // Color by friendly/enemy
       /*if (team == pTeam)
@@ -41,14 +46,14 @@ function HealthCheck()
       else
         $.GetContextPanel().SetHasClass("Friendly", false);*/
 
-      $.GetContextPanel().style.opacity = "1";
-      var hp = Entities.GetHealth(ent);
-      var hpMax = Entities.GetMaxHealth(ent);
+      panel.style.opacity = "1";
+      var hp = Entities.GetHealth(entity);
+      var hpMax = Entities.GetMaxHealth(entity);
       var hpPer = (hp * 100 / hpMax).toFixed(0);
 
       
-      for (var i=1; i<=5; i++){
-        var pan = $("#HP" + i);
+      for (var i = 1; i <= 5; i++){
+        var pan = panel.FindChildTraverse("HP" + i);
         var perc = Math.min(Math.max(0, hpPer), 20) * 5;
 
         pan.style.width = perc + "%;";
@@ -57,13 +62,11 @@ function HealthCheck()
         hpPer -= 20;
       }
     }
+
+    $.Schedule(1/30, panel.HealthCheck);
   }
 
-  $.Schedule(1/30, HealthCheck);
+  $.Schedule(0.2, panel.HealthCheck);
 }
 
-(function()
-{ 
-  HealthCheck();
-
-})();
+handlers.healthbar = healthbar;

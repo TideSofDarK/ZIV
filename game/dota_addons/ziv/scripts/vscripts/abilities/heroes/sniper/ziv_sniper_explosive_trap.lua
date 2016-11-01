@@ -41,7 +41,7 @@ function RemoveTrapUnit( keys )
 		end)
 
 		trap.worldPanel = WorldPanels:CreateWorldPanelForAll(
-		    {layout = "file://{resources}/layout/custom_game/worldpanels/trap_countdown.xml",
+		    {layout = "trap_countdown",
 		      entity = trap:GetEntityIndex(),
 		      data = { delay = delay },
 		      entityHeight = 170,

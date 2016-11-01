@@ -8,36 +8,37 @@ function round(value, decimals) {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
-function Countdown()
+function trapCountdown( panel )
 {
-  var wp = $.GetContextPanel().WorldPanel
-  var offScreen = $.GetContextPanel().OffScreen;
-  if (!offScreen && wp){
-    var ent = wp.entity;
-    if (ent){
+  panel.Countdown = function(){
+    var offScreen = panel.OffScreen;
+    var entity = panel.Entity;
+
+    if (!offScreen && entity){
       if (time === -1.0) {
-        time = parseFloat( wp.data["delay"] );
+        time = parseFloat( panel.Data["delay"] );
       }
       
-      time = (time - 1/20).clamp(0, parseFloat( wp.data["delay"] ));
-      $("#CountdownLabel").text = round(time * 10, 0);
+      time = (time - 1/20).clamp(0, parseFloat( panel.Data["delay"] ));
+      panel.FindChildTraverse("CountdownLabel").text = round(time * 10, 0);
+    }
+
+    if (panel.FindChildTraverse("CountdownLabel").text == "0" && panel.FindChildTraverse("CountdownLabel").BHasClass("Nil") == false) {
+      var boom = panel.Data["boom"];
+      if (!boom) {
+        boom = "BOOM!";
+      }
+
+      panel.FindChildTraverse("CountdownLabel").text = boom;
+      panel.FindChildTraverse("CountdownLabel").AddClass("Nil");
+    }
+    else
+    {
+      $.Schedule(1/20, panel.Countdown);
     }
   }
-  if ($("#CountdownLabel").text == "0" && $("#CountdownLabel").BHasClass("Nil") == false) {
-    var boom = wp.data["boom"];
-    if (!boom) {
-      boom = "BOOM!";
-    }
-    $("#CountdownLabel").text = boom;
-    $("#CountdownLabel").AddClass("Nil");
-  }
-  else
-  {
-    $.Schedule(1/20, Countdown);
-  }
+
+  $.Schedule(0.2, panel.Countdown);
 }
 
-(function()
-{
-  Countdown();
-})();
+handlers.trap_countdown = trapCountdown;
