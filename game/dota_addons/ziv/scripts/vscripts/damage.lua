@@ -13,6 +13,9 @@ Damage.COLD_DAMAGE_INCREASE 		= 6
 Damage.LIGHTNING_DAMAGE_INCREASE 	= 7
 Damage.DARK_DAMAGE_INCREASE 		= 8
 
+Damage.CRIT_CHANCE 					= 9
+Damage.CRIT_DAMAGE 					= 10
+
 Damage.ESSENCE_PARTICLES = {}
 Damage.ESSENCE_PARTICLES[1] = "particles/creeps/ziv_creep_essence_a.vpcf"
 Damage.ESSENCE_PARTICLES[2] = "particles/creeps/ziv_creep_essence_b.vpcf"
@@ -104,6 +107,10 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 		damage = damage - (damage * (resistance/100))
 	elseif damage_type == DAMAGE_TYPE_PHYSICAL then
 
+	end
+
+	if RollPercentage(Damage:GetValue( attacker, Damage.CRIT_CHANCE )) then
+		-- damage = Damage:GetValue( attacker, Damage.CRIT_CHANCE )
 	end
 	
 	local min_damage = damage * 0.75
