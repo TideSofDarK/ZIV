@@ -117,7 +117,9 @@ function PopupDamage(player, target, number, coef)
 
     local color = Vector(255,255,255)
 
-    if coef > 0.95 then
+    if coef > 1.0 then
+        color = Vector(255,0,0)
+    elseif coef > 0.95 then
         color = Vector(255,245,0)
     elseif coef < 0.2 then
         return

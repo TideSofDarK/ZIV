@@ -16,6 +16,10 @@ Damage.DARK_DAMAGE_INCREASE 		= 8
 Damage.CRIT_CHANCE 					= 9
 Damage.CRIT_DAMAGE 					= 10
 
+Damage.DEFAULTS = {}
+Damage.DEFAULTS[Damage.CRIT_CHANCE] = 5
+Damage.DEFAULTS[Damage.CRIT_DAMAGE] = 200
+
 Damage.ESSENCE_PARTICLES = {}
 Damage.ESSENCE_PARTICLES[1] = "particles/creeps/ziv_creep_essence_a.vpcf"
 Damage.ESSENCE_PARTICLES[2] = "particles/creeps/ziv_creep_essence_b.vpcf"
@@ -37,6 +41,12 @@ DAMAGE_TYPE_DARK 					= 12
 
 function Damage:Init()
 	PlayerTables:CreateTable("damage", {}, true)
+end
+
+function Damage:InitHero( hero )
+	for k,v in pairs(Damage.DEFAULTS) do
+		Damage:Modify(hero, k, v)
+	end
 end
 
 function Damage:Modify(unit, value, amount, time)
@@ -108,16 +118,17 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 	elseif damage_type == DAMAGE_TYPE_PHYSICAL then
 
 	end
-
-	if RollPercentage(Damage:GetValue( attacker, Damage.CRIT_CHANCE )) then
-		-- damage = Damage:GetValue( attacker, Damage.CRIT_CHANCE )
-	end
 	
 	local min_damage = damage * 0.75
 	local max_damage = damage * 1.25
 	local coef = max_damage - damage
 
 	damage = math.random(min_damage, max_damage)
+
+	if RollPercentage(Damage:GetValue( attacker, Damage.CRIT_CHANCE )) then
+		damage = damage * (Damage:GetValue( attacker, Damage.CRIT_DAMAGE ) / 100)
+		local particle = ParticleManager:CreateParticle("particles/ziv_damage_crit.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+	end
 
 	local damage_table = {
 		victim = victim,
@@ -140,7 +151,7 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 		GetZIVSpecificSetting(attacker:GetPlayerOwnerID(), "Damage") 
 		and not no_popup then 
 		-- if damage >= (min_damage + max_damage) / 2 then
-			PopupDamage(attacker:GetPlayerOwner(), victim, round(damage), clamp(damage / max_damage, 0, 1))
+			PopupDamage(attacker:GetPlayerOwner(), victim, round(damage), damage / max_damage)
 		-- end
 	end
 	-- PopupExperience(victim, math.ceil(damage))

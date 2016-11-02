@@ -80,7 +80,7 @@ function BeginMoveState(target)
 				return;
 			}
 
-			target = target || GetMouseCastTarget();
+			target = GetMouseCastTarget();
 
 			var move = true;
 			if (GameUI.IsShiftDown() || target != -1) {
@@ -115,7 +115,7 @@ function OnLeftButtonPressed()
 	var targetIndex = GetMouseCastTarget();
 
 	if ( targetIndex != -1 && Entities.IsEnemy( targetIndex )) {
-		BeginMoveState();
+		BeginMoveState( targetIndex );
 	} else if ( Entities.IsItemPhysical( targetIndex ) ) {
 		BeginPickUpState( targetIndex );
 	} else {

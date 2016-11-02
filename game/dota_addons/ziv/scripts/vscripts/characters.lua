@@ -139,6 +139,8 @@ function Characters:InitCharacter( hero )
 
   Attributes:ModifyBonuses(hero)
 
+  Damage:InitHero( hero )
+
   -- PseudoRNG stuff
 
   hero.loot_rng         = PseudoRNG.create( Loot.LOOT_CHANCE )

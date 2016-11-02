@@ -282,6 +282,9 @@ function MinimapEvent( args )
 function ChangeMinimapMode()
 {
 	//$("#FogMap").ToggleClass("WindowClosed"); 
+	if (!$.GetContextPanel()) {
+		return;
+	}
 	if ($.GetContextPanel().BHasClass("Hero"))
 	{
 	 	$.GetContextPanel().RemoveClass("Hero");

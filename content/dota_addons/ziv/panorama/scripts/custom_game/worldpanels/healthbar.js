@@ -21,8 +21,6 @@ teamColors[DOTATeam_t.DOTA_TEAM_NOTEAM]   = "#b53f51;";
 
 function healthbar( panel )
 {
-  $.Msg("Health!");
-
   panel.HealthCheck = function(){
     if (panel == null)
       return;

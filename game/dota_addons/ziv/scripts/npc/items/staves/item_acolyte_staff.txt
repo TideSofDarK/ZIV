@@ -1,0 +1,33 @@
+"item_acolyte_staff"
+{
+  "ID"		                  "1002"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "BaseClass"               "item_datadriven"
+  "AbilityTextureName"      "item_acolyte_staff"
+  "Model"                   "models/items/basic_coat.vmdl" 
+
+  "Slot"                    "staff"
+  "EquipSound"              "ui.inv_equip_staff"
+
+  "ItemStackable" "0"
+  "ItemPermanent" "0"
+
+  "ItemDroppable"         "1"
+  "ItemPurchasable"       "0"
+  "ItemSellable"          "0"
+  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+  
+  "BaseModifiers"
+  {
+    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
+    {
+      "min" "10"
+      "max" "28"
+    }
+    "DARK_DAMAGE_INCREASE"
+    {
+      "min" "1"
+      "max" "26"
+    }
+  }
+}

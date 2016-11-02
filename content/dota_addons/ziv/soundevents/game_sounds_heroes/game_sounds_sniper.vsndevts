@@ -29,7 +29,10 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/weapons/hero/sniper/sniper_attack.vsnd"
+							"wave0"		"sounds/smg_1.vsnd"
+							"wave1"		"sounds/smg_2.vsnd"
+							"wave2"		"sounds/smg_3.vsnd"
+							"wave3"		"sounds/smg_4.vsnd"
 						}
 					}
 					"volume"
@@ -38,11 +41,11 @@
 					}
 					"pitch_rand_min"
 					{
-						"value"		"-0.050000"
+						"value"		"-0.100000"
 					}
 					"pitch_rand_max"
 					{
-						"value"		"0.050000"
+						"value"		"0.100000"
 					}
 					"pitch"
 					{
@@ -56,9 +59,9 @@
 					{
 						"value"		"2500.000000"
 					}
-					"event_type"
+					"limiter_on"
 					{
-						"value"		"1.000000"
+						"value"		"0.000000"
 					}
 				}
 			}
@@ -120,6 +123,50 @@
 	}
 }
 
+"Hero_Sniper.SMGSpecial"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/smg_1.vsnd"
+							"value1"		"sounds/smg_2.vsnd"
+							"value2"		"sounds/smg_3.vsnd"
+							"value3"		"sounds/smg_4.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"0.400000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+					"soundlevel"
+					{
+						"value"		"90.000000"
+					}
+					"limiter_on"
+					{
+						"value"		"0.000000"
+					}
+				}
+			}
+		}
+	}
+}
+
 "Hero_Sniper.ShotgunSpecial"
 {
 	"operator_stacks"
@@ -136,7 +183,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/weapons/hero/sniper/sniper_assassinate.vsnd"
+							"value0"		"sounds/shotgun.vsnd"
 						}
 					}
 					"volume"
