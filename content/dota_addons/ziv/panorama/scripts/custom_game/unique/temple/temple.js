@@ -20,4 +20,6 @@ function OnScenarioChanged(args) {
 	GameEvents.Subscribe( "ziv_temple_set_ui_state", SetUIState);
 	
 	CustomNetTables.SubscribeNetTableListener( "scenario", OnScenarioChanged );
+
+	GameUI.CustomUIConfig().setMinimapSettings({ rotation: 45 }); 
 })();

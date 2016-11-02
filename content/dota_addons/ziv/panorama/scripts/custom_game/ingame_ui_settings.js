@@ -45,7 +45,8 @@ function CustomSettingMinimap() {
 		"name" : "settings", 
 		"key" : pID,
 		"value" : table } );
-	GameEvents.SendEventClientSide( "ziv_disable_minimap", {} );
+
+	GameUI.CustomUIConfig().setMinimapSettings( { visible: $("#CustomSettingMinimap").checked } );
 }
 
 function Toggle() {
