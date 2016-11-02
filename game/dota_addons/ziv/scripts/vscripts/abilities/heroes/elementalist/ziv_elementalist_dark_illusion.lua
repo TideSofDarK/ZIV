@@ -60,7 +60,7 @@ function DarkIllusion( event )
 		local duration = ability:GetLevelSpecialValueFor( "illusion_duration", ability:GetLevel() - 1 )
 		caster.illusions = {}
 
-		local offset = caster:GetAbsOrigin() + Vector(0,128,0)
+		local offset = caster:GetAbsOrigin() + Vector(-64,64,0)
 
 		table.insert(caster.illusions, CreateIllusion( ability, caster, player, offset + PointOnCircle(450, 0), duration ))	
 		table.insert(caster.illusions, CreateIllusion( ability, caster, player, offset + PointOnCircle(450, 90), duration ))	
