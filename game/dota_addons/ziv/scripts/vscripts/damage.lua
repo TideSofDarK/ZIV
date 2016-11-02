@@ -125,9 +125,13 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 
 	damage = math.random(min_damage, max_damage)
 
-	if RollPercentage(Damage:GetValue( attacker, Damage.CRIT_CHANCE )) then
+	local attacker_player = attacker:GetPlayerOwner()
+	if PlayerResource:IsValidPlayer(attacker_player:GetPlayerID()) and RollPercentage(Damage:GetValue( attacker, Damage.CRIT_CHANCE )) then
 		damage = damage * (Damage:GetValue( attacker, Damage.CRIT_DAMAGE ) / 100)
-		local particle = ParticleManager:CreateParticle("particles/ziv_damage_crit.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+
+		if not no_blood and not no_popup then
+			local shake = ParticleManager:CreateParticleForPlayer("particles/ziv_damage_crit.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker, attacker_player)
+		end	
 	end
 
 	local damage_table = {

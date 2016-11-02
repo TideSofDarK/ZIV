@@ -15,7 +15,7 @@ function SMGSpecial(keys)
 	keys.rate = 3.0
 	keys.base_attack_time = 0.1
 	keys.ignore_z = true
-	keys.spread = spread * 4.5
+	keys.spread = spread * 3.5
 	keys.interruptable = false
 	keys.standard_targeting = true
 	keys.on_impact = (function ( caster )

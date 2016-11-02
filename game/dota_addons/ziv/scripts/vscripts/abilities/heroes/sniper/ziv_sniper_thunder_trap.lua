@@ -11,10 +11,8 @@ function CreateTrapUnit( keys )
 	InitAbilities(trap)
 
 	Timers:CreateTimer(0.35, function (  )
-		local sparks = ParticleManager:CreateParticle("particles/heroes/sniper/sniper_thunder_trap_sparks.vpcf", PATTACH_CUSTOMORIGIN, trap)
-		ParticleManager:SetParticleControl(sparks, 1, trap:GetAbsOrigin() + Vector(0,0,32))
-
-		AddChildParticle( trap, sparks )
+		trap.sparks = ParticleManager:CreateParticle("particles/heroes/sniper/sniper_thunder_trap_sparks.vpcf", PATTACH_CUSTOMORIGIN, trap)
+		ParticleManager:SetParticleControl(trap.sparks, 1, trap:GetAbsOrigin() + Vector(0,0,32))
 	end)
 
 	keys.trap = trap
@@ -69,20 +67,25 @@ function Explode( keys )
 			end
 		end
 
-		local explosion = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf", PATTACH_CUSTOMORIGIN, trap)
-		ParticleManager:SetParticleControl(explosion, 0, trap:GetAbsOrigin() + Vector(0,0,32))
-		ParticleManager:SetParticleControl(explosion, 1, trap:GetAbsOrigin() + Vector(0,0,32))
+		ParticleManager:DestroyParticle(trap.sparks,true)
 
-		ParticleManager:CreateParticle("particles/units/heroes/hero_ursa/ursa_earthshock_dust.vpcf", PATTACH_ABSORIGIN, trap)
-		ParticleManager:CreateParticle("particles/units/heroes/hero_ursa/ursa_dust_hit.vpcf", PATTACH_ABSORIGIN, trap)
-		ParticleManager:CreateParticle("particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_ground_smoke.vpcf", PATTACH_ABSORIGIN, trap)
+		local explosion = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_bolt_parent.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(explosion, 0, trap:GetAbsOrigin())
+		ParticleManager:SetParticleControl(explosion, 1, trap:GetAbsOrigin())
+
+		explosion = ParticleManager:CreateParticle("particles/units/heroes/hero_ursa/ursa_earthshock_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(explosion, 0, trap:GetAbsOrigin())
+		explosion = ParticleManager:CreateParticle("particles/units/heroes/hero_ursa/ursa_dust_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(explosion, 0, trap:GetAbsOrigin())
+		explosion = ParticleManager:CreateParticle("particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_ground_smoke.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(explosion, 0, trap:GetAbsOrigin())
 
 		trap:EmitSound("Hero_Zuus.LightningBolt")
 
+		trap:SetModel("models/development/invisiblebox.vmdl")
+		trap:SetOriginalModel("models/development/invisiblebox.vmdl")
+
 		Timers:CreateTimer(0.6, function (  )
-			trap:RemoveModifierByName("dummy_unit")
-			trap:SetModel("models/development/invisiblebox.vmdl")
-			trap:SetOriginalModel("models/development/invisiblebox.vmdl")
 			trap:RemoveSelf()
 		end)
 	end

@@ -10,16 +10,8 @@ function CreateTrapUnit( keys )
 
 	InitAbilities(trap)
 
-	Timers:CreateTimer(0.35, function (  )
-		if trap and trap:IsNull() == false and trap:HasModifier("dummy_unit") then
-			local sparks = ParticleManager:CreateParticle("particles/econ/courier/courier_mechjaw/mechjaw_death_sparks.vpcf", PATTACH_CUSTOMORIGIN, trap)
-			ParticleManager:SetParticleControl(sparks, 0, trap:GetAbsOrigin() + Vector(0,0,32))
-
-			AddChildParticle( trap, sparks )
-
-			return 0.3
-		end
-	end)
+	trap.sparks = ParticleManager:CreateParticle("particles/heroes/sniper/sniper_explosive_trap_sparks.vpcf", PATTACH_CUSTOMORIGIN, trap)
+	ParticleManager:SetParticleControl(trap.sparks, 0, trap:GetAbsOrigin() + Vector(0,0,32))
 
 	keys.trap = trap
 
@@ -65,17 +57,18 @@ function Explode( keys )
 			end
 		end
 
+		ParticleManager:DestroyParticle(trap.sparks,true)
+
 		local explosion = ParticleManager:CreateParticle("particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf", PATTACH_ABSORIGIN, trap)
 		ParticleManager:SetParticleControl(explosion, 3, trap:GetAbsOrigin() + Vector(0,0,128))
 
 		local explosion2 = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_flamebreak_explosion.vpcf", PATTACH_CUSTOMORIGIN, trap)
 		ParticleManager:SetParticleControl(explosion2, 3, trap:GetAbsOrigin() + Vector(0,0,128))
 
-		ParticleManager:CreateParticle("particles/generic_gameplay/dust_impact_large.vpcf", PATTACH_ABSORIGIN_FOLLOW, trap)
-		ParticleManager:CreateParticle("particles/neutral_fx/roshan_slam_debris_small.vpcf", PATTACH_ABSORIGIN_FOLLOW, trap)
+		ParticleManager:CreateParticle("particles/generic_gameplay/dust_impact_large.vpcf", PATTACH_CUSTOMORIGIN, trap)
+		ParticleManager:CreateParticle("particles/neutral_fx/roshan_slam_debris_small.vpcf", PATTACH_CUSTOMORIGIN, trap)
 		trap:EmitSound("Hero_Techies.LandMine.Detonate")
 
-		trap:RemoveModifierByName("dummy_unit")
 		trap:SetModel("models/development/invisiblebox.vmdl")
 		trap:SetOriginalModel("models/development/invisiblebox.vmdl")
 
