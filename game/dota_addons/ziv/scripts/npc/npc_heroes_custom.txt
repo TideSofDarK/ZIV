@@ -161,7 +161,7 @@
 	
 	    "Ability1"        "ziv_elementalist_cold_blast"
 	    "Ability2"        "ziv_elementalist_fire_blast"
-	    "Ability3"        "ziv_elementalist_overload"
+	    "Ability3"        "ziv_elementalist_mastery"
 	    "Ability4"        "ziv_elementalist_barrier"
 	    "Ability5"        "ziv_elementalist_dark_orb" 
 	    "Ability6"        "ziv_elementalist_arc_lightning" 

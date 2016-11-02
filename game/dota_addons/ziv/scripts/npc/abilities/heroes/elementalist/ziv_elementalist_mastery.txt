@@ -1,0 +1,22 @@
+"ziv_elementalist_mastery"
+{
+	"BaseClass"						"ability_lua"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityTextureName"			"ziv_empty"
+
+	"ScriptFile"                  "abilities/heroes/elementalist/ziv_elementalist_mastery.lua"
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"crit_chance"			"7"		
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"crit_damage"			"50"		
+		}
+	}
+}

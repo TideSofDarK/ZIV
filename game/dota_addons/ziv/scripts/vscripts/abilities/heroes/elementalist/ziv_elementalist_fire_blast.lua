@@ -24,19 +24,24 @@ function FireBlast( keys )
 		ability:EndCooldown()
 	end
 
-	local info =
-	{
-		EffectName = "particles/heroes/elementalist/elementalist_fire_blast.vpcf",
-		Ability = ability,
-		vSpawnOrigin = caster:GetAbsOrigin(), 
-		fStartRadius = GetSpecial(ability, "start_radius") + GRMSC("ziv_elementalist_fire_blast_radius", caster),
-		fEndRadius = GetSpecial(ability, "end_radius") + GRMSC("ziv_elementalist_fire_blast_radius", caster),
-		vVelocity = 900 * caster:GetForwardVector(),
-		fDistance = 400,
-		Source = caster,
-		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-	} 
+	local radius = GetSpecial(ability, "radius")
 
-	ProjectileManager:CreateLinearProjectile( info )
+	local waves = GetSpecial(ability, "waves")
+	local wave_delay = GetSpecial(ability, "wave_delay")
+	local wave_radius = GetSpecial(ability, "wave_radius")
+
+	local points = RandomPointsInsideCircleUniform( target, radius, waves, wave_radius )
+
+	for i=0,waves-1 do
+		Timers:CreateTimer(i * wave_delay, function (  )
+			local wave = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_fire_blast_wave.vpcf",PATTACH_CUSTOMORIGIN,nil)
+			ParticleManager:SetParticleControl(wave, 0, points[i+1])
+
+			Timers:CreateTimer(0.2, function ()
+				DoToUnitsInRadius(caster, points[i+1], wave_radius, target_team, target_type, target_flags, function ( v )
+					Damage:Deal(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_elementalist_fire_blast_damage"), DAMAGE_TYPE_FIRE)
+				end)
+			end)
+		end)
+	end
 end
