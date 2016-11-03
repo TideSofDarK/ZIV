@@ -24,7 +24,7 @@ function DarkOrb( keys )
     collider.linear = false
   	collider.skipFrames = 1
     collider.test = function(self, collider, collided)
-    	return IsValidEntity(collided) and collided:GetTeamNumber() ~= caster:GetTeamNumber() and collided.FindModifierByNameAndCaster and not collided:FindModifierByNameAndCaster("modifier_dark_orb_hit", stack) and collided:IsAlive()
+    	return IsValidEntity(collided) and collided:GetTeamNumber() ~= caster:GetTeamNumber() and collided.FindModifierByNameAndCaster and not collided:FindModifierByNameAndCaster("modifier_dark_orb_hit", stack) and collided:IsAlive() == true and (collided:IsControllableByAnyPlayer() or collided:GetTeamNumber() == DOTA_TEAM_NEUTRALS) and collided.GetUnitName and collided:GetUnitName() ~= "npc_dummy_unit"
     end
     collider.action = function ( self, collider, collided )
     	ability:ApplyDataDrivenModifier(stack,collided,"modifier_dark_orb_hit",{duration=180 / (speed * 30)})
@@ -54,11 +54,11 @@ function DarkOrb( keys )
 		return 0.03
 	end)
 
-    local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_dark_orb.vpcf",PATTACH_ABSORIGIN_FOLLOW,stack)
+    local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_dark_orb.vpcf",PATTACH_CUSTOMORIGIN,nil)
+    ParticleManager:SetParticleControlEnt(particle,0,stack,PATTACH_ABSORIGIN_FOLLOW,"attach_origin",stack:GetAbsOrigin(),false)
 
     Timers:CreateTimer(GetSpecial(ability, "lifetime"), function (  )
-    	ParticleManager:ReleaseParticleIndex(particle)
-    	ParticleManager:DestroyParticle(particle, false)
     	stack:RemoveSelf()
+    	ParticleManager:DestroyParticle(particle, false)
     end)
 end
