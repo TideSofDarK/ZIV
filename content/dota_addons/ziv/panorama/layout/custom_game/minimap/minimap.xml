@@ -5,12 +5,13 @@
 		<include src="file://{resources}/styles/custom_game/minimap/minimap.css" />
 	</styles>
 	<scripts>
+		<include src="file://{resources}/scripts/custom_game/minimap/minimapSettings.js" />
 		<include src="file://{resources}/scripts/custom_game/minimap/minimap.js" />
 	</scripts>
 	<Panel class="MinimapRoot TopRight" hittest="false"> 
 		<Panel class="ImageContainer" id="ImagePanel">
 			<Image class="MinimapMarks" id="PointerImage" src="file://{images}/custom_game/minimap/pointer.png" />			
-			<Panel id="MinimapImage" onactivate="MinimapClick()">
+			<Panel id="MinimapImage" onactivate="minimapClick()">
 				<Panel class="MarksContainer" id="MarksMap" />
 				<Panel hittest="false" class="EventsContainer" id="EventsMap" />
 				<HTML id="FogMap" hittest="false" />
