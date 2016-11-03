@@ -178,7 +178,12 @@ function Physics:Think()
             end
 
             for k,v in pairs(ents) do
-              if IsValidEntity(v) and IsValidEntity(unit) and v ~= unit and rad2 >= VectorDistanceSq(unit:GetAbsOrigin(), v:GetAbsOrigin()) then
+              local s1 = unit:GetAbsOrigin()
+              s1.z = 0
+              local s2 = v:GetAbsOrigin()
+              s2.z = 0
+              local ignore_sphere_z_check = (unit.ignore_sphere_z and Distance(s1, s2) <= collider.radius)
+              if IsValidEntity(v) and IsValidEntity(unit) and v ~= unit and ((rad2 >= VectorDistanceSq(unit:GetAbsOrigin(), v:GetAbsOrigin())) or ignore_sphere_z_check) then
                 local status, test = pcall(collider.test, collider, unit, v)
 
                 if not status then

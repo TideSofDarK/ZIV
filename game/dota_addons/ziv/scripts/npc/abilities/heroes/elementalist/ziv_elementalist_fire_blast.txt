@@ -3,7 +3,7 @@
 	"BaseClass"						"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 
-	"AbilityTextureName"			"ziv_empty"
+	"AbilityTextureName"			"ziv_elementalist_fire_blast"
 
 	"AbilityCastRange"				"900"
 	"AbilityCastPoint"				"0.15"
@@ -25,17 +25,17 @@
 		"01"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"damage_amp"			"2.3"
+			"damage_amp"			"1.7"
 		}
 		"02"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"waves"					"7"
+			"waves"					"10"
 		}
 		"03"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"wave_delay"			"0.1"
+			"wave_delay"			"0.185"
 		}
 		"04"
 		{

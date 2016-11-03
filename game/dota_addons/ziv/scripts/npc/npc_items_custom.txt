@@ -4147,8 +4147,13 @@
 	  {
 	    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
 	    {
-	      "min" "10"
-	      "max" "28"
+	      "min" "9"
+	      "max" "26"
+	    }
+	    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"
+	    {
+	      "min" "2"
+	      "max" "7"
 	    }
 	  }
 	}
@@ -4177,6 +4182,11 @@
 	    {
 	      "min" "10"
 	      "max" "28"
+	    }
+	    "CRIT_CHANCE"
+	    {
+	      "min" "1"
+	      "max" "4"
 	    }
 	  }
 	}

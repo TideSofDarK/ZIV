@@ -24,5 +24,10 @@
       "min" "10"
       "max" "28"
     }
+    "CRIT_CHANCE"
+    {
+      "min" "1"
+      "max" "4"
+    }
   }
 }

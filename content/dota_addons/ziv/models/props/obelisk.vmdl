@@ -1,9 +1,8 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	_class = "CVModel"
-	m_meshList =
+	m_meshList = 
 	{
-		m_meshList =
+		m_meshList = 
 		[
 			{
 				m_meshName = "obelisk"
@@ -12,237 +11,120 @@
 				m_bSkinParentedObjects = true
 				m_bLegacySkinParentedTransforms = false
 				m_bExpensiveTangents = false
-				m_bExpensiveVertices = false
+				m_bHighPrecisionTexCoords = false
+				m_bPerVertexCurvature = false
 				m_bIgnoreCloth = false
 				m_bGetSkinningFromLod0 = false
 				m_pMorphInfo = null
 			},
 		]
 	}
-	m_clothProxyMeshList =
+	m_clothProxyMeshList = 
 	{
 		_class = "CVClothProxyMeshList"
-		m_flClothEnableThreshold = 0.050000
+		m_flClothEnableThreshold = 0.05
 		m_bCreateStaticBone = false
 		m_nMaxBonesPerVertex = 4
 		m_bRemoveUnusedBonesEnabled = false
 		m_bDriveMeshesWithBacksolvedJointsOnly = true
-		m_flMatchProxiesToMeshes = 1.000000
-		m_flReservedFloat = 0.000000
+		m_flMatchProxiesToMeshes = 1.0
+		m_flReservedFloat = 0.0
 		m_nReservedInt = 0
 		m_bReservedBool1 = false
 		m_bReservedBool2 = false
 		m_bReservedBool3 = false
 		m_bReservedBool4 = false
-		m_clothProxyMeshList =
-		[
-		]
+		m_clothProxyMeshList = [  ]
 	}
-	m_physicsMeshList =
+	m_physicsMeshList = 
 	{
-		m_meshList =
-		[
-		]
+		m_meshList = [  ]
 	}
 	m_pModelInfo = null
-	m_pBoneFlagList =
+	m_pBoneFlagList = 
 	{
-		_class = "CVBoneFlagListReference"
 		m_pObject = null
 	}
-	m_pHitBoxSetLists =
+	m_pHitBoxSetLists = 
 	[
 		{
-			_class = "CVhitBoxSetListReference"
-			m_pObject =
+			m_pObject = 
 			{
-				m_HitBoxSets =
+				m_HitBoxSets = 
 				[
 					{
 						m_name = "default"
-						m_HitBoxes =
+						m_HitBoxes = 
 						[
 							{
 								m_name = "ObeliskRoot_bone"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
 								m_sBoneName = "ObeliskRoot_bone"
-								m_vMinBounds =
-								[
-									-30.374775,
-									-30.374752,
-									-0.003258,
-								]
-								m_vMaxBounds =
-								[
-									30.374767,
-									30.374783,
-									71.133423,
-								]
+								m_vMinBounds = [ -30.374775, -30.374752, -0.003258 ]
+								m_vMaxBounds = [ 30.374767, 30.374783, 71.133423 ]
 								m_bTranslationOnly = false
-								m_cRenderColor =
-								[
-									0,
-									0,
-									0,
-									0,
-								]
+								m_cRenderColor = [ 0, 0, 0, 0 ]
 							},
 							{
 								m_name = "Part1_bone"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
 								m_sBoneName = "Part1_bone"
-								m_vMinBounds =
-								[
-									-14.071851,
-									-14.374685,
-									67.135803,
-								]
-								m_vMaxBounds =
-								[
-									12.440688,
-									12.521473,
-									139.439575,
-								]
+								m_vMinBounds = [ -14.071851, -14.374685, 67.135803 ]
+								m_vMaxBounds = [ 12.440688, 12.521473, 139.439575 ]
 								m_bTranslationOnly = false
-								m_cRenderColor =
-								[
-									0,
-									0,
-									0,
-									0,
-								]
+								m_cRenderColor = [ 0, 0, 0, 0 ]
 							},
 							{
 								m_name = "Part2_bone"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
 								m_sBoneName = "Part2_bone"
-								m_vMinBounds =
-								[
-									-4.596888,
-									-14.884250,
-									60.947990,
-								]
-								m_vMaxBounds =
-								[
-									14.153498,
-									12.529065,
-									106.677788,
-								]
+								m_vMinBounds = [ -4.596888, -14.88425, 60.94799 ]
+								m_vMaxBounds = [ 14.153498, 12.529065, 106.677788 ]
 								m_bTranslationOnly = false
-								m_cRenderColor =
-								[
-									0,
-									0,
-									0,
-									0,
-								]
+								m_cRenderColor = [ 0, 0, 0, 0 ]
 							},
 							{
 								m_name = "Part3_bone"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
 								m_sBoneName = "Part3_bone"
-								m_vMinBounds =
-								[
-									1.149966,
-									-16.421757,
-									41.942711,
-								]
-								m_vMaxBounds =
-								[
-									16.009504,
-									1.201958,
-									73.563057,
-								]
+								m_vMinBounds = [ 1.149966, -16.421757, 41.942711 ]
+								m_vMaxBounds = [ 16.009504, 1.201958, 73.563057 ]
 								m_bTranslationOnly = false
-								m_cRenderColor =
-								[
-									0,
-									0,
-									0,
-									0,
-								]
+								m_cRenderColor = [ 0, 0, 0, 0 ]
 							},
 							{
 								m_name = "Part4_bone"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
 								m_sBoneName = "Part4_bone"
-								m_vMinBounds =
-								[
-									-16.595579,
-									-15.476932,
-									34.458252,
-								]
-								m_vMaxBounds =
-								[
-									14.646757,
-									16.939716,
-									94.984314,
-								]
+								m_vMinBounds = [ -16.595579, -15.476932, 34.458252 ]
+								m_vMaxBounds = [ 14.646757, 16.939716, 94.984314 ]
 								m_bTranslationOnly = false
-								m_cRenderColor =
-								[
-									0,
-									0,
-									0,
-									0,
-								]
+								m_cRenderColor = [ 0, 0, 0, 0 ]
 							},
 							{
 								m_name = "Part5_bone"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
 								m_sBoneName = "Part5_bone"
-								m_vMinBounds =
-								[
-									-15.945860,
-									-15.517313,
-									48.228729,
-								]
-								m_vMaxBounds =
-								[
-									-1.368248,
-									13.468939,
-									98.195297,
-								]
+								m_vMinBounds = [ -15.94586, -15.517313, 48.228729 ]
+								m_vMaxBounds = [ -1.368248, 13.468939, 98.195297 ]
 								m_bTranslationOnly = false
-								m_cRenderColor =
-								[
-									0,
-									0,
-									0,
-									0,
-								]
+								m_cRenderColor = [ 0, 0, 0, 0 ]
 							},
 							{
 								m_name = "Part6_bone"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
 								m_sBoneName = "Part6_bone"
-								m_vMinBounds =
-								[
-									-16.121515,
-									-15.726112,
-									46.046875,
-								]
-								m_vMaxBounds =
-								[
-									-14.032305,
-									-14.106083,
-									49.922653,
-								]
+								m_vMinBounds = [ -16.121515, -15.726112, 46.046875 ]
+								m_vMaxBounds = [ -14.032305, -14.106083, 49.922653 ]
 								m_bTranslationOnly = false
-								m_cRenderColor =
-								[
-									0,
-									0,
-									0,
-									0,
-								]
+								m_cRenderColor = [ 0, 0, 0, 0 ]
 							},
 						]
 					},
@@ -251,34 +133,23 @@
 			}
 		},
 	]
-	m_pAttachmentLists =
+	m_pAttachmentLists = 
 	[
 		{
-			_class = "CVattachmentListReference"
-			m_pObject =
+			m_pObject = 
 			{
 				m_name = ""
-				m_attachments =
+				m_attachments = 
 				[
 					{
 						m_name = "attach_hitloc"
-						m_influences =
+						m_influences = 
 						[
 							{
 								m_influenceName = "ObeliskRoot_bone"
-								m_vTranslationOffset =
-								[
-									0.000000,
-									0.000000,
-									66.602867,
-								]
-								m_vRotationOffset =
-								[
-									0.000000,
-									-0.000000,
-									-0.000010,
-								]
-								m_flWeight = 1.000000
+								m_vTranslationOffset = [ 0.0, 0.0, 66.602867 ]
+								m_vRotationOffset = [ 0.0, -0.0, -0.00001 ]
+								m_flWeight = 1.0
 								m_bRoot = false
 							},
 						]
@@ -287,45 +158,39 @@
 			}
 		},
 	]
-	m_pAnimGroup =
+	m_pAnimGroup = 
 	{
-		_class = "CVanimGroupReference"
-		m_pObject =
+		m_pObject = 
 		{
 			m_Name = ""
-			m_pReferenceSkeleton =
+			m_pReferenceSkeleton = 
 			{
-				_class = "CVReferenceSkeletonReference"
 				m_pObject = null
 			}
-			m_pBoneFlagList =
+			m_pBoneFlagList = 
 			{
-				_class = "CVBoneFlagListReference"
 				m_pObject = null
 			}
-			m_pSeqGroup =
+			m_pSeqGroup = 
 			{
-				_class = "CVseqGroupReference"
 				m_pObject = null
 			}
-			m_pAnimGroups =
-			[
-			]
-			m_Vanim =
+			m_pAnimGroups = [  ]
+			m_Vanim = 
 			[
 				{
 					m_Animationname = "bindPose"
 					m_Filepath = "models/props/obelisk.fbx"
 					m_nStartframe = 0
 					m_nEndframe = 0
-					m_flFps = 0.000000
-					m_Loop =
+					m_flFps = 0.0
+					m_Loop = 
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop =
+						m_StartLoop = 
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -334,104 +199,66 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities =
+					m_Activities = 
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE"
 							m_nWeight = 1
 						},
 					]
-					m_AnimationEvents =
-					[
-					]
-					m_MotionFrames =
-					[
-					]
-					m_pIkRules =
-					[
-					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation =
+					m_adjustAnimation = 
 					{
-						m_translation =
-						[
-							0.000000,
-							0.000000,
-							0.000000,
-						]
-						m_rotation =
-						[
-							0.000000,
-							0.000000,
-							0.000000,
-						]
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
-					m_Keywords =
-					[
-					]
-					m_sequenceParams =
+					m_Keywords = [  ]
+					m_sequenceParams = 
 					{
-						m_flFadeInTime = 0.200000
-						m_flFadeOutTime = 0.200000
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
 					}
 					m_folderName = ""
 					m_MotionFramesRootBone = ""
 				},
 			]
-			m_sScripts =
-			[
-			]
-			m_folderNames =
-			[
-			]
+			m_sScripts = [  ]
+			m_folderNames = [  ]
 		}
 	}
-	m_pMaterialGroupList =
+	m_pMaterialGroupList = 
 	{
-		_class = "CVNodeMaterialGroupListReference"
 		m_pObject = null
 	}
-	m_pMeshGroupList =
+	m_pMeshGroupList = 
 	{
-		_class = "CVMeshGroupListReference"
 		m_pObject = null
 	}
-	m_pLodGroupList =
+	m_pLodGroupList = 
 	{
-		_class = "CVLODGroupListReference"
 		m_pObject = null
 	}
-	m_pPropBreakableList =
+	m_pPropBreakableList = 
 	{
-		_class = "CVpropBreakableListReference"
 		m_pObject = null
 	}
-	m_pPropDataList =
+	m_pPropDataList = 
 	{
-		_class = "CVpropDataListReference"
 		m_pObject = null
 	}
-	m_pConstraintLists =
-	[
-	]
+	m_pConstraintLists = [  ]
 	m_collision = ""
 	m_softbody = ""
 	m_sMDLFilename = ""
-	m_sOffsetHitboxSets =
-	[
-	]
-	m_vHitboxSetOffset =
-	[
-		0.000000,
-		0.000000,
-		0.000000,
-	]
-	m_scriptFiles =
-	[
-	]
-	m_pMaterialRemapList =
+	m_sOffsetHitboxSets = [  ]
+	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
+	m_scriptFiles = [  ]
+	m_pMaterialRemapList = 
 	{
-		m_vMaterialRemapList =
+		m_vMaterialRemapList = 
 		[
 			{
 				m_sSearchMaterial = "obelisk.vmat"
@@ -439,26 +266,20 @@
 			},
 		]
 	}
-	m_flFbxScale = 1.000000
-	m_flQCScale = 1.000000
-	m_vOrigin =
-	[
-		0.000000,
-		0.000000,
-		0.000000,
-	]
+	m_flFbxScale = 1.0
+	m_flQCScale = 1.0
+	m_vOrigin = [ 0.0, 0.0, 0.0 ]
+	m_nLoadDmxAnimVersion = 0
 	m_pPsfList = null
 	m_keyValueText = ""
 	m_bStaticProp = false
 	m_bEnableClothProcessing = true
-	m_flClothEnableThreshold = 0.050000
+	m_flClothEnableThreshold = 0.05
 	m_nMaxClothVertsPerMesh = 2048
 	m_bBuildClothBoneHierarchy = false
 	m_nNavType = "AUTH_NAV_MESH"
 	m_bMakeUniqueVMeshes = false
 	m_bMakeImplicitBindPoseSequence = false
 	m_bAdjustSkeletonFromBoneFlags = false
-	m_pAnimGroups =
-	[
-	]
+	m_pAnimGroups = [  ]
 }

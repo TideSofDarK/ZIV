@@ -2,87 +2,90 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 1
-	m_flConstantRadius = 50.000000
-	m_nConstantSequenceNumber = 6
-	m_Operators =
+	m_nMaxParticles = 16
+	m_flConstantRadius = 1.0
+	m_bShouldSort = false
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderModels"
+			m_ModelList = 
+			[
+				{
+					m_model = resource:"models/items/meepo/diggers_divining_rod/diggers_divining_rod_gem_topaz2.vmdl"
+				},
+			]
+			m_hOverrideMaterial = resource:"materials/models/heroes/invoker/elementalist_dark_orb_stone.vmat"
+			m_bDisableOperator = true
+		},
+	]
+	m_Operators = 
 	[
 		{
 			_class = "C_OP_BasicMovement"
 		},
 		{
-			_class = "C_OP_MaxVelocity"
-			m_flMaxVelocity = 600.000000
-			m_nOverrideCP = 2
+			_class = "C_OP_InterpolateRadius"
+			m_flStartScale = 0.2
+			m_flEndTime = 0.5
 		},
 		{
-			_class = "C_OP_Decay"
+			_class = "C_OP_Orient2DRelToCP"
+			m_nCP = 1
+			m_flRotOffset = 180.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RemapVelocityToVector"
+			m_nFieldOutput = 21
+			m_bNormalize = true
+			m_nOpEndCapState = 0
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
 			m_nOpEndCapState = 1
+			m_Rate = -1.0
+			m_flEndTime = 999999.0
 		},
 		{
-			_class = "C_OP_SetControlPointsToParticle"
-			m_nFirstControlPoint = 3
-			m_bSetOrientation = true
+			_class = "C_OP_EndCapTimedDecay"
 		},
 		{
-			_class = "C_OP_CPOffsetToPercentageBetweenCPs"
-			m_bScaleOffset = true
-			m_flInputBias = 0.125000
-			m_vecOffset =
-			[
-				0.000000,
-				0.000000,
-				0.125000,
-			]
-			m_nOffsetCP = 1
-			m_flInputMax = 0.000000
-			m_flInputMin = 1.000000
+			_class = "C_OP_PositionLock"
 		},
 	]
-	m_Initializers =
+	m_Initializers = 
 	[
 		{
 			_class = "C_INIT_CreateWithinSphere"
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 0.6
+			m_flRadiusMax = 0.6
 		},
 	]
-	m_Emitters =
+	m_Emitters = 
 	[
 		{
 			_class = "C_OP_InstantaneousEmitter"
 			m_nParticlesToEmit = 1
 		},
 	]
-	m_ForceGenerators =
+	m_Children = 
 	[
 		{
-			_class = "C_OP_AttractToControlPoint"
-			m_nControlPointNumber = 4
-			m_fFalloffPower = 0.000000
-			m_fForceAmount = 1000000.000000
+			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_dark_orb_d.vpcf"
 		},
-	]
-	m_Children =
-	[
+		{
+			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_dark_orb_c.vpcf"
+		},
 		{
 			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_dark_orb_a.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_dark_orb_s.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_dark_orb_t.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_dark_orb_u.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_dark_orb_v.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/heroes/elementalist/elementalist_dark_orb_x.vpcf"
 		},
 	]
 }

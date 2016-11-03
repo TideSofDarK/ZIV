@@ -1,25 +1,64 @@
-function FireOrb( keys )
-	keys.on_hit = DarkOrbOnHit
-	keys.standard_targeting = true
-	keys.ignore_z = true
-	keys.pre_attack_sound = "Hero_Nevermore.PreAttack"
-	keys.impact_sound = "Hero_Nevermore.ProjectileImpact"
-	SimulateRangeAttack(keys)
-end
-
-function DarkOrbOnHit( keys )
+function DarkOrb( keys )
 	local caster = keys.caster
-	local target = keys.target
 	local ability = keys.ability
-	local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_dark_orb_explosion.vpcf",PATTACH_ABSORIGIN,target)
-	ParticleManager:SetParticleControl(particle,3,target:GetAttachmentOrigin(target:ScriptLookupAttachment(keys.attachment or "attach_hitloc")))
 
-	local units = FindUnitsInRadius(caster:GetTeamNumber(),target:GetAbsOrigin(),nil,ability:GetSpecialValueFor("radius"),DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_ALL,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,FIND_ANY_ORDER,false)
+	caster:EmitSound("Hero_Warlock.ShadowWordCastBad")
 
-	for k,v in pairs(units) do
-		if IsValidEntity(v) then
-			v:EmitSound("Hero_Nevermore.ProjectileImpact")
-			Damage:Deal(caster, v, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_elementalist_dark_orb_damage"), DAMAGE_TYPE_DARK)
+	local speed = GetSpecial(ability, "speed")
+	local radius = math.random(GetSpecial(ability, "radius") * 0.9, GetSpecial(ability, "radius"))
+	local z_offset = math.random(-64,86)
+	local start = Vector(0,0,z_offset) + RandomPointOnCircle(radius)
+
+    local hitloc = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_hitloc"))
+
+    local stack = CreateUnitByName('npc_dummy_unit', hitloc + start, true, caster, caster, caster:GetTeamNumber())
+    stack:SetModel("models/units/dark_orb/dark_orb.vmdl")
+    stack:SetOriginalModel("models/units/dark_orb/dark_orb.vmdl")
+    Physics:Unit(stack)
+
+    stack.ignore_sphere_z = true
+
+	stack:RemoveCollider()
+    collider = stack:AddColliderFromProfile("blocker")
+    collider.radius = 100
+    collider.linear = false
+  	collider.skipFrames = 1
+    collider.test = function(self, collider, collided)
+    	return IsValidEntity(collided) and collided:GetTeamNumber() ~= caster:GetTeamNumber() and collided.FindModifierByNameAndCaster and not collided:FindModifierByNameAndCaster("modifier_dark_orb_hit", stack) and collided:IsAlive()
+    end
+    collider.action = function ( self, collider, collided )
+    	ability:ApplyDataDrivenModifier(stack,collided,"modifier_dark_orb_hit",{duration=180 / (speed * 30)})
+
+    	EmitSoundOnLocationWithCaster(collided:GetAbsOrigin(),"Hero_Terrorblade.Attack",caster)
+
+    	local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_dark_orb_explosion.vpcf",PATTACH_ABSORIGIN,collided)
+    	Damage:Deal(caster, collided, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "ziv_elementalist_dark_orb_damage"), DAMAGE_TYPE_DARK)
+    end
+
+	local angle = 0
+
+	stack:SetPhysicsAcceleration(Vector(1,1,1))
+
+	stack:OnPhysicsFrame(function(unit)
+		if stack:IsNull() then return nil end
+		local hitloc = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_hitloc"))
+
+		local next_pos = RotatePosition(hitloc, QAngle(0,angle,0), hitloc + start)
+		stack:SetForwardVector((caster:GetAbsOrigin() - next_pos):Normalized())
+		stack:SetAbsOrigin(next_pos) 
+		angle = angle + speed
+		if angle == 360 then
+			angle = 0
 		end
-	end
+
+		return 0.03
+	end)
+
+    local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_dark_orb.vpcf",PATTACH_ABSORIGIN_FOLLOW,stack)
+
+    Timers:CreateTimer(GetSpecial(ability, "lifetime"), function (  )
+    	ParticleManager:ReleaseParticleIndex(particle)
+    	ParticleManager:DestroyParticle(particle, false)
+    	stack:RemoveSelf()
+    end)
 end
