@@ -29,7 +29,7 @@ function Socketing:OnFortify( keys )
   	end
 
   	table.insert(item.fortify_modifiers, new_modifiers)
-
+    
     Items:UpdateItem(item)
 
   	if playerID and playerID >= 0 then
@@ -55,7 +55,12 @@ function Socketing:GetRandomFortifyModifiers( modifiers_kv, count )
 		for modifier_name,modifier_values in pairs(modifiers_kv) do
 			if x == seed then
 				modifier = modifier_name
-				value = math.random(tonumber(modifier_values["min"]), tonumber(modifier_values["max"]))
+        if modifier_values["min"] and modifier_values["max"] then
+          value = math.random(tonumber(modifier_values["min"]), tonumber(modifier_values["max"]))
+        else
+          value = 1
+        end
+
 				break
 			end
 			x = x + 1

@@ -9,14 +9,21 @@ function ziv_elementalist_arc_lightning:OnSpellStart()
     local ability = self
 	local target = self:GetCursorPosition()
 
+	StartRuneCooldown(ability,"ziv_elementalist_arc_lightning_cd",caster)
+
 	local radius = GetSpecial(ability, "radius")
 
 	local target_entity = self:GetCursorTarget()
 
 	caster:EmitSound("Hero_Zuus.ArcLightning.Cast")
 
-	local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	local particle2 = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local particle_name = "particles/heroes/elementalist/elementalist_arc_lightning.vpcf"
+	if caster:HasModifier("ziv_elementalist_arc_lightning_fire") then
+		particle_name = "particles/heroes/elementalist/elementalist_arc_lightning_fire.vpcf"
+	end
+
+	local particle = ParticleManager:CreateParticle(particle_name, PATTACH_CUSTOMORIGIN, caster)
+	local particle2 = ParticleManager:CreateParticle(particle_name, PATTACH_CUSTOMORIGIN, caster)
 
 	ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(particle2, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
@@ -24,7 +31,7 @@ function ziv_elementalist_arc_lightning:OnSpellStart()
 	if target_entity then
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 
-		ArcLightningChain( caster, caster, units[1], ability )
+		ArcLightningChain( caster, caster, units[1], ability, particle_name )
 		
 		ParticleManager:SetParticleControlEnt(particle, 1, units[1], PATTACH_POINT_FOLLOW, "attach_hitloc", units[1]:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(particle2, 1, units[1], PATTACH_POINT_FOLLOW, "attach_hitloc", units[1]:GetAbsOrigin(), true)
@@ -35,9 +42,11 @@ function ziv_elementalist_arc_lightning:OnSpellStart()
 		units[1] = nil
 		local shuffled_units = Shuffle(units)
 
-		for i=1,GetSpecial(ability, "max_targets") do
+		local max_targets = GetSpecial(ability, "max_targets") + GRMSC("ziv_elementalist_arc_lightning_targets", caster)
+
+		for i=1,max_targets do
 			if shuffled_units[i] then
-				ArcLightningChain( caster, last_target, shuffled_units[i], ability )
+				ArcLightningChain( caster, last_target, shuffled_units[i], ability, particle_name )
 
 				last_target = shuffled_units[i]
 			end
@@ -48,10 +57,15 @@ function ziv_elementalist_arc_lightning:OnSpellStart()
 	end
 end
 
-function ArcLightningChain( caster, first_target, second_target, ability )
-	local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_arc_lightning.vpcf",PATTACH_CUSTOMORIGIN, first_target)
+function ArcLightningChain( caster, first_target, second_target, ability, particle_name )
+	local particle = ParticleManager:CreateParticle(particle_name,PATTACH_CUSTOMORIGIN, first_target)
 	ParticleManager:SetParticleControlEnt(particle, 0, first_target, PATTACH_POINT_FOLLOW, "attach_hitloc", first_target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(particle, 1, second_target, PATTACH_POINT_FOLLOW, "attach_hitloc", second_target:GetAbsOrigin(), true)
 
-	Damage:Deal(caster, second_target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_LIGHTNING)
+	if string.match(particle_name, "fire") then
+		Damage:Deal(caster, second_target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "") / 2, DAMAGE_TYPE_FIRE)
+		Damage:Deal(caster, second_target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), "") / 2, DAMAGE_TYPE_LIGHTNING)
+	else
+		Damage:Deal(caster, second_target, GetRuneDamage(caster, GetSpecial(ability, "damage_amp"), ""), DAMAGE_TYPE_LIGHTNING)
+	end
 end

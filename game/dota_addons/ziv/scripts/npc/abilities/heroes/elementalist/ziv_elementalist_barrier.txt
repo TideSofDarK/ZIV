@@ -23,7 +23,7 @@
 		"02"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"damage_absorption"		"0.6"
+			"damage_absorption"		"0.4"
 		}
 	}
 
@@ -34,7 +34,7 @@
 			"Passive"			"1"
 			"IsHidden"			"0"
 			"IsDebuff"			"0"
-	
+			
 			"EffectName"		"particles/heroes/elementalist/elementalist_barrier.vpcf"
 			"EffectAttachType"	"follow_origin"
 	

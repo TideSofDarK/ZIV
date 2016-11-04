@@ -14,7 +14,7 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
-  "Tooltip"   "end_radius"
+  "Tooltip"   "wave_radius"
   "Type"      "Int"
   "Method"    "Add"
 

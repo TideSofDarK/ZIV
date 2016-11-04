@@ -92,6 +92,9 @@ function Loot:CreateItem( position, owner )
 	local item = Items:Create(item_name, owner)
 
 	item.rarity = ZIV.ItemKVs[item_name].Rarity or Loot.RARITY_COMMON
+	if string.match(item_name, "item_rune_") and item.rarity == Loot.RARITY_COMMON then
+		item.rarity = Loot.RARITY_MAGIC
+	end
 
 	if item_type == Loot.TYPE_WEAPONS or item_type == Loot.TYPE_ARMOR then
 		item.rarity = owner.loot_rarity_rng:Choose()
@@ -106,7 +109,7 @@ function Loot:CreateItem( position, owner )
 end
 
 function Loot:GenerateCaption( item )
-	if item.rarity > Loot.RARITY_MAGIC then
+	if item.rarity >= Loot.RARITY_MAGIC then
 		local adjective = GetRandomElement(ZIV.CaptionsKVs.Adjectives)
 
 		local noun = ""
@@ -117,7 +120,7 @@ function Loot:GenerateCaption( item )
 			end
 		end
 		local noun2 = ""
-		if item.rarity == Loot.RARITY_EPIC then
+		if item.rarity >= Loot.RARITY_EPIC then
 			noun2 = GetRandomElement(ZIV.CaptionsKVs.Nouns2)
 		end
 
@@ -141,22 +144,43 @@ function Loot:AddModifiers( item )
 	end
 
 	if item.rarity then
-		local modifier_count = item.rarity + math.random(0, 1)
+		local modifier_count = item.rarity -- + math.random(0, 1)
 		local existing = {}
 
 		for i=1,modifier_count do
-			local seed
-  			repeat
-  				seed = math.random(1, GetTableLength(Loot.CommonModifiers))
-  			until not existing[seed]
+			local seed = math.random(1, GetTableLength(Loot.CommonModifiers))
+			if existing[seed] then
+	  			repeat
+	  				seed = math.random(1, GetTableLength(Loot.CommonModifiers))
+	  			until not existing[seed]
+			end
+
 			existing[seed] = true
 
-			local seed = math.random(1, GetTableLength(Loot.CommonModifiers))
 			local x = 1
 			for k,v in pairs(Loot.CommonModifiers) do
 				if x == seed then
 					local new_modifier = {}
 					new_modifier[k] = math.random(tonumber(v["min"]), tonumber(v["max"]))
+
+					table.insert(item.built_in_modifiers, new_modifier)
+					break
+				end
+				x = x + 1
+			end
+		end
+
+		if item.rarity >= Loot.RARITY_EPIC then
+			local seed = math.random(1, GetTableLength(Loot.RuneModifiers))
+			local x = 1
+			for k,v in pairs(Loot.RuneModifiers) do
+				if x == seed then
+					local new_modifier = {}
+					if not v["min"] or not v["max"] then
+						new_modifier[k] = 1
+					else
+						new_modifier[k] = math.random(tonumber(v["min"]), tonumber(v["max"]))
+					end
 
 					table.insert(item.built_in_modifiers, new_modifier)
 					break
@@ -248,7 +272,7 @@ function Loot:SpawnPhysicalItem(position, item, no_panel)
 	Physics:Unit(container)
 
 	local seed = math.random(0, 360)
-	local boost = math.random(0,325)
+	local boost = math.random(0, 325)
 
 	local x = ((185 + boost) * math.cos(seed))
 	local y = ((185 + boost) * math.sin(seed))

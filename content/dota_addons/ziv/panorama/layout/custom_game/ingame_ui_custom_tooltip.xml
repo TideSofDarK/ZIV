@@ -157,7 +157,7 @@
                     if (itemData.fortify_modifiers && Object.keys( itemData.fortify_modifiers ).length >= 1)
                     {
                         AddCBR(itemTooltip);
-
+                        $.Msg(itemData.fortify_modifiers);
                         var i = 0;
                         for (var key in itemData.fortify_modifiers)
                         {
@@ -168,7 +168,12 @@
                                     specialLabel.AddClass("TooltipLabel");
                                     specialLabel.html = true;
 
-                                    specialLabel.text = Util.ColorString("+ " + Math.abs(Util.ConvertValue(modifier, 0, value[modifier], true)),"#ffffff") + " " + $.Localize(modifier);
+                                    var value = Util.ConvertValue(modifier, 0, value[modifier], true);
+                                    if (value == "") {
+                                        specialLabel.text = Util.ColorString($.Localize(modifier),"#4EAD8C");
+                                    } else {
+                                        specialLabel.text = Util.ColorString("+ " + Math.abs(value),"#ffffff") + " " + $.Localize(modifier);
+                                    }  
 
                                     i = i + 1;
                                 }
@@ -283,7 +288,12 @@
                                 } else if (itemKV["Tooltip"] == "AbilityManaCost") {
                                     FillProperty(abilityTooltip.FindChildTraverse("AbilityTooltipEnergyCost"), "energy_cost", Util.ConvertValue(buffName, abilityKV["AbilityManaCost"], stackCount), "#3fb568");
                                 } else if (itemKV["Tooltip"] == "New") {
-                                    newModifiers[buffName] = Util.ColorString("+ " + Util.ConvertValue(buffName, 0, stackCount),"#ffffff") + " " + $.Localize(buffName);
+                                    var value = Util.ConvertValue(buffName, 0, stackCount);
+                                    if (value == "") {
+                                        newModifiers[buffName] = Util.ColorString($.Localize(buffName),"#4EAD8C");  
+                                    } else {
+                                        newModifiers[buffName] = Util.ColorString("+ " + value,"#ffffff") + " " + $.Localize(buffName);
+                                    }   
                                 }
                             }
                         }

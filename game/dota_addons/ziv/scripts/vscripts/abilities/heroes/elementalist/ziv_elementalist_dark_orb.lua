@@ -4,7 +4,8 @@ function DarkOrb( keys )
 
 	caster:EmitSound("Hero_Warlock.ShadowWordCastBad")
 
-	local speed = GetSpecial(ability, "speed")
+	local lifetime = GetSpecial(ability, "lifetime") + (GRMSC("ziv_elementalist_dark_orb_duration", caster) / 100)
+	local speed = GetSpecial(ability, "speed") + (GRMSC("ziv_elementalist_dark_orb_speed", caster) / 100)
 	local radius = math.random(GetSpecial(ability, "radius") * 0.9, GetSpecial(ability, "radius"))
 	local z_offset = math.random(-64,86)
 	local start = Vector(0,0,z_offset) + RandomPointOnCircle(radius)
@@ -20,7 +21,7 @@ function DarkOrb( keys )
 
 	stack:RemoveCollider()
     collider = stack:AddColliderFromProfile("blocker")
-    collider.radius = 100
+    collider.radius = 100 + GRMSC("ziv_elementalist_dark_orb_radius", caster)
     collider.linear = false
   	collider.skipFrames = 1
     collider.test = function(self, collider, collided)
@@ -47,9 +48,6 @@ function DarkOrb( keys )
 		stack:SetForwardVector((caster:GetAbsOrigin() - next_pos):Normalized())
 		stack:SetAbsOrigin(next_pos) 
 		angle = angle + speed
-		if angle == 360 then
-			angle = 0
-		end
 
 		return 0.03
 	end)
@@ -57,7 +55,7 @@ function DarkOrb( keys )
     local particle = ParticleManager:CreateParticle("particles/heroes/elementalist/elementalist_dark_orb.vpcf",PATTACH_CUSTOMORIGIN,nil)
     ParticleManager:SetParticleControlEnt(particle,0,stack,PATTACH_ABSORIGIN_FOLLOW,"attach_origin",stack:GetAbsOrigin(),false)
 
-    Timers:CreateTimer(GetSpecial(ability, "lifetime"), function (  )
+    Timers:CreateTimer(lifetime, function (  )
     	stack:RemoveSelf()
     	ParticleManager:DestroyParticle(particle, false)
     end)

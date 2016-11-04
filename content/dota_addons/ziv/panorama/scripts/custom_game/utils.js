@@ -74,7 +74,9 @@ Util.ConvertValue = (function (modifier, originalValue, modifierValue, dontModif
     }
 
     var newValue = originalValue;
-    if ((!modifyMethod || modifyMethod == "Multiply") && (!modifierType || modifierType == "Percent") && !dontModify) {
+    if (modifierType == "Bool") {
+        return "";
+    } else if ((!modifyMethod || modifyMethod == "Multiply") && (!modifierType || modifierType == "Percent") && !dontModify) {
         newValue = originalValue * (1 + (modifierValue / 100 * multiplier));
     } else if (modifyMethod == "Add" && modifierType == "Int") {
         newValue = originalValue + (modifierValue * multiplier);

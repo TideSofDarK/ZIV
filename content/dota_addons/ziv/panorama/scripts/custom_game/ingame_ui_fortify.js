@@ -51,6 +51,9 @@ function OnDragDrop(panelId, draggedPanel) {
 							}
 						}
 						plus = "+ (" + minValue + "-" + maxValue + ")" + " " + $.Localize(key);
+						if (!itemKV["FortifyModifiers"][key]["min"] || !itemKV["FortifyModifiers"][key]["max"]) {
+							plus = Util.ColorString($.Localize(key),"#4EAD8C");
+						}
 						break;
 					}
 				}
@@ -105,7 +108,12 @@ function GetModifiers(table) {
 					var span = ""; //"<span class=\"" + modifiers[gem]["gem"] + "\">";
 					var endSpan = "";//"</span>";
 					if (modifier != "gem") { 
-						newText = newText + span + "+ " + Math.abs(Util.ConvertValue(modifier, 0, modifiers[gem][modifier], true)) + " " + $.Localize(modifier) + endSpan +"<br>";
+						var value = Util.ConvertValue(modifier, 0, modifiers[gem][modifier], true);
+						if (value == "") {
+							newText = newText + Util.ColorString($.Localize(modifier),"#4EAD8C") +"<br>";
+						} else {
+							newText = newText + span + "+ " + Math.abs(value) + " " + $.Localize(modifier) + endSpan +"<br>";
+						}
 					}
 				}
 			}

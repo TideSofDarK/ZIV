@@ -9,7 +9,30 @@ function Items:Init()
 end
 
 function Items:UpdateItem(item)
-	PlayerTables:SetTableValue("items", item:entindex(), { caption = item.caption, fortify_modifiers = item.fortify_modifiers, built_in_modifiers = item.built_in_modifiers, rarity = item.rarity or 1, sockets = item.sockets or 0})
+	local fortify_modifiers = {}
+	local built_in_modifiers = {}
+
+	if item.fortify_modifiers then
+		for k,v in pairs(item.fortify_modifiers) do
+			local t = {}
+			for k2,v2 in pairs(v) do
+				t[k2] = v2
+			end
+			table.insert(fortify_modifiers, t)
+		end
+	end
+
+	if item.built_in_modifiers then
+		for k,v in pairs(item.built_in_modifiers) do
+			local t = {}
+			for k2,v2 in pairs(v) do
+				t[k2] = v2
+			end
+			table.insert(built_in_modifiers, t)
+		end
+	end
+
+	PlayerTables:SetTableValue("items", item:entindex(), { caption = item.caption, fortify_modifiers = fortify_modifiers, built_in_modifiers = built_in_modifiers, rarity = item.rarity or 1, sockets = item.sockets or 0})
 end
 
 function Items:Create(item_name, owner)

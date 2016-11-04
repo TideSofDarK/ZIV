@@ -1,0 +1,30 @@
+"item_rune_arc_lightning_targets"
+{
+  "ID"		"1509"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"           "item_datadriven"
+  "AbilityTextureName"      "item_rune_arc_lightning_targets"
+  "Model"                   "models/items/gem_topaz.vmdl"
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+
+  "ItemStackable"         "1"
+  "ItemPermanent"         "0"
+  "ItemInitialCharges"            "1"
+
+  "MaxUpgradeLevel"       "1"
+  "ItemBaseLevel"         "1"
+
+  "Tooltip"   "max_targets"
+  "Type"      "Int"
+  "Method"    "Add"
+
+  "FortifyModifiersCount" "1"
+  "FortifyModifiers"
+  {
+    "ziv_elementalist_arc_lightning_targets"
+    {
+      "min" "1"
+      "max" "4"
+    }
+  }
+}

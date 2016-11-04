@@ -1,0 +1,31 @@
+"item_rune_barrier_less_ep"
+{
+  "ID"		                  "1509"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"             "item_datadriven"
+  "AbilityTextureName"      "item_rune_barrier_less_ep"
+  "Model"                   "models/items/gem_topaz.vmdl"
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+
+  "ItemStackable"         "1"
+  "ItemPermanent"         "0"
+  "ItemInitialCharges"            "1"
+
+  "MaxUpgradeLevel"       "1"
+  "ItemBaseLevel"         "1"
+
+  "Tooltip" "damage_per_ep"
+  "Type"    "Float"
+  "Method"  "Add"
+  "Reduction" "1"
+
+  "FortifyModifiersCount" "1"
+  "FortifyModifiers"
+  {
+    "ziv_elementalist_barrier_less_ep"
+    {
+      "min" "5"
+      "max" "45"
+    }
+  }
+}

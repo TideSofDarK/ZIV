@@ -1,8 +1,8 @@
 function Barrier( event )
 	local caster = event.caster
 	local ability = event.ability
-	local damage_per_mana = GetSpecial(ability, "damage_per_ep")
-	local damage_absorption = GetSpecial(ability, "damage_absorption")
+	local damage_per_mana = GetSpecial(ability, "damage_per_ep") + (GRMSC("ziv_elementalist_barrier_more_ep", caster) / 100) - (GRMSC("ziv_elementalist_barrier_less_ep", caster) / 100)
+	local damage_absorption = GetSpecial(ability, "damage_absorption") + (GRMSC("ziv_elementalist_barrier_percentage", caster) / 100)
 	local damage = event.Damage * damage_absorption
 	local not_reduced_damage = event.Damage - damage
 

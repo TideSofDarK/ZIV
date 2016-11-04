@@ -1,9 +1,30 @@
+function CDOTA_BaseNPC_Hero:AddOnRuneModifierAppliedCallback( callback )
+  self._OnRuneModifierAppliedCallbacks = self._OnRuneModifierAppliedCallbacks or {}
+
+  local callback_string = DoUniqueString("callback")
+
+  self._OnRuneModifierAppliedCallbacks[callback_string] = callback
+
+  return callback_string
+end
+
+function CDOTA_BaseNPC_Hero:AddOnRuneModifierRemovedCallback( callback )
+  self._OnRuneModifierRemovedCallbacks = self._OnRuneModifierRemovedCallbacks or {}
+
+  local callback_string = DoUniqueString("callback")
+
+  self._OnRuneModifierRemovedCallbacks[callback_string] = callback
+
+  return callback_string
+end
+
 function GRMSC(name, caster)
 	if not caster.GetModifierStackCount then return 0 end
 	return caster:GetModifierStackCount(name,nil) or 0
 end
 
 function StartRuneCooldown(ability,name,caster)
+	ability:EndCooldown()
 	ability:StartCooldown((1 - (GRMSC(name,caster) / 100)) * ability:GetCooldown(ability:GetLevel())) 
 end
 

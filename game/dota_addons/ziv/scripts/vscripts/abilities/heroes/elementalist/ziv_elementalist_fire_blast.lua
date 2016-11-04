@@ -22,9 +22,9 @@ function FireBlast( keys )
 
 	local radius = GetSpecial(ability, "radius")
 
-	local waves = GetSpecial(ability, "waves")
+	local waves = GetSpecial(ability, "waves") +  GRMSC("ziv_elementalist_fire_blast_waves", caster)
 	local wave_delay = GetSpecial(ability, "wave_delay")
-	local wave_radius = GetSpecial(ability, "wave_radius")
+	local wave_radius = GetSpecial(ability, "wave_radius") + GRMSC("ziv_elementalist_fire_blast_radius", caster)
 
 	local points = RandomPointsInsideCircleUniform( target, radius, waves, wave_radius )
 

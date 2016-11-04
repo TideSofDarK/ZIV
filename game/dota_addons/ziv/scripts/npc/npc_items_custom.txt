@@ -1428,6 +1428,183 @@
 	    }
 	  }
 	}
+	"item_rune_arc_lightning_cd"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_arc_lightning_cd"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "AbilityCooldown"
+	  "Reduction" "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_arc_lightning_cd"
+	    {
+	      "min" "5"
+	      "max" "47"
+	    }
+	  }
+	}
+	"item_rune_arc_lightning_fire"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_arc_lightning_fire"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "New"
+	  "Type"      "Bool"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_arc_lightning_fire"
+	    {
+	    }
+	  }
+	}
+	"item_rune_arc_lightning_targets"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_arc_lightning_targets"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "max_targets"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_arc_lightning_targets"
+	    {
+	      "min" "1"
+	      "max" "4"
+	    }
+	  }
+	}
+	"item_rune_barrier_less_ep"
+	{
+	  "ID"		                  "1509"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"             "item_datadriven"
+	  "AbilityTextureName"      "item_rune_barrier_less_ep"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip" "damage_per_ep"
+	  "Type"    "Float"
+	  "Method"  "Add"
+	  "Reduction" "1"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_barrier_less_ep"
+	    {
+	      "min" "5"
+	      "max" "45"
+	    }
+	  }
+	}
+	"item_rune_barrier_more_ep"
+	{
+	  "ID"		                  "1509"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"             "item_datadriven"
+	  "AbilityTextureName"      "item_rune_barrier_more_ep"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip" "damage_per_ep"
+	  "Type"    "Float"
+	  "Method"  "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_barrier_more_ep"
+	    {
+	      "min" "5"
+	      "max" "45"
+	    }
+	  }
+	}
+	"item_rune_barrier_percentage"
+	{
+	  "ID"		                  "1509"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"             "item_datadriven"
+	  "AbilityTextureName"      "item_rune_barrier_percentage"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip" "damage_absorption"
+	  "Type"    "Float"
+	  "Method"  "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_barrier_percentage"
+	    {
+	      "min" "5"
+	      "max" "25"
+	    }
+	  }
+	}
 	"item_rune_cold_blast_double_chance"
 	{
 	  "ID"		"1509"
@@ -1546,36 +1723,6 @@
 	    }
 	  }
 	}
-	"item_rune_cold_orb_damage"
-	{
-	  "ID"		"1509"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_cold_orb_damage"
-	  "Model"                   "models/items/gem_topaz.vmdl"
-	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
-	
-	  "ItemStackable"         "1"
-	  "ItemPermanent"         "0"
-	  "ItemInitialCharges"            "1"
-	
-	  "MaxUpgradeLevel"       "1"
-	  "ItemBaseLevel"         "1"
-	
-	  "Tooltip" "damage_amp"
-	  "Type"    "Float"
-	  "Method"  "Add"
-	
-	  "FortifyModifiersCount" "1"
-	  "FortifyModifiers"
-	  {
-	    "ziv_elementalist_cold_orb_damage"
-	    {
-	      "min" "1"
-	      "max" "20"
-	    }
-	  }
-	}
 	"item_rune_dark_orb_damage"
 	{
 	  "ID"		"1509"
@@ -1606,6 +1753,95 @@
 	    }
 	  }
 	}
+	"item_rune_dark_orb_duration"
+	{
+	  "ID"		                  "1509"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"             "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dark_orb_duration"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip" "lifetime"
+	  "Type"    "Float"
+	  "Method"  "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_dark_orb_duration"
+	    {
+	      "min" "50"
+	      "max" "600"
+	    }
+	  }
+	}
+	"item_rune_dark_orb_radius"
+	{
+	  "ID"		                  "1509"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"             "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dark_orb_radius"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip" "New"
+	  "Type"    "Int"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_dark_orb_radius"
+	    {
+	      "min" "5"
+	      "max" "50"
+	    }
+	  }
+	}
+	"item_rune_dark_orb_speed"
+	{
+	  "ID"		                  "1509"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"             "item_datadriven"
+	  "AbilityTextureName"      "item_rune_dark_orb_speed"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip" "speed"
+	  "Type"    "Float"
+	  "Method"  "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_dark_orb_speed"
+	    {
+	      "min" "50"
+	      "max" "500"
+	    }
+	  }
+	}
 	"item_rune_fire_blast_cd"
 	{
 	  "ID"		"1509"
@@ -1632,35 +1868,6 @@
 	    {
 	      "min" "5"
 	      "max" "27"
-	    }
-	  }
-	}
-	"item_rune_fire_blast_crit_chance"
-	{
-	  "ID"		"1509"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_fire_blast_crit_chance"
-	  "Model"                   "models/items/gem_topaz.vmdl"
-	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
-	
-	  "ItemStackable"         "1"
-	  "ItemPermanent"         "0"
-	  "ItemInitialCharges"            "1"
-	
-	  "MaxUpgradeLevel"       "1"
-	  "ItemBaseLevel"         "1"
-	
-	  "Tooltip" "New"
-	  "Type"    "Int"
-	
-	  "FortifyModifiersCount" "1"
-	  "FortifyModifiers"
-	  {
-	    "ziv_elementalist_fire_blast_crit_chance"
-	    {
-	      "min" "5"
-	      "max" "25"
 	    }
 	  }
 	}
@@ -1709,7 +1916,7 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
-	  "Tooltip"   "end_radius"
+	  "Tooltip"   "wave_radius"
 	  "Type"      "Int"
 	  "Method"    "Add"
 	
@@ -1723,12 +1930,12 @@
 	    }
 	  }
 	}
-	"item_rune_overload_cold_damage"
+	"item_rune_fire_blast_waves"
 	{
-	  "ID"		"1509"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_overload_cold_damage"
+	  "ID"		                  "1509"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_rune_fire_blast_waves"
 	  "Model"                   "models/items/gem_topaz.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
@@ -1739,107 +1946,47 @@
 	  "MaxUpgradeLevel"       "1"
 	  "ItemBaseLevel"         "1"
 	
-	  "Tooltip"   "damage_amp_cold"
-	  "Type"      "Float"
-	  "Method"    "Add"
-	
-	  "FortifyModifiersCount" "1"
-	  "FortifyModifiers"
-	  {
-	    "ziv_elementalist_overload_cold_damage"
-	    {
-	      "min" "2"
-	      "max" "15"
-	    }
-	  }
-	}
-	"item_rune_overload_fire_damage"
-	{
-	  "ID"		"1509"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_overload_fire_damage"
-	  "Model"                   "models/items/gem_topaz.vmdl"
-	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
-	
-	  "ItemStackable"         "1"
-	  "ItemPermanent"         "0"
-	  "ItemInitialCharges"            "1"
-	
-	  "MaxUpgradeLevel"       "1"
-	  "ItemBaseLevel"         "1"
-	
-	  "Tooltip"   "damage_amp_fire"
-	  "Type"      "Float"
-	  "Method"    "Add"
-	
-	  "FortifyModifiersCount" "1"
-	  "FortifyModifiers"
-	  {
-	    "ziv_elementalist_overload_fire_damage"
-	    {
-	      "min" "2"
-	      "max" "15"
-	    }
-	  }
-	}
-	"item_rune_overload_lightning_damage"
-	{
-	  "ID"		"1509"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_overload_lightning_damage"
-	  "Model"                   "models/items/gem_topaz.vmdl"
-	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
-	
-	  "ItemStackable"         "1"
-	  "ItemPermanent"         "0"
-	  "ItemInitialCharges"            "1"
-	
-	  "MaxUpgradeLevel"       "1"
-	  "ItemBaseLevel"         "1"
-	
-	  "Tooltip"   "damage_amp_lightning"
-	  "Type"      "Float"
-	  "Method"    "Add"
-	
-	  "FortifyModifiersCount" "1"
-	  "FortifyModifiers"
-	  {
-	    "ziv_elementalist_overload_lightning_damage"
-	    {
-	      "min" "2"
-	      "max" "15"
-	    }
-	  }
-	}
-	"item_rune_overload_targets"
-	{
-	  "ID"		"1509"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_rune_overload_targets"
-	  "Model"                   "models/items/gem_topaz.vmdl"
-	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
-	
-	  "ItemStackable"         "1"
-	  "ItemPermanent"         "0"
-	  "ItemInitialCharges"            "1"
-	
-	  "MaxUpgradeLevel"       "1"
-	  "ItemBaseLevel"         "1"
-	
-	  "Tooltip"   "max_targets"
+	  "Tooltip"   "waves"
 	  "Type"      "Int"
 	  "Method"    "Add"
 	
 	  "FortifyModifiersCount" "1"
 	  "FortifyModifiers"
 	  {
-	    "ziv_elementalist_overload_targets"
+	    "ziv_elementalist_fire_blast_waves"
 	    {
 	      "min" "1"
-	      "max" "10"
+	      "max" "5"
+	    }
+	  }
+	}
+	"item_rune_mastery_damage"
+	{
+	  "ID"		"1509"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_rune_mastery_damage"
+	  "Model"                   "models/items/gem_topaz.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	
+	  "Tooltip"   "crit_damage"
+	  "Type"      "Int"
+	  "Method"    "Add"
+	
+	  "FortifyModifiersCount" "1"
+	  "FortifyModifiers"
+	  {
+	    "ziv_elementalist_mastery_damage"
+	    {
+	      "min" "5"
+	      "max" "50"
 	    }
 	  }
 	}

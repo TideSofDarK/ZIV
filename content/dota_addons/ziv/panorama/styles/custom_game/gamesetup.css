@@ -278,8 +278,8 @@ TextButton, Label {
 }
 
 .PlayerStatus {
-	width: 352px;
-	height: 181px;
+	width: 77px;
+	height: 81px;
 
 	background-image: url("file://{images}/custom_game/gamesetup/gamesetup_status.png");
 	background-repeat: no-repeat;
@@ -287,7 +287,11 @@ TextButton, Label {
 
 	hue-rotation: 10deg;
 
-	vertical-align: center;
+	vertical-align: bottom;
+
+	margin-left: 139px;
+	margin-right: 139px;
+	margin-bottom: 5px;
 }
 
 .StatusDisconnected {
@@ -303,7 +307,7 @@ TextButton, Label {
 
 .NameLabel {
 	vertical-align: center;
-	margin-bottom: 80px;
+	margin-bottom: 110px;
 
 	font-size: 18px;
 
@@ -313,7 +317,7 @@ TextButton, Label {
 .StatusLabel {
 	vertical-align: center;
 	margin-top: 0px;
-	margin-bottom: 1px;
+	margin-bottom: 30px;
 
 	min-width: 200px;
 
