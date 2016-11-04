@@ -33,6 +33,15 @@ function Items:UpdateItem(item)
 	end
 
 	PlayerTables:SetTableValue("items", item:entindex(), { caption = item.caption, fortify_modifiers = fortify_modifiers, built_in_modifiers = built_in_modifiers, rarity = item.rarity or 1, sockets = item.sockets or 0})
+
+	if item:GetOwnerEntity() then
+		if item:GetOwnerEntity().equipment then
+			if item:GetOwnerEntity().equipment:ContainsItem(item) then
+				Equipment:Unequip( item:GetOwnerEntity(), item )
+				Equipment:Equip( item:GetOwnerEntity(), item )
+			end
+		end
+	end
 end
 
 function Items:Create(item_name, owner)

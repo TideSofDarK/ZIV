@@ -36,71 +36,6 @@
       }
     }
 
-    // Custom resistances, works through damage.lua
-
-    "ALL_RESISTANCES"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-    }
-
-    "FIRE_RESISTANCE"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-    }
-
-    "COLD_RESISTANCE"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-    }
-
-    "LIGHTNING_RESISTANCE"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-    }
-
-    "DARK_RESISTANCE"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-    }
-
-    "FIRE_DAMAGE_INCREASE"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-    }
-
-    "COLD_DAMAGE_INCREASE"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-    }
-
-    "LIGHTNING_DAMAGE_INCREASE"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-    }
-
-    "DARK_DAMAGE_INCREASE"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-    }
-
     // Generic modifiers
 
     "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
@@ -108,6 +43,8 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
   
       "Properties"
       {
@@ -120,6 +57,8 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
   
       "Properties"
       {
@@ -132,6 +71,8 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
   
       "Properties"
       {
@@ -144,6 +85,8 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
   
       "Properties"
       {
@@ -156,6 +99,8 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
   
       "Properties"
       {
@@ -168,6 +113,8 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
   
       "Properties"
       {
@@ -180,6 +127,8 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
   
       "Properties"
       {
@@ -192,6 +141,8 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
   
       "Properties"
       {
@@ -204,6 +155,8 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
   
       "Properties"
       {
@@ -216,6 +169,8 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
   
       "Properties"
       {
@@ -228,6 +183,8 @@
       "Passive"      "0"
       "IsHidden"      "1"
       "IsDebuff"      "0"
+
+      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
   
       "Properties"
       {

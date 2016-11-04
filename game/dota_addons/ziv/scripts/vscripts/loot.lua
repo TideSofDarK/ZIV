@@ -104,6 +104,8 @@ function Loot:CreateItem( position, owner )
 	end
 
 	if item then
+		Items:UpdateItem(item)
+
 		Loot:SpawnPhysicalItem(position, item)
 	end
 end
@@ -191,8 +193,6 @@ function Loot:AddModifiers( item )
 
 		Loot:GenerateCaption( item )
 	end
-
-	Items:UpdateItem(item)
 end
 
 -- Creep loot

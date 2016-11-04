@@ -3,6 +3,12 @@ for k,v in pairs(LoadKeyValues("scripts/npc/npc_items_custom.txt")) do
     for modifier_name,modifier_data in pairs(v["FortifyModifiers"]) do
       local str = modifier_name
       _G[str] = class({})
+      _G[str].GetAttributes = (function ()
+        return MODIFIER_ATTRIBUTE_PERMANENT
+      end)
+      _G[str].RemoveOnDeath = (function ()
+        return false
+      end)
       _G[str].IsHidden = (function ()
         return true
       end)
