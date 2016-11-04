@@ -126,7 +126,7 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 	damage = math.random(min_damage, max_damage)
 
 	local attacker_player = attacker:GetPlayerOwner()
-	if PlayerResource:IsValidPlayer(attacker_player:GetPlayerID()) and RollPercentage(Damage:GetValue( attacker, Damage.CRIT_CHANCE )) then
+	if attacker_player and PlayerResource:IsValidPlayer(attacker_player:GetPlayerID()) and RollPercentage(Damage:GetValue( attacker, Damage.CRIT_CHANCE )) then
 		damage = damage * (Damage:GetValue( attacker, Damage.CRIT_DAMAGE ) / 100)
 
 		if not no_blood and not no_popup then
