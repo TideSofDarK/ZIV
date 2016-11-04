@@ -633,7 +633,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_amethyst_ring"
-	  "Model"                   "models/items/basic_coat.vmdl" 
+	  "Model"                   "models/items/amethyst_ring.vmdl" 
 	
 	  "Slot"  "ring"
 	  "EquipSound"  "Item.DropRingShop"
@@ -666,7 +666,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_malachite_ring"
-	  "Model"                   "models/items/basic_coat.vmdl" 
+	  "Model"                   "models/items/malachite_ring.vmdl" 
 	
 	  "Slot"  "ring"
 	  "EquipSound"  "Item.DropRingShop"
@@ -699,7 +699,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_ruby_ring"
-	  "Model"                   "models/items/basic_coat.vmdl" 
+	  "Model"                   "models/items/ruby_ring.vmdl" 
 	
 	  "Slot"  "ring"
 	  "EquipSound"  "Item.DropRingShop"
@@ -732,7 +732,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_topaz_ring"
-	  "Model"                   "models/items/basic_coat.vmdl" 
+	  "Model"                   "models/items/topaz_ring.vmdl" 
 	
 	  "Slot"  "ring"
 	  "EquipSound"  "Item.DropRingShop"
