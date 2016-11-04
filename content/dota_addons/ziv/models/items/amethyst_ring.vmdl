@@ -175,7 +175,7 @@
 				m_sReplaceMaterial = "materials/models/items/gold_ring.vmat"
 			},
 			{
-				m_sSearchMaterial = "amethyst.vmat"
+				m_sSearchMaterial = "textures/items/amethyst.vmat"
 				m_sReplaceMaterial = "materials/models/items/gem_amethyst.vmat"
 			},
 		]

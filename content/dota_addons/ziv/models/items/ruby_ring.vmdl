@@ -175,7 +175,7 @@
 				m_sReplaceMaterial = "materials/models/items/gold_ring.vmat"
 			},
 			{
-				m_sSearchMaterial = "ruby.vmat"
+				m_sSearchMaterial = "textures/items/ruby.vmat"
 				m_sReplaceMaterial = "materials/models/items/gem_ruby.vmat"
 			},
 		]
