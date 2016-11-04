@@ -1,4 +1,14 @@
 .Event {
+    width: 60px;
+    height: 60px;
+}
+
+#Icon {
+    width: 30px;
+    height: 30px;
+
+    align: center center;
+
     animation-duration: 0.7s;
     animation-iteration-count: 999;
     animation-timing-function: ease-in-out;

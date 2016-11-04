@@ -32,6 +32,10 @@ function updateRotation() {
 	var childCount = $('#MarksMap').GetChildCount();
 	for(var i = 0; i < childCount; i++)
 		$('#MarksMap').GetChild(i).style.transform = 'rotateZ( ' + -settings.rotation + 'deg );';
+
+	childCount = $('#EventsMap').GetChildCount();
+	for(var i = 0; i < childCount; i++)
+		$('#EventsMap').GetChild(i).style.transform = 'rotateZ( ' + -settings.rotation + 'deg );';
 }
 
 (function()
