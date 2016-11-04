@@ -23,8 +23,10 @@ function item( panel ) {
         panel.FindChildTraverse("ItemCaptionLabel").text = itemBase;
         if (panel.Data["name"].match("item_rune_")) {
           panel.AddClass("RarityBorderRune");
+          panel.FindChildTraverse("ItemCaptionLabel").AddClass("Rarity1");
         } else if (panel.Data["name"].match("item_forging_")) {
           panel.AddClass("RarityBorderForging");
+          panel.FindChildTraverse("ItemCaptionLabel").AddClass("RarityForging");
         } else {
           panel.FindChildTraverse("ItemButton").AddClass("RarityBorder" + itemData.rarity);
           panel.FindChildTraverse("ItemCaptionLabel").AddClass("Rarity" + itemData.rarity);

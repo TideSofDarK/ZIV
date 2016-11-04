@@ -33,6 +33,10 @@
 	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
 }
 
+#ItemCaptionLabel {
+	/*color: White;*/
+}
+
 .RarityBorder1 {
 	border: 1px solid White;
 }
@@ -61,6 +65,10 @@
 
 .RarityBorderRune:hover {
 	wash-color: #bbbbbb;
+}
+
+.RarityForging {
+	color: #C8A082;
 }
 
 .RarityBorderForging {

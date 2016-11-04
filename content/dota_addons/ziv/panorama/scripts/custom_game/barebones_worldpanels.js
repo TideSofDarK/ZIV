@@ -30,8 +30,10 @@ function WorldPanelChange(id, changes, dels)
     }
 
     if (changes[k].layout !== wp.layout){
-      if (wp.panel)
+      if (wp.panel) {
         wp.panel.DeleteAsync(0);
+        wp.panel.deleted = true;
+      }
 
       wp.panel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
 
@@ -50,6 +52,7 @@ function WorldPanelChange(id, changes, dels)
       wp.panel.DeleteWorldPanel = function(pan){ 
         return function(){
           pan.DeleteAsync(0);
+          pan.deleted = true;
           delete panels[k];
         }
       }(wp.panel);
@@ -84,6 +87,7 @@ function WorldPanelChange(id, changes, dels)
 
   for (var k in dels){
     panels[k].panel.DeleteAsync(0);
+    panels[k].panel.deleted = true;
     delete panels[k];
   }
 }
@@ -98,6 +102,7 @@ function PositionPanels()
       if (!Entities.IsValidEntity(wp.entity)){
         if (wp.seen){
           panels[k].panel.DeleteAsync(0);
+          panels[k].panel.deleted = true;
           delete panels[k];
           continue;
         }

@@ -22,13 +22,14 @@ teamColors[DOTATeam_t.DOTA_TEAM_NOTEAM]   = "#b53f51;";
 function healthbar( panel )
 {
   panel.HealthCheck = function(){
-    if (panel == null)
+    if (panel == null || panel.deleted)
       return;
 
     var offScreen = panel.OffScreen;
     var entity = panel.Entity;
     if (!offScreen && entity){
       if (!Entities.IsAlive(entity) || Entities.GetHealth(entity) == Entities.GetMaxHealth(entity)){
+        if (panel.deleted) return;
         panel.style.opacity = "0";
 
         $.Schedule(1/30, panel.HealthCheck);
