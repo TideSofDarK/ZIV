@@ -12,6 +12,30 @@ function OnScenarioChanged(args) {
 	objective.text = $.Localize("#temple_obelisks") + count;
 }
 
+// MInimap filter
+function minimapFilter( entity ){
+	var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+	var visionRange = Entities.GetCurrentVisionRange( heroID );		
+	return Entities.IsEntityInRange( heroID, entity, visionRange ) &&
+		!Entities.IsInvisible( entity ) && 
+		Entities.IsValidEntity( entity ) &&
+		(Entities.IsHero( entity ) || Entities.GetUnitName(entity) == "npc_temple_obelisk") &&
+		heroID != entity;
+}
+
+// Get mark filename
+function getMarkType( entity )
+{
+	var type = "default";
+	if (Entities.IsHero( entity ))
+		return "hero";
+
+	if (Entities.GetUnitName(entity) == "npc_temple_obelisk")
+		return "obelisk";
+
+	return type; 
+} 
+
 (function () {
 	objective = $("#objective1");
 
@@ -21,5 +45,5 @@ function OnScenarioChanged(args) {
 	
 	CustomNetTables.SubscribeNetTableListener( "scenario", OnScenarioChanged );
 
-	GameUI.CustomUIConfig().setMinimapSettings({ rotation: 45 }); 
+	GameUI.CustomUIConfig().setMinimapSettings({ rotation: 45, filter: minimapFilter, marks: getMarkType });  
 })();

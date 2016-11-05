@@ -2,7 +2,17 @@
 
 var settings = {
 	visible: true,
-	rotation: 0
+	rotation: 0,
+	filter: function( entity ){
+		return false;
+	},
+	marks: function( entity ){
+		var type = "default";
+		if (Entities.IsHero( entity ))
+			return "hero";
+
+		return type;		
+	}
 };
 
 function setMinimapSettings( newSettings ) {
