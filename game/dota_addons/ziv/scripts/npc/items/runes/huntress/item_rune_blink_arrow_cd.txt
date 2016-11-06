@@ -4,7 +4,7 @@
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_rune_blink_arrow_cd"
-  "Model"                   "models/items/gem_topaz.vmdl"
+  "Model"                   "models/items/basic_rune.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
   "ItemStackable"         "1"

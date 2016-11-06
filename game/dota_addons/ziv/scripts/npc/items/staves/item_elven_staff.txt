@@ -4,7 +4,7 @@
   "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   "BaseClass"               "item_datadriven"
   "AbilityTextureName"      "item_elven_staff"
-  "Model"                   "models/items/basic_coat.vmdl" 
+  "Model"                   "models/items/basic_staff.vmdl" 
 
   "Slot"                    "staff"
   "EquipSound"              "ui.inv_equip_staff"
