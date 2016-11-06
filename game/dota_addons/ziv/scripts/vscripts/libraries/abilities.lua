@@ -149,11 +149,13 @@ function SimulateRangeAttack( keys )
 
   local kv = ZIV.HeroesKVs[caster:GetUnitName()] or ZIV.UnitKVs[caster:GetUnitName()]
   
-  if keys.cooldown_modifier and keys.cooldown_modifier ~= 0 then
-    ability:StartCooldown( base_attack_time * keys.cooldown_modifier)
-  else
-    ability:EndCooldown()
-    ability:StartCooldown( base_attack_time )
+  if not keys.ignore_cooldown then
+    if keys.cooldown_modifier and keys.cooldown_modifier ~= 0 then
+      ability:StartCooldown( base_attack_time * keys.cooldown_modifier)
+    else
+      ability:EndCooldown()
+      ability:StartCooldown( base_attack_time )
+    end
   end
   
   StartAnimation(caster, {duration=base_attack_time, activity=ACT_DOTA_ATTACK, rate=rate, translate=keys.translate, translate2=keys.translate2})
@@ -196,7 +198,8 @@ function SimulateRangeAttack( keys )
 
     if math.abs(target.z - caster:GetAbsOrigin().z) >= 32 then
       if math.abs(GridNav:FindPathLength(caster:GetAbsOrigin(),target) - (target - caster:GetAbsOrigin()):Length2D()) < 128 then
-        point = keys.target_points[1]
+        local z = math.abs((origin - caster:GetAbsOrigin()).z)
+        point = keys.target_points[1] + Vector(0,0,z)
       end
     end
 

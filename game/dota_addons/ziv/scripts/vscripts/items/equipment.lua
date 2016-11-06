@@ -26,14 +26,14 @@ function Equipment:Unequip( unit, item )
 							if new_count <= 0 then
 								unit:RemoveModifierByName(k)
 							end
-
-						    if unit._OnRuneModifierRemovedCallbacks then
-						    	for _,callback in pairs(unit._OnRuneModifierRemovedCallbacks) do
-						    		callback(k, v)
-						    	end
-						    end
 						end
 					end
+
+					if unit._OnRuneModifierRemovedCallbacks then
+				    	for _,callback in pairs(unit._OnRuneModifierRemovedCallbacks) do
+				    		callback(k, v)
+				    	end
+				    end
 				end
 			end
 		end
@@ -72,13 +72,13 @@ function Equipment:Equip( unit, item )
 								fortify_modifiers_ability:ApplyDataDrivenModifier(unit, unit, k, {})
 								unit:SetModifierStackCount(k, unit, v)
 							end
-
-						    if unit._OnRuneModifierAppliedCallbacks then
-						    	for _,callback in pairs(unit._OnRuneModifierAppliedCallbacks) do
-						    		callback(k, v)
-						    	end
-						    end
 						end
+
+						if unit._OnRuneModifierAppliedCallbacks then
+					    	for _,callback in pairs(unit._OnRuneModifierAppliedCallbacks) do
+					    		callback(k, v)
+					    	end
+					    end
 					end
 				end
 			end

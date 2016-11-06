@@ -5,6 +5,11 @@ function StartBarrage( keys )
 	local target = keys.target
 	local ability = keys.ability
 
+	-- local p = (caster:GetAbsOrigin() + (caster:GetForwardVector() * (caster:GetAttackRange() * 3)))
+	-- p.z = keys.target_points[1].z
+
+	-- keys.target_points[1] = (caster:GetAbsOrigin() + (caster:GetForwardVector() * (caster:GetAttackRange() * 3)))
+
 	keys.effect = "particles/heroes/huntress/huntress_focus_fire_projectile.vpcf"
 	keys.impact_effect = "particles/units/heroes/hero_windrunner/windrunner_base_attack_explosion_magic.vpcf"
 	keys.attachment = "bowstring"
@@ -18,7 +23,7 @@ function StartBarrage( keys )
 	keys.standard_targeting = false
 	keys.on_impact = (function ( caster )
 		Timers:CreateTimer(0.2, function (  )
-			if caster:HasModifier("modifier_focus_fire") == false then
+			if caster:HasModifier("modifier_focus_fire") == false and ability.windrun_particle then
 				ParticleManager:DestroyParticle(ability.windrun_particle, false)
 				ability.windrun_particle = nil
 			end

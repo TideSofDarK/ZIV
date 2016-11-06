@@ -173,20 +173,28 @@ function Loot:AddModifiers( item )
 		end
 
 		if item.rarity >= Loot.RARITY_EPIC then
-			local seed = math.random(1, GetTableLength(Loot.RuneModifiers))
-			local x = 1
-			for k,v in pairs(Loot.RuneModifiers) do
-				if x == seed then
-					local new_modifier = {}
-					new_modifier[k] = RandomModifierValue( tonumber(v["min"]), tonumber(v["max"]) )
+			repeat
+				local seed = math.random(1, GetTableLength(Loot.RuneModifiers))
+				local x = 1
+				for k,v in pairs(Loot.RuneModifiers) do
+					local hero = RuneToHero( k )
 
-					table.insert(item.built_in_modifiers, new_modifier)
+					if x == seed then
+						if not string.match(ZIV.HeroesKVs[hero].EquipmentSlots, ZIV.ItemKVs[item:GetName()].Slot) then
+							break
+						end
 
-					item.class = RuneToHero( k )
-					break
+						local new_modifier = {}
+						new_modifier[k] = RandomModifierValue( tonumber(v["min"]), tonumber(v["max"]) )
+
+						table.insert(item.built_in_modifiers, new_modifier)
+
+						item.class = hero
+						break
+					end
+					x = x + 1
 				end
-				x = x + 1
-			end
+	  		until item.class
 		end
 
 		Loot:GenerateCaption( item )
