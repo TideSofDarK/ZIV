@@ -19,7 +19,7 @@
   
   "BaseModifiers"
   {
-    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
+    "ARMOR"
     {
       "min" "8"
       "max" "22"
@@ -53,7 +53,7 @@
   
   "BaseModifiers"
   {
-    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
+    "ARMOR"
     {
       "min" "10"
       "max" "35"
@@ -82,7 +82,7 @@
   
   "BaseModifiers"
   {
-    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
+    "ARMOR"
     {
       "min" "10"
       "max" "25"

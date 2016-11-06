@@ -22,7 +22,7 @@
       "min" "5"
       "max" "15"
     }
-    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
+    "ARMOR"
     {
       "min" "8"
       "max" "20"

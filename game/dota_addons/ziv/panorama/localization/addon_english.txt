@@ -75,15 +75,22 @@
 	"LIGHTNING_RESISTANCE" 							"% to lightning resistance"
 	"DARK_RESISTANCE" 								"% to dark resistance"
 
+	"ARMOR"											"to armor rating"
+	"EVASION"										"to evasion rating"
+
+	"HP_LEECH"										"% to HP leech"
+	"EP_LEECH"										"% to MP leech"
+
+	"CRIT_CHANCE"									"% to crit chance"
+	"CRIT_DAMAGE"									"% to crit damage"
+
 	"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 				"to base damage"
 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" 			"to attack speed"
 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_REDUCE" 	"to attack speed"
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" 			"to move speed"
-	"MODIFIER_PROPERTY_EVASION_CONSTANT" 					"to evasion rating"
 	"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" 				"to agility"
 	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" 				"to intelligence"
 	"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" 				"to strength"
-	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" 				"to armor"
 	"MODIFIER_PROPERTY_STATS_ALL_BONUS" 					"to all stats"
 	"MODIFIER_PROPERTY_HEALTH_BONUS" 						"to max HP"
 
@@ -215,6 +222,9 @@
 	"ziv_knight_orb_projectile_speed"	"to Fire Orb projectile speed"
 
 	// Character presets
+	"huntress_preset_a" "Engineer"
+	"huntress_preset_b" "Marksman"
+
 	"elementalist_preset_a" "Ice and Thunder"
 
 	"magma_knight_preset_a"	"Fiery Knight"

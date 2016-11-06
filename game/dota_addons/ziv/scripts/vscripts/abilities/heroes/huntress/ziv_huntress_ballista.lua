@@ -18,6 +18,8 @@ function SpawnBallista( keys )
     ballista.bottom = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/units/ballista/ballista_bottom.vmdl", DefaultAnim=animation, targetname=DoUniqueString("prop_dynamic")})
     ballista.bottom:SetAbsOrigin(target)
     ballista.bottom:SetModelScale(ballista:GetModelScale())
+
+    ballista:EmitSound("ui.crafting_mech")
 end
 
 function BallistaDeath( keys )
@@ -55,6 +57,7 @@ function SplitShot( keys )
         keys.impact_effect = "particles/units/heroes/hero_windrunner/windrunner_base_attack_explosion_magic.vpcf"
         keys.attachment = "attach_attack1"
         keys.projectile_speed = caster:GetProjectileSpeed() 
+        keys.ignore_cooldown = true
         keys.ignore_z = true
         keys.spread = 300
         keys.spread_z = false
