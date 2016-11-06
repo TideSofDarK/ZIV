@@ -75,3 +75,11 @@ function BasicPropertyRune(keys)
 		BasicPropertyRune(keys)
 	end)
 end
+
+function RuneToHero( rune_modifier )
+	for k,v in pairs(ZIV.HeroesKVs) do
+		if string.match(rune_modifier, v.SecondName) then
+			return v.override_hero
+		end
+	end
+end

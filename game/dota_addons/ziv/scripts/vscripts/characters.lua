@@ -143,6 +143,8 @@ function Characters:InitCharacter( hero )
 
   -- PseudoRNG stuff
 
+  hero.evasion_rng      = PseudoRNG.create( 0.05 )
+
   hero.loot_rng         = PseudoRNG.create( Loot.LOOT_CHANCE )
   hero.loot_rarity_rng  = ChoicePseudoRNG.create( Loot.RARITY_CHANCES )
   hero.vial_rng         = PseudoRNG.create( ZIV_VIAL_CHANCE )
@@ -169,6 +171,18 @@ function Characters:InitCharacter( hero )
 
   --   ParticleManager:DestroyParticle(particle, false)
   -- end)
+  PlayerTables:SetTableValue("characters", "status", {})
+  Timers:CreateTimer(0.0, function()
+    local status = {}
+    status["str"] = hero:GetStrength()
+    status["agi"] = hero:GetAgility()
+    status["int"] = hero:GetIntellect()
+    status["damage"] = hero:GetAverageTrueAttackDamage(hero)
+
+    PlayerTables:SetSubTableValue("characters", "status", hero:GetPlayerOwnerID(), status)
+
+    return 0.5
+  end)
 end
 
 function Characters:GetInventory(pID)

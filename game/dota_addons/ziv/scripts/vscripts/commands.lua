@@ -5,10 +5,10 @@ function ZIV:Test()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
       
-      local rng = PseudoRNG.create( 0.07 )
+      local rng = PseudoRNG.create( 0.05 )
       local wins = 0
       for i=1,10000 do
-        if rng:Next(0.2) then
+        if rng:Next(50 / 300) then
           wins = wins + 1
         end
       end

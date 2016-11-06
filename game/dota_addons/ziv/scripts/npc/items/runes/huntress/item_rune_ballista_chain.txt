@@ -1,9 +1,9 @@
-"item_rune_mastery_damage"
+"item_rune_ballista_chain"
 {
   "ID"		"1509"
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "BaseClass"           "item_datadriven"
-  "AbilityTextureName"      "item_rune_mastery_damage"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"               "item_datadriven"
+  "AbilityTextureName"      "item_rune_ballista_chain"
   "Model"                   "models/items/gem_topaz.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
@@ -14,17 +14,16 @@
   "MaxUpgradeLevel"       "1"
   "ItemBaseLevel"         "1"
 
-  "Tooltip"   "crit_damage"
-  "Type"      "Int"
-  "Method"    "Add"
+  "Rarity"    "3"
+
+  "Tooltip"   "New"
+  "Type"      "Bool"
 
   "FortifyModifiersCount" "1"
   "FortifyModifiers"
   {
-    "ziv_elementalist_mastery_damage"
+    "ziv_huntress_ballista_chain"
     {
-      "min" "5"
-      "max" "75"
     }
   }
 }

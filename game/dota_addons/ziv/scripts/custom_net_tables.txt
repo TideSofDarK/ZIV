@@ -4,7 +4,6 @@
   [
     "containers_lua",
     "kvs",
-    "hero_status",
     "scenario",
     "settings",
     "gamesetup",

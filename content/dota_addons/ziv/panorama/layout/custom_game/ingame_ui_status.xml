@@ -70,7 +70,14 @@
 				<Label class="StatusLabel" id="DarkIncrease" text="500">
 				</Label>
 
+				<Label class="StatusLabel" id="HPL" text="500">
+				</Label>
+				<Label class="StatusLabel" id="EPL" text="500">
+				</Label>
+
 				<Label class="StatusLabel" id="CTC" text="500">
+				</Label>
+				<Label class="StatusLabel" id="CD" text="500">
 				</Label>
 			</Panel>
 		</Panel>

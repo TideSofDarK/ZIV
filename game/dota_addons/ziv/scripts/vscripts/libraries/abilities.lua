@@ -147,7 +147,7 @@ function SimulateRangeAttack( keys )
 
   local damage_amp = GetSpecial(ability, "damage_amp") or 1.0
 
-  local kv = ZIV.HeroesKVs[caster:GetUnitName()]
+  local kv = ZIV.HeroesKVs[caster:GetUnitName()] or ZIV.UnitKVs[caster:GetUnitName()]
   
   if keys.cooldown_modifier and keys.cooldown_modifier ~= 0 then
     ability:StartCooldown( base_attack_time * keys.cooldown_modifier)
@@ -234,7 +234,7 @@ function SimulateRangeAttack( keys )
       fStartRadius = 48,
       fEndRadius = 48,
       Source = caster,
-      fExpireTime = time,
+      fExpireTime = GameRules:GetGameTime() + time,
       UnitBehavior = unit_behavior,
       bMultipleHits = false,
       bIgnoreSource = true,
@@ -302,7 +302,7 @@ function SimulateRangeAttack( keys )
     projectile.fDistance = (point - origin):Length2D()
     projectile.vVelocity = direction * speed * 1 
 
-    projectileFX = ParticleManager:CreateParticle(keys.effect, PATTACH_CUSTOMORIGIN, caster)
+    projectileFX = ParticleManager:CreateParticle(keys.effect, PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(projectileFX, 0, origin)
     ParticleManager:SetParticleControl(projectileFX, 1, point)
     ParticleManager:SetParticleControl(projectileFX, 2, Vector(speed, 0, 0))
@@ -324,7 +324,7 @@ function SimulateRangeAttack( keys )
       ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
       Projectiles:RemoveTimer(projectile.ProjectileTimerName)
       if not keys.standard_targeting then
-        ParticleManager:DestroyParticle(projectileFX, false)
+        ParticleManager:DestroyParticle(projectileFX, keys.force_destroy_tracking == true)
       end
     end
 

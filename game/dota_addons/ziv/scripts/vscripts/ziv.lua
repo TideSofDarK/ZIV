@@ -137,28 +137,6 @@ function ZIV:OnGameInProgress()
       ZIV.TRUE_TIME = ZIV.TRUE_TIME + 0.03
       return 0.03
     end)
-
-  Timers:CreateTimer(1.0, -- Hero statuses for UI
-    function()
-      local players = {}
-      for playerID = 0, DOTA_MAX_PLAYERS do
-        if PlayerResource:IsValidPlayerID(playerID) then
-          if not PlayerResource:IsBroadcaster(playerID) then
-            local hero = PlayerResource:GetPlayer(playerID):GetAssignedHero()
-            if hero then
-              local status_table = {}
-              status_table["str"] = hero:GetStrength()
-              status_table["agi"] = hero:GetAgility()
-              status_table["int"] = hero:GetIntellect()
-              status_table["damage"] = hero:GetAverageTrueAttackDamage(hero)
-              CustomNetTables:SetTableValue("hero_status", tostring(playerID), status_table)
-            end
-          end
-        end
-      end
-
-      return 0.5
-    end)
 end
 
 function ZIV:InitZIV()

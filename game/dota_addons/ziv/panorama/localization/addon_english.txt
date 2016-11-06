@@ -46,6 +46,8 @@
 	"rarity4" 										"Epic"
 	"rarity5" 										"Legendary"
 
+	"class"											"Class: "
+
 	// Slots
 	"slot"											"Slot: "
 	"slot_ammo"										"Ammo"
@@ -104,10 +106,12 @@
 	"ziv_elementalist_barrier_percentage"			"to Barrier damage absorption"
 	"ziv_elementalist_barrier_less_ep"				"to Barrier damager per ep ratio"
 	"ziv_elementalist_barrier_more_ep"				"to Barrier damager per ep ratio"
+	"ziv_elementalist_mastery_damage"				"to Mastery crit damage"
 
 	"ziv_huntress_ballista_as"						"to Ballista attack speed"
 	"ziv_huntress_ballista_cd"						"% reduction of Ballista cooldown"
 	"ziv_huntress_ballista_targets"					"to Ballista maximum targets"
+	"ziv_huntress_ballista_chain"					"Ballista will fire single projectile which will chain to nearby targets multiple times"
 	"ziv_huntress_blink_arrow_damage"				"to Blink Arrow damage"
 	"ziv_huntress_blink_arrow_delay"				"% reduction of Blink Arrow delay"
 	"ziv_huntress_blink_arrow_cd"					"% reduction of Blink Arrow cooldown"
@@ -330,7 +334,11 @@
 	"status_lightning_increase"			"Lightning Damage Increase: "
 	"status_dark_increase"				"Dark Damage Increase: "
 
+	"status_hp_leech"					"HP Leech: "
+	"status_ep_leech"					"EP Leech: "
+
 	"status_ctc"						"Chance to crit: "
+	"status_cd"							"Crit damage: "
 
 	// Fortifying
 	"dragfortify"				"Drag and drop weapon or armor from inventory to fortify"

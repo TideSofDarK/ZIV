@@ -94,20 +94,6 @@
       }
     }
 
-    "MODIFIER_PROPERTY_EVASION_CONSTANT"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-
-      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
-  
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_EVASION_CONSTANT" "1"
-      }
-    }
-
     "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
     {
       "Passive"      "0"
@@ -147,20 +133,6 @@
       "Properties"
       {
         "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1"
-      }
-    }
-
-    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"
-    {
-      "Passive"      "0"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-
-      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
-  
-      "Properties"
-      {
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
       }
     }
 

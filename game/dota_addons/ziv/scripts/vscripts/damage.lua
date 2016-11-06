@@ -16,9 +16,33 @@ Damage.DARK_DAMAGE_INCREASE 		= 8
 Damage.CRIT_CHANCE 					= 9
 Damage.CRIT_DAMAGE 					= 10
 
+Damage.EVASION 						= 11
+Damage.ARMOR 						= 12
+
+Damage.HP_LEECH 					= 13
+Damage.EP_LEECH 					= 14
+
 Damage.DEFAULTS = {}
-Damage.DEFAULTS[Damage.CRIT_CHANCE] = 5
-Damage.DEFAULTS[Damage.CRIT_DAMAGE] = 200
+Damage.DEFAULTS[Damage.ALL_RESISTANCES] 			= 0
+Damage.DEFAULTS[Damage.FIRE_RESISTANCE] 			= 0
+Damage.DEFAULTS[Damage.COLD_RESISTANCE] 			= 0
+Damage.DEFAULTS[Damage.LIGHTNING_RESISTANCE] 		= 0
+Damage.DEFAULTS[Damage.DARK_RESISTANCE] 			= 0
+Damage.DEFAULTS[Damage.FIRE_DAMAGE_INCREASE] 		= 0
+Damage.DEFAULTS[Damage.COLD_DAMAGE_INCREASE] 		= 0
+Damage.DEFAULTS[Damage.LIGHTNING_DAMAGE_INCREASE] 	= 0
+Damage.DEFAULTS[Damage.DARK_DAMAGE_INCREASE] 		= 0
+Damage.DEFAULTS[Damage.CRIT_CHANCE] 				= 5
+Damage.DEFAULTS[Damage.CRIT_DAMAGE] 				= 200
+Damage.DEFAULTS[Damage.EVASION] 					= 100
+Damage.DEFAULTS[Damage.ARMOR] 						= 0
+Damage.DEFAULTS[Damage.HP_LEECH] 					= 10
+Damage.DEFAULTS[Damage.EP_LEECH] 					= 10
+
+DAMAGE_TYPE_FIRE 					= 9
+DAMAGE_TYPE_COLD 					= 10
+DAMAGE_TYPE_LIGHTNING 				= 11
+DAMAGE_TYPE_DARK 					= 12
 
 Damage.ESSENCE_PARTICLES = {}
 Damage.ESSENCE_PARTICLES[1] = "particles/creeps/ziv_creep_essence_a.vpcf"
@@ -33,11 +57,6 @@ Damage.BLOOD_PARTICLES[1] = "particles/creeps/ziv_creep_blood_a.vpcf"
 Damage.BLOOD_PARTICLES[2] = "particles/creeps/ziv_creep_blood_b.vpcf"
 Damage.BLOOD_PARTICLES[3] = "particles/creeps/ziv_creep_blood_c.vpcf"
 Damage.BLOOD_PARTICLES[4] = "particles/creeps/ziv_creep_blood_d.vpcf"
-
-DAMAGE_TYPE_FIRE 					= 9
-DAMAGE_TYPE_COLD 					= 10
-DAMAGE_TYPE_LIGHTNING 				= 11
-DAMAGE_TYPE_DARK 					= 12
 
 function Damage:Init()
 	PlayerTables:CreateTable("damage", {}, true)
@@ -116,7 +135,14 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 
 		damage = damage - (damage * (resistance/100))
 	elseif damage_type == DAMAGE_TYPE_PHYSICAL then
+		local armor = Damage:GetValue( attacker, Damage.ARMOR )
 
+		damage = damage - (damage * (armor/200))
+	end
+
+	local evasion = Damage:GetValue( attacker, Damage.EVASION )
+	if attacker.evasion_rng and attacker.evasion_rng:Next(evasion / 300) then
+		damage = (damage / 3)
 	end
 	
 	local min_damage = damage * 0.75
@@ -141,6 +167,17 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 		damage_type = DAMAGE_TYPE_PURE
 	}
 	ApplyDamage(damage_table)
+
+	local hp_leech = Damage:GetValue( attacker, Damage.HP_LEECH )
+	local ep_leech = Damage:GetValue( attacker, Damage.EP_LEECH )
+
+	if hp_leech > 0 then
+		attacker:Heal(damage * (hp_leech / 100),nil)
+	end
+
+	if ep_leech > 0 then
+		attacker:GiveMana(damage * (ep_leech / 100))
+	end
 
 	if math.random(0, 1) == 0 then
 		StartAnimation(victim, {duration=0.3, activity=ACT_DOTA_FLINCH, rate=1.5})

@@ -47,11 +47,11 @@
     "ProjectileSpeed"     "600"
 
     "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"   "28"
+    "AttributeBaseStrength"   "44"
     "AttributeStrengthGain"   "0"
-    "AttributeBaseIntelligence" "13"
+    "AttributeBaseIntelligence" "26"
     "AttributeIntelligenceGain" "0"
-    "AttributeBaseAgility"    "16"
+    "AttributeBaseAgility"    "29"
     "AttributeAgilityGain"    "0"
 
     "BountyXP"          "0"
