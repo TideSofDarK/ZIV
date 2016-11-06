@@ -32,7 +32,7 @@ function Items:UpdateItem(item)
 		end
 	end
 
-	PlayerTables:SetTableValue("items", item:entindex(), { caption = item.caption, fortify_modifiers = fortify_modifiers, built_in_modifiers = built_in_modifiers, rarity = item.rarity or 1, sockets = item.sockets or 0})
+	PlayerTables:SetTableValue("items", item:entindex(), { class = item.class, caption = item.caption, fortify_modifiers = fortify_modifiers, built_in_modifiers = built_in_modifiers, rarity = item.rarity or 1, sockets = item.sockets or 0})
 
 	if item:GetOwnerEntity() then
 		if item:GetOwnerEntity().equipment then

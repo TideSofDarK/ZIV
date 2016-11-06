@@ -31,6 +31,10 @@ Util.RoundToTwo = (function (num) {
     return +(Math.round(num + "e+2")  + "e-2");
 });
 
+Util.RoundToThree = (function (num) {    
+    return +(Math.round(num + "e+3")  + "e-3");
+});
+
 Util.AutoUppercase = (function (str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 });
@@ -62,7 +66,9 @@ Util.RuneToItem = (function (modifier) {
 Util.ConvertValue = (function (modifier, originalValue, modifierValue, dontModify) {
     var itemKV = Util.RuneToItem(modifier);
 
-    if (!itemKV) return modifierValue;
+    if (!itemKV) {
+        return modifierValue;
+    }
 
     var tooltipType     = itemKV["Tooltip"];
     var modifierType    = itemKV["Type"];

@@ -1,0 +1,33 @@
+"ziv_huntress_agility"
+{
+  "BaseClass"           "ability_datadriven"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "AbilityTextureName"            "ziv_empty"
+
+  "precache"
+  {
+    "soundfile"     "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"       
+    "particle"      "particles/units/heroes/hero_meepo/meepo_earthbind_projectile_fx.vpcf"
+    "particle"      "particles/units/heroes/hero_meepo/meepo_earthbind.vpcf"   
+  }
+
+  "MaxLevel"  "1"
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"                  "FIELD_FLOAT"
+      "armor_to_evasion_ratio"    "9.0"
+    }
+  }
+
+  "OnUpgrade"
+  {
+    "RunScript"
+    {
+      "ScriptFile"  "abilities/heroes/huntress/ziv_huntress_agility.lua"
+      "Function"    "InitAgility"
+    }
+  }
+}

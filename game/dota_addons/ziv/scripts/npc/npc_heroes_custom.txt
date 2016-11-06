@@ -43,11 +43,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-	    "AttributeBaseStrength"   "28"
+	    "AttributeBaseStrength"   "45"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "12"
+	    "AttributeBaseIntelligence" "27"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "14"
+	    "AttributeBaseAgility"    "30"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -114,11 +114,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-	    "AttributeBaseStrength"   "16"
+	    "AttributeBaseStrength"   "28"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "20"
+	    "AttributeBaseIntelligence" "36"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "24"
+	    "AttributeBaseAgility"    "39"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -185,11 +185,11 @@
 	    "ProjectileSpeed"     "1150"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_INTELLECT"
-	    "AttributeBaseStrength"   "14"
+	    "AttributeBaseStrength"   "28"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "30"
+	    "AttributeBaseIntelligence" "45"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "16"
+	    "AttributeBaseAgility"    "31"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -255,11 +255,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-	    "AttributeBaseStrength"   "20"
+	    "AttributeBaseStrength"   "37"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "12"
+	    "AttributeBaseIntelligence" "25"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "20"
+	    "AttributeBaseAgility"    "38"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -323,11 +323,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-	    "AttributeBaseStrength"   "17"
+	    "AttributeBaseStrength"   "28"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "16"
+	    "AttributeBaseIntelligence" "28"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "17"
+	    "AttributeBaseAgility"    "34"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -398,11 +398,11 @@
 	    "ProjectileSpeed"     "600"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-	    "AttributeBaseStrength"   "28"
+	    "AttributeBaseStrength"   "44"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "13"
+	    "AttributeBaseIntelligence" "26"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "16"
+	    "AttributeBaseAgility"    "29"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -445,7 +445,7 @@
 	    "Ability2"        "ziv_huntress_volley"     
 	    "Ability3"        "ziv_huntress_trap"
 	    "Ability4"        "ziv_huntress_passives"
-	    "Ability5"        "ziv_empty1"
+	    "Ability5"        "ziv_huntress_agility"
 	    "Ability6"        "ziv_huntress_focus_fire" 
 	    "Ability7"        "ziv_huntress_blink_arrow"
 	    "Ability8"        ""
@@ -466,11 +466,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-	    "AttributeBaseStrength"   "14"
+	    "AttributeBaseStrength"   "27"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "12"
+	    "AttributeBaseIntelligence" "35"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "25"
+	    "AttributeBaseAgility"    "38"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"
@@ -534,11 +534,11 @@
 	    "AttackDamageMax"     "15"
 	
 	    "AttributePrimary"      "DOTA_ATTRIBUTE_INTELLECT"
-	    "AttributeBaseStrength"   "12"
+	    "AttributeBaseStrength"   "26"
 	    "AttributeStrengthGain"   "0"
-	    "AttributeBaseIntelligence" "22"
+	    "AttributeBaseIntelligence" "39"
 	    "AttributeIntelligenceGain" "0"
-	    "AttributeBaseAgility"    "15"
+	    "AttributeBaseAgility"    "26"
 	    "AttributeAgilityGain"    "0"
 	
 	    "BountyXP"          "0"

@@ -12,7 +12,7 @@ function ShotgunSpecial(keys)
 	keys.duration = 0.1
 	keys.rate = 3.0
 	keys.base_attack_time = 0.1
-	keys.cooldown_modifier = GetRunePercentDecrease(1.0,"ziv_sniper_shotgun_special_speed",caster)
+	-- keys.cooldown_modifier = GetRunePercentDecrease(1.0,"ziv_sniper_shotgun_special_speed",caster)
 	keys.ignore_z = true
 	keys.spread = GetRunePercentDecrease(125,"ziv_sniper_shotgun_special_reduce_spread",caster)
 	keys.spread_z = true

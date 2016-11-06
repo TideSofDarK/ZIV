@@ -42,11 +42,11 @@
     "AttackDamageMax"     "15"
 
     "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-    "AttributeBaseStrength"   "20"
+    "AttributeBaseStrength"   "37"
     "AttributeStrengthGain"   "0"
-    "AttributeBaseIntelligence" "12"
+    "AttributeBaseIntelligence" "25"
     "AttributeIntelligenceGain" "0"
-    "AttributeBaseAgility"    "20"
+    "AttributeBaseAgility"    "38"
     "AttributeAgilityGain"    "0"
 
     "BountyXP"          "0"

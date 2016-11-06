@@ -1,4 +1,7 @@
 function RandomModifierValue( a, b )
+	if not a or not b then
+		return 1
+	end
 	return math.random(math.min(a, b), math.max(a, b))
 end
 

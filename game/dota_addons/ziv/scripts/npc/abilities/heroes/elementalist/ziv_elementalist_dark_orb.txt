@@ -8,7 +8,7 @@
 	"AbilityTextureName"			"ziv_elementalist_dark_orb"
 
 	"AbilityCastRange" 	"1600"
-	"AbilityManaCost"	"50"
+	"AbilityManaCost"	"25"
 	"AbilityCastPoint"        "0.1"
 	"AbilityCooldown"				"0.8"
 
@@ -39,7 +39,7 @@
 		"02"
 		{
 			"var_type" 		"FIELD_INTEGER"
-			"radius" 		"275"
+			"radius" 		"225"
 		}
 		"03"
 		{
@@ -49,7 +49,7 @@
 		"04"
 		{
 			"var_type" 		"FIELD_INTEGER"
-			"lifetime" 		"9"
+			"lifetime" 		"10"
 		}
 	}
 

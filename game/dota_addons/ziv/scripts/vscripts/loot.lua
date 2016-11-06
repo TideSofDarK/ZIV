@@ -163,7 +163,7 @@ function Loot:AddModifiers( item )
 			for k,v in pairs(Loot.CommonModifiers) do
 				if x == seed then
 					local new_modifier = {}
-					new_modifier[k] = math.random(tonumber(v["min"]), tonumber(v["max"]))
+					new_modifier[k] = RandomModifierValue( tonumber(v["min"]), tonumber(v["max"]) )
 
 					table.insert(item.built_in_modifiers, new_modifier)
 					break
@@ -178,13 +178,11 @@ function Loot:AddModifiers( item )
 			for k,v in pairs(Loot.RuneModifiers) do
 				if x == seed then
 					local new_modifier = {}
-					if not v["min"] or not v["max"] then
-						new_modifier[k] = 1
-					else
-						new_modifier[k] = math.random(tonumber(v["min"]), tonumber(v["max"]))
-					end
+					new_modifier[k] = RandomModifierValue( tonumber(v["min"]), tonumber(v["max"]) )
 
 					table.insert(item.built_in_modifiers, new_modifier)
+
+					item.class = RuneToHero( k )
 					break
 				end
 				x = x + 1

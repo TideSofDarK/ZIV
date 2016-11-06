@@ -24,6 +24,7 @@
                 <Panel class="TooltipCBR"/>
                 <Label id="ItemTooltipName" html="true" class="TooltipLabel" text=""/>
                 <Panel class="TooltipCBR"/>
+                <Label id="ItemTooltipClass" html="true" class="TooltipLabel" text=""/> 
                 <Label id="ItemTooltipRarity" html="true" class="TooltipLabel" text=""/>
                 <Label id="ItemTooltipSlot" html="true" class="TooltipLabel" text=""/>  
                 <Label id="ItemTooltipSockets" html="true" class="TooltipLabel" text=""/> 
@@ -36,7 +37,7 @@
         var Util = GameUI.CustomUIConfig().Util;
 
         function FillProperty(panel, name, value, color) {
-            if (value && (typeof(value) == "string" || Util.RoundToTwo(value) != 0)) {
+            if (value && value != "undefined" && (typeof(value) == "string" || Util.RoundToTwo(value) != 0)) {
                 var newValue = value;
                 if (typeof(value) != "string") {
                     newValue = Util.RoundToTwo(value);
@@ -97,6 +98,8 @@
 
                     itemTooltip.FindChildTraverse("ItemTooltipName").text = Util.SpanString(itemData.caption, "Rarity" + itemData.rarity) || $.Localize("DOTA_Tooltip_ability_" + itemName);
 
+                    FillProperty(itemTooltip.FindChildTraverse("ItemTooltipClass"), "class", $.Localize(itemData.class), "#FFFFFF");
+
                     itemTooltip.FindChildTraverse("ItemTooltipRarity").text = $.Localize("rarity") + Util.SpanString(($.Localize("rarity" + itemData.rarity)), "Rarity" + itemData.rarity);
 
                     if (itemKV["Slot"]) {
@@ -110,28 +113,8 @@
 
                     itemTooltip.FindChildTraverse("ItemTooltipDescription").text = $.Localize("DOTA_Tooltip_ability_" + itemName + "_Description");
 
-                    var i = 1;
-                    if (itemKV["AbilitySpecial"] && Object.keys( itemKV["AbilitySpecial"] ).length >= 1) {
-                        AddCBR(itemTooltip);
-
-                        for (special in itemKV["AbilitySpecial"]) {
-                            for (specialName in itemKV["AbilitySpecial"][special]) {
-                                if (specialName != "var_type") {
-                                    var specialCaption = $.Localize("DOTA_Tooltip_ability_" + itemName + "_" + specialName);
-                                    if (specialCaption == "DOTA_Tooltip_ability_" + itemName + "_" + specialName) continue;
-
-                                    var specialLabel = $.CreatePanel( "Label", itemTooltip, "ItemTooltipSpecial" + i);
-                                    specialLabel.AddClass("TooltipLabel");
-                                    specialLabel.html = true;
-
-                                    var finalValue = Util.RoundToTwo(itemKV["AbilitySpecial"][special][specialName]);
-
-                                    specialLabel.text = Util.ColorString((finalValue >= 0 ? "+" : "-") + " " + Math.abs(finalValue),"#ffffff") + " " + specialCaption;
-                                }
-                            }
-                            i++;
-                        }
-                    }
+                    var modifierPanelCache = [];
+                    var modifierValueCache = [];
 
                     if (itemData.built_in_modifiers && Object.keys( itemData.built_in_modifiers ).length >= 1)
                     {
@@ -141,13 +124,26 @@
                         for (var key in itemData.built_in_modifiers)
                         {
                             for (var modifier in itemData.built_in_modifiers[key]) {
-                                var value = itemData.built_in_modifiers[key][modifier];
+                                var specialLabel;
+                                if (modifierPanelCache[modifier]) {
+                                    specialLabel = modifierPanelCache[modifier];
+                                } else {
+                                    specialLabel = $.CreatePanel( "Label", itemTooltip, "ItemTooltipSpecial" + i);
+                                    specialLabel.AddClass("TooltipLabel");
+                                    specialLabel.html = true;
 
-                                var specialLabel = $.CreatePanel( "Label", itemTooltip, "ItemTooltipSpecial" + i);
-                                specialLabel.AddClass("TooltipLabel");
-                                specialLabel.html = true;
+                                    modifierPanelCache[modifier] = specialLabel;
+                                }
 
-                                specialLabel.text = Util.ColorString("+ " + value,"#ffffff") + " " + $.Localize(modifier);
+                                modifierValueCache[modifier] = (modifierValueCache[modifier] || 0) + itemData.built_in_modifiers[key][modifier];
+
+                                var value = Util.ConvertValue(modifier, 0, modifierValueCache[modifier], true);
+                                if (value == "") {
+                                    specialLabel.text = Util.ColorString($.Localize(modifier),"#4EAD8C");
+                                } else {
+                                    var sign = value < 0 ? "-" : "+";
+                                    specialLabel.text = Util.ColorString(sign + " " + Math.abs(value),"#ffffff") + " " + $.Localize(modifier);
+                                }  
 
                                 i = i + 1;
                             }
@@ -157,7 +153,7 @@
                     if (itemData.fortify_modifiers && Object.keys( itemData.fortify_modifiers ).length >= 1)
                     {
                         AddCBR(itemTooltip);
-                        $.Msg(itemData.fortify_modifiers);
+
                         var i = 0;
                         for (var key in itemData.fortify_modifiers)
                         {
@@ -172,7 +168,8 @@
                                     if (value == "") {
                                         specialLabel.text = Util.ColorString($.Localize(modifier),"#4EAD8C");
                                     } else {
-                                        specialLabel.text = Util.ColorString("+ " + Math.abs(value),"#ffffff") + " " + $.Localize(modifier);
+                                        var sign = value < 0 ? "-" : "+";
+                                        specialLabel.text = Util.ColorString(sign + " " + Math.abs(value),"#ffffff") + " " + $.Localize(modifier);
                                     }  
 
                                     i = i + 1;
@@ -183,8 +180,6 @@
                 }
             } else if (abilityName && abilityName != "not-found" && abilityName != "undefined") {
                 $("#TooltipText").visible = false;
-
-                // abilityTooltipTable = JSON.parse(abilityTooltipString);
 
                 var abilityKV = PlayerTables.GetTableValue("kvs", "abilities")[abilityName];
 

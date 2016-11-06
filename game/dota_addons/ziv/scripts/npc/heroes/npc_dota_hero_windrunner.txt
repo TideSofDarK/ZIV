@@ -19,7 +19,7 @@
     "Ability2"        "ziv_huntress_volley"     
     "Ability3"        "ziv_huntress_trap"
     "Ability4"        "ziv_huntress_passives"
-    "Ability5"        "ziv_empty1"
+    "Ability5"        "ziv_huntress_agility"
     "Ability6"        "ziv_huntress_focus_fire" 
     "Ability7"        "ziv_huntress_blink_arrow"
     "Ability8"        ""
@@ -40,11 +40,11 @@
     "AttackDamageMax"     "15"
 
     "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-    "AttributeBaseStrength"   "14"
+    "AttributeBaseStrength"   "27"
     "AttributeStrengthGain"   "0"
-    "AttributeBaseIntelligence" "12"
+    "AttributeBaseIntelligence" "35"
     "AttributeIntelligenceGain" "0"
-    "AttributeBaseAgility"    "25"
+    "AttributeBaseAgility"    "38"
     "AttributeAgilityGain"    "0"
 
     "BountyXP"          "0"
