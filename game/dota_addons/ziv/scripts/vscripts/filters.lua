@@ -56,8 +56,16 @@ function Filters:FilterExecuteOrder( filterTable )
 end
 
 function Filters:DamageFilter( filterTable )
-    local attacker = EntIndexToHScript(filterTable["entindex_attacker_const"])
     local victim = EntIndexToHScript(filterTable["entindex_victim_const"])
+
+    local attacker
+    if not filterTable["entindex_attacker_const"] then
+        attacker = victim
+        filterTable["entindex_attacker_const"] = filterTable["entindex_victim_const"]
+    else
+        attacker = EntIndexToHScript(filterTable["entindex_attacker_const"])
+    end
+    
     local damage = filterTable["damage"]
     local damage_type = filterTable["damagetype_const"]
 
@@ -68,7 +76,9 @@ function Filters:DamageFilter( filterTable )
     if victim:IsHero() == false and attacker:IsHero() == false then
         if attacker:GetPlayerOwnerID() >= 0 then
             attacker = PlayerResource:GetPlayer(attacker:GetPlayerOwnerID()):GetAssignedHero()
-            Damage:Deal( attacker, victim, damage, damage_type )
+
+            local same_team = attacker:GetTeamNumber() == victim:GetTeamNumber()
+            Damage:Deal( attacker, victim, damage, damage_type, same_team, same_team )
         end
 
         return false

@@ -5,7 +5,7 @@
 	"AbilityTextureName"            "ziv_empty"
 
 	"AbilityManaCost"	"95"
-	"AbilityCastPoint"        "0.35"
+	"AbilityCastPoint"        "0.185"
 	"AbilityCooldown"				"5.0"
 	"AbilityCastRange"				"1200"
 
@@ -64,36 +64,6 @@
 			"Passive"			"0"
 			"IsHidden"			"1"
 			"IsDebuff"			"0"
-		
-			"ThinkInterval"  "0.1"
-			"OnIntervalThink"
-			{
-				"ActOnTargets"
-				{
-					"Target"
-					{
-						"Center"  	"TARGET"
-						"Radius" 	"200"
-						"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-						"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-					}
-				
-					"Action"    
-					{
-						"RunScript"
-						{
-							"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_glaive.lua"
-							"Function"		"BleedDamage"
-							"Target" 		"TARGET"
-						}
-						"ApplyModifier"
-						{
-							"ModifierName"	"modifier_glaive_bleeding"
-							"Target" 		"TARGET"
-						}
-					}
-				}
-			}
 
 			"States"
 			{
