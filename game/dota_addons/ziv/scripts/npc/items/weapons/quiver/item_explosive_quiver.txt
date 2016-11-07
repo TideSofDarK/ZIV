@@ -1,0 +1,34 @@
+"item_explosive_quiver"
+{
+  "ID"		"1150"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"               "item_datadriven"
+  "AbilityTextureName"      "item_explosive_quiver"
+  "Model"                   "models/items/basic_sword.vmdl"
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
+
+  "Slot"        "quiver"
+  "EquipSound"  "ui.inv_equip_quiver"
+
+  "ItemStackable" "0"
+  "ItemPermanent" "0"
+
+  "ItemDroppable"         "1"
+  "ItemPurchasable"       "0"
+  "ItemSellable"          "0"
+  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+
+  "BaseModifiers"
+  {
+    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
+    {
+      "min" "2"
+      "max" "5"
+    }
+    "FIRE_DAMAGE_INCREASE"
+    {
+      "min" "3"
+      "max" "12"
+    }
+  }
+}

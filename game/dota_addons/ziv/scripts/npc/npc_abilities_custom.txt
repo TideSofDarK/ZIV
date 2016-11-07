@@ -4388,12 +4388,12 @@
 	  "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_POINT"
 	  "AbilityTextureName"            "ziv_empty"
 	  
-	  "AbilityCastAnimation"    ""
-	  "AbilityCastPoint"         "0.2"
+	  "AbilityCastAnimation"    "ACT_DOTA_OVERRIDE_ABILITY_2"
+	  "AbilityCastPoint"         "0.1"
 	  
 	  "AbilityCastRange"        "1100"
 	  "AbilityManaCost"         "25"
-	  "AbilityCooldown"         "4"
+	  "AbilityCooldown"         "2.25"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
 	  
 	  "MaxLevel"          "1"
@@ -4425,7 +4425,7 @@
 	    "02"
 	    {
 	      "var_type"            "FIELD_INTEGER"
-	      "arrows"              "6"
+	      "arrows"              "5"
 	    }
 	  }
 	
@@ -4452,14 +4452,6 @@
 	      "ScriptFile"        "abilities/heroes/huntress/ziv_huntress_volley.lua"
 	      "Function"          "Volley"
 	      "Target"            "POINT"
-	      "FixedDistance"                                     "1400"
-	      "StartRadius"                   "32"
-	      "EndRadius"                             "32"
-	      "TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	      "TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-	      "HasFrontalCone"                "1"
-	      "ProvidesVision"                "1"
-	      "VisionRadius"                  "400"
 	    }
 	  }
 	  

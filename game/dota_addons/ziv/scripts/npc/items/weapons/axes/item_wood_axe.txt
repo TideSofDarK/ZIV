@@ -1,0 +1,29 @@
+"item_wood_axe"
+{
+  "ID"		"1150"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"               "item_datadriven"
+  "AbilityTextureName"      "item_wood_axe"
+  "Model"                   "models/items/basic_sword.vmdl"
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
+
+  "Slot"        "axe"
+  "EquipSound"  "ui.inv_equip_metalheavy"
+
+  "ItemStackable" "0"
+  "ItemPermanent" "0"
+
+  "ItemDroppable"         "1"
+  "ItemPurchasable"       "0"
+  "ItemSellable"          "0"
+  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+
+  "BaseModifiers"
+  {
+    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"
+    {
+      "min" "10"
+      "max" "23"
+    }
+  }
+}

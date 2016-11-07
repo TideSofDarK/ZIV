@@ -126,8 +126,10 @@
 	"ziv_huntress_focus_fire_as"					"to Focus Fire attack speed"
 	"ziv_huntress_focus_fire_damage"				"to Focus Fire damage"
 	"ziv_huntress_trap_duration"					"to Trap duration"
+	"ziv_huntress_volley_cd"						"% reduction of Volley cooldown"
 	"ziv_huntress_volley_arrows"					"to Volley arrow count"
 	"ziv_huntress_volley_damage"					"to Volley damage"
+	"ziv_huntress_agility_ratio"					"to Agility armor to evasion ratio"
 
 	"ziv_samurai_whirlwind_damage"					"to Whirlwind damage"
 	"ziv_samurai_whirlwind_aoe"						"to Whirlwind radius"
@@ -222,6 +224,9 @@
 	"ziv_knight_orb_projectile_speed"	"to Fire Orb projectile speed"
 
 	// Character presets
+	"southern_barbarian_preset_a"	"Hunter"
+	"southern_barbarian_preset_b"	"Pathfinder"
+
 	"huntress_preset_a" "Engineer"
 	"huntress_preset_b" "Marksman"
 

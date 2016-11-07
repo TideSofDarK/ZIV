@@ -3,7 +3,7 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 256
-	m_ConstantColor = [ 213, 213, 213, 255 ]
+	m_ConstantColor = [ 167, 118, 34, 255 ]
 	m_Renderers = 
 	[
 		{
@@ -18,7 +18,7 @@
 			m_flRadiusScale = 0.5
 			m_flFinalTextureScaleV = -1.0
 			m_flFinalTextureOffsetV = 1.0
-			m_vEndTrailTintFactor = [ 1.0, 4.0, 1.0, 0.5 ]
+			m_vEndTrailTintFactor = [ 1.0, 1.0, 1.0, 0.5 ]
 		},
 	]
 	m_Operators = 
@@ -44,7 +44,7 @@
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
-			m_ColorFade = [ 131, 117, 117, 255 ]
+			m_ColorFade = [ 151, 91, 23, 255 ]
 		},
 		{
 			_class = "C_OP_FadeOutSimple"

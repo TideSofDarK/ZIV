@@ -78,36 +78,6 @@ function SplitShot( keys )
         end
     end)
 
-    -- local arrows = GetSpecial(ability, "ballista_targets") + GRMSC("ziv_huntress_ballista_targets", caster) - 1
-
-    -- local angle = 40
-    -- local start = angle/-2
-
-    -- for i=start,angle/2,(angle / arrows) do
-    --     if i <= 30 then
-    --         local info = 
-    --         {
-    --             Ability = ability,
-    --             EffectName = "particles/heroes/huntress/huntress_ballista_volley_projectile.vpcf",
-    --             iMoveSpeed = 100,
-    --             vSpawnOrigin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack1")),
-    --             fDistance = caster:GetAttackRange() * 2,
-    --             fStartRadius = 48,
-    --             fEndRadius = 48,
-    --             Source = caster,
-    --             bHasFrontalCone = false,
-    --             bReplaceExisting = false,
-    --             iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-    --             iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-    --             iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-    --             fExpireTime = GameRules:GetGameTime() + 10.0,
-    --             bDeleteOnHit = false,
-    --             vVelocity = RotatePosition(Vector(0,0,0), QAngle(0,i,0), caster:GetForwardVector()) * caster:GetProjectileSpeed(),
-    --         }
-    --         local projectile = ProjectileManager:CreateLinearProjectile(info)
-    --     end
-    -- end
-
     -- EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Mirana.Attack", caster)
 end
 

@@ -3,7 +3,7 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 64
-	m_ConstantColor = [ 177, 229, 75, 80 ]
+	m_ConstantColor = [ 127, 77, 34, 80 ]
 	m_Renderers = 
 	[
 		{
@@ -62,13 +62,13 @@
 	[
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMax = 1.0
-			m_fLifetimeMin = 1.0
+			m_fLifetimeMax = 2.0
+			m_fLifetimeMin = 2.0
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMax = 132.0
-			m_flRadiusMin = 132.0
+			m_flRadiusMax = 32.0
+			m_flRadiusMin = 32.0
 		},
 		{
 			_class = "C_INIT_CreateWithinSphere"
