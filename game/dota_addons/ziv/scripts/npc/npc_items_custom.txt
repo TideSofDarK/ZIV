@@ -4334,7 +4334,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_old_axe"
-	  "Model"                   "models/items/basic_sword.vmdl"
+	  "Model"                   "models/items/basic_axe.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
 	  "Slot"        "axe"
@@ -4363,7 +4363,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_tribe_axe"
-	  "Model"                   "models/items/basic_sword.vmdl"
+	  "Model"                   "models/items/basic_axe.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
 	  "Slot"        "axe"
@@ -4392,7 +4392,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_wood_axe"
-	  "Model"                   "models/items/basic_sword.vmdl"
+	  "Model"                   "models/items/basic_axe.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
 	  "Slot"        "axe"
