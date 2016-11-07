@@ -146,7 +146,7 @@ function Loot:AddModifiers( item )
 	end
 
 	if item.rarity then
-		local modifier_count = item.rarity -- + math.random(0, 1)
+		local modifier_count = item.rarity - 1 -- + math.random(0, 1)
 		local existing = {}
 
 		for i=1,modifier_count do

@@ -8,7 +8,7 @@
 	"AbilityTextureName"			"ziv_elementalist_dark_orb"
 
 	"AbilityCastRange" 	"1600"
-	"AbilityManaCost"	"25"
+	"AbilityManaCost"	"22"
 	"AbilityCastPoint"        "0.1"
 	"AbilityCooldown"				"0.8"
 

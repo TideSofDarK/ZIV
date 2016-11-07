@@ -1,4 +1,6 @@
 function FireArrow( keys )
+	local caster = keys.caster
+
 	keys.bonus_attack_speed = GRMSC("ziv_dark_goddess_corrupted_arrow_as", caster)
 	keys.on_hit = AdditionalDamage
 	keys.on_kill = SpawnSpirit
