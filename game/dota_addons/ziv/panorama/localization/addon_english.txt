@@ -224,6 +224,9 @@
 	"ziv_knight_orb_projectile_speed"	"to Fire Orb projectile speed"
 
 	// Character presets
+	"dark_goddess_preset_a"			"Destroyer"
+	"dark_goddess_preset_b"			"Creator"
+
 	"southern_barbarian_preset_a"	"Hunter"
 	"southern_barbarian_preset_b"	"Pathfinder"
 
