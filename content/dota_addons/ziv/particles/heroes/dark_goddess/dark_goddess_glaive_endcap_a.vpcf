@@ -91,6 +91,7 @@
 			m_vecOutputMax = [ 200.0, 200.0, 400.0 ]
 			m_vecOutputMin = [ -200.0, -200.0, 0.0 ]
 			m_flNoiseScaleLoc = 0.75
+			m_nControlPointNumber = 5
 		},
 		{
 			_class = "C_INIT_CreateWithinSphere"
