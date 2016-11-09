@@ -26,7 +26,7 @@ function SpawnGlaive( keys )
 	glaive:AddNewModifier(glaive,nil,"modifier_phased",{})
 
 	local particle = ParticleManager:CreateParticle("particles/heroes/dark_goddess/dark_goddess_glaive_alt.vpcf",PATTACH_ABSORIGIN_FOLLOW,glaive)
-	ParticleManager:SetParticleControlEnt(particle,5,caster,PATTACH_POINT_FOLLOW,"attach_hitloc",caster:GetAbsOrigin(),false)
+	ParticleManager:SetParticleControlEnt(particle,5,caster,PATTACH_POINT_FOLLOW,"attach_attack1",caster:GetAbsOrigin(),false)
 
 	local projectile_speed = 4540
 
@@ -114,7 +114,7 @@ function SpawnGlaive( keys )
 			    glaive:OnPhysicsFrame(nil)
 
 			    ParticleManager:DestroyParticle(particle,false)
-			    glaive:Kill(nil, nil)
+			    UTIL_Remove(glaive)
 			end
 		end
 		time = time + 0.03

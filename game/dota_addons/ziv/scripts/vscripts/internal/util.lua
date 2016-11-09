@@ -223,7 +223,9 @@ function GetTableLength( t )
   local length = 0
 
   for k,v in pairs(t) do
-    length = length + 1
+    if v then
+      length = length + 1
+    end
   end
 
   return length

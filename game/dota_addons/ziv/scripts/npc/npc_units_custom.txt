@@ -386,10 +386,10 @@
 	    "AttackRate"                "0.3"
 	    "AttackAnimationPoint"      "0.7"
 	    "AttackAcquisitionRange"    "150"
-	    "AttackRange"   "128"
+	    "AttackRange"   "100"
 	    
-	    "AttackDamageMin"        "1"
-	    "AttackDamageMax"        "2"
+	    "AttackDamageMin"        "0"
+	    "AttackDamageMax"        "0"
 	
 	    "AttackRate"        "1.5"
 	    "AttackAnimationPoint"        "0.27"
@@ -400,9 +400,9 @@
 	
 	    "BoundsHullName"      "DOTA_HULL_SIZE_HERO"
 	
-	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
-	    "MovementSpeed"       "305"
-	    "MovementTurnRate"      "1.0"
+	    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"             "390"
+	    "MovementTurnRate"          "0.5"
 	    "FollowRange"       "250"
 	
 	    "StatusHealth"        "370"
@@ -410,8 +410,8 @@
 	    "StatusMana"        "0"
 	    "StatusManaRegen"     "0"
 	
-	    "VisionDaytimeRange"    "1000"
-	    "VisionNighttimeRange"    "1000"
+	    "VisionDaytimeRange"    "300"
+	    "VisionNighttimeRange"    "300"
 	} 
 	"npc_huntress_ballista"
 	{

@@ -73,7 +73,7 @@ function Filters:DamageFilter( filterTable )
         damage_type = DAMAGE_TYPE_PURE
     end
 
-    if victim:IsHero() == false and attacker:IsHero() == false then
+    if attacker:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS and victim:IsHero() == false and attacker:IsHero() == false then
         if attacker:GetPlayerOwnerID() >= 0 then
             attacker = PlayerResource:GetPlayer(attacker:GetPlayerOwnerID()):GetAssignedHero()
 

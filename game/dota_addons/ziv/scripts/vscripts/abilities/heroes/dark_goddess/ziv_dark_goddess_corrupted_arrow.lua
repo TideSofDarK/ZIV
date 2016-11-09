@@ -2,8 +2,7 @@ function FireArrow( keys )
 	local caster = keys.caster
 
 	keys.bonus_attack_speed = GRMSC("ziv_dark_goddess_corrupted_arrow_as", caster)
-	keys.on_hit = AdditionalDamage
-	keys.on_kill = SpawnSpirit
+	keys.on_hit = OnHit
 	keys.pierce = GetSpecial(keys.ability, "pierce") + GRMSC("modifier_concentration_pierce_rune", keys.caster)
 	keys.attachment = "attach_hitloc"
 	keys.translate = "frost_arrow"
@@ -18,58 +17,52 @@ function SpawnSpirit( keys )
 
 	if target:HasModifier("modifier_corrupted_arrow_effect") == false then return end
 
-	local pID = caster:GetPlayerOwnerID()
+	ability.spirits = ability.spirits or {}
 
-	local spirit_duration = ability:GetSpecialValueFor("spirit_duration")
+	if GetTableLength(ability.spirits) < GetSpecial(ability, "spirits_count") + GRMSC("ziv_dark_goddess_corrupted_arrow_spirit_count",caster) then 
+		local pID = caster:GetPlayerOwnerID()
 
-	PrecacheUnitByNameAsync("npc_dark_goddess_spirit", function (  )
-		if target and target:IsAlive() == false then
-			local spirit_count = 1 + GRMSC("ziv_dark_goddess_corrupted_arrow_spirit_count",caster)
+		PrecacheUnitByNameAsync("npc_dark_goddess_spirit", function (  )
+			if target and target:IsAlive() == false then
+				local spirit = CreateUnitByName("npc_dark_goddess_spirit", target:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+				ability:ApplyDataDrivenModifier(caster,spirit,"modifier_corrupted_spirit",{})
 
-			local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(),  nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-			local i = 0
-			for k,v in pairs(units) do
-				if i >= spirit_count then break end
-				if v then
-					AddChildEntity(caster,SpawnSingleSpirit(caster, ability, v:GetAbsOrigin(), spirit_duration) )
-					i = i + 1
-				end
+				spirit:SetMaxHealth(caster:GetMaxHealth() * (GetSpecial(ability, "spirit_hp_percent") / 100))
+				spirit:SetHealth(spirit:GetMaxHealth())
+
+				spirit:SetModelScale(0.59)
+
+				SetRandomAngle( spirit )
+
+				SummonFollow( caster, spirit, 0.3, 325, 500 )
+
+				Timers:CreateTimer(function (  )
+					if spirit:IsAlive() then
+						spirit:MoveToPositionAggressive(spirit:GetAbsOrigin() + Vector(0, 0, 0))
+					end
+				end)
+
+				spirit:AddOnDiedCallback(function ()
+					ability.spirits[spirit:entindex()] = nil
+				end)
+
+				ability.spirits[spirit:entindex()] = spirit
+
+				AddChildEntity(caster, spirit)
 			end
-		end
-	end, pID)
+		end, pID)
+	end
 end
 
-function SpawnSingleSpirit(caster, ability, position, spirit_duration) 
-	local spirit = CreateUnitByNameAsync("npc_dark_goddess_spirit", position, true, caster, caster, caster:GetTeamNumber(), function ( spirit )
-		ability:ApplyDataDrivenModifier(caster,spirit,"modifier_corrupted_spirit",{})
-
-		spirit:AddNewModifier(spirit, ability, "modifier_kill", {duration = spirit_duration})
-
-		spirit:SetModelScale(0.59)
-		spirit:SetAngles(0,math.random(0,360),0)
-
-		Timers:CreateTimer(function (  )
-			if spirit:IsAlive() then
-				spirit:MoveToPositionAggressive(spirit:GetAbsOrigin() + Vector(0, 0, 0))
-			end
-		end)
-	end)
-end
-
-function RestoreEnergy( keys )
+function SpiritAttack( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
 
-	Damage:Deal(caster, target, GetRuneDamage(caster, GetSpecial(ability, "spirit_damage_amp"), ""), DAMAGE_TYPE_DARK)
-
-	local energy_restored = ability:GetSpecialValueFor("energy_restored")
-	
-	caster:GiveMana(energy_restored)
-	-- PopupMana(target, energy_restored)
+	Damage:Deal(caster, target, GetRuneDamage(caster, GetSpecial(ability, "spirit_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
 end
 
-function AdditionalDamage( keys )
+function OnHit( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability

@@ -19,7 +19,9 @@ function Wearables:Remove(unit)
     end
 
     for _, part in pairs(unit.wearables) do
-        part:RemoveSelf()
+        if not part:IsNull() then
+            part:RemoveSelf()
+        end
     end
 
     unit.wearables = {}

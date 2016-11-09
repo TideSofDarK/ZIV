@@ -2766,47 +2766,42 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"aoe_radius"	"400"
+				"pierce"	"2"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"pierce"	"2"
+				"corruption_duration"	"4"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"corruption_duration"	"4"
+				"slow"	"20"
 			}
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"slow"	"-20"
-			}
-			"06"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"spirit_duration"	"6"
-			}
-			"07"
-			{
-				"var_type"	"FIELD_INTEGER"
 				"spirit_attackspeed"	"175"
 			}
-			"08"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"spirits_count"	"1"
-			}
-			"09"
+			"06"
 			{
 				"var_type"	"FIELD_FLOAT"
 				"spirit_damage_amp"	"0.8"
 			}
-			"10"
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"spirit_hp_percent"	"50"
+			}
+			"08"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"energy_restored"	"3"
+				"spirits_count"	"5"
+			}
+			"09"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"aoe_radius"	"400"
 			}
 		}
 	
@@ -2835,35 +2830,6 @@
 					"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
 					"ProjectileName"	"particles/heroes/dark_goddess/dark_goddess_corrupted_arrow.vpcf"
 				}
-	
-				"OnOrbFire"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_DrowRanger.FrostArrows"
-						"Target"	"TARGET"
-					}
-				}
-	
-				"OnOrbImpact"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
-						"Function"		"AdditionalDamage"
-						"Target"	"TARGET"
-					}
-				}
-	
-				"OnKill"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
-						"Function"		"SpawnSpirit"
-						"Target"	"TARGET"
-					}
-				}
 			}
 	
 			"modifier_corrupted_spirit"
@@ -2882,8 +2848,8 @@
 					"RunScript"
 					{
 						"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
-						"Function"		"RestoreEnergy"
-						"Target"	"TARGET"
+						"Function"		"SpiritAttack"
+						"Target"		"TARGET"
 					}
 		    	}
 	
@@ -2894,52 +2860,36 @@
 		    
 				"States"
 				{
-					"MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
+					// "MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
 					// "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR" "MODIFIER_STATE_VALUE_ENABLED"
+					// "MODIFIER_STATE_NO_HEALTH_BAR" "MODIFIER_STATE_VALUE_ENABLED"
 				}
 		    }
 	
 			"modifier_corrupted_arrow_effect"
 			{
 				"IsDebuff"	"1"
-				"Duration"	"%slow_duration"
+				"Duration"	"%corruption_duration"
 	
 				"Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
 	
 				"EffectName"	"particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_effect.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_amp"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
-				}
-			}
-	
-			"modifier_corrupted_arrow_as_rune"
-			{
-				"Passive"			"1"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-	
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
-				}
-	
-				"OnCreated"
+				"OnDeath"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"items/runes.lua"
-						"rune_modifier" "ziv_dark_goddess_corrupted_arrow_as"
-						"modifier_name" "modifier_corrupted_arrow_as_rune"
-						"Function"		"BasicPropertyRune"
+						"ScriptFile"	"abilities/heroes/dark_goddess/ziv_dark_goddess_corrupted_arrow.lua"
+						"Function"		"SpawnSpirit"
+						"Target"		"TARGET"
 					}
+				}
+	
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow * -1" 
 				}
 			}
 		}

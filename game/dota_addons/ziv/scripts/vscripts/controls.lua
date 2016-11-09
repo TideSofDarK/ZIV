@@ -19,6 +19,10 @@ function Controls:CastAbilityNoTargetRemote(args)
 		return
 	end
 
+	if caster:HasModifier("modifier_custom_attack") then
+		return
+	end
+
 	caster:CastAbilityNoTarget(ability,args.PlayerID)
 end
 
@@ -32,6 +36,10 @@ function Controls:CastAbilityPointTargetRemote(args)
 	end
 
 	if not ability:IsCooldownReady() then
+		return
+	end
+
+	if caster:HasModifier("modifier_custom_attack") then
 		return
 	end
 

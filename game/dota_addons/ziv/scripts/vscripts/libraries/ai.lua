@@ -57,3 +57,41 @@ end
 function AI:TryToKeepDistance(unit)
 
 end
+
+---------------------------------
+-- Following for summons
+---------------------------------
+
+function SummonFollow( caster, summon, update_rate, follow_range, attack_range )
+	Timers:CreateTimer(update_rate, function (  )
+		if caster:IsNull() or summon:IsNull() or not caster:IsAlive() or not summon:IsAlive() then
+			return
+		end
+
+		local distance = Distance(caster, summon)
+
+		-- if caster:IsAttacking() == true then
+		-- 	summon:MoveToTargetToAttack(caster:GetAttackTarget())
+		if distance > follow_range + attack_range then
+			summon:MoveToPosition((caster:GetAbsOrigin() + (caster:GetForwardVector() * 350)))
+		elseif summon:IsAttacking() == false then
+			local units = FindUnitsInRadius(caster:GetTeamNumber(), summon:GetAbsOrigin(), nil, attack_range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+		
+			if #units > 0 then
+				summon:MoveToTargetToAttack(units[1])
+			else
+				if distance > follow_range then
+					summon:MoveToPosition((caster:GetAbsOrigin() + (caster:GetForwardVector() * 350)))
+				else
+					summon.last_walking_time = summon.last_walking_time or ZIV.TRUE_TIME
+					if ZIV.TRUE_TIME - summon.last_walking_time > math.random(3.5, 5.1) then
+						summon:MoveToPosition(caster:GetAbsOrigin() + RandomPointOnCircle(325))
+						summon.last_walking_time = ZIV.TRUE_TIME
+					end
+				end
+			end
+		end
+
+		return update_rate
+	end)
+end
