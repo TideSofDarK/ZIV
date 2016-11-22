@@ -38,6 +38,11 @@ Temple.obelisks = {}
 function Temple:Init()
 	Temple.obelisks_positions = Entities:FindAllByName("ziv_temple_obelisk")
 	Temple.creeps_positions = Entities:FindAllByName("ziv_temple_obelisk") --ziv_basic_creep_spawner
+	Temple.boss_area = {}
+	for k,v in pairs(Entities:FindAllByName("ziv_temple_boss_area*")) do
+		Temple.boss_area[v:GetName()] = v
+	end
+	table.sort(Temple.boss_area)
 
 	local worldMin = {x = -6100, y = -6100 }
   	local worldMax = {x = 6100, y = 6100 }
@@ -211,4 +216,25 @@ function Temple:DestroyCreeps( v )
 	end
 	v.creeps = nil
 	v.idle_count = 0.0
+end
+
+function Temple:InitBossFight()
+	local first
+	local last
+	local previous_pos
+	for i=1,GetTableLength(Temple.boss_area) do
+		local v = Temple.boss_area["ziv_temple_boss_area"..tostring(i)]
+		if not first then
+			first = v:GetAbsOrigin()
+		else
+			local wall = ParticleManager:CreateParticle("particles/bosses/ziv_boss_area.vpcf",PATTACH_CUSTOMORIGIN,nil)
+			ParticleManager:SetParticleControl(wall,0,previous_pos)
+			ParticleManager:SetParticleControl(wall,1,v:GetAbsOrigin())
+		end
+		last = v:GetAbsOrigin()
+		previous_pos = v:GetAbsOrigin()
+	end
+	local wall = ParticleManager:CreateParticle("particles/bosses/ziv_boss_area.vpcf",PATTACH_CUSTOMORIGIN,nil)
+	ParticleManager:SetParticleControl(wall,0,first)
+	ParticleManager:SetParticleControl(wall,1,last)
 end

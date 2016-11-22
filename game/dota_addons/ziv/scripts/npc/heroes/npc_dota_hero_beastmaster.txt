@@ -33,6 +33,8 @@
     "Ability15"       ""
     "Ability16"       ""
 
+    "DisableWearables" "1" 
+
     "ArmorPhysical"       "0"
     "MagicalResistance"       "0"
 

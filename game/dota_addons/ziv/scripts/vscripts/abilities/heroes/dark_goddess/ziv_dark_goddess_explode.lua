@@ -16,7 +16,8 @@ function Explode( keys )
 				return
 			end
 			if v:GetUnitName() == "npc_dark_goddess_spirit" then
-				local explosion = ParticleManager:CreateParticle("particles/heroes/dark_goddess/dark_goddess_explode.vpcf",PATTACH_ABSORIGIN_FOLLOW,v)
+				local explosion = ParticleManager:CreateParticle("particles/heroes/dark_goddess/dark_goddess_explode_alt.vpcf",PATTACH_CUSTOMORIGIN,nil)
+				ParticleManager:SetParticleControl(explosion,3,v:GetAttachmentOrigin(v:ScriptLookupAttachment("attach_hitloc")))
 
 				local units_to_damage = FindUnitsInRadius(caster:GetTeamNumber(),v:GetAbsOrigin(),nil,ability:GetSpecialValueFor("explosion_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 
@@ -26,7 +27,7 @@ function Explode( keys )
 
 				v:EmitSound("Hero_Enigma.Pick")
 
-				v:RemoveSelf()
+				v:ForceKill(false)
 
 				i = i + 1
 			end

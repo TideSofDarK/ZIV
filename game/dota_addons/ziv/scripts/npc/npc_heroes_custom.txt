@@ -35,6 +35,8 @@
 	    "Ability15"       ""
 	    "Ability16"       ""
 	
+	    "DisableWearables" "1" 
+	
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
@@ -106,6 +108,8 @@
 	    "Ability15"       ""
 	    "Ability16"       ""
 	
+	    "DisableWearables" "1" 
+	
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
@@ -175,6 +179,8 @@
 	    "Ability14"       ""
 	    "Ability15"       ""
 	    "Ability16"       ""
+	
+	    "DisableWearables" "1" 
 	
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
@@ -247,6 +253,8 @@
 	    "Ability15"       ""
 	    "Ability16"       ""
 	
+	    "DisableWearables" "1" 
+	
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
@@ -315,6 +323,8 @@
 	    "Ability15"       "ziv_sniper_shotgun_special"
 	    "Ability16"       "ziv_sniper_shotgun_dash"
 	
+	    "DisableWearables" "1" 
+	
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
@@ -382,6 +392,8 @@
 	    "Ability14"       ""
 	    "Ability15"       ""
 	    "Ability16"       ""
+	
+	    "DisableWearables" "1" 
 	
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
@@ -458,6 +470,8 @@
 	    "Ability15"       ""
 	    "Ability16"       ""
 	
+	    "DisableWearables" "1" 
+	
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"
 	
@@ -525,6 +539,8 @@
 	    "Ability14"       ""
 	    "Ability15"       ""
 	    "Ability16"       ""
+	
+	    "DisableWearables" "1" 
 	
 	    "ArmorPhysical"       "0"
 	    "MagicalResistance"       "0"

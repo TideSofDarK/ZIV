@@ -19,7 +19,7 @@
   {
     "soundfile"     "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
     "soundfile"     "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
-    "particle"      "particles/heroes/dark_goddess/dark_goddess_explode.vpcf"
+    "particle"      "particles/heroes/dark_goddess/dark_goddess_explode_alt.vpcf"
   }
 
   "AbilitySpecial"
@@ -27,7 +27,7 @@
     "01"
     {
       "var_type"          "FIELD_FLOAT"
-      "damage_amp"        "1.5"
+      "damage_amp"        "3.0"
     }
     "02"
     {

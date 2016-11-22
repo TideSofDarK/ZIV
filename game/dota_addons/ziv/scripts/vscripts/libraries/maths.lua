@@ -1,3 +1,40 @@
+-- Polygons
+
+function IsPointInsidePolygon(point, polygon)
+  local odd_nodes = false
+  local j = #polygon
+  for i = 1, #polygon do
+      if (polygon[i].y < point.y and polygon[j].y >= point.y or polygon[j].y < point.y and polygon[i].y >= point.y) then
+          if (polygon[i].x + ( point.y - polygon[i].y ) / (polygon[j].y - polygon[i].y) * (polygon[j].x - polygon[i].x) < point.x) then
+              odd_nodes = not odd_nodes
+          end
+      end
+      j = i
+  end
+  return odd_nodes
+end
+
+function RandomPointInPolygon( polygon )
+  local minX = polygon[1].x
+  local maxX = polygon[1].x
+  local minY = polygon[1].y
+  local maxY = polygon[1].y
+
+  for k,v in pairs(polygon) do
+        minX = math.min( v.x, minX );
+        maxX = math.max( v.x, maxX );
+        minY = math.min( v.y, minY );
+        maxY = math.max( v.y, maxY );
+  end
+
+  local point
+  repeat
+    point = Vector(RandomFloat(minX,maxX), RandomFloat(minY,maxY), 0)
+  until IsPointInsidePolygon(point, polygon)
+
+  return point
+end
+
 function FindUnitsInCone(position, coneDirection, coneLength, coneWidth, teamNumber, teamFilter, typeFilter, flagFilter, order)
   local units = FindUnitsInRadius(teamNumber, position, nil, coneLength, teamFilter, typeFilter, flagFilter, order, false)
 

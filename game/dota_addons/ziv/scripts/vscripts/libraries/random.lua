@@ -22,3 +22,8 @@ end
 function GetChance(chance)
 	return math.random(0, 100) > (100 - chance)
 end
+
+function ResetRandomSeed()
+  local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '0','')
+  math.randomseed(tonumber(timeTxt))
+end

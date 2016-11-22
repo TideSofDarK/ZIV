@@ -26,28 +26,33 @@
   {
     "01"
     {
-      "var_type"          "FIELD_INTEGER"
-      "radius"            "345"
+      "var_type"                    "FIELD_INTEGER"
+      "radius"                      "345"
     }
     "02"
     {
-      "var_type"          "FIELD_INTEGER"
-      "bonus_attackspeed" "75"
+      "var_type"                    "FIELD_INTEGER"
+      "spirits_needed"              "3"
     }
     "03"
     {
-      "var_type"          "FIELD_FLOAT"
-      "bonus_duration"    "1.75"
+      "var_type"                    "FIELD_INTEGER"
+      "bonus_attackspeed"           "75"
     }
     "04"
     {
-      "var_type"          "FIELD_INTEGER"
-      "bonus_hp"          "15"
+      "var_type"                    "FIELD_INTEGER"
+      "bonus_hp"                    "15"
     }
     "05"
     {
-      "var_type"          "FIELD_INTEGER"
-      "max_targets"       "7"
+      "var_type"                    "FIELD_INTEGER"
+      "max_combined_spirits"        "3"
+    }
+    "06"
+    {
+      "var_type"                    "FIELD_FLOAT"
+      "bonus_hp_regen"              "1.5"
     }
   }
 
@@ -70,7 +75,8 @@
     "Properties"
     {
       "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
-      "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE" "%bonus_hp" 
+      "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE" "%bonus_hp"
+      "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%bonus_hp_regen"
     }
   }
 }

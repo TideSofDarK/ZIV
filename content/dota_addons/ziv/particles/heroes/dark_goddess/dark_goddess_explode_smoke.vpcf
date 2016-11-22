@@ -3,120 +3,97 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 64
-	m_flConstantRadius = 32.000000
+	m_flConstantRadius = 32.0
 	m_nGroupID = 3
-	m_flMaxDrawDistance = 2000.000000
+	m_flMaxDrawDistance = 2000.0
 	m_bShouldSort = false
-	m_Renderers =
+	m_Renderers = 
 	[
 		{
 			_class = "C_OP_RenderSprites"
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
 			m_bAdditive = true
 			m_nOrientationType = 2
-			m_flOverbrightFactor = 2.000000
+			m_flOverbrightFactor = 2.0
 			m_hTexture = resource:"materials/particle/particle_ring_wavy4.vtex"
-			m_flAnimationRate = 1.450000
-			m_flOpTimeOffsetMax = 1.000000
-			m_flOpStrengthMinScale = 0.000000
+			m_flAnimationRate = 1.45
+			m_flOpTimeOffsetMax = 1.0
+			m_flOpStrengthMinScale = 0.0
 		},
 	]
-	m_Operators =
+	m_Operators = 
 	[
 		{
 			_class = "C_OP_BasicMovement"
-			m_Gravity =
-			[
-				0.000000,
-				0.000000,
-				120.000000,
-			]
-			m_flOpTimeOffsetMax = 1.000000
-			m_flOpStrengthMinScale = 0.000000
-			m_fDrag = 0.020000
+			m_Gravity = [ 0.0, 0.0, 120.0 ]
+			m_flOpTimeOffsetMax = 1.0
+			m_flOpStrengthMinScale = 0.0
+			m_fDrag = 0.02
 		},
 		{
 			_class = "C_OP_Spin"
 			m_nSpinRateDegrees = 4
-			m_fSpinRateStopTime = 1.000000
-			m_flOpTimeOffsetMax = 1.000000
-			m_flOpStrengthMinScale = 0.000000
+			m_fSpinRateStopTime = 1.0
+			m_flOpTimeOffsetMax = 1.0
+			m_flOpStrengthMinScale = 0.0
 		},
 		{
 			_class = "C_OP_Decay"
-			m_flOpTimeOffsetMax = 1.000000
-			m_flOpStrengthMinScale = 0.000000
+			m_flOpTimeOffsetMax = 1.0
+			m_flOpStrengthMinScale = 0.0
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flEndScale = 0.100000
-			m_flOpTimeOffsetMax = 1.000000
-			m_flOpStrengthMinScale = 0.000000
-			m_flStartScale = 4.000000
-			m_flBias = 0.300000
+			m_flEndScale = 0.1
+			m_flOpTimeOffsetMax = 1.0
+			m_flOpStrengthMinScale = 0.0
+			m_flStartScale = 4.0
+			m_flBias = 0.3
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
-			m_ColorFade =
-			[
-				123,
-				64,
-				212,
-				255,
-			]
+			m_ColorFade = [ 123, 64, 212, 255 ]
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.800000
+			m_flFadeOutTime = 0.8
 		},
 		{
 			_class = "C_OP_RampScalarLinearSimple"
-			m_Rate = 2.000000
+			m_Rate = 2.0
 			m_nField = 4
 		},
 	]
-	m_Initializers =
+	m_Initializers = 
 	[
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 0.400000
-			m_fLifetimeMax = 0.500000
-			m_flOpTimeOffsetMax = 1.000000
-			m_flOpStrengthMinScale = 0.000000
+			m_fLifetimeMin = 0.4
+			m_fLifetimeMax = 0.5
+			m_flOpTimeOffsetMax = 1.0
+			m_flOpStrengthMinScale = 0.0
 		},
 		{
 			_class = "C_INIT_RandomRotation"
-			m_flOpTimeOffsetMax = 1.000000
-			m_flOpStrengthMinScale = 0.000000
+			m_flOpTimeOffsetMax = 1.0
+			m_flOpStrengthMinScale = 0.0
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
-			m_flOpTimeOffsetMax = 1.000000
-			m_flOpStrengthMinScale = 0.000000
+			m_flOpTimeOffsetMax = 1.0
+			m_flOpStrengthMinScale = 0.0
 			m_nAlphaMin = 20
 			m_nAlphaMax = 20
 		},
 		{
 			_class = "C_INIT_RandomYawFlip"
-			m_flOpTimeOffsetMax = 1.000000
-			m_flOpStrengthMinScale = 0.000000
+			m_flOpTimeOffsetMax = 1.0
+			m_flOpStrengthMinScale = 0.0
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax =
-			[
-				30,
-				2,
-				35,
-				255,
-			]
-			m_ColorMin =
-			[
-				54,
-				14,
-				74,
-				255,
-			]
+			m_ColorMax = [ 30, 2, 35, 255 ]
+			m_ColorMin = [ 54, 14, 74, 255 ]
 		},
 		{
 			_class = "C_INIT_RandomSequence"
@@ -125,50 +102,31 @@
 		},
 		{
 			_class = "C_INIT_PositionOffset"
-			m_OffsetMin =
-			[
-				0.000000,
-				0.000000,
-				4.000000,
-			]
-			m_OffsetMax =
-			[
-				0.000000,
-				0.000000,
-				4.000000,
-			]
+			m_OffsetMin = [ 0.0, 0.0, 4.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 4.0 ]
 		},
 		{
 			_class = "C_INIT_CreateWithinSphere"
-			m_LocalCoordinateSystemSpeedMax =
-			[
-				0.000000,
-				0.000000,
-				600.000000,
-			]
-			m_LocalCoordinateSystemSpeedMin =
-			[
-				0.000000,
-				0.000000,
-				600.000000,
-			]
+			m_LocalCoordinateSystemSpeedMax = [ 0.0, 0.0, 600.0 ]
+			m_LocalCoordinateSystemSpeedMin = [ 0.0, 0.0, 600.0 ]
+			m_nControlPointNumber = 3
 		},
 		{
 			_class = "C_INIT_RemapScalar"
 			m_bScaleInitialRange = true
-			m_flOutputMax = 0.000000
-			m_flOutputMin = 1.000000
+			m_flOutputMax = 0.0
+			m_flOutputMin = 1.0
 			m_nFieldOutput = 7
-			m_flInputMax = 0.500000
-			m_flInputMin = 0.250000
+			m_flInputMax = 0.5
+			m_flInputMin = 0.25
 		},
 	]
-	m_Emitters =
+	m_Emitters = 
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmissionDuration = 0.400000
-			m_flEmitRate = 150.000000
+			m_flEmissionDuration = 0.4
+			m_flEmitRate = 150.0
 		},
 	]
 }

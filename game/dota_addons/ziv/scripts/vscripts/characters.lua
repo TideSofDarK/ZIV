@@ -152,6 +152,8 @@ function Characters:InitCharacter( hero )
 
   hero:AddNewModifier(hero,nil,"modifier_disable_auto_attack",{})
 
+  Wearables:InitDefaultWearables(hero)
+
   -- Spawn effects
 
   -- hero:AddNewModifier(hero,nil,"modifier_hide",{duration = Director.HERO_SPAWN_TIME})
