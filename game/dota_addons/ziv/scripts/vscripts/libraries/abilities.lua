@@ -84,6 +84,8 @@ function SimulateMeleeAttack( keys )
   caster:SetForwardVector(UnitLookAtPoint( caster, target ))
   caster:Stop()
 
+  ability:SetInAbilityPhase(true)
+
   if keys.pre_attack_sound then
     caster:EmitSound(keys.pre_attack_sound)
   elseif kv["SoundSet"] then
@@ -128,7 +130,8 @@ function SimulateMeleeAttack( keys )
       end
     end
 
-    end)
+    ability:SetInAbilityPhase(false)
+  end)
 end
 
 function SimulateRangeAttack( keys )
@@ -162,6 +165,8 @@ function SimulateRangeAttack( keys )
   
   caster:SetForwardVector(UnitLookAtPoint( caster, target ))
   caster:Stop()
+
+  ability:SetInAbilityPhase(true)
 
   caster:AddNewModifier(caster,ability,"modifier_custom_attack",{duration = base_attack_time})
 
@@ -330,6 +335,8 @@ function SimulateRangeAttack( keys )
         ParticleManager:DestroyParticle(projectileFX, keys.force_destroy_tracking == true)
       end
     end
+
+    ability:SetInAbilityPhase(false)
 
     AddChildEntity(caster,projectile)
   end)

@@ -8,7 +8,6 @@ function Wearables:InitDefaultWearables(unit)
     local t = Wearables.DEFAULT_WEARABLES[unit:GetUnitName()]
     if t then
         for k,v in pairs(t) do
-            print(v)
             Wearables:AttachWearable(unit, v, "default_wearables")
         end
     end

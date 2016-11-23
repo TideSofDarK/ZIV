@@ -13,6 +13,8 @@ Temple.TEAMS = { DOTA_TEAM_GOODGUYS }
 Temple.TEAM_ASSIGNMENT = Director.TEAM_ASSIGNMENT_AUTO
 
 -- Balance
+Temple.PREGAME_TIME = 90.0
+
 Temple.ROCKS_DELAY = 1.5
 Temple.ROCKS_TICK = 0.1
 Temple.ROCKS_DAMAGE = 0.02
@@ -38,11 +40,7 @@ Temple.obelisks = {}
 function Temple:Init()
 	Temple.obelisks_positions = Entities:FindAllByName("ziv_temple_obelisk")
 	Temple.creeps_positions = Entities:FindAllByName("ziv_temple_obelisk") --ziv_basic_creep_spawner
-	Temple.boss_area = {}
-	for k,v in pairs(Entities:FindAllByName("ziv_temple_boss_area*")) do
-		Temple.boss_area[v:GetName()] = v
-	end
-	table.sort(Temple.boss_area)
+	Temple.boss_area = GetArea("ziv_temple_boss_area*")
 
 	local worldMin = {x = -6100, y = -6100 }
   	local worldMax = {x = 6100, y = 6100 }
@@ -70,23 +68,25 @@ function Temple:NextStage()
 			Temple:SetupMap()
 
 			if Temple.stage == Temple.STAGE_PREGAME then
-				Timers:CreateTimer(Director.HERO_SPAWN_TIME, function (  )
+				Temple:InitBossArea()
+
+				Director:StartTimer("pregame", Temple.PREGAME_TIME, function (  )
+					
+				end, function (  )
+					Temple:CleanupBossFight()
+
+					Temple:NextStage()
+				end)
+
+				-- Timers:CreateTimer(Temple.PREGAME_TIME, function (  )
 					-- for k,v in pairs(Entities:FindAllByName("ziv_temple_portal")) do
 						
 					-- end
-					-- local shit= Entities:FindAllInSphere(Vector(0,0,0), 40000)
-					-- for k,v in pairs(shit) do
-					-- 	if v.GetClassname then
-					-- 		print(k,v:GetClassname())
-					-- 	else
-					-- 		print(k, type(v))
-					-- 	end
-					-- end
-					DoToAllHeroes(function ( hero )
+
+					-- DoToAllHeroes(function ( hero )
 						-- ParticleManager:CreateParticleForPlayer("particles/rain_fx/econ_weather_sirocco.vpcf", PATTACH_EYES_FOLLOW, hero, hero:GetPlayerOwner())
-					end)
-					Temple:NextStage()
-				end)
+					-- end)
+				-- end)
 			elseif Temple.stage == Temple.STAGE_SECOND then
 
 			end
@@ -218,23 +218,53 @@ function Temple:DestroyCreeps( v )
 	v.idle_count = 0.0
 end
 
-function Temple:InitBossFight()
-	local first
-	local last
-	local previous_pos
-	for i=1,GetTableLength(Temple.boss_area) do
-		local v = Temple.boss_area["ziv_temple_boss_area"..tostring(i)]
-		if not first then
-			first = v:GetAbsOrigin()
-		else
-			local wall = ParticleManager:CreateParticle("particles/bosses/ziv_boss_area.vpcf",PATTACH_CUSTOMORIGIN,nil)
-			ParticleManager:SetParticleControl(wall,0,previous_pos)
-			ParticleManager:SetParticleControl(wall,1,v:GetAbsOrigin())
-		end
-		last = v:GetAbsOrigin()
-		previous_pos = v:GetAbsOrigin()
+function Temple:InitBossArea()
+	Temple.boss_area_container = {}
+
+	local last = Temple.boss_area[#Temple.boss_area]
+
+	for k, v in orderedPairs(Temple.boss_area) do
+		local wall = ParticleManager:CreateParticle("particles/bosses/ziv_boss_area.vpcf",PATTACH_CUSTOMORIGIN,nil)
+		ParticleManager:SetParticleControl(wall,0,last)
+		ParticleManager:SetParticleControl(wall,1,v)
+		last = v
+
+		table.insert(Temple.boss_area_container, wall)
 	end
-	local wall = ParticleManager:CreateParticle("particles/bosses/ziv_boss_area.vpcf",PATTACH_CUSTOMORIGIN,nil)
-	ParticleManager:SetParticleControl(wall,0,first)
-	ParticleManager:SetParticleControl(wall,1,last)
+
+	DistributeUnitsAlongPolygonPath(Temple.boss_area, function ( pos, is_tower )
+		local blocker = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = pos, block_fow = true})
+
+		local pos = GetGroundPosition(pos, blocker)
+        blocker:SetAbsOrigin(pos)
+
+		table.insert(Temple.boss_area_container, blocker)
+	end, 32)
+
+	DoToAllHeroes(function ( hero )
+		hero:AddNewModifier(hero,hero,"modifier_area_lock",{}).area = Temple.boss_area
+	end)
+end
+
+function Temple:CleanupBossFight()
+	if Temple.boss_area_container then
+		for k,v in pairs(Temple.boss_area_container) do
+			if type(v) == "number" then
+				ParticleManager:DestroyParticle(v, false)
+			else
+				UTIL_Remove(v)
+			end
+		end
+
+		DoToAllHeroes(function ( hero )
+			hero:RemoveModifierByName("modifier_area_lock")
+		end)
+	end
+end
+
+function Temple:InitBossFight()
+	Temple:CleanupBossFight()
+	Temple:InitBossArea()
+
+
 end

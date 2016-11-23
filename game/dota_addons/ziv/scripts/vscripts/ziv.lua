@@ -65,6 +65,7 @@ LinkLuaModifier("modifier_smooth_floating", "abilities/tools/modifier_smooth_flo
 LinkLuaModifier("modifier_command_restricted", "abilities/tools/modifier_command_restricted.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_ai", "abilities/tools/modifier_boss_ai.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hide", "abilities/tools/modifier_hide.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_area_lock", "abilities/tools/modifier_area_lock.lua", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_witch_doctor_curse_debuff", "abilities/heroes/witch_doctor/modifier_witch_doctor_curse_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 

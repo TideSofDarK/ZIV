@@ -10,6 +10,12 @@
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_controls.js" />
 	</scripts>
 	<Panel class="InGameUIRoot" hittest="false">
+		<Panel id="PregameTimer" class="BasicShadow WindowAnimation">
+			<Label id="PregameLabel" class="WindowLabel" text="#pregame_time"/>
+			<Button onactivate="PregameReady()" class="OKButton" id="ReadyButton">
+				<Label id="ReadyButtonLabel" class="WindowLabel" text="#pregame_ready"/>
+			</Button>
+		</Panel>
 		<Panel class="GenericBackground" id="BottomGfx" hittest="false"/>
 		<Panel class="Bottom MidBottom" hittest="false">
 			<Panel class="Bars" hittest="false">

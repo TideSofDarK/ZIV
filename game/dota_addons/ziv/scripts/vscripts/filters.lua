@@ -10,42 +10,46 @@ function Filters:Init(  )
     GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( Filters, "DamageFilter" ), self )
 end
 
-function Filters:FilterExecuteOrder( filterTable )
-    local units = filterTable["units"]
-    local order_type = filterTable["order_type"]
-    local issuer = filterTable["issuer_player_id_const"]
+function Filters:FilterExecuteOrder( filter_table )
+    local units = filter_table["units"]
+    local order_type = filter_table["order_type"]
+    local issuer = filter_table["issuer_player_id_const"]
 
-    local abilityIndex = filterTable["entindex_ability"]
-    local targetIndex = filterTable["entindex_target"]
+    local ability_index = filter_table["entindex_ability"]
+    local target_index = filter_table["entindex_target"]
 
-    local issuerUnit
+    local issuer_unit
     if units["0"] then
-      issuerUnit = EntIndexToHScript(units["0"])
+      issuer_unit = EntIndexToHScript(units["0"])
     end
 
-    if filterTable.queue > 0 then
-        filterTable.queue = 0
+    if filter_table.queue > 0 then
+        filter_table.queue = 0
     end
 
     if order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
-        local position = Vector(filterTable.position_x, filterTable.position_y, filterTable.position_z)
-        issuerUnit:SetForwardVector(UnitLookAtPoint( issuerUnit, position ))
-        issuerUnit:Stop()
+        if Controls:AbilityPhaseCheck( issuer_unit ) then
+            return false
+        end
 
-        local distance = Distance(issuerUnit, position)
+        local position = Vector(filter_table.position_x, filter_table.position_y, filter_table.position_z)
+        issuer_unit:SetForwardVector(UnitLookAtPoint( issuer_unit, position ))
+        issuer_unit:Stop()
+
+        local distance = Distance(issuer_unit, position)
 
         for i=distance,0,PATHFINDING_RATIO do
-            local target = issuerUnit:GetAbsOrigin() + (((position - issuerUnit:GetAbsOrigin()):Normalized()) * i)
-            target.z = GetGroundHeight(target, issuerUnit)
+            local target = issuer_unit:GetAbsOrigin() + (((position - issuer_unit:GetAbsOrigin()):Normalized()) * i)
+            target.z = GetGroundHeight(target, issuer_unit)
 
-            local path_length = GridNav:FindPathLength(issuerUnit:GetAbsOrigin(),target)
-            local new_distance = Distance(issuerUnit, target)
+            local path_length = GridNav:FindPathLength(issuer_unit:GetAbsOrigin(),target)
+            local new_distance = Distance(issuer_unit, target)
 
             if path_length ~= -1 and math.abs(path_length - new_distance) < PATHFINDING_THRESHOLD then
                 
-                filterTable.position_x = target.x
-                filterTable.position_y = target.y
-                filterTable.position_z = target.z
+                filter_table.position_x = target.x
+                filter_table.position_y = target.y
+                filter_table.position_z = target.z
 
                 break
             end
@@ -55,19 +59,19 @@ function Filters:FilterExecuteOrder( filterTable )
     return true
 end
 
-function Filters:DamageFilter( filterTable )
-    local victim = EntIndexToHScript(filterTable["entindex_victim_const"])
+function Filters:DamageFilter( filter_table )
+    local victim = EntIndexToHScript(filter_table["entindex_victim_const"])
 
     local attacker
-    if not filterTable["entindex_attacker_const"] then
+    if not filter_table["entindex_attacker_const"] then
         attacker = victim
-        filterTable["entindex_attacker_const"] = filterTable["entindex_victim_const"]
+        filter_table["entindex_attacker_const"] = filter_table["entindex_victim_const"]
     else
-        attacker = EntIndexToHScript(filterTable["entindex_attacker_const"])
+        attacker = EntIndexToHScript(filter_table["entindex_attacker_const"])
     end
     
-    local damage = filterTable["damage"]
-    local damage_type = filterTable["damagetype_const"]
+    local damage = filter_table["damage"]
+    local damage_type = filter_table["damagetype_const"]
 
     if damage_type ~= DAMAGE_TYPE_PHYSICAL then
         damage_type = DAMAGE_TYPE_PURE

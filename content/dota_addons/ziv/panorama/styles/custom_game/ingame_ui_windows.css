@@ -108,6 +108,14 @@
 	horizontal-align: right;
 }
 
+.OKButton.OKButtonGreen {
+	hue-rotation: 90deg;
+	saturation: 1.9;
+
+	sound: "General.SelectAction";
+	sound-out: "General.SelectAction";
+}
+
 .OKButton:disabled 
 {
 	wash-color: #999999;

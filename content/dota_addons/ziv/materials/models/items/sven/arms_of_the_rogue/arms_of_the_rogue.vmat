@@ -35,12 +35,12 @@ Layer0
 	TextureColor "materials/models/items/sven/arms_of_the_rogue/arms_of_the_rogue_color.png"
 
 	//---- Detail 1 ----
-	g_flDetailBlendFactor "1.000"
+	g_flDetailBlendFactor "0.415"
 	g_flDetailTexCoordRotation "0.000"
 	g_vDetail1ColorTint "[1.000000 1.000000 1.000000 0.000000]"
 	g_vDetailTexCoordOffset "[0.000 0.000]"
 	g_vDetailTexCoordScale "[2.000 2.000]"
-	TextureDetail "materials/models/heroes/sven/chaos_knight_motion_fire_2.png"
+	TextureDetail "materials/models/items/sven/arms_of_the_rogue/arms_of_the_rogue_lava.png"
 
 	//---- Fresnel ----
 	TextureFresnelWarpColor "materials/default/default_fresnelwarpcolor.tga"

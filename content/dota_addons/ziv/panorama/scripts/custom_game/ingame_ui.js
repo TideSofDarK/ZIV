@@ -1,5 +1,8 @@
 "use strict";
 
+var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+var Util = GameUI.CustomUIConfig().Util;
+
 GameUI.SetRenderBottomInsetOverride( 0 );
 GameUI.SetRenderTopInsetOverride( 0 );
 
@@ -137,6 +140,10 @@ function UpdateHPAndMP()
 	}
 }
 
+function PregameReady() {
+
+}
+
 function ToggleEquipmentWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_equipment", {} );
 }
@@ -161,9 +168,24 @@ function ToggleSettingsWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_settings", {} );
 }
 
+function UpdateScenario(table_name, key, data) {
+	if (key == "pregame") {
+		var time = parseInt(data.time);
+		$("#PregameLabel").text = $.Localize("pregame_time") + Util.SecondsToHHMMSS(time);
+		if (time == 0) {
+			Game.EmitSound("ui.npe_objective_given");
+
+			$("#PregameTimer").AddClass("WindowClosed");
+		}
+	}
+}
+
 (function()
 {
 	GameEvents.Subscribe( "dota_ability_changed", UpdateAbilityList );
+
+	CustomNetTables.SubscribeNetTableListener( "scenario", UpdateScenario );
+
 	UpdateAbilityList();
 	
 	UpdateHPAndMP();

@@ -7,8 +7,18 @@ function RandomPointOnMap(offset)
   return Vector(worldX,worldY,0)
 end
 
+function GetArea( point )
+  local t = {}
+  for k,v in pairs(Entities:FindAllByName(point)) do
+    t[tonumber(string.match(v:GetName(),"%d+"))] = v:GetAbsOrigin()
+  end
+  return t
+end
+
 function DistributeUnitsAlongPolygonPath(path, spawn, density)
   if not spawn or not path then return end
+
+  local entities = {}
 
   local j = #path
   for i = 1, #path do
@@ -18,28 +28,27 @@ function DistributeUnitsAlongPolygonPath(path, spawn, density)
     local distance = (path[j] - path[i]):Length2D()
 
     for x=0,distance,offset do
-      local pos = GetGroundPosition(path[j] + (direction * x),obstacle)
-
+      local ent
       if type(spawn) == "table" then
-        if x == 0 then
-          obstacle:SetForwardVector((pos - getMidPoint(path)):Normalized())
-        else
-          if arenas[current_arena].wallRandomDirection then
-            obstacle:SetAngles(0, math.random(0, 360), 0)
-          end
-        end
-
-        SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = pos + Vector(x * 32,y * 32,0), block_fow = true})
+        -- TO DO
       elseif type(spawn) == "function" then
-        spawn(pos, x == 0)
+        ent = spawn(path[j] + (direction * x), x == 0)
       elseif type(spawn) == "string" then
-        local obstacle = SpawnEntityFromTableSynchronous("prop_dynamic", {model = model, DefaultAnim=animation, targetname=DoUniqueString("prop_dynamic")})
-        obstacle:SetAbsOrigin(pos)
+        ent = SpawnEntityFromTableSynchronous("prop_dynamic", {model = model, DefaultAnim=animation, targetname=DoUniqueString("prop_dynamic")})
+
+        local pos = GetGroundPosition(path[j] + (direction * x),ent)
+        ent:SetAbsOrigin(pos)
+      end
+
+      if ent then
+        table.insert(entities, ent)
       end
     end
 
       j = i
   end
+
+  return entities
 end
 
 function DistributeUnits( points, unit_name, count, team, on_kill )

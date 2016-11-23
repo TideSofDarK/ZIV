@@ -28,6 +28,10 @@
 	"settings_controls" "Dota 2-like controls style(deprecated)"
 	"settings_minimap" "Minimap (disable to improve perfromance)"
 
+	// Pregame
+	"pregame_ready" "Ready"
+	"pregame_time" 	"Prepare time: "
+
 	// Scenarios
 	"objectives" 			"Objectives"
 	"kill_boss" 			"Kill miniboss: "

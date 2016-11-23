@@ -74,6 +74,22 @@ function Director:Init()
 	end
 end
 
+function Director:StartTimer(name, duration, tick, on_end)
+	CustomNetTables:SetTableValue("scenario", name, {time = duration})
+	return Timers:CreateTimer(1.0, function ()
+		local time = CustomNetTables:GetTableValue( "scenario", name).time
+		if time ~= 0 then
+			CustomNetTables:SetTableValue("scenario", name, {time = time - 1})
+			tick()
+			if time - 1 == 0 then
+				on_end()
+			else
+				return 1.0
+			end
+		end
+	end)
+end
+
 function Director:SetupCustomUI( name, args, pID )
 	local args = args or {}
 	args.map = Director:GetMapName()
