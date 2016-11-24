@@ -71,17 +71,52 @@ function Director:Init()
 	Director.scenario = Director:FindMapScenario(Director:GetMapName())
 	if Director.scenario then
 		Director.scenario:Init()
+
+		CustomGameEventManager:RegisterListener("ziv_pregame_ready", Dynamic_Wrap(Director, 'PregameReady'))
 	end
+end
+
+function Director:PregameReady(args)
+	local pID = args.PlayerID
+
+	if Director.pregame_status then
+		Director.pregame_status[pID] = true
+
+		for k,v in pairs(Director.pregame_status) do
+			if PlayerResource:IsValidPlayerID(k) and PlayerResource:GetConnectionState(k) == DOTA_CONNECTION_STATE_CONNECTED then
+				if v == false then
+					return
+				end
+			end
+		end
+
+		Timers:RemoveTimer(Director.pregame_timer)
+		Director.pregame_on_end()
+	end
+end
+
+function Director:StartPregame()
+	Director.pregame_status = GeneratePlayerArray(false)
+
+	Director.pregame_on_end = (function (  )
+		Director.scenario:NextStage()
+
+		CustomGameEventManager:Send_ServerToAllClients("ziv_pregame_done",{}) 
+	end)
+
+	Director.pregame_timer = Director:StartTimer("pregame", Director.scenario.PREGAME_TIME, function ( t )
+		
+	end, Director.pregame_on_end)
 end
 
 function Director:StartTimer(name, duration, tick, on_end)
 	CustomNetTables:SetTableValue("scenario", name, {time = duration})
 	return Timers:CreateTimer(1.0, function ()
-		local time = CustomNetTables:GetTableValue( "scenario", name).time
-		if time ~= 0 then
-			CustomNetTables:SetTableValue("scenario", name, {time = time - 1})
-			tick()
-			if time - 1 == 0 then
+		local time = CustomNetTables:GetTableValue( "scenario", name).time - 1
+		if time + 1 ~= 0 then
+			CustomNetTables:SetTableValue("scenario", name, {time = time})
+			tick(time)
+			if time == 0 then
 				on_end()
 			else
 				return 1.0

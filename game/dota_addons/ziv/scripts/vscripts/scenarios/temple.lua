@@ -59,24 +59,20 @@ function Temple:NextStage()
 
 	else
 		if Temple.stage == Temple.STAGE_FIRST then
+			self:CleanupBossFight()
+
 			Director:SetupCustomUI( "temple_objectives" )
 
 			-- Temple:FallingRocks()
 		elseif Temple.stage == Temple.STAGE_BOSS then
 			
 		else
-			Temple:SetupMap()
+			self:SetupMap()
 
 			if Temple.stage == Temple.STAGE_PREGAME then
-				Temple:InitBossArea()
+				self:InitBossArea()
 
-				Director:StartTimer("pregame", Temple.PREGAME_TIME, function (  )
-					
-				end, function (  )
-					Temple:CleanupBossFight()
-
-					Temple:NextStage()
-				end)
+				Director:StartPregame(  )
 
 				-- Timers:CreateTimer(Temple.PREGAME_TIME, function (  )
 					-- for k,v in pairs(Entities:FindAllByName("ziv_temple_portal")) do

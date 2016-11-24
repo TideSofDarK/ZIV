@@ -168,14 +168,24 @@ function ToggleSettingsWindow() {
 	GameEvents.SendEventClientSide( "ziv_open_settings", {} );
 }
 
+function PregameReady() {
+	$("#PregameTimer").AddClass("WindowClosed");
+	GameEvents.SendCustomGameEventToServer( "ziv_pregame_ready", {} );
+}
+
+function EndPregame() {
+	$("#PregameTimer").AddClass("WindowClosed");
+	Game.EmitSound("ui.npe_objective_given");
+}
+
 function UpdateScenario(table_name, key, data) {
 	if (key == "pregame") {
 		var time = parseInt(data.time);
 		$("#PregameLabel").text = $.Localize("pregame_time") + Util.SecondsToHHMMSS(time);
 		if (time == 0) {
-			Game.EmitSound("ui.npe_objective_given");
-
-			$("#PregameTimer").AddClass("WindowClosed");
+			EndPregame();
+		} else {
+			$("#PregameTimer").RemoveClass("WindowClosed");
 		}
 	}
 }
@@ -183,6 +193,7 @@ function UpdateScenario(table_name, key, data) {
 (function()
 {
 	GameEvents.Subscribe( "dota_ability_changed", UpdateAbilityList );
+	GameEvents.Subscribe("ziv_pregame_done", EndPregame)
 
 	CustomNetTables.SubscribeNetTableListener( "scenario", UpdateScenario );
 
