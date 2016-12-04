@@ -3,10 +3,6 @@ var Util = GameUI.CustomUIConfig().Util;
 
 var Account = {};
 
-Account.XP_PER_LEVEL = PlayerTables.GetTableValue("kvs", "account").XP_PER_LEVEL;
-Account.LEVELS_PER_TIER = PlayerTables.GetTableValue("kvs", "account").LEVELS_PER_TIER;
-Account.MAX_LEVEL = PlayerTables.GetTableValue("kvs", "account").MAX_LEVEL;
-
 Account.TIER_WOOD 		= 1;
 Account.TIER_BRONZE 	= 2;
 Account.TIER_SILVER 	= 3;
@@ -20,29 +16,42 @@ Account.GetEXP = (function () {
 });
 
 Account.GetNeededEXP = (function (exp) {
-    var exp = exp || Account.GetEXP();
+    var exp = exp;
+    if (!exp) {
+    	exp = Account.GetEXP();
+    }
 
-    var level = Util.GetLevelByEXP(exp);
+    var level = Account.GetLevelByEXP(exp);
 
-    return GameUI.CustomUIConfig().EXP_PER_LEVEL * (level + 1)
+    return Account.GetEXPPerLevel() * (level + 1)
 });
 
 Account.GetLevelByEXP = (function (exp) {
     if (!exp) return 1;
 
-    return Math.max(Math.floor(exp / Account.EXP_PER_LEVEL), 1)
+    return Math.max(Math.floor(exp / Account.GetEXPPerLevel()), 1)
 });
 
 Account.GetTierByLevel = (function (level) {
     if (!level) return 1;
 
-    var level = Math.min(level, Account.MAX_LEVEL)
+    var level = Math.min(level, Account.GetMaxLevel())
 
-    return Math.max(Math.floor(level / Account.LEVELS_PER_TIER), Account.TIER_WOOD)
+    return Math.max(Math.floor(level / Account.GetLevelsPerTier()), Account.TIER_WOOD)
+});
+
+Account.GetEXPPerLevel = (function (level) {
+    return PlayerTables.GetTableValue("kvs", "account").EXP_PER_LEVEL;
+});
+
+Account.GetLevelsPerTier = (function (level) {
+    return PlayerTables.GetTableValue("kvs", "account").LEVELS_PER_TIER;
+});
+
+Account.GetMaxLevel = (function (level) {
+    return PlayerTables.GetTableValue("kvs", "account").MAX_LEVEL;
 });
 
 (function () {
 	GameUI.CustomUIConfig().Account = Account;
-
-	PlayerTables.SubscribeNetTableListener( "account", UpdateAccount );
 })();

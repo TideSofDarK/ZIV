@@ -19,7 +19,7 @@
 		<Panel class="GenericBackground" id="BottomGfx" hittest="false"/>
 		<Panel class="Bottom MidBottom" hittest="false">
 			<Panel class="Bars" hittest="false">
-				<Panel id="XPBarRoot">
+				<Panel id="XPBarRoot" onmouseout="UIHideCustomLayoutTooltip( AccountRewardsTooltip )" onmouseover="UIShowCustomLayoutParametersTooltip( AccountRewardsTooltip, file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml, accountRewards=1 )">
 					<Panel id="XPBarContainer">
 						<Panel class="XPBarElement" id="XPBar1"/>
 						<Panel class="XPBarElement" id="XPBar2"/>

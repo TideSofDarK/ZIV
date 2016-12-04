@@ -112,6 +112,9 @@
 	/*margin-left: 200px;*/
 
 	overflow: clip clip;
+
+	tooltip-position: top;
+	tooltip-arrow-position: 25% 50%;
 }
 
 #XPBarContainer {

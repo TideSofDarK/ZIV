@@ -16,7 +16,7 @@ Account.TIER_GOLD 		= 4
 Account.TIER_PLATINUM 	= 5
 
 function Account:Init()
-	PlayerTables:CreateTable("accounts", GeneratePlayerArray({exp = 0}), true)
+	PlayerTables:CreateTable("accounts", GeneratePlayerArray({exp = 1}), true)
 
 	ListenToGameEvent('game_rules_state_change', 
 		function(keys)
@@ -51,7 +51,7 @@ end
 
 function Account:AddEXP( pID, amount )
 	local exp = PlayerTables:GetTableValue("accounts", pID).exp
-
+	
 	local level = Account:GetLevelByEXP( exp )
 
 	exp = exp + amount

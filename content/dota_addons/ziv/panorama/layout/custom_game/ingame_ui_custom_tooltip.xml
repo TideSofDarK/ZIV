@@ -32,9 +32,22 @@
                 <Label id="ItemTooltipDescription" class="TooltipLabel" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/> 
             </Panel>
         </snippet>
+        <snippet name="AccountTooltip">
+            <Panel class="AccountTooltip WindowAnimation">
+                <Panel id="AccountTier" class="WindowAnimation">
+                    <Label id="AccountTooltipTierIcon" text="1"/>
+                    <Label id="AccountTooltipTierLabel" text="Wood Tier"/>
+                </Panel>
+                <Panel class="TooltipCBR"/>
+                <Label id="AccountTooltipEXPLabel" text="500 / 1000"/>
+                <Panel class="TooltipCBR"/>
+            </Panel>
+        </snippet>
     </snippets>
     <script>
-        var Util = GameUI.CustomUIConfig().Util;
+        var Util;
+        var PlayerTables;
+        var Account;
 
         function FillProperty(panel, name, value, color) {
             if (value && value != "undefined" && (typeof(value) == "string" || Util.RoundToTwo(value) != 0)) {
@@ -70,8 +83,14 @@
                 $("#TooltipBorderB").FindChildrenWithClassTraverse("AbilityTooltip")[panelID].DeleteAsync(0.0);
             }
 
-            var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+            for (var panelID in $("#TooltipBorderB").FindChildrenWithClassTraverse("AccountTooltip")) {
+                $("#TooltipBorderB").FindChildrenWithClassTraverse("AccountTooltip")[panelID].RemoveAndDeleteChildren();
+                $("#TooltipBorderB").FindChildrenWithClassTraverse("AccountTooltip")[panelID].DeleteAsync(0.0);
+            }
+
+            PlayerTables = GameUI.CustomUIConfig().PlayerTables;
             Util = GameUI.CustomUIConfig().Util;
+            Account = GameUI.CustomUIConfig().Account;
 
             var hero = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
             var heroName = Entities.GetUnitName(hero);
@@ -81,8 +100,12 @@
 
             var abilityName = $.GetContextPanel().GetAttributeString( "ability", "not-found" );
             var itemID = parseInt($.GetContextPanel().GetAttributeString( "itemID", "not-found" ));
+            var accountRewards = $.GetContextPanel().GetAttributeString( "accountRewards", undefined );
             
-            if (itemID && itemID != "not-found" && itemID != undefined) {
+            if (accountRewards == true) {
+                var accountTooltip = $.CreatePanel( "Panel", $("#TooltipBorderB"), "AccountTooltip" );
+                accountTooltip.BLoadLayoutSnippet("AccountTooltip");
+            } else if (itemID && itemID != "not-found" && itemID != undefined) {
                 var itemName = Abilities.GetAbilityName(itemID);
                 var itemData = PlayerTables.GetTableValue("items", itemID)
 

@@ -152,11 +152,11 @@ function UpdateScenario(table_name, key, data) {
 	}
 }
 
-function UpdateAccount(table_name, key, data) {
-	if (key == Players.GetLocalPlayer()) {
+function UpdateAccount(tableName, changes, deletions) {
+	if (changes[Players.GetLocalPlayer()]) {
 		var exp 	= 	Account.GetEXP();
-		var maxEXP 	= 	Account.GetNeededEXP();
-		$.Msg(exp);
+		var maxEXP 	= 	Account.GetNeededEXP(exp);
+		$.Msg(maxEXP);
 		if (maxEXP != 0) {
 			var expPercentage = exp / maxEXP;
 			var value = expPercentage * 100;

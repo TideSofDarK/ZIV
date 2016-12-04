@@ -73,11 +73,6 @@ LinkLuaModifier("modifier_witch_doctor_curse_debuff", "abilities/heroes/witch_do
 
 function ZIV:PostLoadPrecache()
   DebugPrint("[ZIV] Performing Post-Load precache")    
-  --PrecacheItemByNameAsync("item_example_item", function(...) end)
-  --PrecacheItemByNameAsync("example_ability", function(...) end)
-
-  --PrecacheUnitByNameAsync("npc_dota_hero_viper", function(...) end)
-  --PrecacheUnitByNameAsync("npc_dota_hero_enigma", function(...) end)
 end
 
 function ZIV:OnFirstPlayerLoaded()
@@ -105,7 +100,9 @@ function ZIV:OnAllPlayersLoaded()
       units = ZIV.UnitKVs,
       presets = ZIV.PresetsKVs,
       recipes = ZIV.RecipesKVs,
-      attributes = ZIV.AttributesKVs
+      attributes = ZIV.AttributesKVs,
+      account = Account.SETTINGS,
+      rewards = Account.REWARDS,
       }, true)
     end)
 end
