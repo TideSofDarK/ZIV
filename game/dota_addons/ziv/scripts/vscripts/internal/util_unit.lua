@@ -44,6 +44,14 @@ function CDOTA_BaseNPC:RemoveAllOnDiedCallbacks( )
   self._OnDiedCallbacks = {}
 end
 
+function CDOTA_BaseNPC:SetBoss( bool )
+  self._is_boss = bool
+end
+
+function CDOTA_BaseNPC:IsBoss(  )
+  return self._is_boss or false
+end
+
 function CDOTA_BaseNPC:IsInsidePolygon(polygon)
   return IsPointInsidePolygon(self:GetAbsOrigin(), polygon)
 end

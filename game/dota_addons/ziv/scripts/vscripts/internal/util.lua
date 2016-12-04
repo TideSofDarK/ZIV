@@ -6,7 +6,7 @@ require("internal/util_unit")
 function GeneratePlayerArray(default_value)
   pIDs = {}
   for i=0,DOTA_MAX_TEAM_PLAYERS-1 do
-    pIDs[#pIDs+1] = default_value
+    pIDs[i] = default_value
   end
   return pIDs
 end
@@ -16,7 +16,7 @@ function DoToAllPlayers(action)
   for pID = 0, DOTA_MAX_PLAYERS do
     if PlayerResource:IsValidPlayerID(pID) then
       if not PlayerResource:IsBroadcaster(pID) then
-        if PlayerResource:GetConnectionState(pID) == DOTA_CONNECTION_STATE_CONNECTED then
+        if PlayerResource:GetConnectionState(pID) >= 1 then
           action(PlayerResource:GetPlayer(pID))
         end
       end

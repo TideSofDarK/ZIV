@@ -2,17 +2,12 @@
 
 var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 var Util = GameUI.CustomUIConfig().Util;
+var Account = GameUI.CustomUIConfig().Account;
 
 GameUI.SetRenderBottomInsetOverride( 0 );
 GameUI.SetRenderTopInsetOverride( 0 );
 
-var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
-
-var m_AbilityPanels = []; // created up to a high-water mark, but reused when selection changes
-
-var m_StatusPanel;
-var m_FortifyPanel;
-var m_CraftingPanel;
+var m_AbilityPanels = [];
 
 var SPOrb1 = $("#SPOrb1");
 var SPOrb2 = $("#SPOrb2");
@@ -21,7 +16,7 @@ var SPOrb3 = $("#SPOrb3");
 var HPOrb = $("#HPOrb");
 var SPOrb = $("#SPOrb");
 
-var XPBar = $("#XPBarRoot");
+var XPBar = $("#XPBarContainer");
 
 function UpdateAbilityList()
 {
@@ -35,7 +30,6 @@ function UpdateAbilityList()
 	var nRemainingPoints = Entities.GetAbilityPoints( queryUnit );
 	var bPointsToSpend = ( nRemainingPoints > 0 );
 	var bControlsUnit = Entities.IsControllableByPlayer( queryUnit, Game.GetLocalPlayerID() );
-	$.GetContextPanel().SetHasClass( "could_level_up", ( bControlsUnit && bPointsToSpend ) );
 
 	var heroKV = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName( queryUnit )];
 
@@ -98,22 +92,6 @@ function UpdateHPAndMP()
 	var mp 		= 	Entities.GetMana( queryUnit )
 	var maxMP 	= 	Entities.GetMaxMana( queryUnit ) * 1.0
 
-	var xp 		= 	Entities.GetCurrentXP( queryUnit );
-	var maxXP 	= 	Entities.GetNeededXPToLevel( queryUnit );
-
-	// if (heroKV["UsesEnergy"]) {
-	// 	if (heroKV["DarkEnergy"]) {
-	// 		SPOrb1.SwitchClass("Mana", "DarkEnergy");
-	// 		SPOrb2.SwitchClass("Mana", "DarkEnergy");
-	// 		SPOrb3.SwitchClass("Mana", "DarkEnergy");
-	// 	}
-	// 	else {
-	// 		SPOrb1.SwitchClass("Mana", "Energy");
-	// 		SPOrb2.SwitchClass("Mana", "Energy");
-	// 		SPOrb3.SwitchClass("Mana", "Energy");
-	// 	}
-	// }
-
 	// $("#hp").text = hp + "/" + maxHP;
 	// $("#sp").text = mp + "/" + maxMP;
 
@@ -126,22 +104,6 @@ function UpdateHPAndMP()
 		var mpPercentage = Math.round((mp / maxMP) * 160);
 		SPOrb.style.height = mpPercentage + "px;";
 	}
-
-	// if (maxMP == 0) {
-	// 	$("#sp").text = "";
-	// }
-
-	if (maxXP != 0) {
-		var xpPercentage = xp / maxXP;
-		var value = xpPercentage * 700;
-		if (value != NaN && value != Infinity && XPBar) {
-			XPBar.style.width = value + "px;";
-		}
-	}
-}
-
-function PregameReady() {
-
 }
 
 function ToggleEquipmentWindow() {
@@ -190,12 +152,28 @@ function UpdateScenario(table_name, key, data) {
 	}
 }
 
+function UpdateAccount(table_name, key, data) {
+	if (key == Players.GetLocalPlayer()) {
+		var exp 	= 	Account.GetEXP();
+		var maxEXP 	= 	Account.GetNeededEXP();
+		$.Msg(exp);
+		if (maxEXP != 0) {
+			var expPercentage = exp / maxEXP;
+			var value = expPercentage * 100;
+			if (value != NaN && value != Infinity && XPBar) {
+				XPBar.style.width = value + "%;";
+			}
+		}
+	}
+}
+
 (function()
 {
 	GameEvents.Subscribe( "dota_ability_changed", UpdateAbilityList );
 	GameEvents.Subscribe("ziv_pregame_done", EndPregame)
 
 	CustomNetTables.SubscribeNetTableListener( "scenario", UpdateScenario );
+	PlayerTables.SubscribeNetTableListener( "accounts", UpdateAccount );
 
 	UpdateAbilityList();
 	

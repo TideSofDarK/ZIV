@@ -56,3 +56,35 @@ function SU:RecordCharacter( args )
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(pID), "ziv_setup_character_selection",{})
   end)
 end
+
+function SU:LoadPlayerData( args )
+  local pID = args.PlayerID
+  local steamID = PlayerResource:GetSteamAccountID(pID)
+
+  local request_params = {
+    Command = "LoadPlayerData",
+    SteamID = steamID
+  }
+  
+  SU:SendRequest( request_params, function(obj)
+    CustomGameEventManager:Send_ServerToAllClients("ziv_setup_character_selection",{})
+  end)
+end
+
+function SU:SavePlayerData( args )
+  local pID = args.PlayerID
+  local steamID = PlayerResource:GetSteamAccountID(pID)
+
+  local request_params = {
+    Command = "SavePlayerData",
+    Data = {
+      SteamID = steamID,
+      Exp = args.exp,
+      Settings = args.settings
+    }
+  }
+  
+  SU:SendRequest( request_params, function(obj)
+    -- CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(pID), "ziv_setup_character_selection",{})
+  end)
+end

@@ -105,10 +105,18 @@
 
 #XPBarRoot {
 	width: 789px;
+	height: 50px;
 
-	horizontal-align: left;
-	margin-top: 70px;
-	margin-left: 200px;
+	horizontal-align: center;
+	margin-top: 67px;
+	/*margin-left: 200px;*/
+
+	overflow: clip clip;
+}
+
+#XPBarContainer {
+	height: 100%;
+	width: 0%;
 
 	overflow: clip clip;
 }
@@ -123,10 +131,14 @@
 
 	-s2-mix-blend-mode: multiply;
 	background-repeat: repeat repeat;
+/*	background-size: 789px 15px;
+	background-position: 0px 0px;*/
 
 	animation-delay: 0s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
+
+	overflow: clip clip;
 }
 
 #XPBar1 {

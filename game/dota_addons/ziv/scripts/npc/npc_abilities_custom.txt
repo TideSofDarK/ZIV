@@ -4428,7 +4428,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_knight_dash"
 	
 	  "AbilityCastRange"        "2000"
 	  "AbilityCastPoint"        "0.01"
@@ -4509,7 +4509,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 	
-		"AbilityTextureName"			"ziv_empty"
+		"AbilityTextureName"			"ziv_knight_hell_pit"
 	
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.25"
@@ -4604,7 +4604,7 @@
 	{
 	  "BaseClass"                 "ability_datadriven"
 	  "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE" //DOTA_ABILITY_BEHAVIOR_NO_TARGET
-	  "AbilityTextureName"        "ziv_empty"
+	  "AbilityTextureName"        "ziv_knight_molten_shell"
 	
 	  "AbilityCooldown"           "2.5"
 	
@@ -4832,7 +4832,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_knight_parry"
 	
 	  "AbilityCooldown"         "3.5"
 	  
@@ -4925,7 +4925,7 @@
 	  "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	  "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 	
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_knight_slash"
 	
 	  "AbilityCastPoint"        "0.001"
 	  "AbilityCooldown"        "0.0"

@@ -38,6 +38,7 @@ require('items/equipment')
 require('items/vials')
 require('items/runes')
 
+require('account')
 require('gamesetup')
 require('damage')
 require('characters')
@@ -55,6 +56,7 @@ require('libraries/network')
 require('network')
 
 require('scenarios/temple')
+require('scenarios/mines')
 
 LinkLuaModifier("modifier_custom_attack", "abilities/tools/modifier_custom_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_fade_out_in", "abilities/tools/modifier_fade_out_in.lua", LUA_MODIFIER_MOTION_NONE)
@@ -170,6 +172,7 @@ function ZIV:InitZIV()
   SendToServerConsole( 'customgamesetup_set_auto_launch_delay 300' )
   Convars:SetInt( 'dota_auto_surrender_all_disconnected_timeout', 7200 )
 
+  Account:Init()
   GameSetup:Init()
 
   Filters:Init()

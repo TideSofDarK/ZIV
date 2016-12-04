@@ -1,7 +1,7 @@
 "AddonInfo"
 {
 	"TeamCount" "1"
-	"maps"	  "ziv_temple_4p ziv_debug_1p"
+	"maps"	  "ziv_temple_4p ziv_mines_4p ziv_debug_1p"
 	"IsPlayable"  "1"
 	"ziv_debug_1p"
 	{

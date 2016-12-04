@@ -3,7 +3,7 @@
 	"BaseClass"						"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 
-	"AbilityTextureName"			"ziv_empty"
+	"AbilityTextureName"			"ziv_knight_hell_pit"
 
 	"AbilityCastRange"				"1200"
 	"AbilityCastPoint"				"0.25"

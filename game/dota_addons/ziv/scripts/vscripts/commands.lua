@@ -4,8 +4,8 @@ function ZIV:Test()
     local playerID = cmdPlayer:GetPlayerID()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
+
       
-      Temple:InitBossFight()
     end
   end
 end

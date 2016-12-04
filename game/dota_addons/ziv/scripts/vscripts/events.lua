@@ -275,9 +275,15 @@ function ZIV:OnEntityKilled( keys )
     end)
   end
 
-  -- Loot
+  -- Loot and EXP
   if killedUnit:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not killedUnit.no_loot then
     Loot:Generate( killedUnit, attackerUnit )
+
+    if killedUnit:IsBoss() then
+      Account:AddBossEXP( attackerUnit:GetPlayerOwnerID() )
+    else
+      Account:AddCreepEXP( attackerUnit:GetPlayerOwnerID() )
+    end
   end
 
   -- Hardcoded callback

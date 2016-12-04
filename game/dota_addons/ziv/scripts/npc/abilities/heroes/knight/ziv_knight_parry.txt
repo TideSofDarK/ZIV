@@ -2,7 +2,7 @@
 {
   "BaseClass"           "ability_datadriven"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName"            "ziv_empty"
+  "AbilityTextureName"            "ziv_knight_parry"
 
   "AbilityCooldown"         "3.5"
   

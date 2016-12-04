@@ -187,7 +187,8 @@ function updateMinimap()
 
 	$.Schedule(0.02, updateMinimap);
 
-	$("#FogMap").RunJavascript('LoadImage("http://puu.sh/rXDr6/5613600704.png");');  
+	// $("#FogMap").RunJavascript('LoadImage("http://puu.sh/rXDr6/5613600704.png");');  
+	$("#FogMap").RunJavascript('LoadImage("https://puu.sh/sE9Ef/fee0bda05d.png");');  
 }
 
 function calculateClickPosition( offset, angle ) {
