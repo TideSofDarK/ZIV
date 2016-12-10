@@ -308,11 +308,9 @@ function ZIV:OnEntityKilled( keys )
   end
 
   -- Cleanup wearables
-  if killedUnit.wearables then
-    Timers:CreateTimer(6.0, function ()
-      Wearables:Remove(killedUnit)
-    end)
-  end
+  Timers:CreateTimer(6.0, function ()
+    Wearables:RemoveTemporaryWearables( killedUnit )
+  end)
 
   -- Deathsim particle and death sound
   local kv = ZIV.UnitKVs[killedUnit:GetUnitName()]

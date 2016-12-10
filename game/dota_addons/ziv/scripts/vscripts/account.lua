@@ -35,10 +35,18 @@ function Account:FetchPlayerData(  )
 	end)
 end
 
+function Account:GetEXP( pID )
+	return PlayerTables:GetTableValue("accounts", pID).exp
+end
+
+function Account:GetLevel( pID )
+	return Account:GetLevelByEXP( Account:GetEXP( pID ) )
+end
+
 function Account:GetLevelByEXP( exp )
 	if not exp or type(exp) ~= 'number' then return 1 end
 
-	return math.max(math.floor(exp / Account.EXP_PER_LEVEL), 1)
+	return math.max(math.floor(exp / Account.EXP_PER_LEVEL), 0) + 1
 end
 
 function Account:GetTierByLevel( level )
@@ -57,7 +65,7 @@ function Account:AddEXP( pID, amount )
 	exp = exp + amount
 
 	PlayerTables:SetSubTableValue("accounts", pID, "exp", exp)
-
+	print(Account:GetLevelByEXP( exp ))
 	if Account:GetLevelByEXP( exp ) > level then
 		Account:LevelUp( pID )
 	end
@@ -94,7 +102,73 @@ function Account:LevelUp( pID )
 		-- TODO
 		-- Particles
 
+		local level = Account:GetLevel( pID )
+		for k,v in pairs(Account.REWARDS[tostring(level)]) do
+			if self[v] then
+				self[v](self, pID)
+			end
+		end
 	end
 
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(pID), "ziv_account_levelup", {})
+end
+
+function Account:SmallTreasure( pID )
+	Account:TreasureReward( pID, "SmallTreasure" )
+end
+
+function Account:BigTreasure( pID )
+	Account:TreasureReward( pID, "BigTreasure" )
+end
+
+function Account:TreasureReward( pID, size )
+	local container = Containers:CreateContainer({
+		layout 			= {3,3},
+		skins 			= {size},
+		headerText 		= "",
+		pids 			= {pID},
+		entity 			= Characters.current_session_characters[pID],
+		closeOnOrder 	= false,
+		position 		= "25% 25%",
+		OnDragWorld 	= true,
+	-- 	OnDragTo = (function (playerID, container, unit, item, fromSlot, toContainer, toSlot) 
+	-- 		local item2 = toContainer:GetItemInSlot(toSlot)
+	-- 		local addItem = nil
+	-- 		if item2 and IsValidEntity(item2) and (item2:GetAbilityName() ~= item:GetAbilityName() or not item2:IsStackable() or not item:IsStackable()) then
+	-- 			if Containers.itemKV[item2:GetAbilityName()].ItemCanChangeContainer == 0 then
+	-- 				return false
+	-- 			end
+	-- 			toContainer:RemoveItem(item2)
+	-- 			addItem = item2
+
+	-- 			if unit.equipment.id == container.id then
+	-- 				local toSlotName = KeyValues:Split(ZIV.HeroesKVs[unit:GetUnitName()]["EquipmentSlots"], ';')[fromSlot]
+
+	-- 				if ZIV.ItemKVs[addItem:GetName()]["Slot"] and string.match(toSlotName, ZIV.ItemKVs[addItem:GetName()]["Slot"]) then
+	-- 					Equipment:Equip( unit, addItem )
+	-- 				end
+	-- 			end
+	-- 		end
+
+	-- 		if toContainer:AddItem(item, toSlot) then
+	-- 			container:ClearSlot(fromSlot)
+	-- 			if addItem then
+	-- 				if container:AddItem(addItem, fromSlot) then
+	-- 					return true
+	-- 				else
+	-- 					toContainer:RemoveItem(item)
+	-- 					toContainer:AddItem(item2, toSlot, nil, true)
+	-- 					container:AddItem(item, fromSlot, nil, true)
+	-- 					return false
+	-- 				end
+	-- 			end
+	-- 			return true
+	-- 		elseif addItem then
+	-- 			toContainer:AddItem(item2, toSlot, nil, true)
+	-- 		end
+
+	-- 		return false 
+	-- 	end)
+	})
+	container:Open(pID)
 end

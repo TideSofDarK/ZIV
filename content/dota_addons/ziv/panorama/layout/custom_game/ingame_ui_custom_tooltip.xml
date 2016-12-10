@@ -105,6 +105,10 @@
             if (accountRewards == true) {
                 var accountTooltip = $.CreatePanel( "Panel", $("#TooltipBorderB"), "AccountTooltip" );
                 accountTooltip.BLoadLayoutSnippet("AccountTooltip");
+
+                accountTooltip.FindChildTraverse("AccountTooltipTierIcon").text = Util.RepeatNumber(Account.GetLevel() - 1, 8) + 1;
+
+                accountTooltip.FindChildTraverse("AccountTooltipTierIcon").style.backgroundImage = "url('file://{images}/custom_game/account/tier" + Account.GetTierByLevel() + ".png')";
             } else if (itemID && itemID != "not-found" && itemID != undefined) {
                 var itemName = Abilities.GetAbilityName(itemID);
                 var itemData = PlayerTables.GetTableValue("items", itemID)

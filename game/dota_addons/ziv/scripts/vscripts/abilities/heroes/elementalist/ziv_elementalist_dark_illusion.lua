@@ -78,6 +78,8 @@ function CreateIllusion( ability, caster, player, position, duration )
 	local illusion = CreateUnitByName(caster:GetUnitName(), position, true, caster, nil, caster:GetTeamNumber())
 	illusion:SetPlayerID(caster:GetPlayerID())
 	illusion:SetControllableByPlayer(player, true)
+	
+	Wearables:InitDefaultWearables(illusion)
 
 	local casterLevel = caster:GetLevel()
 	for i=1,casterLevel-1 do

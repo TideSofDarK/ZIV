@@ -26,18 +26,28 @@ Account.GetNeededEXP = (function (exp) {
     return Account.GetEXPPerLevel() * (level + 1)
 });
 
-Account.GetLevelByEXP = (function (exp) {
-    if (!exp) return 1;
+Account.GetLevel = (function () {
+    return Account.GetLevelByEXP();
+});
 
-    return Math.max(Math.floor(exp / Account.GetEXPPerLevel()), 1)
+Account.GetLevelByEXP = (function (exp) {
+    var exp = exp;
+    if (!exp) {
+        exp = Account.GetEXP();
+    }
+
+    return Math.max(Math.floor(exp / Account.GetEXPPerLevel()), 0) + 1
 });
 
 Account.GetTierByLevel = (function (level) {
-    if (!level) return 1;
+    var level = level;
+    if (!level) {
+        level = Account.GetLevel();
+    }
 
     var level = Math.min(level, Account.GetMaxLevel())
-
-    return Math.max(Math.floor(level / Account.GetLevelsPerTier()), Account.TIER_WOOD)
+    
+    return Math.max(Math.floor(level / Account.GetLevelsPerTier()), 0) + Account.TIER_WOOD
 });
 
 Account.GetEXPPerLevel = (function (level) {

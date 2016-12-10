@@ -35,6 +35,10 @@ Util.RoundToThree = (function (num) {
     return +(Math.round(num + "e+3")  + "e-3");
 });
 
+Util.RepeatNumber = (function (num, length) {    
+    return num - Math.floor(num / length) * length;
+});
+
 Util.AutoUppercase = (function (str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 });

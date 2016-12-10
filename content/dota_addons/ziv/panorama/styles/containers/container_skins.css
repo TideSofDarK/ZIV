@@ -1,4 +1,104 @@
 /*
+  Treasure
+*/
+
+.SmallTreasure.Outer,
+.BigTreasure.Outer,
+{
+  width: 350px;
+  height: 294px;
+
+  border-color: transparent;
+  border-radius: 7px;
+
+  background-size: 100% 100%;
+
+  background-color: transparent;
+}
+
+.SmallTreasure.Outer {
+  background-image: url('file://{images}/custom_game/ingame_ui/treasure_bg_small.png');
+}
+
+.BigTreasure.Outer {
+  background-image: url('file://{images}/custom_game/ingame_ui/treasure_bg_big.png');
+}
+
+.SmallTreasure #Header,
+.BigTreasure #Header,
+{
+  height: 80px;
+  background-color: transparent;
+}
+
+.SmallTreasure #ChargeCount,
+.BigTreasure #ChargeCount,
+{
+  horizontal-align: right;
+  color: White;
+  font-size: 17px;
+  margin-right: 5px;
+  margin-bottom: 1px;
+}
+
+.SmallTreasure #Footer,
+.BigTreasure #Footer,
+{
+  
+}
+
+.SmallTreasure #HeaderLabel,
+.BigTreasure #HeaderLabel,
+{ 
+  visibility: collapse;
+}
+
+.SmallTreasure #Inner,
+.BigTreasure #Inner,
+{
+  border-color: transparent;
+  background-color: transparent;
+
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.SmallTreasure .ItemRow,
+.BigTreasure .ItemRow,
+{
+  margin-top: 7px;
+  margin-bottom: 0px;
+
+  background-color: transparent;
+} 
+
+.SmallTreasure .ItemPanel,
+.BigTreasure .ItemPanel,
+{
+  width: 81px;
+  height: 60px;
+
+  margin-right: 6px;
+  margin-left: 6px;
+
+  box-shadow: fill #000000ff 0px 0px 12px 0px;
+  border-radius: 6px;
+}
+
+.SmallTreasure .CloseButton,
+.BigTreasure .CloseButton,
+{
+  visibility: collapse;
+}
+
+.SmallTreasure .CloseButton:hover,
+.BigTreasure .CloseButton:hover,
+{
+  wash-color: #bbbbbb;
+}
+
+/*
   Equipment
 */
 
