@@ -122,12 +122,14 @@ function Account:BigTreasure( pID )
 end
 
 function Account:TreasureReward( pID, size )
+	local hero = Characters.current_session_characters[pID]
+
 	local container = Containers:CreateContainer({
 		layout 			= {3,3},
 		skins 			= {size},
 		headerText 		= "",
 		pids 			= {pID},
-		entity 			= Characters.current_session_characters[pID],
+		entity 			= hero,
 		closeOnOrder 	= false,
 		position 		= "25% 25%",
 		OnDragWorld 	= true,
@@ -170,5 +172,12 @@ function Account:TreasureReward( pID, size )
 	-- 		return false 
 	-- 	end)
 	})
+
+	for k,v in pairs(Account.SETTINGS[size]) do
+		for _,item_table in pairs(v) do
+			container:AddItem(Loot:CreateItem( hero, Loot[item_table.ItemType], Loot[item_table.Rarity], nil ))
+		end
+	end
+
 	container:Open(pID)
 end

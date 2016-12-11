@@ -1,0 +1,73 @@
+.MinesObjectives {
+	width: 470px;
+	height: 1080px;
+
+	vertical-align: top;
+	horizontal-align: left;
+
+	flow-children: none;
+
+	z-index: 1;
+}
+
+#WagonPathRoot {
+	width: 90%;
+	height: 50px;
+
+	horizontal-align: center;
+}
+
+.WagonPath {
+	width: 100%;
+	height: 15px;
+
+	border: 2px solid #111111FF;
+	border-radius: 4px;
+
+	vertical-align: center;
+	horizontal-align: center;
+}
+
+.WagonPathPart {
+	width: 100%;
+	height: 100%;
+
+	transition: width 0.1s ease-in-out 0.0s;
+
+	horizontal-align: left;
+}
+
+#WagonPathRed {
+	background-color: #DB7AB6;
+}
+
+#WagonPathGreen {
+	background-color: #7ADBB6;
+}
+
+#WagonMarker {
+	width: 8px;
+	height: 30px;
+
+	background-color: #ffffff;
+
+	border: 2px solid #111111FF;
+	border-radius: 3px;
+
+	vertical-align: center;
+	horizontal-align: left;
+
+	transition: position 0.1s ease-in-out 0.0s;
+
+	z-index: 1;
+}
+
+#WagonMap {
+	horizontal-align: right;	
+	vertical-align: top;
+
+	margin-top: 5px;
+
+	width: 135px;
+	height: 150px;
+}

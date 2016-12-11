@@ -4,8 +4,8 @@ Mines = {}
 Mines.STAGE_NO = -1
 Mines.STAGE_PREGAME = 0
 Mines.STAGE_FIRST = 1
-Mines.STAGE_SECOND = 2
-Mines.STAGE_BOSS = 3
+Mines.STAGE_BOSS = 2
+Mines.STAGE_SECOND = 3
 Mines.STAGE_END = 4
 
 -- Teams
@@ -39,7 +39,13 @@ function Mines:Init()
 end
 
 function Mines:NextStage()
-	Director:StartPregame( )
+	if self.stage == self.STAGE_NO then
+		Director:StartPregame( )
+	else
+		Director:SetupCustomUI( "mines_objectives" )
+	end
+
+	Mines.stage = Mines.stage + 1
 end
 
 function Mines:FallingRocks()

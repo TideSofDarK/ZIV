@@ -85,13 +85,13 @@ end
 
 -- Main item generating function
 
-function Loot:CreateItem( position, owner )
-  	local item_type = Loot.TYPE_RNG:Choose()
+function Loot:CreateItem( owner, item_type, rarity, position )
+  	local item_type = (item_type or Loot.TYPE_RNG:Choose())
   	local item_name = GetRandomElement(Loot.Table[tostring(item_type)], false, true)
 
 	local item = Items:Create(item_name, owner)
 
-	item.rarity = ZIV.ItemKVs[item_name].Rarity or Loot.RARITY_COMMON
+	item.rarity = rarity or (ZIV.ItemKVs[item_name].Rarity or Loot.RARITY_COMMON)
 	if string.match(item_name, "item_rune_") and item.rarity == Loot.RARITY_COMMON then
 		item.rarity = Loot.RARITY_MAGIC
 	end
@@ -103,11 +103,13 @@ function Loot:CreateItem( position, owner )
 		Loot:AddModifiers(item)
 	end
 
-	if item then
-		Items:UpdateItem(item)
+	Items:UpdateItem(item)
 
+	if position then
 		Loot:SpawnPhysicalItem(position, item)
 	end
+
+	return item
 end
 
 function Loot:GenerateCaption( item )
@@ -211,7 +213,7 @@ function Loot:Generate( creep, killer )
 	end
 
 	if killer.loot_rng:Next() then
-    	Loot:CreateItem( creep:GetAbsOrigin(), killer )
+    	Loot:CreateItem( killer, nil, nil, creep:GetAbsOrigin() )
 	else
 		local vial = CreateVial( killer, creep:GetAbsOrigin() + Vector(math.random(-20,20),math.random(-20,20), 0) )
 
@@ -250,7 +252,7 @@ function Loot:OpenChest( chest, unit )
 		if i <= count then
 			i = i + 1
 
-			Loot:CreateItem( chest_unit:GetAbsOrigin(), unit )
+			Loot:CreateItem( unit, nil, nil, chest_unit:GetAbsOrigin() )
 
 			return math.random(0.2, 0.2)
 		else

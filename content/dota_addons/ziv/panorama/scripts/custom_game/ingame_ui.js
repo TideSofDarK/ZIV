@@ -179,7 +179,26 @@ function UpdateAccount(tableName, changes, deletions) {
 	
 	UpdateHPAndMP();
 
-	GameUI.CustomUIConfig().ingame_ui = $.GetContextPanel();
+	// GameUI.CustomUIConfig().ingame_ui = $.GetContextPanel();
+
+    GameEvents.Subscribe( "ziv_custom_ui_open", (function CustomUIOpen(args) {
+        if (!$.GetContextPanel()) {
+            $.Schedule(0.1, (function () {
+                CustomUIOpen(args);
+            }));
+            return;
+        }
+        var map = args["map"];
+        var panelName = args["name"];
+
+        var panel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
+        panel.BLoadLayout( "file://{resources}/layout/custom_game/unique/" + panelName  + ".xml", false, false );
+        panel.BLoadLayout( "file://{resources}/layout/custom_game/unique/" + map + "/" + panelName  + ".xml", false, false );
+
+        panel.args = args;
+
+        GameUI.CustomUIConfig().customPanels.push( panel );
+    }));
 
 	GameUI.CustomUIConfig().ToggleStatusWindow = ToggleStatusWindow;
 	GameUI.CustomUIConfig().ToggleEquipmentWindow = ToggleEquipmentWindow;

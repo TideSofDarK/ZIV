@@ -1,0 +1,28 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/ingame_ui_scenarios.css" />
+		<include src="file://{resources}/styles/custom_game/unique/mines/mines.css" />	
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/unique/mines/mines.js" />
+	</scripts>
+	<Panel hittest="false" class="MinesObjectives">
+		<DOTAScenePanel id="WagonMap" map="ui_wagon" camera="camera_1"/>
+		<Panel class="Objectives" >
+			<Label class="ObjectiveHeadline" text="#objectives" />
+			<Panel class="CBR" />
+			<Label class="Objective" id="objective1" text="#mines_wagon" />
+			<Panel id="WagonPathRoot">
+				<Panel id="WagonMarker"/>
+				<Panel class="WagonPath" id="WagonPath">
+					<Panel id="WagonPathRed" class="WagonPathPart"/>
+					<Panel id="WagonPathGreen" class="WagonPathPart"/>
+				</Panel>
+			</Panel>
+		</Panel>
+
+
+		
+		<!-- <Label class="Headline1" id="ObeliskCountLabel" text="x20" /> -->
+	</Panel>
+</root>
