@@ -325,4 +325,8 @@ function changeMinimapMode()
 	getUnits();
 
 	//CustomNetTables.SubscribeNetTableListener( "scenario", setWorldBounds );
+
+	// Override controls
+    Game.AddCommand("+ZIVShowMinimap", changeMinimapMode, "", 0);
+	Game.AddCommand("-ZIVShowMinimap", changeMinimapMode, "", 0);
 })();
