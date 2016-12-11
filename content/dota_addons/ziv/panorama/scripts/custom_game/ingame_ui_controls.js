@@ -230,9 +230,6 @@ function ZIVCastAbility(number, pressing, single) {
     Game.AddCommand("-ZIVCastAbility4", GameUI.CustomUIConfig().ZIVStopAbility4, "", 0);
     Game.AddCommand("-ZIVCastAbility5", GameUI.CustomUIConfig().ZIVStopAbility5, "", 0);
 
-    Game.AddCommand("+ZIVShowMinimap", GameUI.CustomUIConfig().ChangeMinimapMode, "", 0); 
-	Game.AddCommand("-ZIVShowMinimap", GameUI.CustomUIConfig().ChangeMinimapMode, "", 0); 
-
     Game.AddCommand("+ZIVShowStatus", GameUI.CustomUIConfig().ToggleStatusWindow, "", 0); 
 	Game.AddCommand("+ZIVShowEquipment", GameUI.CustomUIConfig().ToggleEquipmentWindow, "", 0); 
 

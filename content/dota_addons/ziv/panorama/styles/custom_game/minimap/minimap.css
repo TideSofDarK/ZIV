@@ -19,12 +19,12 @@
 
 .Hero {
 	width: 1000px;
-	height: 600px;
+	height: 1000px;
 
 	align: center center;
 
 	transform: rotateX( 30deg ) translateY( -90px ) scale3d(1.5, 1.5, 1);
-
+	border-radius: 50%;
 	opacity-mask: url("file://{images}/custom_game/minimap/mask.png");
 }
 
@@ -33,7 +33,7 @@
 	width: 100%;
 
 	overflow: clip clip;
-	background-color: #00000080;
+	background-color: #000000;
 }
 
 .MinimapMarks {
