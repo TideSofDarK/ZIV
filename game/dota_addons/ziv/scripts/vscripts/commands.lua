@@ -5,7 +5,39 @@ function ZIV:Test()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
 
-      Account:AddEXP( playerID, 10500 )
+      -- Account:AddEXP( playerID, 10500 )
+
+      local path = Entities:FindAllByName("ziv_path_*")
+
+      for i=1,#path do
+        if not path[i+1] then
+          return
+        end
+        local p1 = path[i]:GetAbsOrigin()
+        local p2 = path[i+1]:GetAbsOrigin()
+
+        local direction = path[i-1]
+        if direction then
+          direction = direction:GetAbsOrigin()
+        end
+
+        if Distance(p1, p2) > 200 then
+          DebugDrawLine(p1 + Vector(0,0,50), p2 + Vector(0,0,50), 255, 0, 255, false, 5.0)
+        else
+          local p3 = Vector(p1.x, ((p1.y + p2.y) / 2))
+          local p4 = Vector(((p1.x + p2.x) / 2), p2.y)
+
+          local curve = BezierCurve:ComputeBezier({p1,p3,p4,p2},100) 
+
+          if i % 2 == 0 then
+            p3.x = p2.x
+            p4.y = p1.y
+            curve = BezierCurve:ComputeBezier({p2,p3,p4,p1},100) 
+          end
+
+          BezierCurve:Draw(curve, Vector(0,0,180))
+        end
+      end
     end
   end
 end

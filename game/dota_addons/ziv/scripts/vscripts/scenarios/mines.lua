@@ -32,6 +32,8 @@ Mines.SPAWN_GC_TIME = 10.0
 Mines.stage = Mines.STAGE_NO
 
 function Mines:Init()
+	self.wagon_path = Entities:FindAllByName("ziv_path_*")
+
 	local worldMin = {x = -8732, y = -4360 }
   	local worldMax = {x = 8108, y = 5296 }
 
