@@ -6,43 +6,8 @@ function ZIV:Test()
       local hero = cmdPlayer:GetAssignedHero()
 
       -- Account:AddEXP( playerID, 10500 )
-
-      local path = Entities:FindAllByName("ziv_path_*")
-
-      local rNum = 0
-      for i=1,#path do
-        if not path[i+1] then
-          return
-        end
-        
-        local p1 = path[i]:GetAbsOrigin()
-        local p2 = path[i+1]:GetAbsOrigin()
-
-        local direction = path[i-1]
-        if direction then
-          direction = direction:GetAbsOrigin()
-        end
-
-        if Distance(p1, p2) > 200 then
-          DebugDrawLine(p1 + Vector(0,0,50), p2 + Vector(0,0,50), 255, 0, 255, false, 5.0)
-        else
-          local p3 = Vector(p1.x, ((p1.y + p2.y) / 2))
-          local p4 = Vector(((p1.x + p2.x) / 2), p2.y)
-
-          local curve = BezierCurve:ComputeBezier({p1,p3,p4,p2},100) 
-
-          if rNum % 2 == 0 then
-            p3.x = p2.x
-            p4.y = p1.y
-            curve = BezierCurve:ComputeBezier({p2,p3,p4,p1},100) 
-          end
-
-          rNum = rNum + 1
-
-          BezierCurve:Draw(curve, Vector(0,0,180))
-        end
-        
-        curVec = nextVec
+      for i=1,#Mines.wagon_path do 
+        DebugDrawLine(Mines.wagon_path[i] + Vector(0,0,50), Mines.wagon_path[i+1] + Vector(0,0,50), 255, 0, 255, false, 5.0)
       end
     end
   end
