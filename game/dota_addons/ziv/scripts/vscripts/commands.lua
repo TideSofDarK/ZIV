@@ -9,10 +9,12 @@ function ZIV:Test()
 
       local path = Entities:FindAllByName("ziv_path_*")
 
+      local rNum = 0
       for i=1,#path do
         if not path[i+1] then
           return
         end
+        
         local p1 = path[i]:GetAbsOrigin()
         local p2 = path[i+1]:GetAbsOrigin()
 
@@ -29,14 +31,18 @@ function ZIV:Test()
 
           local curve = BezierCurve:ComputeBezier({p1,p3,p4,p2},100) 
 
-          if i % 2 == 0 then
+          if rNum % 2 == 0 then
             p3.x = p2.x
             p4.y = p1.y
             curve = BezierCurve:ComputeBezier({p2,p3,p4,p1},100) 
           end
 
+          rNum = rNum + 1
+
           BezierCurve:Draw(curve, Vector(0,0,180))
         end
+        
+        curVec = nextVec
       end
     end
   end
