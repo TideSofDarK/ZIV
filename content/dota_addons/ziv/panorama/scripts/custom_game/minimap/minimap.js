@@ -1,6 +1,4 @@
 "use strict";
-var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
-var teamID = Game.GetLocalPlayerInfo().player_team_id;
 
 var marksPath = "file://{resources}/layout/custom_game/minimap/marks/";
 var units = [];
@@ -35,6 +33,7 @@ function getPanelSize( panel )
 
 function updateImagePosition()
 {
+	var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 	var relPos = getRelativePosition( Entities.GetAbsOrigin(heroID) );
 
 	var size = getPanelSize( $( "#MinimapImage" ) );
@@ -75,6 +74,7 @@ function updatePointerPosition()
 		$( "#PointerImage" ).style.marginLeft = offset.x + "px;"
 		$( "#PointerImage" ).style.marginTop =  offset.y + "px;"
 
+		var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 		$( "#PointerImage" ).style.transform = "rotateZ(" + getEntityAngle(heroID) + "deg);";		
 	}
 }
@@ -160,6 +160,7 @@ function clearFog()
 {
 	$("#FogMap").RunJavascript('FillFog();'); 
 
+	var teamID = Game.GetLocalPlayerInfo().player_team_id;
 	var heroes = Game.GetPlayerIDsOnTeam(teamID).map(function(pID){
 		return Players.GetPlayerHeroEntityIndex(pID);
 	});
