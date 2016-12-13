@@ -47,7 +47,7 @@ function Mines:NextStage()
 		Director:SetupCustomUI( "mines_objectives" )
 	end
 
-	Mines.stage = Mines.stage + 1
+	self.stage = Mines.stage + 1
 end
 
 function Mines:BuildPath()
@@ -99,11 +99,13 @@ end
 
 function Mines:SpawnCart()
 	local position = self.wagon_path[1]
-	local direction = self.wagon_path[1] - self.wagon_path[2]
+
+	self.wagon = CreateUnitByName("npc_mines_wagon",position,false,nil,nil,DOTA_TEAM_GOODGUYS)
+	self.wagon:SetForwardVector(UnitLookAtPoint( self.wagon, self.wagon_path[2] ))
 end
 
 function Mines:FallingRocks()
-	local start_stage = Mines.stage
+	local start_stage = self.stage
 
 	DoToAllHeroes(function ( hero )
 		Timers:CreateTimer(function (  )
@@ -122,24 +124,24 @@ function Mines:FallingRocks()
 
 					local timer = 0.0
 
-					Timers:CreateTimer(Mines.ROCKS_DELAY, function ()
+					Timers:CreateTimer(self.ROCKS_DELAY, function ()
 						local units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 						for k,v in pairs(units) do
 							if v ~= unit then
-								Damage:Deal( unit, v, v:GetMaxHealth() * Mines.ROCKS_DAMAGE, DAMAGE_TYPE_PHYSICAL ) 
+								Damage:Deal( unit, v, v:GetMaxHealth() * self.ROCKS_DAMAGE, DAMAGE_TYPE_PHYSICAL ) 
 								-- v:AddNewModifier(unit,nil,"modifier_stunned",{duration=0.03})
 							end
 						end
 
-						timer = timer + Mines.ROCKS_TICK
-						if timer < Mines.ROCKS_DURATION then return Mines.ROCKS_TICK 
+						timer = timer + self.ROCKS_TICK
+						if timer < self.ROCKS_DURATION then return self.ROCKS_TICK 
 						else 
 							ParticleManager:DestroyParticle(particle,false)
 							unit:ForceKill(false)
 						end
 					end)
 				end)
-				return math.random(Mines.ROCKS_INTERVAL_MIN, Mines.ROCKS_INTERVAL_MAX)
+				return math.random(self.ROCKS_INTERVAL_MIN, self.ROCKS_INTERVAL_MAX)
 			end
 			return 0.0
 		end)
@@ -150,15 +152,15 @@ function Mines:SetupMap()
 end
 
 function Mines:SpawnCreeps()
-	for k,v in pairs(Mines.creeps_positions) do
-		Mines:DestroyCreeps( v )
+	for k,v in pairs(self.creeps_positions) do
+		self:DestroyCreeps( v )
 	end
 
 	Timers:CreateTimer(function (  )
 		DoToAllHeroes(function ( hero )
-			for k,v in pairs(Mines.creeps_positions) do
+			for k,v in pairs(self.creeps_positions) do
 				local distance = (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D()
-				if distance < Mines.SPAWN_THRESHOLD and not v.creeps then --GetTableLength(v.creeps) == 0
+				if distance < self.SPAWN_THRESHOLD and not v.creeps then --GetTableLength(v.creeps) == 0
 					v.creeps = v.creeps or {}
 
 					local basic_modifier
@@ -168,23 +170,23 @@ function Mines:SpawnCreeps()
 
 					Director:SpawnPack({
 				        SpawnBasic = true,
-				        Count = math.random(Mines.SPAWN_MIN, Mines.SPAWN_MAX),
+				        Count = math.random(self.SPAWN_MIN, self.SPAWN_MAX),
 				        Position = v:GetAbsOrigin(),
 				        CheckHeight = true,
-				        Spread = Mines.SPAWN_SPREAD,
+				        Spread = self.SPAWN_SPREAD,
 				        SpawnLord = math.random(1,2) == 1,
 				        BasicModifier = basic_modifier,
 				        Table = v.creeps,
 				        CheckTable = Characters.current_session_characters
 				    })
 				elseif v.creeps then
-					if v.idle_count and v.idle_count > Mines.SPAWN_GC_TIME then
-						Mines:DestroyCreeps( v )
+					if v.idle_count and v.idle_count > self.SPAWN_GC_TIME then
+						self:DestroyCreeps( v )
 					else
 						local idle = true
 						for k2,v2 in pairs(v.creeps) do
 							if v2:IsNull() == false then
-								if Distance(hero, v2) <= Mines.SPAWN_THRESHOLD or hero:CanEntityBeSeenByMyTeam(v2) == true or v2:IsIdle() == false then --v2:IsAlive() == true and v2:IsIdle() == false and 
+								if Distance(hero, v2) <= self.SPAWN_THRESHOLD or hero:CanEntityBeSeenByMyTeam(v2) == true or v2:IsIdle() == false then --v2:IsAlive() == true and v2:IsIdle() == false and 
 									idle = false
 									v.idle_count = 0.0
 									break
