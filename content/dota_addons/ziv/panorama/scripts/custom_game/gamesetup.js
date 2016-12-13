@@ -306,6 +306,11 @@ function CharacterCreationSetup() {
 	if (abilities.length == 0) {
 		var heroList = PlayerTables.GetTableValue("kvs", "heroes");
 
+		if (!heroList) {
+			$.Schedule(0.1, CharacterCreationSetup);
+			return;
+		}
+
 		var count1 = 3;
 		var count2 = 2;
 		var count3 = 3;

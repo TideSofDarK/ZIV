@@ -54,6 +54,10 @@ function updateImagePosition()
 function getEntityAngle( entityID )
 {
 	var forward = Entities.GetForward( entityID );
+	if (!forward) {
+		return 0;
+	}
+	
 	var offset = (forward[0] < 0 ? 270 : 90) 
 
 	return offset - Math.atan(forward[1] / forward[0]) * 180 / 3.14;

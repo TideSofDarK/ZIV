@@ -8,13 +8,19 @@ var abilityCasting = [];
 var abilityTimings = [];
 var abilityDelay = 0.2;
 
-(function UpdateCamera()
+function UpdateCamera()
 {
-	GameUI.SetCameraTarget(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ));
-	
 	$.Schedule( 1.0/15.0, UpdateCamera );
+
+	var hero = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() )
+	if (!hero || hero == -1) {
+		return;
+	}
+
+	GameUI.SetCameraTarget(hero)
+	
 	var minStep = 0.5;
-	var heroY = Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2];
+	var heroY = Entities.GetAbsOrigin(hero)[2];
 	var target = heroY - heightOffset;
 	target = Math.max(0, Math.min(clampOffset, target));
 	var delta = ( target - offset );
@@ -37,7 +43,7 @@ var abilityDelay = 0.2;
 
 	GameUI.SetCameraLookAtPositionHeightOffset(offset - 150 + (heroY * 0.01)); 
 	return;
-})();
+}
 
 function BeginPickUpState( targetEntIndex )
 {
@@ -281,5 +287,5 @@ function ZIVCastAbility(number, pressing, single) {
     // Camera
 	GameUI.SetCameraPitchMax( 55 );
 	GameUI.SetCameraYaw( 45 )
-	GameUI.SetCameraLookAtPositionHeightOffset(Entities.GetAbsOrigin(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ))[2]/2); 
+	UpdateCamera()
 })();
