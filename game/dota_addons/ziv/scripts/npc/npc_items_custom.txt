@@ -470,7 +470,7 @@
 	  "ID"                      "1002"
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
-	  "AbilityTextureName"      "item_cheap_pants"
+	  "AbilityTextureName"      "item_cheap_pants_a"
 	  "Model"                   "models/items/basic_coat.vmdl" 
 	
 	  "Slot"  "pants"
@@ -504,7 +504,7 @@
 	  "ID"                      "1002"
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
-	  "AbilityTextureName"      "item_cheap_pants"
+	  "AbilityTextureName"      "item_cheap_pants_b"
 	  "Model"                   "models/items/basic_coat.vmdl" 
 	
 	  "Slot"  "pants"
@@ -526,6 +526,107 @@
 	      "max" "18"
 	    }
 	    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
+	    {
+	      "min" "0"
+	      "max" "6"
+	    }
+	  }
+	}
+	"item_snow_boots"
+	{
+	  "ID"		                  "1002"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_snow_boots"
+	  "Model"                   "models/items/basic_coat.vmdl" 
+	
+	  "Slot"  "boots"
+	  "EquipSound"  "ui.inv_equip_leather"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	  
+	  "BaseModifiers"
+	  {
+	    "ARMOR"
+	    {
+	      "min" "2"
+	      "max" "7"
+	    }
+	    "COLD_RESISTANCE"
+	    {
+	      "min" "5"
+	      "max" "11"
+	    }
+	  }
+	}
+	
+	"item_leather_boots"
+	{
+	  "ID"                      "1002"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_leather_boots"
+	  "Model"                   "models/items/basic_coat.vmdl" 
+	
+	  "Slot"  "boots"
+	  "EquipSound"  "ui.inv_equip_leather"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	  
+	  "BaseModifiers"
+	  {
+	    "EVASION"
+	    {
+	      "min" "6"
+	      "max" "17"
+	    }
+	    "ALL_RESISTANCES"
+	    {
+	      "min" "0"
+	      "max" "4"
+	    }
+	  }
+	}
+	
+	"item_ornate_boots"
+	{
+	  "ID"                      "1002"
+	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "BaseClass"               "item_datadriven"
+	  "AbilityTextureName"      "item_ornate_boots"
+	  "Model"                   "models/items/basic_coat.vmdl" 
+	
+	  "Slot"  "boots"
+	  "EquipSound"  "ui.inv_equip_leather"
+	
+	  "ItemStackable" "0"
+	  "ItemPermanent" "0"
+	
+	  "ItemDroppable"         "1"
+	  "ItemPurchasable"       "0"
+	  "ItemSellable"          "0"
+	  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+	  
+	  "BaseModifiers"
+	  {
+	    "ARMOR"
+	    {
+	      "min" "2"
+	      "max" "10"
+	    }
+	    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"
 	    {
 	      "min" "0"
 	      "max" "6"

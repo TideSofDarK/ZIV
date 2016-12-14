@@ -14,9 +14,11 @@ function Wearables:InitDefaultWearables(unit)
 end
 
 function Wearables:AttachWearable(unit, modelPath, t)
-    local wearable = SpawnEntityFromTableSynchronous("prop_dynamic", {model = modelPath, DefaultAnim=animation, targetname=DoUniqueString("prop_dynamic")})
-
+    local wearable = CreateUnitByName("wearable_model", Vector(0, 0, 0), false, nil, nil, DOTA_TEAM_NOTEAM)
     wearable:FollowEntity(unit, true)
+    wearable:SetModel(modelPath)
+    wearable:SetOriginalModel(modelPath)
+    wearable:AddNewModifier(wearable, nil, "modifier_wearable_visuals", {})
 
     unit._wearables = unit._wearables or {}
 

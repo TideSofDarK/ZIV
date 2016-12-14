@@ -66,12 +66,6 @@ function GameSetup:StartCountdownPhase()
 		GameRules:FinishCustomGameSetup()
 
 		local status = PlayerTables:GetTableValue("gamesetup", "status")
-
-		for k,v in pairs(status) do
-			if PlayerResource:GetPlayer(k) then
-				Characters:SpawnCharacter(k, PlayerTables:GetTableValue("characters", "characters")[k])
-			end
-		end
 	end)
 end
 

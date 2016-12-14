@@ -1,0 +1,47 @@
+"ziv_mines_wagon"
+{
+  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+  "BaseClass"           "ability_datadriven"
+  "MaxLevel" "1"
+  "AbilityTextureName"      ""
+
+  "precache"
+  {
+    "particle"  "particles/unique/mines/ziv_wagon_area.vpcf"
+  }
+
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"      "FIELD_INTEGER"
+      "radius"        "300"
+    }
+  }
+
+  "Modifiers"
+  {
+    "modifier_mines_wagon"
+    {
+      "Passive"     "1"
+      "IsHidden"      "1"
+      "Attributes" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"  
+      
+      "States"
+      {
+        "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+        "MODIFIER_STATE_NO_HEALTH_BAR"   "MODIFIER_STATE_VALUE_ENABLED"
+      }
+
+      "ThinkInterval"  "0.5"
+      "OnIntervalThink"
+      {
+        "RunScript"
+        {
+          "ScriptFile"  "scenarios/mines.lua"
+          "Function"    "CheckEscorts"
+        }
+      }
+    }
+  }
+}

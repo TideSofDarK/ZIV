@@ -39,6 +39,8 @@ function DoToUnitsInRadius( caster, position, radius, target_team, target_type, 
   for k,v in pairs(units) do
     action(v)
   end
+
+  return units
 end
 
 function SetRandomAngle( unit )

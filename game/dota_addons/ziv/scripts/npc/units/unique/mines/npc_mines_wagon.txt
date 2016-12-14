@@ -2,12 +2,12 @@
 {
 	"BaseClass"					"npc_dota_creature"
 	"Model"						"models/units/wagon/wagon.vmdl"
+	"ModelScale"				"1.0"
 
 	// "deathsim" "particles/props/obelisk/ziv_obelisk_ondeath.vpcf"
 	// "deathsound"	"Building_DireTower.Destruction"
 	"SoundSet"					"Tower.Fire"
 
-	"ModelScale"				"2.0"
 	"Level"						"10"
 	"IsSummoned"				"1"
 	"IsAncient"					"0"

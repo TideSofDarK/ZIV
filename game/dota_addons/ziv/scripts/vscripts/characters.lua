@@ -68,7 +68,7 @@ function Characters:SpawnCharacter( pID, args )
   local abilities = args.abilities
 
   PrecacheUnitByNameAsync(hero_name, function (  )
-    local hero = CreateHeroForPlayer(hero_name, PlayerResource:GetPlayer(pID))
+    local hero = PlayerResource:ReplaceHeroWith(pID,hero_name,0,0)
 
     for i=0,16 do
       local abil = hero:GetAbilityByIndex(i)
@@ -185,6 +185,11 @@ function Characters:InitCharacter( hero )
     PlayerTables:SetSubTableValue("characters", "status", hero:GetPlayerOwnerID(), status)
 
     return 0.5
+  end)
+
+  Timers:CreateTimer(function ()
+    AddFOWViewer(hero:GetTeamNumber(), hero:GetAbsOrigin(), hero:GetCurrentVisionRange(), 0.03, false)
+    return 0.03
   end)
 end
 

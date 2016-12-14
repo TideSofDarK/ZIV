@@ -100,8 +100,62 @@ end
 function Mines:SpawnCart()
 	local position = self.wagon_path[1]
 
+	if self.wagon then
+		ParticleManager:DestroyParticle(self.wagon.area, true)
+		UTIL_Remove(self.wagon)
+	end
+
 	self.wagon = CreateUnitByName("npc_mines_wagon",position,false,nil,nil,DOTA_TEAM_GOODGUYS)
 	self.wagon:SetForwardVector(UnitLookAtPoint( self.wagon, self.wagon_path[2] ))
+
+	self.wagon.area = ParticleManager:CreateParticle("particles/unique/mines/ziv_wagon_area.vpcf",PATTACH_ABSORIGIN_FOLLOW,self.wagon)
+	ParticleManager:SetParticleControlEnt(self.wagon.area,0,self.wagon,PATTACH_POINT_FOLLOW,"attach_hitloc",self.wagon:GetAbsOrigin(),false)
+	ParticleManager:SetParticleControl(self.wagon.area, 2, Vector(128,0,0))
+
+	self.wagon.path = self.wagon_path
+	self.wagon.path_point = 1
+end
+
+function CheckEscorts( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+
+	local units = DoToUnitsInRadius( caster, caster:GetAbsOrigin(), GetSpecial(ability, "radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, function ( v )
+		ParticleManager:SetParticleControl(caster.area, 2, Vector(0,128,0))
+
+		local movement = Timers:CreateTimer(0.0, function (  )
+			local position = caster:GetAbsOrigin()
+
+			local p1 = caster.path[caster.path_point]
+			local p2 = caster.path[caster.path_point+1]
+
+			caster:SetForwardVector(UnitLookAtPoint( caster, p2 ))
+
+			local direction = (p2 - p1):Normalized()
+			local distance = Distance(p1, p2)
+
+			local new_position = position + (direction * 1.2)
+			if Distance(p1, p2) < Distance(p1, new_position) then
+				new_position = p2
+				caster.path_point = caster.path_point + 1
+			end
+
+			new_position.z = GetGroundHeight(new_position,caster)
+
+			caster:SetAbsOrigin(new_position)
+
+			return 0.03
+		end)
+
+		Timers:CreateTimer(0.47, function (  )
+			Timers:RemoveTimer(movement)
+			CustomNetTables:SetTableValue( "scenario", "wagon", {percentage = (caster.path_point / #caster.path)} )
+		end)
+	end )
+
+	if #units == 0 then
+		ParticleManager:SetParticleControl(caster.area, 2, Vector(128,0,0))
+	end
 end
 
 function Mines:FallingRocks()

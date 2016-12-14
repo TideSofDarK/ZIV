@@ -69,6 +69,9 @@ LinkLuaModifier("modifier_command_restricted", "abilities/tools/modifier_command
 LinkLuaModifier("modifier_boss_ai", "abilities/tools/modifier_boss_ai.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hide", "abilities/tools/modifier_hide.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_area_lock", "abilities/tools/modifier_area_lock.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wearable_visuals", "abilities/tools/modifier_wearable_visuals.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wearable_visuals_status_fx", "abilities/tools/modifier_wearable_visuals.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wearable_visuals_activity", "abilities/tools/modifier_wearable_visuals.lua", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_witch_doctor_curse_debuff", "abilities/heroes/witch_doctor/modifier_witch_doctor_curse_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -111,19 +114,14 @@ end
 function ZIV:OnHeroInGame(hero)
   DebugPrint("[ZIV] Hero spawned in game for first time -- " .. hero:GetUnitName())
 
-  Timers:CreateTimer(function (  )
-    if hero:IsIllusion() then return end
+  if hero:IsIllusion() or hero:GetUnitName() ~= "npc_dota_hero_wisp" then return end
 
-    local pid = hero:GetPlayerID()
-    local player = PlayerResource:GetPlayer(pid)
+  local pID = hero:GetPlayerID()
+  local player = PlayerResource:GetPlayer(pID)
 
-    local hero_name = hero:GetUnitName()
+  local hero_name = hero:GetUnitName()
 
-    Timers:CreateTimer(function ()
-      AddFOWViewer(hero:GetTeamNumber(), hero:GetAbsOrigin(), hero:GetCurrentVisionRange(), 0.03, false)
-      return 0.03
-    end)
-  end)
+  Characters:SpawnCharacter(pID, PlayerTables:GetTableValue("characters", "characters")[pID])
 end
 
 function ZIV:OnGameInProgress()

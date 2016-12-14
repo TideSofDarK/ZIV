@@ -6,9 +6,11 @@ function ZIV:Test()
       local hero = cmdPlayer:GetAssignedHero()
 
       -- Account:AddEXP( playerID, 10500 )
-      for i=1,#Mines.wagon_path do 
-        DebugDrawLine(Mines.wagon_path[i] + Vector(0,0,50), Mines.wagon_path[i+1] + Vector(0,0,50), 255, 0, 255, false, 5.0)
-      end
+      Director.scenario:BuildPath()
+      Director.scenario:SpawnCart()
+      -- for i=1,#Director.scenario.wagon_path do 
+      --   DebugDrawLine(Director.scenario.wagon_path[i] + Vector(0,0,50), Director.scenario.wagon_path[i+1] + Vector(0,0,50), 255, 0, 255, false, 5.0)
+      -- end
     end
   end
 end

@@ -46,12 +46,14 @@
     "StatusManaRegen"     "0"
 
     "TeamName"          "DOTA_TEAM_GOODGUYS"
-    
-    
-    
 
     "VisionDaytimeRange"    "1000"
     "VisionNighttimeRange"    "1000"
 
     "AttackDesire"        "1.5"
 } 
+
+"wearable_model"
+{
+    "BaseClass"     "npc_dota_creature"
+}

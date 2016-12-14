@@ -127,6 +127,8 @@ DOTAAbilityImage {
 	visibility: visible;
 
 	transition-property: clip;
+	transition-duration: 0.06s;
+	transition-timing-function: linear;
 }
 
 #CooldownTimer
