@@ -5,7 +5,7 @@ var units = [];
 var bounds = null;
 
 // Calculate relative image position
-function getRelativePosition( pos )
+function GetRelativePosition( pos )
 {
 	if (!pos)
 		return [0, 0];
@@ -20,7 +20,7 @@ function getRelativePosition( pos )
 }
 
 // Calculate normal panel sizes
-function getPanelSize( panel )
+function GetPanelSize( panel )
 {
 	if (!panel)
 		return { width: 0, height: 0 };
@@ -31,13 +31,13 @@ function getPanelSize( panel )
 	}
 }
 
-function updateImagePosition()
+function UpdateImagePosition()
 {
 	var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
-	var relPos = getRelativePosition( Entities.GetAbsOrigin(heroID) );
+	var relPos = GetRelativePosition( Entities.GetAbsOrigin(heroID) );
 
-	var size = getPanelSize( $( "#MinimapImage" ) );
-	var parentSize = getPanelSize( $( "#ImagePanel" ) );
+	var size = GetPanelSize( $( "#MinimapImage" ) );
+	var parentSize = GetPanelSize( $( "#ImagePanel" ) );
 
 	var offset = {
 		x: -size.width * relPos[0] + parentSize.width / 2,
@@ -51,7 +51,7 @@ function updateImagePosition()
 	}
 }
 
-function getEntityAngle( entityID )
+function GetEntityAngle( entityID )
 {
 	var forward = Entities.GetForward( entityID );
 	if (!forward) {
@@ -63,10 +63,10 @@ function getEntityAngle( entityID )
 	return offset - Math.atan(forward[1] / forward[0]) * 180 / 3.14;
 }
 
-function updatePointerPosition()
+function UpdatePointerPosition()
 {
-	var size = getPanelSize( $( "#PointerImage" ) );
-	var parentSize = getPanelSize( $( "#ImagePanel" ) );
+	var size = GetPanelSize( $( "#PointerImage" ) );
+	var parentSize = GetPanelSize( $( "#ImagePanel" ) );
 
 	var offset = {
 		x: parentSize.width / 2 - size.width / 2,
@@ -83,7 +83,7 @@ function updatePointerPosition()
 	}
 }
 
-function removeUnusedMarks( units )
+function RemoveUnusedMarks( units )
 {
 	var marksContainer = $( "#MarksMap" );
 	var count = marksContainer.GetChildCount();
@@ -98,11 +98,11 @@ function removeUnusedMarks( units )
 	}
 }
 
-function setMapPosByWorldPos( panel, pos )
+function SetMapPosByWorldPos( panel, pos )
 {
-	var size = getPanelSize( panel );
-	var relPos = getRelativePosition( pos );
-	var parentSize = getPanelSize( $( "#MinimapImage" ) );
+	var size = GetPanelSize( panel );
+	var relPos = GetRelativePosition( pos );
+	var parentSize = GetPanelSize( $( "#MinimapImage" ) );
 
 	var offset = {
 		x: parentSize.width * relPos[0]- size.width / 2,
@@ -116,7 +116,7 @@ function setMapPosByWorldPos( panel, pos )
 	}	
 }
 
-function createMarkPanel( entity )
+function CreateMarkPanel( entity )
 {
 	var panel = $.CreatePanel( "Panel", $( "#MarksMap" ), "Entity_" + entity );
 	panel.BLoadLayout( marksPath + settings.marks( entity ) +".xml", false, false );
@@ -131,9 +131,9 @@ function createMarkPanel( entity )
 	return panel;
 } 
 
-function updateUnits()
+function UpdateUnits()
 {
-	removeUnusedMarks( units )
+	RemoveUnusedMarks( units )
 
 	for(var ent of units)
 	{
@@ -141,12 +141,12 @@ function updateUnits()
 		if (!panel)
 			panel = createMarkPanel( ent );
 
-		setMapPosByWorldPos( panel, Entities.GetAbsOrigin(ent) );
+		SetMapPosByWorldPos( panel, Entities.GetAbsOrigin(ent) );
 	}
 }
 
 // Update event position by attached entity
-function updateEvents()
+function UpdateEvents()
 {
 	var marksContainer = $( "#EventsMap" );
 	var count = marksContainer.GetChildCount();
@@ -156,11 +156,11 @@ function updateEvents()
 		if (!eventPanel.entity || eventPanel.entity == -1)
 			continue;
 
-		setMapPosByWorldPos( eventPanel, Entities.GetAbsOrigin( eventPanel.entity ));
+		SetMapPosByWorldPos( eventPanel, Entities.GetAbsOrigin( eventPanel.entity ));
 	}	
 }
 
-function clearFog()
+function ClearFog()
 {
 	$("#FogMap").RunJavascript('FillFog();'); 
 
@@ -171,7 +171,7 @@ function clearFog()
 
 	for(var hero of heroes)
 	{
-		var pos = getRelativePosition( Entities.GetAbsOrigin(hero) );
+		var pos = GetRelativePosition( Entities.GetAbsOrigin(hero) );
 		// Relative vision
 		var visionRange = Entities.GetCurrentVisionRange( hero ) /  (bounds["max"].x - bounds["min"].x);	
 		
@@ -179,24 +179,24 @@ function clearFog()
 	}
 }
 
-function updateMinimap()
+function UpdateMinimap()
 {
 	if ($.GetContextPanel().visible){
-		updateImagePosition();
-		updatePointerPosition();
-		updateUnits();
-		updateEvents();
+		UpdateImagePosition();
+		UpdatePointerPosition();
+		UpdateUnits();
+		UpdateEvents();
 
-		clearFog(); 		
+		ClearFog(); 		
 	}
 
-	$.Schedule(0.02, updateMinimap);
+	$.Schedule(0.02, UpdateMinimap);
 
 	// $("#FogMap").RunJavascript('LoadImage("http://puu.sh/rXDr6/5613600704.png");');  
 	$("#FogMap").RunJavascript('LoadImage("https://puu.sh/sE9Ef/fee0bda05d.png");');  
 }
 
-function calculateClickPosition( offset, angle ) {
+function CalculateClickPosition( offset, angle ) {
 	//return offset
 	//offset = { x: 0, y: 0}
  	
@@ -214,7 +214,7 @@ function calculateClickPosition( offset, angle ) {
 	return offset//{ x: offset.x + 0.5, y: offset.y + 0.5 };
 }
 
-function minimapClick()
+function MinimapClick()
 {
 	return;
 	//var angle = settings.rotation / 180 * Math.PI;
@@ -259,13 +259,13 @@ function minimapClick()
 }
 
 // Filter units function
-function getUnits() {
+function GetUnits() {
 	units = Entities.GetAllEntities().filter(settings.filter);
 
 	$.Schedule(0.1, getUnits);
 }
 
-function setWorldBounds( args ) 
+function SetWorldBounds( args ) 
 {
 	var args = CustomNetTables.GetTableValue("scenario", "map");
 
@@ -275,11 +275,11 @@ function setWorldBounds( args )
 	bounds["max"] = args.max;
 	bounds["name"] = args.map; 
 
-	updateMinimap();
+	UpdateMinimap();
 }
 
 // Events handler
-function minimapEvent( args )
+function MinimapEvent( args )
 {
 	var panel = $.CreatePanel( "Panel", $( "#EventsMap" ), args["Type"] );
 	panel.BLoadLayout( marksPath + "events.xml", false, false );
@@ -288,13 +288,13 @@ function minimapEvent( args )
 
 	// Delay to calculate sizes
 	$.Schedule(0.1, function() {
-		setMapPosByWorldPos( panel, [ args.pos[0], args.pos[1] ]);
+		SetMapPosByWorldPos( panel, [ args.pos[0], args.pos[1] ]);
 	});
 
 	panel.DeleteAsync( args.duration ); 
 }
 
-function changeMinimapMode()
+function ChangeMinimapMode()
 {
 	//$("#FogMap").ToggleClass("WindowClosed"); 
 	if (!$.GetContextPanel()) {
@@ -318,20 +318,20 @@ function changeMinimapMode()
 
 (function()
 {
-	GameEvents.Subscribe("custom_minimap_event", minimapEvent);
+	GameEvents.Subscribe("custom_minimap_event", MinimapEvent);
 
-	if (!GameUI.CustomUIConfig().changeMinimapMode)
-		GameUI.CustomUIConfig().changeMinimapMode = changeMinimapMode;
+	if (!GameUI.CustomUIConfig().ChangeMinimapMode)
+		GameUI.CustomUIConfig().ChangeMinimapMode = ChangeMinimapMode;
 
-	setWorldBounds(); 
+	SetWorldBounds(); 
 
 	$("#FogMap").SetURL('http://ec2-54-93-180-157.eu-central-1.compute.amazonaws.com/test_minimap/minimap.html');
-	GameUI.CustomUIConfig().setMinimapSettings({ rotation: 45 });
-	getUnits();
+
+	GetUnits();
 
 	//CustomNetTables.SubscribeNetTableListener( "scenario", setWorldBounds );
 
 	// Override controls
-    Game.AddCommand("+ZIVShowMinimap", changeMinimapMode, "", 0);
-	Game.AddCommand("-ZIVShowMinimap", changeMinimapMode, "", 0);
+    Game.AddCommand("+ZIVShowMinimap", ChangeMinimapMode, "", 0);
+	Game.AddCommand("-ZIVShowMinimap", ChangeMinimapMode, "", 0);
 })();

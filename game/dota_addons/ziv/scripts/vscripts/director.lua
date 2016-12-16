@@ -22,19 +22,8 @@ Director.boss_list = Director.boss_list or {}
 Director.current_session_creep_count = 0
 
 function Director:FindMapScenario( string )
-	local scenario = string.gsub(" "..string, "%W%l", string.upper):sub(2)
-	assert( type(scenario) == "string" )
-
-	local f = _G
-
-	for v in scenario:gmatch("[^%.]+") do
-		if type(f) ~= "table" then
-			return nil, "looking for '"..v.."' expected table, not "..type(f)
-		end
-		f = f[v]
-	end
-
-	return f
+	local scenario = string.lower(string.gsub(" "..string, "%W%l", string.upper):sub(2))
+	return "scenarios/"..scenario
 end
 
 function Director:GetMapName()
@@ -68,10 +57,8 @@ function Director:Init()
 	
 	Director.WEARABLES_RNG = PseudoRNG.create( 0.3 )
 
-	Director.scenario = Director:FindMapScenario(Director:GetMapName())
+	Director.scenario = require(Director:FindMapScenario(Director:GetMapName()))
 	if Director.scenario then
-		Director.scenario:Init()
-
 		CustomGameEventManager:RegisterListener("ziv_pregame_ready", Dynamic_Wrap(Director, 'PregameReady'))
 	end
 end

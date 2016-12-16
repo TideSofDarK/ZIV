@@ -11,40 +11,39 @@ function SetUIState(args) {
 
 }
 
-function OnScenarioChanged(args) {
+function OnScenarioChanged() {
 	var args = CustomNetTables.GetTableValue( "scenario", "wagon" );
-	SetPathPercentage(args.percentage);
+	if (!args) return;
+	SetPathPercentage(args.percentage || 0);
 }
 
-// MInimap filter
-// function minimapFilter( entity ){
-// 	var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
-// 	var visionRange = Entities.GetCurrentVisionRange( heroID );		
-// 	return Entities.IsEntityInRange( heroID, entity, visionRange ) &&
-// 		!Entities.IsInvisible( entity ) && 
-// 		Entities.IsValidEntity( entity ) &&
-// 		(Entities.IsHero( entity ) || Entities.GetUnitName(entity) == "npc_temple_obelisk") &&
-// 		heroID != entity;
-// }
+function MinimapFilter( entity ){
+	var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+	var visionRange = Entities.GetCurrentVisionRange( heroID );		
+	return Entities.IsEntityInRange( heroID, entity, visionRange ) &&
+		!Entities.IsInvisible( entity ) && 
+		Entities.IsValidEntity( entity ) &&
+		(Entities.IsHero( entity ) || Entities.GetUnitName(entity) == "npc_temple_obelisk") &&
+		heroID != entity;
+}
 
-// Get mark filename
-// function getMarkType( entity )
-// {
-// 	var type = "default";
-// 	if (Entities.IsHero( entity ))
-// 		return "hero";
+function GetMarkType( entity )
+{
+	var type = "default";
+	if (Entities.IsRealHero( entity ))
+		return "hero";
 
-// 	if (Entities.GetUnitName(entity) == "npc_temple_obelisk")
-// 		return "obelisk";
+	if (Entities.GetUnitName(entity) == "npc_mines_wagon")
+		return "wagon";
 
-// 	return type; 
-// } 
+	return type; 
+} 
 
 function SetPathPercentage(value) {
 	pathGreen.style.width = value + "%;";
 	
 	var width = $("#WagonPath").contentwidth;
-	width = ((value / 100) * width);
+	width = (value * width);
 
 	pathGreen.style.width = width + "px;";
 	marker.style.position = width + "px 0px 0px;";
@@ -55,11 +54,11 @@ function SetPathPercentage(value) {
 
 	// objective = $("#objective1");
 
-	// OnScenarioChanged("scenario");
+	OnScenarioChanged();
 
 	// GameEvents.Subscribe( "ziv_temple_set_ui_state", SetUIState);
 	
 	CustomNetTables.SubscribeNetTableListener( "scenario", OnScenarioChanged );
 
-	// GameUI.CustomUIConfig().setMinimapSettings({ rotation: 45, filter: minimapFilter, marks: getMarkType });  
+	GameUI.CustomUIConfig().SetMinimapSettings({ rotation: 45, filter: MinimapFilter, marks: GetMarkType });  
 })();

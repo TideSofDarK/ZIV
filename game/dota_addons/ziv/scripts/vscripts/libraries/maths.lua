@@ -35,6 +35,17 @@ function RandomPointInPolygon( polygon )
   return point
 end
 
+function GetPathLength( path )
+  local length = 0
+  for i=1,#path do
+    if not path[i+1] then
+      return length
+    else
+      length = length + (path[i] - path[i+1]):Length2D()
+    end
+  end
+end
+
 function FindUnitsInCone(position, coneDirection, coneLength, coneWidth, teamNumber, teamFilter, typeFilter, flagFilter, order)
   local units = FindUnitsInRadius(teamNumber, position, nil, coneLength, teamFilter, typeFilter, flagFilter, order, false)
 

@@ -9,16 +9,17 @@
   <script>
     function ChooseBackground() {
       var mapInfo = Game.GetMapInfo()
-      var mapName = mapInfo.map_display_name
 
-      var root = $.GetContextPanel();
-      var background = $.CreatePanel("Panel", root, "Background");
-
-      if (mapName == "")
+      if (!CustomNetTables.GetTableValue("scenario", "map"))
       {
         $.Schedule(0.1, ChooseBackground);
         return;
       }
+
+      var mapName = CustomNetTables.GetTableValue("scenario", "map").map
+
+      var root = $.GetContextPanel();
+      var background = $.CreatePanel("Panel", root, "Background");
 
       if (mapName.indexOf("ziv_temple") != -1)
       {

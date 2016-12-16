@@ -8,9 +8,6 @@ function ZIV:Test()
       -- Account:AddEXP( playerID, 10500 )
       Director.scenario:BuildPath()
       Director.scenario:SpawnCart()
-      -- for i=1,#Director.scenario.wagon_path do 
-      --   DebugDrawLine(Director.scenario.wagon_path[i] + Vector(0,0,50), Director.scenario.wagon_path[i+1] + Vector(0,0,50), 255, 0, 255, false, 5.0)
-      -- end
     end
   end
 end

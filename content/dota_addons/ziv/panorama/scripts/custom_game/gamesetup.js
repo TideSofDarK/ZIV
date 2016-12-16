@@ -586,10 +586,11 @@ function RemoveBlur() {
 	var mapInfo = Game.GetMapInfo();
 
 	// Get max players for a map
-	GameUI.CustomUIConfig().mapMaxPlayers = parseInt(mapInfo.map_display_name.replace( /^\D+/g, ''));
+	var mapName = CustomNetTables.GetTableValue("scenario", "map").map;
+	GameUI.CustomUIConfig().mapMaxPlayers = parseInt(mapName.replace( /^\D+/g, ''));
 
-	$("#StoryLabel").text = $.Localize(mapInfo.map_display_name + "_story");
-	$("#ObjectivesLabel").text = $.Localize(mapInfo.map_display_name + "_objectives");
+	$("#StoryLabel").text = $.Localize(mapName + "_story");
+	$("#ObjectivesLabel").text = $.Localize(mapName + "_objectives");
 
 	for (var playerID = 0; playerID < GameUI.CustomUIConfig().mapMaxPlayers; playerID++) {
 		var playerPanelName = "Player_" + playerID;

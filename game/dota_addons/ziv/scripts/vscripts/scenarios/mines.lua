@@ -1,4 +1,6 @@
-Mines = {}
+if Mines == nil then
+    _G.Mines = class({})
+end
 
 -- Stages
 Mines.STAGE_NO = -1
@@ -28,16 +30,16 @@ Mines.SPAWN_MIN = 20
 Mines.SPAWN_MAX = 40
 Mines.SPAWN_GC_TIME = 10.0
 
+Mines.WORLD_MIN = {x = -8732, y = -4360 }
+Mines.WORLD_MAX = {x = 8108, y = 5296 }
+
 -- Store
 Mines.stage = Mines.STAGE_NO
 
 function Mines:Init()
-	local worldMin = {x = -8732, y = -4360 }
-  	local worldMax = {x = 8108, y = 5296 }
+    CustomNetTables:SetTableValue( "scenario", "map", {min = self.WORLD_MIN, max = self.WORLD_MAX, map = GetMapName()} )
 
-	CustomNetTables:SetTableValue( "scenario", "map", {min = worldMin, max = worldMax, map = GetMapName()} )
-
-	self:BuildPath()
+    self:BuildPath()
 end
 
 function Mines:NextStage()
@@ -55,6 +57,7 @@ function Mines:BuildPath()
 	local swap = 0
 
 	self.wagon_path = {}
+	local skip = false
 
 	for i=1,#path do
 		local p1 = path[i]:GetAbsOrigin()
@@ -73,28 +76,34 @@ function Mines:BuildPath()
 
 		if Distance(p1, p2) > 200 then
 			-- DebugDrawLine(p1 + Vector(0,0,50), p2 + Vector(0,0,50), 255, 0, 255, false, 5.0)
-			table.insert(self.wagon_path, p1)
+			table.insert(self.wagon_path, p1)	
 		else
+			-- table.insert(self.wagon_path, p1)	
+
 			local p3 = Vector(p1.x, ((p1.y + p2.y) / 2))
 			local p4 = Vector(((p1.x + p2.x) / 2), p2.y)
 
-			local curve = BezierCurve:ComputeBezier({p1,p3,p4,p2},100) 
+			local curve = BezierCurve:ComputeBezier({p1,p3,p4,p2},30) 
 
 			if swap % 2 == 0 then
 				p3.x = p2.x
 				p4.y = p1.y
-				curve = BezierCurve:ComputeBezier({p2,p3,p4,p1},100) 
+				curve = BezierCurve:ComputeBezier({p2,p3,p4,p1},30) 
+
+				for x=#curve,1,-1 do
+					table.insert(self.wagon_path, curve[x])
+				end
+			else
+				for x=1,#curve-1 do
+					table.insert(self.wagon_path, curve[x])
+				end
 			end
 
 			swap = swap + 1
-
-			for x=1,#curve do
-				table.insert(self.wagon_path, curve[x])
-			end
-
-			-- BezierCurve:Draw(curve, Vector(0,0,180))
 		end
 	end
+
+	return self.wagon_path
 end
 
 function Mines:SpawnCart()
@@ -114,6 +123,9 @@ function Mines:SpawnCart()
 
 	self.wagon.path = self.wagon_path
 	self.wagon.path_point = 1
+
+	self.wagon.path_length = GetPathLength( self.wagon_path )
+	self.wagon.path_traveled = 0
 end
 
 function CheckEscorts( keys )
@@ -123,33 +135,54 @@ function CheckEscorts( keys )
 	local units = DoToUnitsInRadius( caster, caster:GetAbsOrigin(), GetSpecial(ability, "radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, function ( v )
 		ParticleManager:SetParticleControl(caster.area, 2, Vector(0,128,0))
 
-		local movement = Timers:CreateTimer(0.0, function (  )
+		CustomNetTables:SetTableValue( "scenario", "wagon", {percentage = (caster.path_traveled / caster.path_length)} )
+
+		local movement = Timers:CreateTimer(0.0, function ()
 			local position = caster:GetAbsOrigin()
+			 
+			local distance_traveled = 0
+			local distance_to_travel = 4.2
+			 
+			local new_position = position
+			 
+			while distance_traveled < distance_to_travel do
+			    if #caster.path < caster.path_point + 1 then
+			        break
+			    end
+			 
+			    local next_point = GetGroundPosition(caster.path[caster.path_point + 1],caster)
+			   
+			    caster:SetForwardVector(UnitLookAtPoint( caster, next_point ))
 
-			local p1 = caster.path[caster.path_point]
-			local p2 = caster.path[caster.path_point+1]
+			    local direction_to_next_point = (next_point - new_position):Normalized()
+			    local distance_to_next_point  = (new_position - next_point):Length2D()
+			    local distance_left_to_travel = distance_to_travel - distance_traveled
+			   
+			    local step_distance = math.min(distance_left_to_travel, distance_to_next_point)
+			   
+			    if step_distance == 0 then
+			        break
+			    end
+			   
+			    new_position = (step_distance * direction_to_next_point) + new_position
 
-			caster:SetForwardVector(UnitLookAtPoint( caster, p2 ))
-
-			local direction = (p2 - p1):Normalized()
-			local distance = Distance(p1, p2)
-
-			local new_position = position + (direction * 1.2)
-			if Distance(p1, p2) < Distance(p1, new_position) then
-				new_position = p2
-				caster.path_point = caster.path_point + 1
+			    if step_distance == distance_to_next_point then
+			        caster.path_point = caster.path_point + 1
+			    end
+			   
+			    distance_traveled = distance_traveled + step_distance
+			    caster.path_traveled = caster.path_traveled + step_distance
 			end
-
+			 
 			new_position.z = GetGroundHeight(new_position,caster)
-
+			 
 			caster:SetAbsOrigin(new_position)
-
+			 
 			return 0.03
 		end)
 
 		Timers:CreateTimer(0.47, function (  )
 			Timers:RemoveTimer(movement)
-			CustomNetTables:SetTableValue( "scenario", "wagon", {percentage = (caster.path_point / #caster.path)} )
 		end)
 	end )
 
@@ -270,3 +303,6 @@ function Mines:DestroyCreeps( v )
 	v.creeps = nil
 	v.idle_count = 0.0
 end
+
+Mines:Init()
+return Mines

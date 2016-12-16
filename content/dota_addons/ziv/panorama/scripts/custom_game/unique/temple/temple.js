@@ -13,7 +13,7 @@ function OnScenarioChanged(args) {
 }
 
 // MInimap filter
-function minimapFilter( entity ){
+function MinimapFilter( entity ){
 	var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 	var visionRange = Entities.GetCurrentVisionRange( heroID );		
 	return Entities.IsEntityInRange( heroID, entity, visionRange ) &&
@@ -24,7 +24,7 @@ function minimapFilter( entity ){
 }
 
 // Get mark filename
-function getMarkType( entity )
+function GetMarkType( entity )
 {
 	var type = "default";
 	if (Entities.IsHero( entity ))
@@ -45,5 +45,5 @@ function getMarkType( entity )
 	
 	CustomNetTables.SubscribeNetTableListener( "scenario", OnScenarioChanged );
 
-	GameUI.CustomUIConfig().setMinimapSettings({ rotation: 45, filter: minimapFilter, marks: getMarkType });  
+	GameUI.CustomUIConfig().SetMinimapSettings({ rotation: 45, filter: MinimapFilter, marks: GetMarkType });  
 })();

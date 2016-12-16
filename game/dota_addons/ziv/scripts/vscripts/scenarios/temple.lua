@@ -1,4 +1,6 @@
-Temple = {}
+if Temple == nil then
+    _G.Temple = class({})
+end
 
 -- Stages
 Temple.STAGE_NO = -1
@@ -30,6 +32,9 @@ Temple.SPAWN_GC_TIME = 10.0
 
 Temple.OBELISK_COUNT = 20
 
+Temple.WORLD_MIN = {x = -6100, y = -6100 }
+Temple.WORLD_MAX = {x = 6100, y = 6100 }
+
 -- Store
 Temple.stage = Temple.STAGE_NO
 
@@ -42,10 +47,7 @@ function Temple:Init()
 	Temple.creeps_positions = Entities:FindAllByName("ziv_temple_obelisk") --ziv_basic_creep_spawner
 	Temple.boss_area = GetArea("ziv_temple_boss_area*")
 
-	local worldMin = {x = -6100, y = -6100 }
-  	local worldMax = {x = 6100, y = 6100 }
-
-	CustomNetTables:SetTableValue( "scenario", "map", {min = worldMin, max = worldMax, map = GetMapName()} )
+	CustomNetTables:SetTableValue( "scenario", "map", {min = self.WORLD_MIN, max = self.WORLD_MAX, map = GetMapName()} )
 end
 
 function Temple:SetObelisksCount()
@@ -264,3 +266,6 @@ function Temple:InitBossFight()
 
 
 end
+
+Temple:Init()
+return Temple
