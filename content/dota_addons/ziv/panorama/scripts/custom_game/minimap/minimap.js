@@ -79,7 +79,7 @@ function UpdatePointerPosition()
 		$( "#PointerImage" ).style.marginTop =  offset.y + "px;"
 
 		var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
-		$( "#PointerImage" ).style.transform = "rotateZ(" + getEntityAngle(heroID) + "deg);";		
+		$( "#PointerImage" ).style.transform = "rotateZ(" + GetEntityAngle(heroID) + "deg);";		
 	}
 }
 
@@ -139,7 +139,7 @@ function UpdateUnits()
 	{
 		var panel = $( "#MarksMap" ).FindChild("Entity_" + ent);
 		if (!panel)
-			panel = createMarkPanel( ent );
+			panel = CreateMarkPanel( ent );
 
 		SetMapPosByWorldPos( panel, Entities.GetAbsOrigin(ent) );
 	}
@@ -262,7 +262,7 @@ function MinimapClick()
 function GetUnits() {
 	units = Entities.GetAllEntities().filter(settings.filter);
 
-	$.Schedule(0.1, getUnits);
+	$.Schedule(0.1, GetUnits);
 }
 
 function SetWorldBounds( args ) 

@@ -229,6 +229,4 @@ Util.Selector = (function(panel, selector){
 
 (function(){
 	GameUI.CustomUIConfig().Util = Util;
-
-    $.Msg(Util.Selector($.GetContextPanel().GetParent(), '#CustomUIContainer_GameSetup .chatRow'));
 })()

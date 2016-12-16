@@ -203,7 +203,5 @@ function UpdateAccount(tableName, changes, deletions) {
 	GameUI.CustomUIConfig().ToggleStatusWindow = ToggleStatusWindow;
 	GameUI.CustomUIConfig().ToggleEquipmentWindow = ToggleEquipmentWindow;
 
-	if (GameUI.CustomUIConfig().hudRoot.FindChildTraverse("RadarButton")) {
-		GameUI.CustomUIConfig().hudRoot.FindChildTraverse("RadarButton").DeleteAsync(0.0);
-	}
+	Util.Selector(GameUI.CustomUIConfig().hudRoot, '#quickstats')[0].visible = false;
 })();

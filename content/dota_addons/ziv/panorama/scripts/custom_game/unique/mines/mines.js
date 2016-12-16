@@ -17,13 +17,13 @@ function OnScenarioChanged() {
 	SetPathPercentage(args.percentage || 0);
 }
 
-function MinimapFilter( entity ){
+function MinimapFilter( entity ) {
 	var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 	var visionRange = Entities.GetCurrentVisionRange( heroID );		
 	return Entities.IsEntityInRange( heroID, entity, visionRange ) &&
 		!Entities.IsInvisible( entity ) && 
 		Entities.IsValidEntity( entity ) &&
-		(Entities.IsHero( entity ) || Entities.GetUnitName(entity) == "npc_temple_obelisk") &&
+		(Entities.IsHero( entity ) || Entities.GetUnitName(entity) == "npc_mines_wagon") &&
 		heroID != entity;
 }
 

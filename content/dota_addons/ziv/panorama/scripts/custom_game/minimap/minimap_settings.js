@@ -36,7 +36,7 @@ function SetMinimapSettings( newSettings ) {
 	}
 }
 
-function updateRotation() {
+function UpdateRotation() {
 	$('#ImagePanel').style.transform = 'rotateZ( ' + settings.rotation + 'deg );';
 
 	var childCount = $('#MarksMap').GetChildCount();

@@ -1,0 +1,17 @@
+<root>
+	<styles>
+		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
+		<include src="file://{resources}/styles/custom_game/minimap/marks/default.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/minimap/marks/wagon.js" />
+	</scripts>
+	<Panel class="Mark obelisk" 
+		onactivate="Click();" 
+		onmouseover="ShowEntityTooltip();"
+		onmouseout="HideEntityTooltip();" >
+		<Panel class="ping-circle anim1"/>
+		<Panel class="ping-circle anim2"/>		
+		<Image id="Icon" src="file://{images}/custom_game/minimap/mines/wagon.png" />
+	</Panel>
+</root>

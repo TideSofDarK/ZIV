@@ -131,7 +131,7 @@ end
 function CheckEscorts( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-
+	
 	local units = DoToUnitsInRadius( caster, caster:GetAbsOrigin(), GetSpecial(ability, "radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, function ( v )
 		ParticleManager:SetParticleControl(caster.area, 2, Vector(0,128,0))
 
