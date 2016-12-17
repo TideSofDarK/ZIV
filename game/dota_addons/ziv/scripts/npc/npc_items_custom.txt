@@ -538,7 +538,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_snow_boots"
-	  "Model"                   "models/items/basic_coat.vmdl" 
+	  "Model"                   "models/items/basic_boots.vmdl" 
 	
 	  "Slot"  "boots"
 	  "EquipSound"  "ui.inv_equip_leather"
@@ -572,7 +572,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_leather_boots"
-	  "Model"                   "models/items/basic_coat.vmdl" 
+	  "Model"                   "models/items/basic_boots.vmdl" 
 	
 	  "Slot"  "boots"
 	  "EquipSound"  "ui.inv_equip_leather"
@@ -606,7 +606,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_ornate_boots"
-	  "Model"                   "models/items/basic_coat.vmdl" 
+	  "Model"                   "models/items/basic_boots.vmdl" 
 	
 	  "Slot"  "boots"
 	  "EquipSound"  "ui.inv_equip_leather"
