@@ -19,7 +19,7 @@ Director.lord_modifier_list = Director.lord_modifier_list or {}
 Director.creep_list = Director.creep_list or {}
 Director.boss_list = Director.boss_list or {}
 
-Director.current_session_creep_count = 0
+Director.current_session_creep_count = Director.current_session_creep_count or 0
 
 function Director:FindMapScenario( string )
 	local scenario = string.lower(string.gsub(" "..string, "%W%l", string.upper):sub(2))
@@ -56,9 +56,11 @@ function Director:Init()
 	end
 	
 	Director.WEARABLES_RNG = PseudoRNG.create( 0.3 )
-
+	print("asdasdasdasdas")
 	Director.scenario = require(Director:FindMapScenario(Director:GetMapName()))
 	if Director.scenario then
+		Director.scenario:Init()
+
 		CustomGameEventManager:RegisterListener("ziv_pregame_ready", Dynamic_Wrap(Director, 'PregameReady'))
 	end
 end
@@ -352,9 +354,7 @@ function Director:SpawnCreeps( spawn_table )
 				local creep = CreateUnitByNameAsync(creep_name, position, true, nil, nil, DOTA_TEAM_NEUTRALS, function ( creep )
 					Director.current_session_creep_count = Director.current_session_creep_count + 1
 
-					if spawn_table.NoLoot == true then
-						creep.no_loot = true
-					end
+					creep:SetHasLoot( not spawn_table.NoLoot )
 
 					if spawn_table.Duration then
 						creep:AddNewModifier(creep,nil,"modifier_kill",{duration=tonumber(spawn_table.Duration)})

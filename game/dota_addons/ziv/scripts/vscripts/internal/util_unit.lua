@@ -52,6 +52,14 @@ function CDOTA_BaseNPC:IsBoss(  )
   return self._is_boss or false
 end
 
+function CDOTA_BaseNPC:SetHasLoot( bool )
+  self._has_loot = bool
+end
+
+function CDOTA_BaseNPC:HasLoot(  )
+  return self._has_loot or false
+end
+
 function CDOTA_BaseNPC:IsInsidePolygon(polygon)
   return IsPointInsidePolygon(self:GetAbsOrigin(), polygon)
 end

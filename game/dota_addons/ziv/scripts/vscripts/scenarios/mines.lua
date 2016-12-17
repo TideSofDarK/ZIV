@@ -24,32 +24,45 @@ Mines.ROCKS_DURATION = 2.0
 Mines.ROCKS_INTERVAL_MIN = 8.0
 Mines.ROCKS_INTERVAL_MAX = 15.0
 
+Mines.PATH_THRESHOLD = 5
 Mines.SPAWN_THRESHOLD = 1200
 Mines.SPAWN_SPREAD = 1800
 Mines.SPAWN_MIN = 20
 Mines.SPAWN_MAX = 40
 Mines.SPAWN_GC_TIME = 10.0
 
+Mines.WAGON_SPEED = 5.5
+
 Mines.WORLD_MIN = {x = -8732, y = -4360 }
 Mines.WORLD_MAX = {x = 8108, y = 5296 }
-
--- Store
-Mines.stage = Mines.STAGE_NO
 
 function Mines:Init()
     CustomNetTables:SetTableValue( "scenario", "map", {min = self.WORLD_MIN, max = self.WORLD_MAX, map = GetMapName()} )
 
+    Mines.stage = Mines.STAGE_NO
+
     self:BuildPath()
 end
 
-function Mines:NextStage()
-	if self.stage == self.STAGE_NO then
-		Director:StartPregame( )
-	else
-		Director:SetupCustomUI( "mines_objectives" )
-	end
+function Mines:CanMoveWagon()
+	return self.stage == self.STAGE_FIRST or self.stage == self.STAGE_SECOND
+end
 
-	self.stage = Mines.stage + 1
+function Mines:NextStage()
+	self.stage = self.stage + 1
+
+	if self.stage == self.STAGE_PREGAME then
+		Director:StartPregame( )
+
+		self:InitPregameArea()
+		self:SpawnCart()
+	elseif self.stage == self.STAGE_FIRST then
+		Director:SetupCustomUI( "mines_objectives" )
+
+		self:CleanupPregameArea()
+		self:SpawnCreeps()
+		self:FallingRocks()
+	end
 end
 
 function Mines:BuildPath()
@@ -106,6 +119,11 @@ function Mines:BuildPath()
 	return self.wagon_path
 end
 
+function Mines:GetPathPercentage()
+	if not self.wagon then return 0 end
+	return (self.wagon.path_traveled / self.wagon.path_length)
+end
+
 function Mines:SpawnCart()
 	local position = self.wagon_path[1]
 
@@ -114,23 +132,31 @@ function Mines:SpawnCart()
 		UTIL_Remove(self.wagon)
 	end
 
-	self.wagon = CreateUnitByName("npc_mines_wagon",position,false,nil,nil,DOTA_TEAM_GOODGUYS)
-	self.wagon:SetForwardVector(UnitLookAtPoint( self.wagon, self.wagon_path[2] ))
+	local wagon = CreateUnitByName("npc_mines_wagon",position,false,nil,nil,DOTA_TEAM_GOODGUYS)
+	wagon:SetForwardVector(UnitLookAtPoint(wagon, self.wagon_path[2] ))
 
-	self.wagon.area = ParticleManager:CreateParticle("particles/unique/mines/ziv_wagon_area.vpcf",PATTACH_ABSORIGIN_FOLLOW,self.wagon)
-	ParticleManager:SetParticleControlEnt(self.wagon.area,0,self.wagon,PATTACH_POINT_FOLLOW,"attach_hitloc",self.wagon:GetAbsOrigin(),false)
-	ParticleManager:SetParticleControl(self.wagon.area, 2, Vector(128,0,0))
+	wagon.path = self.wagon_path
+	wagon.path_point = 1
 
-	self.wagon.path = self.wagon_path
-	self.wagon.path_point = 1
+	wagon.path_length = GetPathLength( self.wagon_path )
+	wagon.path_traveled = 0
 
-	self.wagon.path_length = GetPathLength( self.wagon_path )
-	self.wagon.path_traveled = 0
+	self.wagon = wagon
 end
 
 function CheckEscorts( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+
+	if not Director.scenario:CanMoveWagon() then
+		return
+	end
+
+	if not caster.area then
+		caster.area = ParticleManager:CreateParticle("particles/unique/mines/ziv_wagon_area.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
+		ParticleManager:SetParticleControlEnt(caster.area,0,caster,PATTACH_POINT_FOLLOW,"attach_hitloc",caster:GetAbsOrigin(),false)
+		ParticleManager:SetParticleControl(caster.area, 2, Vector(128,0,0))
+	end
 	
 	local units = DoToUnitsInRadius( caster, caster:GetAbsOrigin(), GetSpecial(ability, "radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, function ( v )
 		ParticleManager:SetParticleControl(caster.area, 2, Vector(0,128,0))
@@ -141,7 +167,7 @@ function CheckEscorts( keys )
 			local position = caster:GetAbsOrigin()
 			 
 			local distance_traveled = 0
-			local distance_to_travel = 4.2
+			local distance_to_travel = Mines.WAGON_SPEED
 			 
 			local new_position = position
 			 
@@ -192,8 +218,6 @@ function CheckEscorts( keys )
 end
 
 function Mines:FallingRocks()
-	local start_stage = self.stage
-
 	DoToAllHeroes(function ( hero )
 		Timers:CreateTimer(function (  )
 			position = hero:GetAbsOrigin() + Vector(math.random(-800, 800), math.random(-800, 800), 0)
@@ -202,7 +226,7 @@ function Mines:FallingRocks()
 				local unit = CreateUnitByNameAsync("npc_dummy_unit",position,true,nil,nil,DOTA_TEAM_NEUTRALS, function (unit)
 					unit:SetMoveCapability(1)
 
-					local particle = ParticleManager:CreateParticle("particles/unique/Mines/Mines_falling_rocks.vpcf",PATTACH_ABSORIGIN_FOLLOW,unit)
+					local particle = ParticleManager:CreateParticle("particles/unique/temple/temple_falling_rocks.vpcf",PATTACH_ABSORIGIN_FOLLOW,unit)
 				  	ParticleManager:SetParticleControl(particle, 1, Vector(255,0,0))
 				  	ParticleManager:ReleaseParticleIndex(particle)
 
@@ -239,54 +263,27 @@ function Mines:SetupMap()
 end
 
 function Mines:SpawnCreeps()
-	for k,v in pairs(self.creeps_positions) do
-		self:DestroyCreeps( v )
-	end
-
-	Timers:CreateTimer(function (  )
-		DoToAllHeroes(function ( hero )
-			for k,v in pairs(self.creeps_positions) do
-				local distance = (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D()
-				if distance < self.SPAWN_THRESHOLD and not v.creeps then --GetTableLength(v.creeps) == 0
-					v.creeps = v.creeps or {}
-
-					local basic_modifier
-					if math.random(1,3) == 1 then
-						basic_modifier = "random"
-					end
-
-					Director:SpawnPack({
-				        SpawnBasic = true,
-				        Count = math.random(self.SPAWN_MIN, self.SPAWN_MAX),
-				        Position = v:GetAbsOrigin(),
-				        CheckHeight = true,
-				        Spread = self.SPAWN_SPREAD,
-				        SpawnLord = math.random(1,2) == 1,
-				        BasicModifier = basic_modifier,
-				        Table = v.creeps,
-				        CheckTable = Characters.current_session_characters
-				    })
-				elseif v.creeps then
-					if v.idle_count and v.idle_count > self.SPAWN_GC_TIME then
-						self:DestroyCreeps( v )
-					else
-						local idle = true
-						for k2,v2 in pairs(v.creeps) do
-							if v2:IsNull() == false then
-								if Distance(hero, v2) <= self.SPAWN_THRESHOLD or hero:CanEntityBeSeenByMyTeam(v2) == true or v2:IsIdle() == false then --v2:IsAlive() == true and v2:IsIdle() == false and 
-									idle = false
-									v.idle_count = 0.0
-									break
-								end
-							end
-						end
-						if idle == true then
-							v.idle_count = (v.idle_count or 0.0) + 1.0
-						end
-					end
-				end
+	local wagon = self.wagon
+	
+	Timers:CreateTimer(2.0, function ()
+		if wagon and self:GetPathPercentage() > self.PATH_THRESHOLD then
+			local basic_modifier
+			if math.random(1,3) == 1 then
+				basic_modifier = "random"
 			end
-		end)
+
+			Director:SpawnPack({
+			    SpawnBasic = true,
+			    Count = math.random(self.SPAWN_MIN, self.SPAWN_MAX),
+			    Position = wagon:GetAbsOrigin(),
+			    CheckHeight = true,
+			    Spread = self.SPAWN_SPREAD,
+			    SpawnLord = math.random(1,2) == 1,
+			    BasicModifier = basic_modifier,
+			    Table = wagon.creeps,
+			    CheckTable = Characters.current_session_characters
+			})
+		end
 
 		return 2.0
 	end)
@@ -304,5 +301,48 @@ function Mines:DestroyCreeps( v )
 	v.idle_count = 0.0
 end
 
-Mines:Init()
+function Mines:InitPregameArea()
+	local function PrepareArea(area)
+		local last = area[#area]
+
+		for k, v in orderedPairs(area) do
+			local wall = ParticleManager:CreateParticle("particles/bosses/ziv_boss_area.vpcf",PATTACH_CUSTOMORIGIN,nil)
+			ParticleManager:SetParticleControl(wall,0,last)
+			ParticleManager:SetParticleControl(wall,1,v)
+			last = v
+
+			table.insert(self.pregame_area_container, wall)
+		end
+
+		DistributeUnitsAlongPolygonPath(area, function ( pos, is_tower )
+			local blocker = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = pos, block_fow = true})
+
+			local pos = GetGroundPosition(pos, blocker)
+	        blocker:SetAbsOrigin(pos)
+
+			table.insert(self.pregame_area_container, blocker)
+		end, 32)
+	end
+
+	self.pregame_area_container = {}
+
+	self.pregame_area_a = GetArea("ziv_wall_a*")
+	self.pregame_area_b = GetArea("ziv_wall_b*")
+
+	PrepareArea(self.pregame_area_a)
+	PrepareArea(self.pregame_area_b)
+end
+
+function Mines:CleanupPregameArea()
+	if self.pregame_area_container then
+		for k,v in pairs(self.pregame_area_container) do
+			if type(v) == "number" then
+				ParticleManager:DestroyParticle(v, false)
+			else
+				UTIL_Remove(v)
+			end
+		end
+	end
+end
+
 return Mines
