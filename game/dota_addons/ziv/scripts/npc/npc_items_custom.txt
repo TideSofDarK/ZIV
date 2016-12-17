@@ -437,7 +437,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_cheap_pants"
-	  "Model"                   "models/items/basic_coat.vmdl" 
+	  "Model"                   "models/items/basic_pants.vmdl" 
 	
 	  "Slot"  "pants"
 	  "EquipSound"  "ui.inv_equip_leather"
@@ -471,7 +471,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_cheap_pants_a"
-	  "Model"                   "models/items/basic_coat.vmdl" 
+	  "Model"                   "models/items/basic_pants.vmdl" 
 	
 	  "Slot"  "pants"
 	  "EquipSound"  "ui.inv_equip_leather"
@@ -505,7 +505,7 @@
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_cheap_pants_b"
-	  "Model"                   "models/items/basic_coat.vmdl" 
+	  "Model"                   "models/items/basic_pants.vmdl" 
 	
 	  "Slot"  "pants"
 	  "EquipSound"  "ui.inv_equip_leather"
