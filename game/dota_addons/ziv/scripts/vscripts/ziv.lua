@@ -124,9 +124,7 @@ end
 function ZIV:OnGameInProgress()
   DebugPrint("[ZIV] The game has officially begun")
 
-  if Director.scenario then
-    Director.scenario:NextStage()
-  end
+  Director.scenario:NextStage()
 
   Timers:CreateTimer(
     function()

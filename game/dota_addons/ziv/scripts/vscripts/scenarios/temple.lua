@@ -267,5 +267,4 @@ function Temple:InitBossFight()
 
 end
 
-Temple:Init()
 return Temple

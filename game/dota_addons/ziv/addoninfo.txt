@@ -11,6 +11,10 @@
 	{
 		"MaxPlayers"					"4"
 	}
+	"ziv_mines_4p"
+	{
+		"MaxPlayers"					"4"
+	}
 	"Default_Keys"
 	{
 		"01"
