@@ -68,11 +68,13 @@ function IsInFront(a,b,direction)
 end
 
 function RandomPointInsideCircle(x, y, radius, min_length)
-  local randX, randY
-  repeat
-    randX, randY = math.random(-radius, radius), math.random(-radius, radius)
-  until (((-randX) ^ 2) + ((-randY) ^ 2)) ^ 0.5 <= radius and (not min_length or (Vector(randX, randY, 0) - Vector(x, y, 0)):Length2D() > min_length)
-  return Vector(x + randX, y + randY, 0)
+  local dist = math.random((min_length or 0), radius)
+  local angle = math.random(0, math.pi * 2)
+  
+  local xOffset = dist * math.cos(angle)
+  local yOffset = dist * math.sin(angle)
+  
+  return Vector(x + xOffset, y + yOffset, 0)
 end
 
 function RandomPointsInsideCircleUniform( pos, radius, count, uniform )
