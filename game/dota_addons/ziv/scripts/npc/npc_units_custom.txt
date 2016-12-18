@@ -417,7 +417,7 @@
 	} 
 	"npc_huntress_ballista"
 	{
-	    "BaseClass"                 "npc_dota_creature"
+	    "BaseClass"                 "npc_dota_base_additive"
 	    "Model"                     "models/units/ballista/ballista_top.vmdl"
 	    "SoundSet"                  "Creep_Good_Engine"
 	
@@ -436,7 +436,7 @@
 	    "AttackDamageType"          "DAMAGE_TYPE_ArmorPhysical"
 	    "AttackRate"                "1.100000"
 	    "AttackAnimationPoint"      "0.700000"
-	    "AttackAcquisitionRange"    "800"
+	    "AttackAcquisitionRange"    "900"
 	    "AttackRange"               "690"
 	    "ProjectileModel"           "particles/heroes/huntress/huntress_ballista_projectile.vpcf"
 	    "ProjectileSpeed"           "1500"
@@ -465,11 +465,6 @@
 	    "StatusHealthRegen"         "0"
 	    "StatusMana"                "0"
 	    "StatusManaRegen"           "0"
-	
-	    "TeamName"                  "DOTA_TEAM_GOODGUYS"
-	    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-	    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_SIEGE"
 	
 	    "VisionDaytimeRange"        "850"
 	    "VisionNighttimeRange"      "850"
@@ -2913,7 +2908,7 @@
 		"MovementSpeed"				"0"
 		"MovementTurnRate"			"0.0"
 	
-		"StatusHealth"				"100"
+		"StatusHealth"				"5000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"

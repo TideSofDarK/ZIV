@@ -59,6 +59,7 @@
 
 	// Slots
 	"slot"											"Slot: "
+	"slot_quiver"									"Quiver"
 	"slot_ammo"										"Ammo"
 	"slot_torso"									"Torso"
 	"slot_axe"										"Axe"
@@ -233,6 +234,9 @@
 	"ziv_knight_orb_projectile_speed"	"to Fire Orb projectile speed"
 
 	// Character presets
+	"samurai_preset_a"				"Fire Disciple"
+	"samurai_preset_b"				"Ice Disciple"
+
 	"dark_goddess_preset_a"			"Destroyer"
 	"dark_goddess_preset_b"			"Creator"
 

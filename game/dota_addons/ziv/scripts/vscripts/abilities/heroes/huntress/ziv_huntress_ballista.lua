@@ -5,7 +5,7 @@ function SpawnBallista( keys )
 
     StartRuneCooldown(ability,"ziv_huntress_ballista_cd",caster)
 
-	local _duration = ability:GetLevelSpecialValueFor("ballista_duration", ability:GetLevel())
+	local duration = ability:GetLevelSpecialValueFor("ballista_duration", ability:GetLevel())
 
 	local ballista = CreateUnitByName("npc_huntress_ballista", target, false, caster, caster, caster:GetTeamNumber())
 	ability:ApplyDataDrivenModifier(ballista,ballista,"modifier_ballista",{})
@@ -13,7 +13,9 @@ function SpawnBallista( keys )
     ability:ApplyDataDrivenModifier(ballista,ballista,"modifier_ballista_as",{})
     ballista:SetModifierStackCount("modifier_ballista_as",ballista,GRMSC("ziv_huntress_ballista_as", caster))
 
-	ballista:AddNewModifier(ballista, nil, "modifier_kill", {duration = _duration})
+	ballista:AddNewModifier(ballista, nil, "modifier_kill", {duration = duration})
+
+    print(ballista:IsDisarmed())
 
     ballista.bottom = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/units/ballista/ballista_bottom.vmdl", DefaultAnim=animation, targetname=DoUniqueString("prop_dynamic")})
     ballista.bottom:SetAbsOrigin(target)

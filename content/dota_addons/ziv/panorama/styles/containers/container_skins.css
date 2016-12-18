@@ -179,12 +179,12 @@
 
 .Equipment #slot5
 {
-  margin-top: 171px;
+  margin-top: 170px;
 }
 
 .Equipment #slot6
 {
-  margin-top: 256px;
+  margin-top: 255px;
 }
 
 .Equipment .ItemPanel
@@ -196,7 +196,7 @@
   width: 95px;
   height: 68px;
 
-  border-radius: 4px;
+  border-radius: 1px;
 
   box-shadow: fill #000000ff 0px 0px 12px 0px;
 }

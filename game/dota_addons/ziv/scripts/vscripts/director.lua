@@ -13,6 +13,8 @@ Director.BASIC_PACK_COUNT = 12
 Director.BASIC_PACK_SPREAD = 820
 Director.BASIC_LORD_SPREAD = 485
 
+Director.MAX_CREEPS = 150
+
 Director.color_modifier_list = Director.color_modifier_list or {}
 Director.creep_modifier_list = Director.creep_modifier_list or {}
 Director.lord_modifier_list = Director.lord_modifier_list or {}
@@ -56,7 +58,7 @@ function Director:Init()
 	end
 	
 	Director.WEARABLES_RNG = PseudoRNG.create( 0.3 )
-	print("asdasdasdasdas")
+
 	Director.scenario = require(Director:FindMapScenario(Director:GetMapName()))
 	if Director.scenario then
 		Director.scenario:Init()
@@ -210,11 +212,14 @@ end
 -- Position
 -- Type
 -- Spread
+-- MinimumSpread
 -- LordSpread
 -- NoLoot
 -- Duration
 -- CheckHeight
 -- Table
+-- AttackTarget
+-- CheckZ
 function Director:SpawnPack( pack_table )
 	if type(pack_table) == 'table' then
 		local basic_table = {}
@@ -234,6 +239,7 @@ function Director:SpawnPack( pack_table )
 			basic_table.Count = pack_table.Count or Director.BASIC_PACK_COUNT
 			basic_table.RandomizeCount = pack_table.RandomizeCount or true
 			basic_table.Spread = pack_table.BasicSpread
+			basic_table.MinimumSpread = pack_table.MinimumSpread
 			basic_table.Type = pack_table.Type or "creep"
 
 			basic_table.Lord = false
@@ -242,6 +248,10 @@ function Director:SpawnPack( pack_table )
 			basic_table.CheckTable = pack_table.CheckTable
 
 			basic_table.Table = pack_table.Table
+
+			basic_table.AttackTarget = pack_table.AttackTarget
+
+			basic_table.CheckZ = pack_table.CheckZ
 
 			Director:SpawnCreeps(basic_table)
 		end
@@ -263,6 +273,7 @@ function Director:SpawnPack( pack_table )
 			lord_table.Count = pack_table.LordCount or 1
 			lord_table.LordModifier = lord_modifier
 			lord_table.Spread = pack_table.Spread or Director.BASIC_LORD_SPREAD
+			lord_table.MinimumSpread = pack_table.MinimumSpread
 			lord_table.Type = pack_table.Type or "creep"
 
 			lord_table.Lord = true
@@ -271,6 +282,10 @@ function Director:SpawnPack( pack_table )
 			lord_table.CheckTable = pack_table.CheckTable
 
 			lord_table.Table = pack_table.Table
+
+			lord_table.AttackTarget = pack_table.AttackTarget
+
+			lord_table.CheckZ = pack_table.CheckZ
 
 			Director:SpawnCreeps(lord_table)
 		end
@@ -301,6 +316,10 @@ function Director:GenerateVisuals( creep_name )
 end
 
 function Director:SpawnCreeps( spawn_table )
+	if Director.current_session_creep_count > (Director.scenario.MAX_CREEPS or Director.MAX_CREEPS) then
+		return
+	end
+
 	if spawn_table then
 		local count = spawn_table.Count
 		if spawn_table.RandomizeCount == true then
@@ -326,7 +345,8 @@ function Director:SpawnCreeps( spawn_table )
 				visuals[creep_name] = visuals[creep_name] or Director:GenerateVisuals( creep_name )
 			end
 
-			local position = RandomPointInsideCircle(spawn_table.Position[1], spawn_table.Position[2], spawn_table.BasicSpread or Director.BASIC_PACK_SPREAD)
+			local position = RandomPointInsideCircle(spawn_table.Position[1], spawn_table.Position[2], spawn_table.BasicSpread or Director.BASIC_PACK_SPREAD, spawn_table.MinimumSpread)
+			position.z = spawn_table.Position[3]
 
 			local spawn = true
 
@@ -352,6 +372,11 @@ function Director:SpawnCreeps( spawn_table )
 
 			if spawn == true then
 				local creep = CreateUnitByNameAsync(creep_name, position, true, nil, nil, DOTA_TEAM_NEUTRALS, function ( creep )
+					if spawn_table.CheckZ and position.z ~= creep:GetAbsOrigin().z then
+						UTIL_Remove(creep)
+						return 
+					end
+
 					Director.current_session_creep_count = Director.current_session_creep_count + 1
 
 					creep:SetHasLoot( not spawn_table.NoLoot )
@@ -416,6 +441,12 @@ function Director:SpawnCreeps( spawn_table )
 						table.insert(spawn_table.Table, creep)
 						creep.pack = spawn_table.Table
 					end
+
+					if spawn_table.AttackTarget then
+						creep:MoveToPositionAggressive(spawn_table.AttackTarget:GetAbsOrigin())
+					end
+
+					FindClearSpaceForUnit(creep,position,true)
 				end)
 			end
 		end

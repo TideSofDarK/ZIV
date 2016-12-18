@@ -24,12 +24,15 @@ Mines.ROCKS_DURATION = 2.0
 Mines.ROCKS_INTERVAL_MIN = 8.0
 Mines.ROCKS_INTERVAL_MAX = 15.0
 
-Mines.PATH_THRESHOLD = 5
+Mines.PATH_THRESHOLD = 0.05
 Mines.SPAWN_THRESHOLD = 1200
-Mines.SPAWN_SPREAD = 1800
-Mines.SPAWN_MIN = 20
-Mines.SPAWN_MAX = 40
+Mines.SPAWN_MINIMUM_SPREAD = 2000
+Mines.SPAWN_SPREAD = 4000
+Mines.SPAWN_MIN = 12
+Mines.SPAWN_MAX = 25
 Mines.SPAWN_GC_TIME = 10.0
+Mines.SPAWN_INTERVAL = 8.5
+Mines.MAX_CREEPS = 75
 
 Mines.WAGON_SPEED = 5.5
 
@@ -61,7 +64,7 @@ function Mines:NextStage()
 
 		self:CleanupPregameArea()
 		self:SpawnCreeps()
-		self:FallingRocks()
+		-- self:FallingRocks()
 	end
 end
 
@@ -281,11 +284,14 @@ function Mines:SpawnCreeps()
 			    SpawnLord = math.random(1,2) == 1,
 			    BasicModifier = basic_modifier,
 			    Table = wagon.creeps,
-			    CheckTable = Characters.current_session_characters
+			    -- CheckTable = Characters.current_session_characters,
+			    MinimumSpread = self.SPAWN_MINIMUM_SPREAD,
+			    AttackTarget = wagon,
+			    CheckZ = true
 			})
 		end
 
-		return 2.0
+		return self.SPAWN_INTERVAL
 	end)
 end
 
