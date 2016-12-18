@@ -14,6 +14,19 @@ Util.SecondsToHHMMSS = (function (d) {
 	return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s); 
 });
 
+Util.SecondsToMMSS = (function (d) {
+    var seconds = Math.floor(d),
+    hours = Math.floor(seconds / 3600);
+    seconds -= hours*3600;
+    var minutes = Math.floor(seconds / 60);
+    seconds -= minutes*60;
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return minutes+':'+seconds;
+});
+
 Util.GetSteamID32 = (function () {
     var playerInfo = Game.GetPlayerInfo(Game.GetLocalPlayerID());
 

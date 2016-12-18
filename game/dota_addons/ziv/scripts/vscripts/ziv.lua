@@ -1,7 +1,7 @@
 ZIV_DEBUG_SPEW = false 
 
 if ZIV == nil then
-    DebugPrint( '[ZIV] creating ziv game mode' )
+    DebugPrint( '[ZIV] creating game mode' )
     _G.ZIV = class({})
 end
 
@@ -85,13 +85,13 @@ function ZIV:OnAllPlayersLoaded()
 
   Timers:CreateTimer(1.0, function () 
     DoToAllPlayers(function ( player )
-      CustomNetTables:SetTableValue( "settings", tostring(player:GetPlayerID()), {
+      CustomNetTables:SetTableValue("settings", tostring(player:GetPlayerID()), {
         CustomSettingDamage = ZIV_CustomSettingDamage_DEFAULT, 
         CustomSettingAutoEquip = ZIV_CustomSettingAutoEquip_DEFAULT,
         CustomSettingShowTooltip = ZIV_CustomSettingShowTooltip_DEFAULT,
         CustomSettingControls = ZIV_CustomSettingControls_DEFAULT,
         CustomSettingMinimap = ZIV_CustomSettingMinimap_DEFAULT,
-        })
+      })
     end)
 
     PlayerTables:CreateTable("kvs", { 
@@ -104,8 +104,8 @@ function ZIV:OnAllPlayersLoaded()
       attributes = ZIV.AttributesKVs,
       account = Account.SETTINGS,
       rewards = Account.REWARDS,
-      }, true)
-    end)
+    }, true)
+  end)
 end
 
 function ZIV:OnHeroInGame(hero)
@@ -117,6 +117,8 @@ function ZIV:OnHeroInGame(hero)
   local player = PlayerResource:GetPlayer(pID)
 
   local hero_name = hero:GetUnitName()
+
+  -- UTIL_Remove(hero)
 
   Characters:SpawnCharacter(pID, PlayerTables:GetTableValue("characters", "characters")[pID])
 end

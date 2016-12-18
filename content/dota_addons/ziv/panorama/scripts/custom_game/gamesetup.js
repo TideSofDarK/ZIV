@@ -60,7 +60,7 @@ function SetStatusIcon(panel, status) {
 function OnGameSetupTableChanged(tableName, changesObject, deletionsObject) {
 	if (changesObject["time"]) {
 		var time = changesObject["time"]["time"]
-		$("#TimeLabel").text = Util.SecondsToHHMMSS(time);
+		$("#TimeLabel").text = Util.SecondsToMMSS(time);
 	}
 	if (changesObject["status"]) {
 		var status = changesObject["status"];

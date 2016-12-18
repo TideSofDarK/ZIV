@@ -48,10 +48,10 @@ Loot.CHEST_MODELS[2] 	= "item_basic_chest_flopjaw"
 Loot.CHEST_MODELS[3] 	= "item_basic_chest_mechjaw"
 Loot.CHEST_MODELS[4] 	= "item_basic_chest_trapjaw"
 
-Loot.CommonModifiers	= {}
-Loot.RuneModifiers 		= {}
+Loot.CommonModifiers	= Loot.CommonModifiers or {}
+Loot.RuneModifiers 		= Loot.RuneModifiers or {}
 
-Loot.Table = {}
+Loot.Table = Loot.Table or {}
 
 function Loot:Init()
 	-- All droppable items

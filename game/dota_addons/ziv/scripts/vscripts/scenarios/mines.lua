@@ -26,10 +26,10 @@ Mines.ROCKS_INTERVAL_MAX = 15.0
 
 Mines.PATH_THRESHOLD = 0.05
 Mines.SPAWN_THRESHOLD = 1200
-Mines.SPAWN_MINIMUM_SPREAD = 2000
-Mines.SPAWN_SPREAD = 4000
-Mines.SPAWN_MIN = 12
-Mines.SPAWN_MAX = 25
+Mines.SPAWN_MINIMUM_SPREAD = 2400
+Mines.SPAWN_SPREAD = 4500
+Mines.SPAWN_MIN = 20
+Mines.SPAWN_MAX = 50
 Mines.SPAWN_GC_TIME = 10.0
 Mines.SPAWN_INTERVAL = 8.5
 Mines.MAX_CREEPS = 75
@@ -65,6 +65,8 @@ function Mines:NextStage()
 		self:CleanupPregameArea()
 		self:SpawnCreeps()
 		-- self:FallingRocks()
+	elseif self.stage == self.STAGE_BOSS then
+		Director:SpawnBoss( nil, self.wagon:GetAbsOrigin() )
 	end
 end
 
@@ -151,6 +153,13 @@ function CheckEscorts( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
+	local percentage = caster.path_traveled / caster.path_length
+
+	if percentage >= 50 and Director.scenario.stage < Mines.STAGE_BOSS then
+		Director.scenario:NextStage()
+		return
+	end
+
 	if not Director.scenario:CanMoveWagon() then
 		return
 	end
@@ -164,7 +173,7 @@ function CheckEscorts( keys )
 	local units = DoToUnitsInRadius( caster, caster:GetAbsOrigin(), GetSpecial(ability, "radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, function ( v )
 		ParticleManager:SetParticleControl(caster.area, 2, Vector(0,128,0))
 
-		CustomNetTables:SetTableValue( "scenario", "wagon", {percentage = (caster.path_traveled / caster.path_length)} )
+		CustomNetTables:SetTableValue( "scenario", "wagon", {percentage = percentage} )
 
 		local movement = Timers:CreateTimer(0.0, function ()
 			local position = caster:GetAbsOrigin()
@@ -267,6 +276,14 @@ end
 
 function Mines:SpawnCreeps()
 	local wagon = self.wagon
+
+	if self.creeps then
+		for k,v in pairs(self.creeps) do
+			UTIL_Remove(v)
+		end
+	end
+
+	self.creeps = {}
 	
 	Timers:CreateTimer(2.0, function ()
 		if wagon and self:GetPathPercentage() > self.PATH_THRESHOLD then
@@ -283,15 +300,33 @@ function Mines:SpawnCreeps()
 			    Spread = self.SPAWN_SPREAD,
 			    SpawnLord = math.random(1,2) == 1,
 			    BasicModifier = basic_modifier,
-			    Table = wagon.creeps,
-			    -- CheckTable = Characters.current_session_characters,
+			    Table = self.creeps,
+			    CheckTable = Characters.current_session_characters,
 			    MinimumSpread = self.SPAWN_MINIMUM_SPREAD,
-			    AttackTarget = wagon,
+			    AttackTarget = self.wagon,
 			    CheckZ = true
 			})
 		end
 
 		return self.SPAWN_INTERVAL
+	end)
+
+	-- GC
+	Timers:CreateTimer(function (  )
+		if self.creeps then
+			for k,v in pairs(self.creeps) do
+				if not v:IsNull() and v:IsIdle() then
+					v.idle_count = (v.idle_count or 0) + 1
+					if v.idle_count == 10 then
+						v:ForceKill(false)
+						self.creeps[k] = nil
+						print("Asdasda")
+					end
+				end
+			end
+		end
+
+		return 1.0
 	end)
 end
 

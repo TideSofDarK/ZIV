@@ -87,17 +87,19 @@ function Director:PregameReady(args)
 end
 
 function Director:StartPregame()
-	Director.pregame_status = GeneratePlayerArray(false)
+	Timers:CreateTimer(4.0, function (  )
+		Director.pregame_status = GeneratePlayerArray(false)
 
-	Director.pregame_on_end = (function (  )
-		Director.scenario:NextStage()
+		Director.pregame_on_end = (function (  )
+			Director.scenario:NextStage()
 
-		CustomGameEventManager:Send_ServerToAllClients("ziv_pregame_done",{}) 
+			CustomGameEventManager:Send_ServerToAllClients("ziv_pregame_done",{}) 
+		end)
+
+		Director.pregame_timer = Director:StartTimer("pregame", Director.scenario.PREGAME_TIME, function ( t )
+			
+		end, Director.pregame_on_end)
 	end)
-
-	Director.pregame_timer = Director:StartTimer("pregame", Director.scenario.PREGAME_TIME, function ( t )
-		
-	end, Director.pregame_on_end)
 end
 
 function Director:StartTimer(name, duration, tick, on_end)
@@ -442,11 +444,15 @@ function Director:SpawnCreeps( spawn_table )
 						creep.pack = spawn_table.Table
 					end
 
-					if spawn_table.AttackTarget then
-						creep:MoveToPositionAggressive(spawn_table.AttackTarget:GetAbsOrigin())
-					end
-
 					FindClearSpaceForUnit(creep,position,true)
+
+					Timers:CreateTimer(function (  )
+						if spawn_table.AttackTarget then
+							-- creep:MoveToPositionAggressive(spawn_table.AttackTarget:GetAbsOrigin())
+							creep:MoveToTargetToAttack(spawn_table.AttackTarget)
+							ExecuteOrderFromTable({ UnitIndex = creep:entindex(), OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET, TargetIndex = spawn_table.AttackTarget:entindex(), Queue = nil})
+						end
+					end)
 				end)
 			end
 		end
@@ -462,15 +468,16 @@ function Director:SpawnBoss( boss_name, position )
 	end
 
 	PrecacheUnitByNameAsync(boss_name,function ()
-		CreateUnitByNameAsync(boss_name,position,true,nil,nil,DOTA_TEAM_NEUTRALS,function ( boss )
-      AI:BossStart( boss )
+		CreateUnitByNameAsync(boss_name, position, true, nil, nil, DOTA_TEAM_NEUTRALS, function ( boss )
+      		AI:BossStart( boss )
+
 			Director:SetupCustomUI( "boss_hpbar", { boss = boss:entindex() } )
-			print("spawned")
+
 			CustomNetTables:SetTableValue( "scenario", "boss", {entindex = boss:entindex()} )
 
-			boss:AddOnDiedCallback( function (  )
+			boss:AddOnDiedCallback( function ( )
 
-			end )
+			end)
 		end)
 	end,0)
 end

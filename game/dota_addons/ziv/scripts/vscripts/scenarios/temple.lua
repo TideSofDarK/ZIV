@@ -43,35 +43,35 @@ Temple.creeps_positions = {}
 Temple.obelisks = {}
 
 function Temple:Init()
-	Temple.obelisks_positions = Entities:FindAllByName("ziv_temple_obelisk")
-	Temple.creeps_positions = Entities:FindAllByName("ziv_temple_obelisk") --ziv_basic_creep_spawner
-	Temple.boss_area = GetArea("ziv_temple_boss_area*")
+	self.obelisks_positions = Entities:FindAllByName("ziv_temple_obelisk")
+	self.creeps_positions = Entities:FindAllByName("ziv_temple_obelisk") --ziv_basic_creep_spawner
+	self.boss_area = GetArea("ziv_temple_boss_area*")
 
 	CustomNetTables:SetTableValue( "scenario", "map", {min = self.WORLD_MIN, max = self.WORLD_MAX, map = GetMapName()} )
 end
 
 function Temple:SetObelisksCount()
-	CustomNetTables:SetTableValue( "scenario", "obelisks", {count = GetTableLength(Temple.obelisks), max = Temple.OBELISK_COUNT} )
+	CustomNetTables:SetTableValue( "scenario", "obelisks", {count = GetTableLength(self.obelisks), max = self.OBELISK_COUNT} )
 end
 
 function Temple:NextStage()
-	Temple.stage = Temple.stage + 1
+	self.stage = self.stage + 1
 
-	if Temple.stage == Temple.STAGE_END then
+	if self.stage == self.STAGE_END then
 
 	else
-		if Temple.stage == Temple.STAGE_FIRST then
+		if self.stage == self.STAGE_FIRST then
 			self:CleanupBossFight()
 
 			Director:SetupCustomUI( "temple_objectives" )
 
 			-- Temple:FallingRocks()
-		elseif Temple.stage == Temple.STAGE_BOSS then
+		elseif self.stage == self.STAGE_BOSS then
 			
 		else
 			self:SetupMap()
 
-			if Temple.stage == Temple.STAGE_PREGAME then
+			if self.stage == self.STAGE_PREGAME then
 				self:InitBossArea()
 
 				Director:StartPregame(  )
@@ -85,7 +85,7 @@ function Temple:NextStage()
 						-- ParticleManager:CreateParticleForPlayer("particles/rain_fx/econ_weather_sirocco.vpcf", PATTACH_EYES_FOLLOW, hero, hero:GetPlayerOwner())
 					-- end)
 				-- end)
-			elseif Temple.stage == Temple.STAGE_SECOND then
+			elseif self.stage == self.STAGE_SECOND then
 
 			end
 		end	
@@ -93,7 +93,7 @@ function Temple:NextStage()
 end
 
 function Temple:FallingRocks()
-	local start_stage = Temple.stage
+	local start_stage = self.stage
 
 	DoToAllHeroes(function ( hero )
 		Timers:CreateTimer(function (  )
@@ -112,24 +112,24 @@ function Temple:FallingRocks()
 
 					local timer = 0.0
 
-					Timers:CreateTimer(Temple.ROCKS_DELAY, function ()
+					Timers:CreateTimer(self.ROCKS_DELAY, function ()
 						local units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 						for k,v in pairs(units) do
 							if v ~= unit then
-								Damage:Deal( unit, v, v:GetMaxHealth() * Temple.ROCKS_DAMAGE, DAMAGE_TYPE_PHYSICAL ) 
+								Damage:Deal( unit, v, v:GetMaxHealth() * self.ROCKS_DAMAGE, DAMAGE_TYPE_PHYSICAL ) 
 								-- v:AddNewModifier(unit,nil,"modifier_stunned",{duration=0.03})
 							end
 						end
 
-						timer = timer + Temple.ROCKS_TICK
-						if timer < Temple.ROCKS_DURATION then return Temple.ROCKS_TICK 
+						timer = timer + self.ROCKS_TICK
+						if timer < self.ROCKS_DURATION then return self.ROCKS_TICK 
 						else 
 							ParticleManager:DestroyParticle(particle,false)
 							unit:ForceKill(false)
 						end
 					end)
 				end)
-				return math.random(Temple.ROCKS_INTERVAL_MIN, Temple.ROCKS_INTERVAL_MAX)
+				return math.random(self.ROCKS_INTERVAL_MIN, self.ROCKS_INTERVAL_MAX)
 			end
 			return 0.0
 		end)
@@ -137,29 +137,29 @@ function Temple:FallingRocks()
 end
 
 function Temple:SetupMap()
-	Temple.obelisks = DistributeUnits( Temple.obelisks_positions, "npc_temple_obelisk", Temple.OBELISK_COUNT, DOTA_TEAM_NEUTRALS, function (obelisk)
-		for i=#Temple.obelisks,1,-1 do
-		    if Temple.obelisks[i] == obelisk then
-		        table.remove(Temple.obelisks, i)
-		        Temple:SetObelisksCount()
+	self.obelisks = DistributeUnits( self.obelisks_positions, "npc_temple_obelisk", self.OBELISK_COUNT, DOTA_TEAM_NEUTRALS, function (obelisk)
+		for i=#self.obelisks,1,-1 do
+		    if self.obelisks[i] == obelisk then
+		        table.remove(self.obelisks, i)
+		        self:SetObelisksCount()
 		    end
 		end
 	end )
-	Temple:SetObelisksCount()
+	self:SetObelisksCount()
 
-	Temple:SpawnCreeps()
+	self:SpawnCreeps()
 end
 
 function Temple:SpawnCreeps()
-	for k,v in pairs(Temple.creeps_positions) do
-		Temple:DestroyCreeps( v )
+	for k,v in pairs(self.creeps_positions) do
+		self:DestroyCreeps( v )
 	end
 
 	Timers:CreateTimer(function (  )
 		DoToAllHeroes(function ( hero )
-			for k,v in pairs(Temple.creeps_positions) do
+			for k,v in pairs(self.creeps_positions) do
 				local distance = (v:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D()
-				if distance < Temple.SPAWN_THRESHOLD and not v.creeps then --GetTableLength(v.creeps) == 0
+				if distance < self.SPAWN_THRESHOLD and not v.creeps then --GetTableLength(v.creeps) == 0
 					v.creeps = v.creeps or {}
 
 					local basic_modifier
@@ -169,23 +169,23 @@ function Temple:SpawnCreeps()
 
 					Director:SpawnPack({
 				        SpawnBasic = true,
-				        Count = math.random(Temple.SPAWN_MIN, Temple.SPAWN_MAX),
+				        Count = math.random(self.SPAWN_MIN, self.SPAWN_MAX),
 				        Position = v:GetAbsOrigin(),
 				        CheckHeight = true,
-				        Spread = Temple.SPAWN_SPREAD,
+				        Spread = self.SPAWN_SPREAD,
 				        SpawnLord = math.random(1,2) == 1,
 				        BasicModifier = basic_modifier,
 				        Table = v.creeps,
 				        CheckTable = Characters.current_session_characters
 				    })
 				elseif v.creeps then
-					if v.idle_count and v.idle_count > Temple.SPAWN_GC_TIME then
-						Temple:DestroyCreeps( v )
+					if v.idle_count and v.idle_count > self.SPAWN_GC_TIME then
+						self:DestroyCreeps( v )
 					else
 						local idle = true
 						for k2,v2 in pairs(v.creeps) do
 							if v2:IsNull() == false then
-								if Distance(hero, v2) <= Temple.SPAWN_THRESHOLD or hero:CanEntityBeSeenByMyTeam(v2) == true or v2:IsIdle() == false then --v2:IsAlive() == true and v2:IsIdle() == false and 
+								if Distance(hero, v2) <= self.SPAWN_THRESHOLD or hero:CanEntityBeSeenByMyTeam(v2) == true or v2:IsIdle() == false then --v2:IsAlive() == true and v2:IsIdle() == false and 
 									idle = false
 									v.idle_count = 0.0
 									break
@@ -217,36 +217,36 @@ function Temple:DestroyCreeps( v )
 end
 
 function Temple:InitBossArea()
-	Temple.boss_area_container = {}
+	self.boss_area_container = {}
 
-	local last = Temple.boss_area[#Temple.boss_area]
+	local last = self.boss_area[#self.boss_area]
 
-	for k, v in orderedPairs(Temple.boss_area) do
+	for k, v in orderedPairs(self.boss_area) do
 		local wall = ParticleManager:CreateParticle("particles/bosses/ziv_boss_area.vpcf",PATTACH_CUSTOMORIGIN,nil)
 		ParticleManager:SetParticleControl(wall,0,last)
 		ParticleManager:SetParticleControl(wall,1,v)
 		last = v
 
-		table.insert(Temple.boss_area_container, wall)
+		table.insert(self.boss_area_container, wall)
 	end
 
-	DistributeUnitsAlongPolygonPath(Temple.boss_area, function ( pos, is_tower )
+	DistributeUnitsAlongPolygonPath(self.boss_area, function ( pos, is_tower )
 		local blocker = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = pos, block_fow = true})
 
 		local pos = GetGroundPosition(pos, blocker)
         blocker:SetAbsOrigin(pos)
 
-		table.insert(Temple.boss_area_container, blocker)
+		table.insert(self.boss_area_container, blocker)
 	end, 32)
 
 	DoToAllHeroes(function ( hero )
-		hero:AddNewModifier(hero,hero,"modifier_area_lock",{}).area = Temple.boss_area
+		hero:AddNewModifier(hero,hero,"modifier_area_lock",{}).area = self.boss_area
 	end)
 end
 
 function Temple:CleanupBossFight()
-	if Temple.boss_area_container then
-		for k,v in pairs(Temple.boss_area_container) do
+	if self.boss_area_container then
+		for k,v in pairs(self.boss_area_container) do
 			if type(v) == "number" then
 				ParticleManager:DestroyParticle(v, false)
 			else
@@ -261,8 +261,8 @@ function Temple:CleanupBossFight()
 end
 
 function Temple:InitBossFight()
-	Temple:CleanupBossFight()
-	Temple:InitBossArea()
+	self:CleanupBossFight()
+	self:InitBossArea()
 
 
 end

@@ -2,7 +2,7 @@
 {
   "BaseClass"           "ability_lua"
   "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-  "AbilityTextureName"            "ziv_empty"
+  "AbilityTextureName"            "ziv_witch_doctor_blink"
 
   "AbilityCooldown"   "1.5"
   "AbilityManaCost"   "40"

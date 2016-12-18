@@ -210,7 +210,7 @@ function UpdateAccount(tableName, changes, deletions) {
 		p.visible = false;
 	});
 
-	$.Schedule(1, function() {
+	$.Schedule(2, function() {
 		$.$('#Hud #DOTADroppedItemTooltip').each(function(p) {
 			p.visible = false;
 		});

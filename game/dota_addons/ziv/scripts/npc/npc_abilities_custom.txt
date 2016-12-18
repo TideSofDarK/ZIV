@@ -6073,7 +6073,7 @@
 	{
 	  "BaseClass"           "ability_lua"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_witch_doctor_blink"
 	
 	  "AbilityCooldown"   "1.5"
 	  "AbilityManaCost"   "40"
@@ -6103,7 +6103,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_witch_doctor_curse"
 	
 	  "AOERadius" "300"
 	
@@ -6211,7 +6211,7 @@
 	{
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_witch_doctor_soul_sacrifice"
 	
 	  "precache"
 	  {
@@ -6274,7 +6274,7 @@
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_witch_doctor_spawn"
 	
 	  "AOERadius" "300"
 	
@@ -6369,7 +6369,7 @@
 	  "BaseClass"           "ability_datadriven"
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 	  "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-	  "AbilityTextureName"            "ziv_empty"
+	  "AbilityTextureName"            "ziv_witch_doctor_spawn2"
 	
 	  "AOERadius" "300"
 	
@@ -7350,7 +7350,7 @@
 	      "States"
 	      {
 	        "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
-	        "MODIFIER_STATE_NO_HEALTH_BAR"   "MODIFIER_STATE_VALUE_ENABLED"
+	        // "MODIFIER_STATE_NO_HEALTH_BAR"   "MODIFIER_STATE_VALUE_ENABLED"
 	      }
 	
 	      "ThinkInterval"  "0.5"
