@@ -252,6 +252,8 @@ function ScreenHeightWidth()
 
 function UpdateEntities()
 {
+  $.GetContextPanel().SetHasClass('AltPressed', GameUI.IsAltDown());
+
   if (Object.keys(panels).length > 0)
     entities = Entities.GetAllEntities();
 

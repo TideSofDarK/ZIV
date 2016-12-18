@@ -4,6 +4,9 @@ var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 var Util = GameUI.CustomUIConfig().Util;
 var Account = GameUI.CustomUIConfig().Account;
 
+// pQuery - panorama jQuery (=
+$.$ = GameUI.CustomUIConfig().$;
+
 GameUI.SetRenderBottomInsetOverride( 0 );
 GameUI.SetRenderTopInsetOverride( 0 );
 
@@ -203,5 +206,13 @@ function UpdateAccount(tableName, changes, deletions) {
 	GameUI.CustomUIConfig().ToggleStatusWindow = ToggleStatusWindow;
 	GameUI.CustomUIConfig().ToggleEquipmentWindow = ToggleEquipmentWindow;
 
-	Util.Selector(GameUI.CustomUIConfig().hudRoot, '#quickstats')[0].visible = false;
+	$.$('#quickstats').each(function(p) {
+		p.visible = false;
+	});
+
+	$.Schedule(1, function() {
+		$.$('#Hud #DOTADroppedItemTooltip').each(function(p) {
+			p.visible = false;
+		});
+	}); 
 })();
