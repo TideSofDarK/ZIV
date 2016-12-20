@@ -94,7 +94,7 @@ function RemoveUnusedMarks( units )
 		var entityID = matches && matches.length > 0 ? matches[0] : -1;
 
 		if (units.indexOf(Number(entityID)) == -1)
-			marksContainer.GetChild(i).DeleteAsync(0.1);
+			marksContainer.GetChild(i).DeleteAsync(0.06);
 	}
 }
 
@@ -181,19 +181,24 @@ function ClearFog()
 
 function UpdateMinimap()
 {
-	if ($.GetContextPanel().visible){
-		UpdateImagePosition();
-		UpdatePointerPosition();
-		UpdateUnits();
-		UpdateEvents();
+	$.Schedule(0.06, UpdateMinimap);
 
-		ClearFog(); 		
+	if (settings.image == "png") {
+		$.GetContextPanel().SetHasClass("WindowClosed", true)
+	} else {
+		$.GetContextPanel().SetHasClass("WindowClosed", false)
+
+		if ($.GetContextPanel().visible){
+			UpdateImagePosition();
+			UpdatePointerPosition();
+			UpdateUnits();
+			UpdateEvents();
+
+			ClearFog(); 		
+		}
+
+		$("#FogMap").RunJavascript('LoadImage("' + settings.image + '");');  
 	}
-
-	$.Schedule(0.02, UpdateMinimap);
-
-	// $("#FogMap").RunJavascript('LoadImage("http://puu.sh/rXDr6/5613600704.png");');  
-	$("#FogMap").RunJavascript('LoadImage("https://puu.sh/sE9Ef/fee0bda05d.png");');  
 }
 
 function CalculateClickPosition( offset, angle ) {
@@ -262,7 +267,7 @@ function MinimapClick()
 function GetUnits() {
 	units = Entities.GetAllEntities().filter(settings.filter);
 
-	$.Schedule(0.1, GetUnits);
+	$.Schedule(0.06, GetUnits);
 }
 
 function SetWorldBounds( args ) 
@@ -287,7 +292,7 @@ function MinimapEvent( args )
 	panel.style.transform = 'rotateZ( ' + -settings.rotation + 'deg );';
 
 	// Delay to calculate sizes
-	$.Schedule(0.1, function() {
+	$.Schedule(0.06, function() {
 		SetMapPosByWorldPos( panel, [ args.pos[0], args.pos[1] ]);
 	});
 

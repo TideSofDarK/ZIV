@@ -176,7 +176,8 @@ function Temple:SpawnCreeps()
 				        SpawnLord = math.random(1,2) == 1,
 				        BasicModifier = basic_modifier,
 				        Table = v.creeps,
-				        CheckTable = Characters.current_session_characters
+				        CheckTable = Characters.current_session_characters,
+				        AttackTarget = hero
 				    })
 				elseif v.creeps then
 					if v.idle_count and v.idle_count > self.SPAWN_GC_TIME then

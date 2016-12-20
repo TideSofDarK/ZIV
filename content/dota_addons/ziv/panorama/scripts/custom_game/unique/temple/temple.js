@@ -45,5 +45,5 @@ function GetMarkType( entity )
 	
 	CustomNetTables.SubscribeNetTableListener( "scenario", OnScenarioChanged );
 
-	GameUI.CustomUIConfig().SetMinimapSettings({ rotation: 45, filter: MinimapFilter, marks: GetMarkType });  
+	GameUI.CustomUIConfig().SetMinimapSettings({ rotation: 45, filter: MinimapFilter, marks: GetMarkType, image: "http://puu.sh/rXDr6/5613600704.png" });  
 })();

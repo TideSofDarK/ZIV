@@ -125,11 +125,11 @@ function PopupDamage(player, target, number, coef)
         return
     end
 
-    local pidx = ParticleManager:CreateParticleForPlayer("particles/ziv_damage_alt.vpcf", PATTACH_ABSORIGIN, target, player) -- target:GetOwner()
+    local particle = "particles/msg_fx/ziv_damage_"..tostring(math.ceil(number / Damage.DAMAGE_POPUP_SIZE) * Damage.DAMAGE_POPUP_SIZE)..".vpcf"
+
+    local pidx = ParticleManager:CreateParticleForPlayer(particle, PATTACH_ABSORIGIN, target, player) -- target:GetOwner()
 
     ParticleManager:SetParticleControl(pidx, 0, position + offset)
-    ParticleManager:SetParticleControl(pidx, 1, Vector(digits, 0, 0))
-    ParticleManager:SetParticleControl(pidx, 2, Vector(round(tonumber(final_number)), 0, 0))
-    ParticleManager:SetParticleControl(pidx, 3, Vector(4 + (12 * coef), 0, 0)) 
+    ParticleManager:SetParticleControl(pidx, 2, Vector((number % Damage.DAMAGE_POPUP_SIZE), 0, 0))
     ParticleManager:SetParticleControl(pidx, 4, color)  
 end

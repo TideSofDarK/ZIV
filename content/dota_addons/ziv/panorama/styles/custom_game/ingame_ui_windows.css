@@ -166,7 +166,8 @@
 }
 
 .BasicShadow {
-	box-shadow: #000000ff 0px 0px 21px 0px;
+	box-shadow: #000000ff 0px 0px 20px 0px;
+	border-radius: 1px;
 }
 
 .WindowButtonLabel {

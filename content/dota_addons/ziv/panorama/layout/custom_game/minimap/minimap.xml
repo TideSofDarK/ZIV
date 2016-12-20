@@ -8,7 +8,7 @@
 		<include src="file://{resources}/scripts/custom_game/minimap/minimap_settings.js" />
 		<include src="file://{resources}/scripts/custom_game/minimap/minimap.js" />
 	</scripts>
-	<Panel class="MinimapRoot TopRight" hittest="false"> 
+	<Panel class="MinimapRoot TopRight WindowAnimation" hittest="false"> 
 		<Panel class="ImageContainer" id="ImagePanel">
 			<Image class="MinimapMarks" id="PointerImage" src="file://{images}/custom_game/minimap/pointer.png" />			
 			<Panel id="MinimapImage" onactivate="minimapClick()">

@@ -37,6 +37,10 @@
 }
 
 .MinimapMarks {
+	transition-property: transform, margin;
+	transition-duration: 0.06s, 0.06s;
+	transition-timing-function: linear, linear;
+
 	z-index: 1;
 }
 

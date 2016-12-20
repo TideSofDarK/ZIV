@@ -3,6 +3,7 @@
 var settings = {
 	visible: true,
 	rotation: 45,
+	image: "png",
 	filter: function( entity ){
 		return false;
 	},
@@ -24,7 +25,7 @@ function SetMinimapSettings( newSettings ) {
 			continue;
 
 		settings[key] = newSettings[key];
-		
+
 		switch(key)	{
 			case 'visible':
 				$.GetContextPanel().visible = settings.visible;

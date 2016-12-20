@@ -58,6 +58,8 @@ Damage.BLOOD_PARTICLES[2] = "particles/creeps/ziv_creep_blood_b.vpcf"
 Damage.BLOOD_PARTICLES[3] = "particles/creeps/ziv_creep_blood_c.vpcf"
 Damage.BLOOD_PARTICLES[4] = "particles/creeps/ziv_creep_blood_d.vpcf"
 
+Damage.DAMAGE_POPUP_SIZE = 35
+
 function Damage:Init()
 	PlayerTables:CreateTable("damage", {}, true)
 end
@@ -191,9 +193,8 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 		attacker:GetPlayerOwnerID() >= 0 and 
 		GetZIVSpecificSetting(attacker:GetPlayerOwnerID(), "Damage") 
 		and not no_popup then 
-		-- if damage >= (min_damage + max_damage) / 2 then
-			PopupDamage(attacker:GetPlayerOwner(), victim, round(damage), damage / max_damage)
-		-- end
+
+		PopupDamage(attacker:GetPlayerOwner(), victim, round(damage), damage / max_damage)
 	end
 	-- PopupExperience(victim, math.ceil(damage))
 
