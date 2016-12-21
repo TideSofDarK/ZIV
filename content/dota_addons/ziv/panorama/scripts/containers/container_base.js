@@ -34,7 +34,7 @@ function OpenContainer(msg)
   if (!containerPanel){
     var idString = "cont_" + id;
     var layoutFile = PlayerTables.GetTableValue(idString, "layoutFile") || "file://{resources}/layout/custom_game/containers/container.xml";
-
+    
     containerPanel = $.CreatePanel( "Panel", panel, "" );
     containerPanel.BLoadLayout(layoutFile, false, false);
     containers[id] = containerPanel;

@@ -153,6 +153,8 @@ function CheckEscorts( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 
+	if caster:IsNull() then return end
+
 	local percentage = caster.path_traveled / caster.path_length
 
 	if percentage >= 50 and Director.scenario.stage < Mines.STAGE_BOSS then
@@ -320,7 +322,6 @@ function Mines:SpawnCreeps()
 					if v.idle_count == 10 then
 						v:ForceKill(false)
 						self.creeps[k] = nil
-						print("Asdasda")
 					end
 				end
 			end

@@ -5,9 +5,9 @@ function ZIV:Test()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
 
-      -- Account:AddEXP( playerID, 10500 )
-      Director.scenario:BuildPath()
-      Director.scenario:SpawnCart()
+      Account:AddEXP( playerID, 1100 )
+      -- Director.scenario:BuildPath()
+      -- Director.scenario:SpawnCart()
     end
   end
 end

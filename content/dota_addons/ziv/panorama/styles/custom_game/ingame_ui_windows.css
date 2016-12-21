@@ -199,12 +199,15 @@
 
 .TooltipBorderA {
 	border: 2px solid #AEA998;
+
+	border-radius: 6px;
 }
 
 .TooltipBorderB {
 	padding: 12px;
 
 	border: 3px solid #41626E;
+	border-radius: 6px;
 
 	background-color: #101D21;
 
@@ -215,6 +218,8 @@
 
 #Contents {
 	padding: 0px;
+	box-shadow: none;
+	border-width: 1px;
 }
 
 .TooltipContents {
@@ -294,14 +299,14 @@
 
 #AccountTier {
 	width: 100%;
-	height: 128px;
-
-	flow-children: right;
+	height: fit-children;
 }
 
 #AccountTooltipTierIcon {
 	height: 100px;
 	width: 100px;
+
+	margin-left: 4px;
 
 	vertical-align: center;
 
@@ -318,23 +323,80 @@
 	background-repeat: no-repeat;
 }
 
-#AccountTooltipTierLabel {
-	vertical-align: center;
+#AccountTooltipTierTypeLabel,
+#AccountTooltipTierLabel,
+ {
+	align: center center;
 
-	padding-left: 25px;
-
+	text-align: center;
 	font-weight: bold;
-	font-size: 20px;
+	color: #A5ADA2ff;
+	letter-spacing: 1px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	text-transform: uppercase;
 
 	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 }
 
-#AccountTooltipEXPLabel {
+#AccountTooltipTierLabel {
+	font-size: 12px;
+}
+
+#AccountTooltipInfoLabel {
+	width: 55%;
+
+	padding-bottom: -20px;
+
+	font-size: 15px;
+	line-height: 12px;
+	text-align: center;
+
+	vertical-align: middle;
+	horizontal-align: right;
+	
+	color: #2F5B54;
+}
+
+#AccountTooltipEXPNumberLabel {
 	horizontal-align: center;
 
 	font-weight: bold;
 
 	font-size: 20px;
+}
+
+#AccountTooltipInfo {	
+	width: 45%;
+
+	align: left center;
+
+	flow-children: down;
+}
+
+.AccountTooltipRewards {
+	width: 100%;
+
+	flow-children: down;
+}
+
+#AccountTooltipRewardsLevelLabel,
+#AccountTooltipEXPLabel {
+	horizontal-align: center;
+
+	margin: 5px;
+
+	font-size: 12px;
+
+	color: #A5ADA2ff;
+	letter-spacing: 1px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	text-transform: uppercase;
+}
+
+#AccountTooltipRewardsLabel {
+	line-height: 15px;
+	font-weight: bold;
+	/*brightness: 2.0;*/
 }
 
 /*

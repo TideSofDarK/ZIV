@@ -27,7 +27,7 @@
 .SmallTreasure #Header,
 .BigTreasure #Header,
 {
-  height: 80px;
+  height: 76px;
   background-color: transparent;
 }
 
@@ -44,7 +44,7 @@
 .SmallTreasure #Footer,
 .BigTreasure #Footer,
 {
-  
+  margin-bottom: 14px;
 }
 
 .SmallTreasure #HeaderLabel,
@@ -59,7 +59,8 @@
   border-color: transparent;
   background-color: transparent;
 
-  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
   margin-left: 0px;
   margin-right: 0px;
 }

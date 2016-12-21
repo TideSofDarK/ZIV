@@ -34,13 +34,22 @@
         </snippet>
         <snippet name="AccountTooltip">
             <Panel class="AccountTooltip WindowAnimation">
+                <Label id="AccountTooltipEXPLabel" text="#experience"/>
+                <Label id="AccountTooltipEXPNumberLabel" text="500 / 1000"/>
+                <Panel class="TooltipCBR"/>
                 <Panel id="AccountTier" class="WindowAnimation">
-                    <Label id="AccountTooltipTierIcon" text="1"/>
-                    <Label id="AccountTooltipTierLabel" text="Wood Tier"/>
+                    <Panel id="AccountTooltipInfo">
+                        <Label id="AccountTooltipTierTypeLabel" text="#tier_1" html="true"/>
+                        <Label id="AccountTooltipTierLabel" text="#tier" html="true"/>
+                        <Label id="AccountTooltipTierIcon" text="1"/>
+                    </Panel>
+                    <Label id="AccountTooltipInfoLabel" text="#account_info"/>
                 </Panel>
                 <Panel class="TooltipCBR"/>
-                <Label id="AccountTooltipEXPLabel" text="500 / 1000"/>
-                <Panel class="TooltipCBR"/>
+                <Panel class="AccountTooltipRewards">
+                    <Label id="AccountTooltipRewardsLevelLabel" text="#next_level"/>
+                    <Label id="AccountTooltipRewardsLabel" text="" html="true"/>
+                </Panel>
             </Panel>
         </snippet>
     </snippets>
@@ -106,9 +115,24 @@
                 var accountTooltip = $.CreatePanel( "Panel", $("#TooltipBorderB"), "AccountTooltip" );
                 accountTooltip.BLoadLayoutSnippet("AccountTooltip");
 
+                accountTooltip.FindChildTraverse("AccountTooltipTierTypeLabel").text = $.Localize("tier_" + Account.GetTierByLevel());
+
                 accountTooltip.FindChildTraverse("AccountTooltipTierIcon").text = Util.RepeatNumber(Account.GetLevel() - 1, 8) + 1;
 
                 accountTooltip.FindChildTraverse("AccountTooltipTierIcon").style.backgroundImage = "url('file://{images}/custom_game/account/tier" + Account.GetTierByLevel() + ".png')";
+
+                accountTooltip.FindChildTraverse("AccountTooltipEXPNumberLabel").text = (Account.GetEXPPerLevel() - Account.GetNeededEXP()) + " / " + Account.GetEXPPerLevel();
+
+                var rewards = PlayerTables.GetTableValue("kvs", "rewards")[Account.GetTierByLevel()+1];
+                var text = "";
+                for (var id in rewards) {
+                    if (text != "") {
+                        text = text + "<br>"
+                    }
+                    text = text + $.Localize("reward_" + rewards[id]);
+                }
+
+                accountTooltip.FindChildTraverse("AccountTooltipRewardsLabel").text = text;
             } else if (itemID && itemID != "not-found" && itemID != undefined) {
                 var itemName = Abilities.GetAbilityName(itemID);
                 var itemData = PlayerTables.GetTableValue("items", itemID)

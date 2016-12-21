@@ -58,6 +58,36 @@
 
 	"class"											"Class: "
 
+	// Treasures
+	"treasure_grab_all"								"Grab All"
+
+	// Account
+	"account_info"									"Accomplish objectives and kill creeps to increase your account level. With each level you will be rewarded with various things like treasure chests, cosmetic effects and account features like more craft recipes and trade."
+
+	"experience"									"experience"
+	"next_level"									"next level"
+
+	"tier"											"Tier"
+	"tier_1"										"<font color=\"#E3E3E3\">Wooden</font>"
+	"tier_2"										"Bronze"
+	"tier_3"										"Silver"
+	"tier_4"										"Golden"
+	"tier_5"										"Platinum"
+
+	"reward_SmallTreasure"							" • <font color=\"#E3E3E3\">Small Treasure</font>"
+	"reward_BigTreasure"							" • <font color=\"#F1E13B\">Big Treasure</font>"
+	"reward_CraftA"									" • <font color=\"#59bb98\">Craft Recipes</font>"
+	"reward_LootChanceA"							" • <font color=\"#FEFF28\">Luck +1</font>"
+	"reward_GoreA"									" • <font color=\"#FF2889\">Gore</font>"
+	"reward_BronzeAccount"							" • <font color=\"#cd7f32\">Bronze Tier</font>"
+	"reward_StashA"									" • <font color=\"#989378\">Additional Stash Slots</font>"
+	"reward_GoreB"									" • <font color=\"#960A1D\">Gore+</font>"
+	"reward_SilverAccount"							" • <font color=\"#c0c0c0\">Silver Tier</font>"
+	"reward_CraftB"									" • <font color=\"#58A8D5\">Cool Craft Recipes</font>"
+	"reward_CharacterSlotsA"						" • <font color=\"#499372\">Additional Character Slots</font>"
+	"reward_GoldAccount"							" • <font color=\"#ffd700\">Gold Tier</font>"
+	"reward_PlatinumAccount"						" • <font color=\"#BBDADF\">Platinum Tier</font>"
+
 	// Slots
 	"slot"											"Slot: "
 	"slot_quiver"									"Quiver"

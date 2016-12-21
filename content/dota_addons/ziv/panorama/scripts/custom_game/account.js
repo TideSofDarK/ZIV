@@ -21,9 +21,7 @@ Account.GetNeededEXP = (function (exp) {
     	exp = Account.GetEXP();
     }
 
-    var level = Account.GetLevelByEXP(exp);
-
-    return Account.GetEXPPerLevel() * (level + 1)
+    return Account.GetEXPPerLevel() - (exp - ((Account.GetLevelByEXP(exp) - 1) * Account.GetEXPPerLevel()))
 });
 
 Account.GetLevel = (function () {

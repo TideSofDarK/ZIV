@@ -406,7 +406,8 @@ function NullDragEnd( panelId, draggedPanel)
   $.RegisterEventHandler( 'DragStart', inner, NullDragStart );
   $.RegisterEventHandler( 'DragEnd', inner, NullDragEnd );
 
-  $.RegisterEventHandler( 'DragStart', close, NullDragStart );
-  $.RegisterEventHandler( 'DragEnd', close, NullDragEnd );
-
+  if (close) {
+    $.RegisterEventHandler( 'DragStart', close, NullDragStart );
+    $.RegisterEventHandler( 'DragEnd', close, NullDragEnd );
+  }
 })()

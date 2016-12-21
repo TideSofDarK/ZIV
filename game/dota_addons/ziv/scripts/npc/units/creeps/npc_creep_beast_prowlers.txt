@@ -1,0 +1,259 @@
+"npc_creep_beast_prowler_a"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/axe/demon_blood_armor.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/spirit_breaker/spirit_breaker__imperial_crusher__shoulder/spirit_breaker__imperial_crusher__shoulder.vmdl"
+            }
+            "2"
+            {
+                "1"     "models/items/bristleback/wrathrunner_back/wrathrunner_back.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "220"
+    "Model"           	"models/creeps/neutral_creeps/n_creep_satyr_spawn_a/n_creep_satyr_spawn_a.vmdl"
+    "ModelScale"    	"0.9"
+    "Level"           	"1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    	"DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     		"35"
+    "AttackDamageMax"     		"55"
+	"AttackRate"				"1.5"
+	"AttackAnimationPoint"		"0.83"
+    "AttackAcquisitionRange"    "800"
+    "AttackRange"   			"100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "330"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "355"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 
+
+"npc_creep_beast_prowler_b"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/axe/demon_blood_armor.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/spirit_breaker/spirit_breaker__imperial_crusher__shoulder/spirit_breaker__imperial_crusher__shoulder.vmdl"
+            }
+            "2"
+            {
+                "1"     "models/items/bristleback/wrathrunner_back/wrathrunner_back.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "220"
+    "Model"             "models/creeps/neutral_creeps/n_creep_satyr_spawn_a/n_creep_satyr_spawn_b.vmdl"
+    "ModelScale"        "0.9"
+    "Level"             "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"           "35"
+    "AttackDamageMax"           "55"
+    "AttackRate"                "1.5"
+    "AttackAnimationPoint"      "0.83"
+    "AttackAcquisitionRange"    "800"
+    "AttackRange"               "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "330"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "355"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 
+
+"npc_creep_beast_dragonspawn_a"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/axe/demon_blood_armor.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/spirit_breaker/spirit_breaker__imperial_crusher__shoulder/spirit_breaker__imperial_crusher__shoulder.vmdl"
+            }
+            "2"
+            {
+                "1"     "models/items/bristleback/wrathrunner_back/wrathrunner_back.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "220"
+    "Model"             "models/creeps/neutral_creeps/n_creep_dragonspawn_a/n_creep_dragonspawn_a.vmdl"
+    "ModelScale"        "0.9"
+    "Level"             "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"           "35"
+    "AttackDamageMax"           "55"
+    "AttackRate"                "1.5"
+    "AttackAnimationPoint"      "0.83"
+    "AttackAcquisitionRange"    "800"
+    "AttackRange"               "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "330"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "355"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 
+
+"npc_creep_beast_dragonspawn_b"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/axe/demon_blood_armor.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/spirit_breaker/spirit_breaker__imperial_crusher__shoulder/spirit_breaker__imperial_crusher__shoulder.vmdl"
+            }
+            "2"
+            {
+                "1"     "models/items/bristleback/wrathrunner_back/wrathrunner_back.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "220"
+    "Model"             "models/creeps/neutral_creeps/n_creep_dragonspawn_b/n_creep_dragonspawn_b.vmdl"
+    "ModelScale"        "0.9"
+    "Level"             "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"           "35"
+    "AttackDamageMax"           "55"
+    "AttackRate"                "1.5"
+    "AttackAnimationPoint"      "0.83"
+    "AttackAcquisitionRange"    "800"
+    "AttackRange"               "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "330"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "355"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 

@@ -4,7 +4,7 @@ var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 var Util = GameUI.CustomUIConfig().Util;
 var Account = GameUI.CustomUIConfig().Account;
 
-// pQuery - panorama jQuery (=
+// pQuery - panorama jQuery 8=======D 
 $.$ = GameUI.CustomUIConfig().$;
 
 GameUI.SetRenderBottomInsetOverride( 0 );
@@ -157,9 +157,9 @@ function UpdateScenario(table_name, key, data) {
 
 function UpdateAccount(tableName, changes, deletions) {
 	if (changes[Players.GetLocalPlayer()]) {
-		var exp 	= 	Account.GetEXP();
-		var maxEXP 	= 	Account.GetNeededEXP(exp);
-
+		var maxEXP 	= 	Account.GetEXPPerLevel();
+		var exp 	= 	maxEXP - Account.GetNeededEXP();
+		
 		if (maxEXP != 0) {
 			var expPercentage = exp / maxEXP;
 			var value = expPercentage * 100;
@@ -212,7 +212,7 @@ function UpdateAccount(tableName, changes, deletions) {
 
 	$.Schedule(2, function() {
 		$.$('#Hud #DOTADroppedItemTooltip').each(function(p) {
-			p.visible = false;
+			p.DeleteAsync(0.0);
 		});
 	}); 
 })();

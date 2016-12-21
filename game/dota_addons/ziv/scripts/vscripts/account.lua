@@ -17,7 +17,9 @@ Account.TIER_PLATINUM 	= 5
 
 function Account:Init()
 	PlayerTables:CreateTable("accounts", GeneratePlayerArray({exp = 1}), true)
-
+	for k,v in pairs(GeneratePlayerArray({exp = 1})) do
+		print(type(k))
+	end
 	ListenToGameEvent('game_rules_state_change', 
 		function(keys)
 			local state = GameRules:State_Get()
@@ -127,50 +129,27 @@ function Account:TreasureReward( pID, size )
 	local container = Containers:CreateContainer({
 		layout 			= {3,3},
 		skins 			= {size},
+		buttons 		= {"Grab All"},
 		headerText 		= "",
 		pids 			= {pID},
 		entity 			= hero,
 		closeOnOrder 	= false,
 		position 		= "25% 25%",
 		OnDragWorld 	= true,
-	-- 	OnDragTo = (function (playerID, container, unit, item, fromSlot, toContainer, toSlot) 
-	-- 		local item2 = toContainer:GetItemInSlot(toSlot)
-	-- 		local addItem = nil
-	-- 		if item2 and IsValidEntity(item2) and (item2:GetAbilityName() ~= item:GetAbilityName() or not item2:IsStackable() or not item:IsStackable()) then
-	-- 			if Containers.itemKV[item2:GetAbilityName()].ItemCanChangeContainer == 0 then
-	-- 				return false
-	-- 			end
-	-- 			toContainer:RemoveItem(item2)
-	-- 			addItem = item2
+		OnButtonPressed = function(playerID, container, unit, button, buttonName)
+			if button == 1 then
+				local items = container:GetAllItems()
+				for _,item in ipairs(items) do
+					container:RemoveItem(item)
+					Containers:AddItemToUnit(unit,item)
+				end
 
-	-- 			if unit.equipment.id == container.id then
-	-- 				local toSlotName = KeyValues:Split(ZIV.HeroesKVs[unit:GetUnitName()]["EquipmentSlots"], ';')[fromSlot]
-
-	-- 				if ZIV.ItemKVs[addItem:GetName()]["Slot"] and string.match(toSlotName, ZIV.ItemKVs[addItem:GetName()]["Slot"]) then
-	-- 					Equipment:Equip( unit, addItem )
-	-- 				end
-	-- 			end
-	-- 		end
-
-	-- 		if toContainer:AddItem(item, toSlot) then
-	-- 			container:ClearSlot(fromSlot)
-	-- 			if addItem then
-	-- 				if container:AddItem(addItem, fromSlot) then
-	-- 					return true
-	-- 				else
-	-- 					toContainer:RemoveItem(item)
-	-- 					toContainer:AddItem(item2, toSlot, nil, true)
-	-- 					container:AddItem(item, fromSlot, nil, true)
-	-- 					return false
-	-- 				end
-	-- 			end
-	-- 			return true
-	-- 		elseif addItem then
-	-- 			toContainer:AddItem(item2, toSlot, nil, true)
-	-- 		end
-
-	-- 		return false 
-	-- 	end)
+				container:Close(playerID)
+			end
+		end,
+		OnDragTo = (function (playerID, container, unit, item, fromSlot, toContainer, toSlot) 
+			return false 
+		end)
 	})
 
 	for k,v in pairs(Account.SETTINGS[size]) do

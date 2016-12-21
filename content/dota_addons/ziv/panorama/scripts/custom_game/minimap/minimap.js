@@ -46,8 +46,7 @@ function UpdateImagePosition()
 
 	if (!isNaN(offset.x) && !isNaN(offset.y))
 	{
-		$( "#MinimapImage" ).style.marginLeft = offset.x + "px;"
-		$( "#MinimapImage" ).style.marginTop =  offset.y + "px;"
+		$( "#MinimapImage" ).style.position = offset.x + "px " + offset.y + "px 0px;"
 	}
 }
 
@@ -75,8 +74,7 @@ function UpdatePointerPosition()
 
 	if (!isNaN(offset.x) && !isNaN(offset.y))
 	{
-		$( "#PointerImage" ).style.marginLeft = offset.x + "px;"
-		$( "#PointerImage" ).style.marginTop =  offset.y + "px;"
+		$( "#PointerImage" ).style.position = offset.x + "px " + offset.y + "px 0px;"
 
 		var heroID = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 		$( "#PointerImage" ).style.transform = "rotateZ(" + GetEntityAngle(heroID) + "deg);";		
@@ -111,8 +109,7 @@ function SetMapPosByWorldPos( panel, pos )
 
 	if (!isNaN(offset.x) && !isNaN(offset.y))
 	{
-		panel.style.marginLeft = offset.x + "px;"
-		panel.style.marginTop = offset.y + "px;"
+		panel.style.position = offset.x + "px " + offset.y + "px 0px;"
 	}	
 }
 
@@ -181,11 +178,13 @@ function ClearFog()
 
 function UpdateMinimap()
 {
-	$.Schedule(0.06, UpdateMinimap);
-
 	if (settings.image == "png") {
 		$.GetContextPanel().SetHasClass("WindowClosed", true)
+
+		$.Schedule(0.1, UpdateMinimap);
 	} else {
+		$.Schedule(0.03, UpdateMinimap);
+
 		$.GetContextPanel().SetHasClass("WindowClosed", false)
 
 		if ($.GetContextPanel().visible){
@@ -267,7 +266,7 @@ function MinimapClick()
 function GetUnits() {
 	units = Entities.GetAllEntities().filter(settings.filter);
 
-	$.Schedule(0.06, GetUnits);
+	$.Schedule(0.1, GetUnits);
 }
 
 function SetWorldBounds( args ) 
