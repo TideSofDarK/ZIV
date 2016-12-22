@@ -74,6 +74,10 @@ function LockState() {
 	GameEvents.SendCustomGameEventToServer("ziv_debug_change_boss_lock_state", { lock:  $("#LockState").checked });
 }
 
+function ToggleCrafting() {
+    GameEvents.SendEventClientSide( "ziv_open_crafting", {} );
+}
+
 function Toggle() {
 	$.GetContextPanel().ToggleClass("WindowClosed");
 }

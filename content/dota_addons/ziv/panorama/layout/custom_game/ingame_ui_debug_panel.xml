@@ -23,6 +23,7 @@
 					<DOTASettingsCheckbox id="LockState" text="Lock" onactivate="LockState()" />
 				</Panel>
 				<DOTASettingsSlider class="slider" id="BossHealth" min="0" max="100" text="Health percentage"/>
+				<TextButton id="CraftingButton" onactivate="ToggleCrafting()" text="Crafting" />
 			</Panel>
 		</Panel>
 	</Panel>

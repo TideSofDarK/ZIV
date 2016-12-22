@@ -1,14 +1,21 @@
 <root>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
-		<include src="file://{resources}/styles/custom_game/crafting/crafting.css" />
-		<include src="file://{resources}/styles/custom_game/crafting/item_mini.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_colors.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_crafting.css" />
 	</styles>
 	<scripts>
-		<include src="file://{resources}/scripts/custom_game/crafting/crafting.js" />
+		<include src="file://{resources}/scripts/custom_game/ingame_ui_crafting.js" />
 		<include src="file://{resources}/scripts/containers/draggable.js" />
 	</scripts>
-	<Panel class="MainPanel z-index1 Hide" hittestchildren="true" draggable="true">
+	<snippets>
+		<snippet name="RecipeTitle">
+			<Panel class="recipe-title" hittest="true">
+				<Label class="RecipeTitle" id="RecipeTitle" />
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="MainPanel z-index1 BasicShadow WindowAnimation WindowClosed" hittestchildren="true" draggable="true">
 		<Button onactivate="CloseButton()" class="CloseButton" id="CloseButton" />
 		<Panel class="Window row" hittestchildren="true">
 			<Panel class="Recipes" >

@@ -1,3 +1,8 @@
+DOTAItemImage {
+	border-radius: 6px;
+	border: 1px solid #111111FF;
+}
+
 .z-index1 {
 	box-shadow: fill #000000DD 0px 2px 6px 0px;
 	z-index: 1;
@@ -44,11 +49,12 @@
 }
 
 .text {
-	color: #ffffff8a;
 	font-size: 23px;	
 
 	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 	line-height: 19px;
+
+	color: #A5ADA2ff;
 }
 
 VerticalScrollBar {
@@ -61,8 +67,6 @@ VerticalScrollBar {
 #ScrollThumb {
 	width: 100%;
 	height: 30px;
-
-	border-radius: 10px;
 
 	background-color: #9E9E9E20;
 }
@@ -123,18 +127,27 @@ VerticalScrollBar {
 	margin-left: 19px;
 }
 
-.RecipeLabelSelected {
-	transition-property: color, transform;
+.RecipeTitle { 
+	font-size: 23px;	
+
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	line-height: 19px;
+
+	background-color: #ffffff00;
+}
+
+#RecipeTitle {
+	width: 90%;
+
+	background-size: 100% 100%;
+
+	transition-property: background-color;
 	transition-duration: 0.2s;
-	transition-timing-function: ease-in-out, linear;
+	transition-timing-function: linear;
+}
 
-	transform: translateX(15px);
-
-	/*margin-left: 7px;*/
-	/*font-weight: bold;*/
-	font-size: 26px;
-	margin-top: -5px;
-	color: #ffffffbb;
+.RecipeLabelSelected {
+	background-color: #ffffffff;
 }
 
 /*
@@ -165,13 +178,20 @@ VerticalScrollBar {
 }
 
 #ItemImage {
-	width: 200px;
+	align: center center;
+
+	width: 150px;
 	height: 100%;
 }
 
 #CraftingItemPanel {
+	width: 100%;
+	height: 90px;
+
+	margin-left: 10px;
+
 	horizontal-align: center;
-	vertical-align: top;
+	vertical-align: center;
 }
 
 #ItemDesc {
@@ -296,4 +316,78 @@ VerticalScrollBar {
 
 /*	vertical-align: center;
 	horizontal-align: center;*/
+}
+
+/*#ItemImage {
+	width: 150px;
+	height: 110px;
+
+	border-radius: 6px;
+}*/
+
+.modifier-slot {
+	width: 100%;
+	height: 25px;
+
+	flow-children: right;
+}
+
+.gem-slot {
+	width: 100%;
+	height: 53px;
+
+	flow-children: right;
+}
+
+.gem-slot-image {
+	width: 67px;
+	height: 53px;
+
+	margin-right: 8px;
+	margin-bottom: 4px;
+
+	horizontal-align: left;
+}
+
+.gem-slot-desc {
+	width: 100%;
+	height: 100%;
+
+	text-shadow: 1px 1px 1px black;
+	text-align: center;
+	/*text-transform: uppercase;*/
+	text-overflow: clip;
+
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	color: White;
+}
+
+#GemSlot_Desc_Text {
+	margin-top: 7px;
+	vertical-align: center;
+}
+
+#ModifierText {
+	text-shadow: 1px 1px 1px black;
+	text-align: center;
+
+	font-size: 16px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	color: White;
+}
+
+#Count {
+	horizontal-align: right;
+	vertical-align: bottom;
+
+	margin: 8px;
+	margin-bottom: -2px;
+
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+	text-align: center;
+
+	font-size: 25px;
+	font-weight: bold;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	color: White;
 }

@@ -1,417 +1,441 @@
 "addon"
 {
-	"Unassigned"      								"Unassigned Team"
-	"Spectator"       								"Spectator Team"
-	"Neutrals"        								"Neutral Team"
-	"NoTeam"          								"No Team"
-
-	"DOTA_GoodGuys"   								"Survivors A"
-	"DOTA_BadGuys"    								"Survivors B"
-	"DOTA_Custom1"    								"Pink Dragon"
-	"DOTA_Custom2"    								"Orange Dog"
-	"DOTA_Custom3"    								"Blue Rooster"
-	"DOTA_Custom4"    								"Green Ram"
-	"DOTA_Custom5"    								"Brown Rat"
-	"DOTA_Custom6"    								"Cyan Boar"
-	"DOTA_Custom7"    								"Olive Snake"
-	"DOTA_Custom8"    								"Purple Horse"
-	
-	"addonname"										"ZIV"
-	"addoninfo"										"ZIV 0.2 (Alpha), 2016"
-
-	"equipment"										"Equipment"
-
-	// Settings
-	"settings_damage" "Popup damage numbers"
-	"settings_autoequip" "Auto equip better items"
-	"settings_show_tooltip" "Show item tooltip when its on the ground"
-	"settings_controls" "Dota 2-like controls style(deprecated)"
-	"settings_minimap" "Minimap (disable to improve perfromance)"
-
-	// Pregame
-	"pregame_ready" "Ready"
-	"pregame_time" 	"Prepare time: "
-
-	// Scenarios
-	"objectives" 					"Objectives"
-	"kill_boss" 					"Kill miniboss: "
-
-	"temple_obelisks" 				"Find and destroy obelisks: "
-	"temple_kill_oath" 				"Kill Oath"
-
-	"ziv_temple_4p_story" 			"<font color=\"#7ADBB6\"><b>Escape the Temple!</b></font> - the dungeon is collapsing and hordes of monsters will stand in your way. Meanwhile a fire lord called Oath is getting summoned by Curse of Obelisk. Only the bravest heroes can handle this trial of might, skill and team work. Sacred treasures awaits!"
-	"ziv_temple_4p_objectives" 		"<b><font color=\"#e6c200\">Objectives</font></b><br>   • Destroy Obelisks to prevent Oath from intruding your world<br>   • After each Obelisk wave you will encounter soome powerful boss<br>   • Move out carefully! Caverns collapses do dont get hit by falling rocks!"
-
-	"mines_wagon" 					"Take care of wagon on the way to mines entrance"
-	"mines_kobolds" 				"Kobold camps cleared: "
-
-	"ziv_mines_4p_story" 			"<font color=\"#DB7AB6\"><b>Haunted Mines</b></font> - High Risk, High Reward. Carry the wagon through the mine and gather all treasures it holds. Fight the boss of the dungeon and clean kobold camps for more treasures."
-	"ziv_mines_4p_objectives" 		"<b><font color=\"#e6c200\">Objectives</font></b><br>   • Defend the wagon on way to mine entrance<br>   • Defeat powerful boss<br><b><font color=\"#74becf\">Bonus</font></b><br>   • Capture kobold camps<br>"
-
-	// Rarities
-	"rarity"										"Rarity: "
-	"rarity1" 										"Common"
-	"rarity2" 										"Magic"
-	"rarity3" 										"Rare"
-	"rarity4" 										"Epic"
-	"rarity5" 										"Legendary"
-
-	"class"											"Class: "
-
-	// Treasures
-	"treasure_grab_all"								"Grab All"
-
-	// Account
-	"account_info"									"Accomplish objectives and kill creeps to increase your account level. With each level you will be rewarded with various things like treasure chests, cosmetic effects and account features like more craft recipes and trade."
-
-	"experience"									"experience"
-	"next_level"									"next level"
-
-	"tier"											"Tier"
-	"tier_1"										"<font color=\"#E3E3E3\">Wooden</font>"
-	"tier_2"										"<font color=\"#E3E3E3\">Bronze</font>"
-	"tier_3"										"<font color=\"#E3E3E3\">Silver</font>"
-	"tier_4"										"<font color=\"#E3E3E3\">Golden</font>"
-	"tier_5"										"<font color=\"#E3E3E3\">Platinum</font>"
-
-	"reward_SmallTreasure"							" • <font color=\"#E3E3E3\">Small Treasure</font>"
-	"reward_BigTreasure"							" • <font color=\"#F1E13B\">Big Treasure</font>"
-	"reward_CraftA"									" • <font color=\"#59bb98\">Craft Recipes</font>"
-	"reward_LootChanceA"							" • <font color=\"#FEFF28\">Luck +1</font>"
-	"reward_GoreA"									" • <font color=\"#FF2889\">Gore</font>"
-	"reward_BronzeAccount"							" • <font color=\"#cd7f32\">Bronze Tier</font>"
-	"reward_StashA"									" • <font color=\"#989378\">Additional Stash Slots</font>"
-	"reward_GoreB"									" • <font color=\"#960A1D\">Gore+</font>"
-	"reward_SilverAccount"							" • <font color=\"#c0c0c0\">Silver Tier</font>"
-	"reward_CraftB"									" • <font color=\"#58A8D5\">Cool Craft Recipes</font>"
-	"reward_CharacterSlotsA"						" • <font color=\"#499372\">Additional Character Slots</font>"
-	"reward_GoldAccount"							" • <font color=\"#ffd700\">Gold Tier</font>"
-	"reward_PlatinumAccount"						" • <font color=\"#BBDADF\">Platinum Tier</font>"
-
-	// Slots
-	"slot"											"Slot: "
-	"slot_quiver"									"Quiver"
-	"slot_ammo"										"Ammo"
-	"slot_torso"									"Torso"
-	"slot_axe"										"Axe"
-	"slot_boots"									"Boots"
-	"slot_bow"										"Bow"
-	"slot_gloves"									"Gloves"
-	"slot_gun"										"Gun"
-	"slot_pants"									"Pants"
-	"slot_ring"										"Ring"
-	"slot_staff"									"Staff"
-	"slot_sword"									"Sword"
-	"slot_torso"									"Torso"
-
-	// Common modifiers
-	"FIRE_DAMAGE_INCREASE" 							"% increased fire damage"
-	"COLD_DAMAGE_INCREASE" 							"% increased cold damage"
-	"LIGHTNING_DAMAGE_INCREASE" 					"% increased lightning damage"
-	"DARK_DAMAGE_INCREASE" 							"% increased dark damage"
-
-	"ALL_RESISTANCES" 								"% to all magic resistances"
-	"FIRE_RESISTANCE" 								"% to fire resistance"
-	"COLD_RESISTANCE" 								"% to cold resistance"
-	"LIGHTNING_RESISTANCE" 							"% to lightning resistance"
-	"DARK_RESISTANCE" 								"% to dark resistance"
-
-	"ARMOR"											"to armor rating"
-	"EVASION"										"to evasion rating"
-
-	"HP_LEECH"										"% to HP leech"
-	"EP_LEECH"										"% to MP leech"
-
-	"CRIT_CHANCE"									"% to crit chance"
-	"CRIT_DAMAGE"									"% to crit damage"
-
-	"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 				"to base damage"
-	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" 			"to attack speed"
-	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_REDUCE" 	"to attack speed"
-	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" 			"to move speed"
-	"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" 				"to agility"
-	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" 				"to intelligence"
-	"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" 				"to strength"
-	"MODIFIER_PROPERTY_STATS_ALL_BONUS" 					"to all stats"
-	"MODIFIER_PROPERTY_HEALTH_BONUS" 						"to max HP"
-
-	// Runes
-	"ziv_elementalist_arc_lightning_cd"				"% reduction of Arc Lightning cooldown"
-	"ziv_elementalist_arc_lightning_fire"			"Half of damage done by Arc Lightning converts to fire"
-	"ziv_elementalist_arc_lightning_targets"		"to Arc Lightning targets"
-	"ziv_elementalist_cold_blast_radius"			"to Cold Blast radius"
-	"ziv_elementalist_cold_blast_slow"				"% to Cold Blast movement slow"
-	"ziv_elementalist_cold_blast_double_chance"		"% chance to end Cold Blast cooldown"
-	"ziv_elementalist_cold_blast_duration"			"% inreased Cold Blast duration"
-	"ziv_elementalist_fire_blast_radius"			"to Fire Blast wave radius"
-	"ziv_elementalist_fire_blast_cd"				"% reduction of Fire Blast cooldown"
-	"ziv_elementalist_fire_blast_waves"				"to Fire Blast waves"
-	"ziv_elementalist_fire_blast_double_chance"		"% chance to end Fire Blast cooldown immediatly"
-	"ziv_elementalist_dark_orb_damage"				"to Dark Orb damage"
-	"ziv_elementalist_dark_orb_duration"			"to Dark Orb duration"
-	"ziv_elementalist_dark_orb_radius"				"to Dark Orb damaging radius"
-	"ziv_elementalist_dark_orb_speed"				"to Dark Orb speed"
-	"ziv_elementalist_barrier_percentage"			"to Barrier damage absorption"
-	"ziv_elementalist_barrier_less_ep"				"to Barrier damager per ep ratio"
-	"ziv_elementalist_barrier_more_ep"				"to Barrier damager per ep ratio"
-	"ziv_elementalist_mastery_damage"				"to Mastery crit damage"
-
-	"ziv_huntress_ballista_as"						"to Ballista attack speed"
-	"ziv_huntress_ballista_cd"						"% reduction of Ballista cooldown"
-	"ziv_huntress_ballista_targets"					"to Ballista maximum targets"
-	"ziv_huntress_ballista_chain"					"Ballista will fire single projectile which will chain to nearby targets multiple times"
-	"ziv_huntress_blink_arrow_damage"				"to Blink Arrow damage"
-	"ziv_huntress_blink_arrow_delay"				"% reduction of Blink Arrow delay"
-	"ziv_huntress_blink_arrow_cd"					"% reduction of Blink Arrow cooldown"
-	"ziv_huntress_blink_arrow_radius"				"to Blink Arrow radius"
-	"ziv_huntress_focus_fire_as"					"to Focus Fire attack speed"
-	"ziv_huntress_focus_fire_damage"				"to Focus Fire damage"
-	"ziv_huntress_trap_duration"					"to Trap duration"
-	"ziv_huntress_volley_cd"						"% reduction of Volley cooldown"
-	"ziv_huntress_volley_arrows"					"to Volley arrow count"
-	"ziv_huntress_volley_damage"					"to Volley damage"
-	"ziv_huntress_agility_ratio"					"to Agility armor to evasion ratio"
-
-	"ziv_samurai_whirlwind_damage"					"to Whirlwind damage"
-	"ziv_samurai_whirlwind_aoe"						"to Whirlwind radius"
-	"ziv_samurai_whirlwind_ms"						"to Whirlwind move speed"
-	"ziv_samurai_execution_as"						"to Execution attack speed"
-	"ziv_samurai_execution_aoe"						"to Execution radius"
-	"ziv_samurai_execution_knockback_chance"		"% chance to knockback with Execution"
-	"ziv_samurai_dash_damage"						"to Dash damage"
-	"ziv_samurai_cold_touch_damage"					"cold damage on hit"
-	"ziv_samurai_cold_touch_leech"					"% to Cold Touch EP leech"
-	"ziv_samurai_reign_of_fire_damage"				"to Reign of Fire damage"
-	"ziv_samurai_reign_of_fire_leech"				"% to Reign of Fire HP leech"
-
-	"ziv_dark_goddess_glaive_count"					"chance to throw additional Glaive"
-	"ziv_dark_goddess_glaive_bleed_damage"			"to Glaive bleed damage"
-	"ziv_dark_goddess_corrupted_arrow_spirit_count"	"to Corrupted Arrow spirit count"
-	"ziv_dark_goddess_corrupted_arrow_as"			"to Corrupted Arrow attack speed"
-	"ziv_dark_goddess_explode_targets"				"additional Explode targets"
-	"ziv_dark_goddess_combine_targets"				"additional Combine targets"
-	"ziv_dark_goddess_concentration_ms"				"to Concentration move speed"
-	"ziv_dark_goddess_concentration_pierce"			"additional pierce for Corrupted Arrow"
-	"ziv_dark_goddess_concentration_evasion"		"to Concentration evasion"
-	"ziv_dark_goddess_transform_cd"					"percent reduction of Transform cooldown"
-	"ziv_dark_goddess_transform_speed"				"percent reduction of Transform cast time"
-
-	"ziv_witch_doctor_blink_heal"			"additional heal after blink"
-	"ziv_witch_doctor_blink_speed"			"% reduction of Blink cast point"
-	"ziv_witch_doctor_curse_duration"		"to Curse duration"
-	"ziv_witch_doctor_curse_damage"			"to Curse damage"
-	"ziv_witch_doctor_curse_slow"			"to Curse slow"
-	"ziv_witch_doctor_soul_sacrifice_ratio"	"less Soul Sacrifice HP tp EP ratio"
-	"ziv_witch_doctor_spawn2_cd"			"% reduction of Spawn Zombies cooldown"
-	"ziv_witch_doctor_spawn2_count"			"to Spawn Zombies unit count"
-	"ziv_witch_doctor_spawn_cd"				"% reduction of Spawn Skeletons cooldown"
-	"ziv_witch_doctor_spawn_count"			"to Spawn Skeletons unit count"
-	"ziv_witch_doctor_totem2_radius"		"to Magnetic Totem radius"
-	"ziv_witch_doctor_totem2_targets"		"to Megnetic Totem target count"
-	"ziv_witch_doctor_totem_range"			"to Spirit Totem attack range"
-	"ziv_witch_doctor_totem_targets"		"to Spirit Totem target count"
-
-	"ziv_sniper_ammo_frag"							"additional physical damage in radius on projectile hit"
-	"ziv_sniper_ammo_poison"						"additional dark damage amp per second debuff (applies on projectile hit)"
-	"ziv_sniper_explosive_trap_damage"				"to Explosive Trap damage"
-	"ziv_sniper_explosive_trap_delay"				"percent reduction of Explosive trap delay"
-	"ziv_sniper_thunder_trap_damage"				"to Thunder trap damage"
-	"ziv_sniper_thunder_trap_delay"					"percent reduction of Thunder trap delay"
-	"ziv_sniper_shotgun_dash_speed"					"to Shotgun Dash speed"
-	"ziv_sniper_shotgun_dash_range"					"to Shotgun Dash range"
-	"ziv_sniper_shotgun_dash_cd"					"% reduction of Shotgun Dash cooldown"
-	"ziv_sniper_shotgun_special_damage"				"to Shrapnel damage"
-	"ziv_sniper_shotgun_special_force"				"to Shrapnel force"
-	"ziv_sniper_shotgun_special_speed"				"additional attack speed with Shrapnel"
-	"ziv_sniper_shotgun_special_reduce_spread"		"% reduction of Shrapnel spread"
-	"ziv_sniper_smg_backup_speed"					"to SMG Backup speed"
-	"ziv_sniper_smg_backup_explosion_chance"		"% chance to fire some bombs with SMG Backup"
-	"ziv_sniper_smg_backup_damage_reduction"		"% damage reduction during SMG Backup"
-	"ziv_sniper_smg_special_damage"					"to SMG damage"
-	"ziv_sniper_smg_special_knockback_chance"		"% chance to knockback with SMG"
-	"ziv_sniper_smg_special_reduce_spread"			"% reduction of SMG spread"
-
-	"ziv_beastmaster_bird_damage"	"to Bird damage"
-	"ziv_beastmaster_bird_manacost"	"% reduction of Bird energy cost"
-	"ziv_beastmaster_bird_blind_chance"	"% chance of aplying Blindness with Bird's hit"
-	"ziv_beastmaster_leap_cd"	"% reduction of Leap cooldown"
-	"ziv_beastmaster_leap_damage"	"physical damage on hit"
-	"ziv_beastmaster_leap_force"	"to Leap force"
-	"ziv_beastmaster_cleave_aoe"	"to Cleave radius"
-	"ziv_beastmaster_cleave_as"	"to Cleave attack sspeed"
-	"ziv_beastmaster_cleave_stun_chance"	"chance of stun with Cleave"
-	"ziv_beastmaster_pet_as"	"to Wolf attack speed"
-	"ziv_beastmaster_pet_crit_chance"	"% additional Wolf crit chance"
-	"ziv_beastmaster_pet2_as"	"to Bear attack speed"
-	"ziv_beastmaster_pet2_stun_chance"	"% additional Bear stun chance"
-
-	"ziv_knight_hell_pit_cd"			"% reduction of Hell Pit cooldown"
-	"ziv_knight_hell_pit_damage"		"to Hell Pit damage"
-	"ziv_knight_hell_pit_duration"		"to Hell Pit root duration"
-	"ziv_knight_hell_pit_radius"		"to Hell Pit radius"
-	"ziv_knight_molten_shell_cd"		"% reduction of Molten Shell cooldown"
-	"ziv_knight_molten_shell_threshold"	"reduction of Molten Shell damage threshold"
-	"ziv_knight_dash_force"		"to Dash knockback force"
-	"ziv_knight_dash_damage"	"to Dash knockback force"
-	"ziv_knight_parry_cd"	"% reduction of Parry cooldown"
-	"ziv_knight_parry_force"	"to Parry knockback force"
-	"ziv_knight_slash_projectile_chance"	"% chance of firing double projectile with Slash"
-	"ziv_knight_slash_aoe_damage"	"increased damage to secondary targets with Slash"
-	"ziv_knight_slash_damage"	"to Slash damage"
-	"ziv_knight_slash_stun_chance"	"% chance of stun with Slash"
-	"ziv_knight_orb_burn_chance"	"% chance of applying Burn with Fire Orb"
-	"ziv_knight_orb_as"	"to Fire Orb attack speed"
-	"ziv_knight_orb_damage"	"to Fire Orb damage"
-	"ziv_knight_orb_projectile_speed"	"to Fire Orb projectile speed"
-
-	// Character presets
-	"samurai_preset_a"				"Fire Disciple"
-	"samurai_preset_b"				"Ice Disciple"
-
-	"dark_goddess_preset_a"			"Destroyer"
-	"dark_goddess_preset_b"			"Creator"
-
-	"southern_barbarian_preset_a"	"Hunter"
-	"southern_barbarian_preset_b"	"Pathfinder"
-
-	"huntress_preset_a" "Engineer"
-	"huntress_preset_b" "Marksman"
-
-	"elementalist_preset_a" "Ice and Thunder"
-
-	"magma_knight_preset_a"	"Fiery Knight"
-	"magma_knight_preset_a_Tooltip"	""
-
-	"mercenary_preset_a" "SMG"
-	"mercenary_preset_a_Tooltip" "Equipped with SMG and basic SMG rune set"
-	"mercenary_preset_b" "Shotgun"
-	"mercenary_preset_b_Tooltip" "Equipped with Shotgun and basic Shotgun rune set"
-
-	// Leagues
-	"league_standard" "Standard"
-	"league_standard_Tooltip" "<b>Standard</b> league is permanent. Your characters and items will never expire."
-	"league_competitive" "Competitive"
-	"league_competitive_Tooltip" "<b>Competetive</b> league start of 1st of each month. Every month new runes and items are added to the this league. Expired character are transfered to Standard league."
-
-	// UI
-	"empty_gem_slot" "Empty Slot"
-
-	"level" "Level"
-	"obelisk" "Obelisk"
-
-	"DOTA_UNIT_CAP_MELEE_ATTACK" "Melee"
-	"DOTA_UNIT_CAP_RANGED_ATTACK" "Ranged"
-
-	"DAMAGE_TYPE_PHYSICAL" "Physical"
-	"DAMAGE_TYPE_MAGICAL" "Magical"
-	"DAMAGE_TYPE_FIRE" "Fire"
-	"DAMAGE_TYPE_COLD" "Ice"
-	"DAMAGE_TYPE_DARK" "Dark"
-
-	"nobrain" "Nobrainer"
-	"summoner" "Summoner"
-	"hitnrun" "Hit'n'run"
-
-	"trade_accept_button"	"Accept"
-	"trade_decline_button"	"Decline"
-	"trade_cancel_button"	"Cancel"
-	"trade_player_items"	"Your Offer"
-	"trade_offered_items"	"You Get"
-	"trade_request"			" wants to trade"
-
-	"sockets"				"Sockets: "
-
-	// Game setup
-	"gamesetup_ready"								"Ready"
-	"gamesetup_preparing"							"Preparing"
-	"gamesetup_disconnected"						"Disconnected"
-	"gamesetup_connected"							"Connected"
-
-	"gamesetup_creation_error_length"				"Minimal name length is 6 charaters. Maximum name length is 16 characters."
-	"gamesetup_creation_error_symbols"				"Name can only contain digits and latin letters."
-	"gamesetup_creation_error_same"					"You already have a character with such name."
-
-	"gamesetup_no_characters_warning"				"You have no characters <br> Click here to create new one"
-	"gamesetup_create_character_button" 			"Create"
-	"gamesetup_submit_character_button"				"Submit"
-	"gamesetup_delete_character_button" 			"Remove"
-	"gamesetup_lockin_button" 						"Lock-In"
-	"gamesetup_create_character_headline" 			"Create new character"
-	"gamesetup_highlight_easy_caharacters" 			"Highlight Characters for new players"
-	"gamesetup_pick_character" 						"Pick character to customize it"
-	"gamesetup_character_attack_type" 				"Attack Type"
-	"gamesetup_character_playstyle" 				"Playstyle"
-	"gamesetup_character_playstyle_nobrain_Tooltip" "<font color=\"#DD5283\"><b>Nobrainer</b></font> - hero with melee attack who never scared of jumping into hordes of monsters"
-	"gamesetup_character_playstyle_hitnrun_Tooltip" "<font color=\"#7ADBB6\"><b>Hit'n'run</b></font> - usually ranged hero with relatively weak defensive abilities"
-	"gamesetup_character_playstyle_summoner_Tooltip""<font color=\"#E08841\"><b>Summoner</b></font> - most damage goes not from hero but from summoned minions"
-	"gamesetup_character_movespeed" 				"Movement Speed"
-	"gamesetup_character_damage_type" 				"Primary Damage"
-	"gamesetup_character_name" 						"Name"
-	"gamesetup_character_presets"					"Presets"
-	"gamesetup_character_league"					"League"
-	"gamesetup_character_preview_hp"				" - Hit Points: "
-	"gamesetup_character_preview_ep"				" - Energy Points: "
-	"gamesetup_character_preview_strength"			" - Strength: "
-	"gamesetup_character_preview_dexterity"			" - Dexterity: "
-	"gamesetup_character_preview_intelligence"		" - Intelligence: "
-	"gamesetup_character_preview_games_played"		" - Games Played: "
-	"gamesetup_character_preview_pvp_kills"			" - PvP Kills: "
-	"gamesetup_character_new"						"New"
-
-	"gamesetup_tab_battle_info" 					"Summary"
-	"gamesetup_tab_bio" 							"Biography"
-
-	// Ability tooltips
-	"energy_cost"	"Energy Cost: "
-	"cast_point"	"Cast Point: "
-	"cooldown"		"Cooldown: "
-
-	// Status window
-	"status_attr"						"Attributes"
-
-	"status_status"						"Status"
-
-	"status_hp"							"Health Points: "
-	"status_hp_regen"					"Health Regen: "
-	"status_ep"							"Energy Points: "
-	"status_ep_regen"					"Energy Regen: "
-
-	"status_defence"					"Defence"
-
-	"status_armor"						"Armor: "
-
-	"status_evasion"					"Chance to Dodge: "
-
-	"status_fire_resistance"			"Fire Resistance: "
-	"status_cold_resistance"			"Cold Resistance: "
-	"status_lightning_resistance"		"Lightning Resistance: "
-	"status_dark_resistance"			"Dark Resistance: "
-
-	"status_offence"					"Offence"
-
-	"status_ad"							"Base Damage: "
-
-	"status_fire_increase"				"Fire Damage Increase: "
-	"status_cold_increase"				"Cold Damage Increase: "
-	"status_lightning_increase"			"Lightning Damage Increase: "
-	"status_dark_increase"				"Dark Damage Increase: "
-
-	"status_hp_leech"					"HP Leech: "
-	"status_ep_leech"					"EP Leech: "
-
-	"status_ctc"						"Chance to crit: "
-	"status_cd"							"Crit damage: "
-
-	// Fortifying
-	"dragfortify"				"Drag and drop weapon or armor from inventory to fortify"
-	"dragfortify_gem"			"Drag and drop gem from inventory to insert it"
-	"fortify_button"			"Fortify"
-
-	"item_forging_dial_Fortify" "Randomizes values of ALL fortified modifiers. Use with caution!"
-	"item_forging_seal_of_lore_Fortify" "Adds additional socket to weapon or armor."
-
-	"item_gem_amethyst_Fortify" "random modifier from list (all stats, all resistances, dark resistance, dark damage)"
-	"item_gem_ruby_Fortify" "random modifier from list (strength, armor, fire resistance, fire damage)"
-	"item_gem_malachite_Fortify" "random modifier from list (agility, attack speed, lightning resistance, lightning damage)"
-	"item_gem_topaz_Fortify" "random modifier from list (intelligence, move speed, cold resistance, cold damage)"
+	"Language" "english"
+	"Tokens"
+	{
+		"Unassigned"      								"Unassigned Team"
+		"Spectator"       								"Spectator Team"
+		"Neutrals"        								"Neutral Team"
+		"NoTeam"          								"No Team"
+
+		"DOTA_GoodGuys"   								"Survivors A"
+		"DOTA_BadGuys"    								"Survivors B"
+		"DOTA_Custom1"    								"Pink Dragon"
+		"DOTA_Custom2"    								"Orange Dog"
+		"DOTA_Custom3"    								"Blue Rooster"
+		"DOTA_Custom4"    								"Green Ram"
+		"DOTA_Custom5"    								"Brown Rat"
+		"DOTA_Custom6"    								"Cyan Boar"
+		"DOTA_Custom7"    								"Olive Snake"
+		"DOTA_Custom8"    								"Purple Horse"
+		
+		"addonname"										"ZIV"
+		"addoninfo"										"ZIV 0.2 (Alpha), 2016"
+
+		"equipment"										"Equipment"
+
+		// Settings
+		"settings_damage" 								"Popup damage numbers"
+		"settings_autoequip" 							"Auto equip better items"
+		"settings_show_tooltip" 						"Show item tooltip when its on the ground"
+		"settings_controls" 							"Dota 2-like controls style(deprecated)"
+		"settings_minimap" 								"Minimap (disable to improve perfromance)"
+
+		// Pregame
+		"pregame_ready" 								"Ready"
+		"pregame_time" 									"Prepare time: "
+
+		// Scenarios
+		"objectives" 									"Objectives"
+		"kill_boss" 									"Kill miniboss: "
+
+		"temple_obelisks" 								"Find and destroy obelisks: "
+		"temple_kill_oath" 								"Kill Oath"
+
+		"ziv_temple_4p_story" 							"<font color=\"#7ADBB6\"><b>Escape the Temple!</b></font> - the dungeon is collapsing and hordes of monsters will stand in your way. Meanwhile a fire lord called Oath is getting summoned by Curse of Obelisk. Only the bravest heroes can handle this trial of might, skill and team work. Sacred treasures awaits!"
+		"ziv_temple_4p_objectives" 						"<b><font color=\"#e6c200\">Objectives</font></b><br>   • Destroy Obelisks to prevent Oath from intruding your world<br>   • After each Obelisk wave you will encounter soome powerful boss<br>   • Move out carefully! Caverns collapses do dont get hit by falling rocks!"
+
+		"mines_wagon" 									"Take care of wagon on the way to mines entrance"
+		"mines_kobolds" 								"Kobold camps cleared: "
+
+		"ziv_mines_4p_story" 							"<font color=\"#DB7AB6\"><b>Haunted Mines</b></font> - High Risk, High Reward. Carry the wagon through the mine and gather all treasures it holds. Fight the boss of the dungeon and clean kobold camps for more treasures."
+		"ziv_mines_4p_objectives" 						"<b><font color=\"#e6c200\">Objectives</font></b><br>   • Defend the wagon on way to mine entrance<br>   • Defeat powerful boss<br><b><font color=\"#74becf\">Bonus</font></b><br>   • Capture kobold camps<br>"
+
+		// Rarities
+		"rarity"										"Rarity: "
+		"rarity1" 										"Common"
+		"rarity2" 										"Magic"
+		"rarity3" 										"Rare"
+		"rarity4" 										"Epic"
+		"rarity5" 										"Legendary"
+
+		"rarity1_color"									"#ffffff"
+		"rarity2_color"									"#3d50c5"
+		"rarity3_color"									"#ffea00"
+		"rarity4_color"									"#FFA500"
+		"rarity5_color"									"#FF00FF"
+
+		"class"											"Class: "
+
+		// Crafting
+		"random_iron_axe"								"Axe"
+		"random_iron_gun"								"Gun"
+		"random_iron_sword"								"Sword"
+		"random_leather_boots"							"Leather Boots"
+		"random_leather_pants"							"Leather Pants"
+		"random_leather_torso"							"Leather Torso"
+		"random_ore_ring"								"Ring"
+		"random_wood_bow"								"Bow"
+		"random_wood_quiver"							"Quiver"
+		"random_wood_staff"								"Staff"
+
+		"craft_description"								"Create random <font color='{s:color}'><b>{s:rarity}</b> <b>{s:slot}</b></font>. The result may be one of the following bases:"
+
+		// Treasures
+		"treasure_grab_all"								"Grab All"
+
+		// Account
+		"account_info"									"Accomplish objectives and kill creeps to increase your account level. With each level you will be rewarded with various things like treasure chests, cosmetic effects and account features like more craft recipes and trade."
+
+		"experience"									"experience"
+		"next_level"									"next level"
+
+		"tier"											"Tier"
+		"tier_1"										"<font color=\"#E3E3E3\">Wooden</font>"
+		"tier_2"										"<font color=\"#E3E3E3\">Bronze</font>"
+		"tier_3"										"<font color=\"#E3E3E3\">Silver</font>"
+		"tier_4"										"<font color=\"#E3E3E3\">Golden</font>"
+		"tier_5"										"<font color=\"#E3E3E3\">Platinum</font>"
+
+		"reward_SmallTreasure"							" • <font color=\"#E3E3E3\">Small Treasure</font>"
+		"reward_BigTreasure"							" • <font color=\"#F1E13B\">Big Treasure</font>"
+		"reward_CraftA"									" • <font color=\"#59bb98\">Craft Recipes</font>"
+		"reward_LootChanceA"							" • <font color=\"#FEFF28\">Luck +1</font>"
+		"reward_GoreA"									" • <font color=\"#FF2889\">Gore</font>"
+		"reward_BronzeAccount"							" • <font color=\"#cd7f32\">Bronze Tier</font>"
+		"reward_StashA"									" • <font color=\"#989378\">Additional Stash Slots</font>"
+		"reward_GoreB"									" • <font color=\"#960A1D\">Gore+</font>"
+		"reward_SilverAccount"							" • <font color=\"#c0c0c0\">Silver Tier</font>"
+		"reward_CraftB"									" • <font color=\"#58A8D5\">Cool Craft Recipes</font>"
+		"reward_CharacterSlotsA"						" • <font color=\"#499372\">Additional Character Slots</font>"
+		"reward_GoldAccount"							" • <font color=\"#ffd700\">Gold Tier</font>"
+		"reward_PlatinumAccount"						" • <font color=\"#BBDADF\">Platinum Tier</font>"
+
+		// Slots
+		"slot"											"Slot: "
+		"slot_quiver"									"Quiver"
+		"slot_ammo"										"Ammo"
+		"slot_torso"									"Torso"
+		"slot_axe"										"Axe"
+		"slot_boots"									"Boots"
+		"slot_bow"										"Bow"
+		"slot_gloves"									"Gloves"
+		"slot_gun"										"Gun"
+		"slot_pants"									"Pants"
+		"slot_ring"										"Ring"
+		"slot_staff"									"Staff"
+		"slot_sword"									"Sword"
+		"slot_torso"									"Torso"
+
+		// Common modifiers
+		"FIRE_DAMAGE_INCREASE" 							"% increased fire damage"
+		"COLD_DAMAGE_INCREASE" 							"% increased cold damage"
+		"LIGHTNING_DAMAGE_INCREASE" 					"% increased lightning damage"
+		"DARK_DAMAGE_INCREASE" 							"% increased dark damage"
+
+		"ALL_RESISTANCES" 								"% to all magic resistances"
+		"FIRE_RESISTANCE" 								"% to fire resistance"
+		"COLD_RESISTANCE" 								"% to cold resistance"
+		"LIGHTNING_RESISTANCE" 							"% to lightning resistance"
+		"DARK_RESISTANCE" 								"% to dark resistance"
+
+		"ARMOR"											"to armor rating"
+		"EVASION"										"to evasion rating"
+
+		"HP_LEECH"										"% to HP leech"
+		"EP_LEECH"										"% to MP leech"
+
+		"CRIT_CHANCE"									"% to crit chance"
+		"CRIT_DAMAGE"									"% to crit damage"
+
+		"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 				"to base damage"
+		"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" 			"to attack speed"
+		"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_REDUCE" 	"to attack speed"
+		"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" 			"to move speed"
+		"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" 				"to agility"
+		"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" 				"to intelligence"
+		"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" 				"to strength"
+		"MODIFIER_PROPERTY_STATS_ALL_BONUS" 					"to all stats"
+		"MODIFIER_PROPERTY_HEALTH_BONUS" 						"to max HP"
+
+		// Runes
+		"ziv_elementalist_arc_lightning_cd"				"% reduction of Arc Lightning cooldown"
+		"ziv_elementalist_arc_lightning_fire"			"Half of damage done by Arc Lightning converts to fire"
+		"ziv_elementalist_arc_lightning_targets"		"to Arc Lightning targets"
+		"ziv_elementalist_cold_blast_radius"			"to Cold Blast radius"
+		"ziv_elementalist_cold_blast_slow"				"% to Cold Blast movement slow"
+		"ziv_elementalist_cold_blast_double_chance"		"% chance to end Cold Blast cooldown"
+		"ziv_elementalist_cold_blast_duration"			"% inreased Cold Blast duration"
+		"ziv_elementalist_fire_blast_radius"			"to Fire Blast wave radius"
+		"ziv_elementalist_fire_blast_cd"				"% reduction of Fire Blast cooldown"
+		"ziv_elementalist_fire_blast_waves"				"to Fire Blast waves"
+		"ziv_elementalist_fire_blast_double_chance"		"% chance to end Fire Blast cooldown immediatly"
+		"ziv_elementalist_dark_orb_damage"				"to Dark Orb damage"
+		"ziv_elementalist_dark_orb_duration"			"to Dark Orb duration"
+		"ziv_elementalist_dark_orb_radius"				"to Dark Orb damaging radius"
+		"ziv_elementalist_dark_orb_speed"				"to Dark Orb speed"
+		"ziv_elementalist_barrier_percentage"			"to Barrier damage absorption"
+		"ziv_elementalist_barrier_less_ep"				"to Barrier damager per ep ratio"
+		"ziv_elementalist_barrier_more_ep"				"to Barrier damager per ep ratio"
+		"ziv_elementalist_mastery_damage"				"to Mastery crit damage"
+
+		"ziv_huntress_ballista_as"						"to Ballista attack speed"
+		"ziv_huntress_ballista_cd"						"% reduction of Ballista cooldown"
+		"ziv_huntress_ballista_targets"					"to Ballista maximum targets"
+		"ziv_huntress_ballista_chain"					"Ballista will fire single projectile which will chain to nearby targets multiple times"
+		"ziv_huntress_blink_arrow_damage"				"to Blink Arrow damage"
+		"ziv_huntress_blink_arrow_delay"				"% reduction of Blink Arrow delay"
+		"ziv_huntress_blink_arrow_cd"					"% reduction of Blink Arrow cooldown"
+		"ziv_huntress_blink_arrow_radius"				"to Blink Arrow radius"
+		"ziv_huntress_focus_fire_as"					"to Focus Fire attack speed"
+		"ziv_huntress_focus_fire_damage"				"to Focus Fire damage"
+		"ziv_huntress_trap_duration"					"to Trap duration"
+		"ziv_huntress_volley_cd"						"% reduction of Volley cooldown"
+		"ziv_huntress_volley_arrows"					"to Volley arrow count"
+		"ziv_huntress_volley_damage"					"to Volley damage"
+		"ziv_huntress_agility_ratio"					"to Agility armor to evasion ratio"
+
+		"ziv_samurai_whirlwind_damage"					"to Whirlwind damage"
+		"ziv_samurai_whirlwind_aoe"						"to Whirlwind radius"
+		"ziv_samurai_whirlwind_ms"						"to Whirlwind move speed"
+		"ziv_samurai_execution_as"						"to Execution attack speed"
+		"ziv_samurai_execution_aoe"						"to Execution radius"
+		"ziv_samurai_execution_knockback_chance"		"% chance to knockback with Execution"
+		"ziv_samurai_dash_damage"						"to Dash damage"
+		"ziv_samurai_cold_touch_damage"					"cold damage on hit"
+		"ziv_samurai_cold_touch_leech"					"% to Cold Touch EP leech"
+		"ziv_samurai_reign_of_fire_damage"				"to Reign of Fire damage"
+		"ziv_samurai_reign_of_fire_leech"				"% to Reign of Fire HP leech"
+
+		"ziv_dark_goddess_glaive_count"					"chance to throw additional Glaive"
+		"ziv_dark_goddess_glaive_bleed_damage"			"to Glaive bleed damage"
+		"ziv_dark_goddess_corrupted_arrow_spirit_count"	"to Corrupted Arrow spirit count"
+		"ziv_dark_goddess_corrupted_arrow_as"			"to Corrupted Arrow attack speed"
+		"ziv_dark_goddess_explode_targets"				"additional Explode targets"
+		"ziv_dark_goddess_combine_targets"				"additional Combine targets"
+		"ziv_dark_goddess_concentration_ms"				"to Concentration move speed"
+		"ziv_dark_goddess_concentration_pierce"			"additional pierce for Corrupted Arrow"
+		"ziv_dark_goddess_concentration_evasion"		"to Concentration evasion"
+		"ziv_dark_goddess_transform_cd"					"percent reduction of Transform cooldown"
+		"ziv_dark_goddess_transform_speed"				"percent reduction of Transform cast time"
+
+		"ziv_witch_doctor_blink_heal"			"additional heal after blink"
+		"ziv_witch_doctor_blink_speed"			"% reduction of Blink cast point"
+		"ziv_witch_doctor_curse_duration"		"to Curse duration"
+		"ziv_witch_doctor_curse_damage"			"to Curse damage"
+		"ziv_witch_doctor_curse_slow"			"to Curse slow"
+		"ziv_witch_doctor_soul_sacrifice_ratio"	"less Soul Sacrifice HP tp EP ratio"
+		"ziv_witch_doctor_spawn2_cd"			"% reduction of Spawn Zombies cooldown"
+		"ziv_witch_doctor_spawn2_count"			"to Spawn Zombies unit count"
+		"ziv_witch_doctor_spawn_cd"				"% reduction of Spawn Skeletons cooldown"
+		"ziv_witch_doctor_spawn_count"			"to Spawn Skeletons unit count"
+		"ziv_witch_doctor_totem2_radius"		"to Magnetic Totem radius"
+		"ziv_witch_doctor_totem2_targets"		"to Megnetic Totem target count"
+		"ziv_witch_doctor_totem_range"			"to Spirit Totem attack range"
+		"ziv_witch_doctor_totem_targets"		"to Spirit Totem target count"
+
+		"ziv_sniper_ammo_frag"							"additional physical damage in radius on projectile hit"
+		"ziv_sniper_ammo_poison"						"additional dark damage amp per second debuff (applies on projectile hit)"
+		"ziv_sniper_explosive_trap_damage"				"to Explosive Trap damage"
+		"ziv_sniper_explosive_trap_delay"				"percent reduction of Explosive trap delay"
+		"ziv_sniper_thunder_trap_damage"				"to Thunder trap damage"
+		"ziv_sniper_thunder_trap_delay"					"percent reduction of Thunder trap delay"
+		"ziv_sniper_shotgun_dash_speed"					"to Shotgun Dash speed"
+		"ziv_sniper_shotgun_dash_range"					"to Shotgun Dash range"
+		"ziv_sniper_shotgun_dash_cd"					"% reduction of Shotgun Dash cooldown"
+		"ziv_sniper_shotgun_special_damage"				"to Shrapnel damage"
+		"ziv_sniper_shotgun_special_force"				"to Shrapnel force"
+		"ziv_sniper_shotgun_special_speed"				"additional attack speed with Shrapnel"
+		"ziv_sniper_shotgun_special_reduce_spread"		"% reduction of Shrapnel spread"
+		"ziv_sniper_smg_backup_speed"					"to SMG Backup speed"
+		"ziv_sniper_smg_backup_explosion_chance"		"% chance to fire some bombs with SMG Backup"
+		"ziv_sniper_smg_backup_damage_reduction"		"% damage reduction during SMG Backup"
+		"ziv_sniper_smg_special_damage"					"to SMG damage"
+		"ziv_sniper_smg_special_knockback_chance"		"% chance to knockback with SMG"
+		"ziv_sniper_smg_special_reduce_spread"			"% reduction of SMG spread"
+
+		"ziv_beastmaster_bird_damage"	"to Bird damage"
+		"ziv_beastmaster_bird_manacost"	"% reduction of Bird energy cost"
+		"ziv_beastmaster_bird_blind_chance"	"% chance of aplying Blindness with Bird's hit"
+		"ziv_beastmaster_leap_cd"	"% reduction of Leap cooldown"
+		"ziv_beastmaster_leap_damage"	"physical damage on hit"
+		"ziv_beastmaster_leap_force"	"to Leap force"
+		"ziv_beastmaster_cleave_aoe"	"to Cleave radius"
+		"ziv_beastmaster_cleave_as"	"to Cleave attack sspeed"
+		"ziv_beastmaster_cleave_stun_chance"	"chance of stun with Cleave"
+		"ziv_beastmaster_pet_as"	"to Wolf attack speed"
+		"ziv_beastmaster_pet_crit_chance"	"% additional Wolf crit chance"
+		"ziv_beastmaster_pet2_as"	"to Bear attack speed"
+		"ziv_beastmaster_pet2_stun_chance"	"% additional Bear stun chance"
+
+		"ziv_knight_hell_pit_cd"			"% reduction of Hell Pit cooldown"
+		"ziv_knight_hell_pit_damage"		"to Hell Pit damage"
+		"ziv_knight_hell_pit_duration"		"to Hell Pit root duration"
+		"ziv_knight_hell_pit_radius"		"to Hell Pit radius"
+		"ziv_knight_molten_shell_cd"		"% reduction of Molten Shell cooldown"
+		"ziv_knight_molten_shell_threshold"	"reduction of Molten Shell damage threshold"
+		"ziv_knight_dash_force"		"to Dash knockback force"
+		"ziv_knight_dash_damage"	"to Dash knockback force"
+		"ziv_knight_parry_cd"	"% reduction of Parry cooldown"
+		"ziv_knight_parry_force"	"to Parry knockback force"
+		"ziv_knight_slash_projectile_chance"	"% chance of firing double projectile with Slash"
+		"ziv_knight_slash_aoe_damage"	"increased damage to secondary targets with Slash"
+		"ziv_knight_slash_damage"	"to Slash damage"
+		"ziv_knight_slash_stun_chance"	"% chance of stun with Slash"
+		"ziv_knight_orb_burn_chance"	"% chance of applying Burn with Fire Orb"
+		"ziv_knight_orb_as"	"to Fire Orb attack speed"
+		"ziv_knight_orb_damage"	"to Fire Orb damage"
+		"ziv_knight_orb_projectile_speed"	"to Fire Orb projectile speed"
+
+		// Character presets
+		"samurai_preset_a"				"Fire Disciple"
+		"samurai_preset_b"				"Ice Disciple"
+
+		"dark_goddess_preset_a"			"Destroyer"
+		"dark_goddess_preset_b"			"Creator"
+
+		"southern_barbarian_preset_a"	"Hunter"
+		"southern_barbarian_preset_b"	"Pathfinder"
+
+		"huntress_preset_a" "Engineer"
+		"huntress_preset_b" "Marksman"
+
+		"elementalist_preset_a" "Ice and Thunder"
+
+		"magma_knight_preset_a"	"Fiery Knight"
+		"magma_knight_preset_a_Tooltip"	""
+
+		"mercenary_preset_a" "SMG"
+		"mercenary_preset_a_Tooltip" "Equipped with SMG and basic SMG rune set"
+		"mercenary_preset_b" "Shotgun"
+		"mercenary_preset_b_Tooltip" "Equipped with Shotgun and basic Shotgun rune set"
+
+		// Leagues
+		"league_standard" "Standard"
+		"league_standard_Tooltip" "<b>Standard</b> league is permanent. Your characters and items will never expire."
+		"league_competitive" "Competitive"
+		"league_competitive_Tooltip" "<b>Competetive</b> league start of 1st of each month. Every month new runes and items are added to the this league. Expired character are transfered to Standard league."
+
+		// UI
+		"empty_gem_slot" "Empty Slot"
+
+		"level" "Level"
+		"obelisk" "Obelisk"
+
+		"DOTA_UNIT_CAP_MELEE_ATTACK" "Melee"
+		"DOTA_UNIT_CAP_RANGED_ATTACK" "Ranged"
+
+		"DAMAGE_TYPE_PHYSICAL" "Physical"
+		"DAMAGE_TYPE_MAGICAL" "Magical"
+		"DAMAGE_TYPE_FIRE" "Fire"
+		"DAMAGE_TYPE_COLD" "Ice"
+		"DAMAGE_TYPE_DARK" "Dark"
+
+		"nobrain" "Nobrainer"
+		"summoner" "Summoner"
+		"hitnrun" "Hit'n'run"
+
+		"trade_accept_button"	"Accept"
+		"trade_decline_button"	"Decline"
+		"trade_cancel_button"	"Cancel"
+		"trade_player_items"	"Your Offer"
+		"trade_offered_items"	"You Get"
+		"trade_request"			" wants to trade"
+
+		"sockets"				"Sockets: "
+
+		// Game setup
+		"gamesetup_ready"								"Ready"
+		"gamesetup_preparing"							"Preparing"
+		"gamesetup_disconnected"						"Disconnected"
+		"gamesetup_connected"							"Connected"
+
+		"gamesetup_creation_error_length"				"Minimal name length is 6 charaters. Maximum name length is 16 characters."
+		"gamesetup_creation_error_symbols"				"Name can only contain digits and latin letters."
+		"gamesetup_creation_error_same"					"You already have a character with such name."
+
+		"gamesetup_no_characters_warning"				"You have no characters <br> Click here to create new one"
+		"gamesetup_create_character_button" 			"Create"
+		"gamesetup_submit_character_button"				"Submit"
+		"gamesetup_delete_character_button" 			"Remove"
+		"gamesetup_lockin_button" 						"Lock-In"
+		"gamesetup_create_character_headline" 			"Create new character"
+		"gamesetup_highlight_easy_caharacters" 			"Highlight Characters for new players"
+		"gamesetup_pick_character" 						"Pick character to customize it"
+		"gamesetup_character_attack_type" 				"Attack Type"
+		"gamesetup_character_playstyle" 				"Playstyle"
+		"gamesetup_character_playstyle_nobrain_Tooltip" "<font color=\"#DD5283\"><b>Nobrainer</b></font> - hero with melee attack who never scared of jumping into hordes of monsters"
+		"gamesetup_character_playstyle_hitnrun_Tooltip" "<font color=\"#7ADBB6\"><b>Hit'n'run</b></font> - usually ranged hero with relatively weak defensive abilities"
+		"gamesetup_character_playstyle_summoner_Tooltip""<font color=\"#E08841\"><b>Summoner</b></font> - most damage goes not from hero but from summoned minions"
+		"gamesetup_character_movespeed" 				"Movement Speed"
+		"gamesetup_character_damage_type" 				"Primary Damage"
+		"gamesetup_character_name" 						"Name"
+		"gamesetup_character_presets"					"Presets"
+		"gamesetup_character_league"					"League"
+		"gamesetup_character_preview_hp"				" - Hit Points: "
+		"gamesetup_character_preview_ep"				" - Energy Points: "
+		"gamesetup_character_preview_strength"			" - Strength: "
+		"gamesetup_character_preview_dexterity"			" - Dexterity: "
+		"gamesetup_character_preview_intelligence"		" - Intelligence: "
+		"gamesetup_character_preview_games_played"		" - Games Played: "
+		"gamesetup_character_preview_pvp_kills"			" - PvP Kills: "
+		"gamesetup_character_new"						"New"
+
+		"gamesetup_tab_battle_info" 					"Summary"
+		"gamesetup_tab_bio" 							"Biography"
+
+		// Ability tooltips
+		"energy_cost"	"Energy Cost: "
+		"cast_point"	"Cast Point: "
+		"cooldown"		"Cooldown: "
+
+		// Status window
+		"status_attr"						"Attributes"
+
+		"status_status"						"Status"
+
+		"status_hp"							"Health Points: "
+		"status_hp_regen"					"Health Regen: "
+		"status_ep"							"Energy Points: "
+		"status_ep_regen"					"Energy Regen: "
+
+		"status_defence"					"Defence"
+
+		"status_armor"						"Armor: "
+
+		"status_evasion"					"Chance to Dodge: "
+
+		"status_fire_resistance"			"Fire Resistance: "
+		"status_cold_resistance"			"Cold Resistance: "
+		"status_lightning_resistance"		"Lightning Resistance: "
+		"status_dark_resistance"			"Dark Resistance: "
+
+		"status_offence"					"Offence"
+
+		"status_ad"							"Base Damage: "
+
+		"status_fire_increase"				"Fire Damage Increase: "
+		"status_cold_increase"				"Cold Damage Increase: "
+		"status_lightning_increase"			"Lightning Damage Increase: "
+		"status_dark_increase"				"Dark Damage Increase: "
+
+		"status_hp_leech"					"HP Leech: "
+		"status_ep_leech"					"EP Leech: "
+
+		"status_ctc"						"Chance to crit: "
+		"status_cd"							"Crit damage: "
+
+		// Fortifying
+		"dragfortify"				"Drag and drop weapon or armor from inventory to fortify"
+		"dragfortify_gem"			"Drag and drop gem from inventory to insert it"
+		"fortify_button"			"Fortify"
+
+		"item_forging_dial_Fortify" "Randomizes values of ALL fortified modifiers. Use with caution!"
+		"item_forging_seal_of_lore_Fortify" "Adds additional socket to weapon or armor."
+
+		"item_gem_amethyst_Fortify" "random modifier from list (all stats, all resistances, dark resistance, dark damage)"
+		"item_gem_ruby_Fortify" "random modifier from list (strength, armor, fire resistance, fire damage)"
+		"item_gem_malachite_Fortify" "random modifier from list (agility, attack speed, lightning resistance, lightning damage)"
+		"item_gem_topaz_Fortify" "random modifier from list (intelligence, move speed, cold resistance, cold damage)"
+	}
 }

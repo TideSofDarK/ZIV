@@ -1,7 +1,6 @@
 <root>
 	<styles>
-		<include src="file://{resources}/styles/custom_game/crafting/item_mini.css" />
-		<include src="file://{resources}/styles/custom_game/crafting/rarities.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_crafting.css" />
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 	</styles>
 	<script>
@@ -34,11 +33,14 @@
 			$( "#ItemImage" ).SetHasClass(rarityClass, true )
 		}
 
-		function Update( id )
+		function Update( id, force )
 		{
 			SetRarity( 0 );
 
 			$( "#ItemImage" ).itemname = id;
+			if (force) {
+				$( "#ItemImage" ).SetImage("file://{images}/recipes/" + id + ".png");
+			}
 		}
 
 		function SetCount( count )

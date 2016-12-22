@@ -1,40 +1,99 @@
-"item_basic_recipe"
+"item_random_iron_axe"
 {
   "BaseClass"               "item_datadriven"
   "ID"		"1012"
   "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
   "Model"                   "models/props_gameplay/recipe.vmdl" 
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
-  "AbilityTextureName"            "item_recipe"
+  "AbilityTextureName"            "item_random_iron_axe"
+}
 
-  "AbilityCastPoint"      "0"
-  "AbilityCooldown"       "0"
-  "AbilityManaCost"       "0"
-  
-  "ItemShareability"      "ITEM_FULLY_SHAREABLE"
-  "ItemShopTags"        "consumable"
-  "ItemQuality"         "consumable"
-  "ItemPermanent"         "0"
-  "ItemSellable"          "0"
-  "ItemKillable"          "1"
-  "ItemPurchasable"       "0"
+"item_random_iron_gun"
+{
+  "BaseClass"               "item_datadriven"
+  "ID"    "1012"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "Model"                   "models/props_gameplay/recipe.vmdl" 
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+  "AbilityTextureName"            "item_random_iron_gun"
+}
 
-  "ItemStackable" "0"
-  "ItemPermanent" "0"
-  "ItemInitialCharges" "1"
-  "ItemDisplayCharges" "1"
-  "ItemRequiresCharges" "1"
-  "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
-  "ItemCastOnPickup"    "1"
+"item_random_iron_sword"
+{
+  "BaseClass"               "item_datadriven"
+  "ID"    "1012"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "Model"                   "models/props_gameplay/recipe.vmdl" 
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+  "AbilityTextureName"            "item_random_iron_sword"
+}
 
-  "OnSpellStart"
-  {    
-    "SpendCharge" 
-    {}
-    "RunScript"
-    {
-      "ScriptFile"  "items/recipes.lua"
-      "Function"    "Learn"
-    }
-  }
+"item_random_leather_boots"
+{
+  "BaseClass"               "item_datadriven"
+  "ID"    "1012"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "Model"                   "models/props_gameplay/recipe.vmdl" 
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+  "AbilityTextureName"            "item_random_leather_boots"
+}
+
+"item_random_leather_pants"
+{
+  "BaseClass"               "item_datadriven"
+  "ID"    "1012"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "Model"                   "models/props_gameplay/recipe.vmdl" 
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+  "AbilityTextureName"            "item_random_leather_pants"
+}
+
+"item_random_leather_torso"
+{
+  "BaseClass"               "item_datadriven"
+  "ID"    "1012"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "Model"                   "models/props_gameplay/recipe.vmdl" 
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+  "AbilityTextureName"            "item_random_leather_torso"
+}
+
+"item_item_random_ore_ring"
+{
+  "BaseClass"               "item_datadriven"
+  "ID"    "1012"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "Model"                   "models/props_gameplay/recipe.vmdl" 
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+  "AbilityTextureName"            "item_item_random_ore_ring"
+}
+
+"item_random_wood_bow"
+{
+  "BaseClass"               "item_datadriven"
+  "ID"    "1012"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "Model"                   "models/props_gameplay/recipe.vmdl" 
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+  "AbilityTextureName"            "item_random_wood_bow"
+}
+
+"item_random_wood_quiver"
+{
+  "BaseClass"               "item_datadriven"
+  "ID"    "1012"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "Model"                   "models/props_gameplay/recipe.vmdl" 
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+  "AbilityTextureName"            "item_random_wood_quiver"
+}
+
+"item_random_wood_staff"
+{
+  "BaseClass"               "item_datadriven"
+  "ID"    "1012"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  "Model"                   "models/props_gameplay/recipe.vmdl" 
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
+  "AbilityTextureName"            "item_random_wood_staff"
 }

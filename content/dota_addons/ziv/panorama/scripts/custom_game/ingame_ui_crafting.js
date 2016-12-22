@@ -7,19 +7,34 @@ var selectedRecipe = null;
 
 function Open() {
 	$.GetContextPanel().AddToPanelsQueue();
-	$.GetContextPanel().SetHasClass("Hide", false);
+	$.GetContextPanel().SetHasClass("WindowClosed", false);
 }
 
 function CloseButton() {
 	$.GetContextPanel().RemoveFromPanelsQueue();
-	$.GetContextPanel().SetHasClass("Hide", true);
+	$.GetContextPanel().SetHasClass("WindowClosed", true);
 }
 
 function RecipeClick( id, panel )
 {
-	craftingItemPanel.Update( id );
-	$("#ItemDescLabel").text = $.Localize("DOTA_Tooltip_ability_"+id+"_Description");
-	$("#ItemName").text = $.Localize("DOTA_Tooltip_ability_"+id);
+	var rarity = id.substring(id.length - 1, id.length);
+
+	craftingItemPanel.Update( "item_" + id.substring(0, id.length - 2) );
+	$.Msg( "item_" + id.substring(0, id.length - 2) );
+	var possibleResults = PlayerTables.GetTableValue("kvs", "recipes")[id].PossibleResults;
+	var possibleResultsString = "";
+	for (var result in possibleResults) { 
+		possibleResultsString = possibleResultsString + "<br>" + "  <font color=\"#ffffff\">• " + $.Localize("DOTA_Tooltip_ability_" + result) + "</font>";
+	}
+
+	$("#ItemDescLabel").SetDialogVariable("rarity", $.Localize("rarity"+rarity));
+    $("#ItemDescLabel").SetDialogVariable("slot", $.Localize(id.substring(0, id.length - 2)));
+    $("#ItemDescLabel").SetDialogVariable("color", $.Localize("rarity" + rarity + "_color"));
+    $("#ItemDescLabel").html = true;
+    $("#ItemDescLabel").text = $.Localize("craft_description", $("#ItemDescLabel")) + "<br>" + possibleResultsString;
+
+	$("#ItemName").text = $.Localize("rarity"+rarity) + ' ' + $.Localize(id.substring(0, id.length - 2));
+
 	CreateRecipeParts(id);
 
 	if (selectedRecipe) {
@@ -31,10 +46,12 @@ function RecipeClick( id, panel )
 
 function AddRecipe( id )
 {
-	var recipePanel = $.CreatePanel( "Panel", $( "#RecipesList" ), "Recipe_" + id );
-	recipePanel.BLoadLayout( "file://{resources}/layout/custom_game/crafting/recipe_title.xml", false, false );
+	var rarity = id.substring(id.length - 1, id.length);
 
-	recipePanel.SetName( $.Localize("DOTA_Tooltip_ability_"+id) )
+	var recipePanel = $.CreatePanel( "Panel", $( "#RecipesList" ), "Recipe_" + id );
+	recipePanel.BLoadLayoutSnippet("RecipeTitle");
+	recipePanel.FindChildTraverse("RecipeTitle").text = $.Localize("rarity"+rarity) + ' ' + $.Localize(id.substring(0, id.length - 2));
+	recipePanel.FindChildTraverse("RecipeTitle").SetHasClass("Rarity"+rarity, true);
 
 	var click = (function() { 
 				return function() {
@@ -119,7 +136,7 @@ function UpdateInfo()
 function AddRecipeSlot( parent, num, key, count )
 {
 	var part = $.CreatePanel( "Panel", parent, "RecipePart_" + num );
-	part.BLoadLayout( "file://{resources}/layout/custom_game/crafting/item_mini.xml", false, false );
+	part.BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_crafting_item.xml", false, false );
 	part.AddClass("recipepart-image");
 	part.SetHasClass("recipepart-image", true);	
 
@@ -140,15 +157,19 @@ function CreateRecipeParts( id )
 	$( "#RecipeRow1" ).RemoveAndDeleteChildren();
 	$( "#RecipeRow2" ).RemoveAndDeleteChildren();
 
-	var count = Object.keys( PlayerTables.GetTableValue("kvs", "recipes")[id]["Recipe"] ).length;
+	var recipe = PlayerTables.GetTableValue("kvs", "recipes")[id]["Parts"]
+
+	var count = recipe.length;
 
 	var i = 0;
-	for (var key in PlayerTables.GetTableValue("kvs", "recipes")[id]["Recipe"]) 
+	for (var key in recipe) 
 	{
 		var panelName = i < 4 ? "#RecipeRow1" : "#RecipeRow2";
-		if (i % 4 != 0)
+		if (i % 4 != 0) {
 			AddPlus( $( panelName ) );		
-		AddRecipeSlot( $( panelName ), i, key, PlayerTables.GetTableValue("kvs", "recipes")[id]["Recipe"][key] );
+		}
+
+		AddRecipeSlot($( panelName ), i, key, recipe[key]);
 
 		i++;
 	}
@@ -157,7 +178,7 @@ function CreateRecipeParts( id )
 function InitSlots()
 {
 	craftingItemPanel = $.CreatePanel( "Panel", $( "#ItemImage" ), "CraftingItemPanel" );
-	craftingItemPanel.BLoadLayout( "file://{resources}/layout/custom_game/crafting/item_mini.xml", false, false );
+	craftingItemPanel.BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_crafting_item.xml", false, false );
 	
 	// CreateRecipeParts( 8 );
 }
