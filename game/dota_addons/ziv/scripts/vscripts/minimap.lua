@@ -1,6 +1,8 @@
 Minimap = {}
 
-CustomGameEventManager:RegisterListener( "set_minimap_event", Dynamic_Wrap(Minimap, 'SendEventFromPlayer'))
+function Minimap:Init()
+  CustomGameEventManager:RegisterListener( "set_minimap_event", Dynamic_Wrap(Minimap, 'SendEventFromPlayer'))
+end
 
 function Minimap:SendEvent( eventType, eventDuration, player, worldPos, entity )
     CustomGameEventManager:Send_ServerToAllClients("custom_minimap_event", 

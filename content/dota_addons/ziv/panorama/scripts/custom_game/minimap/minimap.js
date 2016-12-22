@@ -4,6 +4,36 @@ var marksPath = "file://{resources}/layout/custom_game/minimap/marks/";
 var units = [];
 var bounds = null;
 
+// Marks handlers
+function MarkClick( entity )
+{
+	if (GameUI.IsAltDown())
+	{
+		var eventType = "";
+		if ( Entities.IsEnemy(entity) )
+			eventType = "attack";
+		else
+			if ( Entities.GetTeamNumber(entity) == Players.GetTeam( Players.GetLocalPlayer() ) )
+				eventType = "defend";
+
+		if (eventType)
+		{
+			var pos = Entities.GetAbsOrigin( entity );
+			GameEvents.SendCustomGameEventToServer( "set_minimap_event", { "type": eventType, "duration": 5, "pos": [ pos[0], pos[1] ], "entity": entity } );
+		}
+	}
+	else
+	{
+		var order = {
+			OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+			Position : Entities.GetAbsOrigin(entity),
+			Queue : false,
+			ShowEffects : false
+		};
+		Game.PrepareUnitOrders( order );
+	}
+}
+
 // Calculate relative image position
 function GetRelativePosition( pos )
 {
@@ -116,12 +146,29 @@ function SetMapPosByWorldPos( panel, pos )
 function CreateMarkPanel( entity )
 {
 	var panel = $.CreatePanel( "Panel", $( "#MarksMap" ), "Entity_" + entity );
-	panel.BLoadLayout( marksPath + settings.marks( entity ) +".xml", false, false );
+	panel.BLoadLayoutSnippet('mark'); 
+	panel.AddClass(settings.marks( entity ));
 
-	panel.entity = entity; 
+	panel.SetPanelEvent('onactivate', function() {
+		MarkClick(entity);
+	});
 
-	if (typeof panel.UpdateClass == 'function')
-		panel.UpdateClass();
+	panel.SetPanelEvent('onmouseover', function(){
+		$.DispatchEvent( "DOTAShowTextTooltip", panel, "Entity " + entity);
+	});
+
+	panel.SetPanelEvent('onmouseout', function(){
+		$.DispatchEvent( "DOTAHideTextTooltip");
+	});
+
+	if (panel.BHasClass('hero')){
+		panel.FindChild('Icon').style.backgroundImage = 'url("file://{images}/heroes/icons/' + Entities.GetUnitName(entity) + '.png");';
+		panel.style.washColor = Entities.IsEnemy(entity) ? '#ff0000bb;' : '#00ff00bb;';
+
+		panel.SetPanelEvent('onmouseover', function(){
+			$.DispatchEvent( "DOTAShowTextTooltip", panel, $.Localize( Entities.GetUnitName(entity) ));
+		});
+	}
 
 	// Set mark rotation
 	panel.style.transform = 'rotateZ( ' + -settings.rotation + 'deg );';
@@ -283,11 +330,44 @@ function SetWorldBounds( args )
 }
 
 // Events handler
+function GetPlayerColor( PlayerID )
+{
+	var color = Players.GetPlayerColor( PlayerID ).toString(16);
+	color = color.substring(6, 8) + color.substring(4, 6) + color.substring(2, 4) + color.substring(0, 2);
+	return "#" + color + ";";
+}
+
+function EmitEventSound( type )
+{
+	var soundFile = "General.PingWarning";
+
+	switch(type)
+	{
+		case "attack":
+			soundFile = "General.PingAttack";
+			break;
+
+		case "defend":
+			soundFile = "General.PingDefense";
+			break;
+	}
+
+	Game.EmitSound(soundFile);
+}
+
+function FormEvent( panel, type, player, entity )
+{
+	panel.FindChild( 'Icon' ).style.backgroundImage = 'url("file://{images}/custom_game/minimap/event_icons/' + type + '.png");';
+	panel.FindChild( 'Icon' ).style.washColor = GetPlayerColor( player );
+
+	EmitEventSound( type );
+}
+
 function MinimapEvent( args )
 {
 	var panel = $.CreatePanel( "Panel", $( "#EventsMap" ), args["Type"] );
-	panel.BLoadLayout( marksPath + "events.xml", false, false );
-	panel.FormEvent( args.type, args.player, args.entity );
+	panel.BLoadLayoutSnippet('event'); 
+	FormEvent(panel, args.type, args.player, args.entity );
 	panel.style.transform = 'rotateZ( ' + -settings.rotation + 'deg );';
 
 	// Delay to calculate sizes
