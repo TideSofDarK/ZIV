@@ -6,6 +6,7 @@
   "AbilityTextureName"      "item_malachite_ring"
   "Model"                   "models/items/malachite_ring.vmdl" 
 
+  "Craft"       "ore"
   "Slot"  "ring"
   "EquipSound"  "Item.DropRingShop"
 

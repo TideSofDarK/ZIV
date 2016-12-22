@@ -35,3 +35,39 @@ function Crafting:CraftingRequest( keys )
 
 	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_craft_result", { } )
 end
+
+function Crafting:GenerateRecipes()
+	local slots = {}
+	local recipes = {}
+	for k,v in pairs(LoadKeyValues('scripts/kv/Equipment.kv')) do
+		if string.match(v, ";") then
+			for k1,v1 in pairs(KeyValues:Split(v, ";")) do
+				if not string.match(v1, "2") then
+					table.insert(slots, v1)
+				end
+			end
+		else
+			table.insert(slots, v)
+		end
+	end
+	for _,slot in pairs(slots) do
+		for i=2,4 do
+			local materials = {}
+			for k,v in pairs(ZIV.ItemKVs) do
+				if v.Craft and v.Slot and v.Slot == slot then
+					materials[v.Craft] = materials[v.Craft] or {}
+					materials[v.Craft]["PossibleResults"] = materials[v.Craft]["PossibleResults"] or {}
+					materials[v.Craft]["Parts"] = materials[v.Craft]["Parts"] or {}
+
+					materials[v.Craft]["PossibleResults"][k] = "1"
+					materials[v.Craft]["Parts"]["item_craft_"..v.Craft] = "1"
+					materials[v.Craft]["Parts"]["item_craft_parts"] = tostring(i)
+				end
+			end
+			for k,v in pairs(materials) do
+				recipes["random_"..k.."_"..slot.."_"..tostring(i)] = v
+			end
+		end
+	end
+	PrintKV(recipes)
+end

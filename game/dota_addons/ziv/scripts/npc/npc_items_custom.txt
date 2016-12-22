@@ -159,38 +159,6 @@
 	    }
 	  }
 	}
-	"item_craft_parts"
-	{
-	  "ID"		"1111"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_craft_parts"
-	
-	  "ItemStackable"         "1"
-	  "ItemPermanent"         "0"
-	  "ItemInitialCharges"            "1"
-	
-	  "MaxUpgradeLevel"       "1"
-	  "ItemBaseLevel"         "1"
-	}
-	
-	"item_craft_leather"
-	{
-	  "ID"    "1112"
-	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	  "BaseClass"           "item_datadriven"
-	  "AbilityTextureName"      "item_craft_leather"
-	  "Model"                   "models/items/basic_leather.vmdl"
-	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf" 
-	
-	
-	  "ItemStackable"                 "1"
-	  "ItemPermanent"                 "0"
-	  "ItemInitialCharges"            "1"
-	
-	  "MaxUpgradeLevel"       "1"
-	  "ItemBaseLevel"         "1"
-	}
 	"item_basic_recipe"
 	{
 	  "BaseClass"               "item_datadriven"
@@ -260,6 +228,92 @@
 	    // Cost
 	    //-------------------------------------------------------------------------------------------------------------
 	    "AbilityManaCost"       "0 0 0 0"
+	}
+	"item_craft_parts"
+	{
+	  "ID"		"1111"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_craft_parts"
+	
+	  "ItemStackable"         "1"
+	  "ItemPermanent"         "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	}
+	
+	"item_craft_leather"
+	{
+	  "ID"    "1112"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_craft_leather"
+	  "Model"                   "models/items/basic_leather.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf" 
+	
+	
+	  "ItemStackable"                 "1"
+	  "ItemPermanent"                 "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	}
+	
+	"item_craft_iron"
+	{
+	  "ID"    "1112"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_craft_leather"
+	  "Model"                   "models/items/basic_leather.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf" 
+	
+	
+	  "ItemStackable"                 "1"
+	  "ItemPermanent"                 "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	}
+	
+	"item_craft_wood"
+	{
+	  "ID"    "1112"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_craft_leather"
+	  "Model"                   "models/items/basic_leather.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf" 
+	
+	
+	  "ItemStackable"                 "1"
+	  "ItemPermanent"                 "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
+	}
+	
+	"item_craft_ore"
+	{
+	  "ID"    "1112"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "BaseClass"           "item_datadriven"
+	  "AbilityTextureName"      "item_craft_leather"
+	  "Model"                   "models/items/basic_leather.vmdl"
+	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf" 
+	
+	
+	  "ItemStackable"                 "1"
+	  "ItemPermanent"                 "0"
+	  "ItemInitialCharges"            "1"
+	
+	  "MaxUpgradeLevel"       "1"
+	  "ItemBaseLevel"         "1"
 	}
 	"item_stat_modifier"
 	{
@@ -343,6 +397,7 @@
 	  "AbilityTextureName"      "item_basic_coat"
 	  "Model"                   "models/items/basic_coat.vmdl" 
 	
+	  "Craft"  "leather"
 	  "Slot"  "torso"
 	  "EquipSound"  "ui.inv_equip_leather"
 	
@@ -377,6 +432,7 @@
 	  "AbilityTextureName"      "item_arrow_proof_coat"
 	  "Model"                   "models/items/basic_coat.vmdl" 
 	
+	  "Craft"  "leather"
 	  "Slot"  "torso"
 	  "EquipSound"  "ui.inv_equip_leather"
 	
@@ -406,6 +462,7 @@
 	  "AbilityTextureName"      "item_tribe_coat"
 	  "Model"                   "models/items/basic_coat.vmdl" 
 	
+	  "Craft"  "leather"
 	  "Slot"  "torso"
 	  "EquipSound"  "ui.inv_equip_leather"
 	
@@ -439,6 +496,7 @@
 	  "AbilityTextureName"      "item_cheap_pants"
 	  "Model"                   "models/items/basic_pants.vmdl" 
 	
+	  "Craft"  "leather"
 	  "Slot"  "pants"
 	  "EquipSound"  "ui.inv_equip_leather"
 	
@@ -473,6 +531,7 @@
 	  "AbilityTextureName"      "item_cheap_pants_a"
 	  "Model"                   "models/items/basic_pants.vmdl" 
 	
+	  "Craft"  "leather"
 	  "Slot"  "pants"
 	  "EquipSound"  "ui.inv_equip_leather"
 	
@@ -507,6 +566,7 @@
 	  "AbilityTextureName"      "item_cheap_pants_b"
 	  "Model"                   "models/items/basic_pants.vmdl" 
 	
+	  "Craft"  "leather"
 	  "Slot"  "pants"
 	  "EquipSound"  "ui.inv_equip_leather"
 	
@@ -540,6 +600,7 @@
 	  "AbilityTextureName"      "item_snow_boots"
 	  "Model"                   "models/items/basic_boots.vmdl" 
 	
+	  "Craft"  "leather"
 	  "Slot"  "boots"
 	  "EquipSound"  "ui.inv_equip_leather"
 	
@@ -574,6 +635,7 @@
 	  "AbilityTextureName"      "item_leather_boots"
 	  "Model"                   "models/items/basic_boots.vmdl" 
 	
+	  "Craft"  "leather"
 	  "Slot"  "boots"
 	  "EquipSound"  "ui.inv_equip_leather"
 	
@@ -608,6 +670,7 @@
 	  "AbilityTextureName"      "item_ornate_boots"
 	  "Model"                   "models/items/basic_boots.vmdl" 
 	
+	  "Craft"  "leather"
 	  "Slot"  "boots"
 	  "EquipSound"  "ui.inv_equip_leather"
 	
@@ -837,6 +900,7 @@
 	  "AbilityTextureName"      "item_amethyst_ring"
 	  "Model"                   "models/items/amethyst_ring.vmdl" 
 	
+	  "Craft"       "ore"
 	  "Slot"  "ring"
 	  "EquipSound"  "Item.DropRingShop"
 	
@@ -870,6 +934,7 @@
 	  "AbilityTextureName"      "item_malachite_ring"
 	  "Model"                   "models/items/malachite_ring.vmdl" 
 	
+	  "Craft"       "ore"
 	  "Slot"  "ring"
 	  "EquipSound"  "Item.DropRingShop"
 	
@@ -903,6 +968,7 @@
 	  "AbilityTextureName"      "item_ruby_ring"
 	  "Model"                   "models/items/ruby_ring.vmdl" 
 	
+	  "Craft"       "ore"
 	  "Slot"  "ring"
 	  "EquipSound"  "Item.DropRingShop"
 	
@@ -936,6 +1002,7 @@
 	  "AbilityTextureName"      "item_topaz_ring"
 	  "Model"                   "models/items/topaz_ring.vmdl" 
 	
+	  "Craft"       "ore"
 	  "Slot"  "ring"
 	  "EquipSound"  "Item.DropRingShop"
 	
@@ -4539,6 +4606,7 @@
 	  "Model"                   "models/items/basic_axe.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
+	  "Craft"       "iron"
 	  "Slot"        "axe"
 	  "EquipSound"  "ui.inv_equip_metalheavy"
 	
@@ -4568,6 +4636,7 @@
 	  "Model"                   "models/items/basic_axe.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
+	  "Craft"       "iron"
 	  "Slot"        "axe"
 	  "EquipSound"  "ui.inv_equip_metalheavy"
 	
@@ -4597,6 +4666,7 @@
 	  "Model"                   "models/items/basic_axe.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
+	  "Craft"       "iron"
 	  "Slot"        "axe"
 	  "EquipSound"  "ui.inv_equip_metalheavy"
 	
@@ -4624,6 +4694,7 @@
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_basic_bow"
 	
+	  "Craft"       "wood"
 	  "Slot"  "bow"
 	  "EquipSound"  "ui.inv_equip_wood"
 	
@@ -4657,6 +4728,7 @@
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_tribe_bow"
 	
+	  "Craft"       "wood"
 	  "Slot"  "bow"
 	  "EquipSound"  "ui.inv_equip_wood"
 	
@@ -4690,6 +4762,7 @@
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_craft_bow"
 	
+	  "Craft"       "wood"
 	  "Slot"  "bow"
 	  "EquipSound"  "ui.inv_equip_wood"
 	
@@ -4727,6 +4800,7 @@
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_basic_shotgun"
 	
+	  "Craft"       "iron"
 	  "Slot"  "gun"
 	  "EquipSound"  "ui.inv_equip_gun"
 	  "CustomSkill1"  
@@ -4768,6 +4842,7 @@
 	  "BaseClass"               "item_datadriven"
 	  "AbilityTextureName"      "item_enhanced_shotgun"
 	
+	  "Craft"       "iron"
 	  "Slot"  "gun"
 	  "EquipSound"  "ui.inv_equip_gun"
 	  "CustomSkill1"  
@@ -4814,6 +4889,7 @@
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_craft_shotgun"
 	
+	  "Craft"       "iron"
 	  "Slot"  "gun"
 	  "EquipSound"  "ui.inv_equip_gun"
 	  "CustomSkill1"  
@@ -4854,6 +4930,7 @@
 	  "BaseClass"           "item_datadriven"
 	  "AbilityTextureName"      "item_basic_smg"
 	
+	  "Craft"       "iron"
 	  "Slot"  "gun"
 	  "EquipSound"  "ui.inv_equip_gun"
 	  "CustomSkill1"  
@@ -4901,6 +4978,7 @@
 	  "Model"                   "models/items/basic_quiver.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
+	  "Craft"       "wood"
 	  "Slot"        "quiver"
 	  "EquipSound"  "ui.inv_equip_quiver"
 	
@@ -4935,6 +5013,7 @@
 	  "Model"                   "models/items/basic_quiver.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
+	  "Craft"       "wood"
 	  "Slot"        "quiver"
 	  "EquipSound"  "ui.inv_equip_quiver"
 	
@@ -4969,6 +5048,7 @@
 	  "Model"                   "models/items/basic_quiver.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
+	  "Craft"       "wood"
 	  "Slot"        "quiver"
 	  "EquipSound"  "ui.inv_equip_quiver"
 	
@@ -5002,6 +5082,7 @@
 	  "AbilityTextureName"      "item_acolyte_staff"
 	  "Model"                   "models/items/basic_staff.vmdl" 
 	
+	  "Craft"       "wood"
 	  "Slot"                    "staff"
 	  "EquipSound"              "ui.inv_equip_staff"
 	
@@ -5035,6 +5116,7 @@
 	  "AbilityTextureName"      "item_druid_staff"
 	  "Model"                   "models/items/basic_staff.vmdl" 
 	
+	  "Craft"       "wood"
 	  "Slot"                    "staff"
 	  "EquipSound"              "ui.inv_equip_staff"
 	
@@ -5068,6 +5150,7 @@
 	  "AbilityTextureName"      "item_elven_staff"
 	  "Model"                   "models/items/basic_staff.vmdl" 
 	
+	  "Craft"       "wood"
 	  "Slot"                    "staff"
 	  "EquipSound"              "ui.inv_equip_staff"
 	
@@ -5102,6 +5185,7 @@
 	  "Model"                   "models/items/basic_sword.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
+	  "Craft"       "iron"
 	  "Slot"  "sword"
 	  "EquipSound"  "ui.inv_equip_metalblade"
 	
@@ -5132,6 +5216,7 @@
 	  "Model"                   "models/items/basic_sword.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 	
+	  "Craft"       "iron"
 	  "Slot"  "sword"
 	  "EquipSound"  "ui.inv_equip_metalblade"
 	
@@ -5167,6 +5252,7 @@
 	  "Model"                   "models/items/basic_sword.vmdl"
 	  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 	
+	  "Craft"       "iron"
 	  "Slot"  "sword"
 	  "EquipSound"  "ui.inv_equip_metalblade"
 	

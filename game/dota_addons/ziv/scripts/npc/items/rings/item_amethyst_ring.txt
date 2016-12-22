@@ -6,6 +6,7 @@
   "AbilityTextureName"      "item_amethyst_ring"
   "Model"                   "models/items/amethyst_ring.vmdl" 
 
+  "Craft"       "ore"
   "Slot"  "ring"
   "EquipSound"  "Item.DropRingShop"
 

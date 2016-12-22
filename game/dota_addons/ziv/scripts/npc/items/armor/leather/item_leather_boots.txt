@@ -6,6 +6,7 @@
   "AbilityTextureName"      "item_snow_boots"
   "Model"                   "models/items/basic_boots.vmdl" 
 
+  "Craft"  "leather"
   "Slot"  "boots"
   "EquipSound"  "ui.inv_equip_leather"
 
@@ -40,6 +41,7 @@
   "AbilityTextureName"      "item_leather_boots"
   "Model"                   "models/items/basic_boots.vmdl" 
 
+  "Craft"  "leather"
   "Slot"  "boots"
   "EquipSound"  "ui.inv_equip_leather"
 
@@ -74,6 +76,7 @@
   "AbilityTextureName"      "item_ornate_boots"
   "Model"                   "models/items/basic_boots.vmdl" 
 
+  "Craft"  "leather"
   "Slot"  "boots"
   "EquipSound"  "ui.inv_equip_leather"
 

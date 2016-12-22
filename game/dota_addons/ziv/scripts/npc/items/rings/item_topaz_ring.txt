@@ -6,6 +6,7 @@
   "AbilityTextureName"      "item_topaz_ring"
   "Model"                   "models/items/topaz_ring.vmdl" 
 
+  "Craft"       "ore"
   "Slot"  "ring"
   "EquipSound"  "Item.DropRingShop"
 

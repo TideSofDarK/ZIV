@@ -5,6 +5,7 @@
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_basic_smg"
 
+  "Craft"       "iron"
   "Slot"  "gun"
   "EquipSound"  "ui.inv_equip_gun"
   "CustomSkill1"  

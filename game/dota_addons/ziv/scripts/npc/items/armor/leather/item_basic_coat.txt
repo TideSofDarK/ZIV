@@ -6,6 +6,7 @@
   "AbilityTextureName"      "item_basic_coat"
   "Model"                   "models/items/basic_coat.vmdl" 
 
+  "Craft"  "leather"
   "Slot"  "torso"
   "EquipSound"  "ui.inv_equip_leather"
 
@@ -40,6 +41,7 @@
   "AbilityTextureName"      "item_arrow_proof_coat"
   "Model"                   "models/items/basic_coat.vmdl" 
 
+  "Craft"  "leather"
   "Slot"  "torso"
   "EquipSound"  "ui.inv_equip_leather"
 
@@ -69,6 +71,7 @@
   "AbilityTextureName"      "item_tribe_coat"
   "Model"                   "models/items/basic_coat.vmdl" 
 
+  "Craft"  "leather"
   "Slot"  "torso"
   "EquipSound"  "ui.inv_equip_leather"
 

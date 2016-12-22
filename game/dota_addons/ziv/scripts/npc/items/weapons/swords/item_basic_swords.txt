@@ -7,6 +7,7 @@
   "Model"                   "models/items/basic_sword.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 
+  "Craft"       "iron"
   "Slot"  "sword"
   "EquipSound"  "ui.inv_equip_metalblade"
 
@@ -37,6 +38,7 @@
   "Model"                   "models/items/basic_sword.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
 
+  "Craft"       "iron"
   "Slot"  "sword"
   "EquipSound"  "ui.inv_equip_metalblade"
 
@@ -72,6 +74,7 @@
   "Model"                   "models/items/basic_sword.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 
+  "Craft"       "iron"
   "Slot"  "sword"
   "EquipSound"  "ui.inv_equip_metalblade"
 

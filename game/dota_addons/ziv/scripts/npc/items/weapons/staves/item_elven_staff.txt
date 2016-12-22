@@ -6,6 +6,7 @@
   "AbilityTextureName"      "item_elven_staff"
   "Model"                   "models/items/basic_staff.vmdl" 
 
+  "Craft"       "wood"
   "Slot"                    "staff"
   "EquipSound"              "ui.inv_equip_staff"
 

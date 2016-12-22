@@ -7,6 +7,7 @@
   "Model"                   "models/items/basic_axe.vmdl"
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"    
 
+  "Craft"       "iron"
   "Slot"        "axe"
   "EquipSound"  "ui.inv_equip_metalheavy"
 
