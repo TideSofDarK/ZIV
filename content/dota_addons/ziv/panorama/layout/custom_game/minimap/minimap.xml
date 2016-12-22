@@ -8,10 +8,29 @@
 		<include src="file://{resources}/scripts/custom_game/minimap/minimap_settings.js" />
 		<include src="file://{resources}/scripts/custom_game/minimap/minimap.js" />
 	</scripts>
+
+	<snippets>
+		<snippet name="mark">
+			<Panel class="Mark" >
+				<Panel id="Icon" />
+				<Panel class="alarm">
+					<Panel class="ping-circle anim1"/>
+					<Panel class="ping-circle anim2"/>
+				</Panel>
+			</Panel>
+		</snippet>
+
+		<snippet name="event">
+			<Panel class="Event" >
+				<Panel id="Icon" />
+			</Panel>
+		</snippet>		
+	</snippets>
+
 	<Panel class="MinimapRoot TopRight WindowAnimation" hittest="false"> 
 		<Panel class="ImageContainer" id="ImagePanel">
 			<Image class="MinimapMarks" id="PointerImage" src="file://{images}/custom_game/minimap/pointer.png" />			
-			<Panel id="MinimapImage" onactivate="minimapClick()">
+			<Panel id="MinimapImage" onactivate="MinimapClick()">
 				<Panel class="MarksContainer" id="MarksMap" />
 				<Panel hittest="false" class="EventsContainer" id="EventsMap" />
 				<HTML id="FogMap" hittest="false" />

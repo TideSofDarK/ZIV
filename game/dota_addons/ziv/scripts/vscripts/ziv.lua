@@ -177,6 +177,7 @@ function ZIV:InitZIV()
   Damage:Init()
   Debug:Init()
   Controls:Init()
+  Minimap:Init()
 
   Attributes:Init()
 
