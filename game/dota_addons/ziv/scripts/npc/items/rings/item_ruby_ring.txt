@@ -6,6 +6,7 @@
   "AbilityTextureName"      "item_ruby_ring"
   "Model"                   "models/items/ruby_ring.vmdl" 
 
+  "Craft"       "ore"
   "Slot"  "ring"
   "EquipSound"  "Item.DropRingShop"
 

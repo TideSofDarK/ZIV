@@ -69,10 +69,10 @@
 
 	"tier"											"Tier"
 	"tier_1"										"<font color=\"#E3E3E3\">Wooden</font>"
-	"tier_2"										"Bronze"
-	"tier_3"										"Silver"
-	"tier_4"										"Golden"
-	"tier_5"										"Platinum"
+	"tier_2"										"<font color=\"#E3E3E3\">Bronze</font>"
+	"tier_3"										"<font color=\"#E3E3E3\">Silver</font>"
+	"tier_4"										"<font color=\"#E3E3E3\">Golden</font>"
+	"tier_5"										"<font color=\"#E3E3E3\">Platinum</font>"
 
 	"reward_SmallTreasure"							" • <font color=\"#E3E3E3\">Small Treasure</font>"
 	"reward_BigTreasure"							" • <font color=\"#F1E13B\">Big Treasure</font>"

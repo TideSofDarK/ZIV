@@ -5,6 +5,7 @@
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_basic_bow"
 
+  "Craft"       "wood"
   "Slot"  "bow"
   "EquipSound"  "ui.inv_equip_wood"
 
@@ -38,6 +39,7 @@
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_tribe_bow"
 
+  "Craft"       "wood"
   "Slot"  "bow"
   "EquipSound"  "ui.inv_equip_wood"
 
@@ -71,6 +73,7 @@
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_craft_bow"
 
+  "Craft"       "wood"
   "Slot"  "bow"
   "EquipSound"  "ui.inv_equip_wood"
 

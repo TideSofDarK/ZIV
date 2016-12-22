@@ -5,6 +5,7 @@
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_basic_shotgun"
 
+  "Craft"       "iron"
   "Slot"  "gun"
   "EquipSound"  "ui.inv_equip_gun"
   "CustomSkill1"  
@@ -46,6 +47,7 @@
   "BaseClass"               "item_datadriven"
   "AbilityTextureName"      "item_enhanced_shotgun"
 
+  "Craft"       "iron"
   "Slot"  "gun"
   "EquipSound"  "ui.inv_equip_gun"
   "CustomSkill1"  
@@ -92,6 +94,7 @@
   "BaseClass"           "item_datadriven"
   "AbilityTextureName"      "item_craft_shotgun"
 
+  "Craft"       "iron"
   "Slot"  "gun"
   "EquipSound"  "ui.inv_equip_gun"
   "CustomSkill1"  

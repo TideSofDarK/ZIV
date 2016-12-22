@@ -6,6 +6,7 @@
   "AbilityTextureName"      "item_cheap_pants"
   "Model"                   "models/items/basic_pants.vmdl" 
 
+  "Craft"  "leather"
   "Slot"  "pants"
   "EquipSound"  "ui.inv_equip_leather"
 
@@ -40,6 +41,7 @@
   "AbilityTextureName"      "item_cheap_pants_a"
   "Model"                   "models/items/basic_pants.vmdl" 
 
+  "Craft"  "leather"
   "Slot"  "pants"
   "EquipSound"  "ui.inv_equip_leather"
 
@@ -74,6 +76,7 @@
   "AbilityTextureName"      "item_cheap_pants_b"
   "Model"                   "models/items/basic_pants.vmdl" 
 
+  "Craft"  "leather"
   "Slot"  "pants"
   "EquipSound"  "ui.inv_equip_leather"
 

@@ -67,7 +67,7 @@ function Account:AddEXP( pID, amount )
 	exp = exp + amount
 
 	PlayerTables:SetSubTableValue("accounts", pID, "exp", exp)
-	print(Account:GetLevelByEXP( exp ))
+
 	if Account:GetLevelByEXP( exp ) > level then
 		Account:LevelUp( pID )
 	end
