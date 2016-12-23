@@ -67,6 +67,11 @@
 
 		"class"											"Class: "
 
+		// Recycle
+		"recycle_text"									"Drag and drop unneeded equipment to recycle it"
+		"recycle"										"Recycle"
+		"create"										"Create"
+
 		// Crafting
 		"random_iron_axe"								"Axe"
 		"random_iron_gun"								"Gun"

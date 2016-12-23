@@ -172,6 +172,7 @@ function ZIV:InitZIV()
   Characters:Init() 
   Director:Init()
   Items:Init()
+  Crafting:Init()
   Trade:Init()
   Loot:Init()
   Damage:Init()
@@ -181,6 +182,8 @@ function ZIV:InitZIV()
 
   Attributes:Init()
 
+  -- Crafting:GenerateRecipes()
+  
   -- Dynamic modifiers
   require("modifiers")
 end

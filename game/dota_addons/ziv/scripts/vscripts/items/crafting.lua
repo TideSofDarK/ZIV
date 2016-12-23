@@ -2,6 +2,39 @@ if Crafting == nil then
     _G.Crafting = class({})
 end
 
+function Crafting:Init()
+	CustomGameEventManager:RegisterListener("ziv_recycle_request", Dynamic_Wrap(Crafting, 'Recycle'))
+end
+
+function Crafting:CreateRecycleContainer( hero )
+	hero.recycle = Containers:CreateContainer({
+		layout 			= {4,4},
+		skins 			= {"Recycle"},
+		headerText 		= "",
+		pids 			= {hero:GetPlayerOwnerID()},
+		entity 			= hero,
+		closeOnOrder 	= false,
+		position 		= "0% 0%",
+		OnDragWorld 	= true
+		--,
+		-- OnDragTo = (function (playerID, container, unit, item, fromSlot, toContainer, toSlot) 
+		-- 	return false 
+		-- end)
+	})
+end
+
+function Crafting:Recycle(args)
+	local hero = Characters.current_session_characters[args.PlayerID]
+
+	local container = hero.recycle
+
+	local items = container:GetAllItems()
+	for _,item in ipairs(items) do
+		container:RemoveItem(item)
+		Containers:AddItemToUnit(unit,item)
+	end
+end
+
 function Crafting:UsePart( item, count, pID )
 	item:SetCurrentCharges(item:GetCurrentCharges() - count)
 
@@ -60,8 +93,16 @@ function Crafting:GenerateRecipes()
 					materials[v.Craft]["Parts"] = materials[v.Craft]["Parts"] or {}
 
 					materials[v.Craft]["PossibleResults"][k] = "1"
-					materials[v.Craft]["Parts"]["item_craft_"..v.Craft] = "1"
+					materials[v.Craft]["Parts"]["item_craft_"..v.Craft] = tostring(i * 2)
 					materials[v.Craft]["Parts"]["item_craft_parts"] = tostring(i)
+
+					if v.Craft == "iron" and i > 2 then
+						materials[v.Craft]["Parts"]["item_craft_gold"] = tostring(i - 2)
+					end
+
+					if slot == "ring" then
+						materials[v.Craft]["Parts"]["item_craft_gold"] = tostring(i - 1)
+					end
 				end
 			end
 			for k,v in pairs(materials) do

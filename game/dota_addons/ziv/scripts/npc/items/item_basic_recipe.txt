@@ -58,14 +58,14 @@
   "AbilityTextureName"            "item_random_leather_torso"
 }
 
-"item_item_random_ore_ring"
+"item_random_ore_ring"
 {
   "BaseClass"               "item_datadriven"
   "ID"    "1012"
   "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
   "Model"                   "models/props_gameplay/recipe.vmdl" 
   "Effect"                  "particles/generic_gameplay/dropped_item.vpcf"
-  "AbilityTextureName"            "item_item_random_ore_ring"
+  "AbilityTextureName"            "item_random_ore_ring"
 }
 
 "item_random_wood_bow"

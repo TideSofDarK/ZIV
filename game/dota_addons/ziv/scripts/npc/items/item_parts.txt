@@ -47,6 +47,23 @@
   "ItemBaseLevel"         "1"
 }
 
+"item_craft_gold"
+{
+  "ID"    "1112"
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "BaseClass"           "item_datadriven"
+  "AbilityTextureName"      "item_craft_gold"
+  "Model"                   "models/items/basic_leather.vmdl"
+  "Effect"                  "particles/generic_gameplay/dropped_item.vpcf" 
+
+  "ItemStackable"                 "1"
+  "ItemPermanent"                 "0"
+  "ItemInitialCharges"            "1"
+
+  "MaxUpgradeLevel"       "1"
+  "ItemBaseLevel"         "1"
+}
+
 "item_craft_wood"
 {
   "ID"    "1112"

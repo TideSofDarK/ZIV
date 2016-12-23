@@ -388,7 +388,7 @@ function PlayerTables:SetTableValue(tableName, key, value)
 end
 
 function PlayerTables:SetSubTableValue(tableName, key, subKey, value)
-  local new_table = PlayerTables:GetTableValue(tableName, key)
+  local new_table = PlayerTables:GetTableValue(tableName, key) or {}
   new_table[subKey] = value
   PlayerTables:SetTableValue(tableName, key, new_table)
 end

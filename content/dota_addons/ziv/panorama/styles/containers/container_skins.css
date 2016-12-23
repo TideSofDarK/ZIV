@@ -1,3 +1,68 @@
+.Recycle.Outer
+{
+  width: 500px;
+  height: 200px;
+
+  vertical-align: center;
+  horizontal-align: center;
+
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.Recycle #ChargeCount
+{
+  horizontal-align: right;
+  color: White;
+  font-size: 17px;
+  margin-right: 5px;
+  margin-bottom: 1px;
+}
+
+.Recycle #Header
+{
+  height: 0px;
+  background-color: transparent;
+}
+
+.Recycle #Footer
+{
+  
+}
+
+.Recycle #HeaderLabel
+{ 
+  color: transparent;
+}
+
+.Recycle #Inner
+{
+  margin: 0px;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.Recycle .ItemRow
+{
+  margin-top: 2px;
+  margin-bottom: 2px;
+  background-color: transparent;
+} 
+
+.Recycle .ItemPanel
+{
+  width: 100px;
+  height: 75px;
+
+  box-shadow: fill #000000ff 0px 0px 12px 0px;
+  border-radius: 6px;
+}
+
+.Recycle .CloseButton {
+  visibility: collapse;
+  opacity: 0.0;
+}
+
 /*
   Treasure
 */

@@ -127,6 +127,10 @@ function Characters:SetupCharacterContainers( pID, hero )
   Containers:SetDefaultInventory(hero, hero.inventory)
 
   hero.equipment = Equipment:CreateContainer( hero )
+
+  Crafting:CreateRecycleContainer( hero )
+
+  PlayerTables:SetSubTableValue("characters", "containers", pID, { equipmentContainerID = hero.equipment.id, inventoryContainerID = hero.inventory.id, recycleContainerID = hero.recycle.id })
 end
 
 function Characters:InitCharacter( hero )
@@ -209,5 +213,5 @@ function Characters:SendPlayerContainers(args)
   local pID = args.PlayerID
   local hero = Characters:GetHero(pID)
 
-  CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_set_containers", { equipmentContainerID = hero.equipment.id, inventoryContainerID = hero.inventory.id } )
+  CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_set_containers", { equipmentContainerID = hero.equipment.id, inventoryContainerID = hero.inventory.id, recycleContainerID = hero.recycle.id } )
 end

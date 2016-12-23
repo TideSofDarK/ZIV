@@ -1,6 +1,7 @@
 "use strict";
 
 var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
+var Util = GameUI.CustomUIConfig().Util;
 
 var craftingItemPanel = null;
 var selectedRecipe = null;
@@ -15,12 +16,32 @@ function CloseButton() {
 	$.GetContextPanel().SetHasClass("WindowClosed", true);
 }
 
+function RecycleButton() {
+	GameEvents.SendCustomGameEventToServer( "ziv_recycle_request", {} );
+}
+
+function OpenRecycleTab() {
+	$("#RecycleTab").SetHasClass("ActiveTab", true);
+	$("#ItemNameTab").SetHasClass("ActiveTab", false);
+
+	$("#RecycleTabContent").visible = true;
+	$("#ItemNameTabContent").visible = false;
+}
+
+function OpenCraftTab() {
+	$("#RecycleTab").SetHasClass("ActiveTab", false);
+	$("#ItemNameTab").SetHasClass("ActiveTab", true);
+
+	$("#RecycleTabContent").visible = false;
+	$("#ItemNameTabContent").visible = true;
+}
+
 function RecipeClick( id, panel )
 {
 	var rarity = id.substring(id.length - 1, id.length);
 
-	craftingItemPanel.Update( "item_" + id.substring(0, id.length - 2) );
-	$.Msg( "item_" + id.substring(0, id.length - 2) );
+	craftingItemPanel.Update( "item_" + id.substring(0, id.length - 2), parseInt(rarity) );
+
 	var possibleResults = PlayerTables.GetTableValue("kvs", "recipes")[id].PossibleResults;
 	var possibleResultsString = "";
 	for (var result in possibleResults) { 
@@ -33,8 +54,6 @@ function RecipeClick( id, panel )
     $("#ItemDescLabel").html = true;
     $("#ItemDescLabel").text = $.Localize("craft_description", $("#ItemDescLabel")) + "<br>" + possibleResultsString;
 
-	$("#ItemName").text = $.Localize("rarity"+rarity) + ' ' + $.Localize(id.substring(0, id.length - 2));
-
 	CreateRecipeParts(id);
 
 	if (selectedRecipe) {
@@ -42,6 +61,8 @@ function RecipeClick( id, panel )
 	}
 	panel.FindChildTraverse("RecipeTitle").AddClass("RecipeLabelSelected");
 	selectedRecipe = panel;
+
+	OpenCraftTab();
 }
 
 function AddRecipe( id )
@@ -136,11 +157,11 @@ function UpdateInfo()
 function AddRecipeSlot( parent, num, key, count )
 {
 	var part = $.CreatePanel( "Panel", parent, "RecipePart_" + num );
-	part.BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_crafting_item.xml", false, false );
+	part.BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_item.xml", false, false );
 	part.AddClass("recipepart-image");
 	part.SetHasClass("recipepart-image", true);	
 
-	part.Update(key);
+	part.Update(key, 1);
 	part.SetCount(count);
 }
 
@@ -178,13 +199,21 @@ function CreateRecipeParts( id )
 function InitSlots()
 {
 	craftingItemPanel = $.CreatePanel( "Panel", $( "#ItemImage" ), "CraftingItemPanel" );
-	craftingItemPanel.BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_crafting_item.xml", false, false );
+	craftingItemPanel.BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_item.xml", false, false );
+	
 	
 	// CreateRecipeParts( 8 );
 }
 
 (function()
 {
+	PlayerTables.SubscribeNetTableListener('characters', function (name, changes, dels) {
+		if (changes["containers"]) {
+			Util.RemoveChildren($("#RecycleItems"));
+			GameUI.CustomUIConfig().OpenContainer({"id" : PlayerTables.GetTableValue("characters", "containers")[Game.GetLocalPlayerID()].recycleContainerID, "panel" : $("#RecycleItems")});
+		}
+	});
+
 	InitSlots();
 	FillRecipesList(); 
 

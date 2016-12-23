@@ -1,0 +1,48 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/ingame_ui_crafting.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+	</styles>
+	<script>
+		var itemData = {};
+
+		function Update( id, rarity )
+		{
+			$( "#ItemImage" ).itemname = id;
+
+			$( "#ItemImage" ).SetPanelEvent("onmouseover", ItemShowTooltip)
+			$( "#ItemImage" ).SetPanelEvent("onmouseout", ItemHideTooltip)
+
+			itemData.rarity = rarity;
+		}
+
+		function SetCount( count )
+		{
+			$( "#Count" ).RemoveClass("Hide");
+			$( "#Count" ).text = count;
+		}
+
+		function ItemShowTooltip()
+		{
+			var itemName = $( "#ItemImage" ).itemname;
+			if ( itemName == -1 )
+				return;
+			
+			GameUI.CustomUIConfig().ShowItemTooltip($.GetContextPanel(), itemName, itemData);
+		}
+
+		function ItemHideTooltip()
+		{
+			GameUI.CustomUIConfig().HideItemTooltip($.GetContextPanel());
+		}
+
+		(function () {
+			$.GetContextPanel().Update = Update;
+			$.GetContextPanel().SetCount = SetCount;
+		})();
+	</script>
+	<Panel hittest="false">
+		<DOTAItemImage hittest="true" id="ItemImage"/> 
+		<Label class="Hide" id="Count" text="1" />
+	</Panel>
+</root>

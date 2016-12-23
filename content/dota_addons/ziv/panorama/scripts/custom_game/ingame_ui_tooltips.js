@@ -1,7 +1,7 @@
 "use strict";
 
-function ShowItemTooltip(panel, itemID) {
-	$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', panel, panel.id, "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "itemID="+itemID);
+function ShowItemTooltip(panel, itemID, itemData) { 
+	$.DispatchEvent( 'UIShowCustomLayoutParametersTooltip', panel, panel.id, "file://{resources}/layout/custom_game/ingame_ui_custom_tooltip.xml", "itemID="+itemID+"&itemData="+JSON.stringify(itemData));
 }
 
 function HideItemTooltip(panel) {
