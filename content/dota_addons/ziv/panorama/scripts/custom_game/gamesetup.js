@@ -61,6 +61,9 @@ function OnGameSetupTableChanged(tableName, changesObject, deletionsObject) {
 	if (changesObject["time"]) {
 		var time = changesObject["time"]["time"]
 		$("#TimeLabel").text = Util.SecondsToMMSS(time);
+		if (time && time <= 3) {
+			Game.EmitSound("UI.Countdown");
+		}
 	}
 	if (changesObject["status"]) {
 		var status = changesObject["status"];
@@ -94,7 +97,7 @@ function OnGameSetupTableChanged(tableName, changesObject, deletionsObject) {
 							SetStatusIcon(statusIconPanel, "StatusConnected");
 						}
 					} else {
-						statusTextPanel.text = $.Localize("gamesetup_disconected");
+						statusTextPanel.text = $.Localize("gamesetup_disconnected");
 
 						SetStatusIcon(statusIconPanel, "StatusDisconnected");
 					}
@@ -517,13 +520,24 @@ function CharacterSelectionLock() {
 		previewEquipment[i].SetImage("file://{images}/custom_game/ingame_ui/slots/" + slots[i] + ".png");
 	}
 	for (var x = selectedCharacter.equipment.length - 1; x >= 0; x--) {
-		var itemName = selectedCharacter.equipment[x]["item"];
-		for (var i = 0; i < previewEquipment.length; i++) {
-			if (previewEquipment[i].itemname.match("item") == null && slots[i].match(itemKVs[itemName]["Slot"]) != null) {
-				previewEquipment[i].itemname = itemName;
-				break;
+		(function () {
+			var itemName = selectedCharacter.equipment[x]["item"];
+			var itemData = selectedCharacter.equipment[x];
+			for (var i = 0; i < previewEquipment.length; i++) {
+				(function () {
+					var itemPanel = previewEquipment[i];
+					if (itemPanel.itemname.match("item") == null && slots[i].match(itemKVs[itemName]["Slot"]) != null) {
+						itemPanel.itemname = itemName;
+						itemPanel.SetPanelEvent("onmouseover", function () {
+							GameUI.CustomUIConfig().ShowItemTooltip(itemPanel, itemName, itemData);
+						})
+						itemPanel.SetPanelEvent("onmouseout", function () {
+							GameUI.CustomUIConfig().HideItemTooltip(itemPanel);
+						})
+					}
+				})();
 			}
-		}
+		})();
 	}
 	
 	$("#PreviewClassLabel").text = $.Localize(selectedCharacter.hero_name);
@@ -601,4 +615,6 @@ function RemoveBlur() {
 	}
 
 	UpdateGameSetupPlayerState("connected");
+
+	Game.PlayMusic("UI.Gamesetup");
 })();

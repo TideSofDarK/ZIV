@@ -24,6 +24,7 @@
 				</Panel>
 				<DOTASettingsSlider class="slider" id="BossHealth" min="0" max="100" text="Health percentage"/>
 				<TextButton id="CraftingButton" onactivate="ToggleCrafting()" text="Crafting" />
+				<TextButton id="DieButton" onactivate="Die()" text="Die" />
 			</Panel>
 		</Panel>
 	</Panel>

@@ -22,8 +22,27 @@ function Characters:Init()
   PlayerTables:CreateTable("characters", {characters=GeneratePlayerArray("player")}, true)
 
   CustomGameEventManager:RegisterListener("ziv_get_containers", Dynamic_Wrap(Characters, "SendPlayerContainers"))
+  CustomGameEventManager:RegisterListener("ziv_respawn", Dynamic_Wrap(Characters, "Revive"))
 
   Containers:SetDisableItemLimit(true)
+end
+
+function Characters:Revive( args )
+  local hero = Characters:GetHero(args.PlayerID)
+
+  if hero and hero:HasModifier("modifier_hero_dead") then
+    CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ziv_revived", {})
+    Timers:CreateTimer(2.5, function (  )
+      hero:RespawnHero(false, false, false)
+
+      hero:RemoveModifierByName("modifier_hero_dead")
+
+      hero:Heal(hero:GetMaxHealth(), hero)
+      hero:GiveMana(hero:GetMaxMana())
+      UnfreezeAnimation(hero)
+      EndAnimation(hero)
+    end)
+  end
 end
 
 function Characters:CreateCharacter( args )
@@ -129,8 +148,9 @@ function Characters:SetupCharacterContainers( pID, hero )
   hero.equipment = Equipment:CreateContainer( hero )
 
   Crafting:CreateRecycleContainer( hero )
+  Crafting:CreateCraftingContainer( hero )
 
-  PlayerTables:SetSubTableValue("characters", "containers", pID, { equipmentContainerID = hero.equipment.id, inventoryContainerID = hero.inventory.id, recycleContainerID = hero.recycle.id })
+  PlayerTables:SetSubTableValue("characters", "containers", pID, { equipmentContainerID = hero.equipment.id, inventoryContainerID = hero.inventory.id, recycleContainerID = hero.recycle.id, craftingContainerID = hero.crafting.id })
 end
 
 function Characters:InitCharacter( hero )
@@ -176,6 +196,10 @@ function Characters:InitCharacter( hero )
     hero:StopSound("Portal.Loop_Appear")
 
     ParticleManager:DestroyParticle(particle, false)
+
+    Timers:CreateTimer(1.0, function (  )
+      hero:MoveToPosition(hero:GetAbsOrigin())
+    end)
   end)
   
   PlayerTables:SetTableValue("characters", "status", {})
@@ -213,5 +237,5 @@ function Characters:SendPlayerContainers(args)
   local pID = args.PlayerID
   local hero = Characters:GetHero(pID)
 
-  CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_set_containers", { equipmentContainerID = hero.equipment.id, inventoryContainerID = hero.inventory.id, recycleContainerID = hero.recycle.id } )
+  CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pID), "ziv_set_containers", { equipmentContainerID = hero.equipment.id, inventoryContainerID = hero.inventory.id, recycleContainerID = hero.recycle.id, craftingContainerID = hero.crafting.id } )
 end

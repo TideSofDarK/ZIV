@@ -61,12 +61,6 @@ function ZIV:OnEntityHurt(keys)
       damagingAbility = EntIndexToHScript( keys.entindex_inflictor )
     end
 
-    if entVictim._OnTakeDamageCallbacks then
-      for k,v in pairs(entVictim._OnTakeDamageCallbacks) do
-        if v(keys.damage) then entVictim._OnTakeDamageCallbacks[k] = nil end
-      end
-    end
-
     if entCause.OnDamageDealCallbacks then
       for i,v in ipairs(entCause.OnDamageDealCallbacks) do
         if v then

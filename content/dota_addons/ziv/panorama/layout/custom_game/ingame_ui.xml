@@ -8,6 +8,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/ingame_ui.js" />
 		<include src="file://{resources}/scripts/custom_game/ingame_ui_controls.js" />
+		<include src="file://{resources}/scripts/custom_game/overlay.js" />
 	</scripts>
 	<Panel class="InGameUIRoot" hittest="false">
 		<Panel id="PregameTimer" class="BasicShadow WindowAnimation WindowClosed">
@@ -31,6 +32,7 @@
 						<Panel class="OrbElement" id="HPOrb1"/>
 						<Panel class="OrbElement" id="HPOrb2"/>
 						<Panel class="OrbElement" id="HPOrb3"/>
+						<DOTAScenePanel class="OrbElement" map="ui_healthbar" hittest="false"/>
 					</Panel>
 					<Panel class="GlassOrb"/>
 					<!-- <Label text="100/100" class="ValueLabel" id="hp" /> -->
@@ -40,6 +42,7 @@
 						<Panel class="OrbElement Mana" id="SPOrb1"/>
 						<Panel class="OrbElement Mana" id="SPOrb2"/>
 						<Panel class="OrbElement Mana" id="SPOrb3"/>
+						<DOTAScenePanel class="OrbElement" map="ui_manabar" hittest="false"/>
 					</Panel>
 					<Panel class="GlassOrb"/>
 					<!-- <Label text="100/100" class="ValueLabel" id="sp" /> -->
@@ -53,10 +56,10 @@
 
 			<Panel id="SideButtons" hittest="false">
 				<!-- <Button id="CraftButton" class="BottomButton" onactivate="OpenCraftingWindow()" /> -->
-				<Button id="FortifyButton" class="BottomButton" onactivate="ToggleFortifyWindow()" />
-				<Button id="CharacterButton" class="BottomButton" onactivate="ToggleStatusWindow()" />
-				<Button id="InventoryButton" class="BottomButton" onactivate="ToggleEquipmentWindow()" />
-				<Button id="SettingsButton" class="BottomButton" onactivate="ToggleSettingsWindow()" />
+				<Button id="FortifyButton" class="BottomButton Click" onactivate="ToggleFortifyWindow()" />
+				<Button id="CharacterButton" class="BottomButton Click" onactivate="ToggleStatusWindow()" />
+				<Button id="InventoryButton" class="BottomButton Click" onactivate="ToggleEquipmentWindow()" />
+				<Button id="SettingsButton" class="BottomButton Click" onactivate="ToggleSettingsWindow()" />
 			</Panel>
 		</Panel>
 		<!-- <Panel class="GenericBackground" id="LeftBottomGfx" hittest="false"/> -->

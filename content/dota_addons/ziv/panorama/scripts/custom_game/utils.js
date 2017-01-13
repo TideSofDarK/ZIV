@@ -73,7 +73,12 @@ Util.ColorString = (function (str, color) {
 
 Util.RuneToItem = (function (modifier) {
     var hero = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
-    var heroName = PlayerTables.GetTableValue("kvs", "heroes")[Entities.GetUnitName(hero)]["SecondName"];
+    var heroName = Entities.GetUnitName(hero);
+    if (heroName) {
+        heroName = PlayerTables.GetTableValue("kvs", "heroes")[heroName]["SecondName"];
+    } else {
+        heroName = "";
+    }
 
     var item = PlayerTables.GetTableValue("kvs", "items")[modifier.replace("ziv_" + heroName, "item_rune")];
     if (!item) {
@@ -81,6 +86,18 @@ Util.RuneToItem = (function (modifier) {
     }
 
     return item;
+});
+
+Util.HasModifier = (function (unit, modifier) {
+    for (var i = 0; i < Entities.GetNumBuffs( unit); i++) {
+        var buff = Entities.GetBuff( unit, i );
+        var buffName = Buffs.GetName(unit, buff);
+
+        if (buffName == modifier) {
+            return true;
+        }
+    }
+    return false;
 });
 
 // https://github.com/TideSofDarK/ZiV/wiki/Rune-Tooltip-Formatting
@@ -126,6 +143,16 @@ Util.RemoveChildren = (function (panel) {
         panel.Children()[child].DeleteAsync(0.0);
         panel.Children()[child].RemoveAndDeleteChildren();
     }
+});
+
+Util.SetProgressBarPercentage = (function (green, marker, value, width) {
+    value = Math.min(value, 1.0);
+
+    width = (value * width);
+
+    green.style.width = width + "px;";
+
+    marker.style.position = (width - 5) + "px 0px 0px;";
 });
 
 (function(){

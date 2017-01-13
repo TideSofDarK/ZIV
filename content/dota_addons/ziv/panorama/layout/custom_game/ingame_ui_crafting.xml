@@ -34,25 +34,29 @@
 
 			<Panel class="CraftInfo">
 				<Panel id="Tabs">
-					<Label class="title Tab WindowAnimation" id="RecycleTab" text="Recycle" onactivate="OpenRecycleTab()" />
-					<Label class="title Tab ActiveTab WindowAnimation" id="ItemNameTab" text="Craft" onactivate="OpenCraftTab()" />
+					<Label class="title GenericBackground Click Tab" id="RecycleTab" text="" onactivate="OpenRecycleTab()" />
+					<Label class="title GenericBackground Click Tab ActiveTab" id="ItemNameTab" text="" onactivate="OpenCraftTab()" />
 				</Panel>
 
 				<Panel id="ItemNameTabContent" class="TabContent">
 					<Panel class="divider" />
 					<Panel class="container row" id="ItemDescPanel" >
-						<Panel class="container row" id="ItemImage" />
+						<Panel id="ItemDescImage" />
 						<Panel class="container row" id="ItemDesc" >
 							<Label class="text" id="ItemDescLabel" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
 						</Panel>
 					</Panel>
 					<Panel class="divider" />
 
-					<Panel class="RecipeParts container row" id="RecipeParts" >
+					<Panel class="RecipeParts" id="RecipeParts" >
 						<Panel class="RecipePartsRows" >
 							<Panel class="RecipePartsRow container row" id="RecipeRow1" />
 							<Panel class="RecipePartsRow container row" id="RecipeRow2" />
 						</Panel>
+					</Panel>
+
+					<Panel id="CraftingItems" >
+
 					</Panel>
 
 					<Button class="OKButton z-index1" id="CraftButton" onactivate="CraftButton()">
@@ -71,7 +75,15 @@
 					</Button>
 				</Panel>
 			</Panel>
-		</Panel>			
+		</Panel>	
+
+		<Panel class="ProgressBarRoot" id="ProgressBarRoot">
+			<Panel class="ProgressBarMarker" id="ProgressBarMarker"/>
+			<Panel class="ProgressBar" id="ProgressBar">
+				<Panel id="ProgressBarRed" class="ProgressBarPart ProgressBarRed"/>
+				<Panel id="ProgressBarGreen" class="ProgressBarPart ProgressBarGreen"/>
+			</Panel>
+		</Panel>		
 	</Panel>
 </root>
 	

@@ -1,3 +1,8 @@
+/*
+  Craft/Recycle
+*/
+
+.Crafting.Outer,
 .Recycle.Outer
 {
   width: 500px;
@@ -10,6 +15,7 @@
   background-color: transparent;
 }
 
+.Crafting #ChargeCount,
 .Recycle #ChargeCount
 {
   horizontal-align: right;
@@ -19,22 +25,26 @@
   margin-bottom: 1px;
 }
 
+.Crafting #Header,
 .Recycle #Header
 {
   height: 0px;
   background-color: transparent;
 }
 
+.Crafting #Footer,
 .Recycle #Footer
 {
   
 }
 
-.Recycle #HeaderLabel
+.Crafting #HeaderLabel,
+.Recycle #HeaderLabel,
 { 
   color: transparent;
 }
 
+.Crafting #Inner,
 .Recycle #Inner
 {
   margin: 0px;
@@ -42,6 +52,7 @@
   background-color: transparent;
 }
 
+.Crafting .ItemRow,
 .Recycle .ItemRow
 {
   margin-top: 2px;
@@ -49,6 +60,7 @@
   background-color: transparent;
 } 
 
+.Crafting .ItemPanel,
 .Recycle .ItemPanel
 {
   width: 100px;
@@ -58,7 +70,9 @@
   border-radius: 6px;
 }
 
-.Recycle .CloseButton {
+.Crafting .CloseButton,
+.Recycle .CloseButton
+ {
   visibility: collapse;
   opacity: 0.0;
 }

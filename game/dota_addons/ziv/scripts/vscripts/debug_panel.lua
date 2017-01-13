@@ -8,6 +8,7 @@ function Debug:Init()
 	CustomGameEventManager:RegisterListener( "ziv_debug_change_boss_state", Dynamic_Wrap(Debug, 'ChangeBossState'))
   CustomGameEventManager:RegisterListener( "ziv_debug_change_boss_lock_state", Dynamic_Wrap(Debug, 'LockBossState'))
   CustomGameEventManager:RegisterListener( "ziv_debug_change_boss_health", Dynamic_Wrap(Debug, 'ChangeBossHealth'))
+  CustomGameEventManager:RegisterListener( "ziv_debug_die", Dynamic_Wrap(Debug, 'Die'))
 end
 
 function Debug:GetBossUnit()
@@ -52,9 +53,15 @@ function Debug:LockBossState( args )
     boss.sfm:LockState(args.lock == 1)
   end  
 end
+
 function Debug:ChangeBossHealth( args )
 	local boss = Debug:GetBossUnit()
 	if boss then
     boss:SetHealth(args.health * boss:GetMaxHealth())
   end  
+end
+
+function Debug:Die( args )
+  local player = PlayerResource:GetPlayer(args.PlayerID)
+  player:GetAssignedHero():Kill(nil, player:GetAssignedHero())
 end

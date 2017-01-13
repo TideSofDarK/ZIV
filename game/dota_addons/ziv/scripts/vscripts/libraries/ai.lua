@@ -28,7 +28,8 @@ function AI:CreepStart( unit )
 end
 
 function AI:FleeOnLowHP(unit)
-	unit:AddOnTakeDamageCallback( function ( damage )
+	unit:AddOnTakeDamageCallback( function ( keys )
+		local damage = keys.damage
 		if unit:GetHealthPercent() < 35 then
 			unit:MoveToPosition((unit:GetForwardVector() * -600) + unit:GetAbsOrigin())
 			return true

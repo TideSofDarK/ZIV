@@ -27,34 +27,34 @@ function Filters:FilterExecuteOrder( filter_table )
         filter_table.queue = 0
     end
 
-    if order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
-        if Controls:AbilityPhaseCheck( issuer_unit ) then
-            return false
-        end
+    -- if order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+    --     if Controls:AbilityPhaseCheck( issuer_unit ) then
+    --         return false
+    --     end
 
-        local position = Vector(filter_table.position_x, filter_table.position_y, filter_table.position_z)
-        issuer_unit:SetForwardVector(UnitLookAtPoint( issuer_unit, position ))
-        issuer_unit:Stop()
+    --     local position = Vector(filter_table.position_x, filter_table.position_y, filter_table.position_z)
+    --     issuer_unit:SetForwardVector(UnitLookAtPoint( issuer_unit, position ))
+    --     issuer_unit:Stop()
 
-        local distance = Distance(issuer_unit, position)
+    --     local distance = Distance(issuer_unit, position)
 
-        for i=distance,0,PATHFINDING_RATIO do
-            local target = issuer_unit:GetAbsOrigin() + (((position - issuer_unit:GetAbsOrigin()):Normalized()) * i)
-            target.z = GetGroundHeight(target, issuer_unit)
+    --     for i=distance,0,PATHFINDING_RATIO do
+    --         local target = issuer_unit:GetAbsOrigin() + (((position - issuer_unit:GetAbsOrigin()):Normalized()) * i)
+    --         target.z = GetGroundHeight(target, issuer_unit)
 
-            local path_length = GridNav:FindPathLength(issuer_unit:GetAbsOrigin(),target)
-            local new_distance = Distance(issuer_unit, target)
+    --         local path_length = GridNav:FindPathLength(issuer_unit:GetAbsOrigin(),target)
+    --         local new_distance = Distance(issuer_unit, target)
 
-            if path_length ~= -1 and math.abs(path_length - new_distance) < PATHFINDING_THRESHOLD then
+    --         if path_length ~= -1 and math.abs(path_length - new_distance) < PATHFINDING_THRESHOLD then
                 
-                filter_table.position_x = target.x
-                filter_table.position_y = target.y
-                filter_table.position_z = target.z
+    --             filter_table.position_x = target.x
+    --             filter_table.position_y = target.y
+    --             filter_table.position_z = target.z
 
-                break
-            end
-        end
-    end
+    --             break
+    --         end
+    --     end
+    -- end
 
     return true
 end
@@ -72,7 +72,7 @@ function Filters:DamageFilter( filter_table )
     
     local damage = filter_table["damage"]
     local damage_type = filter_table["damagetype_const"]
-
+    
     if damage_type ~= DAMAGE_TYPE_PHYSICAL then
         damage_type = DAMAGE_TYPE_PURE
     end
@@ -87,6 +87,10 @@ function Filters:DamageFilter( filter_table )
 
         return false
     end
+
+    -- if victim:HasModifier("modifier_passive_hero") then
+        
+    -- end
 
     return true
 end

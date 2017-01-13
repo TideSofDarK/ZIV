@@ -5,9 +5,25 @@ function ZIV:Test()
     if playerID ~= nil and playerID ~= -1 then
       local hero = cmdPlayer:GetAssignedHero()
 
-      Account:AddEXP( playerID, 1100 )
+      -- Account:AddEXP( playerID, 1100 )
       -- Director.scenario:BuildPath()
       -- Director.scenario:SpawnCart()
+
+      -- CustomGameEventManager:Send_ServerToPlayer(cmdPlayer,"ziv_death_panel",{})
+      -- Damage:Deal( hero, hero, hero:GetMaxHealth(), DAMAGE_TYPE_PURE, true, true, true)
+
+      -- local damage_table = {
+      --   victim = hero,
+      --   attacker = hero,
+      --   damage = hero:GetMaxHealth(),
+      --   damage_type = DAMAGE_TYPE_PURE
+      -- }
+        
+      -- ApplyDamage(damage_table)
+      -- hero:Kill(nil, hero)
+      PlayerResource:GetPlayer(2):SetTeam(2)
+      local bot = CreateUnitByName("npc_dota_hero_witch_doctor",hero:GetAbsOrigin(),true,PlayerResource:GetPlayer(2),PlayerResource:GetPlayer(2),2)
+      Characters:InitCharacter( bot )
     end
   end
 end

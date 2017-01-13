@@ -126,6 +126,11 @@
 	horizontal-align: right;
 }
 
+.OKButton:active,
+.Click:active {
+	sound: "General.SelectAction";
+}
+
 .OKButton.OKButtonGreen {
 	hue-rotation: 90deg;
 	saturation: 1.9;
@@ -150,7 +155,7 @@
 }
 
 .WindowAnimation {
-	transition-property: blur, transform, opacity, width, height, wash-color, pre-transform-scale2d;
+	transition-property: blur, transform, opacity, width, height, wash-color, pre-transform-scale2d, saturation;
 	transition-duration: 0.3s, 0.3s, 0.3s;
 	transition-timing-function: ease-in;
 }
@@ -163,6 +168,10 @@
 
 .Blur {
 	blur: gaussian( 15.0 );
+}
+
+.BlackAndWhite {
+	saturation: 0.0;
 }
 
 .BasicShadow {
@@ -397,6 +406,62 @@
 	line-height: 15px;
 	font-weight: bold;
 	/*brightness: 2.0;*/
+}
+
+/*
+ * Progress bar
+ */
+
+.ProgressBarRoot {
+	width: 90%;
+	height: 50px;
+
+	horizontal-align: center;
+}
+
+.ProgressBarMarker {
+	width: 8px;
+	height: 30px;
+
+	background-color: #ffffff;
+
+	border: 2px solid #111111FF;
+	border-radius: 3px;
+
+	vertical-align: center;
+	horizontal-align: left;
+
+	transition: position 0.1s linear 0.0s;
+
+	z-index: 1;
+}
+
+.ProgressBar {
+	width: 100%;
+	height: 15px;
+
+	border: 2px solid #111111FF;
+	border-radius: 4px;
+
+	vertical-align: center;
+	horizontal-align: center;
+}
+
+.ProgressBarRed {
+	background-color: #DB7AB6;
+}
+
+.ProgressBarGreen {
+	background-color: #7ADBB6;
+}
+
+.ProgressBarPart {
+	width: 100%;
+	height: 100%;
+
+	transition: width 0.1s linear 0.0s;
+
+	horizontal-align: left;
 }
 
 /*

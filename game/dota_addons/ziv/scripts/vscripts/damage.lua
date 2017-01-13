@@ -98,7 +98,7 @@ function Damage:GetResist( unit, resist )
 	end
 end
 
-function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
+function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood, no_random)
 	local damage_type = damage_type
 	local damage = damage
 
@@ -142,24 +142,28 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 		damage = damage - (damage * (armor/200))
 	end
 
-	local evasion = Damage:GetValue( attacker, Damage.EVASION )
-	if attacker.evasion_rng and attacker.evasion_rng:Next(evasion / 300) then
-		damage = (damage / 3)
+	if damage_type ~= DAMAGE_TYPE_PURE then
+		local evasion = Damage:GetValue( attacker, Damage.EVASION )
+		if attacker.evasion_rng and attacker.evasion_rng:Next(evasion / 300) then
+			damage = (damage / 3)
+		end
 	end
 	
 	local min_damage = damage * 0.75
 	local max_damage = damage * 1.25
 	local coef = max_damage - damage
 
-	damage = math.random(min_damage, max_damage)
+	if not no_random then
+		damage = math.random(min_damage, max_damage)
 
-	local attacker_player = attacker:GetPlayerOwner()
-	if attacker_player and PlayerResource:IsValidPlayer(attacker_player:GetPlayerID()) and RollPercentage(Damage:GetValue( attacker, Damage.CRIT_CHANCE )) then
-		damage = damage * (Damage:GetValue( attacker, Damage.CRIT_DAMAGE ) / 100)
+		local attacker_player = attacker:GetPlayerOwner()
+		if attacker_player and PlayerResource:IsValidPlayer(attacker_player:GetPlayerID()) and RollPercentage(Damage:GetValue( attacker, Damage.CRIT_CHANCE )) then
+			damage = damage * (Damage:GetValue( attacker, Damage.CRIT_DAMAGE ) / 100)
 
-		if not no_blood and not no_popup then
-			local shake = ParticleManager:CreateParticleForPlayer("particles/ziv_damage_crit.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker, attacker_player)
-		end	
+			if not no_blood and not no_popup then
+				local shake = ParticleManager:CreateParticleForPlayer("particles/ziv_damage_crit.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker, attacker_player)
+			end	
+		end
 	end
 
 	local damage_table = {
@@ -168,25 +172,40 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 		damage = damage,
 		damage_type = DAMAGE_TYPE_PURE
 	}
+
+	-- Process damage callbacks
+	if victim._OnTakeDamageCallbacks then
+		for k,v in pairs(victim._OnTakeDamageCallbacks) do
+      		local result = v(damage_table)
+    		if type(result) == "table" then
+    			damage_table = result
+    		elseif result then 
+        		victim._OnTakeDamageCallbacks[k] = nil 
+        	end
+      	end
+    end
+    
 	ApplyDamage(damage_table)
 
-	local hp_leech = Damage:GetValue( attacker, Damage.HP_LEECH )
-	local ep_leech = Damage:GetValue( attacker, Damage.EP_LEECH )
+	if victim:GetTeamNumber() ~= attacker:GetTeamNumber() then
+		local hp_leech = Damage:GetValue( attacker, Damage.HP_LEECH )
+		local ep_leech = Damage:GetValue( attacker, Damage.EP_LEECH )
 
-	if hp_leech > 0 then
-		attacker:Heal(damage * (hp_leech / 100),nil)
-	end
+		if hp_leech > 0 then
+			attacker:Heal(damage * (hp_leech / 100),nil)
+		end
 
-	if ep_leech > 0 then
-		attacker:GiveMana(damage * (ep_leech / 100))
-	end
+		if ep_leech > 0 then
+			attacker:GiveMana(damage * (ep_leech / 100))
+		end
 
-	if math.random(0, 1) == 0 then
-		StartAnimation(victim, {duration=0.3, activity=ACT_DOTA_FLINCH, rate=1.5})
-	end
+		if math.random(0, 1) == 0 then
+			StartAnimation(victim, {duration=0.3, activity=ACT_DOTA_FLINCH, rate=1.5})
+		end
 
-	if not no_blood then
-		Damage:BloodParticle( victim )
+		if not no_blood then
+			Damage:BloodParticle( victim )
+		end
 	end
 	
 	if attacker.GetPlayerOwnerID and 
@@ -196,7 +215,6 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood)
 
 		PopupDamage(attacker:GetPlayerOwner(), victim, round(damage), damage / max_damage)
 	end
-	-- PopupExperience(victim, math.ceil(damage))
 
 	return round(damage)
 end

@@ -146,7 +146,7 @@
                     itemData = PlayerTables.GetTableValue("items", itemID)
                 }
                 
-                if ($.GetContextPanel().GetAttributeString( "itemData", "" ) != "") {
+                if ($.GetContextPanel().GetAttributeString( "itemData", "undefined" ) != "undefined") {
                     itemData = JSON.parse($.GetContextPanel().GetAttributeString( "itemData", "" ));
                 }
 
@@ -183,7 +183,7 @@
                     if (itemData.built_in_modifiers && Object.keys( itemData.built_in_modifiers ).length >= 1)
                     {
                         AddCBR(itemTooltip);
-
+                        
                         var i = 0;
                         for (var key in itemData.built_in_modifiers)
                         {

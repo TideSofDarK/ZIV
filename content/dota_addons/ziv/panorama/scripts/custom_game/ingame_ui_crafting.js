@@ -6,6 +6,9 @@ var Util = GameUI.CustomUIConfig().Util;
 var craftingItemPanel = null;
 var selectedRecipe = null;
 
+var progressBarWidth = 700;
+var progressBarDelay = 1.1;
+
 function Open() {
 	$.GetContextPanel().AddToPanelsQueue();
 	$.GetContextPanel().SetHasClass("WindowClosed", false);
@@ -14,10 +17,6 @@ function Open() {
 function CloseButton() {
 	$.GetContextPanel().RemoveFromPanelsQueue();
 	$.GetContextPanel().SetHasClass("WindowClosed", true);
-}
-
-function RecycleButton() {
-	GameEvents.SendCustomGameEventToServer( "ziv_recycle_request", {} );
 }
 
 function OpenRecycleTab() {
@@ -36,11 +35,41 @@ function OpenCraftTab() {
 	$("#ItemNameTabContent").visible = true;
 }
 
+function RecycleButton() {
+	
+	GameEvents.SendCustomGameEventToServer( "ziv_recycle_request", {} );
+}
+
+function ConfirmProgress(args) {
+	var actualDuration = args.duration * progressBarDelay;
+
+	StartProgress(actualDuration)
+
+	$.Schedule(actualDuration, function () {
+		Game.EmitSound("ui.crafting_confirm_socket");
+	})
+
+	Game.EmitSound("ui.crafting_slotslide");
+}
+
+function StartProgress(duration) {
+	$("#ProgressBarGreen").style.transitionDuration = 0 + "s;";
+	$("#ProgressBarMarker").style.transitionDuration = 0 + "s;";
+
+	Util.SetProgressBarPercentage($("#ProgressBarGreen"), $("#ProgressBarMarker"), 0.0, progressBarWidth);
+
+	$("#ProgressBarGreen").style.transitionDuration = duration + "s;";
+	$("#ProgressBarMarker").style.transitionDuration = duration + "s;";
+
+	Util.SetProgressBarPercentage($("#ProgressBarGreen"), $("#ProgressBarMarker"), 1.0, progressBarWidth);
+}
+
 function RecipeClick( id, panel )
 {
 	var rarity = id.substring(id.length - 1, id.length);
 
 	craftingItemPanel.Update( "item_" + id.substring(0, id.length - 2), parseInt(rarity) );
+	craftingItemPanel.FindChildTraverse("ItemImage").style.border = "3px solid " + $.Localize("rarity" + rarity + "_color") + ";";
 
 	var possibleResults = PlayerTables.GetTableValue("kvs", "recipes")[id].PossibleResults;
 	var possibleResultsString = "";
@@ -103,7 +132,6 @@ function CraftButton()
 	{
 		var craftRequest = {}
 		craftRequest["item"] = selectedRecipe.id;
-		craftRequest["pID"] = Players.GetLocalPlayer();
 
 		GameEvents.SendCustomGameEventToServer( "ziv_craft_request", craftRequest );
 	}
@@ -182,6 +210,8 @@ function CreateRecipeParts( id )
 
 	var count = recipe.length;
 
+	$( "#RecipeRow2" ).visible = count > 4;
+
 	var i = 0;
 	for (var key in recipe) 
 	{
@@ -198,9 +228,9 @@ function CreateRecipeParts( id )
 
 function InitSlots()
 {
-	craftingItemPanel = $.CreatePanel( "Panel", $( "#ItemImage" ), "CraftingItemPanel" );
+	craftingItemPanel = $.CreatePanel( "Panel", $( "#ItemDescImage" ), "CraftingItemPanel" );
 	craftingItemPanel.BLoadLayout( "file://{resources}/layout/custom_game/ingame_ui_item.xml", false, false );
-	
+	craftingItemPanel.SetHasClass("CraftingItemPanel", true);
 	
 	// CreateRecipeParts( 8 );
 }
@@ -210,13 +240,19 @@ function InitSlots()
 	PlayerTables.SubscribeNetTableListener('characters', function (name, changes, dels) {
 		if (changes["containers"]) {
 			Util.RemoveChildren($("#RecycleItems"));
+			Util.RemoveChildren($("#CraftingItems"));
 			GameUI.CustomUIConfig().OpenContainer({"id" : PlayerTables.GetTableValue("characters", "containers")[Game.GetLocalPlayerID()].recycleContainerID, "panel" : $("#RecycleItems")});
+			GameUI.CustomUIConfig().OpenContainer({"id" : PlayerTables.GetTableValue("characters", "containers")[Game.GetLocalPlayerID()].craftingContainerID, "panel" : $("#CraftingItems")});
 		}
 	});
 
 	InitSlots();
 	FillRecipesList(); 
 
+	Util.SetProgressBarPercentage($("#ProgressBarGreen"), $("#ProgressBarMarker"), 0.0, progressBarWidth);
+
 	GameEvents.Subscribe( "ziv_open_crafting", Open );
+	GameEvents.Subscribe( "ziv_recycle_confirm", ConfirmProgress)
+	GameEvents.Subscribe( "ziv_craft_confirm", ConfirmProgress)
 })();
 

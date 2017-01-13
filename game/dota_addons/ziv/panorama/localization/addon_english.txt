@@ -349,6 +349,11 @@
 
 		"sockets"				"Sockets: "
 
+		"respawn"				"Respawn"
+		"revive"				"revive"
+		"you_died"				"YOU DIED"
+		"wait_for_respawn"		"<i>~or~<br>let someone revive you</i>"
+
 		// Game setup
 		"gamesetup_ready"								"Ready"
 		"gamesetup_preparing"							"Preparing"

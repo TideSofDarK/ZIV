@@ -9,12 +9,14 @@
 	    <include src="file://{resources}/styles/custom_game/worldpanels/item.css" />
     	<include src="file://{resources}/styles/custom_game/worldpanels/healthbar.css" /> 
     	<include src="file://{resources}/styles/custom_game/worldpanels/trap_countdown.css" /> 
+    	<include src="file://{resources}/styles/custom_game/worldpanels/revive.css" /> 
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/barebones_worldpanels.js" /> 
 		<include src="file://{resources}/scripts/custom_game/worldpanels/item.js" />
 		<include src="file://{resources}/scripts/custom_game/worldpanels/healthbar.js" />
-		<include src="file://{resources}/scripts/custom_game/worldpanels/trap_countdown.js" />    
+		<include src="file://{resources}/scripts/custom_game/worldpanels/trap_countdown.js" />  
+		<include src="file://{resources}/scripts/custom_game/worldpanels/revive.js" />  
 	</scripts>
 
 	<snippets>
@@ -31,6 +33,14 @@
 			</Panel>
 		</snippet>
 		
+		<snippet name="revive">
+			<Panel class="Revive">
+			    <Button id="ReviveButton" class="OKButton">
+			      	<Label id="ReviveButtonLabel" class="WindowLabel" text="#revive"/>
+			    </Button>
+			</Panel>
+		</snippet>
+
 		<snippet name="healthbar">
 			<Panel hittest="false" class="HealthBar">
 				<Panel class="Bubble">

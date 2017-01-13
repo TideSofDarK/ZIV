@@ -85,9 +85,9 @@ end
 
 -- Main item generating function
 
-function Loot:CreateItem( owner, item_type, rarity, position )
+function Loot:CreateItem( owner, item_type, rarity, position, item_name )
   	local item_type = (item_type or Loot.TYPE_RNG:Choose())
-  	local item_name = GetRandomElement(Loot.Table[tostring(item_type)], false, true)
+  	local item_name = item_name or GetRandomElement(Loot.Table[tostring(item_type)], false, true)
 
 	local item = Items:Create(item_name, owner)
 
@@ -97,7 +97,7 @@ function Loot:CreateItem( owner, item_type, rarity, position )
 	end
 
 	if item_type == Loot.TYPE_WEAPONS or item_type == Loot.TYPE_ARMOR then
-		item.rarity = owner.loot_rarity_rng:Choose()
+		item.rarity = rarity or owner.loot_rarity_rng:Choose()
 		item.sockets = Loot.SOCKETS_RNG:Choose() - 1
 
 		Loot:AddModifiers(item)

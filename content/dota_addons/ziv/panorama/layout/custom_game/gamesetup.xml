@@ -23,7 +23,7 @@
       <Panel class="PlayerRoot AlignLeft">
         <DOTAAvatarImage class="Avatar AlignLeft" id="Avatar"/>
         <Panel id="PlayerStatus" class="PlayerStatus">
-
+          <DOTAScenePanel class="PlayerStatusScene" map="ui_manabar" hittest="false"/>
         </Panel>
         <Panel id="PlayerFrame" class="PlayerFrame AlignLeft">
 
@@ -36,7 +36,7 @@
       <Panel class="PlayerRoot AlignRight">
         <DOTAAvatarImage class="Avatar AlignRight" id="Avatar"/>
         <Panel id="PlayerStatus" class="PlayerStatus Flipped AlignRight">
-
+          <DOTAScenePanel class="PlayerStatusScene" map="ui_manabar" hittest="false"/>
         </Panel>
         <Panel id="PlayerFrame" class="PlayerFrame AlignRight Flipped">
 

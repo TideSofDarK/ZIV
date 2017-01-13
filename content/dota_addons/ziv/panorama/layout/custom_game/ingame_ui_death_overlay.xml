@@ -1,0 +1,47 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_death_overlay.css" />
+		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
+		<include src="file://{resources}/styles/custom_game/gamesetup.css" />
+	</styles>
+	<script>
+		function Respawn() {
+			GameEvents.SendCustomGameEventToServer("ziv_respawn", {})
+		}
+
+		(function () {
+			GameEvents.Subscribe("ziv_death_panel", function () {
+				$.GetContextPanel().SetHasClass("Show", true)
+				$("#YouDiedLabel").RemoveClass("Bend")
+
+				$("#Loader").SetHasClass("Hide", true)
+				$("#Content").visible = true;
+
+				Game.PlayMusic("UI.Death");
+			})
+
+			GameEvents.Subscribe("ziv_revived", function () {
+				$.GetContextPanel().SetHasClass("Show", false)
+				$("#YouDiedLabel").AddClass("Bend")
+
+				$("#Loader").SetHasClass("Hide", false)
+				$("#Content").visible = false;
+
+				Game.StopMusic();
+				Game.EmitSound("UI.Respawn");
+			})
+		})();
+	</script>
+	<Panel style="transition-duration: 1.5s; transition-delay: 1.5s;" class="WindowAnimation OverlayRoot">
+		<Panel class="OverlayRoot"/>
+		<Panel class="Content" id="Content">
+			<Label style="transition-duration: 1.5s; transition-delay: 1.5s;" class="WindowAnimation Bend" id="YouDiedLabel" text="#you_died"/>
+			<Button onactivate="Respawn()" class="OKButton" id="RespawnButton">
+				<Label id="RespawnButtonLabel" class="WindowLabel" text="#respawn"/>
+			</Button>
+			<Label class="WindowAnimation" html="true" id="WaitForRespawnLabel" text="#wait_for_respawn"/>
+		</Panel>
+		<Panel class="Loader Hide" id="Loader"/>
+	</Panel>
+</root>

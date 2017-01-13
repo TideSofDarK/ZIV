@@ -87,7 +87,7 @@ function GameSetup:AttemptForceStart()
 	local status = PlayerTables:GetTableValue("gamesetup", "status")
 	
 	for k,v in pairs(status) do
-		if PlayerResource:GetPlayer(k) and v ~= "ready" then -- and not string.match(GetMapName(), "debug") and not IsInToolsMode()
+		if PlayerResource:GetPlayer(k) and v ~= "ready" and PlayerResource:GetSteamAccountID(k) ~= 0 then -- and not string.match(GetMapName(), "debug") and not IsInToolsMode()
 			return false
 		end
 	end

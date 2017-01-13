@@ -101,8 +101,8 @@ function Account:LevelUp( pID )
 	local hero = Characters.current_session_characters[pID]
 
 	if hero then
-		-- TODO
-		-- Particles
+		hero:EmitSound("ui.trophy_levelup")
+		TimedEffect("particles/ziv_levelup.vpcf", hero, 5.0)
 
 		local level = Account:GetLevel( pID )
 		for k,v in pairs(Account.REWARDS[tostring(level)]) do

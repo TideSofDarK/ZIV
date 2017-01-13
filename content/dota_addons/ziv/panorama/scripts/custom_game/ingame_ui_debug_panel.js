@@ -82,6 +82,10 @@ function Toggle() {
 	$.GetContextPanel().ToggleClass("WindowClosed");
 }
 
+function Die() {
+    GameEvents.SendCustomGameEventToServer("ziv_debug_die", {});
+}
+
 function onHealthChange(panel, value) {
 	GameEvents.SendCustomGameEventToServer("ziv_debug_change_boss_health", { "health" : value });
 }

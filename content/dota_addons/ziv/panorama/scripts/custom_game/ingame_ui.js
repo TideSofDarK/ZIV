@@ -95,6 +95,11 @@ function UpdateHPAndMP()
 	var mp 		= 	Entities.GetMana( queryUnit )
 	var maxMP 	= 	Entities.GetMaxMana( queryUnit ) * 1.0
 
+	if (Util.HasModifier(queryUnit, "modifier_hero_dead")) {
+		hp = 0;
+		mp = 0;
+	}
+
 	// $("#hp").text = hp + "/" + maxHP;
 	// $("#sp").text = mp + "/" + maxMP;
 
@@ -215,4 +220,6 @@ function UpdateAccount(tableName, changes, deletions) {
 			p.DeleteAsync(0.0);
 		});
 	}); 
+
+	Game.StopMusic();
 })();

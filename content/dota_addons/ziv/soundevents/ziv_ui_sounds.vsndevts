@@ -1,0 +1,59 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+
+{
+	UI.Death = {
+		type = "dota_update_hero_select"
+		vsnd_files = 
+		[
+			"sounds/music/mlange_01/music/killed.vsnd"
+		]
+		volume = "1.0"
+		pitch_rand_min = "-0.05"
+		pitch_rand_max = "0.05"
+		pitch = "1.0"
+		soundlevel = "95.0"
+		event_type = "1.0"
+	}
+
+	UI.Respawn = {
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/music/valve_dota_001/stingers/respawn.vsnd"
+		]
+		volume = "1.25"
+		pitch_rand_min = "-0.05"
+		pitch_rand_max = "0.05"
+		pitch = "1.0"
+		soundlevel = "95.0"
+		event_type = "1.0"
+	}
+
+	UI.Gamesetup = {
+		type = "dota_update_hero_select"
+		vsnd_files = 
+		[
+			"sounds/music/valve_ti4/music/laning_03_layer_03.vsnd"
+		]
+		volume = "0.8"
+		pitch_rand_min = "-0.05"
+		pitch_rand_max = "0.05"
+		pitch = "1.0"
+		soundlevel = "95.0"
+		event_type = "2.0"
+	}
+
+	UI.Countdown = {
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/ui/ui_xp_click_01.vsnd"
+		]
+		volume = "1.25"
+		pitch_rand_min = "-0.05"
+		pitch_rand_max = "0.05"
+		pitch = "1.0"
+		soundlevel = "95.0"
+		event_type = "1.0"
+	}
+}

@@ -1,0 +1,93 @@
+DOTAScenePanel {
+	width: 100%;
+	height: 100%;
+	/*transform: scale3d( 1, 1, 0 );*/
+}
+
+#YouDiedLabel {
+	width: 100%;
+	/*height: 300px;*/
+
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #00000000 ), color-stop( 0.2, #000000 ), color-stop( 0.8, #000000 ), to( #00000000 ) );
+
+	text-align: center;
+	font-weight: bold;
+	font-size: 63px;
+	font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+
+	color: #751C1A;
+
+	padding: 20px;
+
+	transform: scale3d( 1, 1, 1);
+
+	/*horizontal-align: center;*/
+}
+
+#YouDiedLabel.Bend {
+	transform: scale3d( 1, 0, 1);
+}
+
+#WaitForRespawnLabel {
+	width: 100%;
+
+	text-align: center;
+	font-weight: thin;
+	font-size: 17px;
+	line-height: 17px;
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+
+	color: #bbbbbb;
+
+	/*padding: 10px;*/
+}
+
+.OverlayRoot {
+	width: 100%;
+	height: 100%;
+
+	background-color: #000000e6;
+
+	opacity: 0.0;
+
+	z-index: 10;
+}
+
+.Logo {
+	width: 500px;
+	height: 500px;
+
+	align: center center;
+
+	blur: gaussian( 2.5 );
+	transition-duration: 3.0s;
+}
+
+.Show {
+	opacity: 1.0;
+	blur: none;
+}
+
+.Content {
+	width: 100%;
+	/*height: 100%;*/
+
+	align: center center;
+
+	margin-top: 190px;
+
+	flow-children: down;
+}
+
+#RespawnButton {
+	width: 180px;
+	height: 45px;
+
+	align: center center;
+
+	margin-top: 175px;
+}
+
+#Loader {
+	align: center center;
+}

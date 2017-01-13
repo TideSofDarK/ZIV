@@ -1,6 +1,5 @@
 DOTAItemImage {
-	border-radius: 6px;
-	border: 1px solid #111111FF;
+
 }
 
 .z-index1 {
@@ -161,21 +160,20 @@ VerticalScrollBar {
 }
 
 #Tabs {
-	width: 90%;
-	height: 43px;
+	width: 89%;
+	height: 52px;
 
 /*	padding-top: 4px;
 	padding-bottom: 3px;*/
 
-	margin-top: 13px;
+	margin-left: 11px;
+	margin-top: 12px;
 
 	flow-children: right;
 }
 
 .Tab {
 	height: 100%;
-
-	margin-top: 7px;
 
 	vertical-align: center;
 	text-align: center;
@@ -187,16 +185,20 @@ VerticalScrollBar {
 	brightness: 1.5;
 }
 
-.Tab.ActiveTab {
-	color: white;
+.Tab:not(.ActiveTab) {
+	wash-color: #bbbbbb;
 }
 
 #ItemNameTab {
-	width: 65%;
+	width: 530px;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/crafting_bg_craft.png');
 }
 
 #RecycleTab {
-	width: 35%;
+	width: 211px;
+
+	background-image: url('file://{images}/custom_game/ingame_ui/crafting_bg_recycle.png');
 }
 
 .TabContent {
@@ -216,18 +218,28 @@ VerticalScrollBar {
 #ItemImage {
 	align: center center;
 
-	width: 150px;
+	width: 100%;
 	height: 100%;
 }
 
-#CraftingItemPanel {
-	width: 100%;
-	height: 90px;
+#ItemDescImage {
+	margin-left: 22px;
+	margin-top: 14px;
+	margin-right: 4px;
+}
 
-	margin-left: 10px;
+#CraftingItemPanel {
+	width: 130px;
+	height: 90px;
 
 	horizontal-align: center;
 	vertical-align: center;
+}
+
+.CraftingItemPanel #ItemImage {
+	border-radius: 6px;
+	brightness: 1.5;
+	padding: -4px;
 }
 
 #ItemDesc {
@@ -259,7 +271,9 @@ VerticalScrollBar {
 	text-align: center;
 }
 
-#RecycleItems {
+#RecycleItems,
+#CraftingItems,
+ {
 	width: 100%;
 	height: 50%;
 
@@ -269,13 +283,24 @@ VerticalScrollBar {
 }
 
 .RecipeParts {
-	width: 100%;
-	height: 270px;
+	width: fit-children;
+	height: fit-children;
 
-	margin-bottom: 90px;
+	margin-top: 155px;
+	margin-right: 24px;
 
-	horizontal-align: center;
-	vertical-align: bottom;
+	horizontal-align: right;
+	vertical-align: top;
+
+	border-top-color: #1C3441bb;
+	border-top-width: 5px;
+	border-top-style: solid;
+
+	border-left-color: #1C3441bb;
+	border-left-width: 5px;
+	border-left-style: solid;
+
+	border-top-left-radius: 6px;
 }
 
 .RecipePartsRows {
@@ -293,11 +318,14 @@ VerticalScrollBar {
 }
 
 .recipepart-image {
-	height: 90px;
-	width: 123px;
+	height: 60px;
+	width: 83px;
 
 	margin-left: 4px;
 	margin-right: 4px;
+
+	border-radius: 6px;
+	border: 1px solid #111111FF;
 }
 
 .recipe-plus {
@@ -451,4 +479,26 @@ VerticalScrollBar {
 	font-weight: bold;
 	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 	color: White;
+}
+
+#ProgressBarRoot {
+	width: 700px;
+
+	margin-right: 75px;
+	margin-bottom: 10px;
+
+	horizontal-align: right;
+	vertical-align: center;
+}
+
+#ProgressBarRed {
+	background-color: #1C3441;
+}
+
+#ProgressBarGreen {
+	background-color: #F19C02;
+}
+
+.ProgressBarMarker {
+	visibility: collapse;
 }

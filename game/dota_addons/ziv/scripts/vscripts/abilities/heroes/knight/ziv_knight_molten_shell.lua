@@ -26,11 +26,11 @@ function MoltenShell( keys )
 end
 
 function OnTakeDamage( keys )
-	local caster = keys.caster
-	local ability = keys.ability
-	local damage = keys.attack_damage
+	local caster = keys.victim
+	local ability = caster:FindAbilityByName("ziv_knight_molten_shell")
+	local damage = keys.damage
 
-	if not ability:IsCooldownReady() then return end
+	if not ability or not ability:IsCooldownReady() then return end
 
 	local current_stacks = caster:GetModifierStackCount("modifier_molten_shell",caster)
 
@@ -51,4 +51,6 @@ function ResetThreshold( keys )
 	local threshold = GetSpecial(ability, "damage_threshold") - GRMSC("ziv_knight_molten_shell_threshold", caster)
 
 	caster:SetModifierStackCount("modifier_molten_shell",caster,threshold)
+
+	caster:AddOnTakeDamageCallback( OnTakeDamage )
 end

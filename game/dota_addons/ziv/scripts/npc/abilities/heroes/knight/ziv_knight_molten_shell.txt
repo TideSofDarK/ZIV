@@ -99,24 +99,5 @@
         "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.01"
       }
     }
-
-    "modifier_molten_shell"
-    {
-      "Passive"      "1"
-      "IsHidden"      "1"
-      "IsDebuff"      "0"
-
-      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
-
-      "OnTakeDamage"
-      {
-        "RunScript"
-        {
-          "ScriptFile"      "abilities/heroes/knight/ziv_knight_molten_shell.lua"
-          "Function"        "OnTakeDamage"
-          "attack_damage"   "%attack_damage"
-        }
-      }
-    }
   }
 }

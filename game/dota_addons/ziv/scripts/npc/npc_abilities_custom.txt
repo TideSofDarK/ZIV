@@ -1715,11 +1715,33 @@
 	  
 	  "Modifiers"
 	  {
+	    "modifier_hero_dead"
+	    {
+	      "Passive"      "0"
+	      "IsHidden"      "1"
+	      "IsDebuff"      "0"
+	
+	      "Properties"
+	      {
+	        "MODIFIER_PROPERTY_DISABLE_HEALING"     "1"
+	      }
+	    
+	      "States"
+	      {
+	        "MODIFIER_STATE_COMMAND_RESTRICTED"     "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_ROOTED"                 "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_INVULNERABLE"           "MODIFIER_STATE_VALUE_ENABLED"
+	        "MODIFIER_STATE_SILENCED"               "MODIFIER_STATE_VALUE_ENABLED"
+	      }
+	    }
+	
 	    "modifier_passive_hero"
 	    {
-	      "Passive"      "1"
+	      "Passive"     "1"
 	      "IsHidden"      "0"
 	      "IsDebuff"      "0"
+	      "IsPurgable"    "0"
+	      "IsBuff"      "1"
 	
 	      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
 	
@@ -1731,6 +1753,16 @@
 	      "Properties"
 	      {
 	        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
+	        "MODIFIER_PROPERTY_MIN_HEALTH" "1"
+	      }
+	
+	      "OnTakeDamage"
+	      {
+	        "RunScript"
+	        {
+	          "ScriptFile"    "abilities/modifiers/ziv_passive_hero.lua"
+	          "Function"      "OnLethalDamage"
+	        }
 	      }
 	    }
 	
@@ -4699,25 +4731,6 @@
 	      "Properties"
 	      {
 	        "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.01"
-	      }
-	    }
-	
-	    "modifier_molten_shell"
-	    {
-	      "Passive"      "1"
-	      "IsHidden"      "1"
-	      "IsDebuff"      "0"
-	
-	      "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
-	
-	      "OnTakeDamage"
-	      {
-	        "RunScript"
-	        {
-	          "ScriptFile"      "abilities/heroes/knight/ziv_knight_molten_shell.lua"
-	          "Function"        "OnTakeDamage"
-	          "attack_damage"   "%attack_damage"
-	        }
 	      }
 	    }
 	  }

@@ -60,6 +60,14 @@ function CDOTA_BaseNPC:HasLoot(  )
   return self._has_loot or false
 end
 
+function CDOTA_BaseNPC:SetWaitingForRespawn( bool )
+  self._waiting_for_respawn = bool
+end
+
+function CDOTA_BaseNPC:IsWaitingForRespawn(  )
+  return self._waiting_for_respawn or false
+end
+
 function CDOTA_BaseNPC:IsInsidePolygon(polygon)
   return IsPointInsidePolygon(self:GetAbsOrigin(), polygon)
 end

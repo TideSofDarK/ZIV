@@ -1,3 +1,8 @@
+DOTAScenePanel {
+	width: 100%;
+	height: 100%;
+}
+
 @keyframes 'exp_bar_horizontal'
 {
   0%
@@ -232,6 +237,10 @@
 
 	width: 160px;
 	height: 160px;
+}
+
+#HPOrb {
+	/*hue-rotation: 234deg;*/
 }
 
 #HPOrb1 {

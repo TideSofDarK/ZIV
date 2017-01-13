@@ -39,4 +39,13 @@
 	{
 
 	}
+
+	"ziv_add_black_and_white"
+	{
+
+	}
+	"ziv_remove_black_and_white"
+	{
+		
+	}
 }

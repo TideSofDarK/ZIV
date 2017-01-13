@@ -54,5 +54,5 @@ function Activate()
   GameRules.ZIV = ZIV()
   GameRules.ZIV:InitZIV()
 
-  -- SendToServerConsole( 'dota_create_fake_clients 3' )
+  SendToServerConsole( 'dota_create_fake_clients 3' )
 end

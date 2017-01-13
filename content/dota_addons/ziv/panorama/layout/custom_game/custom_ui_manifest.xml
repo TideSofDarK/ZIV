@@ -4,6 +4,7 @@
     <include src="file://{resources}/scripts/custom_game/utils.js" />
     <include src="file://{resources}/scripts/custom_game/account.js" />
     <include src="file://{resources}/scripts/custom_game/network.js" />
+    <include src="file://{resources}/scripts/custom_game/music.js" />
     <include src="file://{resources}/scripts/custom_game/custom_tooltips.js" />
 
     <include src="file://{resources}/scripts/custom_game/ui_hack.js" />
@@ -115,5 +116,7 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_worldpanels.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_debug_panel.xml" />
+
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_ui_death_overlay.xml" />
   </Panel>
 </root>

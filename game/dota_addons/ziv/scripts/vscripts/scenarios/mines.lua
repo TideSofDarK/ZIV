@@ -319,9 +319,17 @@ function Mines:SpawnCreeps()
 			for k,v in pairs(self.creeps) do
 				if not v:IsNull() and v:IsIdle() then
 					v.idle_count = (v.idle_count or 0) + 1
-					if v.idle_count == 10 then
-						v:ForceKill(false)
-						self.creeps[k] = nil
+					if v.idle_count >= 10 then
+						local visible = false
+						DoToAllHeroes(function ( hero )
+							if Distance(v, hero) < hero:GetNightTimeVisionRange() then
+								visible = false
+							end
+						end)
+						if visible then
+							UTIL_Remove(v)
+							self.creeps[k] = nil
+						end
 					end
 				end
 			end

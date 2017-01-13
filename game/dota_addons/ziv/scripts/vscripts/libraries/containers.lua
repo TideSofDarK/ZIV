@@ -2250,13 +2250,16 @@ function Containers:CreateContainer(cont)
     local nameTable = self.itemNames[name]
     local items = {}
     if not nameTable then
-      return items
+      return false
     end
+
+    local counts = 0
 
     for id,slot in pairs(nameTable) do
       local item = GetItem(id)
       if item then
-        if item:GetCurrentCharges() >= count then
+        counts = counts + item:GetCurrentCharges()
+        if counts >= count then
           return true
         end
       else
