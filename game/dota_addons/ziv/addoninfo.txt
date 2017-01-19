@@ -6,14 +6,17 @@
 	"ziv_debug_1p"
 	{
 		"MaxPlayers"					"1"
+		"NotOnWebsite"					"1"
 	}
 	"ziv_temple_4p"
 	{
 		"MaxPlayers"					"4"
+		"NotOnWebsite"					"0"
 	}
 	"ziv_mines_4p"
 	{
 		"MaxPlayers"					"4"
+		"NotOnWebsite"					"0"
 	}
 	"Default_Keys"
 	{
