@@ -1,0 +1,104 @@
+"item_hunter_gloves"
+{
+  "ID"		                  "1002"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "BaseClass"               "item_datadriven"
+  "AbilityTextureName"      "item_hunter_gloves"
+  "Model"                   "models/items/basic_coat.vmdl" 
+
+  "Craft"  "leather"
+  "Slot"  "gloves"
+  "EquipSound"  "ui.inv_equip_leather"
+
+  "ItemStackable" "0"
+  "ItemPermanent" "0"
+
+  "ItemDroppable"         "1"
+  "ItemPurchasable"       "0"
+  "ItemSellable"          "0"
+  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+  
+  "BaseModifiers"
+  {
+    "ARMOR"
+    {
+      "min" "7"
+      "max" "14"
+    }
+    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
+    {
+      "min" "15"
+      "max" "35"
+    }
+  }
+}
+
+"item_wizard_gloves"
+{
+  "ID"                      "1002"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "BaseClass"               "item_datadriven"
+  "AbilityTextureName"      "item_wizard_gloves"
+  "Model"                   "models/items/basic_coat.vmdl" 
+
+  "Craft"  "leather"
+  "Slot"  "gloves"
+  "EquipSound"  "ui.inv_equip_leather"
+
+  "ItemStackable" "0"
+  "ItemPermanent" "0"
+
+  "ItemDroppable"         "1"
+  "ItemPurchasable"       "0"
+  "ItemSellable"          "0"
+  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+  
+  "BaseModifiers"
+  {
+    "ARMOR"
+    {
+      "min" "7"
+      "max" "14"
+    }
+    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
+    {
+      "min" "15"
+      "max" "35"
+    }
+  }
+}
+
+"item_arcane_gloves"
+{
+  "ID"                      "1002"
+  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  "BaseClass"               "item_datadriven"
+  "AbilityTextureName"      "item_arcane_gloves"
+  "Model"                   "models/items/basic_coat.vmdl" 
+
+  "Craft"  "leather"
+  "Slot"  "gloves"
+  "EquipSound"  "ui.inv_equip_leather"
+
+  "ItemStackable" "0"
+  "ItemPermanent" "0"
+
+  "ItemDroppable"         "1"
+  "ItemPurchasable"       "0"
+  "ItemSellable"          "0"
+  "ItemShareability"        "ITEM_NOT_SHAREABLE"
+  
+  "BaseModifiers"
+  {
+    "ARMOR"
+    {
+      "min" "7"
+      "max" "14"
+    }
+    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
+    {
+      "min" "15"
+      "max" "35"
+    }
+  }
+}

@@ -3,39 +3,35 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 24
-	m_Renderers =
+	m_Renderers = 
 	[
 		{
 			_class = "C_OP_RenderSprites"
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
 			m_bBlendFramesSeq0 = false
 			m_hTexture = resource:"materials/particle/glyphs/glyph3.vtex"
+			m_bAdditive = true
 		},
 	]
-	m_Operators =
+	m_Operators = 
 	[
 		{
 			_class = "C_OP_BasicMovement"
-			m_Gravity =
-			[
-				0.000000,
-				0.000000,
-				-80.000000,
-			]
+			m_Gravity = [ 0.0, 0.0, -80.0 ]
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flStartScale = 0.000000
-			m_flEndScale = 2.000000
-			m_flBias = 0.750000
+			m_flStartScale = 0.0
+			m_flEndScale = 2.0
+			m_flBias = 0.75
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.150000
+			m_flFadeOutTime = 0.15
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.400000
+			m_flFadeInTime = 0.4
 		},
 		{
 			_class = "C_OP_Decay"
@@ -43,15 +39,15 @@
 		{
 			_class = "C_OP_RampScalarLinear"
 			m_nField = 4
-			m_RateMin = -1.000000
-			m_RateMax = 1.000000
+			m_RateMin = -1.0
+			m_RateMax = 1.0
 		},
 		{
 			_class = "C_OP_LockToBone"
-			m_flLifeTimeFadeEnd = 0.500000
+			m_flLifeTimeFadeEnd = 0.5
 		},
 	]
-	m_Initializers =
+	m_Initializers = 
 	[
 		{
 			_class = "C_INIT_RandomSequence"
@@ -59,12 +55,12 @@
 		},
 		{
 			_class = "C_INIT_CreateOnModel"
-			m_flHitBoxScale = 1.200000
+			m_flHitBoxScale = 1.2
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMax = 7.000000
-			m_flRadiusMin = 4.000000
+			m_flRadiusMax = 7.0
+			m_flRadiusMin = 4.0
 		},
 		{
 			_class = "C_INIT_RandomRotation"
@@ -74,54 +70,26 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMin =
-			[
-				56,
-				60,
-				63,
-				255,
-			]
-			m_ColorMax =
-			[
-				0,
-				0,
-				0,
-				255,
-			]
-			m_TintMax =
-			[
-				61,
-				61,
-				61,
-				255,
-			]
+			m_ColorMin = [ 255, 248, 197, 255 ]
+			m_ColorMax = [ 255, 232, 165, 255 ]
+			m_TintMax = [ 61, 61, 61, 255 ]
 		},
 		{
 			_class = "C_INIT_InitialVelocityNoise"
-			m_vecOutputMin =
-			[
-				-32.000000,
-				-32.000000,
-				-32.000000,
-			]
-			m_vecOutputMax =
-			[
-				32.000000,
-				32.000000,
-				32.000000,
-			]
+			m_vecOutputMin = [ -32.0, -32.0, -32.0 ]
+			m_vecOutputMax = [ 32.0, 32.0, 32.0 ]
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 1.000000
-			m_fLifetimeMax = 2.000000
+			m_fLifetimeMin = 1.0
+			m_fLifetimeMax = 2.0
 		},
 	]
-	m_Emitters =
+	m_Emitters = 
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 4.000000
+			m_flEmitRate = 4.0
 		},
 	]
 }

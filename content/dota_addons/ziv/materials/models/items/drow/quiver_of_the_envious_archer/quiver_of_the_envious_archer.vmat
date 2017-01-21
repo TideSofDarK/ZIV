@@ -1,0 +1,74 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "hero.vfx"
+
+	//---- Masks ----
+	F_MASKS_1 1
+	F_MASKS_2 1
+
+	//---- Translucency ----
+	F_ALPHA_TEST 1
+
+	//---- Blend To Full ----
+	g_flEnvMapBlendToFull "0.000"
+	g_flMetalnessBlendToFull "0.000"
+	g_flReflectionsTintByBaseBlendToNone "0.000"
+	g_flSelfIllumBlendToFull "0.000"
+	g_flSpecularBlendToFull "0.000"
+	g_flSpecularExponentBlendToFull "0.000"
+
+	//---- Cloak ----
+	g_flCloakBlurAmount "0.005"
+	g_flCloakIntensity "0.850"
+	g_flCloakRefractAmount "0.100"
+	g_flMaterialCloakFactor "0.000"
+	g_vCloakColorTint "[1.000 1.000 1.000]"
+
+	//---- Color ----
+	g_flDiffuseModulationAmount "1.000"
+	g_flTexCoordRotation "0.000"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "materials/models/items/drow/quiver_of_the_envious_archer/quiver_of_the_envious_archer_color.png"
+
+	//---- Fresnel ----
+	TextureFresnelWarpColor "materials/default/default_fresnelwarpcolor.tga"
+	TextureFresnelWarpRim "materials/default/default_fresnelwarprim.tga"
+	TextureFresnelWarpSpec "materials/default/default_fresnelwarpspec.tga"
+
+	//---- Lighting ----
+	g_flAmbientScale "1.000"
+	g_flBloomScale "0.000"
+	g_flBloomShift "0.000"
+	g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Mask 1 ----
+	TextureDetailMask "materials/default/default_detailmask.tga"
+	TextureDiffuseWarpMask "materials/default/default_diffusemask.tga"
+	TextureMetalnessMask "materials/models/items/drow/quiver_of_the_envious_archer/quiver_of_the_envious_archer_metalnessmask.png"
+	TextureSelfIllumMask "materials/default/default_selfillummask.tga"
+
+	//---- Mask 2 ----
+	TextureRimMask "materials/default/default_rimmask.tga"
+	TextureSpecularExponent "materials/default/default_specexp.tga"
+	TextureSpecularMask "materials/models/items/drow/quiver_of_the_envious_archer/quiver_of_the_envious_archer_specmask.png"
+	TextureTintByBaseMask "materials/default/default_basetintmask.tga"
+
+	//---- Normal Map ----
+	TextureNormal "materials/models/items/drow/quiver_of_the_envious_archer/quiver_of_the_envious_archer_normal.png"
+
+	//---- Rim ----
+	g_flRimLightScale "1.000"
+	g_vRimLightColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Specular ----
+	g_flSpecularExponent "16.000"
+	g_flSpecularScale "1.000"
+	g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Translucency ----
+	g_flAlphaTestReference "0.780"
+	TextureTranslucency "materials/models/items/drow/quiver_of_the_envious_archer/quiver_of_the_envious_archer_color_trans.png.png"
+}

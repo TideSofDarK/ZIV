@@ -23,11 +23,11 @@ function OnLethalDamage( keys )
 			-- EmitSoundOnClient("UI.Death",player)
 		end
 
-		caster.revive_panel = WorldPanels:CreateWorldPanelForAll({
-			layout = "revive",
-			entity = caster:GetEntityIndex(),
-			data = {},
-			entityHeight = 150,
-	    })
+		-- caster.revive_panel = WorldPanels:CreateWorldPanelForAll({
+		-- 	layout = "revive",
+		-- 	entity = caster:GetEntityIndex(),
+		-- 	data = {},
+		-- 	entityHeight = 150,
+	 --    })
 	end	
 end

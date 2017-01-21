@@ -12,6 +12,7 @@
 			m_hTexture = resource:"materials/particle/impact/fleks5.vtex"
 			m_flAnimationRate2 = 0.1
 			m_flAnimationRate = 1.0
+			m_bMod2X = true
 		},
 	]
 	m_Operators = 
@@ -69,8 +70,8 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMin = [ 76, 93, 89, 255 ]
-			m_ColorMax = [ 8, 19, 27, 255 ]
+			m_ColorMin = [ 255, 252, 212, 255 ]
+			m_ColorMax = [ 255, 249, 231, 255 ]
 		},
 		{
 			_class = "C_INIT_InitialVelocityNoise"
