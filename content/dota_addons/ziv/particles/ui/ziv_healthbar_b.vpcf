@@ -7,7 +7,7 @@
 	[
 		{
 			_class = "C_OP_RenderSprites"
-			m_hTexture = resource:"materials/particle/smoke/maya_wispy/wispy_v2.vtex"
+			m_hTexture = resource:"materials/particle/smoke1/smoke1.vtex"
 			m_flAnimationRate = 9.0
 			m_bAnimateInFPS = true
 		},
@@ -17,7 +17,7 @@
 		{
 			_class = "C_OP_BasicMovement"
 			m_fDrag = 0.02
-			m_Gravity = [ 0.0, 0.0, 64.0 ]
+			m_Gravity = [ 0.0, 0.0, 128.0 ]
 		},
 		{
 			_class = "C_OP_Decay"
@@ -33,9 +33,11 @@
 		},
 		{
 			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.1
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.5
 		},
 	]
 	m_Initializers = 
@@ -47,8 +49,8 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 105.8
-			m_flRadiusMax = 180.0
+			m_flRadiusMin = 20.0
+			m_flRadiusMax = 70.0
 		},
 		{
 			_class = "C_INIT_RandomRotation"
@@ -70,16 +72,16 @@
 		},
 		{
 			_class = "C_INIT_PositionOffset"
-			m_OffsetMin = [ 0.0, -50.0, 0.0 ]
-			m_OffsetMax = [ 0.0, 50.0, 0.0 ]
+			m_OffsetMin = [ 0.0, -70.0, -75.0 ]
+			m_OffsetMax = [ 0.0, 70.0, -75.0 ]
 		},
 	]
 	m_Emitters = 
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 4.0
+			m_flEmitRate = 16.0
 		},
 	]
-	m_ConstantColor = [ 113, 255, 47, 57 ]
+	m_ConstantColor = [ 224, 16, 47, 57 ]
 }

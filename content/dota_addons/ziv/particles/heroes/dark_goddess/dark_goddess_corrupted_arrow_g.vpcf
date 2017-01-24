@@ -10,7 +10,6 @@
 		{
 			_class = "C_OP_RenderTrails"
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
-			m_flOverbrightFactor = 3.0
 			m_hTexture = resource:"materials/particle/sparks/sparks.vtex"
 			m_bIgnoreDT = true
 			m_flMaxLength = 100.0

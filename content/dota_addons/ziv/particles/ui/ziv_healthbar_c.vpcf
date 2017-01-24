@@ -15,7 +15,7 @@
 	[
 		{
 			_class = "C_OP_BasicMovement"
-			m_Gravity = [ 0.0, 0.0, 64.0 ]
+			m_Gravity = [ -10.0, 0.0, 64.0 ]
 		},
 		{
 			_class = "C_OP_Decay"
@@ -27,7 +27,7 @@
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
-			m_ColorFade = [ 0, 194, 71, 255 ]
+			m_ColorFade = [ 255, 55, 36, 255 ]
 		},
 		{
 			_class = "C_OP_FadeInSimple"
@@ -40,8 +40,8 @@
 	[
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 0, 226, 41, 255 ]
-			m_ColorMin = [ 0, 130, 23, 255 ]
+			m_ColorMax = [ 239, 61, 34, 255 ]
+			m_ColorMin = [ 234, 37, 67, 255 ]
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"
@@ -75,8 +75,13 @@
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
-			m_nAlphaMin = 30
+			m_nAlphaMin = 20
 			m_nAlphaMax = 52
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ 0.0, -30.0, -30.0 ]
+			m_OffsetMax = [ 0.0, 30.0, -30.0 ]
 		},
 	]
 	m_Emitters = 

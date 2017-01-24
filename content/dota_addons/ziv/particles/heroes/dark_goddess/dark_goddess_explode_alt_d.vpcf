@@ -71,8 +71,8 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 113, 49, 109, 255 ]
-			m_ColorMin = [ 74, 35, 72, 255 ]
+			m_ColorMax = [ 255, 253, 231, 255 ]
+			m_ColorMin = [ 234, 220, 132, 255 ]
 		},
 	]
 	m_Emitters = 

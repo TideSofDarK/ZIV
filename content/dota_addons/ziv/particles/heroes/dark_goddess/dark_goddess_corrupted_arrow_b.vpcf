@@ -4,31 +4,31 @@
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 256
 	m_nConstantSequenceNumber = 2
-	m_Renderers =
+	m_Renderers = 
 	[
 		{
 			_class = "C_OP_RenderSprites"
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
 			m_bAdditive = true
-			m_flMinSize = 0.000750
-			m_flMaxSize = 0.002500
-			m_flOverbrightFactor = 15.000000
+			m_flMinSize = 0.00075
+			m_flMaxSize = 0.0025
+			m_flOverbrightFactor = 15.0
 			m_bBlendFramesSeq0 = false
 			m_hTexture = resource:"materials/particle/impact/fleks3.vtex"
-			m_flAnimationRate = 1.000000
-			m_flAnimationRate2 = 0.100000
+			m_flAnimationRate = 1.0
+			m_flAnimationRate2 = 0.1
 		},
 	]
-	m_Operators =
+	m_Operators = 
 	[
 		{
 			_class = "C_OP_BasicMovement"
-			m_fDrag = 0.050000
+			m_fDrag = 0.05
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flEndScale = 0.500000
-			m_flBias = 0.250000
+			m_flEndScale = 0.5
+			m_flBias = 0.25
 		},
 		{
 			_class = "C_OP_Decay"
@@ -38,47 +38,27 @@
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.100000
+			m_flFadeInTime = 0.1
 		},
 		{
 			_class = "C_OP_OscillateVector"
-			m_RateMin =
-			[
-				-4.000000,
-				-4.000000,
-				-4.000000,
-			]
-			m_RateMax =
-			[
-				4.000000,
-				4.000000,
-				4.000000,
-			]
-			m_FrequencyMin =
-			[
-				0.500000,
-				0.500000,
-				0.500000,
-			]
-			m_FrequencyMax =
-			[
-				3.000000,
-				3.000000,
-				3.000000,
-			]
+			m_RateMin = [ -4.0, -4.0, -4.0 ]
+			m_RateMax = [ 4.0, 4.0, 4.0 ]
+			m_FrequencyMin = [ 0.5, 0.5, 0.5 ]
+			m_FrequencyMax = [ 3.0, 3.0, 3.0 ]
 		},
 	]
-	m_Initializers =
+	m_Initializers = 
 	[
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 0.300000
-			m_fLifetimeMax = 1.000000
+			m_fLifetimeMin = 0.3
+			m_fLifetimeMax = 1.0
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 0.200000
-			m_flRadiusMax = 0.200000
+			m_flRadiusMin = 0.2
+			m_flRadiusMax = 0.2
 		},
 		{
 			_class = "C_INIT_CreateWithinSphere"
@@ -87,57 +67,25 @@
 		{
 			_class = "C_INIT_PositionOffset"
 			m_bProportional = true
-			m_OffsetMax =
-			[
-				0.000000,
-				0.000000,
-				1.000000,
-			]
-			m_OffsetMin =
-			[
-				0.000000,
-				0.000000,
-				1.000000,
-			]
+			m_OffsetMax = [ 0.0, 0.0, 1.0 ]
+			m_OffsetMin = [ 0.0, 0.0, 1.0 ]
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax =
-			[
-				25,
-				26,
-				27,
-				255,
-			]
-			m_ColorMin =
-			[
-				0,
-				0,
-				0,
-				255,
-			]
+			m_ColorMax = [ 255, 234, 165, 255 ]
+			m_ColorMin = [ 255, 255, 159, 255 ]
 		},
 		{
 			_class = "C_INIT_InitialVelocityNoise"
-			m_flNoiseScaleLoc = 5.000000
-			m_vecOutputMin =
-			[
-				-132.000000,
-				-132.000000,
-				-132.000000,
-			]
-			m_vecOutputMax =
-			[
-				132.000000,
-				132.000000,
-				132.000000,
-			]
-			m_flNoiseScale = 3.000000
+			m_flNoiseScaleLoc = 5.0
+			m_vecOutputMin = [ -132.0, -132.0, -132.0 ]
+			m_vecOutputMax = [ 132.0, 132.0, 132.0 ]
+			m_flNoiseScale = 3.0
 		},
 		{
 			_class = "C_INIT_InheritVelocity"
 			m_nControlPointNumber = 3
-			m_flVelocityScale = 0.100000
+			m_flVelocityScale = 0.1
 		},
 		{
 			_class = "C_INIT_RandomSequence"
@@ -145,31 +93,19 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMin =
-			[
-				83,
-				83,
-				83,
-				255,
-			]
-			m_ColorMax =
-			[
-				0,
-				0,
-				0,
-				255,
-			]
+			m_ColorMin = [ 83, 83, 83, 255 ]
+			m_ColorMax = [ 0, 0, 0, 255 ]
 			m_nFieldOutput = 22
 		},
 	]
-	m_Emitters =
+	m_Emitters = 
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 300.000000
+			m_flEmitRate = 300.0
 		},
 	]
-	m_Children =
+	m_Children = 
 	[
 		{
 			m_ChildRef = resource:"particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_c.vpcf"
@@ -178,11 +114,5 @@
 			m_ChildRef = resource:"particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_d.vpcf"
 		},
 	]
-	m_ConstantColor =
-	[
-		0,
-		0,
-		0,
-		255,
-	]
+	m_ConstantColor = [ 0, 0, 0, 255 ]
 }

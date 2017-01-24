@@ -249,7 +249,7 @@ function SimulateRangeAttack( keys )
       TreeBehavior = PROJECTILES_NOTHING,
       bCutTrees = false,
       bTreeFullCollision = false,
-      WallBehavior = PROJECTILES_NOTHING,
+      WallBehavior = PROJECTILES_DESTROY,
       GroundBehavior = PROJECTILES_NOTHING,
       fGroundOffset = offset,
       nChangeMax = 1,

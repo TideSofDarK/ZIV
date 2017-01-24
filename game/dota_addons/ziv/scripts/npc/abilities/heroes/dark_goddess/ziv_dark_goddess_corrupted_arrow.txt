@@ -23,6 +23,7 @@
 		"particle"  "particles/status_fx/status_effect_terrorblade_reflection.vpcf"
 		"particle"  "particles/econ/items/enigma/enigma_geodesic/enigma_eidelon_geodesic_eye.vpcf"
 		"particle"  "particles/heroes/dark_goddess/dark_goddess_corrupted_arrow_dispersion.vpcf"
+		"particle"	"particles/heroes/dark_goddess/dark_goddess_spirit_ambient.vpcf"
 		"soundfile"	"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
 		"soundfile"	"soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
 		"soundfile"	"soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts"
@@ -104,6 +105,30 @@
 			}
 		}
 
+		"modifier_corrupted_spirit_ambient"
+		{
+			"Passive"			"0"
+			"IsHidden"			"1"
+			"IsDebuff"			"0"
+		
+	        "OnCreated"
+	        {
+	            "AttachEffect"
+	           	{
+					"EffectName" "particles/heroes/dark_goddess/dark_goddess_spirit_ambient.vpcf"
+					"Target" "CASTER"
+					"EffectAttachType" "attach_hitloc"
+	
+                    "ControlPointEntities"
+                    {
+		                "TARGET" "attach_hitloc"
+		                "TARGET" "attach_hitloc"
+		                "TARGET" "attach_hitloc"
+	                }
+	    		}
+	    	}
+		}
+
 		"modifier_corrupted_spirit"
 	    {
 	    	"Passive"      "0"
@@ -112,8 +137,8 @@
 
 	    	"Attributes"  "MODIFIER_ATTRIBUTE_PERMANENT"
 
-	    	"StatusEffectName"     "particles/status_fx/status_effect_terrorblade_reflection.vpcf"      
-	    	"StatusEffectPriority"  "1"
+	        // "EffectName"    "particles/heroes/dark_goddess/dark_goddess_spirit_ambient.vpcf"
+	        // "EffectAttachType"  "attach_hitloc"
 
 	    	"OnAttackLanded"
 	    	{

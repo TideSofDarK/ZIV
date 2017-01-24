@@ -28,7 +28,7 @@
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
-			m_ColorFade = [ 0, 194, 71, 255 ]
+			m_ColorFade = [ 194, 45, 0, 255 ]
 		},
 		{
 			_class = "C_OP_FadeInSimple"
@@ -41,8 +41,8 @@
 	[
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 0, 226, 41, 255 ]
-			m_ColorMin = [ 0, 130, 23, 255 ]
+			m_ColorMax = [ 226, 60, 0, 255 ]
+			m_ColorMin = [ 130, 19, 0, 255 ]
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"
@@ -104,6 +104,9 @@
 		},
 		{
 			m_ChildRef = resource:"particles/ui/ziv_healthbar_c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/ui/ziv_healthbar_d.vpcf"
 		},
 	]
 }

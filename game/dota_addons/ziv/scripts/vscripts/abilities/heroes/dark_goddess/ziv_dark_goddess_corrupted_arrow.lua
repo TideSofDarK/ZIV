@@ -26,6 +26,7 @@ function SpawnSpirit( keys )
 			if target and target:IsAlive() == false then
 				local spirit = CreateUnitByName("npc_dark_goddess_spirit", target:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
 				ability:ApplyDataDrivenModifier(caster,spirit,"modifier_corrupted_spirit",{})
+				ability:ApplyDataDrivenModifier(caster,spirit,"modifier_corrupted_spirit_ambient",{})
 
 				spirit:SetMaxHealth(caster:GetMaxHealth() * (GetSpecial(ability, "spirit_hp_percent") / 100))
 				spirit:SetHealth(spirit:GetMaxHealth())
@@ -58,8 +59,13 @@ function SpiritAttack( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
+	local attacker = keys.attacker
 
 	Damage:Deal(caster, target, GetRuneDamage(caster, GetSpecial(ability, "spirit_damage_amp"), ""), DAMAGE_TYPE_PHYSICAL)
+
+	attacker:SetAbsOrigin(target:GetAbsOrigin() + RandomPointOnCircle(Distance(attacker,target)))
+
+	TimedEffect("particles/heroes/dark_goddess/dark_goddess_spirit_ambient_warmup.vpcf", attacker, 2.0, 0, PATTACH_POINT_FOLLOW )
 end
 
 function OnHit( keys )

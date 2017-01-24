@@ -62,7 +62,7 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMin = [ 128, 46, 122, 255 ]
+			m_ColorMin = [ 128, 112, 46, 255 ]
 		},
 		{
 			_class = "C_INIT_RingWave"

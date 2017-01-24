@@ -3,7 +3,7 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 4
-	m_ConstantColor = [ 255, 0, 229, 175 ]
+	m_ConstantColor = [ 250, 253, 215, 175 ]
 	m_Renderers = 
 	[
 		{
@@ -17,7 +17,7 @@
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
 			m_bAdditive = true
 			m_bDisableZBuffering = true
-			m_hTexture = resource:"materials/particle/particle_flares/aircraft_blue2.vtex"
+			m_hTexture = resource:"materials/particle/particle_flares/aircraft_white.vtex"
 			m_flAnimationRate = 2.0
 		},
 	]

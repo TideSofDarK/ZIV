@@ -22,7 +22,7 @@ function Transform( keys )
 		local v = units[i]
 	    
 	    if IsValidEntity(v) then
-			if v:HasModifier("modifier_glaive_unit") == true or v:HasModifier("modifier_corrupted_spirit") == true then
+			if v:HasModifier("modifier_glaive_unit") == true then
 				TransformPosition( caster, ability, v:GetAbsOrigin() )
 
 				Timers:CreateTimer(0.1, function (  )

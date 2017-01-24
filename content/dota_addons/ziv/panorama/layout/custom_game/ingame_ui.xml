@@ -32,7 +32,7 @@
 						<Panel class="OrbElement" id="HPOrb1"/>
 						<Panel class="OrbElement" id="HPOrb2"/>
 						<Panel class="OrbElement" id="HPOrb3"/>
-						<DOTAScenePanel class="OrbElement" map="ui_healthbar" hittest="false"/>
+						<DOTAScenePanel id="HealthScene" class="OrbElement" map="ui_healthbar" hittest="false"/>
 					</Panel>
 					<Panel class="GlassOrb"/>
 					<!-- <Label text="100/100" class="ValueLabel" id="hp" /> -->
@@ -42,7 +42,7 @@
 						<Panel class="OrbElement Mana" id="SPOrb1"/>
 						<Panel class="OrbElement Mana" id="SPOrb2"/>
 						<Panel class="OrbElement Mana" id="SPOrb3"/>
-						<DOTAScenePanel class="OrbElement" map="ui_manabar" hittest="false"/>
+						<DOTAScenePanel id="ManaScene" class="OrbElement" map="ui_manabar" hittest="false"/>
 					</Panel>
 					<Panel class="GlassOrb"/>
 					<!-- <Label text="100/100" class="ValueLabel" id="sp" /> -->

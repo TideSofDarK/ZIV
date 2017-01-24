@@ -10,7 +10,7 @@
 			_class = "C_OP_RenderSprites"
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
 			m_bAdditive = true
-			m_hTexture = resource:"materials/particle/particle_flares/aircraft_blue2.vtex"
+			m_hTexture = resource:"materials/particle/particle_flares/aircraft_white.vtex"
 		},
 	]
 	m_Operators = 
@@ -70,8 +70,8 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 133, 34, 128, 255 ]
-			m_ColorMin = [ 167, 68, 150, 255 ]
+			m_ColorMax = [ 244, 240, 185, 255 ]
+			m_ColorMin = [ 167, 150, 68, 255 ]
 		},
 	]
 	m_Emitters = 

@@ -227,7 +227,7 @@ DOTAScenePanel {
 	opacity-mask: url("file://{images}/custom_game/ingame_ui/button_mask.png");
 	background-repeat: repeat;
 
-	-s2-mix-blend-mode: screen;
+	/*-s2-mix-blend-mode: screen;*/
 
 	animation-delay: 0s;
 	animation-timing-function: linear;
@@ -238,6 +238,20 @@ DOTAScenePanel {
 	width: 160px;
 	height: 160px;
 }
+
+#HealthScene,
+#ManaScene {
+	opacity: 0.7;
+	brightness: 1.1;
+	saturation: 1.6;
+}
+
+#HealthScene {
+	brightness: 1.3;
+	saturation: 1.5;
+	opacity: 0.5;
+}
+
 
 #HPOrb {
 	/*hue-rotation: 234deg;*/

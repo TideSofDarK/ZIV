@@ -52,7 +52,7 @@
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
-			m_ColorFade = [ 123, 64, 212, 255 ]
+			m_ColorFade = [ 176, 171, 93, 255 ]
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
@@ -93,7 +93,7 @@
 		{
 			_class = "C_INIT_RandomColor"
 			m_ColorMax = [ 30, 2, 35, 255 ]
-			m_ColorMin = [ 54, 14, 74, 255 ]
+			m_ColorMin = [ 255, 249, 177, 255 ]
 		},
 		{
 			_class = "C_INIT_RandomSequence"

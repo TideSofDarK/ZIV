@@ -1,10 +1,11 @@
 "npc_dark_goddess_spirit"
 {
     "BaseClass"         "npc_dota_creep"
-    "SoundSet"                  "Creep_Good_Range"
-    // "wearable"              "8638"
+    "SoundSet"      "Hero_Wisp"
+    // "IdleSoundLoop"     "Hero_Wisp.IdleLoop"
+    // "wearable"              "536"
     
-    "Model"           "models/items/enigma/eidolon/geodesic/geodesic.vmdl"
+    "Model"           "models/heroes/wisp/wisp.vmdl"
     "ModelScale"    "0.6"
     "HealthBarOffset"   "150"
     "Level"           "1"
@@ -17,11 +18,13 @@
     "ArmorPhysical"       "0"
     "MagicalResistance"       "0"
 
-    "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackRate"                "0.3"
     "AttackAnimationPoint"      "0.7"
     "AttackAcquisitionRange"    "150"
     "AttackRange"   "100"
+    "ProjectileSpeed"   "3000"
+    "ProjectileModel" ""
     
     "AttackDamageMin"        "0"
     "AttackDamageMax"        "0"
