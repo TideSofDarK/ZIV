@@ -3810,7 +3810,7 @@
 	{
 	  "BaseClass"               "ability_datadriven"
 	  "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_POINT"
-	  "AbilityTextureName"      "ziv_empty"
+	  "AbilityTextureName"      "ziv_huntress_ballista"
 	  
 	  "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_1"
 	  

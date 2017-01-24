@@ -28,7 +28,7 @@
     "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
     {
       "min" "15"
-      "max" "35"
+      "max" "30"
     }
   }
 }
@@ -55,15 +55,15 @@
   
   "BaseModifiers"
   {
-    "ARMOR"
+    "EVASION"
     {
-      "min" "7"
-      "max" "14"
+      "min" "8"
+      "max" "25"
     }
-    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
+    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"
     {
-      "min" "15"
-      "max" "35"
+      "min" "3"
+      "max" "8"
     }
   }
 }
@@ -90,15 +90,15 @@
   
   "BaseModifiers"
   {
-    "ARMOR"
+    "EVASION"
     {
       "min" "7"
       "max" "14"
     }
-    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"
+    "EP_LEECH"
     {
-      "min" "15"
-      "max" "35"
+      "min" "2"
+      "max" "7"
     }
   }
 }

@@ -181,8 +181,6 @@ function ZIV:InitZIV()
   Minimap:Init()
 
   Attributes:Init()
-
-  -- Crafting:GenerateRecipes()
   
   -- Dynamic modifiers
   require("modifiers")

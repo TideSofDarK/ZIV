@@ -8,6 +8,8 @@ Crafting.CRAFT_TIME = 1.25
 function Crafting:Init()
 	CustomGameEventManager:RegisterListener("ziv_recycle_request", Dynamic_Wrap(Crafting, 'RecycleRequest'))
 	CustomGameEventManager:RegisterListener("ziv_craft_request", Dynamic_Wrap(Crafting, 'CraftingRequest'))
+
+	-- Crafting:GenerateRecipes()
 end
 
 function Crafting:BlockContainer(container, block, pID)

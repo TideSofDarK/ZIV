@@ -4,16 +4,16 @@
 	m_Children = 
 	[
 		{
+			m_ChildRef = resource:"particles/heroes/dark_goddess/dark_goddess_glaive_alt_a.vpcf"
+		},
+		{
 			m_ChildRef = resource:"particles/heroes/dark_goddess/dark_goddess_glaive_alt_b.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/econ/items/luna/luna_lucent_rider/luna_ambient_glaive_lucent_rider_b.vpcf"
+			m_ChildRef = resource:"particles/heroes/dark_goddess/dark_goddess_glaive_alt_c.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_event_glitch_load.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/heroes/dark_goddess/dark_goddess_glaive_endcap.vpcf"
+			m_ChildRef = resource:"particles/heroes/dark_goddess/dark_goddess_glaive_alt_d.vpcf"
 			m_bEndCap = true
 		},
 	]

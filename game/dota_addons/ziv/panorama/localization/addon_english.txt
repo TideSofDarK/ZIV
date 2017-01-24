@@ -306,9 +306,13 @@
 		"huntress_preset_b" "Marksman"
 
 		"elementalist_preset_a" "Ice and Thunder"
+		"elementalist_preset_b" "Fire and Darkness"
 
-		"magma_knight_preset_a"	"Fiery Knight"
-		"magma_knight_preset_a_Tooltip"	""
+		"magma_knight_preset_a"	"Firelord"
+		"magma_knight_preset_b"	"Shadowking"
+		
+		"witch_doctor_preset_a" "Animancer"
+		"witch_doctor_preset_b" "Necromancer"
 
 		"mercenary_preset_a" "SMG"
 		"mercenary_preset_a_Tooltip" "Equipped with SMG and basic SMG rune set"

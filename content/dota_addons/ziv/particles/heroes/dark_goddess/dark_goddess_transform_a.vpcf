@@ -1,0 +1,139 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 32
+	m_flConstantRadius = 2.0
+	m_flConstantLifespan = 0.9
+	m_ConstantColor = [ 253, 248, 153, 255 ]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderRopes"
+			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
+			m_flOverbrightFactor = 6.0
+			m_flAddSelfAmount = 2.0
+			m_bSaturateColorPreAlphaBlend = false
+			m_hTexture = resource:"materials/particle/beam_blue_energy_01.vtex"
+			m_flRadiusScale = 0.5
+			m_flFinalTextureScaleU = -1.0
+			m_flFinalTextureOffsetU = 1.0
+			m_flTextureVWorldSize = 499.999969
+			m_nMaxTesselation = 4
+			m_nMinTesselation = 4
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_BasicMovement"
+			m_fDrag = 0.05
+			m_Gravity = [ 0.0, 0.0, 300.0 ]
+		},
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flBias = 0.8
+			m_flStartScale = 0.0
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.1
+		},
+		{
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade = [ 172, 163, 66, 255 ]
+		},
+		{
+			_class = "C_OP_DistanceToCP"
+			m_flInputMin = 20.0
+			m_flInputMax = 120.0
+			m_nStartCP = 4
+			m_bScaleCurrent = true
+		},
+		{
+			_class = "C_OP_DistanceToCP"
+			m_flInputMin = 20.0
+			m_flInputMax = 120.0
+			m_nStartCP = 5
+			m_bScaleCurrent = true
+		},
+		{
+			_class = "C_OP_PositionLock"
+			m_nControlPointNumber = 3
+		},
+		{
+			_class = "C_OP_DampenToCP"
+			m_nControlPointNumber = 4
+			m_flRange = 50.0
+		},
+		{
+			_class = "C_OP_DampenToCP"
+			m_nControlPointNumber = 5
+			m_flRange = 50.0
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.75
+		},
+		{
+			_class = "C_OP_DistanceToCP"
+			m_flInputMin = 25.0
+			m_flInputMax = 100.0
+			m_nFieldOutput = 16
+			m_nStartCP = 4
+			m_bScaleCurrent = true
+		},
+		{
+			_class = "C_OP_DistanceToCP"
+			m_flInputMin = 25.0
+			m_flInputMax = 100.0
+			m_nFieldOutput = 16
+			m_nStartCP = 5
+			m_bScaleCurrent = true
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMax = 200.0
+			m_flRadiusMin = 200.0
+		},
+		{
+			_class = "C_INIT_CreateSequentialPath"
+			m_flNumToAssign = 11.0
+			m_bLoop = false
+			m_PathParams = 
+			{
+				m_flBulge = 0.5
+				m_nStartControlPointNumber = 4
+				m_nEndControlPointNumber = 5
+				m_nBulgeControl = 1
+			}
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ 0.0, 0.0, 25.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 25.0 ]
+		},
+		{
+			_class = "C_INIT_RemapScalar"
+			m_flInputMin = 0.5
+			m_flInputMax = 1.5
+			m_nFieldOutput = 7
+			m_flOutputMin = 1.0
+			m_flOutputMax = 0.0
+			m_bScaleInitialRange = true
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 20
+		},
+	]
+}

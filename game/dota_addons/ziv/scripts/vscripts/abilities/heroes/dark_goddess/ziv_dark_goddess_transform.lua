@@ -67,12 +67,12 @@ function TransformPosition( caster, ability, position )
 
 			Timers:CreateTimer(function (  )
 				caster:Stop()
-				local particle = TimedEffect("particles/units/heroes/hero_drow/drow_silence_wave_ground_pnt.vpcf", caster, 2.0, 3)
+				local particle = TimedEffect("particles/heroes/dark_goddess/dark_goddess_transform.vpcf", caster, 2.0, 3)
 				local orientation = caster:GetForwardVector()
 				-- ParticleManager:SetParticleControlOrientation(particle,3,orientation,Vector(0,1,0),Vector(1,0,0))
 				ParticleManager:SetParticleControlForward(particle,3,orientation)
 
-				TimedEffect("particles/econ/items/drow/drow_bow_monarch/drow_frost_arrow_launch_monarch.vpcf", caster, 2.0, 3, PATTACH_OVERHEAD_FOLLOW)
+				TimedEffect("particles/heroes/dark_goddess/dark_goddess_transform_flies.vpcf", caster, 2.0, 3, PATTACH_OVERHEAD_FOLLOW)
 			end)
 		else
 			EndAnimation(caster)

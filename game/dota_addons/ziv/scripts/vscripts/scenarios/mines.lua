@@ -36,8 +36,8 @@ Mines.MAX_CREEPS = 75
 
 Mines.WAGON_SPEED = 5.5
 
-Mines.WORLD_MIN = {x = -8404, y = -8850 }
-Mines.WORLD_MAX = {x = 8308, y = 8704 }
+Mines.WORLD_MIN = {x = -8350, y = -8300 }
+Mines.WORLD_MAX = {x = 8300, y = 8400 }
 
 function Mines:Init()
     CustomNetTables:SetTableValue( "scenario", "map", {min = self.WORLD_MIN, max = self.WORLD_MAX, map = GetMapName()} )

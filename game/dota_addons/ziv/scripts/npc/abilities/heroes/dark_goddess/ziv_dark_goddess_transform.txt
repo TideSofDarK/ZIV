@@ -15,8 +15,8 @@
 
   "precache"
   {
-    "particle" "particles/units/heroes/hero_drow/drow_silence_wave_ground_pnt.vpcf"
-    "particle" "particles/econ/items/drow/drow_bow_monarch/drow_frost_arrow_launch_monarch.vpcf"
+    "particle" "particles/heroes/dark_goddess/dark_goddess_transform.vpcf"
+    "particle" "particles/heroes/dark_goddess/dark_goddess_transform_flies.vpcf"
   }
 
   "OnAbilityPhaseStart"
