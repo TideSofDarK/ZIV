@@ -34,6 +34,8 @@ end
 
 	HP_LEECH
 	EP_LEECH
+
+	PIERCE
 ]]
 
 Damage.ALL_RESISTANCES 				= 0
@@ -56,6 +58,8 @@ Damage.ARMOR 						= 12
 Damage.HP_LEECH 					= 13
 Damage.EP_LEECH 					= 14
 
+Damage.PIERCE 						= 15
+
 Damage.DEFAULTS = {}
 Damage.DEFAULTS[Damage.ALL_RESISTANCES] 			= 0
 Damage.DEFAULTS[Damage.FIRE_RESISTANCE] 			= 0
@@ -72,6 +76,7 @@ Damage.DEFAULTS[Damage.EVASION] 					= 100
 Damage.DEFAULTS[Damage.ARMOR] 						= 0
 Damage.DEFAULTS[Damage.HP_LEECH] 					= 10
 Damage.DEFAULTS[Damage.EP_LEECH] 					= 10
+Damage.DEFAULTS[Damage.PIERCE] 						= 0
 
 DAMAGE_TYPE_FIRE 					= 9
 DAMAGE_TYPE_COLD 					= 10
@@ -179,7 +184,7 @@ function Damage:Deal( attacker, victim, damage, damage_type, no_popup, no_blood,
 	if damage_type ~= DAMAGE_TYPE_PURE then
 		local evasion = Damage:GetValue( attacker, Damage.EVASION )
 		if attacker.evasion_rng and attacker.evasion_rng:Next(evasion / 300) then
-			damage = (damage / 3)
+			damage = (damage / 10)
 		end
 	end
 	

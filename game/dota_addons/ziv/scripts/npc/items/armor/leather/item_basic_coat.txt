@@ -85,10 +85,10 @@
   
   "BaseModifiers"
   {
-    "ARMOR"
+    "EVASION"
     {
-      "min" "10"
-      "max" "25"
+      "min" "105"
+      "max" "325"
     }
     "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"
     {

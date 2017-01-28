@@ -92,8 +92,8 @@
   {
     "EVASION"
     {
-      "min" "5"
-      "max" "18"
+      "min" "50"
+      "max" "180"
     }
     "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
     {

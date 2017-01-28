@@ -57,8 +57,8 @@
   {
     "EVASION"
     {
-      "min" "6"
-      "max" "17"
+      "min" "50"
+      "max" "155"
     }
     "ALL_RESISTANCES"
     {

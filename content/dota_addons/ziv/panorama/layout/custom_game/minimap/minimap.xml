@@ -27,7 +27,7 @@
 		</snippet>		
 	</snippets>
 
-	<Panel class="MinimapRoot TopRight WindowAnimation" hittest="false"> 
+	<Panel class="MinimapRoot TopRight WindowAnimation" hittest="false" hittestchildren="false"> 
 		<Panel class="ImageContainer" id="ImagePanel">
 			<Image class="MinimapMarks" id="PointerImage" src="file://{images}/custom_game/minimap/pointer.png" />			
 			<Panel id="MinimapImage" onactivate="MinimapClick()">

@@ -548,10 +548,10 @@
 	  
 	  "BaseModifiers"
 	  {
-	    "ARMOR"
+	    "EVASION"
 	    {
-	      "min" "10"
-	      "max" "25"
+	      "min" "105"
+	      "max" "325"
 	    }
 	    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"
 	    {
@@ -619,8 +619,8 @@
 	  {
 	    "EVASION"
 	    {
-	      "min" "8"
-	      "max" "25"
+	      "min" "80"
+	      "max" "250"
 	    }
 	    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"
 	    {
@@ -654,8 +654,8 @@
 	  {
 	    "EVASION"
 	    {
-	      "min" "7"
-	      "max" "14"
+	      "min" "70"
+	      "max" "190"
 	    }
 	    "EP_LEECH"
 	    {
@@ -758,8 +758,8 @@
 	  {
 	    "EVASION"
 	    {
-	      "min" "5"
-	      "max" "18"
+	      "min" "50"
+	      "max" "180"
 	    }
 	    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"
 	    {
@@ -827,8 +827,8 @@
 	  {
 	    "EVASION"
 	    {
-	      "min" "6"
-	      "max" "17"
+	      "min" "50"
+	      "max" "155"
 	    }
 	    "ALL_RESISTANCES"
 	    {
