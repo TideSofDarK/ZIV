@@ -2164,11 +2164,11 @@
 	
 		"OnSpellStart"
 		{
-			"FireSound"
-			{
-				"EffectName"	"Hero_Beastmaster.Call.Hawk"
-				"Target"		"CASTER"
-			}
+			// "FireSound"
+			// {
+			// 	"EffectName"	"Hero_Beastmaster.Call.Hawk"
+			// 	"Target"		"CASTER"
+			// }
 			
 			"RunScript"
 			{
@@ -6945,6 +6945,37 @@
 	      }
 	
 	      "RemoveOnDeath" "0"
+	    }
+	  }
+	}
+	"ziv_creep_modifier_ice_bomb"
+	{
+	  "BaseClass"           "ability_datadriven"
+	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	  "AbilityTextureName"            "ziv_empty"
+	  
+	  "MaxLevel"          "1"
+	
+	  "precache"
+	  {
+	    "particle"  "particles/creeps/ziv_creep_ice_bomb.vpcf"
+	  }
+	  
+	  "AbilitySpecial"
+	  {
+	    "01"
+	    {
+	      "var_type"            "FIELD_INTEGER"
+	      "damage_percent" "15"
+	    }
+	  }
+	
+	  "OnUpgrade"
+	  {
+	    "RunScript"
+	    {
+	      "ScriptFile"  "abilities/modifiers/ziv_creep_modifier_ice_bomb.lua"
+	      "Function"    "InitIceBomb"
 	    }
 	  }
 	}

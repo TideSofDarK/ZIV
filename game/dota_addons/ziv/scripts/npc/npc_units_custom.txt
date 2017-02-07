@@ -1775,11 +1775,7 @@
 	        {
 	            "1"
 	            {
-	                "1"     "models/items/spirit_breaker/spirit_breaker__imperial_crusher__shoulder/spirit_breaker__imperial_crusher__shoulder.vmdl"
-	            }
-	            "2"
-	            {
-	                "1"     "models/items/bristleback/wrathrunner_back/wrathrunner_back.vmdl"
+	                "1"     "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
 	            }
 	        }
 	    }
@@ -1840,11 +1836,7 @@
 	        {
 	            "1"
 	            {
-	                "1"     "models/items/spirit_breaker/spirit_breaker__imperial_crusher__shoulder/spirit_breaker__imperial_crusher__shoulder.vmdl"
-	            }
-	            "2"
-	            {
-	                "1"     "models/items/bristleback/wrathrunner_back/wrathrunner_back.vmdl"
+	                "1"     "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
 	            }
 	        }
 	    }

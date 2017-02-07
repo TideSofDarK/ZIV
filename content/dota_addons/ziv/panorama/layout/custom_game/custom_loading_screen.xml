@@ -25,6 +25,10 @@
       {
         background.BLoadLayoutSnippet("Temple");
       }
+      if (mapName.indexOf("ziv_mines") != -1)
+      {
+        background.BLoadLayoutSnippet("Mines");
+      }
     };
 
     (function () {
@@ -37,6 +41,11 @@
         <Image class="StaticBackground" src="file://{images}/custom_game/backgrounds/temple/temple_bg.png" />
         <Image class="ScrollingBackground" id="ObeliskB" src="file://{images}/custom_game/backgrounds/temple/temple_obeliskB.png" scaling="stretch-to-fit-preserve-aspect"/>
         <Image class="ScrollingBackground" id="ObeliskA" src="file://{images}/custom_game/backgrounds/temple/temple_obeliskA.png" scaling="stretch-to-fit-preserve-aspect"/>
+      </Panel>
+    </snippet>
+    <snippet name="Mines">
+      <Panel class="Background WindowAnimation">
+        <Image class="StaticBackground" src="file://{images}/custom_game/backgrounds/mines/mines_bg.png" />
       </Panel>
     </snippet>
   </snippets>

@@ -65,11 +65,11 @@
 
 	"OnSpellStart"
 	{
-		"FireSound"
-		{
-			"EffectName"	"Hero_Beastmaster.Call.Hawk"
-			"Target"		"CASTER"
-		}
+		// "FireSound"
+		// {
+		// 	"EffectName"	"Hero_Beastmaster.Call.Hawk"
+		// 	"Target"		"CASTER"
+		// }
 		
 		"RunScript"
 		{

@@ -149,7 +149,7 @@ function ZIV:SpawnBasicPack(count, pack_type, modifier)
           Count = tonumber(count) or 10,
           Type = pack_type or "creep",
           Position = hero:GetAbsOrigin(),
-          BasicModifier = "ziv_creep_modifier_fire_bomb",
+          BasicModifier = "ziv_creep_modifier_ice_bomb",
           LordModifier = "ziv_creep_lord_modifier_regen_aura",
           SpawnLord = true
         }

@@ -56,4 +56,18 @@
 		soundlevel = "95.0"
 		event_type = "1.0"
 	}
+
+	ZIV.IceBomb = {
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/ambient/test/icy_wind01.vsnd"
+		]
+		volume = "4.00"
+		pitch_rand_min = "0.0"
+		pitch_rand_max = "0.0"
+		pitch = "1.0"
+		soundlevel = "95.0"
+		event_type = "1.0"
+	}
 }
