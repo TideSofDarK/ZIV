@@ -5,16 +5,16 @@ function Cleave( keys )
 	local target = keys.target
 	local ability = keys.ability
 
-	-- ability.activity = ability.activity or ACT_DOTA_ATTACK_EVENT
-	-- if ability.activity == ACT_DOTA_ATTACK_EVENT then
-	-- 	ability.activity = ACT_DOTA_ATTACK2
-	-- 	keys.attack_particle = "particles/units/heroes/hero_ursa/ursa_claw_right.vpcf"
-	-- else
-	-- 	ability.activity = ACT_DOTA_ATTACK_EVENT
-	-- 	keys.attack_particle = "particles/units/heroes/hero_ursa/ursa_claw_left.vpcf"
-	-- end
+	ability.activity = ability.activity or ACT_DOTA_ATTACK_EVENT
+	if ability.activity == ACT_DOTA_ATTACK_EVENT then
+		ability.activity = ACT_DOTA_ATTACK2
+		keys.attack_particle = "particles/units/heroes/hero_ursa/ursa_claw_right.vpcf"
+	else
+		ability.activity = ACT_DOTA_ATTACK_EVENT
+		keys.attack_particle = "particles/units/heroes/hero_ursa/ursa_claw_left.vpcf"
+	end
 
-	-- keys.activity = ability.activity
+	keys.activity = ability.activity
 
 	keys.attack_speed_bonus = GetSpecial(ability, "attack_speed") + GRMSC("ziv_beastmaster_cleave_as", caster)
 
