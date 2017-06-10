@@ -1143,6 +1143,490 @@
 	    "VisionDaytimeRange"    "0"
 	    "VisionNighttimeRange"    "0"
 	} 
+	"npc_creep_bandits_ogre_a"
+	{
+	    "BaseClass"             "npc_dota_creature"
+		"SoundSet"					"Hero_Ogre"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+	
+	    "AIFlags"   "MoveDuringFight"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/ogre_magi/championbelt/championbelt.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/ogre_magi/fortunes_veil_back/fortunes_veil_back.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/ogre_magi/ogre_magi_set_belt/ogre_magi_set_belt.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/ogre_magi/ogre_ancestral_arms/ogre_ancestral_arms.vmdl"
+	                "2"     "models/items/ogre_magi/ogre_ancestral_back/ogre_ancestral_back.vmdl"
+	                "3"     "models/items/ogre_magi/ogre_ancestral_belt/ogre_ancestral_belt.vmdl"
+	                "4"     "models/items/ogre_magi/ogre_ancestral_head/ogre_ancestral_head.vmdl"
+	            }
+	            "2"
+	            {
+	                "1"     "models/items/ogre_magi/auspice_of_the_whyrlegyge/mesh/auspice_of_the_whyrlegyge_model.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "230"
+	    "Model"           "models/creeps/ogre_1/large_ogre.vmdl"
+	    "ModelScale"    "0.9"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "25"
+	    "AttackDamageMax"     "45"
+		"AttackRate"				"2.8"
+		"AttackAnimationPoint"		"0.3"
+	    "AttackAcquisitionRange"    "750"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "320"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "325"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	
+	"npc_creep_bandits_ogre_b"
+	{
+	    "BaseClass"             "npc_dota_creature"
+		"SoundSet"					"Hero_Ogre"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+	
+	    "AIFlags"   "MoveDuringFight"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/ogre_magi/championbelt/championbelt.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/ogre_magi/fortunes_veil_back/fortunes_veil_back.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/ogre_magi/ogre_magi_set_belt/ogre_magi_set_belt.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/ogre_magi/ogre_ancestral_arms/ogre_ancestral_arms.vmdl"
+	                "2"     "models/items/ogre_magi/ogre_ancestral_back/ogre_ancestral_back.vmdl"
+	                "3"     "models/items/ogre_magi/ogre_ancestral_belt/ogre_ancestral_belt.vmdl"
+	                "4"     "models/items/ogre_magi/ogre_ancestral_head/ogre_ancestral_head.vmdl"
+	            }
+	            "2"
+	            {
+	                "1"     "models/items/ogre_magi/auspice_of_the_whyrlegyge/mesh/auspice_of_the_whyrlegyge_model.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "230"
+	    "Model"           "models/creeps/ogre_1/boss_ogre.vmdl"
+	    "ModelScale"    "0.9"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "25"
+	    "AttackDamageMax"     "45"
+		"AttackRate"				"2.8"
+		"AttackAnimationPoint"		"0.3"
+	    "AttackAcquisitionRange"    "750"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "320"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "325"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	
+	"npc_creep_bandits_ogre_c"
+	{
+	    "BaseClass"             "npc_dota_creature"
+		"SoundSet"					"Hero_Ogre"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+	
+	    "AIFlags"   "MoveDuringFight"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/ogre_magi/championbelt/championbelt.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/ogre_magi/fortunes_veil_back/fortunes_veil_back.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/ogre_magi/ogre_magi_set_belt/ogre_magi_set_belt.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/ogre_magi/ogre_ancestral_arms/ogre_ancestral_arms.vmdl"
+	                "2"     "models/items/ogre_magi/ogre_ancestral_back/ogre_ancestral_back.vmdl"
+	                "3"     "models/items/ogre_magi/ogre_ancestral_belt/ogre_ancestral_belt.vmdl"
+	                "4"     "models/items/ogre_magi/ogre_ancestral_head/ogre_ancestral_head.vmdl"
+	            }
+	            "2"
+	            {
+	                "1"     "models/items/ogre_magi/auspice_of_the_whyrlegyge/mesh/auspice_of_the_whyrlegyge_model.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "230"
+	    "Model"           "models/creeps/ogre_1/small_ogre.vmdl"
+	    "ModelScale"    "0.9"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "25"
+	    "AttackDamageMax"     "45"
+		"AttackRate"				"1.35"
+		"AttackAnimationPoint"		"0.3"
+	    "AttackAcquisitionRange"    "750"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "320"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "325"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	"npc_creep_bandits_thief_a"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "AIFlags"   "MoveDuringFight"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/antimage/god_eater_head/god_eater_head.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/antimage/mage_eraser_head/mage_eraser_head.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/antimage/mage_eraser_weapon/mage_eraser_weapon.vmdl"
+	                "2" "models/items/antimage/anuxi_ancient_crasher/anuxi_ancient_crasher.vmdl"
+	            }
+	            "4" 
+	            {
+	                "1" "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+	                "2" "models/items/antimage/anuxi_ancient_crasher/anuxi_ancient_crasher.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/antimage/skullbasher/skullbasher.vmdl"
+	                "2"     "models/items/antimage/skullbasher/skullbasher_offhand.vmdl"
+	                "3"     "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+	                "4"     "models/items/antimage/wh_mask/wh_mask.vmdl"
+	            }
+	            "2"
+	            {
+	                "1"     "models/items/antimage/skullbasher/skullbasher_gold.vmdl"
+	                "2"     "models/items/antimage/skullbasher/skullbasher_gold_offhand.vmdl"
+	                "3"     "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+	                "4"     "models/items/antimage/tarrasque_scale_head/tarrasque_scale_head.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "170"
+	    "Model"           "models/creeps/thief/thief_01.vmdl"
+	    "ModelScale"    "0.9"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "20"
+	    "AttackDamageMax"     "30"
+	    "AttackRate"                "1.2"
+	    "AttackAnimationPoint"      "0.3"
+	    "AttackAcquisitionRange"    "750"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "320"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "325"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	
+	"npc_creep_bandits_thief_b"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "AIFlags"   "MoveDuringFight"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/antimage/god_eater_head/god_eater_head.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/antimage/mage_eraser_head/mage_eraser_head.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/antimage/mage_eraser_weapon/mage_eraser_weapon.vmdl"
+	                "2" "models/items/antimage/anuxi_ancient_crasher/anuxi_ancient_crasher.vmdl"
+	            }
+	            "4" 
+	            {
+	                "1" "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+	                "2" "models/items/antimage/anuxi_ancient_crasher/anuxi_ancient_crasher.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/antimage/skullbasher/skullbasher.vmdl"
+	                "2"     "models/items/antimage/skullbasher/skullbasher_offhand.vmdl"
+	                "3"     "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+	                "4"     "models/items/antimage/wh_mask/wh_mask.vmdl"
+	            }
+	            "2"
+	            {
+	                "1"     "models/items/antimage/skullbasher/skullbasher_gold.vmdl"
+	                "2"     "models/items/antimage/skullbasher/skullbasher_gold_offhand.vmdl"
+	                "3"     "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+	                "4"     "models/items/antimage/tarrasque_scale_head/tarrasque_scale_head.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "170"
+	    "Model"           "models/creeps/thief/thief_01_leader.vmdl"
+	    "ModelScale"    "0.9"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "20"
+	    "AttackDamageMax"     "30"
+	    "AttackRate"                "1.0"
+	    "AttackAnimationPoint"      "0.3"
+	    "AttackAcquisitionRange"    "750"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "320"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "325"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	
+	"npc_creep_bandits_thief_c"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "AIFlags"   "MoveDuringFight | TryToKeepDistance"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/drow/thief_legs/thief_legs.vmdl"
+	                "2" "models/items/drow/black_wind_shoulders/black_wind_shoulders.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/drow/thief_hood/thief_hood.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/drow/misty_huntress_shoulder/misty_huntress_shoulder.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/drow/fangs_of_the_shadowcat/fangs_of_the_shadowcat.vmdl"
+	                "2"     "models/items/drow/paws_of_the_shadowcat/paws_of_the_shadowcat.vmdl"
+	                "3"     "models/items/drow/black_wind_legs/black_wind_legs.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "170"
+	    "Model"           "models/creeps/thief/thief_01_archer.vmdl"
+	    "ModelScale"    "0.9"
+	    "SoundSet"                  "Hero_DrowRanger"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+	    "AttackDamageMin"     "20"
+	    "AttackDamageMax"     "30"
+	    "AttackRate"                "1.0"
+	    "AttackAnimationPoint"      "0.700000"
+	    "AttackAcquisitionRange"    "750"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "320"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "325"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
 	"npc_creep_bandits_troll_berserker"
 	{
 	    "BaseClass"             "npc_dota_creature"
@@ -1300,6 +1784,90 @@
 	    "VisionDaytimeRange"    "1000"
 	    "VisionNighttimeRange"    "1000"
 	} 
+	
+	"npc_creep_bandits_knoll_a"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	    "GameSoundsFile"            "soundevents/game_sounds_creeps.vsndevts"
+	
+	    "AIFlags"   "MoveDuringFight"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/heroes/blood_seeker/neck.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/items/blood_seeker/back_savagebeast.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/blood_seeker/auspice_of_iczoxtotec/auspice_of_iczoxtotec.vmdl"
+	            }
+	            "4"
+	            {
+	                "1" "models/items/blood_seeker/furyblade_model/furyblade_model.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/blood_seeker/spinal_weapon/spinal_weapon.vmdl"
+	                "2"     "models/items/blood_seeker/talon_of_the_scarlet_raven/talon_of_the_scarlet_raven.vmdl"
+	                "3"     "models/items/blood_seeker/blood_seeker_executioner_mantle/blood_seeker_executioner_mantle.vmdl"
+	                "4"     "models/items/blood_seeker/bloodseeker_relentless_hunter_head/bloodseeker_relentless_hunter_head.vmdl"
+	            }
+	            "2"
+	            {
+	                "1"     "models/items/blood_seeker/neck_redrim.vmdl"
+	                "2"     "models/heroes/blood_seeker/cape.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "230"
+	    "Model"           "models/creeps/knoll_1/knoll_1.vmdl"
+	    "ModelScale"    "0.9"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "25"
+	    "AttackDamageMax"     "45"
+	    "AttackRate"                "1.7"
+	    "AttackAnimationPoint"      "0.43"
+	    "AttackAcquisitionRange"    "750"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "320"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "325"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
 	"npc_creep_beast_bear_a"
 	{
 	    "BaseClass"             "npc_dota_creature"
@@ -1429,6 +1997,78 @@
 	    "HealthBarOffset"   "200"
 	    "Model"           "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
 	    "ModelScale"    "0.9"
+	    "Level"           "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "35"
+	    "AttackDamageMax"     "52"
+	    "AttackRate"            "155"
+	    "AttackAnimationPoint"      "0.3"
+	    "AttackAcquisitionRange"    "800"
+	    "AttackRange"   "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "330"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "375"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	
+	"npc_creep_beast_bear_c"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/ursa/swift_claw_ursa_arms/ursa_swift_claw.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/heroes/lion/lion_demonarm.vmdl"
+	                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/heroes/lion/lion_demonarm.vmdl"
+	                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/items/doom/incantations_arms/incantations_arms.vmdl"
+	                "2"     "models/items/axe/demon_blood_armor.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "200"
+	    "Model"           "models/creeps/forest_bear/forest_bear.vmdl"
+	    "ModelScale"    "0.7"
 	    "Level"           "1"
 	
 	    "Ability1"          ""
@@ -1627,6 +2267,247 @@
 	    "VisionDaytimeRange"    "1000"
 	    "VisionNighttimeRange"    "1000"
 	} 
+	
+	"npc_creep_beast_centaur_c"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/heroes/lone_druid/arms.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/beastmaster/beast_heart_marauder_arms/beast_heart_marauder_arms.vmdl"
+	            }
+	            "4" 
+	            {
+	                "1" "models/items/bristleback/nightwatch_arms/nightwatch_arms.vmdl"
+	                "2" "models/items/magnataur/rage_of_volcano_natives_arms/rage_of_volcano_natives_arms.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/heroes/axe/axe_armor.vmdl"
+	                "2"     "models/items/ursa/assault_armor_belt.vmdl"
+	            }
+	            "2"
+	            {
+	                "1"     "models/items/pudge/gladiators_revenge_armor/gladiators_revenge_armor.vmdl"
+	                "2"     "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "220"
+	    "Model"             "models/creeps/centaurs/centaur_001.vmdl"
+	    "ModelScale"        "0.89"
+	    "Level"             "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"           "35"
+	    "AttackDamageMax"           "55"
+	    "AttackRate"                "1.2"
+	    "AttackAnimationPoint"      "0.3"
+	    "AttackAcquisitionRange"    "800"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "330"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "375"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	
+	"npc_creep_beast_centaur_d"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/heroes/lone_druid/arms.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/beastmaster/beast_heart_marauder_arms/beast_heart_marauder_arms.vmdl"
+	            }
+	            "4" 
+	            {
+	                "1" "models/items/bristleback/nightwatch_arms/nightwatch_arms.vmdl"
+	                "2" "models/items/magnataur/rage_of_volcano_natives_arms/rage_of_volcano_natives_arms.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/heroes/axe/axe_armor.vmdl"
+	                "2"     "models/items/ursa/assault_armor_belt.vmdl"
+	            }
+	            "2"
+	            {
+	                "1"     "models/items/pudge/gladiators_revenge_armor/gladiators_revenge_armor.vmdl"
+	                "2"     "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "220"
+	    "Model"             "models/creeps/centaurs/centaur_002.vmdl"
+	    "ModelScale"        "0.89"
+	    "Level"             "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"           "35"
+	    "AttackDamageMax"           "55"
+	    "AttackRate"                "1.2"
+	    "AttackAnimationPoint"      "0.3"
+	    "AttackAcquisitionRange"    "800"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "330"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "375"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	
+	"npc_creep_beast_centaur_e"
+	{
+	    "BaseClass"             "npc_dota_creature"
+	    "SoundSet"                  "n_creep_Melee"
+	
+	    "Wearables"
+	    {
+	        "Creep"
+	        {
+	            "1" 
+	            {
+	                "1" "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
+	            }
+	            "2" 
+	            {
+	                "1" "models/heroes/lone_druid/arms.vmdl"
+	            }
+	            "3" 
+	            {
+	                "1" "models/items/beastmaster/beast_heart_marauder_arms/beast_heart_marauder_arms.vmdl"
+	            }
+	            "4" 
+	            {
+	                "1" "models/items/bristleback/nightwatch_arms/nightwatch_arms.vmdl"
+	                "2" "models/items/magnataur/rage_of_volcano_natives_arms/rage_of_volcano_natives_arms.vmdl"
+	            }
+	        }
+	        "Lord"
+	        {
+	            "1"
+	            {
+	                "1"     "models/heroes/axe/axe_armor.vmdl"
+	                "2"     "models/items/ursa/assault_armor_belt.vmdl"
+	            }
+	            "2"
+	            {
+	                "1"     "models/items/pudge/gladiators_revenge_armor/gladiators_revenge_armor.vmdl"
+	                "2"     "models/items/axe/oglodi_big_boss_armor/oglodi_big_boss_armor.vmdl"
+	            }
+	        }
+	    }
+	    
+	    "HealthBarOffset"   "220"
+	    "Model"             "models/creeps/centaurs/centaur_003_shaman.vmdl"
+	    "ModelScale"        "0.89"
+	    "Level"             "1"
+	
+	    "Ability1"          ""
+	
+	    "ArmorPhysical"       "0"
+	    "MagicalResistance"       "0"
+	
+	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"           "35"
+	    "AttackDamageMax"           "55"
+	    "AttackRate"                "1.2"
+	    "AttackAnimationPoint"      "0.3"
+	    "AttackAcquisitionRange"    "800"
+	    "AttackRange"               "100"
+	
+	    "BountyXP"          "0"
+	    "BountyGoldMin"       "0"
+	    "BountyGoldMax"       "0"
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "330"
+	    "MovementTurnRate"      "1.0"
+	    "FollowRange"       "250"
+	
+	    "StatusHealth"        "375"
+	    "StatusHealthRegen"     "0"
+	    "StatusMana"        "0"
+	    "StatusManaRegen"     "0"
+	
+	    "VisionDaytimeRange"    "1000"
+	    "VisionNighttimeRange"    "1000"
+	} 
+	
 	"npc_creep_beast_prowler_a"
 	{
 	    "BaseClass"             "npc_dota_creature"

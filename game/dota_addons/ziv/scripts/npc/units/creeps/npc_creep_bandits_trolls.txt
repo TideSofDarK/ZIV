@@ -155,3 +155,87 @@
     "VisionDaytimeRange"    "1000"
     "VisionNighttimeRange"    "1000"
 } 
+
+"npc_creep_bandits_knoll_a"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+    "GameSoundsFile"            "soundevents/game_sounds_creeps.vsndevts"
+
+    "AIFlags"   "MoveDuringFight"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/heroes/blood_seeker/neck.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/blood_seeker/back_savagebeast.vmdl"
+            }
+            "3" 
+            {
+                "1" "models/items/blood_seeker/auspice_of_iczoxtotec/auspice_of_iczoxtotec.vmdl"
+            }
+            "4"
+            {
+                "1" "models/items/blood_seeker/furyblade_model/furyblade_model.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/blood_seeker/spinal_weapon/spinal_weapon.vmdl"
+                "2"     "models/items/blood_seeker/talon_of_the_scarlet_raven/talon_of_the_scarlet_raven.vmdl"
+                "3"     "models/items/blood_seeker/blood_seeker_executioner_mantle/blood_seeker_executioner_mantle.vmdl"
+                "4"     "models/items/blood_seeker/bloodseeker_relentless_hunter_head/bloodseeker_relentless_hunter_head.vmdl"
+            }
+            "2"
+            {
+                "1"     "models/items/blood_seeker/neck_redrim.vmdl"
+                "2"     "models/heroes/blood_seeker/cape.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "230"
+    "Model"           "models/creeps/knoll_1/knoll_1.vmdl"
+    "ModelScale"    "0.9"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "25"
+    "AttackDamageMax"     "45"
+    "AttackRate"                "1.7"
+    "AttackAnimationPoint"      "0.43"
+    "AttackAcquisitionRange"    "750"
+    "AttackRange"               "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "320"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "325"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 

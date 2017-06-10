@@ -1,0 +1,248 @@
+"npc_creep_bandits_thief_a"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+
+    "AIFlags"   "MoveDuringFight"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/antimage/god_eater_head/god_eater_head.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/antimage/mage_eraser_head/mage_eraser_head.vmdl"
+            }
+            "3" 
+            {
+                "1" "models/items/antimage/mage_eraser_weapon/mage_eraser_weapon.vmdl"
+                "2" "models/items/antimage/anuxi_ancient_crasher/anuxi_ancient_crasher.vmdl"
+            }
+            "4" 
+            {
+                "1" "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+                "2" "models/items/antimage/anuxi_ancient_crasher/anuxi_ancient_crasher.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/antimage/skullbasher/skullbasher.vmdl"
+                "2"     "models/items/antimage/skullbasher/skullbasher_offhand.vmdl"
+                "3"     "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+                "4"     "models/items/antimage/wh_mask/wh_mask.vmdl"
+            }
+            "2"
+            {
+                "1"     "models/items/antimage/skullbasher/skullbasher_gold.vmdl"
+                "2"     "models/items/antimage/skullbasher/skullbasher_gold_offhand.vmdl"
+                "3"     "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+                "4"     "models/items/antimage/tarrasque_scale_head/tarrasque_scale_head.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "170"
+    "Model"           "models/creeps/thief/thief_01.vmdl"
+    "ModelScale"    "0.9"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "20"
+    "AttackDamageMax"     "30"
+    "AttackRate"                "1.2"
+    "AttackAnimationPoint"      "0.3"
+    "AttackAcquisitionRange"    "750"
+    "AttackRange"               "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "320"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "325"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 
+
+"npc_creep_bandits_thief_b"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+
+    "AIFlags"   "MoveDuringFight"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/antimage/god_eater_head/god_eater_head.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/antimage/mage_eraser_head/mage_eraser_head.vmdl"
+            }
+            "3" 
+            {
+                "1" "models/items/antimage/mage_eraser_weapon/mage_eraser_weapon.vmdl"
+                "2" "models/items/antimage/anuxi_ancient_crasher/anuxi_ancient_crasher.vmdl"
+            }
+            "4" 
+            {
+                "1" "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+                "2" "models/items/antimage/anuxi_ancient_crasher/anuxi_ancient_crasher.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/antimage/skullbasher/skullbasher.vmdl"
+                "2"     "models/items/antimage/skullbasher/skullbasher_offhand.vmdl"
+                "3"     "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+                "4"     "models/items/antimage/wh_mask/wh_mask.vmdl"
+            }
+            "2"
+            {
+                "1"     "models/items/antimage/skullbasher/skullbasher_gold.vmdl"
+                "2"     "models/items/antimage/skullbasher/skullbasher_gold_offhand.vmdl"
+                "3"     "models/items/antimage/tarrasque_scale_armor/tarrasque_scale_armor.vmdl"
+                "4"     "models/items/antimage/tarrasque_scale_head/tarrasque_scale_head.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "170"
+    "Model"           "models/creeps/thief/thief_01_leader.vmdl"
+    "ModelScale"    "0.9"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "20"
+    "AttackDamageMax"     "30"
+    "AttackRate"                "1.0"
+    "AttackAnimationPoint"      "0.3"
+    "AttackAcquisitionRange"    "750"
+    "AttackRange"               "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "320"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "325"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 
+
+"npc_creep_bandits_thief_c"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+
+    "AIFlags"   "MoveDuringFight | TryToKeepDistance"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/drow/thief_legs/thief_legs.vmdl"
+                "2" "models/items/drow/black_wind_shoulders/black_wind_shoulders.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/items/drow/thief_hood/thief_hood.vmdl"
+            }
+            "3" 
+            {
+                "1" "models/items/drow/misty_huntress_shoulder/misty_huntress_shoulder.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/drow/fangs_of_the_shadowcat/fangs_of_the_shadowcat.vmdl"
+                "2"     "models/items/drow/paws_of_the_shadowcat/paws_of_the_shadowcat.vmdl"
+                "3"     "models/items/drow/black_wind_legs/black_wind_legs.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "170"
+    "Model"           "models/creeps/thief/thief_01_archer.vmdl"
+    "ModelScale"    "0.9"
+    "SoundSet"                  "Hero_DrowRanger"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"     "20"
+    "AttackDamageMax"     "30"
+    "AttackRate"                "1.0"
+    "AttackAnimationPoint"      "0.700000"
+    "AttackAcquisitionRange"    "750"
+    "AttackRange"               "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "320"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "325"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 

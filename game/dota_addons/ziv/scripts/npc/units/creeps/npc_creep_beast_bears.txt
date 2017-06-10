@@ -161,3 +161,75 @@
     "VisionDaytimeRange"    "1000"
     "VisionNighttimeRange"    "1000"
 } 
+
+"npc_creep_beast_bear_c"
+{
+    "BaseClass"             "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+
+    "Wearables"
+    {
+        "Creep"
+        {
+            "1" 
+            {
+                "1" "models/items/ursa/swift_claw_ursa_arms/ursa_swift_claw.vmdl"
+            }
+            "2" 
+            {
+                "1" "models/heroes/lion/lion_demonarm.vmdl"
+                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+            }
+            "3" 
+            {
+                "1" "models/heroes/lion/lion_demonarm.vmdl"
+                "2" "models/heroes/nightstalker/nightstalker_legarmor.vmdl"
+            }
+        }
+        "Lord"
+        {
+            "1"
+            {
+                "1"     "models/items/doom/incantations_arms/incantations_arms.vmdl"
+                "2"     "models/items/axe/demon_blood_armor.vmdl"
+            }
+        }
+    }
+    
+    "HealthBarOffset"   "200"
+    "Model"           "models/creeps/forest_bear/forest_bear.vmdl"
+    "ModelScale"    "0.7"
+    "Level"           "1"
+
+    "Ability1"          ""
+
+    "ArmorPhysical"       "0"
+    "MagicalResistance"       "0"
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "35"
+    "AttackDamageMax"     "52"
+    "AttackRate"            "155"
+    "AttackAnimationPoint"      "0.3"
+    "AttackAcquisitionRange"    "800"
+    "AttackRange"   "100"
+
+    "BountyXP"          "0"
+    "BountyGoldMin"       "0"
+    "BountyGoldMax"       "0"
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_SIEGE"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "330"
+    "MovementTurnRate"      "1.0"
+    "FollowRange"       "250"
+
+    "StatusHealth"        "375"
+    "StatusHealthRegen"     "0"
+    "StatusMana"        "0"
+    "StatusManaRegen"     "0"
+
+    "VisionDaytimeRange"    "1000"
+    "VisionNighttimeRange"    "1000"
+} 

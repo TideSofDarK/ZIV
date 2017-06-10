@@ -147,7 +147,7 @@ function Temple:SetupMap()
 	end )
 	self:SetObelisksCount()
 
-	self:SpawnCreeps()
+	-- self:SpawnCreeps()
 end
 
 function Temple:SpawnCreeps()

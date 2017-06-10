@@ -67,12 +67,18 @@ function Loot:Init()
 	end
 	-- All custom modifiers
 	for k,v in pairs(ZIV.ItemKVs) do
-		if v["FortifyModifiers"] then
-			for modifier,modifier_table in pairs(v["FortifyModifiers"]) do	
+		local modifiers = v["FortifyModifiers"] or v["BaseModifiers"]
+		if modifiers then
+			for modifier,modifier_table in pairs(modifiers) do	
 				if string.match(string.lower(modifier), "ziv_") then
 					Loot.RuneModifiers[modifier] = modifier_table
 				else
-					Loot.CommonModifiers[modifier] = modifier_table
+					if not Loot.CommonModifiers[modifier] then
+						Loot.CommonModifiers[modifier] = modifier_table
+					else
+						Loot.CommonModifiers[modifier].min = math.min(Loot.CommonModifiers[modifier].min, modifier_table.min)
+						Loot.CommonModifiers[modifier].max = math.min(Loot.CommonModifiers[modifier].max, modifier_table.max)
+					end
 				end
 			end
 		end
