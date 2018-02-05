@@ -48,13 +48,13 @@ DOTASettingsCheckbox {
 	flow-children: down;
 }
 
-DOTANetGraph {
+/*DOTANetGraph {
 	align: center top;
 }
 
 DOTANetGraph #LeftColumn Label {
 	color: red;
-}
+}*/
 
 #BossPanel {
 	margin: 10px;

@@ -33,7 +33,7 @@ end
 
 function Account:FetchPlayerData(  )
 	DoToAllPlayers(function ( player )
-		SU:LoadPlayerData( { PlayerID = player:GetPlayerID() } )
+		-- SU:LoadPlayerData( { PlayerID = player:GetPlayerID() } )
 	end)
 end
 

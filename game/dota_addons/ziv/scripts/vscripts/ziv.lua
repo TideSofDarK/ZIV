@@ -54,7 +54,7 @@ require('balance')
 require('debug_panel')
 require('commands')
 require('libraries/network')
-require('network')
+-- require('network')
 
 LinkLuaModifier("modifier_custom_attack", "abilities/tools/modifier_custom_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_fade_out_in", "abilities/tools/modifier_fade_out_in.lua", LUA_MODIFIER_MOTION_NONE)

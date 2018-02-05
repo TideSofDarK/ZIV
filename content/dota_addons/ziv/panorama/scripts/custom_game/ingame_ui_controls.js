@@ -1,49 +1,109 @@
 "use strict";
 
-var heightOffset = 300;
-var clampOffset = 200;
-var offset = 0;
+var g_nMovingCameraOffset = 600;
+var g_nStillCameraOffset = 0;
+var g_flTimeSpentMoving = 0.0;
+var HUD_THINK = 0.005;
+var g_nBossCameraEntIndex = -1;
+var g_flCameraDesiredOffset = -128.0;
+var g_flAdditionalCameraOffset = 0.0;
+var g_flMaxLookDistance = 1200.0;
+var g_nCachedCameraEntIndex = -1;
 
 var abilityCasting = [];
 var abilityTimings = [];
 var abilityDelay = 0.2;
 
+GameUI.SetCameraTerrainAdjustmentEnabled( false );
+
 function UpdateCamera()
 {
-	$.Schedule( 1.0/15.0, UpdateCamera );
-
-	var hero = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() )
-	if (!hero || hero == -1) {
-		return;
+	var localCamFollowIndex = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
+	//handle spectators
+	if ( Players.IsLocalPlayerInPerspectiveCamera() )
+	{
+		localCamFollowIndex = Players.GetPerspectivePlayerEntityIndex();
 	}
 
-	GameUI.SetCameraTarget(hero)
-	
-	var minStep = 0.5;
-	var heroY = Entities.GetAbsOrigin(hero)[2];
-	var target = heroY - heightOffset;
-	target = Math.max(0, Math.min(clampOffset, target));
-	var delta = ( target - offset );
-	if ( Math.abs( delta ) < minStep )
+	if ( localCamFollowIndex !== -1 )
 	{
-		delta = target;
+		if ( Entities.IsAlive( localCamFollowIndex ) === false )
+			return;
+
+		var vDesiredLookAtPosition = Entities.GetAbsOrigin( localCamFollowIndex );
+		var vLookAtPos = GameUI.GetCameraLookAtPosition();
+		var flCurOffset = GameUI.GetCameraLookAtPositionHeightOffset();
+		var flCameraRawHeight = vLookAtPos[2] - flCurOffset;
+		var flEntityHeight = vDesiredLookAtPosition[2];
+		vDesiredLookAtPosition[1] = vDesiredLookAtPosition[1];
+		
+		var bMouseWheelDown = GameUI.IsMouseDown( 2 );
+		if ( bMouseWheelDown )
+		{
+			var vScreenWorldPos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
+			if ( vScreenWorldPos !== null )
+			{
+				var vToCursor = [];
+				vToCursor[0] = vScreenWorldPos[0] - vDesiredLookAtPosition[0];
+				vToCursor[1] = vScreenWorldPos[1] - vDesiredLookAtPosition[1];
+				vToCursor[2] = vScreenWorldPos[2] - vDesiredLookAtPosition[2];
+
+				vToCursor = Game.Normalized( vToCursor );
+				var flDistance = Math.min( Game.Length2D( vScreenWorldPos, vDesiredLookAtPosition ), g_flMaxLookDistance );
+				vDesiredLookAtPosition[0] = vDesiredLookAtPosition[0] + vToCursor[0] * flDistance;
+				vDesiredLookAtPosition[1] = vDesiredLookAtPosition[1] + vToCursor[1] * flDistance;
+				vDesiredLookAtPosition[2] = vDesiredLookAtPosition[2] + vToCursor[2] * flDistance;
+			}
+		}
+
+		var flHeightDiff = flCameraRawHeight - flEntityHeight;
+		var flNewOffset = g_flCameraDesiredOffset - flHeightDiff + 50;
+		var key = 0;
+		// var bossData = CustomNetTables.GetTableValue("boss", key.toString());
+		var flAdditionalOffset = 0.0;
+		// if ( typeof( bossData ) != "undefined" )
+		// {
+		// 	var bShowBossHP = bossData["boss_hp"] == 0 ? false : true;
+		// 	if ( bShowBossHP )
+		// 	{
+		// 	    flAdditionalOffset = 100.0;
+		// 	}
+		// }
+
+		var t = Game.GetGameFrameTime() / 1.5;
+		if ( t > 1.0 ) { t = 1.0; }
+
+		g_flAdditionalCameraOffset = g_flAdditionalCameraOffset * t + flAdditionalOffset * ( 1.0 - t ); 
+		flNewOffset = flNewOffset + g_flAdditionalCameraOffset;
+
+		var flLerp = 0.0001;
+		if ( bMouseWheelDown )
+		{
+			flLerp = 0.1;
+		}
+		if ( g_nCachedCameraEntIndex !== localCamFollowIndex )
+		{
+			flLerp = 1.5;
+		}
+		
+		GameUI.SetCameraTargetPosition(vDesiredLookAtPosition, flLerp);
+		GameUI.SetCameraLookAtPositionHeightOffset( flNewOffset );
+
+		g_nCachedCameraEntIndex = localCamFollowIndex;
 	}
 	else
 	{
-		var step = delta * 0.3;
-		if ( Math.abs( step ) < minStep )
-		{
-			if ( delta > 0 )
-				step = minStep;
-			else
-				step = -minStep;
-		}
-		offset += step;
+		GameUI.SetCameraLookAtPositionHeightOffset( 0.0 );
 	}
-
-	GameUI.SetCameraLookAtPositionHeightOffset(offset - 150 + (heroY * 0.01)); 
-	return;
 }
+
+(function CameraThink() {
+	if ( Game.GetState() < DOTA_GameState.DOTA_GAMERULES_STATE_POST_GAME )
+	{
+    	UpdateCamera();
+    }
+    $.Schedule(0, CameraThink);
+})();
 
 function BeginPickUpState( targetEntIndex )
 {
@@ -285,7 +345,6 @@ function ZIVCastAbility(number, pressing, single) {
 	} );
 
     // Camera
-	GameUI.SetCameraPitchMax( 55 );
+	// GameUI.SetCameraPitchMax( 55 );
 	GameUI.SetCameraYaw( 45 )
-	UpdateCamera()
 })();

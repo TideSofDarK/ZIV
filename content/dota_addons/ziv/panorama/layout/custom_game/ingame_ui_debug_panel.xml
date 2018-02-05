@@ -9,7 +9,6 @@
 	</scripts>
 	<Panel class="DebugRoot BasicShadow WindowAnimation WindowClosed" hittest="true">
 		<Panel class="full-panel">
-			<DOTANetGraph />
 			<Panel id="BossPanel">
 				<Label id="BossName" class="DebugLabel" text="No Boss"/>
 				<Panel class="spawn-panel">

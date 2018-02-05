@@ -1,212 +1,95 @@
 .MinimapRoot {
 	align: center center;
-	width: 800px;
-	height: 800px;
+	width: 100%;
+	height: 100%;
 }
 
 .TopRight {
-	width: 300px;
-	height: 300px;
+/*	width: 300px;
+	height: 300px;*/
 
-	horizontal-align: right;
-	vertical-align: top;
+	horizontal-align: center;
+	vertical-align: center;
 
-	border-radius: 50%;
+/*	border-radius: 50%;
 	border: 2px solid black;
 
-	margin: 10px;
+	margin: 10px;*/
 }
 
-.Hero {
-	width: 1000px;
-	height: 1000px;
-
-	align: center center;
-
-	transform: rotateX( 30deg ) translateY( -90px ) scale3d(1.5, 1.5, 1);
-	border-radius: 50%;
-	opacity-mask: url("file://{images}/custom_game/minimap/mask.png");
-}
-
-.ImageContainer {
-	height: 100%;
-	width: 100%;
-
-	overflow: clip clip;
-	background-color: #000000;
-}
-
-.MinimapMarks {
-	transition-property: transform, margin;
-	transition-duration: 0.06s, 0.06s;
-	transition-timing-function: linear, linear;
-
-	z-index: 1;
-}
-
-.MarksContainer {
-	width: 100%;
-	height: 100%;
-
-	z-index: 10;
-}
-
-#MinimapImage {
-	width: 1024px;
-	height: 1024px;
-
-	transition-property: position;
-	transition-duration: 0.06s;
-	transition-timing-function: linear;
-
-	margin: 0px;
-
-	//opacity: 0.7;
-}
-
-.EventsContainer {
-	width: 100%;
-	height: 100%;
-
-	z-index: 100;
-}
-
-.Event {
-    width: 60px;
-    height: 60px;
-}
-
-.Event #Icon {
-    width: 30px;
-    height: 30px;
-
-	background-size: 100% 100%;
+#OverlayMapContainer
+{
+	horizontal-align: right;
+	vertical-align: top;
 	
-    align: center center;
-
-    animation-duration: 0.7s;
-    animation-iteration-count: 999;
-    animation-timing-function: ease-in-out;
-    animation-name: Resizing;
-}
-
-@keyframes 'Resizing'
-{
-    0%
-    {
-        transform: scale3d( 2, 2, 1);
-    }    
-	50%
-    {
- 		transform: scale3d( 0.2, 0.2, 1);
-    }
-    
-    100%
-    {
-		transform: scale3d( 2, 2, 1);
-    }
-}
-
-#MousePanningImage {
-	visibility: collapse;
-}
-
-#FogMap
-{
-	background-color: red;
-    width: 100%;
-    height: 100%;
-}
-
-/* Marks */
-.Mark {
-	width: 50px;
-	height: 50px;
-
-	z-index: 1;
-}
-
-.Mark #Icon {
-	width: 30px;
-	height: 30px;
-
-	vertical-align: center;
 	horizontal-align: center;
+	vertical-align: middle;
+	
+	width: 300px;
+	height: 300px;
+	margin-bottom: 120px;
+	border-radius: 50%;
+	
+	transform: translateX(700px) translateY(-310px);
 
-	background-size: 100% 100%;
-
-	z-index: 2;
+	opacity: 1;
+	opacity-mask: url("s2r://panorama/images/masks/softedge_circle_sharper_png.vtex") 1;		
+	background-color: #000d;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 300px 300px, from( #000d ), color-stop( .5, #000d ), to( #000d ) );
+	
+	transition-property: width, height, opacity, transform, pre-transform-scale2d, wash-color, background-color, opacity-mask, border-radius;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;	
 }
 
-.alarm {
+.DOTA_GAMEMODE_EVENT #OverlayMapContainer
+{
+	transform: translateX(640px) translateY(-310px);
+}
+
+#OverlayMapContainer.LargeOverlayMap
+{
+    width: 800px;
+    height: 800px;
+	border-radius: 0%;
+    horizontal-align: center;
+	vertical-align: middle;
+	
+	transform: translateX(0px) translateY(0px);
+	
+    opacity: 1;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 300px 300px, from( #000f ), color-stop( .5, #000d ), to( #00000000 ) );
+	opacity-mask: url("s2r://panorama/images/masks/softedge_box_png.vtex") 1;		
+}
+
+#OverlayMap
+{
 	width: 100%;
 	height: 100%;
+	opacity: 1;
+	border: 0px solid black;
+}
 
-	vertical-align: center;
-	horizontal-align: center;
-
+#OverlayMapContainer.ShopOpen
+{
 	visibility: collapse;
 }
 
-.ping-circle {
-	width: 30px;
-	height: 30px;
-
-	vertical-align: center;
-	horizontal-align: center;	
-
-	border-radius: 50%;
-	border: 1px solid green;
-
-	z-index: 1;
-}
-
-.ping-circle.anim1 {
-    animation-duration: 1.7s;
-    animation-iteration-count: 999;
-    animation-timing-function: ease-in-out;
-    animation-name: ping-circle;
-}
-
-.ping-circle.anim2 {
-    animation-duration: 1.7s;
-    animation-delay: 0.8s;
-    animation-iteration-count: 999;
-    animation-timing-function: ease-in-out;
-    animation-name: ping-circle;
-}
-
-@keyframes 'ping-circle'
+#RadarAOE
 {
-    0%
-    {
-        transform: scale3d( 0.5, 0.5, 1);
-    }    
-    
-    100%
-    {
-		transform: scale3d( 1.3, 1.3, 1);
-    }
+	border-radius: 50%;
+	border: 2px solid #0004;
+	horizontal-align: center;
+	vertical-align: middle;
+	width: 324px;
+	height: 324px;
+	transition-property: opacity;
+	transition-duration: 0.34s;
+	transition-timing-function: ease-in-out;		
+	opacity: 0;
 }
 
-/*	Obelisk	*/
-.obelisk #Icon {
-	background-image: url("file://{images}/custom_game/minimap/temple/obelisk.png");
-}
-
-.obelisk .alarm {
-	visibility: visible;
-}
-
-/*	Wagon	*/
-.wagon #Icon {
-	background-image: url("file://{images}/custom_game/minimap/mines/wagon.png");
-}
-
-.wagon .alarm {
-	visibility: visible;
-}
-
-.hero {
-	z-index: 2;
+.LargeOverlayMap #RadarAOE
+{
+	opacity: 0;
 }

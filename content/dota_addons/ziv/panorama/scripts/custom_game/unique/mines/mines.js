@@ -60,7 +60,5 @@ function SetPathPercentage(value) {
 	
 	CustomNetTables.SubscribeNetTableListener( "scenario", OnScenarioChanged );
 
-	GameUI.CustomUIConfig().SetMinimapSettings({ rotation: 45, filter: MinimapFilter, marks: GetMarkType, image: "https://puu.sh/txVKl/2b023ec639.png" });  
-
-	
+	// GameUI.CustomUIConfig().SetMinimapSettings({ rotation: 45, filter: MinimapFilter, marks: GetMarkType, image: "https://puu.sh/txVKl/2b023ec639.png" });  	
 })();

@@ -74,8 +74,8 @@ function Characters:CreateCharacter( args )
     end
   end
 
-  SU:RecordCharacter( new_character_table )
-
+  -- SU:RecordCharacter( new_character_table )
+  CustomGameEventManager:Send_ServerToPlayer(player, "ziv_debug_add_hero", new_character_table)
   return new_character_table
 end
 

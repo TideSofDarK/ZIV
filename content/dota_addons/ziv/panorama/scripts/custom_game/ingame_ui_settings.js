@@ -38,17 +38,6 @@ function CustomSettingControls() {
 		"value" : table } );
 }
 
-function CustomSettingMinimap() {
-	var table = CustomNetTables.GetTableValue( "settings", pID );
-	table["CustomSettingMinimap"] = $("#CustomSettingMinimap").checked == true ? 1 : 0;
-	GameEvents.SendCustomGameEventToServer( "ziv_write_to_nettable", { 
-		"name" : "settings", 
-		"key" : pID,
-		"value" : table } );
-
-	GameUI.CustomUIConfig().setMinimapSettings( { visible: $("#CustomSettingMinimap").checked } );
-}
-
 function Toggle() {
 	$.GetContextPanel().ToggleClass("WindowClosed");
 	if ($.GetContextPanel().BHasClass("WindowClosed")) {

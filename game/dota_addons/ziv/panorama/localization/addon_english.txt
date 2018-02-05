@@ -296,8 +296,8 @@
 		"samurai_preset_a"				"Fire Disciple"
 		"samurai_preset_b"				"Ice Disciple"
 
-		"dark_goddess_preset_a"			"Destroyer"
-		"dark_goddess_preset_b"			"Creator"
+		"dark_goddess_preset_a"			"Chaos"
+		"dark_goddess_preset_b"			"Order"
 
 		"southern_barbarian_preset_a"	"Hunter"
 		"southern_barbarian_preset_b"	"Pathfinder"

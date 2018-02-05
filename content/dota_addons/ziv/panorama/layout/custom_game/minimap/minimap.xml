@@ -3,14 +3,19 @@
 		<!-- <include src="s2r://panorama/styles/dotastyles.vcss_c" /> -->
 		<include src="file://{resources}/styles/custom_game/ingame_ui_windows.css" />
 		<include src="file://{resources}/styles/custom_game/minimap/minimap.css" />
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+<!-- 		<include src="s2r://panorama/styles/hud.vcss_c"/>
+		<include src="s2r://panorama/styles/hudstyles.vcss_c"/> -->
+		<include src="s2r://panorama/styles/hud/hud_reborn.vcss_c" />	
+	  
 	</styles>
 	<scripts>
-		<include src="file://{resources}/scripts/custom_game/minimap/minimap_settings.js" />
-		<include src="file://{resources}/scripts/custom_game/minimap/minimap.js" />
+<!-- 		<include src="file://{resources}/scripts/custom_game/minimap/minimap_settings.js" />
+		<include src="file://{resources}/scripts/custom_game/minimap/minimap.js" /> -->
 	</scripts>
 
 	<snippets>
-		<snippet name="mark">
+<!-- 		<snippet name="mark">
 			<Panel class="Mark" >
 				<Panel id="Icon" />
 				<Panel class="alarm">
@@ -24,17 +29,13 @@
 			<Panel class="Event" >
 				<Panel id="Icon" />
 			</Panel>
-		</snippet>		
+		</snippet>	 -->	
 	</snippets>
 
-	<Panel class="MinimapRoot TopRight WindowAnimation" hittest="false" hittestchildren="false"> 
-		<Panel class="ImageContainer" id="ImagePanel">
-			<Image class="MinimapMarks" id="PointerImage" src="file://{images}/custom_game/minimap/pointer.png" />			
-			<Panel id="MinimapImage" onactivate="MinimapClick()">
-				<Panel class="MarksContainer" id="MarksMap" />
-				<Panel hittest="false" class="EventsContainer" id="EventsMap" />
-				<HTML id="FogMap" hittest="false" />
-			</Panel>
+	<Panel class="MinimapRoot TopRight WindowAnimation"> 
+		<Panel id="OverlayMapContainer" hittest="false" hittestchildren="false">
+			<DOTAHUDOverlayMap id="OverlayMap" mapscale="6" hittest="false" hittestchildren="false" class="VisGroup_Top" maptexture="materials/overviews/ziv_mines_4p.vtex"/>
+			<Panel id="RadarAOE"/>
 		</Panel>
 	</Panel>
 </root>

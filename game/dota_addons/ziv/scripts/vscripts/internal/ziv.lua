@@ -22,6 +22,19 @@ function ZIV:_InitZIV()
   GameRules:SetFirstBloodActive( ENABLE_FIRST_BLOOD )
   GameRules:SetHideKillMessageHeaders( HIDE_KILL_BANNERS )
 
+  GameRules:SetCustomGameAllowHeroPickMusic(false)
+  GameRules:SetCustomGameAllowBattleMusic(false)
+  GameRules:SetCustomGameAllowMusicAtGameStart(true)
+
+  -- ZIV
+  GameRules:SetHeroRespawnEnabled( false )
+  GameRules:SetHeroSelectionTime( 0.0 )
+  GameRules:SetTimeOfDay( 0.25 )
+  GameRules:SetStrategyTime( 0.0 )
+  GameRules:SetShowcaseTime( 0.0 )
+  GameRules:SetPreGameTime( 0.0 )
+  GameRules:SetPostGameTime( 45.0 )
+  GameRules:SetTreeRegrowTime( 0.1 )
 
   -- This is multiteam configuration stuff
   if USE_AUTOMATIC_PLAYERS_PER_TEAM then
@@ -148,6 +161,14 @@ function ZIV:_CaptureZIV()
     mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
     mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
+    mode:SetDaynightCycleDisabled( true )
+    mode:DisableHudFlip( true )
+    mode:SetLoseGoldOnDeath( true )
+    mode:SetFriendlyBuildingMoveToEnabled( true )
+    mode:SetDeathOverlayDisabled( true )
+    mode:SetHudCombatEventsDisabled( true )
+    mode:SetCameraSmoothCountOverride( 2 )
+    mode:SetSelectionGoldPenaltyEnabled( false )
     mode:SetWeatherEffectsDisabled( true )
 
     mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
