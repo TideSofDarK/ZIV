@@ -391,7 +391,7 @@
 	    "AttackAcquisitionRange"    "150"
 	    "AttackRange"   "100"
 	    "ProjectileSpeed"   "3000"
-	    "ProjectileModel" ""
+	    "ProjectileModel" "particles/base_attacks/fountain_attack.vpcf"
 	    
 	    "AttackDamageMin"        "0"
 	    "AttackDamageMax"        "0"

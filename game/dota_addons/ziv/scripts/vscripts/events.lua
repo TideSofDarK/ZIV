@@ -82,6 +82,9 @@ function ZIV:OnItemPickedUp(keys)
   local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
   local player = PlayerResource:GetPlayer(keys.PlayerID)
   local itemname = keys.itemname
+
+  
+  -- ForceUpdate()
 end
 
 -- A player has reconnected to the game.  This function can be used to repaint Player-based particles or change

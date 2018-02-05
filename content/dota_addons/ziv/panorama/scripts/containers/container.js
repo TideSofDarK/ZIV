@@ -21,26 +21,12 @@ function GetIDString()
   return idString;
 }
 
-function ContainerChange(tableName, changes, del)
-{
+function ForceUpdate() {
   var panel = $.GetContextPanel();
-  //$.Msg('ContainerChange -- ', tableName, ' -- ', changes, ' -- ', del);
-  if (!changes)
-    return;
 
-  if ("headerText" in del)
-    SetHeaderText("");
+  var idString = "cont_" + panel.tempID;
 
-  if ("buttons" in del)
-    SetButtons({});
-
-  if ("OnCloseClicked" in del)
-    $("#CloseButton").visible = true;
-
-  if ("position" in del)
-    positionString = null;
-
-
+  var changes = PlayerTables.GetAllTableValues(idString);
 
   if ("skins" in changes)
     SetSkins(changes["skins"]);
@@ -65,6 +51,56 @@ function ContainerChange(tableName, changes, del)
 
   if ("OnCloseClicked" in changes)
     $("#CloseButton").visible = changes["OnCloseClicked"] !== 0;
+}
+
+function ContainerChange(tableName, changes, del)
+{
+  var panel = $.GetContextPanel();
+  //$.Msg('ContainerChange -- ', tableName, ' -- ', changes, ' -- ', del);
+  if (!changes)
+    return;
+
+  $.Schedule(0.1, function () {
+    ForceUpdate();
+  });
+
+  if ("headerText" in del)
+    SetHeaderText("");
+
+  if ("buttons" in del)
+    SetButtons({});
+
+  if ("OnCloseClicked" in del)
+    $("#CloseButton").visible = true;
+
+  if ("position" in del)
+    positionString = null;
+
+
+
+  // if ("skins" in changes)
+  //   SetSkins(changes["skins"]);
+
+  // if ("headerText" in changes)
+  //   SetHeaderText(changes["headerText"]);
+
+  // if ("layout" in changes)
+  //   SetLayout(changes["layout"]);
+
+  // if ("buttons" in changes)
+  //   SetButtons(changes["buttons"]);
+
+  // if ("draggable" in changes)
+  //   panel.SetDraggable(changes["draggable"] !== 0);
+
+  // if ("position" in changes)
+  //   SetPosition(changes["position"]);
+
+  // if ("shop" in changes)
+  //   isShop = changes["shop"] == 1;
+
+  // if ("OnCloseClicked" in changes)
+  //   $("#CloseButton").visible = changes["OnCloseClicked"] !== 0;
 }
 
 function SetSkins(skins)
@@ -229,6 +265,7 @@ function SetPosition(pos)
 function NewContainer(id)
 {
   var panel = $.GetContextPanel();
+  panel.tempID = id;
   contID = id;
   idString = "cont_" + id;
 
@@ -390,6 +427,7 @@ function NullDragEnd( panelId, draggedPanel)
   panel.GetID = GetID;
   panel.GetIDString = GetIDString;
   panel.IsShop = IsShop;
+  panel.ForceUpdate = ForceUpdate;
 
   if (panel.initialized){
     //containers = panel.containers;

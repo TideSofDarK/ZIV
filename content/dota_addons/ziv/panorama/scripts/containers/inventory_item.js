@@ -102,7 +102,7 @@ function UpdateItem()
 	$( "#ChargeCount" ).text = chargeCount;
 	// $( "#AltChargeCount" ).text = altChargeCount;
 	
-	$.Schedule( 0.1, UpdateItem );
+	// $.Schedule( 0.1, UpdateItem );
 }
 //GameUI.CustomUIConfig().AddTooltip($.GetContextPanel(), "", "", m_Item);
 function OnMouseOut()
@@ -409,6 +409,11 @@ function OnDragEnd( panelId, draggedPanel )
 
 	// restore our look
 	$.GetContextPanel().RemoveClass( "dragging_from" );
+
+	// $.Schedule(0.1, function () {
+	// 	m_Container.ForceUpdate();
+	// });
+
 	return true;
 }
 

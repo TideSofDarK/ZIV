@@ -288,7 +288,7 @@ function Mines:SpawnCreeps()
 	self.creeps = {}
 	
 	Timers:CreateTimer(2.0, function ()
-		if wagon and self:GetPathPercentage() > self.PATH_THRESHOLD then
+		if wagon and IsValidEntity(wagon) and self:GetPathPercentage() > self.PATH_THRESHOLD then
 			local basic_modifier
 			if math.random(1,3) == 1 then
 				basic_modifier = "random"

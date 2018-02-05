@@ -33,7 +33,7 @@ function Characters:Revive( args )
   if hero and hero:HasModifier("modifier_hero_dead") then
     CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ziv_revived", {})
     Timers:CreateTimer(2.5, function (  )
-      hero:RespawnHero(false, false, false)
+      hero:RespawnHero(false, false)
 
       hero:RemoveModifierByName("modifier_hero_dead")
 
